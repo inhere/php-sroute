@@ -19,9 +19,9 @@ require: {
 
 ## allow config
 
-```
+```php
 // there are default config.
-
+[
     // stop On Matched. only match one
     'stopOnMatch'  => true,
     
@@ -44,19 +44,20 @@ require: {
     //  SRoute::any('/demo/(?<act>\w+)', app\controllers\Demo::class);
     //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
     'actionExecutor' => '', // 'run'
+]
 ```
 
 ## usage
 
-first: 
+first, import the class
 
-```
+```php
 use inhere\sroute\SRoute;
 ```
 
-### now,add routes
+### add routes
 
-```
+```php
 // use Closure
 SRoute::get('/', function() {
     echo 'hello';
@@ -70,7 +71,7 @@ SRoute::get('/test/(\w+)', function($arg) {
 
 assign action:
 
-```
+```php
 // if you config 'ignoreLastSep' => true, '/index' is equals to '/index/'
 SRoute::get('/index', 'app\controllers\Home@index');
 
@@ -100,7 +101,7 @@ SRoute::any('/404', function() {
 
 ### setting events(if you need)
 
-```
+```php
 // on found
 SRoute::on(SRoute::FOUND, function ($uri, $cb) use ($app) {
     $app->logger->debug("Matched uri path: $uri, setting callback is: " . (string)$cb);
@@ -117,7 +118,7 @@ SRoute::on('notFound', function ($uri) {
 
 ### setting config(if you need)
 
-```
+```php
 // set config
 SRoute::config([
     'stopOnMatch' => true,
@@ -128,7 +129,7 @@ SRoute::config([
 
 ### begin dispatch
 
-```
+```php
 SRoute::dispatch();
 ```
 
