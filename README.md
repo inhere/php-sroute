@@ -2,11 +2,20 @@
 
 a very lightweight single file of the router.
 
-referrer 'noahbuscher\macaw'.
+> referrer the porject [noahbuscher\macaw](https://github.com/noahbuscher/Macaw) , but add some feature.
 
 - supported request method: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
-- support event: `found` `notFound`. you can custom how to call matched uri callback.
-- allow some special config, by `SRoute::config()`. you must call it on before `SRoute::dispatch()`
+- support event: `found` `notFound`. you can do somthing on the trigger event.
+- support custom the route founded handler: `SRoute::setFoundHandler(callable $foundHandler)`. you can custom how to call matched uri callback.
+- allow some special config, by `SRoute::config()`. NOTICE: you must call it on before `SRoute::dispatch()`
+
+## install
+
+```
+require: {
+    "inhere/sroute": "dev-master"
+}
+```
 
 ## allow config
 
@@ -39,9 +48,15 @@ referrer 'noahbuscher\macaw'.
 
 ## usage
 
-```
-//// add routes
+first: 
 
+```
+use inhere\sroute\SRoute;
+```
+
+### now,add routes
+
+```
 // use Closure
 SRoute::get('/', function() {
     echo 'hello';
@@ -51,8 +66,11 @@ SRoute::get('/', function() {
 SRoute::get('/test/(\w+)', function($arg) {
     echo $arg; // 'john'
 });
+```
 
-// assign action
+assign action:
+
+```
 // if you config 'ignoreLastSep' => true, '/index' is equals to '/index/'
 SRoute::get('/index', 'app\controllers\Home@index');
 
@@ -66,7 +84,9 @@ SRoute::any('/dynamic(/\w+)?', app\controllers\Home::class);
 // use action executor
 // if you config 'actionExecutor' => 'run'
 // access '/user', will call app\controllers\User::run('')
+// access '/user/profile', will call app\controllers\User::run('profile')
 SRoute::get('/user', 'app\controllers\User');
+SRoute::get('/user/profile', 'app\controllers\User');
 
 // if config 'actionExecutor' => 'run' and 'dynamicAction' => true,
 // access '/user', will call app\controllers\User::run('')
@@ -76,9 +96,11 @@ SRoute::get('/user(/\w+)?', 'app\controllers\User');
 SRoute::any('/404', function() {
     echo "this page {$_GET['uri']} not found.";
 });
+```
 
-//// setting events
+### setting events(if you need)
 
+```
 // on found
 SRoute::on(SRoute::FOUND, function ($uri, $cb) use ($app) {
     $app->logger->debug("Matched uri path: $uri, setting callback is: " . (string)$cb);
@@ -91,16 +113,22 @@ SRoute::on('notFound', '/404');
 SRoute::on('notFound', function ($uri) {
     echo "the page $uri not found!";
 });
+```
 
-//// set config
+### setting config(if you need)
+
+```
+// set config
 SRoute::config([
     'stopOnMatch' => true,
     'ignoreLastSep' => true,
     'dynamicAction' => true,
 ]);
+```
 
-//// begin dispatch
+### begin dispatch
 
+```
 SRoute::dispatch();
 ```
 

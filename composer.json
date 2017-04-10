@@ -2,7 +2,7 @@
   "name": "inhere/sroute",
   "type": "library",
   "description": "a very lightweight single file of the router.",
-  "keywords": ["library","route","router"],
+  "keywords": ["library","route","router","php-router"],
   "homepage": "http://github.com/inhere/php-srouter",
   "license": "MIT",
   "authors": [

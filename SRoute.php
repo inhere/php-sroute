@@ -268,10 +268,12 @@ class SRoute
     {
         // Run the error callback if the route was not found
         if ( !isset(self::$_eventCallbacks[self::NOT_FOUND]) ) {
-            self::on(self::NOT_FOUND, function() {
+            $notFoundHandler = function($uri) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-                echo '<h2>404</h2>';
-            });
+                echo "<h2>404 Not found: $uri</h2>";
+            };
+
+            self::on(self::NOT_FOUND, $notFoundHandler);
         } else {
             $notFoundHandler = self::$_eventCallbacks[self::NOT_FOUND];
 
@@ -286,7 +288,7 @@ class SRoute
         }
 
         // trigger not found event
-        return self::fire(self::NOT_FOUND, [ $uri, $isAction ]);
+        return $notFoundHandler($uri, $isAction);
     }
 
     /**
