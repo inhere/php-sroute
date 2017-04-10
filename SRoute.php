@@ -61,6 +61,12 @@ class SRoute
     ];
 
     /**
+     * supported Methods
+     * @var array
+     */
+    private static $supportedMethods = ['get','post','put','delete','options','head','any'];
+
+    /**
      * event handlers
      * @var array[]
      */
@@ -102,6 +108,14 @@ class SRoute
      */
     public static function __callStatic($method, array $args)
     {
+        if (!in_array($method, self::$supportedMethods, true)) {
+            throw new \InvalidArgumentException("The method [$method] is not supported, Allow: " . implode(',', self::$supportedMethods));
+        }
+
+        if (!$args) {
+            throw new \InvalidArgumentException("The method [$method] parameters is required.");
+        }
+
         // $uri = dirname($_SERVER['PHP_SELF']).'/'.$params[0];
         $uri = trim($args[0]);
 
@@ -109,11 +123,9 @@ class SRoute
             throw new \LogicException('Please setting a callback for the URI: ' . $uri);
         }
 
-        $callback = $args[1];
-
-        self::$routes[]    = '/' . trim($uri, '/ ');
+        self::$routes[]    = '/' . ltrim($uri, '/');
         self::$methods[]   = strtoupper($method);
-        self::$callbacks[] = $callback;
+        self::$callbacks[] = $args[1];
     }
 
     /**
@@ -185,7 +197,6 @@ class SRoute
 
                     // trigger route found event
                     self::fire(self::FOUND, [ $uri, $callback, $matched ]);
-
                     $ret = call_user_func(self::$foundHandler, $uri, $callback, $matched);
 
                     // trigger route found event
@@ -227,13 +238,13 @@ class SRoute
 
             // Instantiation controller
             $controller = new $segments[0]();
-            $dynamicAction = (bool)self::$_config['dynamicAction'];
+            // $dynamicAction = (bool)self::$_config['dynamicAction'];
 
             // Already assign action
             if ( isset($segments[1]) ) {
                 $action = $segments[1];
             // use dynamic action
-            } elseif ($dynamicAction) {
+            } elseif ((bool)self::$_config['dynamicAction']) {
                 $action = isset($matched[0]) ? trim($matched[0], '/') : '';
             } else {
                 throw new \RuntimeException("please config the uri [$uri] controller action to call");
@@ -243,7 +254,6 @@ class SRoute
             if ($executor = self::$_config['actionExecutor']) {
                 $controller->$executor($action, $matched);
             } elseif( !method_exists($controller, $action) ) {
-                // echo "controller and action not found";
                 self::notFoundHandler($uri, true);
             } else {
                 $matched ? call_user_func_array([ $controller, $action], $matched) : $controller->$action();
@@ -287,8 +297,8 @@ class SRoute
             }
         }
 
-        // trigger not found event
-        return $notFoundHandler($uri, $isAction);
+        // trigger notFound event
+        return call_user_func($notFoundHandler, $uri, $isAction);
     }
 
     /**

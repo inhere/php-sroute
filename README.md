@@ -11,7 +11,7 @@ a very lightweight single file of the router.
 
 ## install
 
-```
+```json
 require: {
     "inhere/sroute": "dev-master"
 }
