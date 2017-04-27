@@ -13,50 +13,55 @@ namespace inhere\sroute;
  * Simple Router
  * @package micro
  *
- * @method static get(string $route, callable $callback)
- * @method static post(string $route, callable $callback)
- * @method static put(string $route, callable $callback)
- * @method static delete(string $route, callable $callback)
- * @method static options(string $route, callable $callback)
- * @method static head(string $route, callable $callback)
- * @method static any(string $route, callable $callback)
+ * @method static get(string $route, mixed $handler)
+ * @method static post(string $route, mixed $handler)
+ * @method static put(string $route, mixed $handler)
+ * @method static delete(string $route, mixed $handler)
+ * @method static options(string $route, mixed $handler)
+ * @method static head(string $route, mixed $handler)
+ * @method static any(string $route, mixed $handler)
  */
 class SRoute
 {
     // events
-    const FOUND       = 'found';
-    const NOT_FOUND   = 'notFound';
+    const FOUND = 'found';
+    const NOT_FOUND = 'notFound';
 
     const MATCH_ANY = 'ANY';
     const MATCH_FAV_ICO = '/favicon.ico';
 
     /**
+     * There are route path or regex pattern string list
      * @var array
      */
     private static $routes = [];
 
     /**
+     * There are registered request method list
      * @var array
      */
     private static $methods = [];
 
     /**
-     * @var array
+     * There are route handler list
+     * @var \SplFixedArray
      */
-    private static $callbacks = [];
+    private static $handlers;
 
     /**
+     * The found route parser
      * @var callable
      */
-    private static $foundHandler;
+    private static $routeParser;
 
     /**
-     * some patterns
+     * some available patterns
      * @var array
      */
     public static $patterns = [
         ':any' => '[^/]+',
         ':num' => '[0-9]+',
+        ':action' => '[a-zA-Z][\w-]+',
         ':all' => '.*'
     ];
 
@@ -64,27 +69,33 @@ class SRoute
      * supported Methods
      * @var array
      */
-    private static $supportedMethods = ['get','post','put','delete','options','head','any'];
+    private static $supportedMethods = ['get', 'post', 'put', 'delete', 'options', 'head', 'any'];
 
     /**
      * event handlers
      * @var array[]
      */
-    private static $_eventCallbacks = [];
+    private static $_events = [];
 
     /**
      * some setting for self
      * @var array
      */
     private static $_config = [
-        // stop On Matched. only match one
-        'stopOnMatch'  => true,
+        // stop on matched. only match one
+        'stopOnMatch' => true,
 
         // Filter the `/favicon.ico` request.
         'filterFavicon' => false,
 
-        // ignore last '/' char. If is true, will clear last '/'.
+        // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
+
+        // If is True, will auto find the handler controller file. @like yii framework
+        'autoRoute' => false,
+
+        // The default controllers namespace, if valid when `'autoRoute' => true`
+        'controllerNamespace' => '', // 'app\\controllers'
 
         // enable dynamic action.
         // e.g
@@ -108,99 +119,144 @@ class SRoute
      */
     public static function __callStatic($method, array $args)
     {
-        if (!in_array($method, self::$supportedMethods, true)) {
-            throw new \InvalidArgumentException("The method [$method] is not supported, Allow: " . implode(',', self::$supportedMethods));
-        }
-
         if (!$args) {
             throw new \InvalidArgumentException("The method [$method] parameters is required.");
         }
 
         // $uri = dirname($_SERVER['PHP_SELF']).'/'.$params[0];
-        $uri = trim($args[0]);
+        $path = trim($args[0]);
 
-        if ( !isset($args[1]) ) {
-            throw new \LogicException('Please setting a callback for the URI: ' . $uri);
+        if (!isset($args[1])) {
+            throw new \LogicException("Please setting a callback for the route path: $path");
         }
 
-        self::$routes[]    = '/' . ltrim($uri, '/');
-        self::$methods[]   = strtoupper($method);
-        self::$callbacks[] = $args[1];
+        self::map($method, $path, $args[1]);
+    }
+
+    /**
+     * @param string|array      $method The match request method.
+     * e.g
+     *  string: 'get'
+     *  array: ['get','post']
+     * @param string            $path  The route path string. eg: '/user/login'
+     * @param callable|string   $handler
+     * @return bool
+     */
+    public static function map($method, $path, $handler)
+    {
+        // array
+        if (is_array($method)) {
+            foreach ($method as $m) {
+                self::map($m, $path, $handler);
+            }
+
+            return true;
+        }
+
+        // string - register route and callback
+        $method = strtolower($method);
+        $supStr = implode('|', self::$supportedMethods);
+
+        // if (!in_array($method, self::$supportedMethods, true)) {
+        if (false === strpos($supStr, $method)) {
+            throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
+        }
+
+        $path = trim($path);
+
+        if (!self::$handlers) {
+            self::$handlers = new \SplFixedArray(5);
+        }
+
+        $c = self::count();
+        $s = self::$handlers->getSize();
+
+        if ($c >= $s) {
+            self::$handlers->setSize(++$s);
+        }
+
+        self::$routes[]   = '/' . ltrim($path, '/ ');
+        self::$methods[]  = strtoupper($method);
+        self::$handlers[$c] = $handler;
+
+        return true;
     }
 
     /**
      * Runs the callback for the given request
+     * @return bool
      */
     public static function dispatch()
     {
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
         // if 'filterFavicon' setting is TRUE
-        if (self::$_config['filterFavicon'] && $uri === self::MATCH_FAV_ICO ) {
+        if (self::$_config['filterFavicon'] && $path === self::MATCH_FAV_ICO) {
             return true;
         }
 
-        // if not setting $foundHandler, use default handler.
-        if ( !self::$foundHandler ) {
-            self::setFoundHandler([self::class, 'defaultFoundHandler']);
+        // if not setting $routeParser, use default handler.
+        if (!self::$routeParser) {
+            self::setRouteParser([self::class, 'defaultRouteParser']);
         }
 
         $foundRoute = false;
-        $searches = array_keys(static::$patterns);
-        $replaces = array_values(static::$patterns);
-
+        $stopOnMatch = self::$_config['stopOnMatch'];
         $ignoreLastSep = (bool)self::$_config['ignoreLastSep'];
 
         /** @var array $routes */
-        $routes = array_map(function($route) use($ignoreLastSep) {
+        $routes = array_map(function ($route) use ($ignoreLastSep) {
             $route = preg_replace('/\/+/', '/', $route);
 
             return $ignoreLastSep && $route !== '/' ? rtrim($route, '/') : $route;
         }, self::$routes);
 
         // Check if route is defined without regex
-        if ( in_array($uri, $routes, true) ) {
-            $routePos = array_keys($routes, $uri);
+        if (in_array($path, $routes, true)) {
+            $poses = array_keys($routes, $path);
 
-            foreach ($routePos as $index) {
+            foreach ($poses as $pos) {
                 // Using an ANY option to match both GET and POST requests
-                if (self::$methods[$index] === $method || self::$methods[$index] === self::MATCH_ANY) {
+                if (self::$methods[$pos] === $method || self::$methods[$pos] === self::MATCH_ANY) {
                     $foundRoute = true;
-                    $callback = self::$callbacks[$index];
+                    $handler = self::$handlers[$pos];
 
                     // trigger route found event
-                    self::fire(self::FOUND, [ $uri, $callback, null ]);
+                    self::fire(self::FOUND, [$path, $handler, null]);
 
                     // handle the found route
-                    $ret = call_user_func(self::$foundHandler, $uri, $callback, []);
+                    call_user_func(self::$routeParser, $path, $handler, []);
 
-                    if ( true === $ret ) {
+                    if ($stopOnMatch) {
                         break;
                     }
                 }
             }
+
+        // Check if defined with regex
         } else {
-            // Check if defined with regex
             $pos = 0;
+            $searches = array_keys(self::$patterns);
+            $replaces = array_values(self::$patterns);
+
             foreach ($routes as $route) {
-                if ( strpos($route, ':') !== false ) {
+                if (strpos($route, ':') !== false) {
                     $route = str_replace($searches, $replaces, $route);
                 }
 
                 if (
                     (self::$methods[$pos] === $method || self::$methods[$pos] === self::MATCH_ANY) &&
-                    preg_match('#^' . $route . '$#', $uri, $matched)
+                    preg_match('#^' . $route . '$#', $path, $matched)
                 ) {
                     $foundRoute = true;
-                    $callback = self::$callbacks[$pos];
+                    $handler = self::$handlers[$pos];
 
                     // trigger route found event
-                    self::fire(self::FOUND, [ $uri, $callback, $matched ]);
-                    $ret = call_user_func(self::$foundHandler, $uri, $callback, $matched);
+                    self::fire(self::FOUND, [$path, $handler, $matched]);
+                    call_user_func(self::$routeParser, $path, $handler, $matched);
 
-                    // trigger route found event
-                    if ( true === $ret ) {
+                    if ($stopOnMatch) {
                         break;
                     }
                 }
@@ -209,105 +265,127 @@ class SRoute
             }
         }
 
-        if ( $foundRoute ) {
+        if ($foundRoute) {
             return true;
         }
 
-        return self::notFoundHandler($uri, false);
-    }
-
-    /**
-     * @param string $uri
-     * @param callable $uriHandler
-     * @param array $matched Matched param from uri
-     * @return bool
-     */
-    public static function defaultFoundHandler($uri, $uriHandler, array $matched = [])
-    {
-        if ( $matched ) {
-            // Remove $matched[0] as [1] is the first parameter.
-            array_shift($matched);
-        }
-
-        // is a \Closure
-        if ( is_object($uriHandler) ) {
-            $matched ? call_user_func_array($uriHandler, $matched) : $uriHandler();
-        } elseif ( is_string($uriHandler) ) {
-            // e.g `controllers\Home@index` Or only `controllers\Home`
-            $segments = explode('@', trim($uriHandler));
-
-            // Instantiation controller
-            $controller = new $segments[0]();
-            // $dynamicAction = (bool)self::$_config['dynamicAction'];
-
-            // Already assign action
-            if ( isset($segments[1]) ) {
-                $action = $segments[1];
-            // use dynamic action
-            } elseif ((bool)self::$_config['dynamicAction']) {
-                $action = isset($matched[0]) ? trim($matched[0], '/') : '';
-            } else {
-                throw new \RuntimeException("please config the uri [$uri] controller action to call");
-            }
-
-            // if set the 'actionExecutor', the action handle logic by it.
-            if ($executor = self::$_config['actionExecutor']) {
-                $controller->$executor($action, $matched);
-            } elseif( !method_exists($controller, $action) ) {
-                self::notFoundHandler($uri, true);
-            } else {
-                $matched ? call_user_func_array([ $controller, $action], $matched) : $controller->$action();
-            }
+        if (self::$_config['autoRoute'] && ($cnp = self::$_config['controllerNamespace'])) {
+            self::handleAutoRoute($path, $cnp);
         } else {
-            throw new \InvalidArgumentException('The uri callback handler only allow type is: object|string');
-        }
-
-        if ( self::$_config['stopOnMatch'] ) {
-            return false;
+            self::handleNotFound($path, false);
         }
 
         return true;
     }
 
     /**
-     * @param $uri
+     * the default match route parser.
+     * @param string   $path        The route path
+     * @param callable $pathHandler The route path handler
+     * @param array    $matched     Matched param from path
+     */
+    public static function defaultRouteParser($path, $pathHandler, array $matched = [])
+    {
+        // Remove $matched[0] as [1] is the first parameter.
+        if ($matched) {
+            array_shift($matched);
+        }
+
+        // is a \Closure
+        if (is_object($pathHandler)) {
+            $matched ? call_user_func_array($pathHandler, $matched) : $pathHandler();
+        } elseif (is_string($pathHandler)) {
+            // e.g `controllers\Home@index` Or only `controllers\Home`
+            $segments = explode('@', trim($pathHandler));
+
+            // Instantiation controller
+            $controller = new $segments[0]();
+
+            // Already assign action
+            if (isset($segments[1])) {
+                $action = $segments[1];
+                // use dynamic action
+            } elseif ((bool)self::$_config['dynamicAction']) {
+                $action = isset($matched[0]) ? trim($matched[0], '/') : '';
+            } else {
+                throw new \RuntimeException("please config the route path [$path] controller action to call");
+            }
+
+            // if set the 'actionExecutor', the action handle logic by it.
+            if ($executor = self::$_config['actionExecutor']) {
+                $controller->$executor($action, $matched);
+            } elseif (!$action || !method_exists($controller, $action)) {
+                self::handleNotFound($path, true);
+            } else {
+                $matched ? call_user_func_array([$controller, $action], $matched) : $controller->$action();
+            }
+        } else {
+            throw new \InvalidArgumentException('The route path handler only allow type is: object|string');
+        }
+    }
+
+    /**
+     * handle Auto Route
+     *  when config `'autoRoute' => true`
+     * @param string $path The route path
+     * @param string $cnp  The controllers namespace
+     */
+    protected static function handleAutoRoute($path, $cnp)
+    {
+        $path = trim($path, '/ ');
+        $ary  = explode('/', $path);
+
+        $class = $cnp . '\\' . str_replace('/', '\\', $path);
+        // todo ...
+    }
+
+    /**
+     * @param $path
      * @param bool $isAction
      * @return bool|mixed
      */
-    protected static function notFoundHandler($uri, $isAction = false)
+    protected static function handleNotFound($path, $isAction = false)
     {
-        // Run the error callback if the route was not found
-        if ( !isset(self::$_eventCallbacks[self::NOT_FOUND]) ) {
-            $notFoundHandler = function($uri) {
+        // Run the 'notFound' callback if the route was not found
+        if (!isset(self::$_events[self::NOT_FOUND])) {
+            $notFoundHandler = function ($path) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-                echo "<h2>404 Not found: $uri</h2>";
+                echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code>$path</code></h1>";
             };
 
             self::on(self::NOT_FOUND, $notFoundHandler);
         } else {
-            $notFoundHandler = self::$_eventCallbacks[self::NOT_FOUND];
+            $notFoundHandler = self::$_events[self::NOT_FOUND];
 
-            // is a route url. like '/site/notFound'
-            if ( is_string($notFoundHandler) && '/' === $notFoundHandler{0} ) {
-                $_GET['uri'] = $uri;
+            // is a route path. like '/site/notFound'
+            if (is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
+                $_GET['path'] = $path;
                 $_SERVER['REQUEST_URI'] = $notFoundHandler;
 
-                unset(self::$_eventCallbacks[self::NOT_FOUND]);
+                unset(self::$_events[self::NOT_FOUND]);
                 return self::dispatch();
             }
         }
 
         // trigger notFound event
-        return call_user_func($notFoundHandler, $uri, $isAction);
+        return call_user_func($notFoundHandler, $path, $isAction);
     }
 
     /**
      * Set the route founded handler
-     * @param callable $foundHandler
+     * @param callable $routeParser
      */
-    public static function setFoundHandler(callable $foundHandler)
+    public static function setRouteParser(callable $routeParser)
     {
-        self::$foundHandler = $foundHandler;
+        self::$routeParser = $routeParser;
+    }
+
+    /**
+     * @return int
+     */
+    public static function count()
+    {
+        return count(self::$routes);
     }
 
     /**
@@ -316,7 +394,7 @@ class SRoute
     public static function config(array $settings)
     {
         foreach ($settings as $name => $value) {
-            if ( isset(self::$_config[$name]) ) {
+            if (isset(self::$_config[$name])) {
                 self::$_config[$name] = $value;
             }
         }
@@ -345,8 +423,8 @@ class SRoute
      */
     public static function on($event, $handler)
     {
-        if ( self::isSupportedEvent($event) ) {
-            self::$_eventCallbacks[$event] = $handler;
+        if (self::isSupportedEvent($event)) {
+            self::$_events[$event] = $handler;
         }
     }
 
@@ -358,8 +436,8 @@ class SRoute
      */
     protected static function fire($event, array $args = [])
     {
-        if ( isset(self::$_eventCallbacks[$event])) {
-            $cb = self::$_eventCallbacks[$event];
+        if (isset(self::$_events[$event])) {
+            $cb = self::$_events[$event];
 
             return call_user_func_array($cb, $args);
         }
@@ -373,7 +451,7 @@ class SRoute
      */
     public static function hasHandler($event)
     {
-        return isset(self::$_eventCallbacks[$event]);
+        return isset(self::$_events[$event]);
     }
 
     /**
@@ -381,7 +459,7 @@ class SRoute
      */
     public static function supportedEvents()
     {
-        return [ self::FOUND, self::NOT_FOUND ];
+        return [self::FOUND, self::NOT_FOUND];
     }
 
     /**
