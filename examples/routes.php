@@ -10,10 +10,10 @@
 use inhere\sroute\SRoute;
 
 SRoute::get('/', function() {
-    echo 'hello';
+    echo 'hello, welcome';
 });
 
-SRoute::get('/test/(\w+)', function($arg) {
+SRoute::get('/hello/(\w+)', function($arg) {
     echo "hello, $arg"; // 'john'
 });
 
@@ -27,18 +27,15 @@ SRoute::map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
-// match any method
-SRoute::get('/home', function() {
-    echo 'hello';
-});
+SRoute::get('/home', 'examples\controllers\HomeController@index');
 
-SRoute::get('/index', 'examples\HomeController@index');
-
-// access '/home/test' will call 'examples\HomeController::test()'
-SRoute::any('/home/(\w+)', 'examples\HomeController');
+// can match '/home/test', but not match '/home'
+//SRoute::any('/home/(\w+)', 'examples\HomeController');
+// can also use defined patterns, @see SRoute::$patterns
+ SRoute::any('/home/(:act)', 'examples\controllers\HomeController');
 
 // can match '/home' '/home/test'
-SRoute::any('/home(/\w+)?', examples\HomeController::class);
+//SRoute::any('/home(/\w+)?', examples\HomeController::class);
 
 // on notFound, output a message.
 //SRoute::on('notFound', function ($path) {
@@ -50,6 +47,14 @@ SRoute::config([
     'stopOnMatch' => true,
     'ignoreLastSep' => true,
     'dynamicAction' => true,
+
+    // enable autoRoute
+    // you can access '/demo' '/admin/user/info', Don't need to configure any route
+    'autoRoute' => [
+        'enable' => 1,
+        'controllerNamespace' => 'examples\\controllers',
+        'controllerSuffix' => 'Controller',
+    ],
 ]);
 
 // dispatch

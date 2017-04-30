@@ -6,13 +6,13 @@
  * Time: 上午12:14
  */
 
-namespace examples;
+namespace examples\controllers;
 
 /**
- * Class HomeController
- * @package examples
+ * Class DemoController
+ * @package examples\controllers
  */
-class HomeController
+class DemoController
 {
     public function index()
     {
@@ -20,6 +20,12 @@ class HomeController
     }
 
     public function test()
+    {
+        echo 'hello, this is ' . __METHOD__ . "<br>";
+    }
+
+    // you can access by '/demo/oneTwo' or '/demo/one-two'
+    public function oneTwo()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }

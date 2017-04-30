@@ -1,0 +1,6 @@
+#!/bin/sh
+# for testing
+# call in command: ./php_server
+#
+
+php -S 127.0.0.1:5670 -t examples

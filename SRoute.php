@@ -25,6 +25,8 @@ class SRoute
 {
     // events
     const FOUND = 'found';
+    const HANDLE_START = 'HANDLE_START';
+    const HANDLE_END = 'handleEnd';
     const NOT_FOUND = 'notFound';
 
     const MATCH_ANY = 'ANY';
@@ -52,7 +54,7 @@ class SRoute
      * The found route parser
      * @var callable
      */
-    private static $routeParser;
+    private static $matchedRouteParser;
 
     /**
      * some available patterns
@@ -60,8 +62,8 @@ class SRoute
      */
     public static $patterns = [
         ':any' => '[^/]+',
-        ':num' => '[0-9]+',
-        ':action' => '[a-zA-Z][\w-]+',
+        ':num' => '[0-9]+',  // match a number
+        ':act' => '[a-zA-Z][\w-]+', // match a action name
         ':all' => '.*'
     ];
 
@@ -84,18 +86,26 @@ class SRoute
     private static $_config = [
         // stop on matched. only match one
         'stopOnMatch' => true,
-
         // Filter the `/favicon.ico` request.
         'filterFavicon' => false,
-
         // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
 
-        // If is True, will auto find the handler controller file. @like yii framework
-        'autoRoute' => false,
+        // match all uri. If not empty and is a valid URI path, will match all request uri to the path.
+        'matchAll' => '', // eg: '/site/maintenance'
 
-        // The default controllers namespace, if valid when `'autoRoute' => true`
-        'controllerNamespace' => '', // 'app\\controllers'
+        // auto route match @like yii framework
+        'autoRoute' => [
+            // If is True, will auto find the handler controller file.
+            'enable' => false,
+            // The default controllers namespace, is valid when `'enable' = true`
+            'controllerNamespace' => '', // eg: 'app\\controllers'
+            // controller suffix, is valid when `'enable' = true`
+            'controllerSuffix' => '',    // eg: 'Controller'
+        ],
+
+        // default action method name
+        'defaultAction' => 'index',
 
         // enable dynamic action.
         // e.g
@@ -107,7 +117,7 @@ class SRoute
         // action executor. will auto call controller's executor method to run all action.
         // e.g
         //  `run($action)`
-        //  SRoute::any('/demo/(?<act>\w+)', app\controllers\Demo::class);
+        //  SRoute::any('/demo/(:act)', app\controllers\Demo::class);
         //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
         'actionExecutor' => '', // 'run'
     ];
@@ -154,28 +164,27 @@ class SRoute
         }
 
         // string - register route and callback
+
+        $path   = trim($path);
         $method = strtolower($method);
         $supStr = implode('|', self::$supportedMethods);
 
-        // if (!in_array($method, self::$supportedMethods, true)) {
         if (false === strpos($supStr, $method)) {
             throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
         }
-
-        $path = trim($path);
 
         if (!self::$handlers) {
             self::$handlers = new \SplFixedArray(5);
         }
 
-        $c = self::count();
         $s = self::$handlers->getSize();
 
-        if ($c >= $s) {
+        if (($c = self::count()) >= $s) {
             self::$handlers->setSize(++$s);
         }
 
-        self::$routes[]   = '/' . ltrim($path, '/ ');
+        // always add '/' prefix.
+        self::$routes[]   = $path{0} === '/' ? $path : "/$path";
         self::$methods[]  = strtoupper($method);
         self::$handlers[$c] = $handler;
 
@@ -184,49 +193,43 @@ class SRoute
 
     /**
      * Runs the callback for the given request
-     * @return bool
+     * @return mixed
      */
     public static function dispatch()
     {
+        $result = null;
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $method = $_SERVER['REQUEST_METHOD'];
 
         // if 'filterFavicon' setting is TRUE
         if (self::$_config['filterFavicon'] && $path === self::MATCH_FAV_ICO) {
-            return true;
+            return $result;
         }
 
-        // if not setting $routeParser, use default handler.
-        if (!self::$routeParser) {
-            self::setRouteParser([self::class, 'defaultRouteParser']);
+        // if enable 'matchAll'
+        if ($matchAll = self::$_config['matchAll']) {
+            if (is_string($matchAll) && $matchAll{0} === '/') {
+                $path = $matchAll;
+            } elseif ($matchAll instanceof \Closure) {
+                return $matchAll($path);
+            }
         }
 
-        $foundRoute = false;
-        $stopOnMatch = self::$_config['stopOnMatch'];
-        $ignoreLastSep = (bool)self::$_config['ignoreLastSep'];
+        // clear '//', '///' => '/'
+        $path = preg_replace('/\/\/+/', '/', $path);
+        $founded = false;
+        $method  = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $stopOnMatch = (bool)self::$_config['stopOnMatch'];
 
-        /** @var array $routes */
-        $routes = array_map(function ($route) use ($ignoreLastSep) {
-            $route = preg_replace('/\/+/', '/', $route);
-
-            return $ignoreLastSep && $route !== '/' ? rtrim($route, '/') : $route;
-        }, self::$routes);
+        $routes = self::formatRoutes();
 
         // Check if route is defined without regex
-        if (in_array($path, $routes, true)) {
-            $poses = array_keys($routes, $path);
-
+        if ($poses = array_keys($routes, $path, true)) {
             foreach ($poses as $pos) {
                 // Using an ANY option to match both GET and POST requests
                 if (self::$methods[$pos] === $method || self::$methods[$pos] === self::MATCH_ANY) {
-                    $foundRoute = true;
-                    $handler = self::$handlers[$pos];
+                    $founded = true;
 
-                    // trigger route found event
-                    self::fire(self::FOUND, [$path, $handler, null]);
-
-                    // handle the found route
-                    call_user_func(self::$routeParser, $path, $handler, []);
+                    $result = self::handleMatchedRoute($path, self::$handlers[$pos]);
 
                     if ($stopOnMatch) {
                         break;
@@ -236,115 +239,174 @@ class SRoute
 
         // Check if defined with regex
         } else {
-            $pos = 0;
             $searches = array_keys(self::$patterns);
             $replaces = array_values(self::$patterns);
 
-            foreach ($routes as $route) {
+            foreach ($routes as $pos => $route) {
                 if (strpos($route, ':') !== false) {
                     $route = str_replace($searches, $replaces, $route);
                 }
 
                 if (
                     (self::$methods[$pos] === $method || self::$methods[$pos] === self::MATCH_ANY) &&
-                    preg_match('#^' . $route . '$#', $path, $matched)
+                    preg_match('#^' . $route . '$#', $path, $matches)
                 ) {
-                    $foundRoute = true;
+                    $founded = true;
                     $handler = self::$handlers[$pos];
 
-                    // trigger route found event
-                    self::fire(self::FOUND, [$path, $handler, $matched]);
-                    call_user_func(self::$routeParser, $path, $handler, $matched);
+                    $result = self::handleMatchedRoute($path, $handler, $matches);
 
                     if ($stopOnMatch) {
                         break;
                     }
                 }
-
-                $pos++;
             }
         }
 
-        if ($foundRoute) {
-            return true;
+        if ($founded) {
+            return $result;
         }
 
-        if (self::$_config['autoRoute'] && ($cnp = self::$_config['controllerNamespace'])) {
-            self::handleAutoRoute($path, $cnp);
-        } else {
-            self::handleNotFound($path, false);
+        // handle Auto Route
+        if ($handler = self::handleAutoRoute($path)) {
+            return self::handleMatchedRoute($path, $handler);
         }
 
-        return true;
+        return self::handleNotFound($path, false);
     }
 
     /**
-     * the default match route parser.
-     * @param string   $path        The route path
-     * @param callable $pathHandler The route path handler
-     * @param array    $matched     Matched param from path
+     * manual dispatch a URI route
+     * @param string $uri
+     * @param string $method
      */
-    public static function defaultRouteParser($path, $pathHandler, array $matched = [])
+    public static function dispatchTo($uri, $method = 'GET')
     {
-        // Remove $matched[0] as [1] is the first parameter.
-        if ($matched) {
-            array_shift($matched);
-        }
+        // store old value
+        $oldUri = $_SERVER['REQUEST_URI'];
+        $oldMtd = $_SERVER['REQUEST_METHOD'];
 
-        // is a \Closure
-        if (is_object($pathHandler)) {
-            $matched ? call_user_func_array($pathHandler, $matched) : $pathHandler();
-        } elseif (is_string($pathHandler)) {
-            // e.g `controllers\Home@index` Or only `controllers\Home`
-            $segments = explode('@', trim($pathHandler));
+        // override and dispatch
+        $_SERVER['REQUEST_URI'] = $uri;
+        $_SERVER['REQUEST_METHOD'] = $method ? strtoupper($method) : 'GET';
 
-            // Instantiation controller
-            $controller = new $segments[0]();
+        self::dispatch();
 
-            // Already assign action
-            if (isset($segments[1])) {
-                $action = $segments[1];
-                // use dynamic action
-            } elseif ((bool)self::$_config['dynamicAction']) {
-                $action = isset($matched[0]) ? trim($matched[0], '/') : '';
-            } else {
-                throw new \RuntimeException("please config the route path [$path] controller action to call");
-            }
+        // restore old value
+        $_SERVER['REQUEST_URI'] = $oldUri;
+        $_SERVER['REQUEST_METHOD'] = $oldMtd;
+    }
 
-            // if set the 'actionExecutor', the action handle logic by it.
-            if ($executor = self::$_config['actionExecutor']) {
-                $controller->$executor($action, $matched);
-            } elseif (!$action || !method_exists($controller, $action)) {
-                self::handleNotFound($path, true);
-            } else {
-                $matched ? call_user_func_array([$controller, $action], $matched) : $controller->$action();
-            }
+    /**
+     * @param string $path
+     * @param callable $handler
+     * @param array $matches
+     * @return mixed
+     */
+    protected static function handleMatchedRoute($path, $handler, array $matches = [])
+    {
+        // trigger route found event
+        self::fire(self::FOUND, [$path, $handler, $matches]);
+
+        // trigger route handle_start event
+        self::fire(self::HANDLE_START, [$path, $handler, $matches]);
+
+        if (self::$matchedRouteParser) {
+            $result = call_user_func(self::$matchedRouteParser, $path, $handler, $matches);
+
+        // if not setting `$matchedRouteParser`, use default handler.
         } else {
-            throw new \InvalidArgumentException('The route path handler only allow type is: object|string');
+            $result = self::defaultMatchedRouteParser($path, $handler, $matches);
         }
+
+        // trigger route handle_end event
+        self::fire(self::HANDLE_END, [$path, $handler, null]);
+
+        return $result;
     }
 
     /**
      * handle Auto Route
      *  when config `'autoRoute' => true`
      * @param string $path The route path
-     * @param string $cnp  The controllers namespace
+     * @return bool|callable
      */
-    protected static function handleAutoRoute($path, $cnp)
+    protected static function handleAutoRoute($path)
     {
-        $path = trim($path, '/ ');
-        $ary  = explode('/', $path);
+        /**
+         * @var array $opts
+         * contains: [
+         *  'controllerNamespace' => '', // controller namespace. eg: 'app\\controllers'
+         *  'controllerSuffix' => '',    // controller suffix. eg: 'Controller'
+         * ]
+         */
+        $opts = self::$_config['autoRoute'];
 
-        $class = $cnp . '\\' . str_replace('/', '\\', $path);
-        // todo ...
+        // not enabled
+        if (!$opts || !isset($opts['enable']) || !$opts['enable']) {
+            return false;
+        }
+
+        $cnp = $opts['controllerNamespace'];
+        $sfx = $opts['controllerSuffix'];
+        $tmp = trim($path, '/- ');
+
+        // one node. eg: 'home'
+        if (!strpos($tmp, '/')) {
+            $tmp = self::convertNodeStr($tmp);
+            $class = "$cnp\\" . ucfirst($tmp) . $sfx;
+
+            return class_exists($class) ? $class : false;
+        }
+
+        $ary = array_map([self::class, 'convertNodeStr'], explode('/', $tmp));
+        $cnt = count($ary);
+
+        // two nodes. eg: 'home/test' 'admin/user'
+        if ($cnt === 2) {
+            list($n1, $n2) = $ary;
+
+            // last node is an controller class name. eg: 'admin/user'
+            $class = "$cnp\\$n1\\" . ucfirst($n2) . $sfx;
+
+            if (class_exists($class)) {
+                return $class;
+            }
+
+            // first node is an controller class name, second node is a action name,
+            $class = "$cnp\\" . ucfirst($n1) . $sfx;
+
+            return class_exists($class) ? "$class@$n2" : false;
+        }
+
+        // max allow 5 nodes
+        if ($cnt > 5) {
+            return false;
+        }
+
+        // last node is an controller class name
+        $n2 = array_pop($ary);
+        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n2) . $sfx);
+
+        if (class_exists($class)) {
+            return $class;
+        }
+
+        // last second is an controller class name, last node is a action name,
+        $n1 = array_pop($ary);
+        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n1) . $sfx);
+
+        return class_exists($class) ? "$class@$n2" : false;
     }
 
     /**
-     * @param $path
-     * @param bool $isAction
+     * @param string $path Request uri path
+     * @param bool $isActionNotExist
+     *  True: The `$path` is matched success, but action not exist on route parser
+     *  False: The `$path` is matched fail
      * @return bool|mixed
      */
-    protected static function handleNotFound($path, $isAction = false)
+    protected static function handleNotFound($path, $isActionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
         if (!isset(self::$_events[self::NOT_FOUND])) {
@@ -368,16 +430,105 @@ class SRoute
         }
 
         // trigger notFound event
-        return call_user_func($notFoundHandler, $path, $isAction);
+        return call_user_func($notFoundHandler, $path, $isActionNotExist);
     }
 
     /**
-     * Set the route founded handler
-     * @param callable $routeParser
+     * the default matched route parser.
+     * @param string $path The route path
+     * @param callable $pathHandler The route path handler
+     * @param array $matches Matched param from path
+     * @return mixed
      */
-    public static function setRouteParser(callable $routeParser)
+    protected static function defaultMatchedRouteParser($path, $pathHandler, array $matches = [])
     {
-        self::$routeParser = $routeParser;
+        // Remove $matches[0] as [1] is the first parameter.
+        if ($matches) {
+            array_shift($matches);
+        }
+
+        // is a \Closure
+        if (is_object($pathHandler)) {
+            return $matches ? call_user_func_array($pathHandler, $matches) : $pathHandler();
+        } elseif (is_string($pathHandler)) {
+            // e.g `controllers\Home@index` Or only `controllers\Home`
+            $segments = explode('@', trim($pathHandler));
+
+            // Instantiation controller
+            $controller = new $segments[0]();
+
+            // Already assign action
+            if (isset($segments[1])) {
+                $action = $segments[1];
+                // use dynamic action
+            } elseif ((bool)self::$_config['dynamicAction']) {
+                $action = isset($matches[0]) ? trim($matches[0], '/') : self::$_config['defaultAction'];
+            } else {
+                throw new \RuntimeException("please config the route path [$path] controller action to call");
+            }
+
+            // if set the 'actionExecutor', the action handle logic by it.
+            if ($executor = self::$_config['actionExecutor']) {
+                return $controller->$executor($action, $matches);
+            } elseif (!$action || !method_exists($controller, $action)) {
+                return self::handleNotFound($path, true);
+            } else {
+                return $matches ? call_user_func_array([$controller, $action], $matches) : $controller->$action();
+            }
+        } else {
+            throw new \InvalidArgumentException('The route path handler only allow type is: object|string');
+        }
+    }
+
+    /**
+     * formatRoutes
+     * @return array
+     */
+    protected static function formatRoutes()
+    {
+        static $formatted;
+
+        if (!$formatted) {
+            $ignoreLastSep = (bool)self::$_config['ignoreLastSep'];
+
+            self::$routes = array_map(function ($route) use ($ignoreLastSep) {
+                $route = preg_replace('/\/\/+/', '/', $route);
+
+                return $ignoreLastSep && $route !== '/' ? rtrim($route, '/') : $route;
+            }, self::$routes);
+
+            $formatted = true;
+        }
+
+        return self::$routes;
+    }
+
+    /**
+     * convert 'first-second' to 'firstSecond'
+     * @param $str
+     * @return mixed|string
+     */
+    protected static function convertNodeStr($str)
+    {
+        $str = trim($str, '-');
+
+        // convert 'first-second' to 'firstSecond'
+        if (strpos($str, '-')) {
+            $str = preg_replace_callback('/-+([a-z])/', function ($c) {
+                return strtoupper($c[1]);
+            }, $str);
+        }
+
+        return str_replace('-', '', $str);
+    }
+
+    /**
+     * Set the matched route handler
+     * @param callable $parser
+     */
+    public static function setMatchedRouteParser(callable $parser)
+    {
+        self::$matchedRouteParser = $parser;
     }
 
     /**
@@ -394,7 +545,9 @@ class SRoute
     public static function config(array $settings)
     {
         foreach ($settings as $name => $value) {
-            if (isset(self::$_config[$name])) {
+            if ($name === 'autoRoute') {
+                self::$_config['autoRoute'] = array_merge(self::$_config['autoRoute'], (array)$value);
+            } elseif (isset(self::$_config[$name])) {
                 self::$_config[$name] = $value;
             }
         }
@@ -436,9 +589,7 @@ class SRoute
      */
     protected static function fire($event, array $args = [])
     {
-        if (isset(self::$_events[$event])) {
-            $cb = self::$_events[$event];
-
+        if (isset(self::$_events[$event]) && ($cb = self::$_events[$event])) {
             return call_user_func_array($cb, $args);
         }
 
@@ -449,7 +600,7 @@ class SRoute
      * @param $event
      * @return bool
      */
-    public static function hasHandler($event)
+    public static function hasEventHandler($event)
     {
         return isset(self::$_events[$event]);
     }

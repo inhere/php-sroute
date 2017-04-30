@@ -4,10 +4,13 @@ a very lightweight single file of the router.
 
 > referrer the porject [noahbuscher\macaw](https://github.com/noahbuscher/Macaw) , but add some feature.
 
-- supported request method: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
+- supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
 - support event: `found` `notFound`. you can do something on the trigger event.
-- support custom the founded route parser: `SRoute::setRouteParser()`. you can custom how to call matched route handler.
-- allow some special config, by `SRoute::config()`. 
+- support manual dispatch a URI route by `SRoute::dispatchTo()`, you can dispatch a URI in your logic.
+- support custom the matched route parser: `SRoute::setMatchedRouteParser()`. you can custom how to call the matched route handler.
+- support auto route like yii framework, by config `autoRoute`. 
+- more interesting config, please see `SRoute::$_config`
+- You can also do not have to configure anything, it can also work very well
 
 ## install
 
@@ -25,7 +28,7 @@ first, import the class
 use inhere\sroute\SRoute;
 ```
 
-### add routes
+## add some routes
 
 ```php
 // match GET. handler use Closure
@@ -50,18 +53,18 @@ SRoute::map(['get', 'post'], '/user/login', function() {
 
 // match any method
 SRoute::any('/home', function() {
-    echo 'hello';
+    echo 'hello, you request page is /home';
 });
 ```
 
-#### use controller action
+### use controller action
 
 ```php
 // if you config 'ignoreLastSep' => true, '/index' is equals to '/index/'
 SRoute::get('/index', 'app\controllers\Home@index');
 ```
 
-#### dynamic action
+### dynamic action
 
 match dynamic action, config `'dynamicAction' => true`
 
@@ -75,7 +78,7 @@ SRoute::any('/home/(\w+)', app\controllers\Home::class);
 SRoute::any('/dynamic(/\w+)?', app\controllers\Home::class);
 ```
 
-#### use action executor
+### use action executor
 
 if you config `'actionExecutor' => 'run'`
 
@@ -91,7 +94,7 @@ SRoute::get('/user/profile', 'app\controllers\User');
 SRoute::get('/user(/\w+)?', 'app\controllers\User');
 ```
 
-### setting events(if you need)
+## setting events(if you need)
 
 ```php
 SRoute::any('/404', function() {
@@ -114,7 +117,7 @@ SRoute::on('notFound', function ($uri) {
 });
 ```
 
-### setting config(if you need)
+## setting config(if you need)
 
 ```php
 // set config
@@ -122,6 +125,14 @@ SRoute::config([
     'stopOnMatch' => true,
     'ignoreLastSep' => true,
     'dynamicAction' => true,
+    
+    // enable autoRoute, work like yii framework
+    // you can access '/demo' '/admin/user/info', Don't need to configure any route
+    'autoRoute' => [
+        'enable' => 1,
+        'controllerNamespace' => 'examples\\controllers',
+        'controllerSuffix' => 'Controller',
+    ],
 ]);
 ```
 
@@ -149,7 +160,7 @@ SRoute::config([
     // action executor. will auto call controller's executor method to run all action.
     // e.g
     //  `run($action)`
-    //  SRoute::any('/demo/(?<act>\w+)', app\controllers\Demo::class);
+    //  SRoute::any('/demo/(:act)', app\controllers\Demo::class);
     //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
     'actionExecutor' => '', // 'run'
 ]
@@ -157,11 +168,17 @@ SRoute::config([
 
 > NOTICE: you must call `SRoute::config()` on before the `SRoute::dispatch()`
 
-### begin dispatch
+## begin dispatch
 
 ```php
 SRoute::dispatch();
 ```
+
+## examples
+
+please the `examples` folder's codes.
+
+you can run a test server by `$ ./php_server`, new please access http://127.0.0.1:5670
 
 ## License 
 
