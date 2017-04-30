@@ -126,6 +126,11 @@ SRoute::config([
     'ignoreLastSep' => true,
     'dynamicAction' => true,
     
+//    'matchAll' => '/', // a route path
+//    'matchAll' => function () {
+//        echo 'System Maintaining ... ...';
+//    },
+    
     // enable autoRoute, work like yii framework
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => [
@@ -141,14 +146,30 @@ SRoute::config([
 ```php
 // there are default config.
 [
-    // stop On Matched. only match one
-    'stopOnMatch'  => true,
-    
+    // stop on matched. only match one
+    'stopOnMatch' => true,
     // Filter the `/favicon.ico` request.
     'filterFavicon' => false,
-    
-    // ignore last '/' char. If is true, will clear last '/'.
+    // ignore last '/' char. If is True, will clear last '/', so '/home' equals to '/home/'
     'ignoreLastSep' => false,
+
+    // match all request.
+    // 1. If is a valid URI path, will match all request uri to the path.
+    // 2. If is a closure, will match all request then call it
+    'matchAll' => '', // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
+
+    // auto route match @like yii framework
+    'autoRoute' => [
+        // If is True, will auto find the handler controller file.
+        'enable' => false,
+        // The default controllers namespace, is valid when `'enable' = true`
+        'controllerNamespace' => '', // eg: 'app\\controllers'
+        // controller suffix, is valid when `'enable' = true`
+        'controllerSuffix' => '',    // eg: 'Controller'
+    ],
+
+    // default action method name
+    'defaultAction' => 'index',
 
     // enable dynamic action.
     // e.g

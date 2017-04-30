@@ -91,8 +91,11 @@ class SRoute
         // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
 
-        // match all uri. If not empty and is a valid URI path, will match all request uri to the path.
-        'matchAll' => '', // eg: '/site/maintenance'
+        // match all request.
+        // 1. If is a valid URI path, will match all request uri to the path.
+        // 2. If is a closure, will match all request then call it
+        // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
+        'matchAll' => '',
 
         // auto route match @like yii framework
         'autoRoute' => [
@@ -115,8 +118,7 @@ class SRoute
         'dynamicAction' => false,
 
         // action executor. will auto call controller's executor method to run all action.
-        // e.g
-        //  `run($action)`
+        // e.g: 'actionExecutor' => 'run'`
         //  SRoute::any('/demo/(:act)', app\controllers\Demo::class);
         //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
         'actionExecutor' => '', // 'run'

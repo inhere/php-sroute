@@ -48,6 +48,11 @@ SRoute::config([
     'ignoreLastSep' => true,
     'dynamicAction' => true,
 
+//    'matchAll' => '/', // a route path
+//    'matchAll' => function () {
+//        echo 'System Maintaining ... ...';
+//    },
+
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => [
