@@ -175,6 +175,14 @@ class SRoute
             throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
         }
 
+        if (!$handler || !is_string($handler) || !is_object($handler)) {
+            throw new \InvalidArgumentException('The route handler only Allow: string,object');
+        }
+
+        if (is_object($handler) && !is_callable($handler)) {
+            throw new \InvalidArgumentException('The route object handler must be is callable');
+        }
+
         if (!self::$handlers) {
             self::$handlers = new \SplFixedArray(5);
         }
@@ -230,7 +238,6 @@ class SRoute
                 // Using an ANY option to match both GET and POST requests
                 if (self::$methods[$pos] === $method || self::$methods[$pos] === self::MATCH_ANY) {
                     $founded = true;
-
                     $result = self::handleMatchedRoute($path, self::$handlers[$pos]);
 
                     if ($stopOnMatch) {
@@ -255,7 +262,6 @@ class SRoute
                 ) {
                     $founded = true;
                     $handler = self::$handlers[$pos];
-
                     $result = self::handleMatchedRoute($path, $handler, $matches);
 
                     if ($stopOnMatch) {
@@ -449,8 +455,8 @@ class SRoute
             array_shift($matches);
         }
 
-        // is a \Closure
-        if (is_object($pathHandler)) {
+        // is a \Closure or a callable object
+        if (is_object($pathHandler) && is_callable($pathHandler)) {
             return $matches ? call_user_func_array($pathHandler, $matches) : $pathHandler();
         } elseif (is_string($pathHandler)) {
             // e.g `controllers\Home@index` Or only `controllers\Home`
@@ -462,18 +468,25 @@ class SRoute
             // Already assign action
             if (isset($segments[1])) {
                 $action = $segments[1];
+
                 // use dynamic action
             } elseif ((bool)self::$_config['dynamicAction']) {
                 $action = isset($matches[0]) ? trim($matches[0], '/') : self::$_config['defaultAction'];
-            } else {
+
+                // defined default action
+            } elseif (!$action = self::$_config['defaultAction']) {
                 throw new \RuntimeException("please config the route path [$path] controller action to call");
             }
 
             // if set the 'actionExecutor', the action handle logic by it.
             if ($executor = self::$_config['actionExecutor']) {
                 return $controller->$executor($action, $matches);
+
+                // action method is not exist
             } elseif (!$action || !method_exists($controller, $action)) {
                 return self::handleNotFound($path, true);
+
+                // call controller's action method
             } else {
                 return $matches ? call_user_func_array([$controller, $action], $matches) : $controller->$action();
             }
@@ -553,6 +566,22 @@ class SRoute
                 self::$_config[$name] = $value;
             }
         }
+    }
+
+    /**
+     * @return array
+     */
+    public static function getRoutes()
+    {
+        return self::$routes;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getSupportedMethods()
+    {
+        return self::$supportedMethods;
     }
 
     /**

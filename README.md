@@ -75,7 +75,7 @@ match dynamic action, config `'dynamicAction' => true`
 SRoute::any('/home/(\w+)', app\controllers\Home::class);
 
 // can match '/home', '/home/test'
-SRoute::any('/dynamic(/\w+)?', app\controllers\Home::class);
+SRoute::any('/home(/\w+)?', app\controllers\Home::class);
 ```
 
 ### use action executor
@@ -105,7 +105,7 @@ SRoute::any('/404', function() {
 ```php
 // on found
 SRoute::on(SRoute::FOUND, function ($uri, $cb) use ($app) {
-    $app->logger->debug("Matched uri path: $uri, setting callback is: " . is_string($cb) ? $cb : 'Unknown');
+    $app->logger->debug("Matched uri path: $uri, setting callback is: " . is_string($cb) ? $cb : get_class($cb));
 });
 
 // on notFound, redirect to '/404'
@@ -199,7 +199,7 @@ SRoute::dispatch();
 
 please the `examples` folder's codes.
 
-you can run a test server by `$ ./php_server`, new please access http://127.0.0.1:5670
+you can run a test server by `$ ./php_server`, now please access http://127.0.0.1:5670
 
 ## License 
 
