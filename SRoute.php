@@ -146,12 +146,12 @@ class SRoute
     }
 
     /**
-     * @param string|array      $method The match request method.
+     * @param string|array $method The match request method.
      * e.g
      *  string: 'get'
      *  array: ['get','post']
-     * @param string            $path  The route path string. eg: '/user/login'
-     * @param callable|string   $handler
+     * @param string $path The route path string. eg: '/user/login'
+     * @param callable|string $handler
      * @return bool
      */
     public static function map($method, $path, $handler)
@@ -167,7 +167,7 @@ class SRoute
 
         // string - register route and callback
 
-        $path   = trim($path);
+        $path = trim($path);
         $method = strtolower($method);
         $supStr = implode('|', self::$supportedMethods);
 
@@ -194,8 +194,8 @@ class SRoute
         }
 
         // always add '/' prefix.
-        self::$routes[]   = $path{0} === '/' ? $path : "/$path";
-        self::$methods[]  = strtoupper($method);
+        self::$routes[] = $path{0} === '/' ? $path : "/$path";
+        self::$methods[] = strtoupper($method);
         self::$handlers[$c] = $handler;
 
         return true;
@@ -227,7 +227,7 @@ class SRoute
         // clear '//', '///' => '/'
         $path = preg_replace('/\/\/+/', '/', $path);
         $founded = false;
-        $method  = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
         $stopOnMatch = (bool)self::$_config['stopOnMatch'];
 
         $routes = self::formatRoutes();
@@ -246,7 +246,7 @@ class SRoute
                 }
             }
 
-        // Check if defined with regex
+            // Check if defined with regex
         } else {
             $searches = array_keys(self::$patterns);
             $replaces = array_values(self::$patterns);
@@ -334,7 +334,7 @@ class SRoute
         if (self::$matchedRouteParser) {
             $result = call_user_func(self::$matchedRouteParser, $path, $handler, $matches);
 
-        // if not setting `$matchedRouteParser`, use default handler.
+            // if not setting `$matchedRouteParser`, use default handler.
         } else {
             $result = self::defaultMatchedRouteParser($path, $handler, $matches);
         }
