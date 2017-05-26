@@ -9,8 +9,7 @@
 - 支持设置匹配路由的解析器: `SRoute::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
 - 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
 - 支持手动调度一个路由通过方法 `SRoute::dispatchTo()`
-- more interesting config, please see `SRoute::$_config`
-- 你也可以不需要配置什么,它也能很好的工作
+- 你也可以不配置任何东西, 它也能很好的工作
 
 ## 安装
 
@@ -24,7 +23,7 @@
 
 ## 使用
 
-first, import the class
+首先, 导入类
 
 ```php
 use inhere\sroute\SRoute;
@@ -33,36 +32,37 @@ use inhere\sroute\SRoute;
 ## 添加路由
 
 ```php
-// match GET. handler use Closure
+// 匹配 GET 请求. 处理器是个闭包 Closure
 SRoute::get('/', function() {
     echo 'hello';
 });
 
-// access 'test/john'
+// 匹配参数 'test/john'
 SRoute::get('/test/(\w+)', function($arg) {
     echo $arg; // 'john'
 });
 
-// match POST
+// 匹配 POST 请求
 SRoute::post('/user/login', function() {
     var_dump($_POST);
 });
 
-// match GET or POST
+// 匹配 GET 或者 POST
 SRoute::map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
-// match any method
+// 允许任何请求方法
 SRoute::any('/home', function() {
     echo 'hello, you request page is /home';
 });
 ```
 
+> 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
+
 ### 使用控制器方法
 
 ```php
-// if you config 'ignoreLastSep' => true, '/index' is equals to '/index/'
 SRoute::get('/index', 'app\controllers\Home@index');
 ```
 
@@ -73,27 +73,34 @@ SRoute::get('/index', 'app\controllers\Home@index');
 > NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时无法限定请求方法 `REQUEST_METHOD`
 
 ```php
-// access '/home/test' will call 'app\controllers\Home::test()'
+// 访问 '/home/test' 将会执行 'app\controllers\Home::test()'
 SRoute::any('/home/(\w+)', app\controllers\Home::class);
 
-// can match '/home', '/home/test'
+// 可匹配 '/home', '/home/test' 等
 SRoute::any('/home(/\w+)?', app\controllers\Home::class);
 ```
 
+> 上面两个的区别是 第一个无法匹配 `/home`
+
 ### 使用方法执行器
 
-配置 actionExecutor 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交各此方法。
-会将真实的action名作为参数传入`run()`,需要你在此方法中调度来执行真正的请求方法。
+配置 actionExecutor 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交给此方法。
+会将真实的action名作为参数传入`run($action)`, 需要你在此方法中调度来执行真正的请求方法。
+
+> 在你需要将路由器整合到自己的框架时很有用
+
+示例：
 
 ```php
-// access '/user', will call app\controllers\User::run('')
-// access '/user/profile', will call app\controllers\User::run('profile')
+// 访问 '/user', 将会调用 app\controllers\User::run('')
 SRoute::get('/user', 'app\controllers\User');
+
+// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
 SRoute::get('/user/profile', 'app\controllers\User');
 
-// if config 'actionExecutor' => 'run' and 'dynamicAction' => true,
-// access '/user', will call app\controllers\User::run('')
-// access '/user/profile', will call app\controllers\User::run('profile')
+// 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
+// 访问 '/user', will call app\controllers\User::run('')
+// 访问 '/user/profile', will call app\controllers\User::run('profile')
 SRoute::get('/user(/\w+)?', 'app\controllers\User');
 ```
 
@@ -184,7 +191,7 @@ SRoute::config([
 - 默认配置如下
 
 ```php
-// there are default config.
+// 所有的默认的配置
 [
     // stop on matched. only match one
     'stopOnMatch' => true,
