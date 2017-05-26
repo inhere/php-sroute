@@ -1,18 +1,18 @@
 # php simple router
 
-a very lightweight single file of the router.
+非常轻量级的单一文件的路由器。自定义性强
 
 > referrer the project **[noahbuscher\macaw](https://github.com/noahbuscher/Macaw)** , but add some feature.
 
-- supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
-- support event: `found` `notFound`. Some things you can do when the triggering event (such as logging, etc.)
-- support manual dispatch a URI route by `SRoute::dispatchTo()`, you can dispatch a URI in your logic.
-- support custom the matched route parser: `SRoute::setMatchedRouteParser()`. you can custom how to call the matched route handler.
-- Support automatic matching routing like yii framework, by config `autoRoute`. 
+- 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
+- 支持事件: `found` `notFound`. 你可以做一些事情当触发事件时(比如记录日志等)
+- 支持设置匹配路由的解析器: `SRoute::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
+- 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
+- 支持手动调度一个路由通过方法 `SRoute::dispatchTo()`
 - more interesting config, please see `SRoute::$_config`
-- You can also do not have to configure anything, it can also work very well
+- 你也可以不需要配置什么,它也能很好的工作
 
-## install
+## 安装
 
 ```json
 {
@@ -22,7 +22,7 @@ a very lightweight single file of the router.
 }
 ```
 
-## usage
+## 使用
 
 first, import the class
 
@@ -30,7 +30,7 @@ first, import the class
 use inhere\sroute\SRoute;
 ```
 
-## add some routes
+## 添加路由
 
 ```php
 // match GET. handler use Closure
@@ -59,18 +59,18 @@ SRoute::any('/home', function() {
 });
 ```
 
-### use controller action
+### 使用控制器方法
 
 ```php
 // if you config 'ignoreLastSep' => true, '/index' is equals to '/index/'
 SRoute::get('/index', 'app\controllers\Home@index');
 ```
 
-### dynamic action
+### 动态匹配控制器方法
 
-match dynamic action, config `'dynamicAction' => true`
+动态匹配控制器方法, 需配置 `'dynamicAction' => true`
 
-> NOTICE: use dynamic action, should be use `any()`.
+> NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时无法限定请求方法 `REQUEST_METHOD`
 
 ```php
 // access '/home/test' will call 'app\controllers\Home::test()'
@@ -80,9 +80,10 @@ SRoute::any('/home/(\w+)', app\controllers\Home::class);
 SRoute::any('/home(/\w+)?', app\controllers\Home::class);
 ```
 
-### use action executor
+### 使用方法执行器
 
-if you config `'actionExecutor' => 'run'`
+配置 actionExecutor 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交各此方法。
+会将真实的action名作为参数传入`run()`,需要你在此方法中调度来执行真正的请求方法。
 
 ```php
 // access '/user', will call app\controllers\User::run('')
@@ -96,34 +97,33 @@ SRoute::get('/user/profile', 'app\controllers\User');
 SRoute::get('/user(/\w+)?', 'app\controllers\User');
 ```
 
+## 自动匹配路由到控制器
 
-## Automatic matching is routed to the controller
-
-Support automatic matching like yii routed to the controller, need config `autoRoute`. 
+支持自动匹配路由到控制器就像 yii 一样, 需配置 `autoRoute`. 
 
 ```php 
     'autoRoute' => [
         'enable' => 1, // 启用
-        'controllerNamespace' => 'examples\\controllers', // The controller class in the namespace
-        'controllerSuffix' => 'Controller', // The controller class suffix
+        'controllerNamespace' => 'examples\\controllers', // 控制器类所在命名空间
+        'controllerSuffix' => 'Controller', // 控制器类后缀
     ],
 ```
 
-## Match all requests
+## 匹配所有
 
-you can config 'matchAll', All requests for intercepting。 (eg. web site maintenance)
+配置 'matchAll' 可用于拦截所有请求。 （例如网站维护时）
 
-you can config 'matchAll' as
+可允许配置 'matchAll' 的值为 
 
-- route path
+- 路由path
 
 ```php
     'matchAll' => '/about', // a route path
 ```
 
-Will be executed directly the route.
+将会直接执行此路由。
 
-- callback
+- 回调
 
 ```php 
     'matchAll' => function () {
@@ -131,9 +131,10 @@ Will be executed directly the route.
     },
 ```
 
-Will directly execute the callback
+将会直接执行此回调
 
-## setting events(if you need)
+
+## 设置事件处理(if you need)
 
 ```php
 SRoute::any('/404', function() {
@@ -142,21 +143,21 @@ SRoute::any('/404', function() {
 ```
 
 ```php
-// on found
+// 成功匹配路由
 SRoute::on(SRoute::FOUND, function ($uri, $cb) use ($app) {
     $app->logger->debug("Matched uri path: $uri, setting callback is: " . is_string($cb) ? $cb : get_class($cb));
 });
 
-// on notFound, redirect to '/404'
+// 当匹配失败, 重定向到 '/404'
 SRoute::on('notFound', '/404');
 
-// can also, on notFound, output a message.
+// 或者, 当匹配失败, 输出消息...
 SRoute::on('notFound', function ($uri) {
     echo "the page $uri not found!";
 });
 ```
 
-## setting config(if you need)
+## 设置配置(if you need)
 
 ```php
 // set config
@@ -180,7 +181,7 @@ SRoute::config([
 ]);
 ```
 
-- default config
+- 默认配置如下
 
 ```php
 // there are default config.
@@ -194,7 +195,7 @@ SRoute::config([
 
     // match all request.
     // 1. If is a valid URI path, will match all request uri to the path.
-    // 2. If is a closure, will match all request then call it
+    // 2. If is a callable, will match all request then call it
     'matchAll' => '', // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
 
     // auto route match @like yii framework
@@ -226,9 +227,9 @@ SRoute::config([
 ]
 ```
 
-> NOTICE: you must call `SRoute::config()` on before the `SRoute::dispatch()`
+> NOTICE: 必须在调用 `SRoute::dispatch()` 之前使用 `SRoute::config()` 来进行一些配置
 
-## begin dispatch
+## 开始路由分发
 
 ```php
 SRoute::dispatch();
@@ -238,7 +239,7 @@ SRoute::dispatch();
 
 please the `examples` folder's codes.
 
-you can run a test server by `$ bash ./php_server`, now please access http://127.0.0.1:5670
+你可以通过 `bash ./php_server` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
 
 ## License 
 

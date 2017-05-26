@@ -6,11 +6,13 @@
  * Time: 上午12:14
  */
 
-namespace examples\controllers;
+namespace inhere\sroute\examples\controllers;
+
+use inhere\sroute\SRoute;
 
 /**
  * Class HomeController
- * @package examples\controllers
+ * @package inhere\sroute\examples\controllers
  */
 class HomeController
 {
@@ -22,5 +24,14 @@ class HomeController
     public function test()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
+    }
+
+    public function testDispatchTo()
+    {
+        echo 'hello, this is ' . __METHOD__ . "<br>";
+
+        echo 'dispatchTo /demo/index <br>';
+
+        SRoute::dispatchTo('/demo/index', 'GET', false);
     }
 }

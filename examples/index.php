@@ -13,10 +13,27 @@
  * then you can access url: http://127.0.0.1:5670
  */
 
-require dirname(__DIR__) . '/SRoute.php';
+error_reporting(E_ALL | E_STRICT);
+date_default_timezone_set('Asia/Shanghai');
 
-require __DIR__ . '/controllers/HomeController.php';
-require __DIR__ . '/controllers/DemoController.php';
-require __DIR__ . '/controllers/admin/UserController.php';
+spl_autoload_register(function($class)
+{
+    if (0 === strpos($class,'inhere\sroute\examples\\')) {
+        $path = str_replace('\\', '/', substr($class, strlen('inhere\sroute\examples\\')));
+        $file = __DIR__ . "/{$path}.php";
+
+        if (is_file($file)) {
+            include $file;
+        }
+
+    } elseif (0 === strpos($class,'inhere\sroute\\')) {
+        $path = str_replace('\\', '/', substr($class, strlen('inhere\sroute\\')));
+        $file = dirname(__DIR__) . "/{$path}.php";
+
+        if (is_file($file)) {
+            include $file;
+        }
+    }
+});
 
 require __DIR__ . '/routes.php';

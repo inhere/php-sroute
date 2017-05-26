@@ -11,7 +11,7 @@ namespace inhere\sroute;
 /**
  * Class SRoute
  * Simple Router
- * @package micro
+ * @package inhere\sroute
  *
  * @method static get(string $route, mixed $handler)
  * @method static post(string $route, mixed $handler)
@@ -175,8 +175,8 @@ class SRoute
             throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
         }
 
-        if (!$handler || !is_string($handler) || !is_object($handler)) {
-            throw new \InvalidArgumentException('The route handler only Allow: string,object');
+        if (!$handler || (!is_string($handler) && !is_object($handler))) {
+            throw new \InvalidArgumentException('The route handler is not empty and only Allow: string,object');
         }
 
         if (is_object($handler) && !is_callable($handler)) {
@@ -219,8 +219,8 @@ class SRoute
         if ($matchAll = self::$_config['matchAll']) {
             if (is_string($matchAll) && $matchAll{0} === '/') {
                 $path = $matchAll;
-            } elseif ($matchAll instanceof \Closure) {
-                return $matchAll($path);
+            } elseif (is_callable($matchAll)) {
+                return call_user_func($matchAll, $path);
             }
         }
 
@@ -287,9 +287,13 @@ class SRoute
      * manual dispatch a URI route
      * @param string $uri
      * @param string $method
+     * @param bool $receiveReturn
+     * @return null|string
      */
-    public static function dispatchTo($uri, $method = 'GET')
+    public static function dispatchTo($uri, $method = 'GET', $receiveReturn = true)
     {
+        $result = null;
+
         // store old value
         $oldUri = $_SERVER['REQUEST_URI'];
         $oldMtd = $_SERVER['REQUEST_METHOD'];
@@ -298,11 +302,19 @@ class SRoute
         $_SERVER['REQUEST_URI'] = $uri;
         $_SERVER['REQUEST_METHOD'] = $method ? strtoupper($method) : 'GET';
 
-        self::dispatch();
+        if ($receiveReturn) {
+            ob_start();
+            self::dispatch();
+            $result = ob_get_clean();
+        } else {
+            self::dispatch();
+        }
 
         // restore old value
         $_SERVER['REQUEST_URI'] = $oldUri;
         $_SERVER['REQUEST_METHOD'] = $oldMtd;
+
+        return $result;
     }
 
     /**

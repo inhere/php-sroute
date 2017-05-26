@@ -27,12 +27,12 @@ SRoute::map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
-SRoute::get('/home', 'examples\controllers\HomeController@index');
+SRoute::get('/home', 'inhere\sroute\examples\controllers\HomeController@index');
 
 // can match '/home/test', but not match '/home'
 //SRoute::any('/home/(\w+)', 'examples\HomeController');
 // can also use defined patterns, @see SRoute::$patterns
- SRoute::any('/home/(:act)', 'examples\controllers\HomeController');
+ SRoute::any('/home/(:act)', 'inhere\sroute\examples\controllers\HomeController');
 
 // can match '/home' '/home/test'
 //SRoute::any('/home(/\w+)?', examples\HomeController::class);
@@ -57,7 +57,7 @@ SRoute::config([
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => [
         'enable' => 1,
-        'controllerNamespace' => 'examples\\controllers',
+        'controllerNamespace' => 'inhere\sroute\examples\controllers',
         'controllerSuffix' => 'Controller',
     ],
 ]);

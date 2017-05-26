@@ -6,11 +6,11 @@
  * Time: 上午12:14
  */
 
-namespace examples\controllers;
+namespace inhere\sroute\examples\controllers;
 
 /**
  * Class DemoController
- * @package examples\controllers
+ * @package inhere\sroute\examples\controllers
  */
 class DemoController
 {
