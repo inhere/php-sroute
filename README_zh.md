@@ -1,8 +1,8 @@
 # php simple router
 
-非常轻量级的单一文件的路由器。自定义性强
+非常轻量级的单一文件的路由器。简洁、自定义性强
 
-> referrer the project **[noahbuscher\macaw](https://github.com/noahbuscher/Macaw)** , but add some feature.
+> 基础逻辑参考自项目 **[noahbuscher\macaw](https://github.com/noahbuscher/Macaw)** , 添加了一些功能。
 
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
 - 支持事件: `found` `notFound`. 你可以做一些事情当触发事件时(比如记录日志等)
@@ -13,12 +13,20 @@
 
 ## 安装
 
+- composer
+
 ```json
 {
     "require": {
         "inhere/sroute": "dev-master"
     }
 }
+```
+
+- 直接拉取
+
+```bash
+git clone https://github.com/inhere/php-srouter.git
 ```
 
 ## 使用
@@ -242,9 +250,9 @@ SRoute::config([
 SRoute::dispatch();
 ```
 
-## examples
+## 运行示例
 
-please the `examples` folder's codes.
+示例代码在 `examples` 下。
 
 你可以通过 `bash ./php_server` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
 
