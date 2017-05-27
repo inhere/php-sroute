@@ -25,9 +25,10 @@ class SRoute
 {
     // events
     const FOUND = 'found';
-    const HANDLE_START = 'HANDLE_START';
-    const HANDLE_END = 'handleEnd';
     const NOT_FOUND = 'notFound';
+    const EXEC_START = 'execStart';
+    const EXEC_END = 'execEnd';
+    const EXEC_ERROR = 'execError';
 
     const MATCH_ANY = 'ANY';
     const MATCH_FAV_ICO = '/favicon.ico';
@@ -328,19 +329,26 @@ class SRoute
         // trigger route found event
         self::fire(self::FOUND, [$path, $handler, $matches]);
 
-        // trigger route handle_start event
-        self::fire(self::HANDLE_START, [$path, $handler, $matches]);
+        $result = 0;
 
-        if (self::$matchedRouteParser) {
-            $result = call_user_func(self::$matchedRouteParser, $path, $handler, $matches);
+        try {
+            // trigger route exec_start event
+            self::fire(self::EXEC_START, [$path, $handler, $matches]);
 
-            // if not setting `$matchedRouteParser`, use default handler.
-        } else {
-            $result = self::defaultMatchedRouteParser($path, $handler, $matches);
+            if (self::$matchedRouteParser) {
+                $result = call_user_func(self::$matchedRouteParser, $path, $handler, $matches);
+
+                // if not setting `$matchedRouteParser`, use default handler.
+            } else {
+                $result = self::defaultMatchedRouteParser($path, $handler, $matches);
+            }
+
+            // trigger route exec_end event
+            self::fire(self::EXEC_END, [$path, $handler, null]);
+        } catch (\Exception $e) {
+            // trigger route exec_error event
+            self::fire(self::EXEC_ERROR, [$path, $handler, null]);
         }
-
-        // trigger route handle_end event
-        self::fire(self::HANDLE_END, [$path, $handler, null]);
 
         return $result;
     }

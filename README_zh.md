@@ -92,8 +92,8 @@ SRoute::any('/home(/\w+)?', app\controllers\Home::class);
 
 ### 使用方法执行器
 
-配置 actionExecutor 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交给此方法。
-会将真实的action名作为参数传入`run($action)`, 需要你在此方法中调度来执行真正的请求方法。
+配置 `actionExecutor` 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交给此方法。
+会将真实的 action 作为参数传入`run($action)`, 需要你在此方法中调度来执行真正的请求方法。
 
 > 在你需要将路由器整合到自己的框架时很有用
 
@@ -119,16 +119,16 @@ SRoute::get('/user(/\w+)?', 'app\controllers\User');
 ```php 
     'autoRoute' => [
         'enable' => 1, // 启用
-        'controllerNamespace' => 'examples\\controllers', // 控制器类所在命名空间
+        'controllerNamespace' => 'app\\controllers', // 控制器类所在命名空间
         'controllerSuffix' => 'Controller', // 控制器类后缀
     ],
 ```
 
 ## 匹配所有
 
-配置 'matchAll' 可用于拦截所有请求。 （例如网站维护时）
+配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
 
-可允许配置 'matchAll' 的值为 
+可允许配置 `matchAll` 的值为 
 
 - 路由path
 
@@ -136,7 +136,7 @@ SRoute::get('/user(/\w+)?', 'app\controllers\User');
     'matchAll' => '/about', // a route path
 ```
 
-将会直接执行此路由。
+将会直接执行此路由后停止执行
 
 - 回调
 
@@ -146,7 +146,7 @@ SRoute::get('/user(/\w+)?', 'app\controllers\User');
     },
 ```
 
-将会直接执行此回调
+将会直接执行此回调后停止执行
 
 
 ## 设置事件处理(if you need)
@@ -186,8 +186,6 @@ SRoute::config([
 //        echo 'System Maintaining ... ...';
 //    },
     
-    // enable autoRoute, work like yii framework
-    // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => [
         'enable' => 1,
         'controllerNamespace' => 'examples\\controllers',
@@ -201,43 +199,45 @@ SRoute::config([
 ```php
 // 所有的默认的配置
 [
-    // stop on matched. only match one
+    // 是否成功匹配后停止。即只匹配一个
     'stopOnMatch' => true,
-    // Filter the `/favicon.ico` request.
+    
+    // 是否过滤 /favicon.ico 请求
     'filterFavicon' => false,
-    // ignore last '/' char. If is True, will clear last '/', so '/home' equals to '/home/'
+    
+    // 是否忽略最后的 '/' 分隔符. 如果是 true,将清除最后一个 '/', 此时请求 '/home' 和 '/home/' 效果相同
     'ignoreLastSep' => false,
 
-    // match all request.
-    // 1. If is a valid URI path, will match all request uri to the path.
-    // 2. If is a callable, will match all request then call it
-    'matchAll' => '', // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
+    // 匹配所有请求
+    // 1. 如果是一个有效的URI路径,将匹配所有请求到此URI路径。
+    // 2. 如果是一个可用回调,将匹配所有请求然后调用它
+    'matchAll' => '', // 例如: '/site/maintenance' 或者 `function () { echo 'System Maintaining ... ...'; }`
 
-    // auto route match @like yii framework
+    // 自动匹配路由到控制器就像 yii 一样 
     'autoRoute' => [
-        // If is True, will auto find the handler controller file.
+        // 是否启用
         'enable' => false,
-        // The default controllers namespace, is valid when `'enable' = true`
+        // 默认控制器名称空间
         'controllerNamespace' => '', // eg: 'app\\controllers'
-        // controller suffix, is valid when `'enable' = true`
+        // 控制器类后缀
         'controllerSuffix' => '',    // eg: 'Controller'
     ],
 
-    // default action method name
+    // 默认的控制器方法名称
     'defaultAction' => 'index',
 
-    // enable dynamic action.
+    // 启用动态action
     // e.g
-    // if set True;
+    // 若设置为 True;
     //  SRoute::any('/demo/(\w+)', app\controllers\Demo::class);
-    //  you access '/demo/test' will call 'app\controllers\Demo::test()'
+    //  访问 '/demo/test' 将会调用 'app\controllers\Demo::test()'
     'dynamicAction' => false,
 
-    // action executor. will auto call controller's executor method to run all action.
+    // 方法执行器. 
     // e.g
     //  `run($action)`
     //  SRoute::any('/demo/(:act)', app\controllers\Demo::class);
-    //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
+    //  访问 `/demo/test` 将会调用 `app\controllers\Demo::run('test')`
     'actionExecutor' => '', // 'run'
 ]
 ```
