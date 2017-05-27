@@ -70,9 +70,16 @@ SRoute::any('/home', function() {
 
 ### 使用控制器方法
 
+通过`@`符号连接控制器类和方法名可以指定执行方法。
+
 ```php
+SRoute::get('/', app\controllers\Home::class);
+
 SRoute::get('/index', 'app\controllers\Home@index');
+SRoute::get('/about', 'app\controllers\Home@about');
 ```
+
+> NOTICE: 若第二个参数仅仅是个 类，将会尝试执行默认方法 `defaultAction`
 
 ### 动态匹配控制器方法
 
@@ -88,14 +95,14 @@ SRoute::any('/home/(\w+)', app\controllers\Home::class);
 SRoute::any('/home(/\w+)?', app\controllers\Home::class);
 ```
 
-> 上面两个的区别是 第一个无法匹配 `/home`
+> NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
 
 ### 使用方法执行器
 
 配置 `actionExecutor` 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交给此方法。
 会将真实的 action 作为参数传入`run($action)`, 需要你在此方法中调度来执行真正的请求方法。
 
-> 在你需要将路由器整合到自己的框架时很有用
+> NOTICE: 在你需要将路由器整合到自己的框架时很有用
 
 示例：
 
@@ -109,7 +116,7 @@ SRoute::get('/user/profile', 'app\controllers\User');
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
 // 访问 '/user', will call app\controllers\User::run('')
 // 访问 '/user/profile', will call app\controllers\User::run('profile')
-SRoute::get('/user(/\w+)?', 'app\controllers\User');
+SRoute::any('/user(/\w+)?', 'app\controllers\User');
 ```
 
 ## 自动匹配路由到控制器
@@ -180,11 +187,6 @@ SRoute::config([
     'stopOnMatch' => true,
     'ignoreLastSep' => true,
     'dynamicAction' => true,
-    
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
-//        echo 'System Maintaining ... ...';
-//    },
     
     'autoRoute' => [
         'enable' => 1,

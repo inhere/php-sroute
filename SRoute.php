@@ -19,6 +19,8 @@ namespace inhere\sroute;
  * @method static delete(string $route, mixed $handler)
  * @method static options(string $route, mixed $handler)
  * @method static head(string $route, mixed $handler)
+ * @method static search(string $route, mixed $handler)
+ * @method static trace(string $route, mixed $handler)
  * @method static any(string $route, mixed $handler)
  */
 class SRoute
@@ -72,7 +74,7 @@ class SRoute
      * supported Methods
      * @var array
      */
-    private static $supportedMethods = ['get', 'post', 'put', 'delete', 'options', 'head', 'any'];
+    private static $supportedMethods = ['get', 'post', 'put', 'delete', 'options', 'head', 'search', 'trace', 'any'];
 
     /**
      * event handlers
@@ -177,7 +179,7 @@ class SRoute
         }
 
         if (!$handler || (!is_string($handler) && !is_object($handler))) {
-            throw new \InvalidArgumentException('The route handler is not empty and only Allow: string,object');
+            throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,object');
         }
 
         if (is_object($handler) && !is_callable($handler)) {
@@ -262,8 +264,7 @@ class SRoute
                     preg_match('#^' . $route . '$#', $path, $matches)
                 ) {
                     $founded = true;
-                    $handler = self::$handlers[$pos];
-                    $result = self::handleMatchedRoute($path, $handler, $matches);
+                    $result = self::handleMatchedRoute($path, self::$handlers[$pos], $matches);
 
                     if ($stopOnMatch) {
                         break;
@@ -344,10 +345,10 @@ class SRoute
             }
 
             // trigger route exec_end event
-            self::fire(self::EXEC_END, [$path, $handler, null]);
+            self::fire(self::EXEC_END, [$path, $handler]);
         } catch (\Exception $e) {
             // trigger route exec_error event
-            self::fire(self::EXEC_ERROR, [$path, $handler, null]);
+            self::fire(self::EXEC_ERROR, [$e, $path, $handler]);
         }
 
         return $result;
@@ -468,7 +469,7 @@ class SRoute
      * @param array $matches Matched param from path
      * @return mixed
      */
-    protected static function defaultMatchedRouteParser($path, $pathHandler, array $matches = [])
+    private static function defaultMatchedRouteParser($path, $pathHandler, array $matches = [])
     {
         // Remove $matches[0] as [1] is the first parameter.
         if ($matches) {
@@ -476,42 +477,42 @@ class SRoute
         }
 
         // is a \Closure or a callable object
-        if (is_object($pathHandler) && is_callable($pathHandler)) {
+        if (is_object($pathHandler)) {
             return $matches ? call_user_func_array($pathHandler, $matches) : $pathHandler();
-        } elseif (is_string($pathHandler)) {
-            // e.g `controllers\Home@index` Or only `controllers\Home`
-            $segments = explode('@', trim($pathHandler));
+        }
 
-            // Instantiation controller
-            $controller = new $segments[0]();
+        //// $pathHandler is string
 
-            // Already assign action
-            if (isset($segments[1])) {
-                $action = $segments[1];
+        // e.g `controllers\Home@index` Or only `controllers\Home`
+        $segments = explode('@', trim($pathHandler));
 
-                // use dynamic action
-            } elseif ((bool)self::$_config['dynamicAction']) {
-                $action = isset($matches[0]) ? trim($matches[0], '/') : self::$_config['defaultAction'];
+        // Instantiation controller
+        $controller = new $segments[0]();
 
-                // defined default action
-            } elseif (!$action = self::$_config['defaultAction']) {
-                throw new \RuntimeException("please config the route path [$path] controller action to call");
-            }
+        // Already assign action
+        if (isset($segments[1])) {
+            $action = $segments[1];
 
-            // if set the 'actionExecutor', the action handle logic by it.
-            if ($executor = self::$_config['actionExecutor']) {
-                return $controller->$executor($action, $matches);
+            // use dynamic action
+        } elseif ((bool)self::$_config['dynamicAction']) {
+            $action = isset($matches[0]) ? trim($matches[0], '/') : self::$_config['defaultAction'];
 
-                // action method is not exist
-            } elseif (!$action || !method_exists($controller, $action)) {
-                return self::handleNotFound($path, true);
+            // defined default action
+        } elseif (!$action = self::$_config['defaultAction']) {
+            throw new \RuntimeException("please config the route path [$path] controller action to call");
+        }
 
-                // call controller's action method
-            } else {
-                return $matches ? call_user_func_array([$controller, $action], $matches) : $controller->$action();
-            }
+        // if set the 'actionExecutor', the action handle logic by it.
+        if ($executor = self::$_config['actionExecutor']) {
+            return $controller->$executor($action, $matches);
+
+            // action method is not exist
+        } elseif (!$action || !method_exists($controller, $action)) {
+            return self::handleNotFound($path, true);
+
+            // call controller's action method
         } else {
-            throw new \InvalidArgumentException('The route path handler only allow type is: object|string');
+            return $matches ? call_user_func_array([$controller, $action], $matches) : $controller->$action();
         }
     }
 
@@ -661,7 +662,7 @@ class SRoute
      */
     public static function supportedEvents()
     {
-        return [self::FOUND, self::NOT_FOUND];
+        return [self::FOUND, self::NOT_FOUND, self::EXEC_START, self::EXEC_END, self::EXEC_ERROR];
     }
 
     /**
