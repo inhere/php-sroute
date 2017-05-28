@@ -80,13 +80,13 @@ class SRoute
      * event handlers
      * @var array[]
      */
-    private static $_events = [];
+    private static $events = [];
 
     /**
      * some setting for self
      * @var array
      */
-    private static $_config = [
+    private static $config = [
         // stop on matched. only match one
         'stopOnMatch' => true,
         // Filter the `/favicon.ico` request.
@@ -214,12 +214,12 @@ class SRoute
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // if 'filterFavicon' setting is TRUE
-        if (self::$_config['filterFavicon'] && $path === self::MATCH_FAV_ICO) {
+        if (self::$config['filterFavicon'] && $path === self::MATCH_FAV_ICO) {
             return $result;
         }
 
         // if enable 'matchAll'
-        if ($matchAll = self::$_config['matchAll']) {
+        if ($matchAll = self::$config['matchAll']) {
             if (is_string($matchAll) && $matchAll{0} === '/') {
                 $path = $matchAll;
             } elseif (is_callable($matchAll)) {
@@ -231,7 +231,7 @@ class SRoute
         $path = preg_replace('/\/\/+/', '/', $path);
         $founded = false;
         $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
-        $stopOnMatch = (bool)self::$_config['stopOnMatch'];
+        $stopOnMatch = (bool)self::$config['stopOnMatch'];
 
         $routes = self::formatRoutes();
 
@@ -369,7 +369,7 @@ class SRoute
          *  'controllerSuffix' => '',    // controller suffix. eg: 'Controller'
          * ]
          */
-        $opts = self::$_config['autoRoute'];
+        $opts = self::$config['autoRoute'];
 
         // not enabled
         if (!$opts || !isset($opts['enable']) || !$opts['enable']) {
@@ -438,22 +438,22 @@ class SRoute
     protected static function handleNotFound($path, $isActionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
-        if (!isset(self::$_events[self::NOT_FOUND])) {
+        if (!isset(self::$events[self::NOT_FOUND])) {
             $notFoundHandler = function ($path) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-                echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code>$path</code></h1>";
+                echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
             };
 
             self::on(self::NOT_FOUND, $notFoundHandler);
         } else {
-            $notFoundHandler = self::$_events[self::NOT_FOUND];
+            $notFoundHandler = self::$events[self::NOT_FOUND];
 
             // is a route path. like '/site/notFound'
             if (is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
                 $_GET['path'] = $path;
                 $_SERVER['REQUEST_URI'] = $notFoundHandler;
 
-                unset(self::$_events[self::NOT_FOUND]);
+                unset(self::$events[self::NOT_FOUND]);
                 return self::dispatch();
             }
         }
@@ -494,16 +494,18 @@ class SRoute
             $action = $segments[1];
 
             // use dynamic action
-        } elseif ((bool)self::$_config['dynamicAction']) {
-            $action = isset($matches[0]) ? trim($matches[0], '/') : self::$_config['defaultAction'];
+        } elseif ((bool)self::$config['dynamicAction']) {
+            $action = isset($matches[0]) ? trim($matches[0], '/') : self::$config['defaultAction'];
 
             // defined default action
-        } elseif (!$action = self::$_config['defaultAction']) {
+        } elseif (!$action = self::$config['defaultAction']) {
             throw new \RuntimeException("please config the route path [$path] controller action to call");
         }
 
+        $action = self::convertNodeStr($action);
+
         // if set the 'actionExecutor', the action handle logic by it.
-        if ($executor = self::$_config['actionExecutor']) {
+        if ($executor = self::$config['actionExecutor']) {
             return $controller->$executor($action, $matches);
 
             // action method is not exist
@@ -525,7 +527,7 @@ class SRoute
         static $formatted;
 
         if (!$formatted) {
-            $ignoreLastSep = (bool)self::$_config['ignoreLastSep'];
+            $ignoreLastSep = (bool)self::$config['ignoreLastSep'];
 
             self::$routes = array_map(function ($route) use ($ignoreLastSep) {
                 $route = preg_replace('/\/\/+/', '/', $route);
@@ -553,9 +555,13 @@ class SRoute
             $str = preg_replace_callback('/-+([a-z])/', function ($c) {
                 return strtoupper($c[1]);
             }, $str);
+
+            if (strpos($str, '-')) {
+                return str_replace('-', '', $str);
+            }
         }
 
-        return str_replace('-', '', $str);
+        return $str;
     }
 
     /**
@@ -582,9 +588,9 @@ class SRoute
     {
         foreach ($settings as $name => $value) {
             if ($name === 'autoRoute') {
-                self::$_config['autoRoute'] = array_merge(self::$_config['autoRoute'], (array)$value);
-            } elseif (isset(self::$_config[$name])) {
-                self::$_config[$name] = $value;
+                self::$config['autoRoute'] = array_merge(self::$config['autoRoute'], (array)$value);
+            } elseif (isset(self::$config[$name])) {
+                self::$config[$name] = $value;
             }
         }
     }
@@ -610,7 +616,7 @@ class SRoute
      */
     public static function getConfig()
     {
-        return self::$_config;
+        return self::$config;
     }
 
     /**
@@ -618,7 +624,7 @@ class SRoute
      */
     public static function isStopOnMatch()
     {
-        return (bool)self::$_config['stopOnMatch'];
+        return (bool)self::$config['stopOnMatch'];
     }
 
     /**
@@ -629,7 +635,7 @@ class SRoute
     public static function on($event, $handler)
     {
         if (self::isSupportedEvent($event)) {
-            self::$_events[$event] = $handler;
+            self::$events[$event] = $handler;
         }
     }
 
@@ -641,7 +647,7 @@ class SRoute
      */
     protected static function fire($event, array $args = [])
     {
-        if (isset(self::$_events[$event]) && ($cb = self::$_events[$event])) {
+        if (isset(self::$events[$event]) && ($cb = self::$events[$event])) {
             return call_user_func_array($cb, $args);
         }
 
@@ -654,7 +660,7 @@ class SRoute
      */
     public static function hasEventHandler($event)
     {
-        return isset(self::$_events[$event]);
+        return isset(self::$events[$event]);
     }
 
     /**

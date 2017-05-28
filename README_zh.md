@@ -1,13 +1,14 @@
 # php simple router
 
-非常轻量级的单一文件的路由器。简洁、自定义性强
+非常轻量级的单一文件的路由器。无依赖、简洁、自定义性强
 
 > 基础逻辑参考自项目 **[noahbuscher\macaw](https://github.com/noahbuscher/Macaw)** , 添加了一些功能。
 
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
-- 支持事件: `found` `notFound`. 你可以做一些事情当触发事件时(比如记录日志等)
-- 支持设置匹配路由的解析器: `SRoute::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
+- 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
+- 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
+- 支持设置匹配路由的解析器: `SRoute::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
 - 支持手动调度一个路由通过方法 `SRoute::dispatchTo()`
 - 你也可以不配置任何东西, 它也能很好的工作
 
@@ -26,7 +27,8 @@
 - 直接拉取
 
 ```bash
-git clone https://github.com/inhere/php-srouter.git
+git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
+git clone https://github.com/inhere/php-srouter.git // github
 ```
 
 ## 使用
@@ -79,7 +81,7 @@ SRoute::get('/index', 'app\controllers\Home@index');
 SRoute::get('/about', 'app\controllers\Home@about');
 ```
 
-> NOTICE: 若第二个参数仅仅是个 类，将会尝试执行默认方法 `defaultAction`
+> NOTICE: 若第二个参数仅仅是个 类，将会尝试执行通过 `defaultAction` 配置的默认方法
 
 ### 动态匹配控制器方法
 
@@ -114,12 +116,12 @@ SRoute::get('/user', 'app\controllers\User');
 SRoute::get('/user/profile', 'app\controllers\User');
 
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
-// 访问 '/user', will call app\controllers\User::run('')
-// 访问 '/user/profile', will call app\controllers\User::run('profile')
+// 访问 '/user', 将会调用 app\controllers\User::run('')
+// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
 SRoute::any('/user(/\w+)?', 'app\controllers\User');
 ```
 
-## 自动匹配路由到控制器
+### 自动匹配路由到控制器
 
 支持自动匹配路由到控制器就像 yii 一样, 需配置 `autoRoute`. 
 
@@ -131,7 +133,17 @@ SRoute::any('/user(/\w+)?', 'app\controllers\User');
     ],
 ```
 
-## 匹配所有
+> 请参看示例 `example` 中的使用
+
+此时请求没有配置路由的 `/demo` `/demo/test`。将会自动尝试从 `app\\controllers` 命名空间下去查找 `DemoController`
+
+查找逻辑是 
+
+- 只有一节的(如`/demo`)，直接定义它为控制器类名进行查找
+- 大于等于两节的默认先认为最后一节是控制器类名，进行查找
+- 若失败，再尝试将倒数第二节认为是控制器名，最后一节是action名
+
+### 匹配所有
 
 配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
 
@@ -190,7 +202,7 @@ SRoute::config([
     
     'autoRoute' => [
         'enable' => 1,
-        'controllerNamespace' => 'examples\\controllers',
+        'controllerNamespace' => 'app\\controllers',
         'controllerSuffix' => 'Controller',
     ],
 ]);

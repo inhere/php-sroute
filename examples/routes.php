@@ -32,7 +32,7 @@ SRoute::get('/home', 'inhere\sroute\examples\controllers\HomeController@index');
 // can match '/home/test', but not match '/home'
 //SRoute::any('/home/(\w+)', 'examples\HomeController');
 // can also use defined patterns, @see SRoute::$patterns
- SRoute::any('/home/(:act)', 'inhere\sroute\examples\controllers\HomeController');
+SRoute::any('/home/(:act)', 'inhere\sroute\examples\controllers\HomeController');
 
 // can match '/home' '/home/test'
 //SRoute::any('/home(/\w+)?', examples\HomeController::class);

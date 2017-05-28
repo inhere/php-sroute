@@ -26,6 +26,7 @@ class HomeController
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }
 
+    // you can access by '/home/testDispatchTo' or '/home/test-Dispatch-To'
     public function testDispatchTo()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
