@@ -9,8 +9,13 @@
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
 - 支持设置匹配路由的解析器: `SRoute::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
-- 支持手动调度一个路由通过方法 `SRoute::dispatchTo()`
+- 支持通过方法 `SRoute::dispatchTo()` 手动调度一个路由
 - 你也可以不配置任何东西, 它也能很好的工作
+
+## 项目地址
+
+- **github** https://github.com/inhere/php-srouter.git
+- **git@osc** https://git.oschina.net/inhere/php-srouter.git
 
 ## 安装
 
@@ -27,8 +32,8 @@
 - 直接拉取
 
 ```bash
-git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 git clone https://github.com/inhere/php-srouter.git // github
+git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 ```
 
 ## 使用
@@ -268,7 +273,7 @@ SRoute::dispatch();
 
 示例代码在 `examples` 下。
 
-你可以通过 `bash ./php_server` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
+你可以通过 `php -S 127.0.0.1:5670 -t examples` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
 
 ## License 
 

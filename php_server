@@ -1,8 +1,0 @@
-#!/bin/sh
-# for testing
-# call in command: ./php_server
-#
-
-SVR=127.0.0.1:5670
-echo "http server listen on $SVR"
-php -S $SVR -t examples

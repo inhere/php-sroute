@@ -12,7 +12,15 @@ a very lightweight single file of the router.
 - more interesting config, please see `SRoute::$_config`
 - You can also do not have to configure anything, it can also work very well
 
+
+## project
+
+- **github** https://github.com/inhere/php-srouter.git
+- **git@osc** https://git.oschina.net/inhere/php-srouter.git
+
 ## install
+
+- by composer
 
 ```json
 {
@@ -20,6 +28,13 @@ a very lightweight single file of the router.
         "inhere/sroute": "dev-master"
     }
 }
+```
+
+- fetch code
+
+```bash
+git clone https://github.com/inhere/php-srouter.git // github
+git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 ```
 
 ## usage
@@ -238,7 +253,7 @@ SRoute::dispatch();
 
 please the `examples` folder's codes.
 
-you can run a test server by `$ bash ./php_server`, now please access http://127.0.0.1:5670
+you can run a test server by `php -S 127.0.0.1:5670 -t examples`, now please access http://127.0.0.1:5670
 
 ## License 
 
