@@ -78,7 +78,7 @@ class SRoute
 
     /**
      * event handlers
-     * @var array[]
+     * @var array
      */
     private static $events = [];
 
@@ -161,7 +161,7 @@ class SRoute
     {
         // array
         if (is_array($method)) {
-            foreach ($method as $m) {
+            foreach ((array)$method as $m) {
                 self::map($m, $path, $handler);
             }
 
@@ -214,7 +214,7 @@ class SRoute
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // if 'filterFavicon' setting is TRUE
-        if (self::$config['filterFavicon'] && $path === self::MATCH_FAV_ICO) {
+        if ($path === self::MATCH_FAV_ICO && self::$config['filterFavicon']) {
             return $result;
         }
 
@@ -223,7 +223,7 @@ class SRoute
             if (is_string($matchAll) && $matchAll{0} === '/') {
                 $path = $matchAll;
             } elseif (is_callable($matchAll)) {
-                return call_user_func($matchAll, $path);
+                return is_object($matchAll) ? $matchAll($path) : call_user_func($matchAll, $path);
             }
         }
 
@@ -282,7 +282,7 @@ class SRoute
             return self::handleMatchedRoute($path, $handler);
         }
 
-        return self::handleNotFound($path, false);
+        return self::handleNotFound($path);
     }
 
     /**
@@ -478,7 +478,7 @@ class SRoute
 
         // is a \Closure or a callable object
         if (is_object($pathHandler)) {
-            return $matches ? call_user_func_array($pathHandler, $matches) : $pathHandler();
+            return $matches ? $pathHandler(...$matches) : $pathHandler();
         }
 
         //// $pathHandler is string
@@ -508,14 +508,16 @@ class SRoute
         if ($executor = self::$config['actionExecutor']) {
             return $controller->$executor($action, $matches);
 
-            // action method is not exist
-        } elseif (!$action || !method_exists($controller, $action)) {
-            return self::handleNotFound($path, true);
-
-            // call controller's action method
-        } else {
-            return $matches ? call_user_func_array([$controller, $action], $matches) : $controller->$action();
         }
+
+        // action method is not exist
+        if (!$action || !method_exists($controller, $action)) {
+            return self::handleNotFound($path, true);
+        }
+
+        // call controller's action method
+        return $matches ? $controller->$action(...$matches) : $controller->$action();
+
     }
 
     /**
@@ -648,7 +650,7 @@ class SRoute
     protected static function fire($event, array $args = [])
     {
         if (isset(self::$events[$event]) && ($cb = self::$events[$event])) {
-            return call_user_func_array($cb, $args);
+            return is_object($cb) ? $cb(...$args) : call_user_func_array($cb, $args);
         }
 
         return null;
