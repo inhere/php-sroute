@@ -22,6 +22,15 @@ SRoute::post('/user/signUp', function() {
     var_dump($_POST);
 });
 
+SRoute::group('/user', function () {
+    SRoute::get('/', function () {
+        echo 'hello. you access: /user';
+    });
+    SRoute::get('/index', function () {
+        echo 'hello. you access: /user/index';
+    });
+});
+
 // match GET or POST
 SRoute::map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
@@ -42,25 +51,3 @@ SRoute::any('/home/(:act)', 'inhere\sroute\examples\controllers\HomeController')
 //    echo "the page $path not found!";
 //});
 
-// set config
-SRoute::config([
-    'stopOnMatch' => true,
-    'ignoreLastSep' => true,
-    'dynamicAction' => true,
-
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
-//        echo 'System Maintaining ... ...';
-//    },
-
-    // enable autoRoute
-    // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' => [
-        'enable' => 1,
-        'controllerNamespace' => 'inhere\sroute\examples\controllers',
-        'controllerSuffix' => 'Controller',
-    ],
-]);
-
-// dispatch
-SRoute::dispatch();

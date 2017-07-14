@@ -2,28 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: inhere
- * Date: 2017-03-02
- * Time: 10:44
+ * Date: 2017/7/14
+ * Time: 下午8:03
  */
 
 namespace inhere\sroute;
 
 /**
- * Class SRoute
- * Simple Router
+ * Class SRouter
  * @package inhere\sroute
  *
- * @method static get(string $route, mixed $handler)
- * @method static post(string $route, mixed $handler)
- * @method static put(string $route, mixed $handler)
- * @method static delete(string $route, mixed $handler)
- * @method static options(string $route, mixed $handler)
- * @method static head(string $route, mixed $handler)
- * @method static search(string $route, mixed $handler)
- * @method static trace(string $route, mixed $handler)
- * @method static any(string $route, mixed $handler)
+ * @method $this get(string $route, mixed $handler)
+ * @method post(string $route, mixed $handler)
+ * @method put(string $route, mixed $handler)
+ * @method delete(string $route, mixed $handler)
+ * @method options(string $route, mixed $handler)
+ * @method head(string $route, mixed $handler)
+ * @method search(string $route, mixed $handler)
+ * @method trace(string $route, mixed $handler)
+ * @method any(string $route, mixed $handler)
  */
-class SRoute
+class SRouter
 {
     // events
     const FOUND = 'found';
@@ -34,9 +33,6 @@ class SRoute
 
     const MATCH_ANY = 'ANY';
     const MATCH_FAV_ICO = '/favicon.ico';
-
-    /** @var string  */
-    private static $currentGroupPrefix = '';
 
     /**
      * There are route path or regex pattern string list
@@ -130,18 +126,49 @@ class SRoute
         'actionExecutor' => '', // 'run'
     ];
 
+    /** @var string  */
+    private $currentGroupPrefix;
+
+    /**
+     * SRouter constructor.
+     * @param array $config
+     */
+    public function __construct(array $config = [])
+    {
+        $this->config($config);
+        $this->currentGroupPrefix = '';
+    }
+
     /**
      * Defines a route w/ callback and method
      * @param string $method
      * @param array $args
+     * @return SRouter
      */
-    public static function __callStatic($method, array $args)
+    public function __call($method, array $args)
     {
         if (count($args) < 2) {
             throw new \InvalidArgumentException("The method [$method] parameters is required.");
         }
 
-        self::map($method, trim($args[0]), $args[1]);
+        return $this->map($method, trim($args[0]), $args[1]);
+    }
+
+    /**
+     * @param array $config
+     * @return $this
+     */
+    public function config(array $config)
+    {
+        foreach ($config as $name => $value) {
+            if ($name === 'autoRoute') {
+                self::$config['autoRoute'] = array_merge(self::$config['autoRoute'], (array)$value);
+            } elseif (isset(self::$config[$name])) {
+                self::$config[$name] = $value;
+            }
+        }
+
+        return $this;
     }
 
     /**
@@ -151,17 +178,17 @@ class SRoute
      *  array: ['get','post']
      * @param string $path The route path string. eg: '/user/login'
      * @param callable|string $handler
-     * @return bool
+     * @return $this
      */
-    public static function map($method, $path, $handler)
+    public function map($method, $path, $handler)
     {
         // array
         if (is_array($method)) {
             foreach ((array)$method as $m) {
-                self::map($m, $path, $handler);
+                $this->map($m, $path, $handler);
             }
 
-            return true;
+            return $this;
         }
 
         // string - register route and callback
@@ -188,42 +215,23 @@ class SRoute
 
         $s = self::$handlers->getSize();
 
-        if (($c = self::count()) >= $s) {
+        if (($c = $this->count()) >= $s) {
             self::$handlers->setSize(++$s);
         }
 
         // always add '/' prefix.
-        self::$routes[] = self::$currentGroupPrefix . ($path{0} === '/' ? $path : '/' . $path);
+        self::$routes[] = $this->currentGroupPrefix . ($path{0} === '/' ? $path : '/' . $path);
         self::$methods[] = strtoupper($method);
         self::$handlers[$c] = $handler;
 
-        return true;
-    }
-
-    /**
-     * Create a route group with a common prefix.
-     *
-     * All routes created in the passed callback will have the given group prefix prepended.
-     *
-     * @from package 'nikic/fast-route'
-     * @param string $prefix
-     * @param \Closure $callback
-     */
-    public static function group($prefix, \Closure $callback)
-    {
-        $previousGroupPrefix = self::$currentGroupPrefix;
-        self::$currentGroupPrefix = $previousGroupPrefix . $prefix;
-
-        $callback();
-
-        self::$currentGroupPrefix = $previousGroupPrefix;
+        return $this;
     }
 
     /**
      * Runs the callback for the given request
      * @return mixed
      */
-    public static function dispatch()
+    public function dispatch()
     {
         $result = null;
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -256,7 +264,7 @@ class SRoute
                 // Using an ANY option to match both GET and POST requests
                 if (self::$methods[$pos] === $method || self::$methods[$pos] === self::MATCH_ANY) {
                     $founded = true;
-                    $result = self::handleMatchedRoute($path, self::$handlers[$pos]);
+                    $result = $this->handleMatchedRoute($path, self::$handlers[$pos]);
 
                     if ($stopOnMatch) {
                         break;
@@ -279,7 +287,7 @@ class SRoute
                     preg_match('#^' . $route . '$#', $path, $matches)
                 ) {
                     $founded = true;
-                    $result = self::handleMatchedRoute($path, self::$handlers[$pos], $matches);
+                    $result = $this->handleMatchedRoute($path, self::$handlers[$pos], $matches);
 
                     if ($stopOnMatch) {
                         break;
@@ -293,11 +301,30 @@ class SRoute
         }
 
         // handle Auto Route
-        if ($handler = self::handleAutoRoute($path)) {
-            return self::handleMatchedRoute($path, $handler);
+        if ($handler = $this->handleAutoRoute($path)) {
+            return $this->handleMatchedRoute($path, $handler);
         }
 
-        return self::handleNotFound($path);
+        return $this->handleNotFound($path);
+    }
+
+    /**
+     * Create a route group with a common prefix.
+     *
+     * All routes created in the passed callback will have the given group prefix prepended.
+     *
+     * @from package 'nikic/fast-route'
+     * @param string $prefix
+     * @param \Closure $callback
+     */
+    public function group($prefix, \Closure $callback)
+    {
+        $previousGroupPrefix = $this->currentGroupPrefix;
+        $this->currentGroupPrefix = $previousGroupPrefix . $prefix;
+
+        $callback($this);
+
+        $this->currentGroupPrefix = $previousGroupPrefix;
     }
 
     /**
@@ -307,7 +334,7 @@ class SRoute
      * @param bool $receiveReturn
      * @return null|string
      */
-    public static function dispatchTo($uri, $method = 'GET', $receiveReturn = true)
+    public function dispatchTo($uri, $method = 'GET', $receiveReturn = true)
     {
         $result = null;
 
@@ -321,10 +348,10 @@ class SRoute
 
         if ($receiveReturn) {
             ob_start();
-            self::dispatch();
+            $this->dispatch();
             $result = ob_get_clean();
         } else {
-            self::dispatch();
+            $this->dispatch();
         }
 
         // restore old value
@@ -340,7 +367,7 @@ class SRoute
      * @param array $matches
      * @return mixed
      */
-    protected static function handleMatchedRoute($path, $handler, array $matches = [])
+    protected function handleMatchedRoute($path, $handler, array $matches = [])
     {
         // trigger route found event
         self::fire(self::FOUND, [$path, $handler, $matches]);
@@ -356,7 +383,7 @@ class SRoute
 
                 // if not setting `$matchedRouteParser`, use default handler.
             } else {
-                $result = self::defaultMatchedRouteParser($path, $handler, $matches);
+                $result = $this->defaultMatchedRouteParser($path, $handler, $matches);
             }
 
             // trigger route exec_end event
@@ -375,7 +402,7 @@ class SRoute
      * @param string $path The route path
      * @return bool|callable
      */
-    protected static function handleAutoRoute($path)
+    protected function handleAutoRoute($path)
     {
         /**
          * @var array $opts
@@ -450,7 +477,7 @@ class SRoute
      *  False: The `$path` is matched fail
      * @return bool|mixed
      */
-    protected static function handleNotFound($path, $isActionNotExist = false)
+    protected function handleNotFound($path, $isActionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
         if (!isset(self::$events[self::NOT_FOUND])) {
@@ -459,7 +486,7 @@ class SRoute
                 echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
             };
 
-            self::on(self::NOT_FOUND, $notFoundHandler);
+            $this->on(self::NOT_FOUND, $notFoundHandler);
         } else {
             $notFoundHandler = self::$events[self::NOT_FOUND];
 
@@ -469,7 +496,7 @@ class SRoute
                 $_SERVER['REQUEST_URI'] = $notFoundHandler;
 
                 unset(self::$events[self::NOT_FOUND]);
-                return self::dispatch();
+                return $this->dispatch();
             }
         }
 
@@ -484,7 +511,7 @@ class SRoute
      * @param array $matches Matched param from path
      * @return mixed
      */
-    private static function defaultMatchedRouteParser($path, $pathHandler, array $matches = [])
+    private function defaultMatchedRouteParser($path, $pathHandler, array $matches = [])
     {
         // Remove $matches[0] as [1] is the first parameter.
         if ($matches) {
@@ -527,7 +554,7 @@ class SRoute
 
         // action method is not exist
         if (!$action || !method_exists($controller, $action)) {
-            return self::handleNotFound($path, true);
+            return $this->handleNotFound($path, true);
         }
 
         // call controller's action method
@@ -589,23 +616,9 @@ class SRoute
     /**
      * @return int
      */
-    public static function count()
+    public function count()
     {
         return count(self::$routes);
-    }
-
-    /**
-     * @param array $settings
-     */
-    public static function config(array $settings)
-    {
-        foreach ($settings as $name => $value) {
-            if ($name === 'autoRoute') {
-                self::$config['autoRoute'] = array_merge(self::$config['autoRoute'], (array)$value);
-            } elseif (isset(self::$config[$name])) {
-                self::$config[$name] = $value;
-            }
-        }
     }
 
     /**
@@ -645,7 +658,7 @@ class SRoute
      * @param $event
      * @param callable $handler
      */
-    public static function on($event, $handler)
+    public function on($event, $handler)
     {
         if (self::isSupportedEvent($event)) {
             self::$events[$event] = $handler;
