@@ -11,27 +11,27 @@
  * then you can access url: http://127.0.0.1:5671
  */
 
-use inhere\sroute\SRouter;
+use inhere\sroute\ORouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
 
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
-$router = new SRouter;
-
-require __DIR__ . '/routes.php';
+$router = new ORouter;
 
 // on notFound, output a message.
-$router->on(SRouter::NOT_FOUND, function ($path) {
+$router->on(ORouter::NOT_FOUND, function ($path) {
     echo "the page $path not found!";
 });
 
 // set config
 $router->config([
-    'stopOnMatch' => true,
     'ignoreLastSep' => true,
     'dynamicAction' => true,
+
+    'cacheFile' => __DIR__ . '/router-cache.php',
+    'cacheEnable' => false,
 
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {
@@ -45,5 +45,9 @@ $router->config([
         'controllerNamespace' => 'inhere\sroute\examples\controllers',
         'controllerSuffix' => 'Controller',
     ],
-])
-    ->dispatch();
+]);
+
+require __DIR__ . '/routes.php';
+
+//var_dump($router->getRegularRoutes());die;
+$router->dispatch();

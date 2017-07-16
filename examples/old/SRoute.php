@@ -23,7 +23,7 @@ namespace inhere\sroute;
  * @method static trace(string $route, mixed $handler)
  * @method static any(string $route, mixed $handler)
  */
-class SRoute
+class SRouteOld
 {
     // events
     const FOUND = 'found';
@@ -183,13 +183,13 @@ class SRoute
         }
 
         if (!self::$handlers) {
-            self::$handlers = new \SplFixedArray(5);
+            self::$handlers = new \SplFixedArray(10);
         }
 
         $s = self::$handlers->getSize();
 
         if (($c = self::count()) >= $s) {
-            self::$handlers->setSize(++$s);
+            self::$handlers->setSize($s+5);
         }
 
         // always add '/' prefix.
@@ -221,12 +221,16 @@ class SRoute
 
     /**
      * Runs the callback for the given request
+     * @param null|string $method
+     * @param null|string $path
+     * @param array $data
      * @return mixed
      */
-    public static function dispatch()
+    public static function dispatch($method = null, $path = null, array  $data = [])
     {
         $result = null;
-        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $method = $method ?: $_SERVER['REQUEST_METHOD'];
 
         // if 'filterFavicon' setting is TRUE
         if ($path === self::MATCH_FAV_ICO && self::$config['filterFavicon']) {
@@ -245,7 +249,6 @@ class SRoute
         // clear '//', '///' => '/'
         $path = preg_replace('/\/\/+/', '/', $path);
         $founded = false;
-        $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
         $stopOnMatch = (bool)self::$config['stopOnMatch'];
 
         $routes = self::formatRoutes();

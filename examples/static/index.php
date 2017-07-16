@@ -14,14 +14,12 @@
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
-use inhere\sroute\SRoute;
+use inhere\sroute\SRouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
-require __DIR__ . '/routes.php';
 
 // set config
-SRoute::config([
-    'stopOnMatch' => true,
+SRouter::config([
     'ignoreLastSep' => true,
     'dynamicAction' => true,
 
@@ -39,5 +37,7 @@ SRoute::config([
     ],
 ]);
 
+require __DIR__ . '/routes.php';
+
 // dispatch
-SRoute::dispatch();
+SRouter::dispatch();

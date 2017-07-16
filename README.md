@@ -2,8 +2,6 @@
 
 a very lightweight single file of the router.
 
-> referrer the project **[noahbuscher\macaw](https://github.com/noahbuscher/Macaw)** , but add some feature.
-
 - supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
 - support event: `found` `notFound`. Some things you can do when the triggering event (such as logging, etc.)
 - support manual dispatch a URI route by `SRoute::dispatchTo()`, you can dispatch a URI in your logic.
@@ -36,6 +34,10 @@ a very lightweight single file of the router.
 git clone https://github.com/inhere/php-srouter.git // github
 git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 ```
+
+## benchmark
+
+[benchmark](./benchmark/result.md)
 
 ## usage
 

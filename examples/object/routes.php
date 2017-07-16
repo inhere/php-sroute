@@ -5,18 +5,29 @@
  * Date: 2017/4/27
  * Time: 下午11:56
  *
- * @var \inhere\sroute\SRouter $router
+ * @var \inhere\sroute\ORouter $router
  */
 
 use inhere\sroute\examples\controllers\HomeController;
+
+// uri /50be3774f6/arg1/arg2/arg3/arg4/arg5/arg6/arg7/arg8/arg9/850726135a
+//'regex' => '#^/803d2fad34/([^/]+)1/([^/]+)2/([^/]+)3/([^/]+)4/([^/]+)5/([^/]+)6/([^/]+)7/([^/]+)8/([^/]+)9/961751ae0c$#',
+$router->get('/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a', function() {
+    echo 'hello, welcome. test';
+});
 
 $router->get('/', function() {
     echo 'hello, welcome';
 });
 
-$router->get('/hello/(\w+)', function($arg) {
+
+$router->get('/hello/{name}', function($arg) {
     echo "hello, $arg"; // 'john'
-});
+},[
+    'tokens' => [
+        'name' => '\w+'
+    ]
+]);
 
 // match POST
 $router->post('/user/signUp', function() {
@@ -24,7 +35,7 @@ $router->post('/user/signUp', function() {
 });
 
 $router->group('/user', function ($router) {
-    /** @var \inhere\sroute\SRouter $router */
+    /** @var \inhere\sroute\ORouter $router */
     $router->get('/', function () {
         echo 'hello. you access: /user';
     });
@@ -41,12 +52,11 @@ $router->map(['get', 'post'], '/user/login', function() {
 $router->get('/home', 'inhere\sroute\examples\controllers\HomeController@index');
 
 // can match '/home/test', but not match '/home'
-//$router->any('/home/(\w+)', 'examples\HomeController');
 // can also use defined patterns, @see $router->patterns
-$router->any('/home/(:act)', HomeController::class);
+$router->any('/home/:act', HomeController::class);
 
 // can match '/home' '/home/test'
-//$router->any('/home(/\w+)?', examples\HomeController::class);
+//$router->arg('/home(/:act)?', examples\HomeController::class);
 
 // on notFound, output a message.
 //$router->on('notFound', function ($path) {

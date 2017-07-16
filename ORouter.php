@@ -9,20 +9,20 @@
 namespace inhere\sroute;
 
 /**
- * Class SRoute - this is static class version
+ * Class SRouter- this is object version
  * @package inhere\sroute
  *
- * @method static get(string $route, mixed $handler, array $opts = [])
- * @method static post(string $route, mixed $handler, array $opts = [])
- * @method static put(string $route, mixed $handler, array $opts = [])
- * @method static delete(string $route, mixed $handler, array $opts = [])
- * @method static options(string $route, mixed $handler, array $opts = [])
- * @method static head(string $route, mixed $handler, array $opts = [])
- * @method static search(string $route, mixed $handler, array $opts = [])
- * @method static trace(string $route, mixed $handler, array $opts = [])
- * @method static any(string $route, mixed $handler, array $opts = [])
+ * @method get(string $route, mixed $handler, array $opts = [])
+ * @method post(string $route, mixed $handler, array $opts = [])
+ * @method put(string $route, mixed $handler, array $opts = [])
+ * @method delete(string $route, mixed $handler, array $opts = [])
+ * @method options(string $route, mixed $handler, array $opts = [])
+ * @method head(string $route, mixed $handler, array $opts = [])
+ * @method search(string $route, mixed $handler, array $opts = [])
+ * @method trace(string $route, mixed $handler, array $opts = [])
+ * @method any(string $route, mixed $handler, array $opts = [])
  */
-class SRouter implements RouterInterface
+class ORouter implements RouterInterface
 {
     /**
      * some available patterns regex
@@ -52,13 +52,13 @@ class SRouter implements RouterInterface
     private static $events = [];
 
     /** @var string  */
-    private static $currentGroupPrefix = '';
+    private $currentGroupPrefix;
 
     /** @var array  */
-    private static $currentGroupOption = [];
+    private $currentGroupOption;
 
     /** @var bool  */
-    private static $initialized = false;
+    private $initialized = false;
 
     /**
      * static Routes - no dynamic argument match
@@ -78,7 +78,7 @@ class SRouter implements RouterInterface
      *      ]
      * ]
      */
-    private static $staticRoutes = [];
+    private $staticRoutes = [];
 
     /**
      * regular Routes - have dynamic arguments, but the first node is normal.
@@ -123,7 +123,7 @@ class SRouter implements RouterInterface
      *     ],
      * ]
      */
-    private static $regularRoutes = [];
+    private $regularRoutes = [];
 
     /**
      * vague Routes - have dynamic arguments,but the first node is exists regex.
@@ -141,7 +141,7 @@ class SRouter implements RouterInterface
      *      ... ...
      * ]
      */
-    private static $vagueRoutes = [];
+    private $vagueRoutes = [];
 
     /**
      * There are last route caches
@@ -149,12 +149,10 @@ class SRouter implements RouterInterface
      * [
      *     'path' => [
      *         'GET' => [
-     *              'method' => 'GET',
      *              'handler' => 'handler',
      *              'option' => null,
      *          ],
      *         'POST' => [
-     *              'method' => 'POST',
      *              'handler' => 'handler',
      *              'option' => null,
      *          ],
@@ -162,13 +160,13 @@ class SRouter implements RouterInterface
      *     ]
      * ]
      */
-    private static $routeCaches = [];
+    private $routeCaches = [];
 
     /**
      * some setting for self
      * @var array
      */
-    private static $config = [
+    private $config = [
         // Filter the `/favicon.ico` request.
         'filterFavicon' => false,
         // ignore last '/' char. If is True, will clear last '/'.
@@ -214,20 +212,43 @@ class SRouter implements RouterInterface
     ];
 
     /**
+     * SRouter creator.
+     * @param array $config
+     * @return ORouter
+     * @throws \LogicException
+     */
+    public function create(array $config = [])
+    {
+        return new self($config);
+    }
+
+    /**
+     * SRouter constructor.
      * @param array $config
      * @throws \LogicException
      */
-    public static function config(array $config)
+    public function __construct(array $config = [])
     {
-        if (self::$initialized) {
+        $this->config($config);
+        $this->currentGroupPrefix = '';
+        $this->currentGroupOption = [];
+    }
+
+    /**
+     * @param array $config
+     * @throws \LogicException
+     */
+    public function config(array $config)
+    {
+        if ($this->initialized) {
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
         }
 
         foreach ($config as $name => $value) {
             if ($name === 'autoRoute') {
-                static::$config['autoRoute'] = array_merge(static::$config['autoRoute'], (array)$value);
-            } elseif (isset(static::$config[$name])) {
-                static::$config[$name] = $value;
+                $this->config['autoRoute'] = array_merge($this->config['autoRoute'], (array)$value);
+            } elseif (isset($this->config[$name])) {
+                $this->config[$name] = $value;
             }
         }
     }
@@ -240,15 +261,16 @@ class SRouter implements RouterInterface
      * Defines a route callback and method
      * @param string $method
      * @param array $args
+     * @return ORouter
      * @throws \InvalidArgumentException
      */
-    public static function __callStatic($method, array $args)
+    public function __call($method, array $args)
     {
         if (count($args) < 2) {
-            throw new \InvalidArgumentException("The method [$method] parameters is required.");
+            throw new \InvalidArgumentException("The method [$method] parameters is missing.");
         }
 
-        self::map($method, $args[0], $args[1], isset($args[2]) ? $args[2] : null);
+        return $this->map($method, $args[0], $args[1], isset($args[2]) ? $args[2] : []);
     }
 
     /**
@@ -260,18 +282,18 @@ class SRouter implements RouterInterface
      * @param \Closure $callback
      * @param array $opts
      */
-    public static function group($prefix, \Closure $callback, array $opts = [])
+    public function group($prefix, \Closure $callback, array $opts = [])
     {
-        $previousGroupPrefix = self::$currentGroupPrefix;
-        self::$currentGroupPrefix = $previousGroupPrefix . $prefix;
+        $previousGroupPrefix = $this->currentGroupPrefix;
+        $this->currentGroupPrefix = $previousGroupPrefix . $prefix;
 
-        $previousGroupOption = self::$currentGroupOption;
-        self::$currentGroupOption = $opts;
+        $previousGroupOption = $this->currentGroupOption;
+        $this->currentGroupOption = $opts;
 
-        $callback();
+        $callback($this);
 
-        self::$currentGroupPrefix = $previousGroupPrefix;
-        self::$currentGroupOption = $previousGroupOption;
+        $this->currentGroupPrefix = $previousGroupPrefix;
+        $this->currentGroupOption = $previousGroupOption;
     }
 
     /**
@@ -287,22 +309,27 @@ class SRouter implements RouterInterface
      *     'hosts'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schema' => 'https',
      * ]
-     * @return true
+     * @return $this
      * @throws \InvalidArgumentException
      */
-    public static function map($method, $route, $handler, array $opts = [])
+    public function map($method, $route, $handler, array $opts = [])
     {
-        if (!self::$initialized) {
-            self::$initialized = true;
+        if (!$this->initialized) {
+            $this->initialized = true;
+        }
+
+        // file cache exists check.
+        if ($this->cacheEnabled() && $this->cacheExists()) {
+            return $this;
         }
 
         // array
         if (is_array($method)) {
             foreach ((array)$method as $m) {
-                self::map($m, $route, $handler, $opts);
+                $this->map($m, $route, $handler, $opts);
             }
 
-            return true;
+            return $this;
         }
 
         // string - register route and callback
@@ -310,21 +337,21 @@ class SRouter implements RouterInterface
         $method = strtoupper($method);
 
         // validate arguments
-        self::validateArguments($method, $handler);
+        $this->validateArguments($method, $handler);
 
         if ($route = trim($route)) {
             // always add '/' prefix.
             $route = $route{0} === '/' ? $route : '/' . $route;
 
             // setting 'ignoreLastSep'
-            if ($route !== '/' && self::$config['ignoreLastSep']) {
+            if ($route !== '/' && $this->config['ignoreLastSep']) {
                 $route = rtrim($route, '/');
             }
         } else {
             $route = '/';
         }
 
-        $route = self::$currentGroupPrefix . $route;
+        $route = $this->currentGroupPrefix . $route;
         $opts = array_replace([
            'tokens' => null,
            'domains'  => null,
@@ -332,7 +359,7 @@ class SRouter implements RouterInterface
             // route event
            'enter' => null,
            'leave' => null,
-        ], self::$currentGroupOption, $opts);
+        ], $this->currentGroupOption, $opts);
 
         $conf = [
             'method' => $method,
@@ -342,18 +369,18 @@ class SRouter implements RouterInterface
 
         // no dynamic param tokens
         if (strpos($route, '{') === false) {
-            self::$staticRoutes[$route][$method] = $conf;
+            $this->staticRoutes[$route][$method] = $conf;
 
-            return true;
+            return $this;
         }
 
         // have dynamic param tokens
 
-        $route = $tmp = self::replaceTokenToPattern($route, $opts);
+        $route = $tmp = $this->replaceTokenToPattern($route, $opts);
 
         list($first,) = explode('/', trim($tmp, '/'), 2);
 
-        // first node is a normal string '/user/:id', '/a/:post'
+        // first node is a normal string '/user/{id}', '/a/{post}'
         if (preg_match('#^(?|[\w-]+)$#', $first)) {
             $conf = [
                 'first' => '/' . $first,
@@ -361,15 +388,15 @@ class SRouter implements RouterInterface
             ] + $conf;
 
             $twoLevelKey = isset($first{1}) ? $first{1} : '__NO__';
-            self::$regularRoutes[$first{0}][$twoLevelKey][] = $conf;
+            $this->regularRoutes[$first{0}][$twoLevelKey][] = $conf;
 
             // first node contain regex param '/:some/:some2'
         } else {
             $conf['regex'] = '#^' . $route . '$#';
-            self::$vagueRoutes[] = $conf;
+            $this->vagueRoutes[] = $conf;
         }
 
-        return true;
+        return $this;
     }
 
     /**
@@ -377,7 +404,7 @@ class SRouter implements RouterInterface
      * @param $handler
      * @throws \InvalidArgumentException
      */
-    private static function validateArguments($method, $handler)
+    private function validateArguments($method, $handler)
     {
         $supStr = implode('|', self::$supportedMethods);
 
@@ -399,7 +426,7 @@ class SRouter implements RouterInterface
      * @param array $opts
      * @return string
      */
-    private static function replaceTokenToPattern($route, array $opts)
+    private function replaceTokenToPattern($route, array $opts)
     {
         /** @var array $tokens */
         $tokens = self::$globalTokens;
@@ -441,10 +468,10 @@ class SRouter implements RouterInterface
      * @param string $path
      * @return mixed
      */
-    public static function match($path, $method)
+    public function match($path, $method)
     {
         // if enable 'matchAll'
-        if ($matchAll = static::$config['matchAll']) {
+        if ($matchAll = $this->config['matchAll']) {
             if (is_string($matchAll) && $matchAll{0} === '/') {
                 $path = $matchAll;
             } elseif (is_callable($matchAll)) {
@@ -452,38 +479,47 @@ class SRouter implements RouterInterface
             }
         }
 
-        // clear '//', '///' => '/'
-        $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
-        $method = strtoupper($method);
-        $number = static::$config['tmpCacheNumber'];
-
-        // find in class cache.
-        if (self::$routeCaches && isset(self::$routeCaches[$path])) {
-            if (isset(self::$routeCaches[$path][$method])) {
-                return [$path, self::$routeCaches[$path][$method]];
-            }
-
-            if (isset(self::$routeCaches[$path][self::MATCH_ANY])) {
-                return [$path, self::$routeCaches[$path][self::MATCH_ANY]];
+        // dump and read route caches from cache file
+        if ($file = $this->config['cacheFile']) {
+            if (!file_exists($file)) {
+                $this->dumpRoutesCache($file);
+            } else {
+                $this->loadRoutesCache($file);
             }
         }
 
-        // is a static path route
-        if (self::$staticRoutes && isset(self::$staticRoutes[$path])) {
-            if (isset(self::$staticRoutes[$path][$method])) {
-                return [$path, self::$staticRoutes[$path][$method]];
+        // clear '//', '///' => '/'
+        $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
+        $method = strtoupper($method);
+        $number = $this->config['tmpCacheNumber'];
+
+        // find in route caches.
+        if ($this->routeCaches && isset($this->routeCaches[$path])) {
+            if (isset($this->routeCaches[$path][$method])) {
+                return [$path, $this->routeCaches[$path][$method]];
             }
 
-            if (isset(self::$staticRoutes[$path][self::MATCH_ANY])) {
-                return [$path, self::$staticRoutes[$path][self::MATCH_ANY]];
+            if (isset($this->routeCaches[$path][self::MATCH_ANY])) {
+                return [$path, $this->routeCaches[$path][self::MATCH_ANY]];
+            }
+        }
+
+        // is a static route path
+        if ($this->staticRoutes && isset($this->staticRoutes[$path])) {
+            if (isset($this->staticRoutes[$path][$method])) {
+                return [$path, $this->staticRoutes[$path][$method]];
+            }
+
+            if (isset($this->staticRoutes[$path][self::MATCH_ANY])) {
+                return [$path, $this->staticRoutes[$path][self::MATCH_ANY]];
             }
         }
 
         $tmp = trim($path, '/'); // clear first '/'
 
         // is a regular dynamic route(the first char is 1th level index key).
-        if (self::$regularRoutes && isset(self::$regularRoutes[$tmp{0}])) {
-            $twoLevelArr = self::$regularRoutes[$tmp{0}];
+        if ($this->regularRoutes && isset($this->regularRoutes[$tmp{0}])) {
+            $twoLevelArr = $this->regularRoutes[$tmp{0}];
             $twoLevelKey = isset($tmp{1}) ? $tmp{1} : '__NO__';
 
             // not found
@@ -500,11 +536,11 @@ class SRouter implements RouterInterface
 
                     // cache latest $number routes.
                     if ($number > 0) {
-                        if (count(self::$routeCaches) === $number) {
-                            array_shift(self::$routeCaches);
+                        if (count($this->routeCaches) === $number) {
+                            array_shift($this->routeCaches);
                         }
 
-                        self::$routeCaches[$path][$conf['method']] = $conf;
+                        $this->routeCaches[$path][$conf['method']] = $conf;
                     }
 
                     $conf['matches'] = $matches;
@@ -515,7 +551,7 @@ class SRouter implements RouterInterface
         }
 
         // is a irregular dynamic route
-        foreach (self::$vagueRoutes as $conf) {
+        foreach ($this->vagueRoutes as $conf) {
             if (preg_match($conf['regex'], $path, $matches)) {
                 // method not allowed
                 if ($method !== $conf['method'] && self::MATCH_ANY !== $conf['method']) {
@@ -524,11 +560,11 @@ class SRouter implements RouterInterface
 
                 // cache last $number routes.
                 if ($number > 0) {
-                    if (count(self::$routeCaches) === $number) {
-                        array_shift(self::$routeCaches);
+                    if (count($this->routeCaches) === $number) {
+                        array_shift($this->routeCaches);
                     }
 
-                    self::$routeCaches[$path][$conf['method']][] = $conf;
+                    $this->routeCaches[$path][$conf['method']][] = $conf;
                 }
 
                 $conf['matches'] = $matches;
@@ -538,7 +574,7 @@ class SRouter implements RouterInterface
         }
 
         // handle Auto Route
-        if ($handler = self::matchAutoRoute($path)) {
+        if ($handler = $this->matchAutoRoute($path)) {
             return [$path, [
                 'handler' => $handler
             ]];
@@ -554,7 +590,7 @@ class SRouter implements RouterInterface
      * @param string $path The route path
      * @return bool|callable
      */
-    private static function matchAutoRoute($path)
+    private function matchAutoRoute($path)
     {
         /**
          * @var array $opts
@@ -563,7 +599,7 @@ class SRouter implements RouterInterface
          *  'controllerSuffix' => '',    // controller suffix. eg: 'Controller'
          * ]
          */
-        $opts = static::$config['autoRoute'];
+        $opts = $this->config['autoRoute'];
 
         // not enabled
         if (!$opts || !isset($opts['enable']) || !$opts['enable']) {
@@ -633,45 +669,45 @@ class SRouter implements RouterInterface
      * @param null $method
      * @return mixed
      */
-    public static function dispatch($path = null, $method = null)
+    public function dispatch($path = null, $method = null)
     {
         $result = null;
         $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // if 'filterFavicon' setting is TRUE
-        if ($path === self::MATCH_FAV_ICO && static::$config['filterFavicon']) {
+        if ($path === self::MATCH_FAV_ICO && $this->config['filterFavicon']) {
             return $result;
         }
 
         $method = $method ?: $_SERVER['REQUEST_METHOD'];
 
         // handle Auto Route
-        if ($data = self::match($path, $method)) {
+        if ($data = $this->match($path, $method)) {
             list($path, $conf) = $data;
 
             // trigger route found event
-            self::fire(self::FOUND, [$path, $conf]);
+            $this->fire(self::FOUND, [$path, $conf]);
 
             $handler = $conf['handler'];
             $matches = isset($conf['matches']) ? $conf['matches'] : null;
 
             try {
                 // trigger route exec_start event
-                self::fire(self::EXEC_START, [$path, $conf]);
+                $this->fire(self::EXEC_START, [$path, $conf]);
 
-                $result = self::callMatchedRouteHandler($path, $handler, $matches);
+                $result = $this->callMatchedRouteHandler($path, $handler, $matches);
 
                 // trigger route exec_end event
-                self::fire(self::EXEC_END, [$path, $conf]);
+                $this->fire(self::EXEC_END, [$path, $conf]);
             } catch (\Exception $e) {
                 // trigger route exec_error event
-                self::fire(self::EXEC_ERROR, [$e, $path, $conf]);
+                $this->fire(self::EXEC_ERROR, [$e, $path, $conf]);
             }
 
             return $result;
         }
 
-        return self::handleNotFound($path);
+        return $this->handleNotFound($path);
     }
 
     /**
@@ -681,16 +717,16 @@ class SRouter implements RouterInterface
      * @param bool $receiveReturn
      * @return null|string
      */
-    public static function dispatchTo($uri, $method = 'GET', $receiveReturn = true)
+    public function dispatchTo($uri, $method = 'GET', $receiveReturn = true)
     {
         $result = null;
 
         if ($receiveReturn) {
             ob_start();
-            self::dispatch($uri, $method);
+            $this->dispatch($uri, $method);
             $result = ob_get_clean();
         } else {
-            $result = self::dispatch($uri, $method);
+            $result = $this->dispatch($uri, $method);
         }
 
         return $result;
@@ -703,7 +739,7 @@ class SRouter implements RouterInterface
      *  False: The `$path` is matched fail
      * @return bool|mixed
      */
-    private static function handleNotFound($path, $isActionNotExist = false)
+    private function handleNotFound($path, $isActionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
         if (!isset(self::$events[self::NOT_FOUND])) {
@@ -712,7 +748,7 @@ class SRouter implements RouterInterface
                  echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
             };
 
-            self::on(self::NOT_FOUND, $notFoundHandler);
+            $this->on(self::NOT_FOUND, $notFoundHandler);
         } else {
             $notFoundHandler = self::$events[self::NOT_FOUND];
 
@@ -721,7 +757,7 @@ class SRouter implements RouterInterface
                 $_GET['_src_path'] = $path;
 
                 unset(self::$events[self::NOT_FOUND]);
-                return self::dispatch($path);
+                return $this->dispatch($notFoundHandler);
             }
         }
 
@@ -739,7 +775,7 @@ class SRouter implements RouterInterface
      * @return mixed
      * @throws \RuntimeException
      */
-    private static function callMatchedRouteHandler($path, $handler, array $matches = null)
+    private function callMatchedRouteHandler($path, $handler, array $matches = null)
     {
         // Remove $matches[0] as [1] is the first parameter.
         if ($matches) {
@@ -764,24 +800,24 @@ class SRouter implements RouterInterface
             $action = $segments[1];
 
             // use dynamic action
-        } elseif ((bool)static::$config['dynamicAction']) {
-            $action = isset($matches[0]) ? trim($matches[0], '/') : static::$config['defaultAction'];
+        } elseif ((bool)$this->config['dynamicAction']) {
+            $action = isset($matches[0]) ? trim($matches[0], '/') : $this->config['defaultAction'];
 
             // defined default action
-        } elseif (!$action = static::$config['defaultAction']) {
+        } elseif (!$action = $this->config['defaultAction']) {
             throw new \RuntimeException("please config the route path [$path] controller action to call");
         }
 
         $action = self::convertNodeStr($action);
 
         // if set the 'actionExecutor', the action handle logic by it.
-        if ($executor = static::$config['actionExecutor']) {
+        if ($executor = $this->config['actionExecutor']) {
             return $controller->$executor($action, $matches);
         }
 
         // action method is not exist
         if (!$action || !method_exists($controller, $action)) {
-            return self::handleNotFound($path, true);
+            return $this->handleNotFound($path, true);
         }
 
         // call controller's action method
@@ -796,10 +832,10 @@ class SRouter implements RouterInterface
     /**
      * @param array $tokens
      */
-    public static function addTokens(array $tokens)
+    public function addTokens(array $tokens)
     {
         foreach ($tokens as $name => $pattern) {
-            self::addToken($name, $pattern);
+            $this->addToken($name, $pattern);
         }
     }
 
@@ -807,10 +843,76 @@ class SRouter implements RouterInterface
      * @param $name
      * @param $pattern
      */
-    public static function addToken($name, $pattern)
+    public function addToken($name, $pattern)
     {
         $name = trim($name, '{} ');
         self::$globalTokens[$name] = $pattern;
+    }
+
+    /**
+     * @return bool
+     */
+    public function cacheEnabled()
+    {
+        return (bool)$this->config['cacheEnable'];
+    }
+
+    /**
+     * @return bool
+     */
+    public function cacheExists()
+    {
+        return $this->config['cacheFile'] && file_exists($this->config['cacheFile']);
+    }
+
+    /**
+     * @param string $file
+     * @return bool|int
+     */
+    public function dumpRoutesCache($file)
+    {
+        if (!$file) {
+            return false;
+        }
+
+        $date = date('Y-m-d H:i:s');
+        $staticRoutes = var_export($this->staticRoutes, true);
+        $regularRoutes = var_export($this->regularRoutes, true);
+        $vagueRoutes = var_export($this->vagueRoutes, true);
+
+        $code = <<<EOF
+<?php
+/*
+ * This inhere/sroute routes cache file. is auto generate by inhere\sroute\ORouter.
+ * @date $date
+ */
+return [
+    'staticRoutes' => $staticRoutes,
+    'regularRoutes' => $regularRoutes,
+    'vagueRoutes' => $vagueRoutes,
+];
+EOF;
+
+        return file_put_contents($file, $code);
+    }
+
+    /**
+     * @param string $file
+     * @return bool
+     */
+    public function loadRoutesCache($file)
+    {
+        if (!$this->cacheEnabled()) {
+            return false;
+        }
+
+        $map = include $file;
+
+        $this->staticRoutes = $map['staticRoutes'];
+        $this->regularRoutes = $map['regularRoutes'];
+        $this->vagueRoutes = $map['vagueRoutes'];
+
+        return true;
     }
 
     /**
@@ -833,41 +935,33 @@ class SRouter implements RouterInterface
     }
 
     /**
-     * @return int
-     */
-    public static function count()
-    {
-        return count(self::$staticRoutes) + count(self::$regularRoutes) + count(self::$vagueRoutes);
-    }
-
-    /**
      * @return array
      */
-    public static function getStaticRoutes()
+    public function getStaticRoutes()
     {
-        return self::$staticRoutes;
+        return $this->staticRoutes;
     }
 
     /**
      * @return \array[]
      */
-    public static function getRegularRoutes()
+    public function getRegularRoutes()
     {
-        return self::$regularRoutes;
+        return $this->regularRoutes;
     }
 
     /**
      * @return array
      */
-    public static function getVagueRoutes()
+    public function getVagueRoutes()
     {
-        return self::$vagueRoutes;
+        return $this->vagueRoutes;
     }
 
     /**
      * @return array
      */
-    public static function getGlobalTokens()
+    public function getGlobalTokens()
     {
         return self::$globalTokens;
     }
@@ -883,9 +977,9 @@ class SRouter implements RouterInterface
     /**
      * @return array
      */
-    public static function getConfig()
+    public function getConfig()
     {
-        return static::$config;
+        return $this->config;
     }
 
     /**
@@ -893,7 +987,7 @@ class SRouter implements RouterInterface
      * @param $event
      * @param callable $handler
      */
-    public static function on($event, $handler)
+    public function on($event, $handler)
     {
         if (self::isSupportedEvent($event)) {
             self::$events[$event] = $handler;
@@ -906,7 +1000,7 @@ class SRouter implements RouterInterface
      * @param array $args
      * @return mixed
      */
-    protected static function fire($event, array $args = [])
+    protected function fire($event, array $args = [])
     {
         if (isset(self::$events[$event]) && ($cb = self::$events[$event])) {
             return !is_array($cb) ? $cb(...$args) : call_user_func_array($cb, $args);

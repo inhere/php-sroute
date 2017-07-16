@@ -1,10 +1,8 @@
 # php simple router
 
-非常轻量级的单一文件的路由器。无依赖、简洁、自定义性强
+非常轻量级的单一文件的路由器。无依赖、简洁、速度快、自定义性强
 
-> 基础逻辑参考自项目 **[noahbuscher\macaw](https://github.com/noahbuscher/Macaw)** , 添加了一些功能。
-
-- 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
+- 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
@@ -36,6 +34,16 @@ git clone https://github.com/inhere/php-srouter.git // github
 git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 ```
 
+## 压测
+
+自动生成了1000条路由，每条有9个参数位，分别测试1000次的 
+
+- 第一条路由匹配
+- 最后一条路由匹配
+- 不会匹配到的路由
+
+压测结果请看 [benchmark](./benchmark/result.md)
+
 ## 使用
 
 首先, 导入类
@@ -53,7 +61,7 @@ SRoute::get('/', function() {
 });
 
 // 匹配参数 'test/john'
-SRoute::get('/test/(\w+)', function($arg) {
+SRoute::get('/test/{name}', function($arg) {
     echo $arg; // 'john'
 });
 
