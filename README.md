@@ -2,7 +2,8 @@
 
 a very lightweight single file of the router.
 
-- Lightweight and fast speed, the search speed is not affected by the routing number- supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
+- Lightweight and fast speed, the search speed is not affected by the routing number
+- supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
 - support event: `found` `notFound`. Some things you can do when the triggering event (such as logging, etc.)
 - support manual dispatch a URI route by `SRoute::dispatchTo()`, you can dispatch a URI in your logic.
 - support custom the matched route parser: `SRoute::setMatchedRouteParser()`. you can custom how to call the matched route handler.
