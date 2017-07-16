@@ -2,7 +2,7 @@
 
 a very lightweight single file of the router.
 
-- supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
+- Lightweight and fast speed, the search speed is not affected by the routing number- supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
 - support event: `found` `notFound`. Some things you can do when the triggering event (such as logging, etc.)
 - support manual dispatch a URI route by `SRoute::dispatchTo()`, you can dispatch a URI in your logic.
 - support custom the matched route parser: `SRoute::setMatchedRouteParser()`. you can custom how to call the matched route handler.
@@ -10,6 +10,7 @@ a very lightweight single file of the router.
 - more interesting config, please see `SRoute::$_config`
 - You can also do not have to configure anything, it can also work very well
 
+**[中文README](./README_zh.md)**
 
 ## project
 
@@ -56,7 +57,7 @@ SRoute::get('/', function() {
 });
 
 // access 'test/john'
-SRoute::get('/test/(\w+)', function($arg) {
+SRoute::get('/test/{name}', function($arg) {
     echo $arg; // 'john'
 });
 
@@ -91,10 +92,10 @@ match dynamic action, config `'dynamicAction' => true`
 
 ```php
 // access '/home/test' will call 'app\controllers\Home::test()'
-SRoute::any('/home/(\w+)', app\controllers\Home::class);
+SRoute::any('/home/{name}', app\controllers\Home::class);
 
 // can match '/home', '/home/test'
-SRoute::any('/home(/\w+)?', app\controllers\Home::class);
+SRoute::any('/home(/{name})?', app\controllers\Home::class);
 ```
 
 ### use action executor
@@ -110,7 +111,7 @@ SRoute::get('/user/profile', 'app\controllers\User');
 // if config 'actionExecutor' => 'run' and 'dynamicAction' => true,
 // access '/user', will call app\controllers\User::run('')
 // access '/user/profile', will call app\controllers\User::run('profile')
-SRoute::get('/user(/\w+)?', 'app\controllers\User');
+SRoute::get('/user(/{name})?', 'app\controllers\User');
 ```
 
 
@@ -120,7 +121,7 @@ Support automatic matching like yii routed to the controller, need config `autoR
 
 ```php 
     'autoRoute' => [
-        'enable' => 1, // 启用
+        'enable' => 1, // enanbled
         'controllerNamespace' => 'examples\\controllers', // The controller class in the namespace
         'controllerSuffix' => 'Controller', // The controller class suffix
     ],
@@ -178,7 +179,6 @@ SRoute::on('notFound', function ($uri) {
 ```php
 // set config
 SRoute::config([
-    'stopOnMatch' => true,
     'ignoreLastSep' => true,
     'dynamicAction' => true,
     
@@ -202,8 +202,6 @@ SRoute::config([
 ```php
 // there are default config.
 [
-    // stop on matched. only match one
-    'stopOnMatch' => true,
     // Filter the `/favicon.ico` request.
     'filterFavicon' => false,
     // ignore last '/' char. If is True, will clear last '/', so '/home' equals to '/home/'

@@ -20,8 +20,7 @@ $router->get('/', function() {
     echo 'hello, welcome';
 });
 
-
-$router->get('/hello/{name}', function($arg) {
+$router->get('/hello(/{name})?', function($arg='NO') {
     echo "hello, $arg"; // 'john'
 },[
     'tokens' => [

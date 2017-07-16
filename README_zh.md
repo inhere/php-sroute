@@ -2,6 +2,7 @@
 
 非常轻量级的单一文件的路由器。无依赖、简洁、速度快、自定义性强
 
+- 轻量级且速度快，查找速度不受路由数量的影响
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
@@ -9,6 +10,8 @@
 - 支持设置匹配路由的解析器: `SRoute::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
 - 支持通过方法 `SRoute::dispatchTo()` 手动调度一个路由
 - 你也可以不配置任何东西, 它也能很好的工作
+
+**[EN README](./README.md)**
 
 ## 项目地址
 
@@ -104,10 +107,10 @@ SRoute::get('/about', 'app\controllers\Home@about');
 
 ```php
 // 访问 '/home/test' 将会执行 'app\controllers\Home::test()'
-SRoute::any('/home/(\w+)', app\controllers\Home::class);
+SRoute::any('/home/{any}', app\controllers\Home::class);
 
 // 可匹配 '/home', '/home/test' 等
-SRoute::any('/home(/\w+)?', app\controllers\Home::class);
+SRoute::any('/home(/{name})?', app\controllers\Home::class);
 ```
 
 > NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
@@ -131,7 +134,7 @@ SRoute::get('/user/profile', 'app\controllers\User');
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
 // 访问 '/user', 将会调用 app\controllers\User::run('')
 // 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRoute::any('/user(/\w+)?', 'app\controllers\User');
+SRoute::any('/user(/{name})?', 'app\controllers\User');
 ```
 
 ### 自动匹配路由到控制器
@@ -209,7 +212,6 @@ SRoute::on('notFound', function ($uri) {
 ```php
 // set config
 SRoute::config([
-    'stopOnMatch' => true,
     'ignoreLastSep' => true,
     'dynamicAction' => true,
     
@@ -225,10 +227,7 @@ SRoute::config([
 
 ```php
 // 所有的默认的配置
-[
-    // 是否成功匹配后停止。即只匹配一个
-    'stopOnMatch' => true,
-    
+[   
     // 是否过滤 /favicon.ico 请求
     'filterFavicon' => false,
     
