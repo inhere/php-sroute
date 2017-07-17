@@ -204,13 +204,13 @@ class SRouter implements RouterInterface
         // enable dynamic action.
         // e.g
         // if set True;
-        //  SRoute::any('/demo/(\w+)', app\controllers\Demo::class);
+        //  SRouter::any('/demo/{act}', app\controllers\Demo::class);
         //  you access '/demo/test' will call 'app\controllers\Demo::test()'
         'dynamicAction' => false,
 
         // action executor. will auto call controller's executor method to run all action.
         // e.g: 'actionExecutor' => 'run'`
-        //  SRoute::any('/demo/(:act)', app\controllers\Demo::class);
+        //  SRouter::any('/demo/{act}', app\controllers\Demo::class);
         //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
         'actionExecutor' => '', // 'run'
     ];

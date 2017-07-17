@@ -8,8 +8,8 @@
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
-- 支持设置匹配路由的解析器: `SRoute::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
-- 支持通过方法 `SRoute::dispatchTo()` 手动调度一个路由
+- 支持设置匹配路由的解析器: `SRouter::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
+- 支持通过方法 `SRouter::dispatchTo()` 手动调度一个路由
 - 你也可以不配置任何东西, 它也能很好的工作
 
 **[EN README](./README.md)**
@@ -50,22 +50,24 @@ git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 
 ## 使用
 
+> `inhere\sroute\SRouter` 是静态类版本. `inhere\sroute\ORouter` 是对象版本
+
 首先, 导入类
 
 ```php
-use inhere\sroute\SRoute;
+use inhere\sroute\SRouter;
 ```
 
 ## 添加路由
 
 ```php
 // 匹配 GET 请求. 处理器是个闭包 Closure
-SRoute::get('/', function() {
+SRouter::get('/', function() {
     echo 'hello';
 });
 
 // 匹配参数 'test/john'
-SRoute::get('/test/{name}', function($arg) {
+SRouter::get('/test/{name}', function($arg) {
     echo $arg; // 'john'
 }, [
     'tokens' => [
@@ -77,7 +79,7 @@ SRoute::get('/test/{name}', function($arg) {
 // 匹配 
 // 'hello'
 // 'hello/john'
-SRoute::get('/hello[/{name}]', function($name = 'No') {
+SRouter::get('/hello[/{name}]', function($name = 'No') {
     echo $name; // 'john'
 }, [
     'tokens' => [
@@ -86,17 +88,17 @@ SRoute::get('/hello[/{name}]', function($name = 'No') {
 ]);
 
 // 匹配 POST 请求
-SRoute::post('/user/login', function() {
+SRouter::post('/user/login', function() {
     var_dump($_POST);
 });
 
 // 匹配 GET 或者 POST
-SRoute::map(['get', 'post'], '/user/login', function() {
+SRouter::map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
 // 允许任何请求方法
-SRoute::any('/home', function() {
+SRouter::any('/home', function() {
     echo 'hello, you request page is /home';
 });
 ```
@@ -108,10 +110,10 @@ SRoute::any('/home', function() {
 通过`@`符号连接控制器类和方法名可以指定执行方法。
 
 ```php
-SRoute::get('/', app\controllers\Home::class);
+SRouter::get('/', app\controllers\Home::class);
 
-SRoute::get('/index', 'app\controllers\Home@index');
-SRoute::get('/about', 'app\controllers\Home@about');
+SRouter::get('/index', 'app\controllers\Home@index');
+SRouter::get('/about', 'app\controllers\Home@about');
 ```
 
 > NOTICE: 若第二个参数仅仅是个 类，将会尝试执行通过 `defaultAction` 配置的默认方法
@@ -124,10 +126,10 @@ SRoute::get('/about', 'app\controllers\Home@about');
 
 ```php
 // 访问 '/home/test' 将会执行 'app\controllers\Home::test()'
-SRoute::any('/home/{any}', app\controllers\Home::class);
+SRouter::any('/home/{any}', app\controllers\Home::class);
 
 // 可匹配 '/home', '/home/test' 等
-SRoute::any('/home(/{name})?', app\controllers\Home::class);
+SRouter::any('/home(/{name})?', app\controllers\Home::class);
 ```
 
 > NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
@@ -143,15 +145,15 @@ SRoute::any('/home(/{name})?', app\controllers\Home::class);
 
 ```php
 // 访问 '/user', 将会调用 app\controllers\User::run('')
-SRoute::get('/user', 'app\controllers\User');
+SRouter::get('/user', 'app\controllers\User');
 
 // 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRoute::get('/user/profile', 'app\controllers\User');
+SRouter::get('/user/profile', 'app\controllers\User');
 
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
 // 访问 '/user', 将会调用 app\controllers\User::run('')
 // 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRoute::any('/user(/{name})?', 'app\controllers\User');
+SRouter::any('/user(/{name})?', 'app\controllers\User');
 ```
 
 ### 自动匹配路由到控制器
@@ -204,22 +206,22 @@ SRoute::any('/user(/{name})?', 'app\controllers\User');
 ## 设置事件处理(if you need)
 
 ```php
-SRoute::any('/404', function() {
+SRouter::any('/404', function() {
     echo "Sorry,This page {$_GET['path']} not found.";
 });
 ```
 
 ```php
 // 成功匹配路由
-SRoute::on(SRoute::FOUND, function ($uri, $cb) use ($app) {
+SRouter::on(SRouter::FOUND, function ($uri, $cb) use ($app) {
     $app->logger->debug("Matched uri path: $uri, setting callback is: " . is_string($cb) ? $cb : get_class($cb));
 });
 
 // 当匹配失败, 重定向到 '/404'
-SRoute::on('notFound', '/404');
+SRouter::on('notFound', '/404');
 
 // 或者, 当匹配失败, 输出消息...
-SRoute::on('notFound', function ($uri) {
+SRouter::on('notFound', function ($uri) {
     echo "the page $uri not found!";
 });
 ```
@@ -228,7 +230,7 @@ SRoute::on('notFound', function ($uri) {
 
 ```php
 // set config
-SRoute::config([
+SRouter::config([
     'ignoreLastSep' => true,
     'dynamicAction' => true,
     
@@ -272,25 +274,25 @@ SRoute::config([
     // 启用动态action
     // e.g
     // 若设置为 True;
-    //  SRoute::any('/demo/(\w+)', app\controllers\Demo::class);
+    //  SRouter::any('/demo/(\w+)', app\controllers\Demo::class);
     //  访问 '/demo/test' 将会调用 'app\controllers\Demo::test()'
     'dynamicAction' => false,
 
     // 方法执行器. 
     // e.g
     //  `run($action)`
-    //  SRoute::any('/demo/(:act)', app\controllers\Demo::class);
+    //  SRouter::any('/demo/(:act)', app\controllers\Demo::class);
     //  访问 `/demo/test` 将会调用 `app\controllers\Demo::run('test')`
     'actionExecutor' => '', // 'run'
 ]
 ```
 
-> NOTICE: 必须在调用 `SRoute::dispatch()` 之前使用 `SRoute::config()` 来进行一些配置
+> NOTICE: 必须在调用 `SRouter::dispatch()` 之前使用 `SRouter::config()` 来进行一些配置
 
 ## 开始路由分发
 
 ```php
-SRoute::dispatch();
+SRouter::dispatch();
 ```
 
 ## 运行示例
