@@ -14,12 +14,13 @@
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
+use inhere\sroute\Dispatcher;
 use inhere\sroute\SRouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
 
 // set config
-SRouter::config([
+SRouter::setConfig([
     'ignoreLastSep' => true,
     'dynamicAction' => true,
 
@@ -39,5 +40,14 @@ SRouter::config([
 
 require __DIR__ . '/routes.php';
 
+$dispatcher = new Dispatcher([
+    'dynamicAction' => true,
+]);
+
+// on notFound, output a message.
+//$dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
+//    echo "the page $path not found!";
+//});
+
 // dispatch
-SRouter::dispatch();
+SRouter::dispatch($dispatcher);

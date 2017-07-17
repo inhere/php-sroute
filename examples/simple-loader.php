@@ -18,7 +18,7 @@ spl_autoload_register(function($class)
 
     } elseif (0 === strpos($class,'inhere\sroute\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('inhere\sroute\\')));
-        $file = dirname(__DIR__) . "/{$path}.php";
+        $file = dirname(__DIR__) . "/src/{$path}.php";
 
         if (is_file($file)) {
             include $file;

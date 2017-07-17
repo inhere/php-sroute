@@ -11,6 +11,7 @@
  * then you can access url: http://127.0.0.1:5672
  */
 
+use inhere\sroute\Dispatcher;
 use inhere\sroute\ORouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
@@ -20,13 +21,9 @@ date_default_timezone_set('Asia/Shanghai');
 
 $router = new ORouter;
 
-// on notFound, output a message.
-$router->on(ORouter::NOT_FOUND, function ($path) {
-    echo "the page $path not found!";
-});
 
 // set config
-$router->config([
+$router->setConfig([
     'ignoreLastSep' => true,
     'dynamicAction' => true,
 
@@ -48,19 +45,30 @@ $router->config([
 
 require __DIR__ . '/routes.php';
 
+$dispatcher = new Dispatcher([
+    'dynamicAction' => true,
+], function ($path, $method) use ($router) {
+    return $router->match($path, $method);
+});
+
+// on notFound, output a message.
+$dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
+    echo "the page $path not found!";
+});
+
 $server = new \Swoole\Http\Server('127.0.0.1', '5672', SWOOLE_BASE);
 $server->set([
 
 ]);
 
-$server->on('request', function($request, $response) use($router) {
+$server->on('request', function($request, $response) use($dispatcher) {
     $uri = $request->server['request_uri'];
     $method = $request->server['request_method'];
 
     fwrite(STDOUT, "request $method $uri\n");
 
     ob_start();
-    $router->dispatch($uri, $method);
+    $dispatcher->dispatch($uri, $method);
     $content = ob_get_clean();
 
     $response->end($content);

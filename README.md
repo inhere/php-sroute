@@ -1,6 +1,6 @@
 # php simple router
 
-a very lightweight single file of the router.
+a very lightweight router.
 
 - Lightweight and fast speed, the search speed is not affected by the routing number
 - supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`

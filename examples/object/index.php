@@ -11,6 +11,7 @@
  * then you can access url: http://127.0.0.1:5671
  */
 
+use inhere\sroute\Dispatcher;
 use inhere\sroute\ORouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
@@ -20,13 +21,8 @@ date_default_timezone_set('Asia/Shanghai');
 
 $router = new ORouter;
 
-// on notFound, output a message.
-$router->on(ORouter::NOT_FOUND, function ($path) {
-    echo "the page $path not found!";
-});
-
 // set config
-$router->config([
+$router->setConfig([
     // 'ignoreLastSep' => true,
     'dynamicAction' => true,
 
@@ -48,5 +44,17 @@ $router->config([
 
 require __DIR__ . '/routes.php';
 
+$dispatcher = new Dispatcher([
+    'dynamicAction' => true,
+]);
+
+// on notFound, output a message.
+$dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
+    echo "the page $path not found!";
+});
+
+//
+// $dispatcher->dispatch();
+
 // var_dump($router->getConfig(),$router);die;
-$router->dispatch();
+$router->dispatch($dispatcher);

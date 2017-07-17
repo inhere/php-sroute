@@ -47,12 +47,6 @@ class SRouter implements RouterInterface
         'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
     ];
 
-    /**
-     * event handlers
-     * @var array
-     */
-    private static $events = [];
-
     /** @var string  */
     private static $currentGroupPrefix = '';
 
@@ -174,8 +168,6 @@ class SRouter implements RouterInterface
      * @var array
      */
     private static $config = [
-        // Filter the `/favicon.ico` request.
-        'filterFavicon' => false,
         // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
 
@@ -197,29 +189,16 @@ class SRouter implements RouterInterface
             // controller suffix, is valid when `'enable' = true`
             'controllerSuffix' => '',    // eg: 'Controller'
         ],
-
-        // default action method name
-        'defaultAction' => 'index',
-
-        // enable dynamic action.
-        // e.g
-        // if set True;
-        //  SRouter::any('/demo/{act}', app\controllers\Demo::class);
-        //  you access '/demo/test' will call 'app\controllers\Demo::test()'
-        'dynamicAction' => false,
-
-        // action executor. will auto call controller's executor method to run all action.
-        // e.g: 'actionExecutor' => 'run'`
-        //  SRouter::any('/demo/{act}', app\controllers\Demo::class);
-        //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
-        'actionExecutor' => '', // 'run'
     ];
+
+    /** @var DispatcherInterface */
+    private static $dispatcher;
 
     /**
      * @param array $config
      * @throws \LogicException
      */
-    public static function config(array $config)
+    public static function setConfig(array $config)
     {
         if (self::$initialized) {
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
@@ -250,7 +229,7 @@ class SRouter implements RouterInterface
             throw new \InvalidArgumentException("The method [$method] parameters is required.");
         }
 
-        self::map($method, $args[0], $args[1], isset($args[2]) ? $args[2] : null);
+        self::map($method, $args[0], $args[1], isset($args[2]) ? $args[2] : []);
     }
 
     /**
@@ -466,8 +445,8 @@ class SRouter implements RouterInterface
                 return [$path, self::$routeCaches[$path][$method]];
             }
 
-            if (isset(self::$routeCaches[$path][self::MATCH_ANY])) {
-                return [$path, self::$routeCaches[$path][self::MATCH_ANY]];
+            if (isset(self::$routeCaches[$path][self::ANY_METHOD])) {
+                return [$path, self::$routeCaches[$path][self::ANY_METHOD]];
             }
         }
 
@@ -477,8 +456,8 @@ class SRouter implements RouterInterface
                 return [$path, self::$staticRoutes[$path][$method]];
             }
 
-            if (isset(self::$staticRoutes[$path][self::MATCH_ANY])) {
-                return [$path, self::$staticRoutes[$path][self::MATCH_ANY]];
+            if (isset(self::$staticRoutes[$path][self::ANY_METHOD])) {
+                return [$path, self::$staticRoutes[$path][self::ANY_METHOD]];
             }
         }
 
@@ -497,7 +476,7 @@ class SRouter implements RouterInterface
             foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
                 if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
                     // method not allowed
-                    if ($method !== $conf['method'] && self::MATCH_ANY !== $conf['method']) {
+                    if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
                         return false;
                     }
 
@@ -521,7 +500,7 @@ class SRouter implements RouterInterface
         foreach (self::$vagueRoutes as $conf) {
             if (preg_match($conf['regex'], $path, $matches)) {
                 // method not allowed
-                if ($method !== $conf['method'] && self::MATCH_ANY !== $conf['method']) {
+                if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
                     return false;
                 }
 
@@ -579,13 +558,13 @@ class SRouter implements RouterInterface
 
         // one node. eg: 'home'
         if (!strpos($tmp, '/')) {
-            $tmp = self::convertNodeStr($tmp);
+            $tmp = ORouter::convertNodeStr($tmp);
             $class = "$cnp\\" . ucfirst($tmp) . $sfx;
 
             return class_exists($class) ? $class : false;
         }
 
-        $ary = array_map([self::class, 'convertNodeStr'], explode('/', $tmp));
+        $ary = array_map([ORouter::class, 'convertNodeStr'], explode('/', $tmp));
         $cnt = count($ary);
 
         // two nodes. eg: 'home/test' 'admin/user'
@@ -630,166 +609,21 @@ class SRouter implements RouterInterface
 //////////////////////////////////////////////////////////////////////
 
     /**
-     *
      * Runs the callback for the given request
-     * @param null $path
-     * @param null $method
+     * @param DispatcherInterface $dispatcher
      * @return mixed
      */
-    public static function dispatch($path = null, $method = null)
+    public static function dispatch(DispatcherInterface $dispatcher = null)
     {
-        $result = null;
-        $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-        // if 'filterFavicon' setting is TRUE
-        if ($path === self::MATCH_FAV_ICO && static::$config['filterFavicon']) {
-            return $result;
+        if ($dispatcher) {
+            self::$dispatcher = $dispatcher;
+        } elseif (!self::$dispatcher) {
+            self::$dispatcher = new Dispatcher;
         }
 
-        $method = $method ?: $_SERVER['REQUEST_METHOD'];
-
-        // handle Auto Route
-        if ($data = self::match($path, $method)) {
-            list($path, $conf) = $data;
-
-            // trigger route found event
-            self::fire(self::FOUND, [$path, $conf]);
-
-            $handler = $conf['handler'];
-            $matches = isset($conf['matches']) ? $conf['matches'] : null;
-
-            try {
-                // trigger route exec_start event
-                self::fire(self::EXEC_START, [$path, $conf]);
-
-                $result = self::callMatchedRouteHandler($path, $handler, $matches);
-
-                // trigger route exec_end event
-                self::fire(self::EXEC_END, [$path, $conf]);
-            } catch (\Exception $e) {
-                // trigger route exec_error event
-                self::fire(self::EXEC_ERROR, [$e, $path, $conf]);
-            }
-
-            return $result;
-        }
-
-        return self::handleNotFound($path);
-    }
-
-    /**
-     * manual dispatch a URI route
-     * @param string $uri
-     * @param string $method
-     * @param bool $receiveReturn
-     * @return null|string
-     */
-    public static function dispatchTo($uri, $method = 'GET', $receiveReturn = true)
-    {
-        $result = null;
-
-        if ($receiveReturn) {
-            ob_start();
-            self::dispatch($uri, $method);
-            $result = ob_get_clean();
-        } else {
-            $result = self::dispatch($uri, $method);
-        }
-
-        return $result;
-    }
-
-    /**
-     * @param string $path Request uri path
-     * @param bool $isActionNotExist
-     *  True: The `$path` is matched success, but action not exist on route parser
-     *  False: The `$path` is matched fail
-     * @return bool|mixed
-     */
-    private static function handleNotFound($path, $isActionNotExist = false)
-    {
-        // Run the 'notFound' callback if the route was not found
-        if (!isset(self::$events[self::NOT_FOUND])) {
-            $notFoundHandler = function ($path, $isActionNotExist) {
-                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-                 echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
-            };
-
-            self::on(self::NOT_FOUND, $notFoundHandler);
-        } else {
-            $notFoundHandler = self::$events[self::NOT_FOUND];
-
-            // is a route path. like '/site/notFound'
-            if (is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
-                $_GET['_src_path'] = $path;
-
-                unset(self::$events[self::NOT_FOUND]);
-                return self::dispatch($path);
-            }
-        }
-
-        // trigger notFound event
-        return is_array($notFoundHandler) ?
-            call_user_func($notFoundHandler, $path, $isActionNotExist) :
-            $notFoundHandler($path, $isActionNotExist);
-    }
-
-    /**
-     * the default matched route parser.
-     * @param string $path The route path
-     * @param callable $handler The route path handler
-     * @param array $matches Matched param from path
-     * @return mixed
-     * @throws \RuntimeException
-     */
-    private static function callMatchedRouteHandler($path, $handler, array $matches = null)
-    {
-        // Remove $matches[0] as [1] is the first parameter.
-        if ($matches) {
-            array_shift($matches);
-        }
-
-        // is a \Closure or a callable object
-        if (is_object($handler)) {
-            return $matches ? $handler(...$matches) : $handler();
-        }
-
-        //// $handler is string
-
-        // e.g `controllers\Home@index` Or only `controllers\Home`
-        $segments = explode('@', trim($handler));
-
-        // Instantiation controller
-        $controller = new $segments[0]();
-
-        // Already assign action
-        if (isset($segments[1])) {
-            $action = $segments[1];
-
-            // use dynamic action
-        } elseif ((bool)static::$config['dynamicAction']) {
-            $action = isset($matches[0]) ? trim($matches[0], '/') : static::$config['defaultAction'];
-
-            // defined default action
-        } elseif (!$action = static::$config['defaultAction']) {
-            throw new \RuntimeException("please config the route path [$path] controller action to call");
-        }
-
-        $action = self::convertNodeStr($action);
-
-        // if set the 'actionExecutor', the action handle logic by it.
-        if ($executor = static::$config['actionExecutor']) {
-            return $controller->$executor($action, $matches);
-        }
-
-        // action method is not exist
-        if (!$action || !method_exists($controller, $action)) {
-            return self::handleNotFound($path, true);
-        }
-
-        // call controller's action method
-        return $matches ? $controller->$action(...$matches) : $controller->$action();
-
+        return self::$dispatcher->setMatcher(function ($path, $method) {
+            return self::match($path, $method);
+        })->dispatch();
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -814,25 +648,6 @@ class SRouter implements RouterInterface
     {
         $name = trim($name, '{} ');
         self::$globalTokens[$name] = $pattern;
-    }
-
-    /**
-     * convert 'first-second' to 'firstSecond'
-     * @param $str
-     * @return mixed|string
-     */
-    protected static function convertNodeStr($str)
-    {
-        $str = trim($str, '-');
-
-        // convert 'first-second' to 'firstSecond'
-        if (strpos($str, '-')) {
-            $str = preg_replace_callback('/-+([a-z])/', function ($c) {
-                return strtoupper($c[1]);
-            }, trim($str, '- '));
-        }
-
-        return $str;
     }
 
     /**
@@ -892,55 +707,18 @@ class SRouter implements RouterInterface
     }
 
     /**
-     * Defines callback on happen event
-     * @param $event
-     * @param callable $handler
+     * @return DispatcherInterface
      */
-    public static function on($event, $handler)
+    public static function getDispatcher()
     {
-        if (self::isSupportedEvent($event)) {
-            self::$events[$event] = $handler;
-        }
+        return self::$dispatcher;
     }
 
     /**
-     * Trigger event
-     * @param $event
-     * @param array $args
-     * @return mixed
+     * @param DispatcherInterface $dispatcher
      */
-    protected static function fire($event, array $args = [])
+    public static function setDispatcher(DispatcherInterface $dispatcher)
     {
-        if (isset(self::$events[$event]) && ($cb = self::$events[$event])) {
-            return !is_array($cb) ? $cb(...$args) : call_user_func_array($cb, $args);
-        }
-
-        return null;
-    }
-
-    /**
-     * @param $event
-     * @return bool
-     */
-    public static function hasEventHandler($event)
-    {
-        return isset(self::$events[$event]);
-    }
-
-    /**
-     * @return array
-     */
-    public static function getSupportedEvents()
-    {
-        return [self::FOUND, self::NOT_FOUND, self::EXEC_START, self::EXEC_END, self::EXEC_ERROR];
-    }
-
-    /**
-     * @param $name
-     * @return array
-     */
-    public static function isSupportedEvent($name)
-    {
-        return in_array($name, static::getSupportedEvents(), true);
+        self::$dispatcher = $dispatcher;
     }
 }

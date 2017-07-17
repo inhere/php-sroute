@@ -11,10 +11,11 @@ namespace inhere\sroute;
 /**
  * Class Dispatcher
  * @package inhere\sroute
- *
  */
-class Dispatcher
+class Dispatcher implements DispatcherInterface
 {
+    const MATCH_FAV_ICO = '/favicon.ico';
+
     /**
      * event handlers
      * @var array
@@ -26,6 +27,9 @@ class Dispatcher
      * @var array
      */
     private $config = [
+        // Filter the `/favicon.ico` request.
+        'filterFavicon' => false,
+
         // default action method name
         'defaultAction' => 'index',
 
@@ -43,71 +47,104 @@ class Dispatcher
         'actionExecutor' => '', // 'run'
     ];
 
+    private $initialized;
+
     /**
-     *
+     * object creator.
+     * @param \Closure $matcher
+     * @param array $config
+     * @return self
+     */
+    public static function make(array $config = [], \Closure $matcher = null)
+    {
+        return new self($config, $matcher);
+    }
+
+    /**
+     * object constructor.
+     * @param \Closure $matcher
+     * @param array $config
+     */
+    public function __construct(array $config = [], \Closure $matcher = null)
+    {
+        $this->initialized = false;
+        $this->setConfig($config);
+
+        if ($matcher) {
+            $this->setMatcher($matcher);
+        }
+    }
+
+    /**
+     * @param array $config
+     * @throws \LogicException
+     */
+    public function setConfig(array $config)
+    {
+        if ($this->initialized) {
+            throw new \LogicException('Has already started to distributed routing, and configuration is not allowed!');
+        }
+
+        foreach ($config as $name => $value) {
+            if ($name === 'autoRoute') {
+                $this->config['autoRoute'] = array_merge($this->config['autoRoute'], (array)$value);
+            } elseif (isset($this->config[$name])) {
+                $this->config[$name] = $value;
+            }
+        }
+    }
+
+//////////////////////////////////////////////////////////////////////
+/// route callback handler dispatch
+//////////////////////////////////////////////////////////////////////
+
+    /** @var \Closure */
+    private $matcher;
+
+    /**
      * Runs the callback for the given request
-     * @param null $path
-     * @param null $method
+     * @param string $path
+     * @param null|string $method
      * @return mixed
      */
     public function dispatch($path = null, $method = null)
     {
-        $result = null;
+        $this->initialized = true;
+
         $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // if 'filterFavicon' setting is TRUE
         if ($path === self::MATCH_FAV_ICO && $this->config['filterFavicon']) {
-            return $result;
+            return null;
         }
 
         $method = $method ?: $_SERVER['REQUEST_METHOD'];
+        $matcher = $this->matcher;
 
-        // handle Auto Route
-        if ($data = $this->match($path, $method)) {
-            list($path, $conf) = $data;
-
-            // trigger route found event
-            $this->fire(self::FOUND, [$path, $conf]);
-
-            $handler = $conf['handler'];
-            $matches = isset($conf['matches']) ? $conf['matches'] : null;
-
-            try {
-                // trigger route exec_start event
-                $this->fire(self::EXEC_START, [$path, $conf]);
-
-                $result = $this->callMatchedRouteHandler($path, $handler, $matches);
-
-                // trigger route exec_end event
-                $this->fire(self::EXEC_END, [$path, $conf]);
-            } catch (\Exception $e) {
-                // trigger route exec_error event
-                $this->fire(self::EXEC_ERROR, [$e, $path, $conf]);
-            }
-
-            return $result;
+        if (!$info = $matcher($path, $method)) {
+            return $this->handleNotFound($path);
         }
 
-        return $this->handleNotFound($path);
-    }
-
-    /**
-     * manual dispatch a URI route
-     * @param string $uri
-     * @param string $method
-     * @param bool $receiveReturn
-     * @return null|string
-     */
-    public function dispatchTo($uri, $method = 'GET', $receiveReturn = true)
-    {
         $result = null;
+        list($path, $route) = $info;
 
-        if ($receiveReturn) {
-            ob_start();
-            $this->dispatch($uri, $method);
-            $result = ob_get_clean();
-        } else {
-            $result = $this->dispatch($uri, $method);
+        // trigger route found event
+        $this->fire(self::ON_FOUND, [$path, $route]);
+
+        $handler = $route['handler'];
+        $matches = isset($route['matches']) ? $route['matches'] : null;
+
+        try {
+            // trigger route exec_start event
+            $this->fire(self::ON_EXEC_START, [$path, $route]);
+
+            $result = $this->callMatchedRouteHandler($path, $handler, $matches);
+
+            // trigger route exec_end event
+            $this->fire(self::ON_EXEC_END, [$path, $route]);
+        } catch (\Exception $e) {
+            // trigger route exec_error event
+            $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
         }
 
         return $result;
@@ -123,21 +160,21 @@ class Dispatcher
     private function handleNotFound($path, $isActionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
-        if (!isset(self::$events[self::NOT_FOUND])) {
+        if (!isset(self::$events[self::ON_NOT_FOUND])) {
             $notFoundHandler = function ($path, $isActionNotExist) {
                  header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
                  echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
             };
 
-            $this->on(self::NOT_FOUND, $notFoundHandler);
+            $this->on(self::ON_NOT_FOUND, $notFoundHandler);
         } else {
-            $notFoundHandler = self::$events[self::NOT_FOUND];
+            $notFoundHandler = self::$events[self::ON_NOT_FOUND];
 
             // is a route path. like '/site/notFound'
             if (is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
                 $_GET['_src_path'] = $path;
 
-                unset(self::$events[self::NOT_FOUND]);
+                unset(self::$events[self::ON_NOT_FOUND]);
                 return $this->dispatch($notFoundHandler);
             }
         }
@@ -189,7 +226,7 @@ class Dispatcher
             throw new \RuntimeException("please config the route path [$path] controller action to call");
         }
 
-        $action = self::convertNodeStr($action);
+        $action = ORouter::convertNodeStr($action);
 
         // if set the 'actionExecutor', the action handle logic by it.
         if ($executor = $this->config['actionExecutor']) {
@@ -254,7 +291,7 @@ class Dispatcher
      */
     public static function getSupportedEvents()
     {
-        return [self::FOUND, self::NOT_FOUND, self::EXEC_START, self::EXEC_END, self::EXEC_ERROR];
+        return [self::ON_FOUND, self::ON_NOT_FOUND, self::ON_EXEC_START, self::ON_EXEC_END, self::ON_EXEC_ERROR];
     }
 
     /**
@@ -264,5 +301,24 @@ class Dispatcher
     public static function isSupportedEvent($name)
     {
         return in_array($name, static::getSupportedEvents(), true);
+    }
+
+    /**
+     * @return \Closure
+     */
+    public function getMatcher()
+    {
+        return $this->matcher;
+    }
+
+    /**
+     * @param \Closure $matcher
+     * @return $this
+     */
+    public function setMatcher(\Closure $matcher)
+    {
+        $this->matcher = $matcher;
+
+        return $this;
     }
 }

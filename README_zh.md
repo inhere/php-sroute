@@ -1,6 +1,6 @@
 # php simple router
 
-非常轻量级的单一文件的路由器。无依赖、简洁、速度快、自定义性强
+非常轻量级的路由器。无依赖、简洁、速度快、自定义性强
 
 - 轻量级且速度快，查找速度不受路由数量的影响
 - 支持路由参数定义
@@ -9,7 +9,7 @@
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
 - 支持设置匹配路由的解析器: `SRouter::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
-- 支持通过方法 `SRouter::dispatchTo()` 手动调度一个路由
+- 支持通过方法 `SRouter::dispatch($path, $method)` 手动调度一个路由
 - 你也可以不配置任何东西, 它也能很好的工作
 
 **[EN README](./README.md)**

@@ -6,22 +6,22 @@
  * Time: 下午7:52
  */
 
-use inhere\sroute\SRoute;
+use inhere\sroute\SRouter;
 
 // include __DIR__ . '/../../vendor/autoload.php';
 require dirname(__DIR__) . '/examples/simple-loader.php';
 
-SRoute::get('/test', function(){
+SRouter::get('/test', function(){
 });
-SRoute::get('/test2', function(){
+SRouter::get('/test2', function(){
 });
-SRoute::get('/test3', function(){
+SRouter::get('/test3', function(){
 });
-SRoute::get('/test1/(\w+)', function(){
+SRouter::get('/test1/{name}', function(){
 });
-SRoute::get('/test2/(\w+)', function(){
+SRouter::get('/test2/{name}', function(){
 });
-SRoute::get('/test3/(\w+)', function(){
+SRouter::get('/test3/{name}', function(){
 });
 
 $runTime = 10;
@@ -32,7 +32,7 @@ $seconds = 0;
 while($seconds < $runTime) {
     $count++;
 
-    SRoute::dispatchTo('/test2/joe');
+    SRouter::dispatchTo('/test2/joe');
 
     if($time + 1 < microtime(true)) {
         $time = microtime(true);
