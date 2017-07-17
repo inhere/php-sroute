@@ -24,6 +24,8 @@ namespace inhere\sroute;
  */
 class SRouter implements RouterInterface
 {
+    private static $routeCounter = 0;
+
     /**
      * some available patterns regex
      * $router->get('/user/{num}', 'handler');
@@ -91,6 +93,7 @@ class SRouter implements RouterInterface
      *          // 第一节只有一个字符, 使用关键字'__NO__'为 key 进行分组
      *         '__NO__' => [
      *              [
+     *                  'first' => '/a',
      *                  'regex' => '/a/(\w+)',
      *                  'method' => 'GET',
      *                  'handler' => 'handler',
@@ -100,6 +103,7 @@ class SRouter implements RouterInterface
      *          // 第一节有多个字符, 使用第二个字符 为 key 进行分组
      *         'd' => [
      *              [
+     *                  'first' => '/add',
      *                  'regex' => '/add/(\w+)',
      *                  'method' => 'GET',
      *                  'handler' => 'handler',
@@ -112,6 +116,7 @@ class SRouter implements RouterInterface
      *     'b' => [
      *        'l' => [
      *              [
+     *                  'first' => '/blog',
      *                  'regex' => '/blog/(\w+)',
      *                  'method' => 'GET',
      *                  'handler' => 'handler',
@@ -176,9 +181,6 @@ class SRouter implements RouterInterface
 
         // 'tmpCacheNumber' => 100,
         'tmpCacheNumber' => 0,
-
-        'cacheFile' => '',
-        'cacheEnable' => true,
 
         // match all request.
         // 1. If is a valid URI path, will match all request uri to the path.
@@ -324,6 +326,7 @@ class SRouter implements RouterInterface
             $route = '/';
         }
 
+        self::$routeCounter++;
         $route = self::$currentGroupPrefix . $route;
         $opts = array_replace([
            'tokens' => null,
@@ -498,6 +501,8 @@ class SRouter implements RouterInterface
                         return false;
                     }
 
+                    $conf['matches'] = $matches;
+
                     // cache latest $number routes.
                     if ($number > 0) {
                         if (count(self::$routeCaches) === $number) {
@@ -506,8 +511,6 @@ class SRouter implements RouterInterface
 
                         self::$routeCaches[$path][$conf['method']] = $conf;
                     }
-
-                    $conf['matches'] = $matches;
 
                     return [$path, $conf];
                 }
@@ -522,16 +525,16 @@ class SRouter implements RouterInterface
                     return false;
                 }
 
+                $conf['matches'] = $matches;
+
                 // cache last $number routes.
                 if ($number > 0) {
                     if (count(self::$routeCaches) === $number) {
                         array_shift(self::$routeCaches);
                     }
 
-                    self::$routeCaches[$path][$conf['method']][] = $conf;
+                    self::$routeCaches[$path][$conf['method']] = $conf;
                 }
-
-                $conf['matches'] = $matches;
 
                 return [$path, $conf];
             }
@@ -837,7 +840,7 @@ class SRouter implements RouterInterface
      */
     public static function count()
     {
-        return count(self::$staticRoutes) + count(self::$regularRoutes) + count(self::$vagueRoutes);
+        return self::$routeCounter;
     }
 
     /**

@@ -9,8 +9,10 @@
 namespace inhere\sroute;
 
 /**
- * Class SRouter- this is object version
+ * Class SRouter - this is object version.
+ * - 为了支持缓存路由信息到文件， 路由选项和handler将单独提出来存储。
  * @package inhere\sroute
+ * @todo  un-completed
  *
  * @method get(string $route, mixed $handler, array $opts = [])
  * @method post(string $route, mixed $handler, array $opts = [])
@@ -24,8 +26,6 @@ namespace inhere\sroute;
  */
 class ORouter implements RouterInterface
 {
-    private $routeCounter = 0;
-
     /**
      * some available patterns regex
      * $router->get('/user/{num}', 'handler');
@@ -62,6 +62,12 @@ class ORouter implements RouterInterface
     /** @var bool  */
     private $initialized = false;
 
+    /** @var array  */
+    private $routeHandlers = [];
+
+    /** @var array  */
+    private $routeOptions = [];
+
     /**
      * static Routes - no dynamic argument match
      * 整个路由 path 都是静态字符串
@@ -69,12 +75,10 @@ class ORouter implements RouterInterface
      * [
      *     '/user/login' => [
      *         'GET' => [
-     *              'handler' => 'handler',
-     *              'option' => null,
+     *              'hoId' => 12,// handler and option index id
      *          ],
      *         'POST' => [
-     *              'handler' => 'handler',
-     *              'option' => null,
+     *              'hoId' => 13,
      *          ],
      *          ...
      *      ]
@@ -95,9 +99,7 @@ class ORouter implements RouterInterface
      *              [
      *                  'first' => '/a',
      *                  'regex' => '/a/(\w+)',
-     *                  'method' => 'GET',
-     *                  'handler' => 'handler',
-     *                  'option' => null,
+     *                  'method' => 'GET'
      *              ]
      *          ],
      *          // 第一节有多个字符, 使用第二个字符 为 key 进行分组
@@ -106,8 +108,6 @@ class ORouter implements RouterInterface
      *                  'first' => '/add',
      *                  'regex' => '/add/(\w+)',
      *                  'method' => 'GET',
-     *                  'handler' => 'handler',
-     *                  'option' => null,
      *              ],
      *              ... ...
      *          ],
@@ -119,8 +119,6 @@ class ORouter implements RouterInterface
      *                  'first' => '/blog',
      *                  'regex' => '/blog/(\w+)',
      *                  'method' => 'GET',
-     *                  'handler' => 'handler',
-     *                  'option' => null,
      *              ],
      *              ... ...
      *          ],
@@ -140,8 +138,6 @@ class ORouter implements RouterInterface
      *     [
      *         'regex' => '/(\w+)/some',
      *         'method' => 'GET',
-     *         'handler' => 'handler',
-     *         'option' => null,
      *     ],
      *      ... ...
      * ]
@@ -179,6 +175,9 @@ class ORouter implements RouterInterface
 
         // 'tmpCacheNumber' => 100,
         'tmpCacheNumber' => 0,
+
+        'cacheFile' => '',
+        'cacheEnable' => true,
 
         // match all request.
         // 1. If is a valid URI path, will match all request uri to the path.
@@ -234,6 +233,11 @@ class ORouter implements RouterInterface
         $this->config($config);
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
+
+        // read route caches from cache file
+        if (($file = $this->config['cacheFile']) && file_exists($file)) {
+            $this->loadRoutesCache($file);
+        }
     }
 
     /**
@@ -253,6 +257,17 @@ class ORouter implements RouterInterface
                 $this->config[$name] = $value;
             }
         }
+    }
+
+    private $indexId = 0;
+
+    /**
+     * generate index id
+     * @return int
+     */
+    protected function generateId()
+    {
+        return ++$this->indexId;
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -320,6 +335,11 @@ class ORouter implements RouterInterface
             $this->initialized = true;
         }
 
+        // file cache exists check.
+        if ($this->cacheEnabled() && $this->cacheExists()) {
+            return $this;
+        }
+
         // array
         if (is_array($method)) {
             foreach ((array)$method as $m) {
@@ -348,7 +368,6 @@ class ORouter implements RouterInterface
             $route = '/';
         }
 
-        $this->routeCounter++;
         $route = $this->currentGroupPrefix . $route;
         $opts = array_replace([
            'tokens' => null,
@@ -475,6 +494,11 @@ class ORouter implements RouterInterface
             } elseif (is_callable($matchAll)) {
                 return [$path, $matchAll];
             }
+        }
+
+        // dump routes to cache file
+        if (($file = $this->config['cacheFile']) && !file_exists($file)) {
+            $this->dumpRoutesCache($file);
         }
 
         // clear '//', '///' => '/'
@@ -839,11 +863,69 @@ class ORouter implements RouterInterface
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function count()
+    public function cacheEnabled()
     {
-        return $this->routeCounter;
+        return (bool)$this->config['cacheEnable'];
+    }
+
+    /**
+     * @return bool
+     */
+    public function cacheExists()
+    {
+        return $this->config['cacheFile'] && file_exists($this->config['cacheFile']);
+    }
+
+    /**
+     * @param string $file
+     * @return bool|int
+     */
+    public function dumpRoutesCache($file)
+    {
+        if (!$file) {
+            return false;
+        }
+
+        $date = date('Y-m-d H:i:s');
+        $staticRoutes = var_export($this->staticRoutes, true);
+        $regularRoutes = var_export($this->regularRoutes, true);
+        $vagueRoutes = var_export($this->vagueRoutes, true);
+
+        $code = <<<EOF
+<?php
+/*
+ * This inhere/sroute routes cache file. is auto generate by inhere\sroute\ORouter.
+ * @date $date
+ */
+return [
+    'staticRoutes' => $staticRoutes,
+    'regularRoutes' => $regularRoutes,
+    'vagueRoutes' => $vagueRoutes,
+];
+EOF;
+
+        return file_put_contents($file, $code);
+    }
+
+    /**
+     * @param string $file
+     * @return bool
+     */
+    public function loadRoutesCache($file)
+    {
+        if (!$this->cacheEnabled()) {
+            return false;
+        }
+
+        $map = include $file;
+
+        $this->staticRoutes = $map['staticRoutes'];
+        $this->regularRoutes = $map['regularRoutes'];
+        $this->vagueRoutes = $map['vagueRoutes'];
+
+        return true;
     }
 
     /**
