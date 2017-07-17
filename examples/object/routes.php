@@ -20,10 +20,27 @@ $router->get('/', function() {
     echo 'hello, welcome';
 });
 
-$router->get('/hello(?:/{name})?', function($arg='NO') {
-// $router->get('/hello[/{name})]?', function($arg='NO') {
-    // var_dump($args);
-    echo "hello, $arg"; // 'john'
+/*
+match:
+    /my/tom/78
+    /my/tom
+    /my
+ */
+$router->get('/my[/{name}[/{age}]]', function($name='NO', $age = 10) {
+    echo "hello, my name: $name, my age: $age"; // 'john'
+}, [
+    'tokens' => [
+        'age' => '\d+'
+    ]
+]);
+
+/*
+match:
+    /hello/tom
+    /hello
+ */
+$router->get('/hello[/{name}]', function($name='NO') {
+    echo "hello, $name"; // 'john'
 },[
     'tokens' => [
         'name' => '\w+'
@@ -37,9 +54,14 @@ $router->post('/user/signUp', function() {
 
 $router->group('/user', function ($router) {
     /** @var \inhere\sroute\ORouter $router */
-    $router->get('/', function () {
+    $router->get('', function () {
         echo 'hello. you access: /user';
     });
+
+    $router->get('/', function () {
+        echo 'hello. you access: /user/';
+    });
+
     $router->get('/index', function () {
         echo 'hello. you access: /user/index';
     });
@@ -54,13 +76,9 @@ $router->get('/home', 'inhere\sroute\examples\controllers\HomeController@index')
 
 // can match '/home/test', but not match '/home'
 // can also use defined patterns, @see $router->patterns
-$router->any('/home/:act', HomeController::class);
+$router->any('/home/{act}', HomeController::class);
 
 // can match '/home' '/home/test'
-//$router->arg('/home(/:act)?', examples\HomeController::class);
+//$router->arg('/home[/{act}]', examples\HomeController::class);
 
-// on notFound, output a message.
-//$router->on('notFound', function ($path) {
-//    echo "the page $path not found!";
-//});
 

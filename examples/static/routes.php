@@ -43,12 +43,11 @@ SRouter::map(['get', 'post'], '/user/login', function() {
 SRouter::get('/home', 'inhere\sroute\examples\controllers\HomeController@index');
 
 // can match '/home/test', but not match '/home'
-//SRouter::any('/home/(\w+)', 'examples\HomeController');
 // can also use defined patterns, @see SRouter::$patterns
-SRouter::any('/home/(:act)', 'inhere\sroute\examples\controllers\HomeController');
+SRouter::any('/home/{act}', 'inhere\sroute\examples\controllers\HomeController');
 
 // can match '/home' '/home/test'
-//SRouter::any('/home(/\w+)?', examples\HomeController::class);
+//SRouter::any('/home[/{act}]', examples\HomeController::class);
 
 // on notFound, output a message.
 //SRouter::on('notFound', function ($path) {

@@ -27,7 +27,7 @@ $router->on(ORouter::NOT_FOUND, function ($path) {
 
 // set config
 $router->config([
-    'ignoreLastSep' => true,
+    // 'ignoreLastSep' => true,
     'dynamicAction' => true,
 
     // 'tmpCacheNumber' => 100,
@@ -48,5 +48,5 @@ $router->config([
 
 require __DIR__ . '/routes.php';
 
-//var_dump($router->getRegularRoutes());die;
+// var_dump($router->getConfig(),$router);die;
 $router->dispatch();

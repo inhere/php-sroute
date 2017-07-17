@@ -3,6 +3,7 @@
 非常轻量级的单一文件的路由器。无依赖、简洁、速度快、自定义性强
 
 - 轻量级且速度快，查找速度不受路由数量的影响
+- 支持路由参数定义
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
@@ -66,7 +67,23 @@ SRoute::get('/', function() {
 // 匹配参数 'test/john'
 SRoute::get('/test/{name}', function($arg) {
     echo $arg; // 'john'
-});
+}, [
+    'tokens' => [
+        'name' => '\w+', // 添加参数匹配限制
+    ]
+]);
+
+// 可选参数支持
+// 匹配 
+// 'hello'
+// 'hello/john'
+SRoute::get('/hello[/{name}]', function($name = 'No') {
+    echo $name; // 'john'
+}, [
+    'tokens' => [
+        'name' => '\w+', // 添加参数匹配限制
+    ]
+]);
 
 // 匹配 POST 请求
 SRoute::post('/user/login', function() {

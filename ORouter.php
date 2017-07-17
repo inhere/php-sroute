@@ -286,6 +286,7 @@ class ORouter implements RouterInterface
      */
     public function group($prefix, \Closure $callback, array $opts = [])
     {
+        $prefix = '/' . trim($prefix, '/');
         $previousGroupPrefix = $this->currentGroupPrefix;
         $this->currentGroupPrefix = $previousGroupPrefix . $prefix;
 
@@ -332,6 +333,7 @@ class ORouter implements RouterInterface
         // string - register route and callback
 
         $method = strtoupper($method);
+        $hasPrefix = (bool)$this->currentGroupPrefix;
 
         // validate arguments
         $this->validateArguments($method, $handler);
@@ -339,17 +341,18 @@ class ORouter implements RouterInterface
         if ($route = trim($route)) {
             // always add '/' prefix.
             $route = $route{0} === '/' ? $route : '/' . $route;
-
-            // setting 'ignoreLastSep'
-            if ($route !== '/' && $this->config['ignoreLastSep']) {
-                $route = rtrim($route, '/');
-            }
-        } else {
+        } elseif (!$hasPrefix){
             $route = '/';
         }
 
-        $this->routeCounter++;
         $route = $this->currentGroupPrefix . $route;
+
+        // setting 'ignoreLastSep'
+        if ($route !== '/' && $this->config['ignoreLastSep']) {
+            $route = rtrim($route, '/');
+        }
+
+        $this->routeCounter++;
         $opts = array_replace([
            'tokens' => null,
            'domains'  => null,
@@ -374,12 +377,18 @@ class ORouter implements RouterInterface
 
         // have dynamic param tokens
 
-        $route = $tmp = $this->replaceTokenToPattern($route, $opts);
-
+        $tmp = $route;
+        // '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         list($first,) = explode('/', trim($tmp, '/'), 2);
 
-        // first node is a normal string '/user/{id}', '/a/{post}'
-        if (preg_match('#^(?|[\w-]+)$#', $first)) {
+        // like '/hello[/{name}]' parse fisrt to: 'hello'
+        $first = trim($first, '[');
+
+        // replace token name To pattern regex
+        $route = $this->replaceTokenToPattern($route, $opts);
+
+        // first node is a normal string
+        if (preg_match('#^(?:[\w-]+)$#', $first, $m)) {
             $conf = [
                 'first' => '/' . $first,
                 'regex' => '#^' . $route . '$#',
@@ -426,26 +435,25 @@ class ORouter implements RouterInterface
      */
     private function replaceTokenToPattern($route, array $opts)
     {
-        /** @var array $tokens */
-        $tokens = self::$globalTokens;
+        $tokens = $this->getAvailableTokens($opts);
 
-        if ($opts['tokens']) {
-            foreach ((array)$opts['tokens'] as $name => $pattern) {
-                $key = trim($name, '{}');
-                $tokens[$key] = $pattern;
+        // 解析可选参数位
+        // '/hello[/{name}]'      match: /hello/tom   /hello
+        // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
+        if (false !== strpos($route, ']')) {
+            $withoutClosingOptionals = rtrim($route, ']');
+            $optionalNum = strlen($route) - strlen($withoutClosingOptionals);
+            $nodes = explode('[', $withoutClosingOptionals);
+
+            if ($optionalNum !== count($nodes) - 1) {
+                throw new \LogicException('Optional segments can only occur at the end of a route');
             }
+
+            // '/hello[/{name}]' -> '/hello(?:/{name})?'
+            $route = str_replace(['[', ']'], ['(?:', ')?'], $route);
         }
 
-        // '/hello/{name}[/{foo}/{bar}]';
-        // if (false !== strpos($route, ']')) {
-        //     $withoutClosingOptionals = rtrim($route, ']');
-        //     $diff = strlen($route) - strlen($withoutClosingOptionals);
-
-        //     if ($diff !== 1) {
-        //         throw new \LogicException("Optional segments can only occur at the end of a route");
-        //     }
-        // }
-
+        // 解析参数，替换为对应的 正则
         if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
             /** @var array[] $m */
             $replacePairs = [];
@@ -464,6 +472,21 @@ class ORouter implements RouterInterface
         }
 
         return $route;
+    }
+
+    private function getAvailableTokens(array $opts)
+    {
+        /** @var array $tokens */
+        $tokens = self::$globalTokens;
+
+        if ($opts['tokens']) {
+            foreach ((array)$opts['tokens'] as $name => $pattern) {
+                $key = trim($name, '{}');
+                $tokens[$key] = $pattern;
+            }
+        }
+
+        return $tokens;
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -491,6 +514,11 @@ class ORouter implements RouterInterface
         $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
         $method = strtoupper($method);
         $number = $this->config['tmpCacheNumber'];
+
+        // setting 'ignoreLastSep'
+        if ($path !== '/' && $this->config['ignoreLastSep']) {
+            $path = rtrim($path, '/');
+        }
 
         // find in route caches.
         if ($this->routeCaches && isset($this->routeCaches[$path])) {
