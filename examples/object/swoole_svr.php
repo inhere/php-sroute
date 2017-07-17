@@ -6,9 +6,9 @@
  * Time: 下午9:12
  *
  * you can test use:
- *  php -S 127.0.0.1:5671 -t examples/object
+ *  php examples/object/swoole_svr.php
  *
- * then you can access url: http://127.0.0.1:5671
+ * then you can access url: http://127.0.0.1:5672
  */
 
 use inhere\sroute\ORouter;
@@ -30,7 +30,7 @@ $router->config([
     'ignoreLastSep' => true,
     'dynamicAction' => true,
 
-    // 'tmpCacheNumber' => 100,
+    'tmpCacheNumber' => 100,
 
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {
@@ -48,5 +48,22 @@ $router->config([
 
 require __DIR__ . '/routes.php';
 
-//var_dump($router->getRegularRoutes());die;
-$router->dispatch();
+$server = new \Swoole\Http\Server('127.0.0.1', '5672', SWOOLE_BASE);
+$server->set([
+
+]);
+
+$server->on('request', function($request, $response) use($router) {
+    $uri = $request->server['request_uri'];
+    $method = $request->server['request_method'];
+
+    fwrite(STDOUT, "request $method $uri\n");
+
+    ob_start();
+    $router->dispatch($uri, $method);
+    $content = ob_get_clean();
+
+    $response->end($content);
+});
+
+$server->start();

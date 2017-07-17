@@ -388,7 +388,7 @@ class ORouter implements RouterInterface
             $twoLevelKey = isset($first{1}) ? $first{1} : '__NO__';
             $this->regularRoutes[$first{0}][$twoLevelKey][] = $conf;
 
-            // first node contain regex param '/:some/:some2'
+            // first node contain regex param '/{some}/{some2}'
         } else {
             $conf['regex'] = '#^' . $route . '$#';
             $this->vagueRoutes[] = $conf;
@@ -435,6 +435,16 @@ class ORouter implements RouterInterface
                 $tokens[$key] = $pattern;
             }
         }
+
+        // '/hello/{name}[/{foo}/{bar}]';
+        // if (false !== strpos($route, ']')) {
+        //     $withoutClosingOptionals = rtrim($route, ']');
+        //     $diff = strlen($route) - strlen($withoutClosingOptionals);
+
+        //     if ($diff !== 1) {
+        //         throw new \LogicException("Optional segments can only occur at the end of a route");
+        //     }
+        // }
 
         if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
             /** @var array[] $m */
