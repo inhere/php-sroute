@@ -21,7 +21,6 @@ date_default_timezone_set('Asia/Shanghai');
 
 $router = new ORouter;
 
-
 // set config
 $router->setConfig([
     'ignoreLastSep' => true,
@@ -74,4 +73,5 @@ $server->on('request', function($request, $response) use($dispatcher) {
     $response->end($content);
 });
 
+echo "http server listen on http://127.0.0.1:5675\n";
 $server->start();
