@@ -22,6 +22,16 @@ interface RouterInterface
     const STS_METHOD_NOT_ALLOWED = 3;
 
     const DEFAULT_REGEX = '[^/]+';
+    const DEFAULT_TWO_LEVEL_KEY = '_NO_';
+
+    /**
+     * supported Methods
+     * @var array
+     */
+    const SUPPORTED_METHODS = [
+        'ANY',
+        'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
+    ];
 
     /**
      * @return array

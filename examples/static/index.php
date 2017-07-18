@@ -22,7 +22,6 @@ require dirname(__DIR__) . '/simple-loader.php';
 // set config
 SRouter::setConfig([
     'ignoreLastSep' => true,
-    'dynamicAction' => true,
 
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {

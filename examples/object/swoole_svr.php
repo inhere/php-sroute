@@ -8,7 +8,7 @@
  * you can test use:
  *  php examples/object/swoole_svr.php
  *
- * then you can access url: http://127.0.0.1:5672
+ * then you can access url: http://127.0.0.1:5675
  */
 
 use inhere\sroute\Dispatcher;
@@ -56,7 +56,7 @@ $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
     echo "the page $path not found!";
 });
 
-$server = new \Swoole\Http\Server('127.0.0.1', '5672', SWOOLE_BASE);
+$server = new \Swoole\Http\Server('127.0.0.1', '5675', SWOOLE_BASE);
 $server->set([
 
 ]);

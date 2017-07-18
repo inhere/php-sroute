@@ -1,7 +1,7 @@
 <?php
 /*
  * This inhere/sroute routes cache file. is auto generate by inhere\sroute\ORouter.
- * @date 2017-07-16 16:36:10
+ * @date 2017-07-18 18:58:13
  */
 return [
     'staticRoutes' => array (
@@ -10,16 +10,12 @@ return [
     'GET' => 
     array (
       'method' => 'GET',
-      'handler' => 
-      Closure::__set_state(array(
-      )),
+      'handler' => 'home_handler',
       'option' => 
       array (
         'tokens' => NULL,
-        'hosts' => NULL,
+        'domains' => NULL,
         'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
       ),
     ),
   ),
@@ -28,34 +24,26 @@ return [
     'POST' => 
     array (
       'method' => 'POST',
-      'handler' => 
-      Closure::__set_state(array(
-      )),
+      'handler' => 'handler2',
       'option' => 
       array (
         'tokens' => NULL,
-        'hosts' => NULL,
+        'domains' => NULL,
         'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
       ),
     ),
   ),
-  '/user/' => 
+  '/user' => 
   array (
     'GET' => 
     array (
       'method' => 'GET',
-      'handler' => 
-      Closure::__set_state(array(
-      )),
+      'handler' => 'handler3',
       'option' => 
       array (
         'tokens' => NULL,
-        'hosts' => NULL,
+        'domains' => NULL,
         'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
       ),
     ),
   ),
@@ -64,16 +52,12 @@ return [
     'GET' => 
     array (
       'method' => 'GET',
-      'handler' => 
-      Closure::__set_state(array(
-      )),
+      'handler' => 'handler4',
       'option' => 
       array (
         'tokens' => NULL,
-        'hosts' => NULL,
+        'domains' => NULL,
         'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
       ),
     ),
   ),
@@ -82,31 +66,23 @@ return [
     'GET' => 
     array (
       'method' => 'GET',
-      'handler' => 
-      Closure::__set_state(array(
-      )),
+      'handler' => 'handler5',
       'option' => 
       array (
         'tokens' => NULL,
-        'hosts' => NULL,
+        'domains' => NULL,
         'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
       ),
     ),
     'POST' => 
     array (
       'method' => 'POST',
-      'handler' => 
-      Closure::__set_state(array(
-      )),
+      'handler' => 'handler5',
       'option' => 
       array (
         'tokens' => NULL,
-        'hosts' => NULL,
+        'domains' => NULL,
         'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
       ),
     ),
   ),
@@ -119,31 +95,35 @@ return [
       'option' => 
       array (
         'tokens' => NULL,
-        'hosts' => NULL,
+        'domains' => NULL,
         'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
-      ),
-    ),
-  ),
-  '/home/:act' => 
-  array (
-    'ANY' => 
-    array (
-      'method' => 'ANY',
-      'handler' => 'inhere\\sroute\\examples\\controllers\\HomeController',
-      'option' => 
-      array (
-        'tokens' => NULL,
-        'hosts' => NULL,
-        'schema' => NULL,
-        'enter' => NULL,
-        'leave' => NULL,
       ),
     ),
   ),
 ),
     'regularRoutes' => array (
+  'm' => 
+  array (
+    'y' => 
+    array (
+      0 => 
+      array (
+        'first' => '/my',
+        'regex' => '#^/my(?:/([^/]+)(?:/(\\d+))?)?$#',
+        'method' => 'GET',
+        'handler' => 'my_handler',
+        'option' => 
+        array (
+          'tokens' => 
+          array (
+            'age' => '\\d+',
+          ),
+          'domains' => NULL,
+          'schema' => NULL,
+        ),
+      ),
+    ),
+  ),
   'h' => 
   array (
     'e' => 
@@ -151,21 +131,33 @@ return [
       0 => 
       array (
         'first' => '/hello',
-        'regex' => '#^/hello/\\w+$#',
+        'regex' => '#^/hello(?:/(\\w+))?$#',
         'method' => 'GET',
-        'handler' => 
-        Closure::__set_state(array(
-        )),
+        'handler' => 'handler1',
         'option' => 
         array (
           'tokens' => 
           array (
             'name' => '\\w+',
           ),
-          'hosts' => NULL,
+          'domains' => NULL,
           'schema' => NULL,
-          'enter' => NULL,
-          'leave' => NULL,
+        ),
+      ),
+    ),
+    'o' => 
+    array (
+      0 => 
+      array (
+        'first' => '/home',
+        'regex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+        'method' => 'ANY',
+        'handler' => 'inhere\\sroute\\examples\\controllers\\HomeController',
+        'option' => 
+        array (
+          'tokens' => NULL,
+          'domains' => NULL,
+          'schema' => NULL,
         ),
       ),
     ),

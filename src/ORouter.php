@@ -38,15 +38,6 @@ class ORouter implements RouterInterface
         'all' => '.*'
     ];
 
-    /**
-     * supported Methods
-     * @var array
-     */
-    private static $supportedMethods = [
-        'ANY',
-        'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
-    ];
-
     /** @var string */
     private $currentGroupPrefix;
 
@@ -200,7 +191,7 @@ class ORouter implements RouterInterface
      */
     public static function make(array $config = [])
     {
-        return new self($config);
+        return new static($config);
     }
 
     /**
@@ -211,6 +202,7 @@ class ORouter implements RouterInterface
     public function __construct(array $config = [])
     {
         $this->setConfig($config);
+
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
     }
@@ -228,7 +220,7 @@ class ORouter implements RouterInterface
         foreach ($config as $name => $value) {
             if ($name === 'autoRoute') {
                 $this->config['autoRoute'] = array_merge($this->config['autoRoute'], (array)$value);
-            } elseif (isset($this->config[$name])) {
+            } else {
                 $this->config[$name] = $value;
             }
         }
@@ -243,6 +235,7 @@ class ORouter implements RouterInterface
      * @param string $method
      * @param array $args
      * @return ORouter
+     * @throws \LogicException
      * @throws \InvalidArgumentException
      */
     public function __call($method, array $args)
@@ -291,7 +284,8 @@ class ORouter implements RouterInterface
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schema' => 'https',
      * ]
-     * @return $this
+     * @return static
+     * @throws \LogicException
      * @throws \InvalidArgumentException
      */
     public function map($method, $route, $handler, array $opts = [])
@@ -315,7 +309,7 @@ class ORouter implements RouterInterface
         $hasPrefix = (bool)$this->currentGroupPrefix;
 
         // validate arguments
-        $this->validateArguments($method, $handler);
+        static::validateArguments($method, $handler);
 
         if ($route = trim($route)) {
             // always add '/' prefix.
@@ -336,9 +330,9 @@ class ORouter implements RouterInterface
             'tokens' => null,
             'domains' => null,
             'schema' => null, // ['http','https'],
-            // route event
-            'enter' => null,
-            'leave' => null,
+            // route event. custom design ...
+            // 'enter' => null,
+            // 'leave' => null,
         ], $this->currentGroupOption, $opts);
 
         $conf = [
@@ -356,26 +350,18 @@ class ORouter implements RouterInterface
 
         // have dynamic param tokens
 
-        $tmp = $route;
-
         // replace token name To pattern regex
-        $route = self::parseRoute($route, $this->getAvailableTokens(self::$globalTokens, $opts['tokens']));
+        list($first, $conf) = self::parseRoute(
+            $route,
+            self::getAvailableTokens(self::$globalTokens, $opts['tokens']),
+            $conf
+        );
 
-        // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        // first node is a normal string
-        if (preg_match('#^/([\w-]+)#', $tmp, $ms)) {
-            $first = $ms[1];
-            $conf = [
-                    'first' => '/' . $first,
-                    'regex' => '#^' . $route . '$#',
-                ] + $conf;
-
-            $twoLevelKey = isset($first{1}) ? $first{1} : '__NO__';
+        // route string is regular
+        if ($first) {
+            $twoLevelKey = isset($first{1}) ? $first{1} : self::DEFAULT_TWO_LEVEL_KEY;
             $this->regularRoutes[$first{0}][$twoLevelKey][] = $conf;
-
-            // first node contain regex param '/{some}/{some2}'
         } else {
-            $conf['regex'] = '#^' . $route . '$#';
             $this->vagueRoutes[] = $conf;
         }
 
@@ -387,9 +373,9 @@ class ORouter implements RouterInterface
      * @param $handler
      * @throws \InvalidArgumentException
      */
-    private function validateArguments($method, $handler)
+    public static function validateArguments($method, $handler)
     {
-        $supStr = implode('|', self::$supportedMethods);
+        $supStr = implode('|', self::SUPPORTED_METHODS);
 
         if (false === strpos('|' . $supStr . '|', '|' . $method . '|')) {
             throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
@@ -407,10 +393,15 @@ class ORouter implements RouterInterface
     /**
      * @param string $route
      * @param array $tokens
+     * @param array $conf
      * @return string
+     * @throws \LogicException
      */
-    public static function parseRoute($route, array $tokens)
+    public static function parseRoute($route, array $tokens, array $conf)
     {
+        $first = null;
+        $tmp = $route;
+
         // 解析可选参数位
         // '/hello[/{name}]'      match: /hello/tom   /hello
         // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
@@ -444,9 +435,29 @@ class ORouter implements RouterInterface
             $route = strtr($route, $replacePairs);
         }
 
-        return $route;
+        // 分析路由字符串是否是有规律的
+
+        // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
+        // first node is a normal string
+        if (preg_match('#^/([\w-]+)#', $tmp, $ms)) {
+            $first = $ms[1];
+            $conf = [
+                    'first' => '/' . $first,
+                    'regex' => '#^' . $route . '$#',
+                ] + $conf;
+            // first node contain regex param '/{some}/{some2}'
+        } else {
+            $conf['regex'] = '#^' . $route . '$#';
+        }
+
+        return [$first, $conf];
     }
 
+    /**
+     * @param array $tokens
+     * @param array $tmpTokens
+     * @return array
+     */
     public static function getAvailableTokens(array $tokens, $tmpTokens)
     {
         if ($tmpTokens) {
@@ -726,6 +737,14 @@ class ORouter implements RouterInterface
     }
 
     /**
+     * @param array $staticRoutes
+     */
+    public function setStaticRoutes(array $staticRoutes)
+    {
+        $this->staticRoutes = $staticRoutes;
+    }
+
+    /**
      * @return array
      */
     public function getStaticRoutes()
@@ -734,11 +753,27 @@ class ORouter implements RouterInterface
     }
 
     /**
+     * @param \array[] $regularRoutes
+     */
+    public function setRegularRoutes(array $regularRoutes)
+    {
+        $this->regularRoutes = $regularRoutes;
+    }
+
+    /**
      * @return \array[]
      */
     public function getRegularRoutes()
     {
         return $this->regularRoutes;
+    }
+
+    /**
+     * @param array $vagueRoutes
+     */
+    public function setVagueRoutes($vagueRoutes)
+    {
+        $this->vagueRoutes = $vagueRoutes;
     }
 
     /**
@@ -770,14 +805,20 @@ class ORouter implements RouterInterface
      */
     public static function getSupportedMethods()
     {
-        return self::$supportedMethods;
+        return self::SUPPORTED_METHODS;
     }
 
     /**
+     * @param null|string $name
+     * @param null|mixed $default
      * @return array
      */
-    public function getConfig()
+    public function getConfig($name = null, $default = null)
     {
+        if ($name) {
+            return isset($this->config[$name]) ? $this->config[$name] : $default;
+        }
+
         return $this->config;
     }
 

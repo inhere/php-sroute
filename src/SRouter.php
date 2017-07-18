@@ -38,15 +38,6 @@ class SRouter implements RouterInterface
         'all' => '.*'
     ];
 
-    /**
-     * supported Methods
-     * @var array
-     */
-    private static $supportedMethods = [
-        'ANY',
-        'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
-    ];
-
     /** @var string  */
     private static $currentGroupPrefix = '';
 
@@ -222,6 +213,7 @@ class SRouter implements RouterInterface
      * @param string $method
      * @param array $args
      * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     public static function __callStatic($method, array $args)
     {
@@ -269,6 +261,7 @@ class SRouter implements RouterInterface
      *     'schema' => 'https',
      * ]
      * @return true
+     * @throws \LogicException
      * @throws \InvalidArgumentException
      */
     public static function map($method, $route, $handler, array $opts = [])
@@ -291,7 +284,7 @@ class SRouter implements RouterInterface
         $method = strtoupper($method);
 
         // validate arguments
-        self::validateArguments($method, $handler);
+        ORouter::validateArguments($method, $handler);
 
         if ($route = trim($route)) {
             // always add '/' prefix.
@@ -331,52 +324,22 @@ class SRouter implements RouterInterface
 
         // have dynamic param tokens
 
-        $tmp = $route;
-
         // replace token name To pattern regex
-        $route = ORouter::parseRoute($route, ORouter::getAvailableTokens(self::$globalTokens, $opts['tokens']));
+        list($first, $conf) = ORouter::parseRoute(
+            $route,
+            ORouter::getAvailableTokens(self::$globalTokens, $opts['tokens']),
+            $conf
+        );
 
-        // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        // first node is a normal string
-        if (preg_match('#^/([\w-]+)#', $tmp, $ms)) {
-            $first = $ms[1];
-            $conf = [
-                'first' => '/' . $first,
-                'regex' => '#^' . $route . '$#',
-            ] + $conf;
-
-            $twoLevelKey = isset($first{1}) ? $first{1} : '__NO__';
+        // route string is regular
+        if ($first) {
+            $twoLevelKey = isset($first{1}) ? $first{1} : self::DEFAULT_TWO_LEVEL_KEY;
             self::$regularRoutes[$first{0}][$twoLevelKey][] = $conf;
-
-            // first node contain regex param '/:some/:some2'
         } else {
-            $conf['regex'] = '#^' . $route . '$#';
             self::$vagueRoutes[] = $conf;
         }
 
         return true;
-    }
-
-    /**
-     * @param $method
-     * @param $handler
-     * @throws \InvalidArgumentException
-     */
-    private static function validateArguments($method, $handler)
-    {
-        $supStr = implode('|', self::$supportedMethods);
-
-        if (false === strpos('|' . $supStr . '|', '|' . $method . '|')) {
-            throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
-        }
-
-        if (!$handler || (!is_string($handler) && !is_object($handler))) {
-            throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,object');
-        }
-
-        if (is_object($handler) && !is_callable($handler)) {
-            throw new \InvalidArgumentException('The route object handler must be is callable');
-        }
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -587,7 +550,7 @@ class SRouter implements RouterInterface
      */
     public static function getSupportedMethods()
     {
-        return self::$supportedMethods;
+        return self::SUPPORTED_METHODS;
     }
 
     /**

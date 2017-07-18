@@ -54,6 +54,7 @@ class Dispatcher implements DispatcherInterface
      * @param \Closure $matcher
      * @param array $config
      * @return self
+     * @throws \LogicException
      */
     public static function make(array $config = [], \Closure $matcher = null)
     {
@@ -64,6 +65,7 @@ class Dispatcher implements DispatcherInterface
      * object constructor.
      * @param \Closure $matcher
      * @param array $config
+     * @throws \LogicException
      */
     public function __construct(array $config = [], \Closure $matcher = null)
     {
@@ -86,9 +88,7 @@ class Dispatcher implements DispatcherInterface
         }
 
         foreach ($config as $name => $value) {
-            if ($name === 'autoRoute') {
-                $this->config['autoRoute'] = array_merge($this->config['autoRoute'], (array)$value);
-            } elseif (isset($this->config[$name])) {
+            if (isset($this->config[$name])) {
                 $this->config[$name] = $value;
             }
         }
@@ -152,16 +152,16 @@ class Dispatcher implements DispatcherInterface
 
     /**
      * @param string $path Request uri path
-     * @param bool $isActionNotExist
+     * @param bool $actionNotExist
      *  True: The `$path` is matched success, but action not exist on route parser
      *  False: The `$path` is matched fail
      * @return bool|mixed
      */
-    private function handleNotFound($path, $isActionNotExist = false)
+    private function handleNotFound($path, $actionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
         if (!isset(self::$events[self::ON_NOT_FOUND])) {
-            $notFoundHandler = function ($path, $isActionNotExist) {
+            $notFoundHandler = function ($path, $actionNotExist) {
                  header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
                  echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
             };
@@ -181,8 +181,8 @@ class Dispatcher implements DispatcherInterface
 
         // trigger notFound event
         return is_array($notFoundHandler) ?
-            call_user_func($notFoundHandler, $path, $isActionNotExist) :
-            $notFoundHandler($path, $isActionNotExist);
+            call_user_func($notFoundHandler, $path, $actionNotExist) :
+            $notFoundHandler($path, $actionNotExist);
     }
 
     /**
@@ -191,6 +191,7 @@ class Dispatcher implements DispatcherInterface
      * @param callable $handler The route path handler
      * @param array $matches Matched param from path
      * @return mixed
+     * @throws \InvalidArgumentException
      * @throws \RuntimeException
      */
     private function callMatchedRouteHandler($path, $handler, array $matches = null)
@@ -198,6 +199,7 @@ class Dispatcher implements DispatcherInterface
         // Remove $matches[0] as [1] is the first parameter.
         if ($matches) {
             array_shift($matches);
+            $matches = array_values($matches);
         }
 
         // is a \Closure or a callable object
@@ -207,8 +209,19 @@ class Dispatcher implements DispatcherInterface
 
         //// $handler is string
 
-        // e.g `controllers\Home@index` Or only `controllers\Home`
-        $segments = explode('@', trim($handler));
+        // is array ['controller', 'action']
+        if (is_array($handler)) {
+            $segments = $handler;
+        } elseif (is_string($handler)) {
+            if (strpos($handler, '@') === false && function_exists($handler)) {
+                return $matches ? $handler(...$matches) : $handler();
+            }
+
+            // e.g `controllers\Home@index` Or only `controllers\Home`
+            $segments = explode('@', trim($handler));
+        } else {
+            throw new \InvalidArgumentException('Invalid route handler');
+        }
 
         // Instantiation controller
         $controller = new $segments[0]();

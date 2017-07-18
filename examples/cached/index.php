@@ -6,25 +6,26 @@
  * Time: 下午9:12
  *
  * you can test use:
- *  php -S 127.0.0.1:5671 -t examples/object
+ *  php -S 127.0.0.1:5673 -t examples/cached
  *
- * then you can access url: http://127.0.0.1:5671
+ * then you can access url: http://127.0.0.1:5673
  */
 
 use inhere\sroute\Dispatcher;
-use inhere\sroute\ORouter;
+use inhere\sroute\CachedRouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
 
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
-$router = new ORouter;
-
-// set config
-$router->setConfig([
+$router = new CachedRouter([
     // 'ignoreLastSep' => true,
     // 'tmpCacheNumber' => 100,
+
+//    'cacheFile' => '',
+    'cacheFile' => __DIR__ . '/routes-cache.php',
+    'cacheEnable' => false,
 
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {

@@ -25,14 +25,15 @@ SRouter::get('/test3/{name}', function(){
 });
 
 $runTime = 10;
+$count = $seconds = 0;
 $time = microtime(true);
-$count = 0;
-$seconds = 0;
+
+echo 'start time: ' . $time . PHP_EOL;
 
 while($seconds < $runTime) {
     $count++;
 
-    SRouter::dispatchTo('/test2/joe');
+    $route = SRouter::match('/test2/joe', 'GET');
 
     if($time + 1 < microtime(true)) {
         $time = microtime(true);
@@ -42,4 +43,4 @@ while($seconds < $runTime) {
     }
 }
 
-echo PHP_EOL;
+echo PHP_EOL . 'end time: ' . $time . PHP_EOL;
