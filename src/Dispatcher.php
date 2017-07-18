@@ -106,6 +106,7 @@ class Dispatcher implements DispatcherInterface
      * @param string $path
      * @param null|string $method
      * @return mixed
+     * @throws \InvalidArgumentException
      */
     public function dispatch($path = null, $method = null)
     {
@@ -125,11 +126,24 @@ class Dispatcher implements DispatcherInterface
             return $this->handleNotFound($path);
         }
 
-        $result = null;
         list($path, $route) = $info;
+
+        $result = null;
+        $options = isset($route['option']) ? $route['option'] : [];
+        unset($route['option']);
 
         // trigger route found event
         $this->fire(self::ON_FOUND, [$path, $route]);
+
+        // schema,domains ... metadata validate
+        if (false === $this->validateMetadata($route)) {
+            return $result;
+        }
+
+        // fire enter event
+        if (isset($options['enter']) && false === $this->callRouteEvent($options['enter'], $path)) {
+            return $result;
+        }
 
         $handler = $route['handler'];
         $matches = isset($route['matches']) ? $route['matches'] : null;
@@ -140,14 +154,79 @@ class Dispatcher implements DispatcherInterface
 
             $result = $this->callMatchedRouteHandler($path, $handler, $matches);
 
+            // fire leave event
+            if (isset($options['leave'])) {
+                $this->callRouteEvent($options['leave'], $path);
+            }
+
             // trigger route exec_end event
             $this->fire(self::ON_EXEC_END, [$path, $route]);
         } catch (\Exception $e) {
             // trigger route exec_error event
             $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
+        } catch (\Throwable $e) {
+            // trigger route exec_error event
+            $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
         }
 
         return $result;
+    }
+
+    /**
+     * @param array $route
+     * [
+     *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
+     *     'schema' => 'https',
+     * ]
+     */
+    public function validateMetadata(array $route)
+    {
+        // validate Schema
+
+        // validate validateDomains
+        // $serverName = $_SERVER['SERVER_NAME'];
+
+    }
+
+    /**
+     * @param mixed $handler
+     * string - func name, class name
+     * array - [class, method]
+     * object - Closure, Object
+     * @param string $path
+     * @return bool
+     * @throws \InvalidArgumentException
+     */
+    public function callRouteEvent($handler, $path)
+    {
+        if (!$handler) {
+            return true;
+        }
+
+        if (is_array($handler)) {
+            return call_user_func($handler, $path);
+        }
+
+        if (is_string($handler)) {
+            if (function_exists($handler)) {
+                return $handler($path);
+            }
+
+            if (class_exists($handler) && method_exists($handler, '__invoke')) {
+                $cb = new $handler;
+
+                return $cb($path);
+            }
+
+            throw new \InvalidArgumentException('route event handler is not callable!');
+        }
+
+        // a \Closure or Object implement '__invoke'
+        if (is_object($handler) && method_exists($handler, '__invoke')) {
+            return $handler($path);
+        }
+
+        throw new \InvalidArgumentException('route event handler is not callable!');
     }
 
     /**

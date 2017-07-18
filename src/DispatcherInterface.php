@@ -29,6 +29,10 @@ interface DispatcherInterface
      */
     public function dispatch($path = null, $method = null);
 
+    public function getMatcher();
+
+    public function setMatcher(\Closure $matcher);
+
     /**
      * @return array
      */
