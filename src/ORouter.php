@@ -357,17 +357,14 @@ class ORouter implements RouterInterface
         // have dynamic param tokens
 
         $tmp = $route;
-        // '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        list($first,) = explode('/', trim($tmp, '/'), 2);
-
-        // like '/hello[/{name}]' parse fisrt to: 'hello'
-        $first = trim($first, '[');
 
         // replace token name To pattern regex
-        $route = $this->parseRoute($route, $opts);
+        $route = self::parseRoute($route, $this->getAvailableTokens(self::$globalTokens, $opts['tokens']));
 
+        // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
-        if (preg_match('#^(?:[\w-]+)$#', $first, $m)) {
+        if (preg_match('#^/([\w-]+)#', $tmp, $ms)) {
+            $first = $ms[1];
             $conf = [
                     'first' => '/' . $first,
                     'regex' => '#^' . $route . '$#',
@@ -409,13 +406,11 @@ class ORouter implements RouterInterface
 
     /**
      * @param string $route
-     * @param array $opts
+     * @param array $tokens
      * @return string
      */
-    private function parseRoute($route, array $opts)
+    public static function parseRoute($route, array $tokens)
     {
-        $tokens = $this->getAvailableTokens($opts);
-
         // 解析可选参数位
         // '/hello[/{name}]'      match: /hello/tom   /hello
         // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
@@ -452,13 +447,10 @@ class ORouter implements RouterInterface
         return $route;
     }
 
-    private function getAvailableTokens(array $opts)
+    public static function getAvailableTokens(array $tokens, $tmpTokens)
     {
-        /** @var array $tokens */
-        $tokens = self::$globalTokens;
-
-        if ($opts['tokens']) {
-            foreach ((array)$opts['tokens'] as $name => $pattern) {
+        if ($tmpTokens) {
+            foreach ($tmpTokens as $name => $pattern) {
                 $key = trim($name, '{}');
                 $tokens[$key] = $pattern;
             }
@@ -579,9 +571,10 @@ class ORouter implements RouterInterface
         }
 
         // handle Auto Route
-        if ($handler = $this->matchAutoRoute($path)) {
+        if ($handler = self::matchAutoRoute($path, $this->config['autoRoute'])) {
             return [$path, [
-                'handler' => $handler
+                'path' => $path,
+                'handler' => $handler,
             ]];
         }
 
@@ -590,22 +583,18 @@ class ORouter implements RouterInterface
     }
 
     /**
-     * handle Auto Route
+     * handle auto route match
      *  when config `'autoRoute' => true`
      * @param string $path The route path
+     * @param array $opts  The some options
+     * contains: [
+     *  'controllerNamespace' => '', // controller namespace. eg: 'app\\controllers'
+     *  'controllerSuffix' => '',    // controller suffix. eg: 'Controller'
+     * ]
      * @return bool|callable
      */
-    private function matchAutoRoute($path)
+    public static function matchAutoRoute($path, array $opts)
     {
-        /**
-         * @var array $opts
-         * contains: [
-         *  'controllerNamespace' => '', // controller namespace. eg: 'app\\controllers'
-         *  'controllerSuffix' => '',    // controller suffix. eg: 'Controller'
-         * ]
-         */
-        $opts = $this->config['autoRoute'];
-
         // not enabled
         if (!$opts || !isset($opts['enable']) || !$opts['enable']) {
             return false;

@@ -331,12 +331,15 @@ class SRouter implements RouterInterface
 
         // have dynamic param tokens
 
-        $route = $tmp = self::replaceTokenToPattern($route, $opts);
+        $tmp = $route;
 
-        list($first,) = explode('/', trim($tmp, '/'), 2);
+        // replace token name To pattern regex
+        $route = ORouter::parseRoute($route, ORouter::getAvailableTokens(self::$globalTokens, $opts['tokens']));
 
-        // first node is a normal string '/user/:id', '/a/:post'
-        if (preg_match('#^(?|[\w-]+)$#', $first)) {
+        // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
+        // first node is a normal string
+        if (preg_match('#^/([\w-]+)#', $tmp, $ms)) {
+            $first = $ms[1];
             $conf = [
                 'first' => '/' . $first,
                 'regex' => '#^' . $route . '$#',
@@ -374,43 +377,6 @@ class SRouter implements RouterInterface
         if (is_object($handler) && !is_callable($handler)) {
             throw new \InvalidArgumentException('The route object handler must be is callable');
         }
-    }
-
-    /**
-     * @param string $route
-     * @param array $opts
-     * @return string
-     */
-    private static function replaceTokenToPattern($route, array $opts)
-    {
-        /** @var array $tokens */
-        $tokens = self::$globalTokens;
-
-        if ($opts['tokens']) {
-            foreach ((array)$opts['tokens'] as $name => $pattern) {
-                $key = trim($name, '{}');
-                $tokens[$key] = $pattern;
-            }
-        }
-
-        if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
-            /** @var array[] $m */
-            $replacePairs = [];
-
-            foreach ($m[1] as $name) {
-                $key = '{' . $name . '}';
-                // 匹配定义的 token  , 未匹配到的使用默认 self::DEFAULT_REGEX
-                $regex = isset($tokens[$name]) ? $tokens[$name] : self::DEFAULT_REGEX;
-
-                // 将匹配结果命名 (?P<arg1>[^/]+)
-                // $replacePairs[$key] = '(?P<' . $name . '>' . $pattern . ')';
-                $replacePairs[$key] = '(' . $regex . ')';
-            }
-
-            $route = strtr($route, $replacePairs);
-        }
-
-        return $route;
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -520,7 +486,7 @@ class SRouter implements RouterInterface
         }
 
         // handle Auto Route
-        if ($handler = self::matchAutoRoute($path)) {
+        if ($handler = ORouter::matchAutoRoute($path, static::$config['autoRoute'])) {
             return [$path, [
                 'handler' => $handler
             ]];
@@ -528,80 +494,6 @@ class SRouter implements RouterInterface
 
         // oo ... not found
         return false;
-    }
-
-    /**
-     * handle Auto Route
-     *  when config `'autoRoute' => true`
-     * @param string $path The route path
-     * @return bool|callable
-     */
-    private static function matchAutoRoute($path)
-    {
-        /**
-         * @var array $opts
-         * contains: [
-         *  'controllerNamespace' => '', // controller namespace. eg: 'app\\controllers'
-         *  'controllerSuffix' => '',    // controller suffix. eg: 'Controller'
-         * ]
-         */
-        $opts = static::$config['autoRoute'];
-
-        // not enabled
-        if (!$opts || !isset($opts['enable']) || !$opts['enable']) {
-            return false;
-        }
-
-        $cnp = $opts['controllerNamespace'];
-        $sfx = $opts['controllerSuffix'];
-        $tmp = trim($path, '/- ');
-
-        // one node. eg: 'home'
-        if (!strpos($tmp, '/')) {
-            $tmp = ORouter::convertNodeStr($tmp);
-            $class = "$cnp\\" . ucfirst($tmp) . $sfx;
-
-            return class_exists($class) ? $class : false;
-        }
-
-        $ary = array_map([ORouter::class, 'convertNodeStr'], explode('/', $tmp));
-        $cnt = count($ary);
-
-        // two nodes. eg: 'home/test' 'admin/user'
-        if ($cnt === 2) {
-            list($n1, $n2) = $ary;
-
-            // last node is an controller class name. eg: 'admin/user'
-            $class = "$cnp\\$n1\\" . ucfirst($n2) . $sfx;
-
-            if (class_exists($class)) {
-                return $class;
-            }
-
-            // first node is an controller class name, second node is a action name,
-            $class = "$cnp\\" . ucfirst($n1) . $sfx;
-
-            return class_exists($class) ? "$class@$n2" : false;
-        }
-
-        // max allow 5 nodes
-        if ($cnt > 5) {
-            return false;
-        }
-
-        // last node is an controller class name
-        $n2 = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n2) . $sfx);
-
-        if (class_exists($class)) {
-            return $class;
-        }
-
-        // last second is an controller class name, last node is a action name,
-        $n1 = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n1) . $sfx);
-
-        return class_exists($class) ? "$class@$n2" : false;
     }
 
 //////////////////////////////////////////////////////////////////////

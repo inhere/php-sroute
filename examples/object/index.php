@@ -53,7 +53,6 @@ $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
     echo "the page $path not found!";
 });
 
-//
 // $dispatcher->dispatch();
 
 // var_dump($router->getConfig(),$router);die;
