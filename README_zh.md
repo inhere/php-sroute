@@ -47,7 +47,6 @@ git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 
 压测结果
 
-
 ## Worst-case matching
 
 This benchmark matches the last route and unknown route. It generates a randomly prefixed and suffixed route in an attempt to thwart any optimization. 1,000 routes each with 9 arguments.
@@ -158,57 +157,6 @@ SRouter::group('/user', function () {
 ```
 
 > 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
-
-### 使用控制器方法
-
-通过`@`符号连接控制器类和方法名可以指定执行方法。
-
-```php
-SRouter::get('/', app\controllers\Home::class);
-
-SRouter::get('/index', 'app\controllers\Home@index');
-SRouter::get('/about', 'app\controllers\Home@about');
-```
-
-> NOTICE: 若第二个参数仅仅是个 类，将会尝试执行通过 `defaultAction` 配置的默认方法
-
-### 动态匹配控制器方法
-
-动态匹配控制器方法, 需配置 `'dynamicAction' => true`
-
-> NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时无法限定请求方法 `REQUEST_METHOD`
-
-```php
-// 访问 '/home/test' 将会执行 'app\controllers\Home::test()'
-SRouter::any('/home/{any}', app\controllers\Home::class);
-
-// 可匹配 '/home', '/home/test' 等
-SRouter::any('/home[/{name}]', app\controllers\Home::class);
-```
-
-> NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
-
-### 使用方法执行器
-
-配置 `actionExecutor` 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交给此方法。
-会将真实的 action 作为参数传入`run($action)`, 需要你在此方法中调度来执行真正的请求方法。
-
-> NOTICE: 在你需要将路由器整合到自己的框架时很有用
-
-示例：
-
-```php
-// 访问 '/user', 将会调用 app\controllers\User::run('')
-SRouter::get('/user', 'app\controllers\User');
-
-// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRouter::get('/user/profile', 'app\controllers\User');
-
-// 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
-// 访问 '/user', 将会调用 app\controllers\User::run('')
-// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRouter::any('/user[/{name}]', 'app\controllers\User');
-```
 
 ### 自动匹配路由
 
@@ -348,6 +296,57 @@ $dispatcher->on('notFound', '/404');
 $dispatcher->on('notFound', function ($uri) {
     echo "the page $uri not found!";
 });
+```
+
+### 使用控制器方法
+
+通过`@`符号连接控制器类和方法名可以指定执行方法。
+
+```php
+SRouter::get('/', app\controllers\Home::class);
+
+SRouter::get('/index', 'app\controllers\Home@index');
+SRouter::get('/about', 'app\controllers\Home@about');
+```
+
+> NOTICE: 若第二个参数仅仅是个 类，将会尝试执行通过 `defaultAction` 配置的默认方法
+
+### 动态匹配控制器方法
+
+动态匹配控制器方法, 需配置 `'dynamicAction' => true`
+
+> NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时无法限定请求方法 `REQUEST_METHOD`
+
+```php
+// 访问 '/home/test' 将会执行 'app\controllers\Home::test()'
+SRouter::any('/home/{any}', app\controllers\Home::class);
+
+// 可匹配 '/home', '/home/test' 等
+SRouter::any('/home[/{name}]', app\controllers\Home::class);
+```
+
+> NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
+
+### 使用方法执行器
+
+配置 `actionExecutor` 为你需要的方法名，例如配置为 `'actionExecutor' => 'run'`，那所有的方法请求都会提交给此方法。
+会将真实的 action 作为参数传入`run($action)`, 需要你在此方法中调度来执行真正的请求方法。
+
+> NOTICE: 在你需要将路由器整合到自己的框架时很有用
+
+示例：
+
+```php
+// 访问 '/user', 将会调用 app\controllers\User::run('')
+SRouter::get('/user', 'app\controllers\User');
+
+// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
+SRouter::get('/user/profile', 'app\controllers\User');
+
+// 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
+// 访问 '/user', 将会调用 app\controllers\User::run('')
+// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
+SRouter::any('/user[/{name}]', 'app\controllers\User');
 ```
 
 ## 开始路由匹配和调度
