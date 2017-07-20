@@ -49,87 +49,25 @@ class SRouter implements RouterInterface
 
     /**
      * static Routes - no dynamic argument match
-     * 整个路由 path 都是静态字符串
+     * 整个路由 path 都是静态字符串 e.g. '/user/login'
      * @var array
-     * [
-     *     '/user/login' => [
-     *         'GET' => [
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *          ],
-     *         'POST' => [
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *          ],
-     *          ...
-     *      ]
-     * ]
+     * @see ORouter::$staticRoutes
      */
     private static $staticRoutes = [];
 
     /**
      * regular Routes - have dynamic arguments, but the first node is normal.
      * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行存储
-     *
      * @var array[]
-     * [
-     *     // 先用第一个字符作为 key，进行分组
-     *     'a' => [
-     *          // 第一节只有一个字符, 使用关键字'__NO__'为 key 进行分组
-     *         '__NO__' => [
-     *              [
-     *                  'first' => '/a',
-     *                  'regex' => '/a/(\w+)',
-     *                  'method' => 'GET',
-     *                  'handler' => 'handler',
-     *                  'option' => null,
-     *              ]
-     *          ],
-     *          // 第一节有多个字符, 使用第二个字符 为 key 进行分组
-     *         'd' => [
-     *              [
-     *                  'first' => '/add',
-     *                  'regex' => '/add/(\w+)',
-     *                  'method' => 'GET',
-     *                  'handler' => 'handler',
-     *                  'option' => null,
-     *              ],
-     *              ... ...
-     *          ],
-     *          ... ...
-     *      ],
-     *     'b' => [
-     *        'l' => [
-     *              [
-     *                  'first' => '/blog',
-     *                  'regex' => '/blog/(\w+)',
-     *                  'method' => 'GET',
-     *                  'handler' => 'handler',
-     *                  'option' => null,
-     *              ],
-     *              ... ...
-     *          ],
-     *          ... ...
-     *     ],
-     * ]
+     * @see ORouter::$regularRoutes
      */
     private static $regularRoutes = [];
 
     /**
      * vague Routes - have dynamic arguments,but the first node is exists regex.
-     *
      * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
-     *
      * @var array
-     * [
-     *     [
-     *         'regex' => '/(\w+)/some',
-     *         'method' => 'GET',
-     *         'handler' => 'handler',
-     *         'option' => null,
-     *     ],
-     *      ... ...
-     * ]
+     * @see ORouter::$vagueRoutes
      */
     private static $vagueRoutes = [];
 

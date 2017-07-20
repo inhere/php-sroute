@@ -1,7 +1,7 @@
 # benchmark test 
 
-R3 extension is not loaded. Skipping initialization for "Worst-case matching" test using R3.
-R3 extension is not loaded. Skipping initialization for "First route matching" test using R3.
+没有改进前的压测结果
+
 ## Worst-case matching
 This benchmark matches the last route and unknown route. It generates a randomly prefixed and suffixed route in an attempt to thwart any optimization. 1,000 routes each with 9 arguments.
 

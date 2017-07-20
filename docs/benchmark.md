@@ -1,12 +1,19 @@
 # benchmark
 
-date: 2017-07-16
+压测时间: 2017-07-16
+改进路由收集和匹配逻辑后的压测结果
+
+自动生成了1000条路由，每条有9个参数位，分别测试1000次的 
+
+- 第一条路由匹配
+- 最后一条路由匹配
+- 不会匹配到的路由
 
 ## Worst-case matching
+
 This benchmark matches the last route and unknown route. It generates a randomly prefixed and suffixed route in an attempt to thwart any optimization. 1,000 routes each with 9 arguments.
 
 This benchmark consists of 14 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
-
 
 Test Name | Results | Time | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
@@ -27,6 +34,7 @@ Symfony2 - last route (1000 routes) | 999 | 0.0040060059 | +0.0039939995 | 33266
 
 
 ## First route matching
+
 This benchmark tests how quickly each router can match the first route. 1,000 routes each with 9 arguments.
 
 This benchmark consists of 7 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.

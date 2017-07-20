@@ -39,7 +39,7 @@ git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 
 ## benchmark
 
-[benchmark](./benchmark/result.md)
+[benchmark](./docs/benchmark.md)
 
 ## usage
 

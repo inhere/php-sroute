@@ -111,7 +111,6 @@ class Dispatcher implements DispatcherInterface
     public function dispatch($path = null, $method = null)
     {
         $this->initialized = true;
-
         $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // if 'filterFavicon' setting is TRUE

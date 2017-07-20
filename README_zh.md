@@ -3,7 +3,7 @@
 非常轻量级的路由器。无依赖、简洁、速度快、自定义性强
 
 - 轻量级且速度快，查找速度不受路由数量的影响
-- 支持路由参数定义
+- 支持路由参数定义，以及路由选项(比如设定 domains、schema等检查限制)
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
@@ -46,11 +46,56 @@ git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 - 最后一条路由匹配
 - 不会匹配到的路由
 
-压测结果请看 [benchmark](./benchmark/result.md)
+压测结果
+
+
+## Worst-case matching
+
+This benchmark matches the last route and unknown route. It generates a randomly prefixed and suffixed route in an attempt to thwart any optimization. 1,000 routes each with 9 arguments.
+
+This benchmark consists of 14 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
+
+Test Name | Results | Time | + Interval | Change
+--------- | ------- | ---- | ---------- | ------
+ORouter - unknown route (1000 routes) | 988 | 0.0000120063 | +0.0000000000 | baseline
+ORouter - last route (1000 routes) | 988 | 0.0000122867 | +0.0000002804 | 2% slower
+SRouter - unknown route (1000 routes) | 983 | 0.0000123633 | +0.0000003570 | 3% slower
+SRouter - last route (1000 routes) | 998 | 0.0000142205 | +0.0000022142 | 18% slower
+Symfony2 Dumped - last route (1000 routes) | 990 | 0.0000468579 | +0.0000348516 | 290% slower
+Symfony2 Dumped - unknown route (1000 routes) | 995 | 0.0000490268 | +0.0000370205 | 308% slower
+FastRoute - unknown route (1000 routes) | 968 | 0.0001358227 | +0.0001238164 | 1031% slower
+FastRoute(cached) - last route (1000 routes) | 999 | 0.0001397746 | +0.0001277683 | 1064% slower
+FastRoute(cached) - unknown route (1000 routes) | 960 | 0.0001424064 | +0.0001304001 | 1086% slower
+FastRoute - last route (1000 routes) | 999 | 0.0001659009 | +0.0001538946 | 1282% slower
+Pux PHP - unknown route (1000 routes) | 964 | 0.0013507533 | +0.0013387470 | 11150% slower
+Pux PHP - last route (1000 routes) | 999 | 0.0014749475 | +0.0014629412 | 12185% slower
+Symfony2 - unknown route (1000 routes) | 979 | 0.0038350259 | +0.0038230196 | 31842% slower
+Symfony2 - last route (1000 routes) | 999 | 0.0040060059 | +0.0039939995 | 33266% slower
+
+
+## First route matching
+
+This benchmark tests how quickly each router can match the first route. 1,000 routes each with 9 arguments.
+
+This benchmark consists of 7 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
+
+
+Test Name | Results | Time | + Interval | Change
+--------- | ------- | ---- | ---------- | ------
+Pux PHP - first route(1000) | 993 | 0.0000105502 | +0.0000000000 | baseline
+ORouter - first route(1000) | 984 | 0.0000118334 | +0.0000012832 | 12% slower
+SRouter - first route(1000) | 982 | 0.0000118473 | +0.0000012971 | 12% slower
+FastRoute(cached) - first route(1000) | 999 | 0.0000143361 | +0.0000037859 | 36% slower
+FastRoute - first route(1000) | 999 | 0.0000143980 | +0.0000038477 | 36% slower
+Symfony2 Dumped - first route | 993 | 0.0000350874 | +0.0000245372 | 233% slower
+Symfony2 - first route | 999 | 0.0000630564 | +0.0000525061 | 498% slower
 
 ## 使用
 
-> `inhere\sroute\SRouter` 是静态类版本. `inhere\sroute\ORouter` 是对象版本
+- `inhere\sroute\SRouter` 是静态类版本
+- `inhere\sroute\ORouter` 是对象版本
+
+两个类的方法名和参数都是一样的
 
 首先, 导入类
 
@@ -71,14 +116,11 @@ SRouter::get('/test/{name}', function($arg) {
     echo $arg; // 'john'
 }, [
     'tokens' => [
-        'name' => '\w+', // 添加参数匹配限制
+        'name' => '\w+', // 添加参数匹配限制。若不添加对应的限制，将会自动设置为匹配除了'/'外的任何字符
     ]
 ]);
 
-// 可选参数支持
-// 匹配 
-// 'hello'
-// 'hello/john'
+// 可选参数支持。匹配  'hello' 'hello/john'
 SRouter::get('/hello[/{name}]', function($name = 'No') {
     echo $name; // 'john'
 }, [
@@ -100,6 +142,16 @@ SRouter::map(['get', 'post'], '/user/login', function() {
 // 允许任何请求方法
 SRouter::any('/home', function() {
     echo 'hello, you request page is /home';
+});
+
+// 路由组
+SRouter::group('/user', function () {
+    SRouter::get('/', function () {
+        echo 'hello. you access: /user/';
+    });
+    SRouter::get('/index', function () {
+        echo 'hello. you access: /user/index';
+    });
 });
 ```
 
@@ -129,7 +181,7 @@ SRouter::get('/about', 'app\controllers\Home@about');
 SRouter::any('/home/{any}', app\controllers\Home::class);
 
 // 可匹配 '/home', '/home/test' 等
-SRouter::any('/home(/{name})?', app\controllers\Home::class);
+SRouter::any('/home[/{name}]', app\controllers\Home::class);
 ```
 
 > NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
@@ -153,12 +205,12 @@ SRouter::get('/user/profile', 'app\controllers\User');
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
 // 访问 '/user', 将会调用 app\controllers\User::run('')
 // 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRouter::any('/user(/{name})?', 'app\controllers\User');
+SRouter::any('/user[/{name}]', 'app\controllers\User');
 ```
 
-### 自动匹配路由到控制器
+### 自动匹配路由
 
-支持自动匹配路由到控制器就像 yii 一样, 需配置 `autoRoute`. 
+支持根据请求的URI自动匹配路由(就像 yii 一样), 需配置 `autoRoute`. 
 
 ```php 
     'autoRoute' => [
@@ -202,18 +254,17 @@ SRouter::any('/user(/{name})?', 'app\controllers\User');
 
 将会直接执行此回调后停止执行
 
-
-## 设置事件处理(if you need)
+## 设置事件处理
 
 ```php
 SRouter::any('/404', function() {
-    echo "Sorry,This page {$_GET['path']} not found.";
+    echo "Sorry,This page {$_GET['_src_path']} not found.";
 });
 ```
 
 ```php
 // 成功匹配路由
-SRouter::on(SRouter::FOUND, function ($uri, $cb) use ($app) {
+SRouter::on(SRouter::ON_FOUND, function ($uri, $cb) use ($app) {
     $app->logger->debug("Matched uri path: $uri, setting callback is: " . is_string($cb) ? $cb : get_class($cb));
 });
 
@@ -226,14 +277,12 @@ SRouter::on('notFound', function ($uri) {
 });
 ```
 
-## 设置配置(if you need)
+## 设置路由配置
 
 ```php
 // set config
-SRouter::config([
-    'ignoreLastSep' => true,
-    'dynamicAction' => true,
-    
+SRouter::setConfig([
+    'ignoreLastSep' => true,    
     'autoRoute' => [
         'enable' => 1,
         'controllerNamespace' => 'app\\controllers',
@@ -242,64 +291,82 @@ SRouter::config([
 ]);
 ```
 
-- 默认配置如下
+> NOTICE: 必须在添加路由之前调用 `SRouter::setConfig()` 
+
+## 路由匹配
+
+```php 
+array|false public function match($path, $method)
+```
+
+- `$path` string 请求的URI path
+- `$method` string 请求的request method
+- 返回 `array|false`
+    - `false` 匹配失败。没有找到匹配的路由 
+    - `array` 匹配成功。返回匹配到的路由信息, 然后你就可以根据此信息进行自定义的路由调度了。
+
+根据请求的 URI path 和 请求 METHOD 查找匹配我们定义的路由信息。
 
 ```php
-// 所有的默认的配置
-[   
-    // 是否过滤 /favicon.ico 请求
-    'filterFavicon' => false,
-    
-    // 是否忽略最后的 '/' 分隔符. 如果是 true,将清除最后一个 '/', 此时请求 '/home' 和 '/home/' 效果相同
-    'ignoreLastSep' => false,
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$method = $_SERVER['REQUEST_METHOD'];
 
-    // 匹配所有请求
-    // 1. 如果是一个有效的URI路径,将匹配所有请求到此URI路径。
-    // 2. 如果是一个可用回调,将匹配所有请求然后调用它
-    'matchAll' => '', // 例如: '/site/maintenance' 或者 `function () { echo 'System Maintaining ... ...'; }`
+$route = SRouter::match($path, $method);
+```
 
-    // 自动匹配路由到控制器就像 yii 一样 
-    'autoRoute' => [
-        // 是否启用
-        'enable' => false,
-        // 默认控制器名称空间
-        'controllerNamespace' => '', // eg: 'app\\controllers'
-        // 控制器类后缀
-        'controllerSuffix' => '',    // eg: 'Controller'
-    ],
+匹配成功，将会返回如下格式的信息.可以根据此信息进行路由调度
 
-    // 默认的控制器方法名称
-    'defaultAction' => 'index',
+```php
+[
+    'URI PATH', // 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
+    // 路由信息
+    [
+        'method' => 'GET', // 配置的请求 METHOD
+        'handler' => 'handler', // 此路由的 handler
+        // 此路由的自定义选项信息. 
+        // tokens - 来自添加路由时设置的参数匹配信息, 若有的话
+        // 可以自定义此路由的选项：如下经供参考
+        // - domains 允许访问路由的域名
+        // - schema 允许访问路由的schema
+        // - enter 进入路由的事件回调
+        // ... ...
+        'option' => [
+            'tokens' => [],
 
-    // 启用动态action
-    // e.g
-    // 若设置为 True;
-    //  SRouter::any('/demo/(\w+)', app\controllers\Demo::class);
-    //  访问 '/demo/test' 将会调用 'app\controllers\Demo::test()'
-    'dynamicAction' => false,
-
-    // 方法执行器. 
-    // e.g
-    //  `run($action)`
-    //  SRouter::any('/demo/(:act)', app\controllers\Demo::class);
-    //  访问 `/demo/test` 将会调用 `app\controllers\Demo::run('test')`
-    'actionExecutor' => '', // 'run'
+            // 'domains' => null,
+            // 'schema' => null, // ['http','https'],
+            // route event. custom design ...
+            // 'enter' => null,
+            // 'leave' => null,
+        ], 
+    ]
 ]
 ```
 
-> NOTICE: 必须在调用 `SRouter::dispatch()` 之前使用 `SRouter::config()` 来进行一些配置
+## 路由调度
 
-## 开始路由分发
+已内置了一个路由调度器 `inhere\sroute\Dispatcher`
 
 ```php
-SRouter::dispatch();
+use inhere\sroute\Dispatcher;
+
+$dispatcher = new Dispatcher([
+    'dynamicAction' => true,
+]);
+```
+
+## 开始路由匹配和调度
+
+```php
+SRouter::dispatch($dispatcher);
+// $router->dispatch($dispatcher);
 ```
 
 ## 运行示例
 
 示例代码在 `examples` 下。
 
-你可以通过 `php -S 127.0.0.1:5670 -t examples` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
+你可以通过 `php -S 127.0.0.1:5670 -t examples/static` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
 
 ## License 
 
