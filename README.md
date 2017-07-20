@@ -5,10 +5,9 @@ a very lightweight router.
 - Lightweight and fast speed, the search speed is not affected by the routing number
 - supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
 - support event: `found` `notFound`. Some things you can do when the triggering event (such as logging, etc.)
-- support manual dispatch a URI route by `SRouter::dispatchTo()`, you can dispatch a URI in your logic.
-- support custom the matched route parser: `SRouter::setMatchedRouteParser()`. you can custom how to call the matched route handler.
+- support manual dispatch a URI route by `SRouter::dispatch($path, $method)`, you can dispatch a URI in your logic.
 - Support automatic matching routing like yii framework, by config `autoRoute`. 
-- more interesting config, please see `SRouter::$_config`
+- more interesting config, please see `SRouter::setConfig`
 - You can also do not have to configure anything, it can also work very well
 
 **[中文README](./README_zh.md)**
@@ -96,7 +95,7 @@ match dynamic action, config `'dynamicAction' => true`
 SRouter::any('/home/{name}', app\controllers\Home::class);
 
 // can match '/home', '/home/test'
-SRouter::any('/home(/{name})?', app\controllers\Home::class);
+SRouter::any('/home[/{name}]', app\controllers\Home::class);
 ```
 
 ### use action executor
@@ -112,7 +111,7 @@ SRouter::get('/user/profile', 'app\controllers\User');
 // if config 'actionExecutor' => 'run' and 'dynamicAction' => true,
 // access '/user', will call app\controllers\User::run('')
 // access '/user/profile', will call app\controllers\User::run('profile')
-SRouter::get('/user(/{name})?', 'app\controllers\User');
+SRouter::get('/user[/{name}]', 'app\controllers\User');
 ```
 
 
@@ -156,7 +155,7 @@ Will directly execute the callback
 
 ```php
 SRouter::any('/404', function() {
-    echo "Sorry,This page {$_GET['path']} not found.";
+    echo "Sorry,This page {$_GET['_src_path']} not found.";
 });
 ```
 
@@ -203,8 +202,6 @@ SRouter::config([
 ```php
 // there are default config.
 [
-    // Filter the `/favicon.ico` request.
-    'filterFavicon' => false,
     // ignore last '/' char. If is True, will clear last '/', so '/home' equals to '/home/'
     'ignoreLastSep' => false,
 
@@ -222,39 +219,28 @@ SRouter::config([
         // controller suffix, is valid when `'enable' = true`
         'controllerSuffix' => '',    // eg: 'Controller'
     ],
-
-    // default action method name
-    'defaultAction' => 'index',
-
-    // enable dynamic action.
-    // e.g
-    // if set True;
-    //  SRouter::any('/demo/(\w+)', app\controllers\Demo::class);
-    //  you access '/demo/test' will call 'app\controllers\Demo::test()'
-    'dynamicAction' => false,
-
-    // action executor. will auto call controller's executor method to run all action.
-    // e.g
-    //  `run($action)`
-    //  SRouter::any('/demo/(:act)', app\controllers\Demo::class);
-    //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
-    'actionExecutor' => '', // 'run'
 ]
 ```
 
-> NOTICE: you must call `SRouter::config()` on before the `SRouter::dispatch()`
+> NOTICE: you must call `SRouter::setConfig()` on before the add route.
 
 ## begin dispatch
 
 ```php
-SRouter::dispatch();
+use inhere\sroute\Dispatcher;
+
+$dispatcher = new Dispatcher([
+    'dynamicAction' => true,
+]);
+
+SRouter::dispatch($dispatcher);
 ```
 
 ## examples
 
 please the `examples` folder's codes.
 
-you can run a test server by `php -S 127.0.0.1:5670 -t examples`, now please access http://127.0.0.1:5670
+you can run a test server by `php -S 127.0.0.1:5670 -t examples/static`, now please access http://127.0.0.1:5670
 
 ## License 
 

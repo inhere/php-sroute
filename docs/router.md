@@ -95,6 +95,8 @@ $router->group('/user', function ($router) {
 
 ### 如何收集
 
+路由将会分为三类
+
 #### 静态路由
 #### 动态路由
 
@@ -198,3 +200,49 @@ SRouter::setConfig([
 ```
 
 > NOTICE: 必须在添加路由之前调用 `SRouter::setConfig()` 
+
+### 自动匹配路由
+
+支持根据请求的URI自动匹配路由(就像 yii 一样), 需配置 `autoRoute`. 
+
+```php 
+    'autoRoute' => [
+        'enable' => 1, // 启用
+        'controllerNamespace' => 'app\\controllers', // 控制器类所在命名空间
+        'controllerSuffix' => 'Controller', // 控制器类后缀
+    ],
+```
+
+> 请参看示例 `example` 中的使用
+
+此时请求没有配置路由的 `/demo` `/demo/test`。将会自动尝试从 `app\\controllers` 命名空间下去查找 `DemoController`
+
+查找逻辑是 
+
+- 只有一节的(如`/demo`)，直接定义它为控制器类名进行查找
+- 大于等于两节的默认先认为最后一节是控制器类名，进行查找
+- 若失败，再尝试将倒数第二节认为是控制器名，最后一节是action名
+
+### 匹配所有
+
+配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
+
+可允许配置 `matchAll` 的值为 
+
+- 路由path
+
+```php
+    'matchAll' => '/about', // a route path
+```
+
+将会直接执行此路由后停止执行
+
+- 回调
+
+```php 
+    'matchAll' => function () {
+        echo 'System Maintaining ... ...';
+    },
+```
+
+将会直接执行此回调后停止执行

@@ -8,7 +8,6 @@
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
-- 支持设置匹配路由的解析器: `SRouter::setMatchedRouteParser()`. 你可以自定义如何调用匹配的路由处理程序.
 - 支持通过方法 `SRouter::dispatch($path, $method)` 手动调度一个路由
 - 你也可以不配置任何东西, 它也能很好的工作
 
@@ -143,6 +142,9 @@ SRouter::map(['get', 'post'], '/user/login', function() {
 SRouter::any('/home', function() {
     echo 'hello, you request page is /home';
 });
+SRouter::any('/404', function() {
+    echo "Sorry,This page {$_GET['_src_path']} not found.";
+});
 
 // 路由组
 SRouter::group('/user', function () {
@@ -254,29 +256,6 @@ SRouter::any('/user[/{name}]', 'app\controllers\User');
 
 将会直接执行此回调后停止执行
 
-## 设置事件处理
-
-```php
-SRouter::any('/404', function() {
-    echo "Sorry,This page {$_GET['_src_path']} not found.";
-});
-```
-
-```php
-// 成功匹配路由
-SRouter::on(SRouter::ON_FOUND, function ($uri, $cb) use ($app) {
-    $app->logger->debug("Matched uri path: $uri, setting callback is: " . is_string($cb) ? $cb : get_class($cb));
-});
-
-// 当匹配失败, 重定向到 '/404'
-SRouter::on('notFound', '/404');
-
-// 或者, 当匹配失败, 输出消息...
-SRouter::on('notFound', function ($uri) {
-    echo "the page $uri not found!";
-});
-```
-
 ## 设置路由配置
 
 ```php
@@ -353,6 +332,22 @@ use inhere\sroute\Dispatcher;
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
 ]);
+```
+
+### 设置事件处理
+
+```php
+// 成功匹配路由
+$dispatcher->on(Dispatcher::ON_FOUND, function ($uri, $cb) use ($app) {
+    $app->logger->debug("Matched uri path: $uri, setting callback is: " . is_string($cb) ? $cb : get_class($cb));
+});
+
+// 当匹配失败, 重定向到 '/404'
+$dispatcher->on('notFound', '/404');
+// 或者, 当匹配失败, 输出消息...
+$dispatcher->on('notFound', function ($uri) {
+    echo "the page $uri not found!";
+});
 ```
 
 ## 开始路由匹配和调度
