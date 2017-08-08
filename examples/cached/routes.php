@@ -14,11 +14,24 @@ function home_handler() {
     echo 'hello, welcome';
 }
 
+function default_handler() {
+    echo 'hello, welcome. you request URI: ' . $_SERVER['REQUEST_URI'];
+}
+
 function my_handler($name='NO', $age = 10) {
     echo "hello, my name: $name, my age: $age"; // 'john'
 }
 
 $router->get('/', 'home_handler');
+
+/*
+match: /blog /saying
+ */
+$router->get('/{name}', 'default_handler', [
+    'tokens' => [
+        'name' => 'blog|saying'
+    ]
+]);
 
 /*
 match:

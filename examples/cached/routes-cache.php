@@ -1,7 +1,7 @@
 <?php
 /*
  * This inhere/sroute routes cache file. is auto generate by inhere\sroute\ORouter.
- * @date 2017-07-19 00:24:03
+ * @date 2017-08-08 14:03:49
  */
 return [
     'staticRoutes' => array (
@@ -164,5 +164,20 @@ return [
   ),
 ),
     'vagueRoutes' => array (
+  0 => 
+  array (
+    'method' => 'GET',
+    'handler' => 'default_handler',
+    'option' => 
+    array (
+      'tokens' => 
+      array (
+        'name' => 'blog|saying',
+      ),
+      'domains' => NULL,
+      'schema' => NULL,
+    ),
+    'regex' => '#^/(blog|saying)$#',
+  ),
 ),
 ];

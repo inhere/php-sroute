@@ -13,6 +13,15 @@ SRouter::get('/', function() {
     echo 'hello, welcome';
 });
 
+/*
+match: /blog /saying
+ */
+SRouter::get('/{name}', 'default_handler', [
+    'tokens' => [
+        'name' => 'blog|saying'
+    ]
+]);
+
 SRouter::get('/hello/{name}', function($arg) {
     echo "hello, $arg"; // 'john'
 },[

@@ -75,7 +75,7 @@ class ORouter implements RouterInterface
      * [
      *     // 先用第一个字符作为 key，进行分组
      *     'a' => [
-     *          // 第一节只有一个字符, 使用关键字'__NO__'为 key 进行分组
+     *          // 第一节只有一个字符, 使用关键字'_NO_'为 key 进行分组
      *         '_NO_' => [
      *              [
      *                  'first' => '/a',
@@ -528,7 +528,7 @@ class ORouter implements RouterInterface
         // is a regular dynamic route(the first char is 1th level index key).
         if ($this->regularRoutes && isset($this->regularRoutes[$tmp{0}])) {
             $twoLevelArr = $this->regularRoutes[$tmp{0}];
-            $twoLevelKey = isset($tmp{1}) ? $tmp{1} : '__NO__';
+            $twoLevelKey = isset($tmp{1}) ? $tmp{1} : self::DEFAULT_TWO_LEVEL_KEY;
 
             // not found
             if (!isset($twoLevelArr[$twoLevelKey])) {

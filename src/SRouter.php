@@ -333,7 +333,7 @@ class SRouter implements RouterInterface
         // is a regular dynamic route(the first char is 1th level index key).
         if (self::$regularRoutes && isset(self::$regularRoutes[$tmp{0}])) {
             $twoLevelArr = self::$regularRoutes[$tmp{0}];
-            $twoLevelKey = isset($tmp{1}) ? $tmp{1} : '__NO__';
+            $twoLevelKey = isset($tmp{1}) ? $tmp{1} : self::DEFAULT_TWO_LEVEL_KEY;
 
             // not found
             if (!isset($twoLevelArr[$twoLevelKey])) {

@@ -21,6 +21,15 @@ $router->get('/', function() {
 });
 
 /*
+match: /blog /saying
+ */
+$router->get('/{name}', 'default_handler', [
+    'tokens' => [
+        'name' => 'blog|saying'
+    ]
+]);
+
+/*
 match:
     /my/tom/78
     /my/tom
