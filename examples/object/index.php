@@ -27,7 +27,7 @@ $router->setConfig([
     // 'tmpCacheNumber' => 100,
 
 //    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
+//    'matchAll' => function () { // a callback
 //        echo 'System Maintaining ... ...';
 //    },
 
@@ -40,16 +40,42 @@ $router->setConfig([
 
 require __DIR__ . '/routes.php';
 
+// var_dump($router->getConfig(),$router);die;
+
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
+    // on notFound, output a message.
+    Dispatcher::ON_NOT_FOUND => function ($path) {
+        echo "the page $path not found!";
+    }
 ]);
 
-// on notFound, output a message.
-$dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
-    echo "the page $path not found!";
+// OR register event by `Dispatcher::on()`
+// $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
+//     echo "the page $path not found!";
+// });
+
+/*
+method 1
+
+$dispatcher->->setMatcher(function ($path, $method) use($router) {
+    return $router->match($path, $method);
 });
+$dispatcher->dispatch();
+ */
 
-// $dispatcher->dispatch();
-
-// var_dump($router->getConfig(),$router);die;
+/*
+method 2
+ */
 $router->dispatch($dispatcher);
+
+/*
+method 3
+
+$router->dispatch([
+    'dynamicAction' => true,
+    Dispatcher::ON_NOT_FOUND => function ($path) {
+        echo "the page $path not found!";
+    }
+]);
+ */

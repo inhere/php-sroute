@@ -657,14 +657,20 @@ class ORouter implements RouterInterface
 
     /**
      * Runs the callback for the given request
-     * @param DispatcherInterface $dispatcher
+     * @param DispatcherInterface|array $dispatcher
      * @return mixed
      */
-    public function dispatch(DispatcherInterface $dispatcher = null)
+    public function dispatch($dispatcher = null)
     {
         if ($dispatcher) {
-            $this->dispatcher = $dispatcher;
-        } elseif (!$this->dispatcher) {
+            if ($dispatcher instanceof DispatcherInterface) {
+                $this->dispatcher = $dispatcher;
+            } elseif (is_array($dispatcher)) {
+                $this->dispatcher = new Dispatcher($dispatcher);
+            }
+        }
+
+        if (!$this->dispatcher) {
             $this->dispatcher = new Dispatcher;
         }
 

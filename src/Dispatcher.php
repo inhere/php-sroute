@@ -90,6 +90,9 @@ class Dispatcher implements DispatcherInterface
         foreach ($config as $name => $value) {
             if (isset($this->config[$name])) {
                 $this->config[$name] = $value;
+            } else {
+                // maybe it is a event
+                $this->on($name, $value);
             }
         }
     }

@@ -400,14 +400,20 @@ class SRouter implements RouterInterface
 
     /**
      * Runs the callback for the given request
-     * @param DispatcherInterface $dispatcher
+     * @param DispatcherInterface|array $dispatcher
      * @return mixed
      */
-    public static function dispatch(DispatcherInterface $dispatcher = null)
+    public static function dispatch($dispatcher = null)
     {
         if ($dispatcher) {
-            self::$dispatcher = $dispatcher;
-        } elseif (!self::$dispatcher) {
+            if ($dispatcher instanceof DispatcherInterface) {
+                self::$dispatcher = $dispatcher;
+            } elseif (is_array($dispatcher)) {
+                self::$dispatcher = new Dispatcher($dispatcher);
+            }
+        }
+
+        if (!self::$dispatcher) {
             self::$dispatcher = new Dispatcher;
         }
 
