@@ -74,21 +74,7 @@ class SRouter implements RouterInterface
     /**
      * There are last route caches
      * @var array
-     * [
-     *     'path' => [
-     *         'GET' => [
-     *              'method' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *          ],
-     *         'POST' => [
-     *              'method' => 'POST',
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *          ],
-     *         ... ...
-     *     ]
-     * ]
+     * @see ORouter::$routeCaches
      */
     private static $routeCaches = [];
 
@@ -132,7 +118,9 @@ class SRouter implements RouterInterface
         }
 
         foreach ($config as $name => $value) {
-            static::$config[$name] = $value;
+            if (isset(self::$config[$name])) {
+                self::$config[$name] = $value;
+            }
         }
     }
 

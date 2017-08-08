@@ -24,6 +24,9 @@ namespace inhere\sroute;
  */
 class ORouter implements RouterInterface
 {
+    /**
+     * @var int
+     */
     private $routeCounter = 0;
 
     /**
@@ -216,7 +219,9 @@ class ORouter implements RouterInterface
         }
 
         foreach ($config as $name => $value) {
-            $this->config[$name] = $value;
+            if (isset($this->config[$name])) {
+                $this->config[$name] = $value;
+            }
         }
     }
 
@@ -252,9 +257,8 @@ class ORouter implements RouterInterface
      */
     public function group($prefix, \Closure $callback, array $opts = [])
     {
-        $prefix = '/' . trim($prefix, '/');
         $previousGroupPrefix = $this->currentGroupPrefix;
-        $this->currentGroupPrefix = $previousGroupPrefix . $prefix;
+        $this->currentGroupPrefix = $previousGroupPrefix . '/' . trim($prefix, '/');
 
         $previousGroupOption = $this->currentGroupOption;
         $this->currentGroupOption = $opts;

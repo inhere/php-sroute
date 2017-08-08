@@ -55,10 +55,10 @@ This benchmark consists of 14 tests. Each test is executed 1,000 times, the resu
 
 Test Name | Results | Time | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
-ORouter - unknown route (1000 routes) | 988 | 0.0000120063 | +0.0000000000 | baseline
-ORouter - last route (1000 routes) | 988 | 0.0000122867 | +0.0000002804 | 2% slower
-SRouter - unknown route (1000 routes) | 983 | 0.0000123633 | +0.0000003570 | 3% slower
-SRouter - last route (1000 routes) | 998 | 0.0000142205 | +0.0000022142 | 18% slower
+**ORouter** - unknown route (1000 routes) | 988 | 0.0000120063 | +0.0000000000 | baseline
+**ORouter** - last route (1000 routes) | 988 | 0.0000122867 | +0.0000002804 | 2% slower
+**SRouter** - unknown route (1000 routes) | 983 | 0.0000123633 | +0.0000003570 | 3% slower
+**SRouter** - last route (1000 routes) | 998 | 0.0000142205 | +0.0000022142 | 18% slower
 Symfony2 Dumped - last route (1000 routes) | 990 | 0.0000468579 | +0.0000348516 | 290% slower
 Symfony2 Dumped - unknown route (1000 routes) | 995 | 0.0000490268 | +0.0000370205 | 308% slower
 FastRoute - unknown route (1000 routes) | 968 | 0.0001358227 | +0.0001238164 | 1031% slower
@@ -81,8 +81,8 @@ This benchmark consists of 7 tests. Each test is executed 1,000 times, the resul
 Test Name | Results | Time | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
 Pux PHP - first route(1000) | 993 | 0.0000105502 | +0.0000000000 | baseline
-ORouter - first route(1000) | 984 | 0.0000118334 | +0.0000012832 | 12% slower
-SRouter - first route(1000) | 982 | 0.0000118473 | +0.0000012971 | 12% slower
+**ORouter** - first route(1000) | 984 | 0.0000118334 | +0.0000012832 | 12% slower
+**SRouter** - first route(1000) | 982 | 0.0000118473 | +0.0000012971 | 12% slower
 FastRoute(cached) - first route(1000) | 999 | 0.0000143361 | +0.0000037859 | 36% slower
 FastRoute - first route(1000) | 999 | 0.0000143980 | +0.0000038477 | 36% slower
 Symfony2 Dumped - first route | 993 | 0.0000350874 | +0.0000245372 | 233% slower
@@ -163,11 +163,9 @@ SRouter::group('/user', function () {
 支持根据请求的URI自动匹配路由(就像 yii 一样), 需配置 `autoRoute`. 
 
 ```php 
-    'autoRoute' => [
-        'enable' => 1, // 启用
-        'controllerNamespace' => 'app\\controllers', // 控制器类所在命名空间
-        'controllerSuffix' => 'Controller', // 控制器类后缀
-    ],
+    'autoRoute' => 1, // 启用
+    'controllerNamespace' => 'app\\controllers', // 控制器类所在命名空间
+    'controllerSuffix' => 'Controller', // 控制器类后缀
 ```
 
 > 请参看示例 `example` 中的使用
@@ -210,11 +208,9 @@ SRouter::group('/user', function () {
 // set config
 SRouter::setConfig([
     'ignoreLastSep' => true,    
-    'autoRoute' => [
-        'enable' => 1,
-        'controllerNamespace' => 'app\\controllers',
-        'controllerSuffix' => 'Controller',
-    ],
+    'autoRoute' => 1,
+    'controllerNamespace' => 'app\\controllers',
+    'controllerSuffix' => 'Controller',
 ]);
 ```
 
@@ -251,8 +247,8 @@ $route = SRouter::match($path, $method);
         'method' => 'GET', // 配置的请求 METHOD
         'handler' => 'handler', // 此路由的 handler
         // 此路由的自定义选项信息. 
-        // tokens - 来自添加路由时设置的参数匹配信息, 若有的话
-        // 可以自定义此路由的选项：如下经供参考
+        // - tokens - 来自添加路由时设置的参数匹配信息, 若有的话
+        // 还可以自定义追加此路由的选项：如下经供参考
         // - domains 允许访问路由的域名
         // - schema 允许访问路由的schema
         // - enter 进入路由的事件回调

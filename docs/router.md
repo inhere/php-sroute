@@ -95,13 +95,46 @@ $router->group('/user', function ($router) {
 
 ### 如何收集
 
-路由将会分为三类
+添加的路由将会分为三类 `静态路由` `(有规律的)动态路由` `(无规律的)动态路由`
 
-#### 静态路由
-#### 动态路由
+#### 1. 静态路由
 
-- 有规律的动态路由
-- 无规律的动态路由
+例如：
+
+```php
+$router->post('/user/signUp', 'handler2');
+```
+
+#### 2. (有规律的)动态路由
+
+例如：
+
+```php
+/*
+match:
+    /hello/tom
+    /hello
+ */
+$router->get('/hello[/{name}]', function($name='NO') {
+    echo "hello, $name"; // 'john'
+},[
+    'tokens' => [
+        'name' => '\w+'
+    ]
+]);
+```
+
+#### 3. (无规律的)动态路由
+
+例如： 
+
+```php
+$router->get('/{name}', 'default_handler', [
+    'tokens' => [
+        'name' => 'blog|saying'
+    ]
+]);
+```
 
 ## 路由匹配
 
@@ -176,9 +209,6 @@ SRouter::setConfig([
 ```php
 // 所有的默认的配置
 [   
-    // 是否过滤 /favicon.ico 请求
-    'filterFavicon' => false,
-    
     // 是否忽略最后的 '/' 分隔符. 如果是 true,将清除最后一个 '/', 此时请求 '/home' 和 '/home/' 效果相同
     'ignoreLastSep' => false,
 
@@ -187,15 +217,12 @@ SRouter::setConfig([
     // 2. 如果是一个可用回调,将匹配所有请求然后调用它
     'matchAll' => '', // 例如: '/site/maintenance' 或者 `function () { echo 'System Maintaining ... ...'; }`
 
-    // 自动匹配路由到控制器就像 yii 一样 
-    'autoRoute' => [
-        // 是否启用
-        'enable' => false,
-        // 默认控制器名称空间
-        'controllerNamespace' => '', // eg: 'app\\controllers'
-        // 控制器类后缀
-        'controllerSuffix' => '',    // eg: 'Controller'
-    ]
+    // 是否启用, 自动匹配路由到控制器就像 yii 一样. 
+    'autoRoute' => false,
+    // 默认控制器名称空间
+    'controllerNamespace' => '', // eg: 'app\\controllers'
+    // 控制器类后缀
+    'controllerSuffix' => '',    // eg: 'Controller'
 ]
 ```
 
@@ -206,11 +233,9 @@ SRouter::setConfig([
 支持根据请求的URI自动匹配路由(就像 yii 一样), 需配置 `autoRoute`. 
 
 ```php 
-    'autoRoute' => [
-        'enable' => 1, // 启用
-        'controllerNamespace' => 'app\\controllers', // 控制器类所在命名空间
-        'controllerSuffix' => 'Controller', // 控制器类后缀
-    ],
+    'autoRoute' => 1, // 启用
+    'controllerNamespace' => 'app\\controllers', // 控制器类所在命名空间
+    'controllerSuffix' => 'Controller', // 控制器类后缀
 ```
 
 > 请参看示例 `example` 中的使用

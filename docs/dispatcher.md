@@ -6,6 +6,9 @@
 
 ```php
 [
+    // 是否过滤 /favicon.ico 请求
+    'filterFavicon' => false,
+    
     // 默认的控制器方法名称
     'defaultAction' => 'index',
 

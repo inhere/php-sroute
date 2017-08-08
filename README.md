@@ -169,11 +169,9 @@ SRouter::get('/user[/{name}]', 'app\controllers\User');
 Support automatic matching like yii routed to the controller, need config `autoRoute`. 
 
 ```php 
-    'autoRoute' => [
-        'enable' => 1, // enanbled
-        'controllerNamespace' => 'examples\\controllers', // The controller class in the namespace
-        'controllerSuffix' => 'Controller', // The controller class suffix
-    ],
+    'autoRoute' => 1, // enanbled
+    'controllerNamespace' => 'examples\\controllers', // The controller class in the namespace
+    'controllerSuffix' => 'Controller', // The controller class suffix
 ```
 
 ### Match all requests
@@ -214,11 +212,9 @@ SRouter::setConfig([
     
     // enable autoRoute, work like yii framework
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' => [
-        'enable' => 1,
-        'controllerNamespace' => 'examples\\controllers',
-        'controllerSuffix' => 'Controller',
-    ],
+    'autoRoute' => 1,
+    'controllerNamespace' => 'examples\\controllers',
+    'controllerSuffix' => 'Controller',
 ]);
 ```
 
@@ -236,14 +232,12 @@ SRouter::setConfig([
     'matchAll' => '', // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
 
     // auto route match @like yii framework
-    'autoRoute' => [
-        // If is True, will auto find the handler controller file.
-        'enable' => false,
-        // The default controllers namespace, is valid when `'enable' = true`
-        'controllerNamespace' => '', // eg: 'app\\controllers'
-        // controller suffix, is valid when `'enable' = true`
-        'controllerSuffix' => '',    // eg: 'Controller'
-    ],
+    // If is True, will auto find the handler controller file.
+    'autoRoute' => false,
+    // The default controllers namespace, is valid when `'enable' = true`
+    'controllerNamespace' => '', // eg: 'app\\controllers'
+    // controller suffix, is valid when `'enable' = true`
+    'controllerSuffix' => '',    // eg: 'Controller'
 ]
 ```
 
