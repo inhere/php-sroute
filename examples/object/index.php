@@ -33,11 +33,9 @@ $router->setConfig([
 
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' => [
-        'enable' => 1,
-        'controllerNamespace' => 'inhere\sroute\examples\controllers',
-        'controllerSuffix' => 'Controller',
-    ],
+    'autoRoute' => 1,
+    'controllerNamespace' => 'inhere\sroute\examples\controllers',
+    'controllerSuffix' => 'Controller',
 ]);
 
 require __DIR__ . '/routes.php';

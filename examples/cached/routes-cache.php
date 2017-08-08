@@ -1,7 +1,7 @@
 <?php
 /*
  * This inhere/sroute routes cache file. is auto generate by inhere\sroute\ORouter.
- * @date 2017-08-08 14:03:49
+ * @date 2017-08-08 15:07:34
  */
 return [
     'staticRoutes' => array (

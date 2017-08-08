@@ -110,14 +110,12 @@ class SRouter implements RouterInterface
         'matchAll' => '',
 
         // auto route match @like yii framework
-        'autoRoute' => [
-            // If is True, will auto find the handler controller file.
-            'enable' => false,
-            // The default controllers namespace, is valid when `'enable' = true`
-            'controllerNamespace' => '', // eg: 'app\\controllers'
-            // controller suffix, is valid when `'enable' = true`
-            'controllerSuffix' => '',    // eg: 'Controller'
-        ],
+        // If is True, will auto find the handler controller file.
+        'autoRoute' => false,
+        // The default controllers namespace, is valid when `'enable' = true`
+        'controllerNamespace' => '', // eg: 'app\\controllers'
+        // controller suffix, is valid when `'enable' = true`
+        'controllerSuffix' => '',    // eg: 'Controller'
     ];
 
     /** @var DispatcherInterface */
@@ -134,11 +132,7 @@ class SRouter implements RouterInterface
         }
 
         foreach ($config as $name => $value) {
-            if ($name === 'autoRoute') {
-                static::$config['autoRoute'] = array_merge(static::$config['autoRoute'], (array)$value);
-            } elseif (isset(static::$config[$name])) {
-                static::$config[$name] = $value;
-            }
+            static::$config[$name] = $value;
         }
     }
 
@@ -387,7 +381,10 @@ class SRouter implements RouterInterface
         }
 
         // handle Auto Route
-        if ($handler = ORouter::matchAutoRoute($path, static::$config['autoRoute'])) {
+        if (
+            self::$config['autoRoute'] &&
+            ($handler = ORouter::matchAutoRoute($path, self::$config['controllerNamespace'], self::$config['controllerSuffix']))
+        ) {
             return [$path, [
                 'handler' => $handler
             ]];

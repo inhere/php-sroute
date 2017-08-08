@@ -170,14 +170,12 @@ class ORouter implements RouterInterface
         'matchAll' => '',
 
         // auto route match @like yii framework
-        'autoRoute' => [
-            // If is True, will auto find the handler controller file.
-            'enable' => false,
-            // The default controllers namespace, is valid when `'enable' = true`
-            'controllerNamespace' => '', // eg: 'app\\controllers'
-            // controller suffix, is valid when `'enable' = true`
-            'controllerSuffix' => '',    // eg: 'Controller'
-        ],
+        // If is True, will auto find the handler controller file.
+        'autoRoute' => false,
+        // The default controllers namespace, is valid when `'enable' = true`
+        'controllerNamespace' => '', // eg: 'app\\controllers'
+        // controller suffix, is valid when `'enable' = true`
+        'controllerSuffix' => '',    // eg: 'Controller'
     ];
 
     /** @var DispatcherInterface */
@@ -218,11 +216,7 @@ class ORouter implements RouterInterface
         }
 
         foreach ($config as $name => $value) {
-            if ($name === 'autoRoute') {
-                $this->config['autoRoute'] = array_merge($this->config['autoRoute'], (array)$value);
-            } else {
-                $this->config[$name] = $value;
-            }
+            $this->config[$name] = $value;
         }
     }
 
@@ -494,7 +488,7 @@ class ORouter implements RouterInterface
         // clear '//', '///' => '/'
         $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
         $method = strtoupper($method);
-        $number = $this->config['tmpCacheNumber'];
+        $number = (int)$this->config['tmpCacheNumber'];
 
         // setting 'ignoreLastSep'
         if ($path !== '/' && $this->config['ignoreLastSep']) {
@@ -582,7 +576,10 @@ class ORouter implements RouterInterface
         }
 
         // handle Auto Route
-        if ($handler = self::matchAutoRoute($path, $this->config['autoRoute'])) {
+        if (
+            $this->config['autoRoute'] &&
+            ($handler = self::matchAutoRoute($path, $this->config['controllerNamespace'], $this->config['controllerSuffix']))
+        ) {
             return [$path, [
                 'path' => $path,
                 'handler' => $handler,
@@ -594,25 +591,16 @@ class ORouter implements RouterInterface
     }
 
     /**
-     * handle auto route match
-     *  when config `'autoRoute' => true`
+     * handle auto route match, when config `'autoRoute' => true`
      * @param string $path The route path
-     * @param array $opts  The some options
-     * contains: [
-     *  'controllerNamespace' => '', // controller namespace. eg: 'app\\controllers'
-     *  'controllerSuffix' => '',    // controller suffix. eg: 'Controller'
-     * ]
+     * @param string $controllerNamespace controller namespace. eg: 'app\\controllers'
+     * @param string $controllerSuffix controller suffix. eg: 'Controller'
      * @return bool|callable
      */
-    public static function matchAutoRoute($path, array $opts)
+    public static function matchAutoRoute($path, $controllerNamespace, $controllerSuffix = '')
     {
-        // not enabled
-        if (!$opts || !isset($opts['enable']) || !$opts['enable']) {
-            return false;
-        }
-
-        $cnp = $opts['controllerNamespace'];
-        $sfx = $opts['controllerSuffix'];
+        $cnp = $controllerNamespace;
+        $sfx = $controllerSuffix;
         $tmp = trim($path, '/- ');
 
         // one node. eg: 'home'
