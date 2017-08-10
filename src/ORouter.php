@@ -492,7 +492,7 @@ class ORouter implements RouterInterface
         // clear '//', '///' => '/'
         $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
         $method = strtoupper($method);
-        $number = (int)$this->config['tmpCacheNumber'];
+        $number = $this->config['tmpCacheNumber'];
 
         // setting 'ignoreLastSep'
         if ($path !== '/' && $this->config['ignoreLastSep']) {
@@ -533,7 +533,7 @@ class ORouter implements RouterInterface
                 return false;
             }
 
-            foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
+            foreach ($twoLevelArr[$twoLevelKey] as $conf) {
                 if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
                     // method not allowed
                     if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
