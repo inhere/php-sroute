@@ -662,9 +662,11 @@ class ORouter implements RouterInterface
     /**
      * Runs the callback for the given request
      * @param DispatcherInterface|array $dispatcher
+     * @param null|string $path
+     * @param null|string $method
      * @return mixed
      */
-    public function dispatch($dispatcher = null)
+    public function dispatch($dispatcher = null, $path = null, $method = null)
     {
         if ($dispatcher) {
             if ($dispatcher instanceof DispatcherInterface) {
@@ -678,9 +680,9 @@ class ORouter implements RouterInterface
             $this->dispatcher = new Dispatcher;
         }
 
-        return $this->dispatcher->setMatcher(function ($path, $method) {
-            return $this->match($path, $method);
-        })->dispatch();
+        return $this->dispatcher->setMatcher(function ($p, $m) {
+            return $this->match($p, $m);
+        })->dispatch($path, $method);
     }
 
 //////////////////////////////////////////////////////////////////////

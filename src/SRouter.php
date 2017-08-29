@@ -389,9 +389,11 @@ class SRouter implements RouterInterface
     /**
      * Runs the callback for the given request
      * @param DispatcherInterface|array $dispatcher
+     * @param null|string $path
+     * @param null|string $method
      * @return mixed
      */
-    public static function dispatch($dispatcher = null)
+    public static function dispatch($dispatcher = null, $path = null, $method = null)
     {
         if ($dispatcher) {
             if ($dispatcher instanceof DispatcherInterface) {
@@ -405,9 +407,9 @@ class SRouter implements RouterInterface
             self::$dispatcher = new Dispatcher;
         }
 
-        return self::$dispatcher->setMatcher(function ($path, $method) {
-            return self::match($path, $method);
-        })->dispatch();
+        return self::$dispatcher->setMatcher(function ($p, $m) {
+            return self::match($p, $m);
+        })->dispatch($path, $method);
     }
 
 //////////////////////////////////////////////////////////////////////
