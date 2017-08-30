@@ -47,6 +47,10 @@ class Dispatcher implements DispatcherInterface
         'actionExecutor' => '', // 'run'
     ];
 
+    /** @var \Closure */
+    private $matcher;
+
+    /** @var bool */
     private $initialized;
 
     /**
@@ -101,9 +105,6 @@ class Dispatcher implements DispatcherInterface
 /// route callback handler dispatch
 //////////////////////////////////////////////////////////////////////
 
-    /** @var \Closure */
-    private $matcher;
-
     /**
      * Runs the callback for the given request
      * @param string $path
@@ -113,7 +114,6 @@ class Dispatcher implements DispatcherInterface
      */
     public function dispatch($path = null, $method = null)
     {
-        $this->initialized = true;
         $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // if 'filterFavicon' setting is TRUE
@@ -122,7 +122,12 @@ class Dispatcher implements DispatcherInterface
         }
 
         $method = $method ?: $_SERVER['REQUEST_METHOD'];
-        $matcher = $this->matcher;
+
+        if (!$matcher = $this->matcher) {
+            throw new \RuntimeException('Must be setting the property [matcher] before call dispatch().');
+        }
+
+        $this->initialized = true;
 
         if (!$info = $matcher($path, $method)) {
             return $this->handleNotFound($path);
@@ -148,13 +153,13 @@ class Dispatcher implements DispatcherInterface
         }
 
         $handler = $route['handler'];
-        $matches = isset($route['matches']) ? $route['matches'] : null;
+        $args = isset($route['matches']) ? $route['matches'] : null;
 
         try {
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $route]);
 
-            $result = $this->callMatchedRouteHandler($path, $handler, $matches);
+            $result = $this->callMatchedRouteHandler($path, $handler, $args);
 
             // fire leave event
             if (isset($options['leave'])) {
@@ -206,7 +211,10 @@ class Dispatcher implements DispatcherInterface
         }
 
         if (is_array($handler)) {
-            return call_user_func($handler, $path);
+            // return call_user_func($handler, $path);
+            list($obj, $mhd) = $handler;
+
+            return is_object($obj) ? $obj->$mhd() : $obj::$mhd();
         }
 
         if (is_string($handler)) {
@@ -260,10 +268,14 @@ class Dispatcher implements DispatcherInterface
             }
         }
 
+        if (is_array($notFoundHandler)) {
+            list($obj, $mhd) = $notFoundHandler;
+
+            return is_object($obj) ? $obj->$mhd($path, $actionNotExist) : $obj::$mhd($path, $actionNotExist);
+        }
+
         // trigger notFound event
-        return is_array($notFoundHandler) ?
-            call_user_func($notFoundHandler, $path, $actionNotExist) :
-            $notFoundHandler($path, $actionNotExist);
+        return $notFoundHandler($path, $actionNotExist);
     }
 
     /**
@@ -365,7 +377,13 @@ class Dispatcher implements DispatcherInterface
     protected function fire($event, array $args = [])
     {
         if (isset(self::$events[$event]) && ($cb = self::$events[$event])) {
-            return !is_array($cb) ? $cb(...$args) : call_user_func_array($cb, $args);
+            if (is_array($cb)) {
+                list($obj, $mhd) = $cb;
+
+                return is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
+            }
+
+            return $cb(...$args);
         }
 
         return null;
