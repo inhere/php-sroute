@@ -121,13 +121,12 @@ class Dispatcher implements DispatcherInterface
             return null;
         }
 
-        $method = $method ?: $_SERVER['REQUEST_METHOD'];
-
         if (!$matcher = $this->matcher) {
             throw new \RuntimeException('Must be setting the property [matcher] before call dispatch().');
         }
 
         $this->initialized = true;
+        $method = $method ?: $_SERVER['REQUEST_METHOD'];
 
         if (!$info = $matcher($path, $method)) {
             return $this->handleNotFound($path);
@@ -135,12 +134,12 @@ class Dispatcher implements DispatcherInterface
 
         list($path, $route) = $info;
 
+        // trigger route found event
+        $this->fire(self::ON_FOUND, [$path, $route]);
+
         $result = null;
         $options = isset($route['option']) ? $route['option'] : [];
         unset($route['option']);
-
-        // trigger route found event
-        $this->fire(self::ON_FOUND, [$path, $route]);
 
         // schema,domains ... metadata validate
         if (false === $this->validateMetadata($route)) {
@@ -148,22 +147,28 @@ class Dispatcher implements DispatcherInterface
         }
 
         // fire enter event
-        if (isset($options['enter']) && false === $this->callRouteEvent($options['enter'], $path)) {
+        if (isset($options['enter']) && false === $this->fireRouteEvent($options['enter'], $path)) {
             return $result;
         }
 
         $handler = $route['handler'];
-        $args = isset($route['matches']) ? $route['matches'] : null;
+        $args = isset($route['matches']) ? $route['matches'] : [];
+
+        // Remove matches[0] as [1] is the first parameter.
+        if ($args) {
+            array_shift($args);
+            $args = array_values($args);
+        }
 
         try {
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $route]);
 
-            $result = $this->callMatchedRouteHandler($path, $handler, $args);
+            $result = $this->executeRouteHandler($path, $handler, $args);
 
             // fire leave event
             if (isset($options['leave'])) {
-                $this->callRouteEvent($options['leave'], $path);
+                $this->fireRouteEvent($options['leave'], $path);
             }
 
             // trigger route exec_end event
@@ -186,13 +191,78 @@ class Dispatcher implements DispatcherInterface
      *     'schema' => 'https',
      * ]
      */
-    public function validateMetadata(array $route)
+    protected function validateMetadata(array $route)
     {
-        // validate Schema
+        // 1. validate Schema
 
-        // validate validateDomains
+        // 2. validate validateDomains
         // $serverName = $_SERVER['SERVER_NAME'];
 
+        // 3. more something ...
+    }
+
+    /**
+     * execute the matched Route Handler
+     * @param string $path The route path
+     * @param callable $handler The route path handler
+     * @param array $args Matched param from path
+     * @return mixed
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
+     */
+    protected function executeRouteHandler($path, $handler, array $args = [])
+    {
+        // is a \Closure or a callable object
+        if (is_object($handler)) {
+            return $args ? $handler(...$args) : $handler();
+        }
+
+        //// $handler is string
+
+        // is array ['controller', 'action']
+        if (is_array($handler)) {
+            $segments = $handler;
+        } elseif (is_string($handler)) {
+            if (strpos($handler, '@') === false && function_exists($handler)) {
+                return $args ? $handler(...$args) : $handler();
+            }
+
+            // e.g `controllers\Home@index` Or only `controllers\Home`
+            $segments = explode('@', trim($handler));
+        } else {
+            throw new \InvalidArgumentException('Invalid route handler');
+        }
+
+        // Instantiation controller
+        $controller = new $segments[0]();
+
+        // Already assign action
+        if (isset($segments[1])) {
+            $action = $segments[1];
+
+            // use dynamic action
+        } elseif ((bool)$this->config['dynamicAction']) {
+            $action = isset($args[0]) ? trim($args[0], '/') : $this->config['defaultAction'];
+
+            // defined default action
+        } elseif (!$action = $this->config['defaultAction']) {
+            throw new \RuntimeException("please config the route path [$path] controller action to call");
+        }
+
+        $action = ORouter::convertNodeStr($action);
+
+        // if set the 'actionExecutor', the action handle logic by it.
+        if ($executor = $this->config['actionExecutor']) {
+            return $controller->$executor($action, $args);
+        }
+
+        // action method is not exist
+        if (!$action || !method_exists($controller, $action)) {
+            return $this->handleNotFound($path, true);
+        }
+
+        // call controller's action method
+        return $args ? $controller->$action(...$args) : $controller->$action();
     }
 
     /**
@@ -204,7 +274,7 @@ class Dispatcher implements DispatcherInterface
      * @return bool
      * @throws \InvalidArgumentException
      */
-    public function callRouteEvent($handler, $path)
+    public function fireRouteEvent($handler, $path)
     {
         if (!$handler) {
             return true;
@@ -250,10 +320,7 @@ class Dispatcher implements DispatcherInterface
     {
         // Run the 'notFound' callback if the route was not found
         if (!isset(self::$events[self::ON_NOT_FOUND])) {
-            $notFoundHandler = function ($path, $actionNotExist) {
-                 header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-                 echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
-            };
+            $notFoundHandler = $this->defaultNotFoundHandler();
 
             $this->on(self::ON_NOT_FOUND, $notFoundHandler);
         } else {
@@ -279,73 +346,16 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * the default matched route parser.
-     * @param string $path The route path
-     * @param callable $handler The route path handler
-     * @param array $matches Matched param from path
-     * @return mixed
-     * @throws \InvalidArgumentException
-     * @throws \RuntimeException
+     * @return \Closure
      */
-    private function callMatchedRouteHandler($path, $handler, array $matches = null)
+    protected function defaultNotFoundHandler()
     {
-        // Remove $matches[0] as [1] is the first parameter.
-        if ($matches) {
-            array_shift($matches);
-            $matches = array_values($matches);
-        }
+        return function ($path, $actionNotExist) {
+            $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
 
-        // is a \Closure or a callable object
-        if (is_object($handler)) {
-            return $matches ? $handler(...$matches) : $handler();
-        }
-
-        //// $handler is string
-
-        // is array ['controller', 'action']
-        if (is_array($handler)) {
-            $segments = $handler;
-        } elseif (is_string($handler)) {
-            if (strpos($handler, '@') === false && function_exists($handler)) {
-                return $matches ? $handler(...$matches) : $handler();
-            }
-
-            // e.g `controllers\Home@index` Or only `controllers\Home`
-            $segments = explode('@', trim($handler));
-        } else {
-            throw new \InvalidArgumentException('Invalid route handler');
-        }
-
-        // Instantiation controller
-        $controller = new $segments[0]();
-
-        // Already assign action
-        if (isset($segments[1])) {
-            $action = $segments[1];
-
-            // use dynamic action
-        } elseif ((bool)$this->config['dynamicAction']) {
-            $action = isset($matches[0]) ? trim($matches[0], '/') : $this->config['defaultAction'];
-
-            // defined default action
-        } elseif (!$action = $this->config['defaultAction']) {
-            throw new \RuntimeException("please config the route path [$path] controller action to call");
-        }
-
-        $action = ORouter::convertNodeStr($action);
-
-        // if set the 'actionExecutor', the action handle logic by it.
-        if ($executor = $this->config['actionExecutor']) {
-            return $controller->$executor($action, $matches);
-        }
-
-        // action method is not exist
-        if (!$action || !method_exists($controller, $action)) {
-            return $this->handleNotFound($path, true);
-        }
-
-        // call controller's action method
-        return $matches ? $controller->$action(...$matches) : $controller->$action();
+            header($protocol . ' 404 Not Found');
+            echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
+        };
     }
 
     /**
