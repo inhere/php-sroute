@@ -129,7 +129,7 @@ class Dispatcher implements DispatcherInterface
         $method = $method ?: $_SERVER['REQUEST_METHOD'];
 
         if (!$info = $matcher($path, $method)) {
-            return $this->handleNotFound($path);
+            return $this->handleNotFound($path, $method);
         }
 
         list($path, $route) = $info;
@@ -147,7 +147,7 @@ class Dispatcher implements DispatcherInterface
         }
 
         // fire enter event
-        if (isset($options['enter']) && false === $this->fireRouteEvent($options['enter'], $path)) {
+        if (isset($options['enter']) && false === $this->fireCallback($options['enter'], [$path])) {
             return $result;
         }
 
@@ -164,11 +164,11 @@ class Dispatcher implements DispatcherInterface
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $route]);
 
-            $result = $this->executeRouteHandler($path, $handler, $args);
+            $result = $this->executeRouteHandler($path, $method, $handler, $args);
 
             // fire leave event
             if (isset($options['leave'])) {
-                $this->fireRouteEvent($options['leave'], $path);
+                $this->fireCallback($options['leave'], [$path]);
             }
 
             // trigger route exec_end event
@@ -204,13 +204,12 @@ class Dispatcher implements DispatcherInterface
     /**
      * execute the matched Route Handler
      * @param string $path The route path
+     * @param string $method The request method
      * @param callable $handler The route path handler
      * @param array $args Matched param from path
      * @return mixed
-     * @throws \InvalidArgumentException
-     * @throws \RuntimeException
      */
-    protected function executeRouteHandler($path, $handler, array $args = [])
+    protected function executeRouteHandler($path, $method, $handler, array $args = [])
     {
         // is a \Closure or a callable object
         if (is_object($handler)) {
@@ -258,7 +257,7 @@ class Dispatcher implements DispatcherInterface
 
         // action method is not exist
         if (!$action || !method_exists($controller, $action)) {
-            return $this->handleNotFound($path, true);
+            return $this->handleNotFound($path, $method, true);
         }
 
         // call controller's action method
@@ -266,57 +265,14 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @param mixed $handler
-     * string - func name, class name
-     * array - [class, method]
-     * object - Closure, Object
-     * @param string $path
-     * @return bool
-     * @throws \InvalidArgumentException
-     */
-    public function fireRouteEvent($handler, $path)
-    {
-        if (!$handler) {
-            return true;
-        }
-
-        if (is_array($handler)) {
-            // return call_user_func($handler, $path);
-            list($obj, $mhd) = $handler;
-
-            return is_object($obj) ? $obj->$mhd() : $obj::$mhd();
-        }
-
-        if (is_string($handler)) {
-            if (function_exists($handler)) {
-                return $handler($path);
-            }
-
-            if (class_exists($handler) && method_exists($handler, '__invoke')) {
-                $cb = new $handler;
-
-                return $cb($path);
-            }
-
-            throw new \InvalidArgumentException('route event handler is not callable!');
-        }
-
-        // a \Closure or Object implement '__invoke'
-        if (is_object($handler) && method_exists($handler, '__invoke')) {
-            return $handler($path);
-        }
-
-        throw new \InvalidArgumentException('route event handler is not callable!');
-    }
-
-    /**
      * @param string $path Request uri path
+     * @param string $method
      * @param bool $actionNotExist
      *  True: The `$path` is matched success, but action not exist on route parser
      *  False: The `$path` is matched fail
      * @return bool|mixed
      */
-    private function handleNotFound($path, $actionNotExist = false)
+    private function handleNotFound($path, $method, $actionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
         if (!isset(self::$events[self::ON_NOT_FOUND])) {
@@ -330,19 +286,16 @@ class Dispatcher implements DispatcherInterface
             if (is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
                 $_GET['_src_path'] = $path;
 
-                unset(self::$events[self::ON_NOT_FOUND]);
-                return $this->dispatch($notFoundHandler);
+                if ($path === $notFoundHandler) {
+                    unset(self::$events[self::ON_NOT_FOUND]);
+                }
+
+                return $this->dispatch($notFoundHandler, $method);
             }
         }
 
-        if (is_array($notFoundHandler)) {
-            list($obj, $mhd) = $notFoundHandler;
-
-            return is_object($obj) ? $obj->$mhd($path, $actionNotExist) : $obj::$mhd($path, $actionNotExist);
-        }
-
         // trigger notFound event
-        return $notFoundHandler($path, $actionNotExist);
+        return $this->fireCallback($notFoundHandler, [$path, $method, $actionNotExist]);
     }
 
     /**
@@ -387,16 +340,51 @@ class Dispatcher implements DispatcherInterface
     protected function fire($event, array $args = [])
     {
         if (isset(self::$events[$event]) && ($cb = self::$events[$event])) {
-            if (is_array($cb)) {
-                list($obj, $mhd) = $cb;
-
-                return is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
-            }
-
-            return $cb(...$args);
+            return $this->fireCallback($cb, $args);
         }
 
         return null;
+    }
+
+    /**
+     * @param callable $cb
+     * string - func name, class name
+     * array - [class, method]
+     * object - Closure, Object
+     *
+     * @param array $args
+     * @return mixed
+     */
+    protected function fireCallback($cb, array $args = [])
+    {
+        if (!$cb) {
+            return true;
+        }
+
+        if (is_array($cb)) {
+            // return call_user_func($cb, $path);
+            list($obj, $mhd) = $cb;
+
+            return is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
+        }
+
+        if (is_string($cb)) {
+            if (function_exists($cb)) {
+                return $cb(...$args);
+            }
+
+            // a class name
+            if (class_exists($cb)) {
+                $cb = new $cb;
+            }
+        }
+
+        // a \Closure or Object implement '__invoke'
+        if (is_object($cb) && method_exists($cb, '__invoke')) {
+            return $cb(...$args);
+        }
+
+        throw new \InvalidArgumentException('the callback handler is not callable!');
     }
 
     /**

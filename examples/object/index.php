@@ -58,7 +58,7 @@ $dispatcher = new Dispatcher([
 /*
 method 1
 
-$dispatcher->->setMatcher(function ($path, $method) use($router) {
+$dispatcher->setMatcher(function ($path, $method) use($router) {
     return $router->match($path, $method);
 });
 $dispatcher->dispatch();
