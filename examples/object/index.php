@@ -26,8 +26,8 @@ $router->setConfig([
     // 'ignoreLastSep' => true,
     // 'tmpCacheNumber' => 100,
 
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () { // a callback
+//    'intercept' => '/', // a route path
+//    'intercept' => function () { // a callback
 //        echo 'System Maintaining ... ...';
 //    },
 

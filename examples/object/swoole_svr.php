@@ -28,8 +28,8 @@ $router->setConfig([
 
     'tmpCacheNumber' => 100,
 
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
+//    'intercept' => '/', // a route path
+//    'intercept' => function () {
 //        echo 'System Maintaining ... ...';
 //    },
 

@@ -30,8 +30,21 @@ interface RouterInterface
      */
     const SUPPORTED_METHODS = [
         'ANY',
-        'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
+        'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
     ];
+
+    const GET = 'GET';
+    const POST = 'POST';
+    const PUT = 'PUT';
+    const PATCH = 'PATCH';
+    const DELETE = 'DELETE';
+    const OPTIONS = 'OPTIONS';
+    const HEAD = 'HEAD';
+    const SEARCH = 'SEARCH';
+    const CONNECT = 'CONNECT';
+    const TRACE = 'TRACE';
+
+    const ANY = 'ANY';
 
     /**
      * @return array

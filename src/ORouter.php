@@ -166,11 +166,11 @@ class ORouter implements RouterInterface
         // 'tmpCacheNumber' => 100,
         'tmpCacheNumber' => 0,
 
-        // match all request.
-        // 1. If is a valid URI path, will match all request uri to the path.
-        // 2. If is a closure, will match all request then call it
+        // intercept all request.
+        // 1. If is a valid URI path, will intercept all request uri to the path.
+        // 2. If is a closure, will intercept all request then call it
         // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-        'matchAll' => '',
+        'intercept' => '',
 
         // auto route match @like yii framework
         // If is True, will auto find the handler controller file.
@@ -480,12 +480,12 @@ class ORouter implements RouterInterface
      */
     public function match($path, $method)
     {
-        // if enable 'matchAll'
-        if ($matchAll = $this->config['matchAll']) {
-            if (is_string($matchAll) && $matchAll{0} === '/') {
-                $path = $matchAll;
-            } elseif (is_callable($matchAll)) {
-                return [$path, $matchAll];
+        // if enable 'intercept'
+        if ($intercept = $this->config['intercept']) {
+            if (is_string($intercept) && $intercept{0} === '/') {
+                $path = $intercept;
+            } elseif (is_callable($intercept)) {
+                return [$path, $intercept];
             }
         }
 

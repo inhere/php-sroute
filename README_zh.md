@@ -180,14 +180,14 @@ SRouter::group('/user', function () {
 
 ### 匹配所有
 
-配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
+配置 `intercept` 可用于拦截所有请求。 （例如网站维护时）
 
-可允许配置 `matchAll` 的值为 
+可允许配置 `intercept` 的值为 
 
 - 路由path
 
 ```php
-    'matchAll' => '/about', // a route path
+    'intercept' => '/about', // a route path
 ```
 
 将会直接执行此路由后停止执行
@@ -195,8 +195,8 @@ SRouter::group('/user', function () {
 - 回调
 
 ```php 
-    'matchAll' => function () {
-        echo 'System Maintaining ... ...';
+    'intercept' => function () {
+        echo '系统维护中 :)';
     },
 ```
 

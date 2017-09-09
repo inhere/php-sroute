@@ -215,7 +215,7 @@ SRouter::setConfig([
     // 匹配所有请求
     // 1. 如果是一个有效的URI路径,将匹配所有请求到此URI路径。
     // 2. 如果是一个可用回调,将匹配所有请求然后调用它
-    'matchAll' => '', // 例如: '/site/maintenance' 或者 `function () { echo 'System Maintaining ... ...'; }`
+    'intercept' => '', // 例如: '/site/maintenance' 或者 `function () { echo 'System Maintaining ... ...'; }`
 
     // 是否启用, 自动匹配路由到控制器就像 yii 一样. 
     'autoRoute' => false,
@@ -250,14 +250,14 @@ SRouter::setConfig([
 
 ### 匹配所有
 
-配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
+配置 `intercept` 可用于拦截所有请求。 （例如网站维护时）
 
-可允许配置 `matchAll` 的值为 
+可允许配置 `intercept` 的值为 
 
 - 路由path
 
 ```php
-    'matchAll' => '/about', // a route path
+    'intercept' => '/about', // a route path
 ```
 
 将会直接执行此路由后停止执行
@@ -265,8 +265,8 @@ SRouter::setConfig([
 - 回调
 
 ```php 
-    'matchAll' => function () {
-        echo 'System Maintaining ... ...';
+    'intercept' => function () {
+        echo '系统维护中 :)';
     },
 ```
 

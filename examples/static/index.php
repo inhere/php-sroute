@@ -23,8 +23,8 @@ require dirname(__DIR__) . '/simple-loader.php';
 SRouter::setConfig([
     'ignoreLastSep' => true,
 
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
+//    'intercept' => '/', // a route path
+//    'intercept' => function () {
 //        echo 'System Maintaining ... ...';
 //    },
 
