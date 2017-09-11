@@ -7,7 +7,7 @@
  *
  */
 
-use inhere\sroute\SRouter;
+use Inhere\Route\SRouter;
 
 SRouter::get('/', function() {
     echo 'hello, welcome';
@@ -49,11 +49,11 @@ SRouter::map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
-SRouter::get('/home', 'inhere\sroute\examples\controllers\HomeController@index');
+SRouter::get('/home', 'Inhere\Route\examples\controllers\HomeController@index');
 
 // can match '/home/test', but not match '/home'
 // can also use defined patterns, @see SRouter::$patterns
-SRouter::any('/home/{act}', 'inhere\sroute\examples\controllers\HomeController');
+SRouter::any('/home/{act}', 'Inhere\Route\examples\controllers\HomeController');
 
 // can match '/home' '/home/test'
 //SRouter::any('/home[/{act}]', examples\HomeController::class);

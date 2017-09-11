@@ -1,6 +1,6 @@
 <?php
 /*
- * This inhere/sroute routes cache file. is auto generate by inhere\sroute\ORouter.
+ * This inhere/sroute routes cache file. is auto generate by Inhere\Route\ORouter.
  * @date 2017-08-08 15:07:34
  */
 return [

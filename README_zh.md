@@ -90,15 +90,15 @@ Symfony2 - first route | 999 | 0.0000630564 | +0.0000525061 | 498% slower
 
 ## 使用
 
-- `inhere\sroute\SRouter` 是静态类版本
-- `inhere\sroute\ORouter` 是对象版本
+- `Inhere\Route\SRouter` 是静态类版本
+- `Inhere\Route\ORouter` 是对象版本
 
 两个类的方法名和参数都是一样的
 
 首先, 导入类
 
 ```php
-use inhere\sroute\SRouter;
+use Inhere\Route\SRouter;
 ```
 
 ## 添加路由
@@ -268,10 +268,10 @@ $route = SRouter::match($path, $method);
 
 ## 路由调度
 
-已内置了一个路由调度器 `inhere\sroute\Dispatcher`
+已内置了一个路由调度器 `Inhere\Route\Dispatcher`
 
 ```php
-use inhere\sroute\Dispatcher;
+use Inhere\Route\Dispatcher;
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

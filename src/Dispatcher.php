@@ -6,11 +6,11 @@
  * Time: 下午8:03
  */
 
-namespace inhere\sroute;
+namespace Inhere\Route;
 
 /**
  * Class Dispatcher
- * @package inhere\sroute
+ * @package Inhere\Route
  */
 class Dispatcher implements DispatcherInterface
 {

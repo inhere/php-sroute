@@ -5,10 +5,10 @@
  * Date: 2017/4/27
  * Time: 下午11:56
  *
- * @var \inhere\sroute\ORouter $router
+ * @var \Inhere\Route\ORouter $router
  */
 
-use inhere\sroute\examples\controllers\HomeController;
+use Inhere\Route\examples\controllers\HomeController;
 
 function home_handler() {
     echo 'hello, welcome';
@@ -60,7 +60,7 @@ $router->get('/hello[/{name}]', 'handler1',[
 $router->post('/user/signUp', 'handler2');
 
 $router->group('/user', function ($router) {
-    /** @var \inhere\sroute\ORouter $router */
+    /** @var \Inhere\Route\ORouter $router */
     $router->get('', 'handler3');
 
     $router->get('/index', 'handler4');
@@ -69,7 +69,7 @@ $router->group('/user', function ($router) {
 // match GET or POST
 $router->map(['get', 'post'], '/user/login', 'handler5');
 
-$router->get('/home', 'inhere\sroute\examples\controllers\HomeController@index');
+$router->get('/home', 'Inhere\Route\examples\controllers\HomeController@index');
 
 // can match '/home/test', but not match '/home'
 // can also use defined patterns, @see $router->patterns

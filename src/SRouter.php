@@ -6,11 +6,11 @@
  * Time: 下午8:03
  */
 
-namespace inhere\sroute;
+namespace Inhere\Route;
 
 /**
  * Class SRoute - this is static class version
- * @package inhere\sroute
+ * @package Inhere\Route
  *
  * @method static get(string $route, mixed $handler, array $opts = [])
  * @method static post(string $route, mixed $handler, array $opts = [])

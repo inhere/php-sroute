@@ -6,7 +6,7 @@
  * Time: 下午7:52
  */
 
-use inhere\sroute\SRouter;
+use Inhere\Route\SRouter;
 
 // include __DIR__ . '/../../vendor/autoload.php';
 require dirname(__DIR__) . '/examples/simple-loader.php';

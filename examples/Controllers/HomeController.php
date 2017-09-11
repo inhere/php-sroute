@@ -6,13 +6,13 @@
  * Time: 上午12:14
  */
 
-namespace inhere\sroute\examples\controllers;
+namespace Inhere\Route\examples\controllers;
 
-use inhere\sroute\SRoute;
+use Inhere\Route\SRoute;
 
 /**
  * Class HomeController
- * @package inhere\sroute\examples\controllers
+ * @package Inhere\Route\examples\controllers
  */
 class HomeController
 {

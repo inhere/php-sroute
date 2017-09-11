@@ -11,8 +11,8 @@
  * then you can access url: http://127.0.0.1:5675
  */
 
-use inhere\sroute\Dispatcher;
-use inhere\sroute\ORouter;
+use Inhere\Route\Dispatcher;
+use Inhere\Route\ORouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
 
@@ -37,7 +37,7 @@ $router->setConfig([
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => [
         'enable' => 1,
-        'controllerNamespace' => 'inhere\sroute\examples\controllers',
+        'controllerNamespace' => 'Inhere\Route\examples\controllers',
         'controllerSuffix' => 'Controller',
     ],
 ]);

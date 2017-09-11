@@ -5,10 +5,10 @@
  * Date: 2017/4/27
  * Time: 下午11:56
  *
- * @var \inhere\sroute\ORouter $router
+ * @var \Inhere\Route\ORouter $router
  */
 
-use inhere\sroute\examples\controllers\HomeController;
+use Inhere\Route\examples\controllers\HomeController;
 
 // uri /50be3774f6/arg1/arg2/arg3/arg4/arg5/arg6/arg7/arg8/arg9/850726135a
 //'regex' => '#^/803d2fad34/([^/]+)1/([^/]+)2/([^/]+)3/([^/]+)4/([^/]+)5/([^/]+)6/([^/]+)7/([^/]+)8/([^/]+)9/961751ae0c$#',
@@ -62,7 +62,7 @@ $router->post('/user/signUp', function() {
 });
 
 $router->group('/user', function ($router) {
-    /** @var \inhere\sroute\ORouter $router */
+    /** @var \Inhere\Route\ORouter $router */
     $router->get('', function () {
         echo 'hello. you access: /user';
     });
@@ -81,7 +81,7 @@ $router->map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
-$router->get('/home', 'inhere\sroute\examples\controllers\HomeController@index');
+$router->get('/home', 'Inhere\Route\examples\controllers\HomeController@index');
 
 // can match '/home/test', but not match '/home'
 // can also use defined patterns, @see $router->patterns

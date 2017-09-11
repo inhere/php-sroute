@@ -84,7 +84,7 @@ Symfony2 - first route | 999 | 0.0000630564 | +0.0000525061 | 498% slower
 first, import the class
 
 ```php
-use inhere\sroute\SRouter;
+use Inhere\Route\SRouter;
 ```
 
 ## add some routes
@@ -246,7 +246,7 @@ SRouter::setConfig([
 ## route dispatcher
 
 ```php
-use inhere\sroute\Dispatcher;
+use Inhere\Route\Dispatcher;
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

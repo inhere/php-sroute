@@ -85,7 +85,7 @@ SRouter::any('/user[/{name}]', 'app\controllers\User');
 1. 先创建调度器
 
 ```php
-use inhere\sroute\Dispatcher;
+use Inhere\Route\Dispatcher;
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

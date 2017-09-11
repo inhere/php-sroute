@@ -8,16 +8,16 @@
 
 spl_autoload_register(function($class)
 {
-    if (0 === strpos($class,'inhere\sroute\examples\\')) {
-        $path = str_replace('\\', '/', substr($class, strlen('inhere\sroute\examples\\')));
+    if (0 === strpos($class,'Inhere\Route\Examples\\')) {
+        $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Examples\\')));
         $file = __DIR__ . "/{$path}.php";
 
         if (is_file($file)) {
             include $file;
         }
 
-    } elseif (0 === strpos($class,'inhere\sroute\\')) {
-        $path = str_replace('\\', '/', substr($class, strlen('inhere\sroute\\')));
+    } elseif (0 === strpos($class,'Inhere\Route\\')) {
+        $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\\')));
         $file = dirname(__DIR__) . "/src/{$path}.php";
 
         if (is_file($file)) {

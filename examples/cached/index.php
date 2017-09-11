@@ -11,8 +11,8 @@
  * then you can access url: http://127.0.0.1:5673
  */
 
-use inhere\sroute\Dispatcher;
-use inhere\sroute\CachedRouter;
+use Inhere\Route\Dispatcher;
+use Inhere\Route\CachedRouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
 
@@ -35,7 +35,7 @@ $router = new CachedRouter([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' =>  1,
-    'controllerNamespace' => 'inhere\sroute\examples\controllers',
+    'controllerNamespace' => 'Inhere\Route\examples\controllers',
     'controllerSuffix' => 'Controller',
 ]);
 

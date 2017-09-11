@@ -6,11 +6,11 @@
  * Time: 下午5:01
  */
 
-namespace inhere\sroute\examples\controllers\admin;
+namespace Inhere\Route\Examples\Controllers\Admin;
 
 /**
  * Class UserController
- * @package inhere\sroute\examples\controllers\admin
+ * @package Inhere\Route\Examples\Controllers\Admin
  */
 class UserController
 {

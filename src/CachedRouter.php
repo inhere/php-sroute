@@ -6,7 +6,7 @@
  * Time: 下午8:03
  */
 
-namespace inhere\sroute;
+namespace Inhere\Route;
 
 /**
  * Class CachedRouter - this is object version.
@@ -15,7 +15,7 @@ namespace inhere\sroute;
  * - handler 将不支持设置为 \Closure 和 Object。
  * - 路由选项的 选项 value 同样不允许 \Closure 和 Object
  *
- * @package inhere\sroute
+ * @package Inhere\Route
  * @todo  un-completed
  */
 class CachedRouter extends ORouter
@@ -150,7 +150,7 @@ class CachedRouter extends ORouter
         $code = <<<EOF
 <?php
 /*
- * This inhere/sroute routes cache file. is auto generate by inhere\sroute\ORouter.
+ * This inhere/sroute routes cache file. is auto generate by Inhere\Route\ORouter.
  * @date $date
  */
 return [

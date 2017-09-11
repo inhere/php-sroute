@@ -4,15 +4,15 @@
 
 > 匹配速度快，查找匹配速度基本上不受路由数量和路由的复杂度的影响
 
-- `inhere\sroute\SRouter` 是静态类版本. 
-- `inhere\sroute\ORouter` 是对象版本
+- `Inhere\Route\SRouter` 是静态类版本. 
+- `Inhere\Route\ORouter` 是对象版本
 
 压测： [benchmark](./benchmark.md)
 
 ## 路由收集
 
 ```php
-use inhere\sroute\SRouter;
+use Inhere\Route\SRouter;
 
 // 匹配 GET 请求. 处理器是个闭包 Closure
 SRouter::get('/', function() {
@@ -66,7 +66,7 @@ SRouter::group('/user', function () {
 使用 `ORouter` 则需先创建对象：
 
 ```php
-use inhere\sroute\ORouter;
+use Inhere\Route\ORouter;
 
 $router = new ORouter;
 
@@ -76,7 +76,7 @@ $router = new ORouter;
 // $router->put();
 // ... ...
 $router->group('/user', function ($router) {
-    /** @var \inhere\sroute\ORouter $router */
+    /** @var \Inhere\Route\ORouter $router */
     $router->get('', function () {
         echo 'hello. you access: /user';
     });

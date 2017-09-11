@@ -14,8 +14,8 @@
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
-use inhere\sroute\Dispatcher;
-use inhere\sroute\SRouter;
+use Inhere\Route\Dispatcher;
+use Inhere\Route\SRouter;
 
 require dirname(__DIR__) . '/simple-loader.php';
 
@@ -31,7 +31,7 @@ SRouter::setConfig([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' =>  1,
-    'controllerNamespace' => 'inhere\sroute\examples\controllers',
+    'controllerNamespace' => 'Inhere\Route\examples\controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
