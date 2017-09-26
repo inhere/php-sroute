@@ -166,9 +166,11 @@ $route = SRouter::match($path, $method);
     [
         'method' => 'GET', // 配置的请求 METHOD
         'handler' => 'handler', // 此路由的 handler
+        'matches' => [], // 此路由的 参数匹配结果(根据option.tokens匹配得到)
+        
         // 此路由的自定义选项信息. 
-        // tokens - 来自添加路由时设置的参数匹配信息, 若有的话
-        // 可以自定义此路由的选项：如下经供参考
+        // - tokens - 来自添加路由时设置的参数匹配信息, 若有的话
+        // 可以自定义此路由的选项：如下供参考
         // - domains 允许访问路由的域名
         // - schema 允许访问路由的schema
         // - enter 进入路由的事件回调

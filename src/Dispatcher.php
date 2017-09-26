@@ -109,10 +109,10 @@ class Dispatcher implements DispatcherInterface
      * Runs the callback for the given request
      * @param string $path
      * @param null|string $method
+     * @param array $prependArgs
      * @return mixed
-     * @throws \InvalidArgumentException
      */
-    public function dispatch($path = null, $method = null)
+    public function dispatch($path = null, $method = null, array $prependArgs = [])
     {
         $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -142,7 +142,7 @@ class Dispatcher implements DispatcherInterface
         unset($route['option']);
 
         // schema,domains ... metadata validate
-        if (false === $this->validateMetadata($route)) {
+        if (false === $this->validateMetadata($options)) {
             return $result;
         }
 
@@ -159,6 +159,9 @@ class Dispatcher implements DispatcherInterface
             array_shift($args);
             $args = array_values($args);
         }
+
+        // push prepend args
+        $args = array_merge($prependArgs, $args);
 
         try {
             // trigger route exec_start event
@@ -185,13 +188,13 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @param array $route
+     * @param array $options
      * [
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schema' => 'https',
      * ]
      */
-    protected function validateMetadata(array $route)
+    protected function validateMetadata(array $options)
     {
         // 1. validate Schema
 

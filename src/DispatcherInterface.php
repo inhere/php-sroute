@@ -25,9 +25,10 @@ interface DispatcherInterface
      * Runs the callback for the given request
      * @param string $path
      * @param null|string $method
+     * @param array $prependArgs
      * @return mixed
      */
-    public function dispatch($path = null, $method = null);
+    public function dispatch($path = null, $method = null, array $prependArgs = []);
 
     public function getMatcher();
 
