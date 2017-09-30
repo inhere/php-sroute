@@ -16,7 +16,6 @@ namespace Inhere\Route;
  * - 路由选项的 选项 value 同样不允许 \Closure 和 Object
  *
  * @package Inhere\Route
- * @todo  un-completed
  */
 class CachedRouter extends ORouter
 {

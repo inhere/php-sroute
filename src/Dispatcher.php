@@ -33,6 +33,10 @@ class Dispatcher implements DispatcherInterface
         // default action method name
         'defaultAction' => 'index',
 
+        'actionPrefix' => '',
+
+        'actionSuffix' => 'Action',
+
         // enable dynamic action.
         // e.g
         // if set True;
@@ -257,19 +261,20 @@ class Dispatcher implements DispatcherInterface
         // push prepend args
         $args = array_merge($prependArgs, $args);
         $action = ORouter::convertNodeStr($action);
+        $actionMethod = $action . $this->config['actionSuffix'];
 
         // if set the 'actionExecutor', the action handle logic by it.
         if ($executor = $this->config['actionExecutor']) {
-            return $controller->$executor($action, $args);
+            return $controller->$executor($actionMethod, $args);
         }
 
         // action method is not exist
-        if (!$action || !method_exists($controller, $action)) {
+        if (!$action || !method_exists($controller, $actionMethod)) {
             return $this->handleNotFound($path, $method, true);
         }
 
         // call controller's action method
-        return $controller->$action(...$args);
+        return $controller->$actionMethod(...$args);
     }
 
     /**
@@ -280,7 +285,7 @@ class Dispatcher implements DispatcherInterface
      *  False: The `$path` is matched fail
      * @return bool|mixed
      */
-    private function handleNotFound($path, $method, $actionNotExist = false)
+    protected function handleNotFound($path, $method, $actionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
         if (!isset(self::$events[self::ON_NOT_FOUND])) {
@@ -320,10 +325,16 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @return array
+     * @param null $key
+     * @param null $default
+     * @return array|mixed
      */
-    public function getConfig()
+    public function getConfig($key = null, $default = null)
     {
+        if ($key) {
+            return isset($this->config[$key]) ? $this->config[$key] : $default;
+        }
+
         return $this->config;
     }
 

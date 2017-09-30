@@ -83,6 +83,9 @@ class SRouter implements RouterInterface
      * @var array
      */
     private static $config = [
+        // the routes php file.
+        'routesFile' => null,
+
         // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
 
@@ -121,6 +124,11 @@ class SRouter implements RouterInterface
             if (isset(self::$config[$name])) {
                 self::$config[$name] = $value;
             }
+        }
+
+        // load routes
+        if (isset($config['routesFile']) && ($file = $config['routesFile'])) {
+            require $file;
         }
     }
 
