@@ -160,6 +160,9 @@ class ORouter implements RouterInterface
      * @var array
      */
     private $config = [
+        // the routes php file.
+        'routesFile' => null,
+
         // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
 
@@ -206,6 +209,11 @@ class ORouter implements RouterInterface
 
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
+
+        // load routes
+        if ($file = $this->config['routesFile']) {
+            require $file;
+        }
     }
 
     /**
@@ -225,9 +233,9 @@ class ORouter implements RouterInterface
         }
     }
 
-//////////////////////////////////////////////////////////////////////
-/// route collection
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * route collection
+     ******************************************************************************/
 
     /**
      * Defines a route callback and method
@@ -468,9 +476,9 @@ class ORouter implements RouterInterface
         return $tokens;
     }
 
-//////////////////////////////////////////////////////////////////////
-/// route match
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * route match
+     ******************************************************************************/
 
     /**
      * find the matched route info for the given request uri path
@@ -525,6 +533,7 @@ class ORouter implements RouterInterface
 
         // is a regular dynamic route(the first char is 1th level index key).
         if ($this->regularRoutes && isset($this->regularRoutes[$tmp{0}])) {
+            /** @var array[] $twoLevelArr */
             $twoLevelArr = $this->regularRoutes[$tmp{0}];
             $twoLevelKey = isset($tmp{1}) ? $tmp{1} : self::DEFAULT_TWO_LEVEL_KEY;
 
@@ -655,9 +664,9 @@ class ORouter implements RouterInterface
         return class_exists($class) ? "$class@$n2" : false;
     }
 
-//////////////////////////////////////////////////////////////////////
-/// route callback handler dispatch
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * route callback handler dispatch
+     ******************************************************************************/
 
     /**
      * Runs the callback for the given request
@@ -685,9 +694,9 @@ class ORouter implements RouterInterface
         })->dispatch($path, $method);
     }
 
-//////////////////////////////////////////////////////////////////////
-/// helper methods
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
 
     /**
      * @param array $tokens

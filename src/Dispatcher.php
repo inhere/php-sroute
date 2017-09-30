@@ -101,9 +101,9 @@ class Dispatcher implements DispatcherInterface
         }
     }
 
-//////////////////////////////////////////////////////////////////////
-/// route callback handler dispatch
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * route callback handler dispatch
+     ******************************************************************************/
 
     /**
      * Runs the callback for the given request
@@ -160,14 +160,11 @@ class Dispatcher implements DispatcherInterface
             $args = array_values($args);
         }
 
-        // push prepend args
-        $args = array_merge($prependArgs, $args);
-
         try {
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $route]);
 
-            $result = $this->executeRouteHandler($path, $method, $handler, $args);
+            $result = $this->executeRouteHandler($path, $method, $handler, $args, $prependArgs);
 
             // fire leave event
             if (isset($options['leave'])) {
@@ -210,13 +207,17 @@ class Dispatcher implements DispatcherInterface
      * @param string $method The request method
      * @param callable $handler The route path handler
      * @param array $args Matched param from path
+     * @param array $prependArgs
      * @return mixed
      */
-    protected function executeRouteHandler($path, $method, $handler, array $args = [])
+    protected function executeRouteHandler($path, $method, $handler, array $args = [], array $prependArgs = [])
     {
         // is a \Closure or a callable object
         if (is_object($handler)) {
-            return $args ? $handler(...$args) : $handler();
+            // push prepend args
+            $args = array_merge($prependArgs, $args);
+
+            return $handler(...$args);
         }
 
         //// $handler is string
@@ -226,7 +227,9 @@ class Dispatcher implements DispatcherInterface
             $segments = $handler;
         } elseif (is_string($handler)) {
             if (strpos($handler, '@') === false && function_exists($handler)) {
-                return $args ? $handler(...$args) : $handler();
+                // push prepend args
+                $args = array_merge($prependArgs, $args);
+                return $handler(...$args);
             }
 
             // e.g `controllers\Home@index` Or only `controllers\Home`
@@ -251,6 +254,8 @@ class Dispatcher implements DispatcherInterface
             throw new \RuntimeException("please config the route path [$path] controller action to call");
         }
 
+        // push prepend args
+        $args = array_merge($prependArgs, $args);
         $action = ORouter::convertNodeStr($action);
 
         // if set the 'actionExecutor', the action handle logic by it.
@@ -264,7 +269,7 @@ class Dispatcher implements DispatcherInterface
         }
 
         // call controller's action method
-        return $args ? $controller->$action(...$args) : $controller->$action();
+        return $controller->$action(...$args);
     }
 
     /**
