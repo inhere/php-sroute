@@ -115,6 +115,7 @@ class Dispatcher implements DispatcherInterface
      * @param null|string $method
      * @param array $prependArgs
      * @return mixed
+     * @throws \Throwable
      */
     public function dispatch($path = null, $method = null, array $prependArgs = [])
     {
@@ -179,10 +180,18 @@ class Dispatcher implements DispatcherInterface
             $this->fire(self::ON_EXEC_END, [$path, $route]);
         } catch (\Exception $e) {
             // trigger route exec_error event
-            $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
+            if (self::hasEventHandler(self::ON_EXEC_ERROR)) {
+                $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
+            }
+
+            throw $e;
         } catch (\Throwable $e) {
-            // trigger route exec_error event
-            $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
+            if (self::hasEventHandler(self::ON_EXEC_ERROR)) {
+                // trigger route exec_error event
+                $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
+            }
+
+            throw $e;
         }
 
         return $result;
