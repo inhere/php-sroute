@@ -219,14 +219,14 @@ SRouter::setConfig([
 ## 路由匹配
 
 ```php 
-array|false public function match($path, $method)
+array public function match($path, $method)
 ```
 
 - `$path` string 请求的URI path
 - `$method` string 请求的request method
-- 返回 `array|false`
-    - `false` 匹配失败。没有找到匹配的路由 
-    - `array` 匹配成功。返回匹配到的路由信息, 然后你就可以根据此信息进行自定义的路由调度了。
+- 返回 `array` 返回匹配结果信息
+
+### 示例
 
 根据请求的 URI path 和 请求 METHOD 查找匹配我们定义的路由信息。
 
@@ -237,16 +237,26 @@ $method = $_SERVER['REQUEST_METHOD'];
 $route = SRouter::match($path, $method);
 ```
 
-匹配成功，将会返回如下格式的信息.可以根据此信息进行路由调度
+将会返回如下格式的信息. 可以根据此信息进行 判断匹配是否成功 -> 路由调度
 
 ```php
 [
-    'URI PATH', // 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
-    // 路由信息
+    // 路由匹配结果状态. 
+    // 可能为： RouterInterface::FOUND, RouterInterface::NOT_FOUND, RouterInterface::METHOD_NOT_ALLOWED
+    INT, 
+    
+    // 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
+    'URI PATH', 
+    
+    // 路由信息。 匹配失败时(RouterInterface::NOT_FOUND)为 null 
     [
-        'method' => 'GET', // 配置的请求 METHOD
-        'handler' => 'handler', // 此路由的 handler
-        // 此路由的自定义选项信息. 
+        // (可能存在)配置的请求 METHOD。 自动匹配时无此key
+        'method' => 'GET', 
+        
+        // 此路由的 handler callback
+        'handler' => 'handler', 
+        
+        // 此路由的自定义选项信息. 可能为空
         // - tokens - 来自添加路由时设置的参数匹配信息, 若有的话
         // 还可以自定义追加此路由的选项：如下经供参考
         // - domains 允许访问路由的域名
@@ -262,7 +272,10 @@ $route = SRouter::match($path, $method);
             // 'enter' => null,
             // 'leave' => null,
         ], 
-    ]
+        
+        // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里
+        'matches' => []
+    ],
 ]
 ```
 

@@ -14,7 +14,7 @@ namespace Inhere\Route;
  */
 class Dispatcher implements DispatcherInterface
 {
-    const MATCH_FAV_ICO = '/favicon.ico';
+    const FAV_ICON = '/favicon.ico';
 
     /**
      * event handlers
@@ -110,6 +110,27 @@ class Dispatcher implements DispatcherInterface
      ******************************************************************************/
 
     /**
+     * @param string $path
+     * @param string $method
+     * @return array|null
+     */
+    protected function matchRoutePath($path, $method)
+    {
+        if (!$matcher = $this->matcher) {
+            throw new \RuntimeException('Must be setting the property [matcher] before call dispatch().');
+        }
+
+        if (!$this->initialized) {
+            $this->initialized = true;
+        }
+
+        /**
+         * @see ORouter::match()
+         */
+        return $matcher($path, $method);
+    }
+
+    /**
      * Runs the callback for the given request
      * @param string $path
      * @param null|string $method
@@ -122,28 +143,23 @@ class Dispatcher implements DispatcherInterface
         $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         // if 'filterFavicon' setting is TRUE
-        if ($path === self::MATCH_FAV_ICO && $this->config['filterFavicon']) {
+        if ($path === self::FAV_ICON && $this->config['filterFavicon']) {
             return null;
         }
 
-        if (!$matcher = $this->matcher) {
-            throw new \RuntimeException('Must be setting the property [matcher] before call dispatch().');
-        }
-
-        $this->initialized = true;
         $method = $method ?: $_SERVER['REQUEST_METHOD'];
+        list($status, $path, $route) = $this->matchRoutePath($path, $method);
 
-        if (!$info = $matcher($path, $method)) {
+        // not found || method not allowed
+        if ($status === RouterInterface::NOT_FOUND || $status === RouterInterface::METHOD_NOT_ALLOWED) {
             return $this->handleNotFound($path, $method);
         }
-
-        list($path, $route) = $info;
 
         // trigger route found event
         $this->fire(self::ON_FOUND, [$path, $route]);
 
         $result = null;
-        $options = isset($route['option']) ? $route['option'] : [];
+        $options = $route['option'];
         unset($route['option']);
 
         // schema,domains ... metadata validate
@@ -158,12 +174,6 @@ class Dispatcher implements DispatcherInterface
 
         $handler = $route['handler'];
         $args = isset($route['matches']) ? $route['matches'] : [];
-
-        // Remove matches[0] as [1] is the first parameter.
-        if ($args) {
-            array_shift($args);
-            $args = array_values($args);
-        }
 
         try {
             // trigger route exec_start event
@@ -225,6 +235,8 @@ class Dispatcher implements DispatcherInterface
      */
     protected function executeRouteHandler($path, $method, $handler, array $args = [], array $prependArgs = [])
     {
+        $args = array_values($args);
+
         // is a \Closure or a callable object
         if (is_object($handler)) {
             // push prepend args

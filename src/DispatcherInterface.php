@@ -17,6 +17,7 @@ interface DispatcherInterface
     // events
     const ON_FOUND = 'found';
     const ON_NOT_FOUND = 'notFound';
+    const ON_METHOD_NOT_ALLOWED = 'methodNotAllowed';
     const ON_EXEC_START = 'execStart';
     const ON_EXEC_END = 'execEnd';
     const ON_EXEC_ERROR = 'execError';

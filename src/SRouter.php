@@ -278,7 +278,7 @@ class SRouter implements RouterInterface
      * find the matched route info for the given request uri path
      * @param string $method
      * @param string $path
-     * @return mixed
+     * @return array
      */
     public static function match($path, $method)
     {
@@ -287,7 +287,10 @@ class SRouter implements RouterInterface
             if (is_string($intercept) && $intercept{0} === '/') {
                 $path = $intercept;
             } elseif (is_callable($intercept)) {
-                return [$path, $intercept];
+                return [self::FOUND, $path, [
+                    'handler' => $intercept,
+                    'option' => [],
+                ]];
             }
         }
 
@@ -299,23 +302,29 @@ class SRouter implements RouterInterface
         // find in class cache.
         if (self::$routeCaches && isset(self::$routeCaches[$path])) {
             if (isset(self::$routeCaches[$path][$method])) {
-                return [$path, self::$routeCaches[$path][$method]];
+                return [self::FOUND, $path, self::$routeCaches[$path][$method]];
             }
 
             if (isset(self::$routeCaches[$path][self::ANY_METHOD])) {
-                return [$path, self::$routeCaches[$path][self::ANY_METHOD]];
+                return [self::FOUND, $path, self::$routeCaches[$path][self::ANY_METHOD]];
             }
+
+            // method not allowed
+            return [self::METHOD_NOT_ALLOWED, $path, self::$routeCaches[$path]];
         }
 
         // is a static path route
         if (self::$staticRoutes && isset(self::$staticRoutes[$path])) {
             if (isset(self::$staticRoutes[$path][$method])) {
-                return [$path, self::$staticRoutes[$path][$method]];
+                return [self::FOUND, $path, self::$staticRoutes[$path][$method]];
             }
 
             if (isset(self::$staticRoutes[$path][self::ANY_METHOD])) {
-                return [$path, self::$staticRoutes[$path][self::ANY_METHOD]];
+                return [self::FOUND, $path, self::$staticRoutes[$path][self::ANY_METHOD]];
             }
+
+            // method not allowed
+            return [self::METHOD_NOT_ALLOWED, $path, self::$staticRoutes[$path]];
         }
 
         $tmp = trim($path, '/'); // clear first '/'
@@ -327,16 +336,18 @@ class SRouter implements RouterInterface
 
             // not found
             if (!isset($twoLevelArr[$twoLevelKey])) {
-                return false;
+                return [self::NOT_FOUND, $path, null];
             }
 
             foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
                 if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
                     // method not allowed
                     if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                        return false;
+                        return [self::METHOD_NOT_ALLOWED, $path, $conf];
                     }
 
+                    // first node is $path
+                    array_shift($matches);
                     $conf['matches'] = $matches;
 
                     // cache latest $number routes.
@@ -348,7 +359,7 @@ class SRouter implements RouterInterface
                         self::$routeCaches[$path][$conf['method']] = $conf;
                     }
 
-                    return [$path, $conf];
+                    return [self::FOUND, $path, $conf];
                 }
             }
         }
@@ -358,9 +369,11 @@ class SRouter implements RouterInterface
             if (preg_match($conf['regex'], $path, $matches)) {
                 // method not allowed
                 if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                    return false;
+                    return [self::METHOD_NOT_ALLOWED, $path, $conf];
                 }
 
+                // first node is $path
+                array_shift($matches);
                 $conf['matches'] = $matches;
 
                 // cache last $number routes.
@@ -372,7 +385,7 @@ class SRouter implements RouterInterface
                     self::$routeCaches[$path][$conf['method']] = $conf;
                 }
 
-                return [$path, $conf];
+                return [self::FOUND, $path, $conf];
             }
         }
 
@@ -381,13 +394,14 @@ class SRouter implements RouterInterface
             self::$config['autoRoute'] &&
             ($handler = ORouter::matchAutoRoute($path, self::$config['controllerNamespace'], self::$config['controllerSuffix']))
         ) {
-            return [$path, [
-                'handler' => $handler
+            return [self::FOUND, $path, [
+                'handler' => $handler,
+                'option' => [],
             ]];
         }
 
         // oo ... not found
-        return false;
+        return [self::NOT_FOUND, $path, null];
     }
 
 //////////////////////////////////////////////////////////////////////

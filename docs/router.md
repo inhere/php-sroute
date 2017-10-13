@@ -157,20 +157,29 @@ $method = $_SERVER['REQUEST_METHOD'];
 $route = SRouter::match($path, $method);
 ```
 
-匹配成功，将会返回如下格式的信息.可以根据此信息进行路由调度
+匹配失败，返回 `false`
+匹配成功，将会返回如下格式的信息. 可以根据此信息进行路由调度
 
 ```php
 [
-    'URI PATH', // 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
+    // 路由匹配结果状态. 
+    // 可能为： RouterInterface::FOUND, RouterInterface::NOT_FOUND, RouterInterface::METHOD_NOT_ALLOWED
+    INT, 
+    
+    // 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
+    'URI PATH', 
+    
     // 路由信息
     [
-        'method' => 'GET', // 配置的请求 METHOD
-        'handler' => 'handler', // 此路由的 handler
-        'matches' => [], // 此路由的 参数匹配结果(根据option.tokens匹配得到)
+        // (可能存在)配置的请求 METHOD。 自动匹配时无此key
+        'method' => 'GET', 
         
-        // 此路由的自定义选项信息. 
+        // 此路由的 handler callback
+        'handler' => 'handler', 
+        
+        // 此路由的自定义选项信息. 可能为空
         // - tokens - 来自添加路由时设置的参数匹配信息, 若有的话
-        // 可以自定义此路由的选项：如下供参考
+        // 还可以自定义追加此路由的选项：如下经供参考
         // - domains 允许访问路由的域名
         // - schema 允许访问路由的schema
         // - enter 进入路由的事件回调
@@ -184,7 +193,10 @@ $route = SRouter::match($path, $method);
             // 'enter' => null,
             // 'leave' => null,
         ], 
-    ]
+        
+        // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里
+        'matches' => []
+    ],
 ]
 ```
 

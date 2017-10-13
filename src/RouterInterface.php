@@ -17,9 +17,9 @@ interface RouterInterface
     const ANY_METHOD = 'ANY';
 
     // match result status
-    const STS_FOUND = 1;
-    const STS_NOT_FOUND = 2;
-    const STS_METHOD_NOT_ALLOWED = 3;
+    const FOUND = 1;
+    const NOT_FOUND = 2;
+    const METHOD_NOT_ALLOWED = 3;
 
     const DEFAULT_REGEX = '[^/]+';
     const DEFAULT_TWO_LEVEL_KEY = '_NO_';

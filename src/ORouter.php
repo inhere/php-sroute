@@ -11,7 +11,6 @@ namespace Inhere\Route;
 /**
  * Class ORouter- this is object version
  * @package Inhere\Route
- *
  * @method get(string $route, mixed $handler, array $opts = [])
  * @method post(string $route, mixed $handler, array $opts = [])
  * @method put(string $route, mixed $handler, array $opts = [])
@@ -122,7 +121,6 @@ class ORouter implements RouterInterface
      * vague Routes - have dynamic arguments,but the first node is exists regex.
      * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
      * e.g '/{some}/{some2}'
-     *
      * @var array
      * [
      *     [
@@ -257,7 +255,6 @@ class ORouter implements RouterInterface
     /**
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
-     *
      * @from package 'nikic/fast-route'
      * @param string $prefix
      * @param \Closure $callback
@@ -400,7 +397,7 @@ class ORouter implements RouterInterface
      * @param string $route
      * @param array $tokens
      * @param array $conf
-     * @return string
+     * @return array
      * @throws \LogicException
      */
     public static function parseRoute($route, array $tokens, array $conf)
@@ -434,8 +431,8 @@ class ORouter implements RouterInterface
                 $regex = isset($tokens[$name]) ? $tokens[$name] : self::DEFAULT_REGEX;
 
                 // 将匹配结果命名 (?P<arg1>[^/]+)
-                // $replacePairs[$key] = '(?P<' . $name . '>' . $pattern . ')';
-                $replacePairs[$key] = '(' . $regex . ')';
+                $replacePairs[$key] = '(?P<' . $name . '>' . $regex . ')';
+                // $replacePairs[$key] = '(' . $regex . ')';
             }
 
             $route = strtr($route, $replacePairs);
@@ -484,7 +481,7 @@ class ORouter implements RouterInterface
      * find the matched route info for the given request uri path
      * @param string $method
      * @param string $path
-     * @return mixed
+     * @return array
      */
     public function match($path, $method)
     {
@@ -493,7 +490,10 @@ class ORouter implements RouterInterface
             if (is_string($intercept) && $intercept{0} === '/') {
                 $path = $intercept;
             } elseif (is_callable($intercept)) {
-                return [$path, $intercept];
+                return [self::FOUND, $path, [
+                    'handler' => $intercept,
+                    'option' => [],
+                ]];
             }
         }
 
@@ -510,23 +510,29 @@ class ORouter implements RouterInterface
         // find in route caches.
         if ($this->routeCaches && isset($this->routeCaches[$path])) {
             if (isset($this->routeCaches[$path][$method])) {
-                return [$path, $this->routeCaches[$path][$method]];
+                return [self::FOUND, $path, $this->routeCaches[$path][$method]];
             }
 
             if (isset($this->routeCaches[$path][self::ANY_METHOD])) {
-                return [$path, $this->routeCaches[$path][self::ANY_METHOD]];
+                return [self::FOUND, $path, $this->routeCaches[$path][self::ANY_METHOD]];
             }
+
+            // method not allowed
+            return [self::METHOD_NOT_ALLOWED, $path, $this->routeCaches[$path]];
         }
 
         // is a static route path
         if ($this->staticRoutes && isset($this->staticRoutes[$path])) {
             if (isset($this->staticRoutes[$path][$method])) {
-                return [$path, $this->staticRoutes[$path][$method]];
+                return [self::FOUND, $path, $this->staticRoutes[$path][$method]];
             }
 
             if (isset($this->staticRoutes[$path][self::ANY_METHOD])) {
-                return [$path, $this->staticRoutes[$path][self::ANY_METHOD]];
+                return [self::FOUND, $path, $this->staticRoutes[$path][self::ANY_METHOD]];
             }
+
+            // method not allowed
+            return [self::METHOD_NOT_ALLOWED, $path, $this->staticRoutes[$path]];
         }
 
         $tmp = trim($path, '/'); // clear first '/'
@@ -539,16 +545,18 @@ class ORouter implements RouterInterface
 
             // not found
             if (!isset($twoLevelArr[$twoLevelKey])) {
-                return false;
+                return [self::NOT_FOUND, $path, null];
             }
 
             foreach ($twoLevelArr[$twoLevelKey] as $conf) {
                 if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
                     // method not allowed
                     if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                        return false;
+                        return [self::METHOD_NOT_ALLOWED, $path, $conf];
                     }
 
+                    // first node is $path
+                    array_shift($matches);
                     $conf['matches'] = $matches;
 
                     // cache latest $number routes.
@@ -560,7 +568,7 @@ class ORouter implements RouterInterface
                         $this->routeCaches[$path][$conf['method']] = $conf;
                     }
 
-                    return [$path, $conf];
+                    return [self::FOUND, $path, $conf];
                 }
             }
         }
@@ -570,9 +578,11 @@ class ORouter implements RouterInterface
             if (preg_match($conf['regex'], $path, $matches)) {
                 // method not allowed
                 if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                    return false;
+                    return [self::METHOD_NOT_ALLOWED, $path, $conf];
                 }
 
+                // first node is $path
+                array_shift($matches);
                 $conf['matches'] = $matches;
 
                 // cache last $number routes.
@@ -584,7 +594,7 @@ class ORouter implements RouterInterface
                     $this->routeCaches[$path][$conf['method']] = $conf;
                 }
 
-                return [$path, $conf];
+                return [self::FOUND, $path, $conf];
             }
         }
 
@@ -593,14 +603,14 @@ class ORouter implements RouterInterface
             $this->config['autoRoute'] &&
             ($handler = self::matchAutoRoute($path, $this->config['controllerNamespace'], $this->config['controllerSuffix']))
         ) {
-            return [$path, [
-                'path' => $path,
+            return [self::FOUND, $path, [
                 'handler' => $handler,
+                'option' => [],
             ]];
         }
 
         // oo ... not found
-        return false;
+        return [self::NOT_FOUND, $path, null];
     }
 
     /**
@@ -612,8 +622,8 @@ class ORouter implements RouterInterface
      */
     public static function matchAutoRoute($path, $controllerNamespace, $controllerSuffix = '')
     {
-        $cnp = $controllerNamespace;
-        $sfx = $controllerSuffix;
+        $cnp = trim($controllerNamespace);
+        $sfx = trim($controllerSuffix);
         $tmp = trim($path, '/- ');
 
         // one node. eg: 'home'
@@ -820,7 +830,7 @@ class ORouter implements RouterInterface
     /**
      * @param null|string $name
      * @param null|mixed $default
-     * @return array
+     * @return array|string
      */
     public function getConfig($name = null, $default = null)
     {

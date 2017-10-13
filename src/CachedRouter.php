@@ -12,8 +12,8 @@ namespace Inhere\Route;
  * Class CachedRouter - this is object version.
  *
  * - 支持缓存路由信息到文件
- * - handler 将不支持设置为 \Closure 和 Object。
- * - 路由选项的 选项 value 同样不允许 \Closure 和 Object
+ * - handler 将不支持设置为 \Closure 和 Object (无法缓存对象)
+ * - 路由选项的 选项值 同样不允许 \Closure 和 Object
  *
  * @package Inhere\Route
  */
@@ -93,10 +93,7 @@ class CachedRouter extends ORouter
 //////////////////////////////////////////////////////////////////////
 
     /**
-     * find the matched route info for the given request uri path
-     * @param string $method
-     * @param string $path
-     * @return mixed
+     * {@inheritdoc}
      */
     public function match($path, $method)
     {
