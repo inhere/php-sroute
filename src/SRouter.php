@@ -347,8 +347,7 @@ class SRouter implements RouterInterface
                     }
 
                     // first node is $path
-                    array_shift($matches);
-                    $conf['matches'] = $matches;
+                    $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
                     // cache latest $number routes.
                     if ($number > 0) {
@@ -372,9 +371,7 @@ class SRouter implements RouterInterface
                     return [self::METHOD_NOT_ALLOWED, $path, $conf];
                 }
 
-                // first node is $path
-                array_shift($matches);
-                $conf['matches'] = $matches;
+                $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
                 // cache last $number routes.
                 if ($number > 0) {
