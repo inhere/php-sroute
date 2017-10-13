@@ -71,7 +71,7 @@ class ORouter implements RouterInterface
 
     /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
-     * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行存储
+     * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
      * e.g '/hello[/{name}]' '/user/{id}'
      * @var array[]
      * [
@@ -80,7 +80,7 @@ class ORouter implements RouterInterface
      *          // 第一节只有一个字符, 使用关键字'_NO_'为 key 进行分组
      *         '_NO_' => [
      *              [
-     *                  'first' => '/a',
+     *                  'prefix' => '/a',
      *                  'regex' => '/a/(\w+)',
      *                  'method' => 'GET',
      *                  'handler' => 'handler',
@@ -90,7 +90,7 @@ class ORouter implements RouterInterface
      *          // 第一节有多个字符, 使用第二个字符 为 key 进行分组
      *         'd' => [
      *              [
-     *                  'first' => '/add',
+     *                  'prefix' => '/add/',
      *                  'regex' => '/add/(\w+)',
      *                  'method' => 'GET',
      *                  'handler' => 'handler',
@@ -103,7 +103,7 @@ class ORouter implements RouterInterface
      *     'b' => [
      *        'l' => [
      *              [
-     *                  'first' => '/blog',
+     *                  'prefix' => '/blog/',
      *                  'regex' => '/blog/(\w+)',
      *                  'method' => 'GET',
      *                  'handler' => 'handler',
@@ -120,11 +120,20 @@ class ORouter implements RouterInterface
     /**
      * vague Routes - have dynamic arguments,but the first node is exists regex.
      * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
-     * e.g '/{some}/{some2}'
+     * e.g '/{name}/profile' '/{some}/{some2}'
      * @var array
      * [
      *     [
-     *         'regex' => '/(\w+)/some',
+     *         // 必定包含的字符串
+     *         'include' => '/profile',
+     *         'regex' => '/(\w+)/profile',
+     *         'method' => 'GET',
+     *         'handler' => 'handler',
+     *         'option' => null,
+     *     ],
+     *     [
+     *         'include' => null,
+     *         'regex' => '/(\w+)/(\w+)',
      *         'method' => 'GET',
      *         'handler' => 'handler',
      *         'option' => null,
@@ -285,7 +294,7 @@ class ORouter implements RouterInterface
      * [
      *     'tokens' => [ 'id' => '[0-9]+', ],
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
-     *     'schema' => 'https',
+     *     'schemes' => ['https'],
      * ]
      * @return static
      * @throws \LogicException
@@ -332,7 +341,7 @@ class ORouter implements RouterInterface
         $opts = array_replace([
             'tokens' => null,
             'domains' => null,
-            'schema' => null, // ['http','https'],
+            'schemes' => null, // ['http','https'],
             // route event. custom design ...
             // 'enter' => null,
             // 'leave' => null,
@@ -354,13 +363,13 @@ class ORouter implements RouterInterface
         // have dynamic param tokens
 
         // replace token name To pattern regex
-        list($first, $conf) = static::parseRoute(
+        list($first, $conf) = static::parseParamRoute(
             $route,
             static::getAvailableTokens(self::$globalTokens, $opts['tokens']),
             $conf
         );
 
-        // route string is regular
+        // route string have regular
         if ($first) {
             $twoLevelKey = isset($first{1}) ? $first{1} : self::DEFAULT_TWO_LEVEL_KEY;
             $this->regularRoutes[$first{0}][$twoLevelKey][] = $conf;
@@ -400,9 +409,8 @@ class ORouter implements RouterInterface
      * @return array
      * @throws \LogicException
      */
-    public static function parseRoute($route, array $tokens, array $conf)
+    public static function parseParamRoute($route, array $tokens, array $conf)
     {
-        $first = null;
         $tmp = $route;
 
         // 解析可选参数位
@@ -439,21 +447,33 @@ class ORouter implements RouterInterface
         }
 
         // 分析路由字符串是否是有规律的
+        $first = null;
+        $regex = '#^' . $route . '$#';
 
         // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
-        if (preg_match('#^/([\w-]+)#', $tmp, $ms)) {
-            $first = $ms[1];
-            $conf = [
-                    'first' => '/' . $first,
-                    'regex' => '#^' . $route . '$#',
-                ] + $conf;
-            // first node contain regex param '/{some}/{some2}'
+        // if (preg_match('#^/([\w-]+)#', $tmp, $m)) {
+        if (preg_match('#^/([\w-]+)/?[\w-]*#', $tmp, $m)) {
+            $first = $m[1];
+            $info = [
+                'regex'  => $regex,
+                'prefix' => $m[0],
+            ];
+            // first node contain regex param '/{some}/{some2}/xyz'
         } else {
-            $conf['regex'] = '#^' . $route . '$#';
+            $include = null;
+
+            if (preg_match('#/([\w-]+)/?[\w-]*#', $tmp, $m)) {
+                $include = $m[0];
+            }
+
+            $info = [
+                'regex' => $regex,
+                'include' => $include,
+            ];
         }
 
-        return [$first, $conf];
+        return [$first, array_merge($info, $conf)];
     }
 
     /**
@@ -545,7 +565,7 @@ class ORouter implements RouterInterface
 
             if (isset($twoLevelArr[$twoLevelKey])) {
                 foreach ($twoLevelArr[$twoLevelKey] as $conf) {
-                    if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
+                    if (0 === strpos($path, $conf['prefix']) && preg_match($conf['regex'], $path, $matches)) {
                         // method not allowed
                         if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
                             return [self::METHOD_NOT_ALLOWED, $path, $conf];
@@ -571,7 +591,10 @@ class ORouter implements RouterInterface
 
         // is a irregular dynamic route
         foreach ($this->vagueRoutes as $conf) {
-            if (preg_match($conf['regex'], $path, $matches)) {
+            if (
+                (!$conf['include'] || strpos($path, $conf['include']) > 0) &&
+                preg_match($conf['regex'], $path, $matches)
+            ) {
                 // method not allowed
                 if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
                     return [self::METHOD_NOT_ALLOWED, $path, $conf];
