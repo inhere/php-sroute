@@ -70,7 +70,7 @@ class ORouter implements RouterInterface
     private $staticRoutes = [];
 
     /**
-     * regular Routes - have dynamic arguments, but the first node is normal.
+     * regular Routes - have dynamic arguments, but the first node is normal string.
      * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行存储
      * e.g '/hello[/{name}]' '/user/{id}'
      * @var array[]
@@ -543,32 +543,28 @@ class ORouter implements RouterInterface
             $twoLevelArr = $this->regularRoutes[$tmp{0}];
             $twoLevelKey = isset($tmp{1}) ? $tmp{1} : self::DEFAULT_TWO_LEVEL_KEY;
 
-            // not found
-            if (!isset($twoLevelArr[$twoLevelKey])) {
-                return [self::NOT_FOUND, $path, null];
-            }
-
-            foreach ($twoLevelArr[$twoLevelKey] as $conf) {
-                if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
-                    // method not allowed
-                    if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                        return [self::METHOD_NOT_ALLOWED, $path, $conf];
-                    }
-
-                    // first node is $path
-                    // array_shift($matches);
-                    $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
-
-                    // cache latest $number routes.
-                    if ($number > 0) {
-                        if (count($this->routeCaches) === $number) {
-                            array_shift($this->routeCaches);
+            if (isset($twoLevelArr[$twoLevelKey])) {
+                foreach ($twoLevelArr[$twoLevelKey] as $conf) {
+                    if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
+                        // method not allowed
+                        if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
+                            return [self::METHOD_NOT_ALLOWED, $path, $conf];
                         }
 
-                        $this->routeCaches[$path][$conf['method']] = $conf;
-                    }
+                        // first node is $path
+                        $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
-                    return [self::FOUND, $path, $conf];
+                        // cache latest $number routes.
+                        if ($number > 0) {
+                            if (count($this->routeCaches) === $number) {
+                                array_shift($this->routeCaches);
+                            }
+
+                            $this->routeCaches[$path][$conf['method']] = $conf;
+                        }
+
+                        return [self::FOUND, $path, $conf];
+                    }
                 }
             }
         }

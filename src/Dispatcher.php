@@ -110,6 +110,7 @@ class Dispatcher implements DispatcherInterface
      ******************************************************************************/
 
     /**
+     * @see ORouter::match()
      * @param string $path
      * @param string $method
      * @return array|null
@@ -124,9 +125,6 @@ class Dispatcher implements DispatcherInterface
             $this->initialized = true;
         }
 
-        /**
-         * @see ORouter::match()
-         */
         return $matcher($path, $method);
     }
 
@@ -152,6 +150,9 @@ class Dispatcher implements DispatcherInterface
 
         // not found || method not allowed
         if ($status === RouterInterface::NOT_FOUND || $status === RouterInterface::METHOD_NOT_ALLOWED) {
+            // trigger route found event
+            $this->fire(self::ON_NOT_FOUND, [$path, $route]);
+
             return $this->handleNotFound($path, $method);
         }
 

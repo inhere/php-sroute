@@ -20,6 +20,12 @@ $router->get('/', function() {
     echo 'hello, welcome';
 });
 
+$router->get('/routes', function() use($router) {
+    var_dump(
+        $router->getStaticRoutes()
+    );
+});
+
 /*
 match: /blog /saying
  */

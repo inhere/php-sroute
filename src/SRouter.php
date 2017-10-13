@@ -335,30 +335,28 @@ class SRouter implements RouterInterface
             $twoLevelKey = isset($tmp{1}) ? $tmp{1} : self::DEFAULT_TWO_LEVEL_KEY;
 
             // not found
-            if (!isset($twoLevelArr[$twoLevelKey])) {
-                return [self::NOT_FOUND, $path, null];
-            }
-
-            foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
-                if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
-                    // method not allowed
-                    if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                        return [self::METHOD_NOT_ALLOWED, $path, $conf];
-                    }
-
-                    // first node is $path
-                    $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
-
-                    // cache latest $number routes.
-                    if ($number > 0) {
-                        if (count(self::$routeCaches) === $number) {
-                            array_shift(self::$routeCaches);
+            if (isset($twoLevelArr[$twoLevelKey])) {
+                foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
+                    if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
+                        // method not allowed
+                        if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
+                            return [self::METHOD_NOT_ALLOWED, $path, $conf];
                         }
 
-                        self::$routeCaches[$path][$conf['method']] = $conf;
-                    }
+                        // first node is $path
+                        $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
-                    return [self::FOUND, $path, $conf];
+                        // cache latest $number routes.
+                        if ($number > 0) {
+                            if (count(self::$routeCaches) === $number) {
+                                array_shift(self::$routeCaches);
+                            }
+
+                            self::$routeCaches[$path][$conf['method']] = $conf;
+                        }
+
+                        return [self::FOUND, $path, $conf];
+                    }
                 }
             }
         }
