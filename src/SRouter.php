@@ -253,13 +253,13 @@ class SRouter implements RouterInterface
         // have dynamic param tokens
 
         // replace token name To pattern regex
-        list($first, $conf) = ORouter::parseRoute(
+        list($first, $conf) = ORouter::parseParamRoute(
             $route,
             ORouter::getAvailableTokens(self::$globalTokens, $opts['tokens']),
             $conf
         );
 
-        // route string is regular
+        // route string have regular
         if ($first) {
             $twoLevelKey = isset($first{1}) ? $first{1} : self::DEFAULT_TWO_LEVEL_KEY;
             self::$regularRoutes[$first{0}][$twoLevelKey][] = $conf;
@@ -337,7 +337,7 @@ class SRouter implements RouterInterface
             // not found
             if (isset($twoLevelArr[$twoLevelKey])) {
                 foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
-                    if (0 === strpos($path, $conf['first']) && preg_match($conf['regex'], $path, $matches)) {
+                    if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                         // method not allowed
                         if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
                             return [self::METHOD_NOT_ALLOWED, $path, $conf];
@@ -363,7 +363,10 @@ class SRouter implements RouterInterface
 
         // is a irregular dynamic route
         foreach (self::$vagueRoutes as $conf) {
-            if (preg_match($conf['regex'], $path, $matches)) {
+            if (
+                (!$conf['include'] || strpos($path, $conf['include']) > 0) &&
+                preg_match($conf['regex'], $path, $matches)
+            ) {
                 // method not allowed
                 if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
                     return [self::METHOD_NOT_ALLOWED, $path, $conf];

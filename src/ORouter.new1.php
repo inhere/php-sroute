@@ -8,6 +8,18 @@
 
 namespace Inhere\Route;
 
+/*
+test result:
+
+Test Name | Results | Time | + Interval | Change
+--------- | ------- | ---- | ---------- | ------
+SRouter - unknown route (1000 routes) | 975 | 0.0000109910 | +0.0000000000 | baseline
+ORouter - unknown route (1000 routes) | 977 | 0.0000124307 | +0.0000014397 | 13% slower
+ORouter - last route (1000 routes) | 991 | 0.0000297578 | +0.0000187668 | 171% slower
+SRouter - last route (1000 routes) | 988 | 0.0000327867 | +0.0000217957 | 198% slower
+
+ */
+
 /**
  * Class ORouter- this is object version
  * @package Inhere\Route
@@ -75,36 +87,42 @@ class ORouter implements RouterInterface
      * e.g '/hello[/{name}]' '/user/{id}'
      * @var array[]
      * [
-     *     // 使用完整的第一节作为key进行分组
+     *     // 先用第一个字符作为 key，进行分组
      *     'a' => [
-     *          [
-     *              'start' => '/a/',
-     *              'regex' => '/a/(\w+)',
-     *              'method' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => null,
+     *          // 使用完整的第一节作为二级key
+     *         'a' => [
+     *              [
+     *                  'start' => '/a',
+     *                  'regex' => '/a/(\w+)',
+     *                  'method' => 'GET',
+     *                  'handler' => 'handler',
+     *                  'option' => null,
+     *              ]
+     *          ],
+     *         'add' => [
+     *              [
+     *                  'start' => '/add/',
+     *                  'regex' => '/add/(\w+)',
+     *                  'method' => 'GET',
+     *                  'handler' => 'handler',
+     *                  'option' => null,
+     *              ],
+     *              ... ...
      *          ],
      *          ... ...
      *      ],
-     *     'add' => [
-     *          [
-     *              'start' => '/add/',
-     *              'regex' => '/add/(\w+)',
-     *              'method' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => null,
+     *     'b' => [
+     *        'blog' => [
+     *              [
+     *                  'start' => '/blog/',
+     *                  'regex' => '/blog/(\w+)',
+     *                  'method' => 'GET',
+     *                  'handler' => 'handler',
+     *                  'option' => null,
+     *              ],
+     *              ... ...
      *          ],
      *          ... ...
-     *      ],
-     *     'blog' => [
-     *        [
-     *              'start' => '/blog/',
-     *              'regex' => '/blog/(\w+)',
-     *              'method' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *        ],
-     *        ... ...
      *     ],
      * ]
      */
@@ -364,7 +382,8 @@ class ORouter implements RouterInterface
 
         // route string have regular
         if ($first) {
-            $this->regularRoutes[$first][] = $conf;
+            // $twoLevelKey = isset($first{1}) ? $first{1} : self::DEFAULT_TWO_LEVEL_KEY;
+            $this->regularRoutes[$first{0}][$first][] = $conf;
         } else {
             $this->vagueRoutes[] = $conf;
         }
@@ -549,10 +568,11 @@ class ORouter implements RouterInterface
 
         $tmp = trim($path, '/'); // clear first '/'
         $first = strpos($tmp, '/') ? strstr($tmp, '/', true) : $tmp;
+        $topKey = $first{0};
 
         // is a regular dynamic route(the first char is 1th level index key).
-        if (isset($this->regularRoutes[$first])) {
-            foreach ($this->regularRoutes[$first] as $conf) {
+        if ($this->regularRoutes && isset($this->regularRoutes[$topKey][$first])) {
+            foreach ($this->regularRoutes[$topKey][$first] as $conf) {
                 if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                     // method not allowed
                     if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {

@@ -29,17 +29,15 @@ class CachedRouter extends ORouter
      */
     public function __construct(array $config = [])
     {
-        $config = array_merge([
+        $this->config = array_merge($this->config,[
             'cacheFile' => '',
             'cacheEnable' => true,
-        ], $config);
+        ]);
 
         parent::__construct($config);
 
         // read route caches from cache file
-        if (($file = $this->getConfig('cacheFile')) && file_exists($file)) {
-            $this->cacheLoaded = $this->loadRoutesCache($file);
-        }
+        $this->loadRoutesCache();
     }
 
     private $indexId = 0;
@@ -98,12 +96,7 @@ class CachedRouter extends ORouter
     public function match($path, $method)
     {
         // dump routes to cache file
-        if (
-            ($file = $this->getConfig('cacheFile')) &&
-            (!file_exists($file) || !$this->cacheEnabled())
-        ) {
-            $this->dumpRoutesCache($file);
-        }
+        $this->dumpRoutesCache();
 
         return parent::match($path, $method);
     }
@@ -113,29 +106,45 @@ class CachedRouter extends ORouter
 //////////////////////////////////////////////////////////////////////
 
     /**
+     * load route caches from the cache file
      * @return bool
      */
-    public function cacheEnabled()
+    public function loadRoutesCache()
     {
-        return (bool)$this->getConfig('cacheEnable');
+        if (!$this->isCacheEnabled()) {
+            return false;
+        }
+
+        $file = $this->config['cacheFile'];
+
+        if (!$file || !file_exists($file)) {
+            return false;
+        }
+
+        // load routes
+        $map = include $file;
+
+        $this->setStaticRoutes($map['staticRoutes']);
+        $this->setRegularRoutes($map['regularRoutes']);
+        $this->setVagueRoutes($map['vagueRoutes']);
+        $this->cacheLoaded =  true;
+
+        return true;
     }
 
     /**
-     * @return bool
-     */
-    public function cacheExists()
-    {
-        return ($file = $this->getConfig('cacheFile')) && file_exists($file);
-    }
-
-    /**
+     * dump routes to cache file
      * @param string $file
      * @return bool|int
      */
-    public function dumpRoutesCache($file)
+    public function dumpRoutesCache()
     {
-        if (!$file) {
+        if (!$file = $this->config['cacheFile']) {
             return false;
+        }
+
+        if ($this->isCacheEnabled() && file_exists($file)) {
+            return true;
         }
 
         $date = date('Y-m-d H:i:s');
@@ -160,22 +169,19 @@ EOF;
     }
 
     /**
-     * @param string $file
      * @return bool
      */
-    public function loadRoutesCache($file)
+    public function isCacheEnabled()
     {
-        if (!$this->cacheEnabled()) {
-            return false;
-        }
+        return (bool)$this->getConfig('cacheEnable');
+    }
 
-        $map = include $file;
-
-        $this->setStaticRoutes($map['staticRoutes']);
-        $this->setRegularRoutes($map['regularRoutes']);
-        $this->setVagueRoutes($map['vagueRoutes']);
-
-        return true;
+    /**
+     * @return bool
+     */
+    public function isCacheExists()
+    {
+        return ($file = $this->config['cacheFile']) && file_exists($file);
     }
 
     /**

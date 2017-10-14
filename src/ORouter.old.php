@@ -8,6 +8,18 @@
 
 namespace Inhere\Route;
 
+/*
+test result:
+
+Test Name | Results | Time | + Interval | Change
+--------- | ------- | ---- | ---------- | ------
+SRouter - unknown route (1000 routes) | 961 | 0.0000113283 | +0.0000000000 | baseline
+ORouter - unknown route (1000 routes) | 975 | 0.0000113920 | +0.0000000638 | 1% slower
+SRouter - last route (1000 routes) | 982 | 0.0000312148 | +0.0000198866 | 176% slower
+ORouter - last route (1000 routes) | 985 | 0.0000339114 | +0.0000225831 | 199% slower
+
+ */
+
 /**
  * Class ORouter- this is object version
  * @package Inhere\Route
@@ -75,36 +87,43 @@ class ORouter implements RouterInterface
      * e.g '/hello[/{name}]' '/user/{id}'
      * @var array[]
      * [
-     *     // 使用完整的第一节作为key进行分组
+     *     // 先用第一个字符作为 key，进行分组
      *     'a' => [
-     *          [
-     *              'start' => '/a/',
-     *              'regex' => '/a/(\w+)',
-     *              'method' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => null,
+     *          // 第一节只有一个字符, 使用关键字'_NO_'为 key 进行分组
+     *         '_NO_' => [
+     *              [
+     *                  'prefix' => '/a',
+     *                  'regex' => '/a/(\w+)',
+     *                  'method' => 'GET',
+     *                  'handler' => 'handler',
+     *                  'option' => null,
+     *              ]
+     *          ],
+     *          // 第一节有多个字符, 使用第二个字符 为 key 进行分组
+     *         'd' => [
+     *              [
+     *                  'prefix' => '/add/',
+     *                  'regex' => '/add/(\w+)',
+     *                  'method' => 'GET',
+     *                  'handler' => 'handler',
+     *                  'option' => null,
+     *              ],
+     *              ... ...
      *          ],
      *          ... ...
      *      ],
-     *     'add' => [
-     *          [
-     *              'start' => '/add/',
-     *              'regex' => '/add/(\w+)',
-     *              'method' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => null,
+     *     'b' => [
+     *        'l' => [
+     *              [
+     *                  'prefix' => '/blog/',
+     *                  'regex' => '/blog/(\w+)',
+     *                  'method' => 'GET',
+     *                  'handler' => 'handler',
+     *                  'option' => null,
+     *              ],
+     *              ... ...
      *          ],
      *          ... ...
-     *      ],
-     *     'blog' => [
-     *        [
-     *              'start' => '/blog/',
-     *              'regex' => '/blog/(\w+)',
-     *              'method' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *        ],
-     *        ... ...
      *     ],
      * ]
      */
@@ -159,7 +178,7 @@ class ORouter implements RouterInterface
      * some setting for self
      * @var array
      */
-    protected $config = [
+    private $config = [
         // the routes php file.
         'routesFile' => null,
 
@@ -364,7 +383,8 @@ class ORouter implements RouterInterface
 
         // route string have regular
         if ($first) {
-            $this->regularRoutes[$first][] = $conf;
+            $twoLevelKey = isset($first{1}) ? $first{1} : self::DEFAULT_TWO_LEVEL_KEY;
+            $this->regularRoutes[$first{0}][$twoLevelKey][] = $conf;
         } else {
             $this->vagueRoutes[] = $conf;
         }
@@ -449,7 +469,7 @@ class ORouter implements RouterInterface
             $first = $m[1];
             $info = [
                 'regex'  => $regex,
-                'start' => $m[0],
+                'prefix' => $m[0],
             ];
             // first node contain regex param '/{some}/{some2}/xyz'
         } else {
@@ -548,30 +568,35 @@ class ORouter implements RouterInterface
         }
 
         $tmp = trim($path, '/'); // clear first '/'
-        $first = strpos($tmp, '/') ? strstr($tmp, '/', true) : $tmp;
 
         // is a regular dynamic route(the first char is 1th level index key).
-        if (isset($this->regularRoutes[$first])) {
-            foreach ($this->regularRoutes[$first] as $conf) {
-                if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
-                    // method not allowed
-                    if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                        return [self::METHOD_NOT_ALLOWED, $path, $conf];
-                    }
+        if ($this->regularRoutes && isset($this->regularRoutes[$tmp{0}])) {
+            /** @var array[] $twoLevelArr */
+            $twoLevelArr = $this->regularRoutes[$tmp{0}];
+            $twoLevelKey = isset($tmp{1}) ? $tmp{1} : self::DEFAULT_TWO_LEVEL_KEY;
 
-                    // first node is $path
-                    $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
-
-                    // cache latest $number routes.
-                    if ($number > 0) {
-                        if (count($this->routeCaches) === $number) {
-                            array_shift($this->routeCaches);
+            if (isset($twoLevelArr[$twoLevelKey])) {
+                foreach ($twoLevelArr[$twoLevelKey] as $conf) {
+                    if (0 === strpos($path, $conf['prefix']) && preg_match($conf['regex'], $path, $matches)) {
+                        // method not allowed
+                        if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
+                            return [self::METHOD_NOT_ALLOWED, $path, $conf];
                         }
 
-                        $this->routeCaches[$path][$conf['method']] = $conf;
-                    }
+                        // first node is $path
+                        $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
-                    return [self::FOUND, $path, $conf];
+                        // cache latest $number routes.
+                        if ($number > 0) {
+                            if (count($this->routeCaches) === $number) {
+                                array_shift($this->routeCaches);
+                            }
+
+                            $this->routeCaches[$path][$conf['method']] = $conf;
+                        }
+
+                        return [self::FOUND, $path, $conf];
+                    }
                 }
             }
         }
