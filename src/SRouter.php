@@ -186,7 +186,7 @@ class SRouter implements RouterInterface
      * [
      *     'tokens' => [ 'id' => '[0-9]+', ],
      *     'hosts'  => [ 'a-domain.com', '*.b-domain.com'],
-     *     'schema' => 'https',
+     *     'schemes' => ['https'],
      * ]
      * @return true
      * @throws \LogicException
@@ -229,12 +229,12 @@ class SRouter implements RouterInterface
         self::$routeCounter++;
         $route = self::$currentGroupPrefix . $route;
         $opts = array_replace([
-           'tokens' => null,
-           'domains'  => null,
-           'schema' => null, // ['http','https'],
+            'tokens' => null,
+            'domains'  => null,
+            'schemes' => null, // ['http','https'],
             // route event
-           'enter' => null,
-           'leave' => null,
+            'enter' => null,
+            'leave' => null,
         ], self::$currentGroupOption, $opts);
 
         $conf = [
