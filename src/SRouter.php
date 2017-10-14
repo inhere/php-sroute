@@ -24,6 +24,9 @@ namespace Inhere\Route;
  */
 class SRouter implements RouterInterface
 {
+    const DEFAULT_TWO_LEVEL_KEY = '_NO_';
+
+    /** @var int  */
     private static $routeCounter = 0;
 
     /**

@@ -23,9 +23,7 @@ namespace Inhere\Route;
  */
 class ORouter implements RouterInterface
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     private $routeCounter = 0;
 
     /**
@@ -588,7 +586,6 @@ class ORouter implements RouterInterface
                 }
 
                 // first node is $path
-                // array_shift($matches);
                 $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
                 // cache last $number routes.

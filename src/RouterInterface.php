@@ -22,7 +22,6 @@ interface RouterInterface
     const METHOD_NOT_ALLOWED = 3;
 
     const DEFAULT_REGEX = '[^/]+';
-    const DEFAULT_TWO_LEVEL_KEY = '_NO_';
 
     /**
      * supported Methods
