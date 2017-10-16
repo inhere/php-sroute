@@ -150,9 +150,6 @@ class Dispatcher implements DispatcherInterface
 
         // not found || method not allowed
         if ($status === RouterInterface::NOT_FOUND || $status === RouterInterface::METHOD_NOT_ALLOWED) {
-            // trigger route found event
-            $this->fire(self::ON_NOT_FOUND, [$path, $route]);
-
             return $this->handleNotFound($path, $method);
         }
 
