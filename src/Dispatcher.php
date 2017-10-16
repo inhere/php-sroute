@@ -26,7 +26,7 @@ class Dispatcher implements DispatcherInterface
      * some setting for self
      * @var array
      */
-    private $config = [
+    protected $config = [
         // Filter the `/favicon.ico` request.
         'filterFavicon' => false,
 
@@ -43,6 +43,8 @@ class Dispatcher implements DispatcherInterface
         //  $router->any('/demo/{act}', app\controllers\Demo::class);
         //  you access '/demo/test' will call 'app\controllers\Demo::test()'
         'dynamicAction' => false,
+        // @see ORouter::$globalTokens['act']
+        'dynamicActionVar' => 'act',
 
         // action executor. will auto call controller's executor method to run all action.
         // e.g: 'actionExecutor' => 'run'`
@@ -132,11 +134,11 @@ class Dispatcher implements DispatcherInterface
      * Runs the callback for the given request
      * @param string $path
      * @param null|string $method
-     * @param array $prependArgs
+     * @param array $args
      * @return mixed
      * @throws \Throwable
      */
-    public function dispatch($path = null, $method = null, array $prependArgs = [])
+    public function dispatch($path = null, $method = null, array $args = [])
     {
         $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -171,13 +173,13 @@ class Dispatcher implements DispatcherInterface
         }
 
         $handler = $route['handler'];
-        $args = isset($route['matches']) ? $route['matches'] : [];
+        $args['matches'] = isset($route['matches']) ? $route['matches'] : [];
 
         try {
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $route]);
 
-            $result = $this->executeRouteHandler($path, $method, $handler, $args, $prependArgs);
+            $result = $this->callRouteHandler($path, $method, $handler, $args);
 
             // fire leave event
             if (isset($options['leave'])) {
@@ -209,7 +211,7 @@ class Dispatcher implements DispatcherInterface
      * @param array $options
      * [
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
-     *     'schema' => 'https',
+     *     'schemes' => ['https'],
      * ]
      */
     protected function validateMetadata(array $options)
@@ -228,18 +230,18 @@ class Dispatcher implements DispatcherInterface
      * @param string $method The request method
      * @param callable $handler The route path handler
      * @param array $args Matched param from path
-     * @param array $prependArgs
+     * [
+     *  'matches' => []
+     * ]
      * @return mixed
      */
-    protected function executeRouteHandler($path, $method, $handler, array $args = [], array $prependArgs = [])
+    protected function callRouteHandler($path, $method, $handler, array $args = [])
     {
+        $vars = $args['matches'];
         $args = array_values($args);
 
         // is a \Closure or a callable object
         if (is_object($handler)) {
-            // push prepend args
-            $args = array_merge($prependArgs, $args);
-
             return $handler(...$args);
         }
 
@@ -250,8 +252,6 @@ class Dispatcher implements DispatcherInterface
             $segments = $handler;
         } elseif (is_string($handler)) {
             if (strpos($handler, '@') === false && function_exists($handler)) {
-                // push prepend args
-                $args = array_merge($prependArgs, $args);
                 return $handler(...$args);
             }
 
@@ -269,16 +269,14 @@ class Dispatcher implements DispatcherInterface
             $action = $segments[1];
 
             // use dynamic action
-        } elseif ((bool)$this->config['dynamicAction']) {
-            $action = isset($args[0]) ? trim($args[0], '/') : $this->config['defaultAction'];
+        } elseif ($this->config['dynamicAction'] && ($var = $this->config['dynamicActionVar'])) {
+            $action = isset($vars[$var]) ? trim($vars[$var], '/') : $this->config['defaultAction'];
 
             // defined default action
         } elseif (!$action = $this->config['defaultAction']) {
             throw new \RuntimeException("please config the route path [$path] controller action to call");
         }
 
-        // push prepend args
-        $args = array_merge($prependArgs, $args);
         $action = ORouter::convertNodeStr($action);
         $actionMethod = $action . $this->config['actionSuffix'];
 

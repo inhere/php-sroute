@@ -18,8 +18,13 @@ function default_handler() {
     echo 'hello, welcome. you request URI: ' . $_SERVER['REQUEST_URI'];
 }
 
-function my_handler($name='NO', $age = 10) {
-    echo "hello, my name: $name, my age: $age"; // 'john'
+function my_handler(array $args) {
+    $args = array_merge([
+        'name' => 'NO',
+        'age' => 10
+    ], $args);
+
+    echo "hello, my name: {$args['name']}, my age: {$args['age']}";
 }
 
 $router->get('/', 'home_handler');

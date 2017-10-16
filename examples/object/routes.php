@@ -41,8 +41,13 @@ match:
     /my/tom
     /my
  */
-$router->get('/my[/{name}[/{age}]]', function($name='NO', $age = 10) {
-    echo "hello, my name: $name, my age: $age"; // 'john'
+$router->get('/my[/{name}[/{age}]]', function(array $args) {
+    $args = array_merge([
+        'name' => 'NO',
+        'age' => 10
+    ], $args);
+
+    echo "hello, my name: {$args['name']}, my age: {$args['age']}";
 }, [
     'tokens' => [
         'age' => '\d+'
@@ -54,8 +59,8 @@ match:
     /hello/tom
     /hello
  */
-$router->get('/hello[/{name}]', function($name='NO') {
-    echo "hello, $name"; // 'john'
+$router->get('/hello[/{name}]', function($args) {
+    echo "hello, {$args['name']}"; // 'john'
 },[
     'tokens' => [
         'name' => '\w+'

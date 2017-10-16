@@ -22,8 +22,8 @@ SRouter::get('/{name}', 'default_handler', [
     ]
 ]);
 
-SRouter::get('/hello/{name}', function($arg) {
-    echo "hello, $arg"; // 'john'
+SRouter::get('/hello/{name}', function($args) {
+    echo "hello, {$args['name']}"; // 'john'
 },[
     'tokens' => [
         'name' => '\w+'
