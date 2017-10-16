@@ -366,10 +366,11 @@ class SRouter implements RouterInterface
 
         // is a irregular dynamic route
         foreach (self::$vagueRoutes as $conf) {
-            if (
-                (!$conf['include'] || strpos($path, $conf['include']) > 0) &&
-                preg_match($conf['regex'], $path, $matches)
-            ) {
+            if ($conf['include'] && false === strpos($path, $conf['include'])) {
+                continue;
+            }
+
+            if (preg_match($conf['regex'], $path, $matches)) {
                 // method not allowed
                 if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
                     return [self::METHOD_NOT_ALLOWED, $path, $conf];
