@@ -14,18 +14,18 @@ namespace Inhere\Route\Examples\Controllers;
  */
 class DemoController
 {
-    public function index()
+    public function indexAction()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }
 
-    public function test()
+    public function testAction()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }
 
     // you can access by '/demo/oneTwo' or '/demo/one-two'
-    public function oneTwo()
+    public function oneTwoAction()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }

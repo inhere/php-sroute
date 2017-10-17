@@ -7,7 +7,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -20,7 +20,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -33,7 +33,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -46,7 +46,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -59,7 +59,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -72,7 +72,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -85,7 +85,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -98,7 +98,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,
@@ -111,7 +111,7 @@ $ary = array (
         'method' => 'GET',
         'handler' => 'handler1',
         'option' => array(
-            'tokens' => array(
+            'params' => array(
                 'name' => '\\w+',
             ),
             'domains' => null,

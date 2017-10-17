@@ -34,13 +34,37 @@ $router->setConfig([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => 1,
-    'controllerNamespace' => 'Inhere\Route\examples\controllers',
+    'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
-require __DIR__ . '/routes.php';
+$router->get('/routes', function() use($router) {
+    var_dump(
+        $router->getStaticRoutes(),
+        $router->getRegularRoutes(),
+        $router->getVagueRoutes()
+    );
+});
 
-// var_dump($router->getConfig(),$router);die;
+$routes = require dirname(__DIR__) . '/some-routes.php';
+
+foreach ($routes as $route) {
+    // group
+    if (is_array($route[1])) {
+        $rs = $route[1];
+        $router->group($route[0], function (ORouter $router) use($rs){
+            foreach ($rs as $r) {
+                $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
+            }
+        });
+
+        continue;
+    }
+
+    $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
+}
+
+// var_dump($router);die;
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

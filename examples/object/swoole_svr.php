@@ -35,12 +35,19 @@ $router->setConfig([
 
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' => [
-        'enable' => 1,
-        'controllerNamespace' => 'Inhere\Route\examples\controllers',
-        'controllerSuffix' => 'Controller',
-    ],
+    'autoRoute' =>  1,
+    'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
+    'controllerSuffix' => 'Controller',
 ]);
+
+
+$router->get('/routes', function() use($router) {
+    var_dump(
+        $router->getStaticRoutes(),
+        $router->getRegularRoutes(),
+        $router->getVagueRoutes()
+    );
+});
 
 require __DIR__ . '/routes.php';
 
@@ -61,16 +68,21 @@ $server->set([
 ]);
 
 $server->on('request', function($request, $response) use($dispatcher) {
+    /** @var  \Swoole\Http\Response $response */
     $uri = $request->server['request_uri'];
     $method = $request->server['request_method'];
 
     fwrite(STDOUT, "request $method $uri\n");
 
     ob_start();
-    $dispatcher->dispatch($uri, $method);
+    $ret = $dispatcher->dispatch($uri, $method);
     $content = ob_get_clean();
 
-    $response->end($content);
+    if (!$ret) {
+        $ret = $content;
+    }
+
+    $response->end($ret);
 });
 
 echo "http server listen on http://127.0.0.1:5675\n";

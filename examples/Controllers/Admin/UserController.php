@@ -14,12 +14,12 @@ namespace Inhere\Route\Examples\Controllers\Admin;
  */
 class UserController
 {
-    public function index()
+    public function indexAction()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }
 
-    public function info()
+    public function infoAction()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }

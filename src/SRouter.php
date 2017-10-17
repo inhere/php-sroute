@@ -22,7 +22,7 @@ namespace Inhere\Route;
  * @method static trace(string $route, mixed $handler, array $opts = [])
  * @method static any(string $route, mixed $handler, array $opts = [])
  */
-class SRouter implements RouterInterface
+class SRouter extends AbstractRouter
 {
     const DEFAULT_TWO_LEVEL_KEY = '_NO_';
 
@@ -34,7 +34,7 @@ class SRouter implements RouterInterface
      * $router->get('/user/{num}', 'handler');
      * @var array
      */
-    private static $globalTokens = [
+    private static $globalParams = [
         'any' => '[^/]+',   // match any except '/'
         'num' => '[0-9]+',  // match a number
         'act' => '[a-zA-Z][\w-]+', // match a action name
@@ -179,7 +179,7 @@ class SRouter implements RouterInterface
     }
 
     /**
-     * @param string|array $method The match request method.
+     * @param string|array $methods The match request method.
      * e.g
      *  string: 'get'
      *  array: ['get','post']
@@ -187,7 +187,7 @@ class SRouter implements RouterInterface
      * @param callable|string $handler
      * @param array $opts some option data
      * [
-     *     'tokens' => [ 'id' => '[0-9]+', ],
+     *     'params' => [ 'id' => '[0-9]+', ],
      *     'hosts'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schemes' => ['https'],
      * ]
@@ -195,27 +195,14 @@ class SRouter implements RouterInterface
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public static function map($method, $route, $handler, array $opts = [])
+    public static function map($methods, $route, $handler, array $opts = [])
     {
         if (!self::$initialized) {
             self::$initialized = true;
         }
 
-        // array
-        if (is_array($method)) {
-            foreach ((array)$method as $m) {
-                self::map($m, $route, $handler, $opts);
-            }
-
-            return true;
-        }
-
-        // string - register route and callback
-
-        $method = strtoupper($method);
-
         // validate arguments
-        ORouter::validateArguments($method, $handler);
+        $methods = self::validateArguments($methods, $handler);
 
         if ($route = trim($route)) {
             // always add '/' prefix.
@@ -232,35 +219,28 @@ class SRouter implements RouterInterface
         self::$routeCounter++;
         $route = self::$currentGroupPrefix . $route;
         $opts = array_replace([
-            'tokens' => null,
+            'params' => null,
             'domains'  => null,
-            'schemes' => null, // ['http','https'],
-            // route event
-            'enter' => null,
-            'leave' => null,
         ], self::$currentGroupOption, $opts);
 
         $conf = [
-            'method' => $method,
+            'methods' => $methods,
             'handler' => $handler,
             'option' => $opts,
         ];
 
-        // no dynamic param tokens
-        if (strpos($route, '{') === false) {
-            self::$staticRoutes[$route][$method] = $conf;
+        // no dynamic param params
+        if (self::isNoDynamicParam($route)) {
+            self::$staticRoutes[$route][] = $conf;
 
             return true;
         }
 
-        // have dynamic param tokens
+        // have dynamic param params
 
-        // replace token name To pattern regex
-        list($first, $conf) = ORouter::parseParamRoute(
-            $route,
-            ORouter::getAvailableTokens(self::$globalTokens, $opts['tokens']),
-            $conf
-        );
+        // replace param name To pattern regex
+        $params = self::getAvailableParams(self::$globalParams, $opts['params']);
+        list($first, $conf) = self::parseParamRoute($route, $params, $conf);
 
         // route string have regular
         if ($first) {
@@ -283,7 +263,7 @@ class SRouter implements RouterInterface
      * @param string $path
      * @return array
      */
-    public static function match($path, $method)
+    public static function match($path, $method = self::GET)
     {
         // if enable 'intercept'
         if ($intercept = static::$config['intercept']) {
@@ -304,30 +284,12 @@ class SRouter implements RouterInterface
 
         // find in class cache.
         if (self::$routeCaches && isset(self::$routeCaches[$path])) {
-            if (isset(self::$routeCaches[$path][$method])) {
-                return [self::FOUND, $path, self::$routeCaches[$path][$method]];
-            }
-
-            if (isset(self::$routeCaches[$path][self::ANY_METHOD])) {
-                return [self::FOUND, $path, self::$routeCaches[$path][self::ANY_METHOD]];
-            }
-
-            // method not allowed
-            return [self::METHOD_NOT_ALLOWED, $path, self::$routeCaches[$path]];
+            return self::findInStaticRoutes(self::$staticRoutes[$path], $path, $method);
         }
 
         // is a static path route
         if (self::$staticRoutes && isset(self::$staticRoutes[$path])) {
-            if (isset(self::$staticRoutes[$path][$method])) {
-                return [self::FOUND, $path, self::$staticRoutes[$path][$method]];
-            }
-
-            if (isset(self::$staticRoutes[$path][self::ANY_METHOD])) {
-                return [self::FOUND, $path, self::$staticRoutes[$path][self::ANY_METHOD]];
-            }
-
-            // method not allowed
-            return [self::METHOD_NOT_ALLOWED, $path, self::$staticRoutes[$path]];
+            return self::findInStaticRoutes(self::$staticRoutes[$path], $path, $method);
         }
 
         $tmp = trim($path, '/'); // clear first '/'
@@ -342,8 +304,8 @@ class SRouter implements RouterInterface
                 foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
                     if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                         // method not allowed
-                        if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                            return [self::METHOD_NOT_ALLOWED, $path, $conf];
+                        if (false === strpos($conf['methods'], $method . ',')) {
+                            return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
                         }
 
                         // first node is $path
@@ -355,7 +317,7 @@ class SRouter implements RouterInterface
                                 array_shift(self::$routeCaches);
                             }
 
-                            self::$routeCaches[$path][$conf['method']] = $conf;
+                            self::$routeCaches[$path][$conf['methods']] = $conf;
                         }
 
                         return [self::FOUND, $path, $conf];
@@ -372,8 +334,8 @@ class SRouter implements RouterInterface
 
             if (preg_match($conf['regex'], $path, $matches)) {
                 // method not allowed
-                if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                    return [self::METHOD_NOT_ALLOWED, $path, $conf];
+                if (false === strpos($conf['methods'], $method . ',')) {
+                    return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
                 }
 
                 $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
@@ -384,7 +346,7 @@ class SRouter implements RouterInterface
                         array_shift(self::$routeCaches);
                     }
 
-                    self::$routeCaches[$path][$conf['method']] = $conf;
+                    self::$routeCaches[$path][$conf['methods']] = $conf;
                 }
 
                 return [self::FOUND, $path, $conf];
@@ -441,12 +403,12 @@ class SRouter implements RouterInterface
 //////////////////////////////////////////////////////////////////////
 
     /**
-     * @param array $tokens
+     * @param array $params
      */
-    public static function addTokens(array $tokens)
+    public static function addGlobalParams(array $params)
     {
-        foreach ($tokens as $name => $pattern) {
-            self::addToken($name, $pattern);
+        foreach ($params as $name => $pattern) {
+            self::addGlobalParam($name, $pattern);
         }
     }
 
@@ -454,10 +416,10 @@ class SRouter implements RouterInterface
      * @param $name
      * @param $pattern
      */
-    public static function addToken($name, $pattern)
+    public static function addGlobalParam($name, $pattern)
     {
         $name = trim($name, '{} ');
-        self::$globalTokens[$name] = $pattern;
+        self::$globalParams[$name] = $pattern;
     }
 
     /**
@@ -495,17 +457,9 @@ class SRouter implements RouterInterface
     /**
      * @return array
      */
-    public static function getGlobalTokens()
+    public static function getGlobalParams()
     {
-        return self::$globalTokens;
-    }
-
-    /**
-     * @return array
-     */
-    public static function getSupportedMethods()
-    {
-        return self::SUPPORTED_METHODS;
+        return self::$globalParams;
     }
 
     /**

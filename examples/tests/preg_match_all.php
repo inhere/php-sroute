@@ -11,11 +11,11 @@
 $path = '/hello/{name}/{foo:\w+}/{bar:[a-z]+}';
 
 preg_match_all('/(?:
-    # parse variable token with separator
+    # parse variable param with separator
     #.           # separator
     \{
      ([\w\d_]+)  # variable
-     (?::(.*))?  # optional tokens
+     (?::(.*))?  # optional params
     \}
 )/x', $path, $matches1);
 var_dump($matches1);

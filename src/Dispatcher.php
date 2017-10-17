@@ -151,8 +151,12 @@ class Dispatcher implements DispatcherInterface
         list($status, $path, $route) = $this->matchRoutePath($path, $method);
 
         // not found || method not allowed
-        if ($status === RouterInterface::NOT_FOUND || $status === RouterInterface::METHOD_NOT_ALLOWED) {
+        if ($status === RouterInterface::NOT_FOUND) {
             return $this->handleNotFound($path, $method);
+        }
+
+        if ($status === RouterInterface::METHOD_NOT_ALLOWED) {
+            return $this->handleNotAllowed($path, $method, $route);
         }
 
         // trigger route found event
@@ -191,14 +195,14 @@ class Dispatcher implements DispatcherInterface
         } catch (\Exception $e) {
             // trigger route exec_error event
             if (self::hasEventHandler(self::ON_EXEC_ERROR)) {
-                $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
+                return $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
             }
 
             throw $e;
         } catch (\Throwable $e) {
             if (self::hasEventHandler(self::ON_EXEC_ERROR)) {
                 // trigger route exec_error event
-                $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
+                return $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
             }
 
             throw $e;
@@ -318,6 +322,9 @@ class Dispatcher implements DispatcherInterface
 
                 if ($path === $notFoundHandler) {
                     unset(self::$events[self::ON_NOT_FOUND]);
+                    $handler = $this->defaultNotFoundHandler();
+
+                    return $handler($path, $method);
                 }
 
                 return $this->dispatch($notFoundHandler, $method);
@@ -329,15 +336,65 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
+     * @param string $path
+     * @param string $method
+     * @param array $methods The allowed methods
+     * @return mixed
+     * @throws \Throwable
+     */
+    protected function handleNotAllowed($path, $method, array $methods)
+    {
+        // Run the 'NotAllowed' callback if the route was not found
+        if (!isset(self::$events[self::ON_METHOD_NOT_ALLOWED])) {
+            $handler = $this->defaultNotAllowedHandler();
+
+            $this->on(self::ON_METHOD_NOT_ALLOWED, $handler);
+        } else {
+            $handler = self::$events[self::ON_METHOD_NOT_ALLOWED];
+
+            // is a route path. like '/site/notFound'
+            if (is_string($handler) && '/' === $handler{0}) {
+                $_GET['_src_path'] = $path;
+
+                if ($path === $handler) {
+                    unset(self::$events[self::ON_METHOD_NOT_ALLOWED]);
+                    $handler = $this->defaultNotAllowedHandler();
+
+                    return $handler($path, $method, $methods);
+                }
+
+                return $this->dispatch($handler, $method);
+            }
+        }
+
+        // trigger methodNotAllowed event
+        return $this->fireCallback($handler, [$path, $method, $methods]);
+    }
+
+    /**
      * @return \Closure
      */
     protected function defaultNotFoundHandler()
     {
         return function ($path) {
             $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
-
             header($protocol . ' 404 Not Found');
             echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function defaultNotAllowedHandler()
+    {
+        return function ($path, $method, $methods) {
+            $allow = implode(',', $methods);
+            $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
+            header($protocol . ' 405 Method Not Allowed');
+
+            echo "<div style='width: 500px; margin: 5% auto;'><h1>:( Method not allowed <code style='font-weight: normal;'>$method: $path</code></h1>",
+            "<p>Method not allowed. Must be one of: <strong>$allow</strong></p></div>";
         };
     }
 
@@ -437,7 +494,14 @@ class Dispatcher implements DispatcherInterface
      */
     public static function getSupportedEvents()
     {
-        return [self::ON_FOUND, self::ON_NOT_FOUND, self::ON_EXEC_START, self::ON_EXEC_END, self::ON_EXEC_ERROR];
+        return [
+            self::ON_FOUND,
+            self::ON_NOT_FOUND,
+            self::ON_METHOD_NOT_ALLOWED,
+            self::ON_EXEC_START,
+            self::ON_EXEC_END,
+            self::ON_EXEC_ERROR
+        ];
     }
 
     /**

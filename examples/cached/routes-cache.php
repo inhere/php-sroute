@@ -5,96 +5,96 @@
  */
 return [
     'staticRoutes' => array (
-  '/' => 
+  '/' =>
   array (
-    'GET' => 
+    'GET' =>
     array (
       'method' => 'GET',
       'handler' => 'home_handler',
-      'option' => 
+      'option' =>
       array (
-        'tokens' => NULL,
+        'params' => NULL,
         'domains' => NULL,
         'schema' => NULL,
       ),
     ),
   ),
-  '/user/signUp' => 
+  '/user/signUp' =>
   array (
-    'POST' => 
+    'POST' =>
     array (
       'method' => 'POST',
       'handler' => 'handler2',
-      'option' => 
+      'option' =>
       array (
-        'tokens' => NULL,
+        'params' => NULL,
         'domains' => NULL,
         'schema' => NULL,
       ),
     ),
   ),
-  '/user' => 
+  '/user' =>
   array (
-    'GET' => 
+    'GET' =>
     array (
       'method' => 'GET',
       'handler' => 'handler3',
-      'option' => 
+      'option' =>
       array (
-        'tokens' => NULL,
+        'params' => NULL,
         'domains' => NULL,
         'schema' => NULL,
       ),
     ),
   ),
-  '/user/index' => 
+  '/user/index' =>
   array (
-    'GET' => 
+    'GET' =>
     array (
       'method' => 'GET',
       'handler' => 'handler4',
-      'option' => 
+      'option' =>
       array (
-        'tokens' => NULL,
+        'params' => NULL,
         'domains' => NULL,
         'schema' => NULL,
       ),
     ),
   ),
-  '/user/login' => 
+  '/user/login' =>
   array (
-    'GET' => 
+    'GET' =>
     array (
       'method' => 'GET',
       'handler' => 'handler5',
-      'option' => 
+      'option' =>
       array (
-        'tokens' => NULL,
+        'params' => NULL,
         'domains' => NULL,
         'schema' => NULL,
       ),
     ),
-    'POST' => 
+    'POST' =>
     array (
       'method' => 'POST',
       'handler' => 'handler5',
-      'option' => 
+      'option' =>
       array (
-        'tokens' => NULL,
+        'params' => NULL,
         'domains' => NULL,
         'schema' => NULL,
       ),
     ),
   ),
-  '/home' => 
+  '/home' =>
   array (
-    'GET' => 
+    'GET' =>
     array (
       'method' => 'GET',
       'handler' => 'inhere\\sroute\\examples\\controllers\\HomeController@index',
-      'option' => 
+      'option' =>
       array (
-        'tokens' => NULL,
+        'params' => NULL,
         'domains' => NULL,
         'schema' => NULL,
       ),
@@ -102,19 +102,19 @@ return [
   ),
 ),
     'regularRoutes' => array (
-  'm' => 
+  'm' =>
   array (
-    'y' => 
+    'y' =>
     array (
-      0 => 
+      0 =>
       array (
         'first' => '/my',
         'regex' => '#^/my(?:/([^/]+)(?:/(\\d+))?)?$#',
         'method' => 'GET',
         'handler' => 'my_handler',
-        'option' => 
+        'option' =>
         array (
-          'tokens' => 
+          'params' =>
           array (
             'age' => '\\d+',
           ),
@@ -124,19 +124,19 @@ return [
       ),
     ),
   ),
-  'h' => 
+  'h' =>
   array (
-    'e' => 
+    'e' =>
     array (
-      0 => 
+      0 =>
       array (
         'first' => '/hello',
         'regex' => '#^/hello(?:/(\\w+))?$#',
         'method' => 'GET',
         'handler' => 'handler1',
-        'option' => 
+        'option' =>
         array (
-          'tokens' => 
+          'params' =>
           array (
             'name' => '\\w+',
           ),
@@ -145,17 +145,17 @@ return [
         ),
       ),
     ),
-    'o' => 
+    'o' =>
     array (
-      0 => 
+      0 =>
       array (
         'first' => '/home',
         'regex' => '#^/home/([a-zA-Z][\\w-]+)$#',
         'method' => 'ANY',
         'handler' => 'inhere\\sroute\\examples\\controllers\\HomeController',
-        'option' => 
+        'option' =>
         array (
-          'tokens' => NULL,
+          'params' => NULL,
           'domains' => NULL,
           'schema' => NULL,
         ),
@@ -164,13 +164,13 @@ return [
   ),
 ),
     'vagueRoutes' => array (
-  0 => 
+  0 =>
   array (
     'method' => 'GET',
     'handler' => 'default_handler',
-    'option' => 
+    'option' =>
     array (
-      'tokens' => 
+      'params' =>
       array (
         'name' => 'blog|saying',
       ),

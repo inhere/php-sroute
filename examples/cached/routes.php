@@ -8,7 +8,7 @@
  * @var \Inhere\Route\ORouter $router
  */
 
-use Inhere\Route\examples\controllers\HomeController;
+use Inhere\Route\Examples\Controllers\HomeController;
 
 function home_handler() {
     echo 'hello, welcome';
@@ -33,7 +33,7 @@ $router->get('/', 'home_handler');
 match: /blog /saying
  */
 $router->get('/{name}', 'default_handler', [
-    'tokens' => [
+    'params' => [
         'name' => 'blog|saying'
     ]
 ]);
@@ -45,7 +45,7 @@ match:
     /my
  */
 $router->get('/my[/{name}[/{age}]]', 'my_handler', [
-    'tokens' => [
+    'params' => [
         'age' => '\d+'
     ]
 ]);
@@ -56,7 +56,7 @@ match:
     /hello
  */
 $router->get('/hello[/{name}]', 'handler1',[
-    'tokens' => [
+    'params' => [
         'name' => '\w+'
     ]
 ]);
@@ -74,7 +74,7 @@ $router->group('/user', function ($router) {
 // match GET or POST
 $router->map(['get', 'post'], '/user/login', 'handler5');
 
-$router->get('/home', 'Inhere\Route\examples\controllers\HomeController@index');
+$router->get('/home', HomeController::class . '@index');
 
 // can match '/home/test', but not match '/home'
 // can also use defined patterns, @see $router->patterns

@@ -7,6 +7,7 @@
  *
  */
 
+use Inhere\Route\Examples\Controllers\HomeController;
 use Inhere\Route\SRouter;
 
 SRouter::get('/', function() {
@@ -17,7 +18,7 @@ SRouter::get('/', function() {
 match: /blog /saying
  */
 SRouter::get('/{name}', 'default_handler', [
-    'tokens' => [
+    'params' => [
         'name' => 'blog|saying'
     ]
 ]);
@@ -25,7 +26,7 @@ SRouter::get('/{name}', 'default_handler', [
 SRouter::get('/hello/{name}', function($args) {
     echo "hello, {$args['name']}"; // 'john'
 },[
-    'tokens' => [
+    'params' => [
         'name' => '\w+'
     ]
 ]);
@@ -49,11 +50,11 @@ SRouter::map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
-SRouter::get('/home', 'Inhere\Route\examples\controllers\HomeController@index');
+SRouter::get('/home', HomeController::class . '@index');
 
 // can match '/home/test', but not match '/home'
 // can also use defined patterns, @see SRouter::$patterns
-SRouter::any('/home/{act}', 'Inhere\Route\examples\controllers\HomeController');
+SRouter::any('/home/{act}', HomeController::class);
 
 // can match '/home' '/home/test'
 //SRouter::any('/home[/{act}]', examples\HomeController::class);

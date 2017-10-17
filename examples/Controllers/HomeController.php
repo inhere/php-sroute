@@ -6,9 +6,7 @@
  * Time: 上午12:14
  */
 
-namespace Inhere\Route\examples\controllers;
-
-use Inhere\Route\SRoute;
+namespace Inhere\Route\Examples\Controllers;
 
 /**
  * Class HomeController
@@ -16,23 +14,13 @@ use Inhere\Route\SRoute;
  */
 class HomeController
 {
-    public function index()
+    public function indexAction()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }
 
-    public function test()
+    public function testAction()
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
-    }
-
-    // you can access by '/home/testDispatchTo' or '/home/test-Dispatch-To'
-    public function testDispatchTo()
-    {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
-
-        echo 'dispatchTo /demo/index <br>';
-
-        SRoute::dispatchTo('/demo/index', 'GET', false);
     }
 }

@@ -21,7 +21,7 @@ namespace Inhere\Route;
  * @method trace(string $route, mixed $handler, array $opts = [])
  * @method any(string $route, mixed $handler, array $opts = [])
  */
-class ORouter implements RouterInterface
+class ORouter extends AbstractRouter
 {
     /** @var int */
     private $routeCounter = 0;
@@ -31,7 +31,7 @@ class ORouter implements RouterInterface
      * $router->get('/user/{num}', 'handler');
      * @var array
      */
-    private static $globalTokens = [
+    private static $globalParams = [
         'any' => '[^/]+',   // match any except '/'
         'num' => '[0-9]+',  // match a number
         'act' => '[a-zA-Z][\w-]+', // match a action name
@@ -50,15 +50,17 @@ class ORouter implements RouterInterface
     /**
      * static Routes - no dynamic argument match
      * 整个路由 path 都是静态字符串 e.g. '/user/login'
-     * @var array
+     * @var array[]
      * [
      *     '/user/login' => [
-     *         'GET' => [
+     *         [
      *              'handler' => 'handler',
+     *              'methods' => 'GET,POST,',
      *              'option' => null,
      *          ],
-     *         'POST' => [
+     *         [
      *              'handler' => 'handler',
+     *              'methods' => 'GET,POST,',
      *              'option' => null,
      *          ],
      *          ...
@@ -78,7 +80,7 @@ class ORouter implements RouterInterface
      *          [
      *              'start' => '/a/',
      *              'regex' => '/a/(\w+)',
-     *              'method' => 'GET',
+     *              'methods' => 'GET,POST,',
      *              'handler' => 'handler',
      *              'option' => null,
      *          ],
@@ -88,7 +90,7 @@ class ORouter implements RouterInterface
      *          [
      *              'start' => '/add/',
      *              'regex' => '/add/(\w+)',
-     *              'method' => 'GET',
+     *              'methods' => 'GET,',
      *              'handler' => 'handler',
      *              'option' => null,
      *          ],
@@ -98,7 +100,7 @@ class ORouter implements RouterInterface
      *        [
      *              'start' => '/blog/',
      *              'regex' => '/blog/(\w+)',
-     *              'method' => 'GET',
+     *              'methods' => 'GET,',
      *              'handler' => 'handler',
      *              'option' => null,
      *        ],
@@ -118,14 +120,14 @@ class ORouter implements RouterInterface
      *         // 必定包含的字符串
      *         'include' => '/profile',
      *         'regex' => '/(\w+)/profile',
-     *         'method' => 'GET',
+     *         'methods' => 'GET,',
      *         'handler' => 'handler',
      *         'option' => null,
      *     ],
      *     [
      *         'include' => null,
      *         'regex' => '/(\w+)/(\w+)',
-     *         'method' => 'GET',
+     *         'methods' => 'GET,POST,',
      *         'handler' => 'handler',
      *         'option' => null,
      *     ],
@@ -136,20 +138,8 @@ class ORouter implements RouterInterface
 
     /**
      * There are last route caches
-     * @var array
-     * [
-     *     'path' => [
-     *         'GET' => [
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *          ],
-     *         'POST' => [
-     *              'handler' => 'handler',
-     *              'option' => null,
-     *          ],
-     *         ... ...
-     *     ]
-     * ]
+     * @see $staticRoutes
+     * @var array[]
      */
     private $routeCaches = [];
 
@@ -275,15 +265,15 @@ class ORouter implements RouterInterface
     }
 
     /**
-     * @param string|array $method The match request method.
+     * @param string|array $methods The match request method(s).
      * e.g
      *  string: 'get'
      *  array: ['get','post']
-     * @param string $route The route path string. eg: '/user/login'
+     * @param string $route The route path string. is allow empty string. eg: '/user/login'
      * @param callable|string $handler
      * @param array $opts some option data
      * [
-     *     'tokens' => [ 'id' => '[0-9]+', ],
+     *     'params' => [ 'id' => '[0-9]+', ],
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schemes' => ['https'],
      * ]
@@ -291,28 +281,15 @@ class ORouter implements RouterInterface
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function map($method, $route, $handler, array $opts = [])
+    public function map($methods, $route, $handler, array $opts = [])
     {
         if (!$this->initialized) {
             $this->initialized = true;
         }
 
-        // array
-        if (is_array($method)) {
-            foreach ((array)$method as $m) {
-                $this->map($m, $route, $handler, $opts);
-            }
-
-            return $this;
-        }
-
-        // string - register route and callback
-
-        $method = strtoupper($method);
         $hasPrefix = (bool)$this->currentGroupPrefix;
-
-        // validate arguments
-        static::validateArguments($method, $handler);
+        // validate and format arguments
+        $methods = static::validateArguments($methods, $handler);
 
         if ($route = trim($route)) {
             // always add '/' prefix.
@@ -330,35 +307,28 @@ class ORouter implements RouterInterface
 
         $this->routeCounter++;
         $opts = array_replace([
-            'tokens' => null,
+            'params' => null,
             'domains' => null,
-            'schemes' => null, // ['http','https'],
-            // route event. custom design ...
-            // 'enter' => null,
-            // 'leave' => null,
         ], $this->currentGroupOption, $opts);
 
         $conf = [
-            'method' => $method,
+            'methods' => $methods,
             'handler' => $handler,
             'option' => $opts,
         ];
 
-        // no dynamic param tokens
-        if (strpos($route, '{') === false) {
-            $this->staticRoutes[$route][$method] = $conf;
+        // no dynamic param params
+        if (self::isNoDynamicParam($route)) {
+            $this->staticRoutes[$route][] = $conf;
 
             return $this;
         }
 
-        // have dynamic param tokens
+        // have dynamic param params
 
-        // replace token name To pattern regex
-        list($first, $conf) = static::parseParamRoute(
-            $route,
-            static::getAvailableTokens(self::$globalTokens, $opts['tokens']),
-            $conf
-        );
+        // replace param name To pattern regex
+        $params = self::getAvailableParams(self::$globalParams, $opts['params']);
+        list($first, $conf) = static::parseParamRoute($route, $params, $conf);
 
         // route string have regular
         if ($first) {
@@ -368,119 +338,6 @@ class ORouter implements RouterInterface
         }
 
         return $this;
-    }
-
-    /**
-     * @param $method
-     * @param $handler
-     * @throws \InvalidArgumentException
-     */
-    public static function validateArguments($method, $handler)
-    {
-        $supStr = implode('|', self::SUPPORTED_METHODS);
-
-        if (false === strpos('|' . $supStr . '|', '|' . $method . '|')) {
-            throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
-        }
-
-        if (!$handler || (!is_string($handler) && !is_object($handler))) {
-            throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,object');
-        }
-
-        if (is_object($handler) && !is_callable($handler)) {
-            throw new \InvalidArgumentException('The route object handler must be is callable');
-        }
-    }
-
-    /**
-     * @param string $route
-     * @param array $tokens
-     * @param array $conf
-     * @return array
-     * @throws \LogicException
-     */
-    public static function parseParamRoute($route, array $tokens, array $conf)
-    {
-        $tmp = $route;
-
-        // 解析可选参数位
-        // '/hello[/{name}]'      match: /hello/tom   /hello
-        // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
-        if (false !== strpos($route, ']')) {
-            $withoutClosingOptionals = rtrim($route, ']');
-            $optionalNum = strlen($route) - strlen($withoutClosingOptionals);
-
-            if ($optionalNum !== substr_count($withoutClosingOptionals, '[')) {
-                throw new \LogicException('Optional segments can only occur at the end of a route');
-            }
-
-            // '/hello[/{name}]' -> '/hello(?:/{name})?'
-            $route = str_replace(['[', ']'], ['(?:', ')?'], $route);
-        }
-
-        // 解析参数，替换为对应的 正则
-        if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
-            /** @var array[] $m */
-            $replacePairs = [];
-
-            foreach ($m[1] as $name) {
-                $key = '{' . $name . '}';
-                // 匹配定义的 token  , 未匹配到的使用默认 self::DEFAULT_REGEX
-                $regex = isset($tokens[$name]) ? $tokens[$name] : self::DEFAULT_REGEX;
-
-                // 将匹配结果命名 (?P<arg1>[^/]+)
-                $replacePairs[$key] = '(?P<' . $name . '>' . $regex . ')';
-                // $replacePairs[$key] = '(' . $regex . ')';
-            }
-
-            $route = strtr($route, $replacePairs);
-        }
-
-        // 分析路由字符串是否是有规律的
-        $first = null;
-        $regex = '#^' . $route . '$#';
-
-        // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        // first node is a normal string
-        // if (preg_match('#^/([\w-]+)#', $tmp, $m)) {
-        if (preg_match('#^/([\w-]+)/?[\w-]*#', $tmp, $m)) {
-            $first = $m[1];
-            $info = [
-                'regex'  => $regex,
-                'start' => $m[0],
-            ];
-            // first node contain regex param '/{some}/{some2}/xyz'
-        } else {
-            $include = null;
-
-            if (preg_match('#/([\w-]+)/?[\w-]*#', $tmp, $m)) {
-                $include = $m[0];
-            }
-
-            $info = [
-                'regex' => $regex,
-                'include' => $include,
-            ];
-        }
-
-        return [$first, array_merge($info, $conf)];
-    }
-
-    /**
-     * @param array $tokens
-     * @param array $tmpTokens
-     * @return array
-     */
-    public static function getAvailableTokens(array $tokens, $tmpTokens)
-    {
-        if ($tmpTokens) {
-            foreach ($tmpTokens as $name => $pattern) {
-                $key = trim($name, '{}');
-                $tokens[$key] = $pattern;
-            }
-        }
-
-        return $tokens;
     }
 
     /*******************************************************************************
@@ -493,7 +350,7 @@ class ORouter implements RouterInterface
      * @param string $path
      * @return array
      */
-    public function match($path, $method)
+    public function match($path, $method = self::GET)
     {
         // if enable 'intercept'
         if ($intercept = $this->config['intercept']) {
@@ -519,30 +376,12 @@ class ORouter implements RouterInterface
 
         // find in route caches.
         if ($this->routeCaches && isset($this->routeCaches[$path])) {
-            if (isset($this->routeCaches[$path][$method])) {
-                return [self::FOUND, $path, $this->routeCaches[$path][$method]];
-            }
-
-            if (isset($this->routeCaches[$path][self::ANY_METHOD])) {
-                return [self::FOUND, $path, $this->routeCaches[$path][self::ANY_METHOD]];
-            }
-
-            // method not allowed
-            return [self::METHOD_NOT_ALLOWED, $path, $this->routeCaches[$path]];
+            return self::findInStaticRoutes($this->routeCaches[$path], $path, $method);
         }
 
         // is a static route path
         if ($this->staticRoutes && isset($this->staticRoutes[$path])) {
-            if (isset($this->staticRoutes[$path][$method])) {
-                return [self::FOUND, $path, $this->staticRoutes[$path][$method]];
-            }
-
-            if (isset($this->staticRoutes[$path][self::ANY_METHOD])) {
-                return [self::FOUND, $path, $this->staticRoutes[$path][self::ANY_METHOD]];
-            }
-
-            // method not allowed
-            return [self::METHOD_NOT_ALLOWED, $path, $this->staticRoutes[$path]];
+            return self::findInStaticRoutes($this->staticRoutes[$path], $path, $method);
         }
 
         $tmp = trim($path, '/'); // clear first '/'
@@ -553,12 +392,11 @@ class ORouter implements RouterInterface
             foreach ($this->regularRoutes[$first] as $conf) {
                 if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                     // method not allowed
-                    if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                        return [self::METHOD_NOT_ALLOWED, $path, $conf];
+                    if (false === strpos($conf['methods'], $method . ',')) {
+                        return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
                     }
 
-                    // first node is $path
-                    $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+                    $conf['matches'] = self::filterMatches($matches, $conf);
 
                     // cache latest $number routes.
                     if ($number > 0) {
@@ -566,7 +404,7 @@ class ORouter implements RouterInterface
                             array_shift($this->routeCaches);
                         }
 
-                        $this->routeCaches[$path][$conf['method']] = $conf;
+                        $this->routeCaches[$path][] = $conf;
                     }
 
                     return [self::FOUND, $path, $conf];
@@ -582,12 +420,11 @@ class ORouter implements RouterInterface
 
             if (preg_match($conf['regex'], $path, $matches)) {
                 // method not allowed
-                if ($method !== $conf['method'] && self::ANY_METHOD !== $conf['method']) {
-                    return [self::METHOD_NOT_ALLOWED, $path, $conf];
+                if (false === strpos($conf['methods'], $method . ',')) {
+                    return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
                 }
 
-                // first node is $path
-                $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+                $conf['matches'] = self::filterMatches($matches, $conf);
 
                 // cache last $number routes.
                 if ($number > 0) {
@@ -595,7 +432,7 @@ class ORouter implements RouterInterface
                         array_shift($this->routeCaches);
                     }
 
-                    $this->routeCaches[$path][$conf['method']] = $conf;
+                    $this->routeCaches[$path][] = $conf;
                 }
 
                 return [self::FOUND, $path, $conf];
@@ -713,12 +550,12 @@ class ORouter implements RouterInterface
      ******************************************************************************/
 
     /**
-     * @param array $tokens
+     * @param array $params
      */
-    public function addTokens(array $tokens)
+    public function addGlobalParams(array $params)
     {
-        foreach ($tokens as $name => $pattern) {
-            $this->addToken($name, $pattern);
+        foreach ($params as $name => $pattern) {
+            $this->addGlobalParam($name, $pattern);
         }
     }
 
@@ -726,10 +563,10 @@ class ORouter implements RouterInterface
      * @param $name
      * @param $pattern
      */
-    public function addToken($name, $pattern)
+    public function addGlobalParam($name, $pattern)
     {
         $name = trim($name, '{} ');
-        self::$globalTokens[$name] = $pattern;
+        self::$globalParams[$name] = $pattern;
     }
 
     /**
@@ -738,25 +575,6 @@ class ORouter implements RouterInterface
     public function count()
     {
         return $this->routeCounter;
-    }
-
-    /**
-     * convert 'first-second' to 'firstSecond'
-     * @param $str
-     * @return mixed|string
-     */
-    public static function convertNodeStr($str)
-    {
-        $str = trim($str, '-');
-
-        // convert 'first-second' to 'firstSecond'
-        if (strpos($str, '-')) {
-            $str = preg_replace_callback('/-+([a-z])/', function ($c) {
-                return strtoupper($c[1]);
-            }, trim($str, '- '));
-        }
-
-        return $str;
     }
 
     /**
@@ -818,9 +636,9 @@ class ORouter implements RouterInterface
     /**
      * @return array
      */
-    public function getGlobalTokens()
+    public function getGlobalParams()
     {
-        return self::$globalTokens;
+        return self::$globalParams;
     }
 
     /**

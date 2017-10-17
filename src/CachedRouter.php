@@ -68,24 +68,6 @@ class CachedRouter extends ORouter
         return parent::map($method, $route, $handler, $opts);
     }
 
-    /**
-     * @param $method
-     * @param $handler
-     * @throws \InvalidArgumentException
-     */
-    public static function validateArguments($method, $handler)
-    {
-        $supStr = implode('|', self::SUPPORTED_METHODS);
-
-        if (false === strpos('|' . $supStr . '|', '|' . $method . '|')) {
-            throw new \InvalidArgumentException("The method [$method] is not supported, Allow: $supStr");
-        }
-
-        if (!$handler || (!is_string($handler) && !is_array($handler))) {
-            throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,array');
-        }
-    }
-
 //////////////////////////////////////////////////////////////////////
 /// route match
 //////////////////////////////////////////////////////////////////////
@@ -93,7 +75,7 @@ class CachedRouter extends ORouter
     /**
      * {@inheritdoc}
      */
-    public function match($path, $method)
+    public function match($path, $method = self::GET)
     {
         // dump routes to cache file
         $this->dumpRoutesCache();
@@ -134,7 +116,6 @@ class CachedRouter extends ORouter
 
     /**
      * dump routes to cache file
-     * @param string $file
      * @return bool|int
      */
     public function dumpRoutesCache()
@@ -151,6 +132,7 @@ class CachedRouter extends ORouter
         $staticRoutes = var_export($this->getStaticRoutes(), true);
         $regularRoutes = var_export($this->getRegularRoutes(), true);
         $vagueRoutes = var_export($this->getVagueRoutes(), true);
+        // $vagueRoutes = serialize($this->getVagueRoutes());
 
         $code = <<<EOF
 <?php

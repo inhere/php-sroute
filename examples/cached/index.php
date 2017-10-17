@@ -35,7 +35,7 @@ $router = new CachedRouter([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' =>  1,
-    'controllerNamespace' => 'Inhere\Route\examples\controllers',
+    'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
