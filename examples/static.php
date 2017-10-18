@@ -11,13 +11,10 @@
  * then you can access url: http://127.0.0.1:5670
  */
 
-error_reporting(E_ALL | E_STRICT);
-date_default_timezone_set('Asia/Shanghai');
-
 use Inhere\Route\Dispatcher;
 use Inhere\Route\SRouter;
 
-require dirname(__DIR__) . '/simple-loader.php';
+require __DIR__ . '/simple-loader.php';
 
 // set config
 SRouter::setConfig([
@@ -35,7 +32,24 @@ SRouter::setConfig([
     'controllerSuffix' => 'Controller',
 ]);
 
-require __DIR__ . '/routes.php';
+/** @var array $routes */
+$routes = require __DIR__ . '/some-routes.php';
+
+foreach ($routes as $route) {
+    // group
+    if (is_array($route[1])) {
+        $rs = $route[1];
+        $router->group($route[0], function () use($rs){
+            foreach ($rs as $r) {
+                SRouter::map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
+            }
+        });
+
+        continue;
+    }
+
+    SRouter::map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
+}
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

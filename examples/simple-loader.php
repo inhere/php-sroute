@@ -6,6 +6,9 @@
  * Time: 下午7:52
  */
 
+error_reporting(E_ALL | E_STRICT);
+date_default_timezone_set('Asia/Shanghai');
+
 spl_autoload_register(function($class)
 {
     if (0 === strpos($class,'Inhere\Route\Examples\\')) {

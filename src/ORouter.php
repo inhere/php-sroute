@@ -34,6 +34,7 @@ class ORouter extends AbstractRouter
     private static $globalParams = [
         'any' => '[^/]+',   // match any except '/'
         'num' => '[0-9]+',  // match a number
+        'id'  => '[1-9][0-9]*',  // match a ID number
         'act' => '[a-zA-Z][\w-]+', // match a action name
         'all' => '.*'
     ];
@@ -199,7 +200,7 @@ class ORouter extends AbstractRouter
         $this->currentGroupOption = [];
 
         // load routes
-        if ($file = $this->config['routesFile']) {
+        if (($file = $this->config['routesFile']) && is_file($file)) {
             require $file;
         }
     }
@@ -245,7 +246,7 @@ class ORouter extends AbstractRouter
     /**
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
-     * @from package 'nikic/fast-route'
+     * @ref package 'nikic/fast-route'
      * @param string $prefix
      * @param \Closure $callback
      * @param array $opts
@@ -274,6 +275,7 @@ class ORouter extends AbstractRouter
      * @param array $opts some option data
      * [
      *     'params' => [ 'id' => '[0-9]+', ],
+     *     'defaults' => [ 'id' => 10, ],
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schemes' => ['https'],
      * ]
@@ -310,7 +312,6 @@ class ORouter extends AbstractRouter
             'params' => null,
             'domains' => null,
         ], $this->currentGroupOption, $opts);
-
         $conf = [
             'methods' => $methods,
             'handler' => $handler,
@@ -327,7 +328,7 @@ class ORouter extends AbstractRouter
         // have dynamic param params
 
         // replace param name To pattern regex
-        $params = self::getAvailableParams(self::$globalParams, $opts['params']);
+        $params = static::getAvailableParams(self::$globalParams, $opts['params']);
         list($first, $conf) = static::parseParamRoute($route, $params, $conf);
 
         // route string have regular
@@ -384,9 +385,7 @@ class ORouter extends AbstractRouter
             return self::findInStaticRoutes($this->staticRoutes[$path], $path, $method);
         }
 
-        $tmp = trim($path, '/'); // clear first '/'
-        $first = strpos($tmp, '/') ? strstr($tmp, '/', true) : $tmp;
-
+        $first = self::getFirstFromPath($path);
         // is a regular dynamic route(the first char is 1th level index key).
         if (isset($this->regularRoutes[$first])) {
             foreach ($this->regularRoutes[$first] as $conf) {

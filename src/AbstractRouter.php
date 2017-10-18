@@ -28,7 +28,6 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         $allow = implode(',', self::SUPPORTED_METHODS) . ',';
-
         $methods = array_map(function ($m) use($allow) {
             $m = strtoupper(trim($m));
 
@@ -67,6 +66,27 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
+     * @param string $path
+     * @return string
+     */
+    protected static function getFirstFromPath($path)
+    {
+        $tmp = trim($path, '/'); // clear first,end '/'
+
+        // eg '/article/12'
+        if (strpos($tmp, '/')) {
+            return strstr($tmp, '/', true);
+        }
+
+        // eg '/about.html'
+        if (strpos($tmp, '.')) {
+            return strstr($tmp, '.', true);
+        }
+
+        return $tmp;
+    }
+
+    /**
      * @param array $matches
      * @param array $conf
      * @return array
@@ -77,8 +97,8 @@ abstract class AbstractRouter implements RouterInterface
         $matches = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
         // apply some default param value
-        if (isset($conf['option']['default'])) {
-            $matches = array_merge($matches, $conf['option']['default']);
+        if (isset($conf['option']['defaults'])) {
+            $matches = array_merge($conf['option']['defaults'], $matches);
         }
 
         return $matches;
@@ -109,6 +129,10 @@ abstract class AbstractRouter implements RouterInterface
             // '/hello[/{name}]' -> '/hello(?:/{name})?'
             $route = str_replace(['[', ']'], ['(?:', ')?'], $route);
         }
+
+        // quote '.','/' to '\.','\/'
+//        $route = preg_quote($route, '/');
+        $route = str_replace('.', '\.', $route);
 
         // 解析参数，替换为对应的 正则
         if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {

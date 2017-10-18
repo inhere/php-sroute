@@ -37,6 +37,7 @@ class SRouter extends AbstractRouter
     private static $globalParams = [
         'any' => '[^/]+',   // match any except '/'
         'num' => '[0-9]+',  // match a number
+        'id'  => '[1-9][0-9]*',  // match a ID number
         'act' => '[a-zA-Z][\w-]+', // match a action name
         'all' => '.*'
     ];
@@ -130,7 +131,7 @@ class SRouter extends AbstractRouter
         }
 
         // load routes
-        if (isset($config['routesFile']) && ($file = $config['routesFile'])) {
+        if (($file = self::$config['routesFile']) && is_file($file)) {
             require $file;
         }
     }
@@ -159,7 +160,7 @@ class SRouter extends AbstractRouter
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
      *
-     * @from package 'nikic/fast-route'
+     * @ref package 'nikic/fast-route'
      * @param string $prefix
      * @param \Closure $callback
      * @param array $opts
@@ -179,18 +180,11 @@ class SRouter extends AbstractRouter
     }
 
     /**
+     * @see ORouter::map()
      * @param string|array $methods The match request method.
-     * e.g
-     *  string: 'get'
-     *  array: ['get','post']
      * @param string $route The route path string. eg: '/user/login'
      * @param callable|string $handler
      * @param array $opts some option data
-     * [
-     *     'params' => [ 'id' => '[0-9]+', ],
-     *     'hosts'  => [ 'a-domain.com', '*.b-domain.com'],
-     *     'schemes' => ['https'],
-     * ]
      * @return true
      * @throws \LogicException
      * @throws \InvalidArgumentException
@@ -202,27 +196,27 @@ class SRouter extends AbstractRouter
         }
 
         // validate arguments
-        $methods = self::validateArguments($methods, $handler);
+        $methods = static::validateArguments($methods, $handler);
 
         if ($route = trim($route)) {
             // always add '/' prefix.
             $route = $route{0} === '/' ? $route : '/' . $route;
-
-            // setting 'ignoreLastSep'
-            if ($route !== '/' && self::$config['ignoreLastSep']) {
-                $route = rtrim($route, '/');
-            }
         } else {
             $route = '/';
         }
 
-        self::$routeCounter++;
         $route = self::$currentGroupPrefix . $route;
+
+        // setting 'ignoreLastSep'
+        if ($route !== '/' && self::$config['ignoreLastSep']) {
+            $route = rtrim($route, '/');
+        }
+
+        self::$routeCounter++;
         $opts = array_replace([
             'params' => null,
             'domains'  => null,
         ], self::$currentGroupOption, $opts);
-
         $conf = [
             'methods' => $methods,
             'handler' => $handler,
@@ -240,12 +234,11 @@ class SRouter extends AbstractRouter
 
         // replace param name To pattern regex
         $params = self::getAvailableParams(self::$globalParams, $opts['params']);
-        list($first, $conf) = self::parseParamRoute($route, $params, $conf);
+        list($first, $conf) = static::parseParamRoute($route, $params, $conf);
 
         // route string have regular
         if ($first) {
-            $twoLevelKey = isset($first{1}) ? $first{1} : self::DEFAULT_TWO_LEVEL_KEY;
-            self::$regularRoutes[$first{0}][$twoLevelKey][] = $conf;
+            self::$regularRoutes[$first][] = $conf;
         } else {
             self::$vagueRoutes[] = $conf;
         }
@@ -292,36 +285,31 @@ class SRouter extends AbstractRouter
             return self::findInStaticRoutes(self::$staticRoutes[$path], $path, $method);
         }
 
-        $tmp = trim($path, '/'); // clear first '/'
+        $tmp = trim($path, '/'); // clear first,end '/'
+        $first = strpos($tmp, '/') ? strstr($tmp, '/', true) : $tmp;
 
         // is a regular dynamic route(the first char is 1th level index key).
-        if (self::$regularRoutes && isset(self::$regularRoutes[$tmp{0}])) {
-            $twoLevelArr = self::$regularRoutes[$tmp{0}];
-            $twoLevelKey = isset($tmp{1}) ? $tmp{1} : self::DEFAULT_TWO_LEVEL_KEY;
-
-            // not found
-            if (isset($twoLevelArr[$twoLevelKey])) {
-                foreach ((array)$twoLevelArr[$twoLevelKey] as $conf) {
-                    if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
-                        // method not allowed
-                        if (false === strpos($conf['methods'], $method . ',')) {
-                            return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
-                        }
-
-                        // first node is $path
-                        $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
-
-                        // cache latest $number routes.
-                        if ($number > 0) {
-                            if (count(self::$routeCaches) === $number) {
-                                array_shift(self::$routeCaches);
-                            }
-
-                            self::$routeCaches[$path][$conf['methods']] = $conf;
-                        }
-
-                        return [self::FOUND, $path, $conf];
+        if (isset(self::$regularRoutes[$first])) {
+            foreach (self::$regularRoutes[$first] as $conf) {
+                if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
+                    // method not allowed
+                    if (false === strpos($conf['methods'], $method . ',')) {
+                        return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
                     }
+
+                    // first node is $path
+                    $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+
+                    // cache latest $number routes.
+                    if ($number > 0) {
+                        if (count(self::$routeCaches) === $number) {
+                            array_shift(self::$routeCaches);
+                        }
+
+                        self::$routeCaches[$path][$conf['methods']] = $conf;
+                    }
+
+                    return [self::FOUND, $path, $conf];
                 }
             }
         }

@@ -113,7 +113,7 @@ SRouter::get('/', function() {
 SRouter::get('/test/{name}', function($arg) {
     echo $arg; // 'john'
 }, [
-    'tokens' => [
+    'params' => [
         'name' => '\w+', // 添加参数匹配限制。若不添加对应的限制，将会自动设置为匹配除了'/'外的任何字符
     ]
 ]);
@@ -122,7 +122,7 @@ SRouter::get('/test/{name}', function($arg) {
 SRouter::get('/hello[/{name}]', function($name = 'No') {
     echo $name; // 'john'
 }, [
-    'tokens' => [
+    'params' => [
         'name' => '\w+', // 添加参数匹配限制
     ]
 ]);
@@ -158,19 +158,62 @@ SRouter::group('/user', function () {
 
 > 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
 
+### 添加路由方法
+
+```php
+public function map(string|array $methods, string $route, mixed $handler, array $opts = [])
+```
+
+添加路由方法
+
+> 其他的添加路由方法底层都是调用的 `map()` 方法，除了没有第一个参数外，其他参数都是一样的
+
+- `$methods` string|array 请求的METHOD. e.g `GET` `['GET', 'POST]`
+- `$route` string 定义的路由字符串 e.g `/user/login` `/article/{id}`
+- `$handler` string|object 对应路由的处理者
+- `$opts` array 选项设置，可以添加自定义的数据。匹配成功会将选项数据返回(e.g middleware, domains),自己再做进一步验证等。下面是已使用的选项
+    - `params` 添加路由时设置的参数匹配信息, 若有的话 e.g `'name' => '\w+'`
+    - `defaults` 有可选参数时，可以设置默认值
+
+一个较为完整的示例：
+
+> 提示： 若不在选项中设置参数匹配，那么参数将会匹配除了 '/' 之外的任何字符
+
+```php
+$router->map(['get', 'post'], '/im/{name}[/{age}]', function(array $params) {
+    var_dump($params);
+}, [
+    // 设置参数匹配
+    'params' => [
+        'name' => '\w+',
+        'age' => '\d+',
+    ],
+    'defaults' => [
+        'age' => 20, // 给可选参数 age 添加一个默认值
+    ]
+    
+    // 可添加更多自定义设置
+    'middleware' => ['AuthCheck'],
+    'domains' => ['localhost'],
+    ... ...
+]);
+```
+
+Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
+
 ### 自动匹配路由
 
 支持根据请求的URI自动匹配路由(就像 yii 一样), 需配置 `autoRoute`. 
 
 ```php 
     'autoRoute' => 1, // 启用
-    'controllerNamespace' => 'app\\controllers', // 控制器类所在命名空间
+    'controllerNamespace' => 'App\\Controllers', // 控制器类所在命名空间
     'controllerSuffix' => 'Controller', // 控制器类后缀
 ```
 
 > 请参看示例 `example` 中的使用
 
-此时请求没有配置路由的 `/demo` `/demo/test`。将会自动尝试从 `app\\controllers` 命名空间下去查找 `DemoController`
+此时请求没有配置路由的 `/demo` `/demo/test`。将会自动尝试从 `App\\Controllers` 命名空间下去查找 `DemoController`
 
 查找逻辑是 
 
@@ -257,14 +300,16 @@ $route = SRouter::match($path, $method);
         'handler' => 'handler', 
         
         // 此路由的自定义选项信息. 可能为空
-        // - tokens - 来自添加路由时设置的参数匹配信息, 若有的话
+        // - params - 来自添加路由时设置的参数匹配信息, 若有的话
+        // - defaults - 有可选参数时，可以设置默认值
         // 还可以自定义追加此路由的选项：如下经供参考
         // - domains 允许访问路由的域名
         // - schema 允许访问路由的schema
         // - enter 进入路由的事件回调
         // ... ...
         'option' => [
-            'tokens' => [],
+            'params' => [],
+            'defaults' => [],
 
             // 'domains' => null,
             // 'schema' => null, // ['http','https'],
@@ -369,7 +414,13 @@ SRouter::dispatch($dispatcher);
 
 示例代码在 `examples` 下。
 
-你可以通过 `php -S 127.0.0.1:5670 -t examples/static` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
+- 静态版本
+
+你可以通过 `php -S 127.0.0.1:5670 examples/static.php` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
+
+- 对象版本
+
+你可以通过 `php -S 127.0.0.1:5670 examples/object.php` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5671
 
 ## License 
 

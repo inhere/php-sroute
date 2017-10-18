@@ -6,7 +6,7 @@
  * Time: 下午9:12
  *
  * you can test use:
- *  php -S 127.0.0.1:5671 -t examples/object
+ *  php -S 127.0.0.1:5671 examples/object.php
  *
  * then you can access url: http://127.0.0.1:5671
  */
@@ -14,10 +14,7 @@
 use Inhere\Route\Dispatcher;
 use Inhere\Route\ORouter;
 
-require dirname(__DIR__) . '/simple-loader.php';
-
-error_reporting(E_ALL | E_STRICT);
-date_default_timezone_set('Asia/Shanghai');
+require __DIR__ . '/simple-loader.php';
 
 $router = new ORouter;
 
@@ -41,12 +38,13 @@ $router->setConfig([
 $router->get('/routes', function() use($router) {
     var_dump(
         $router->getStaticRoutes(),
-        $router->getRegularRoutes(),
         $router->getVagueRoutes()
     );
+    var_dump($router->getRegularRoutes());
 });
 
-$routes = require dirname(__DIR__) . '/some-routes.php';
+/** @var array $routes */
+$routes = require __DIR__ . '/some-routes.php';
 
 foreach ($routes as $route) {
     // group

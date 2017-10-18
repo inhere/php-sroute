@@ -9,22 +9,38 @@
 
 use Inhere\Route\Examples\Controllers\HomeController;
 
+function handler0() {
+    echo 'hello, welcome';
+}
+
+function post_handler() {
+    echo 'hello, welcome. only allow POST';
+}
+
+function multi_method_handler() {
+    echo 'hello, welcome. only allow POST,DELETE';
+}
+
+function default_handler() {
+    echo 'hello, welcome. you request URI: ' . $_SERVER['REQUEST_URI'];
+}
+
+function my_handler(array $args) {
+    echo "hello, my name: {$args['name']}, my age: {$args['age']}";
+}
+
 $routes = [
 // uri /50be3774f6/arg1/arg2/arg3/arg4/arg5/arg6/arg7/arg8/arg9/850726135a
 //'regex' => '#^/803d2fad34/([^/]+)1/([^/]+)2/([^/]+)3/([^/]+)4/([^/]+)5/([^/]+)6/([^/]+)7/([^/]+)8/([^/]+)9/961751ae0c$#',
     [
         'GET',
         '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a',
-        function () {
-            echo 'hello, welcome. test';
-        }
+        'handler0'
     ],
     [
         'GET',
         '/',
-        function () {
-            echo 'hello, welcome';
-        }
+        'handler0'
     ],
     [
         'GET',
@@ -32,25 +48,24 @@ $routes = [
         HomeController::class . '@index'
     ],
     [
+        'GET',
+        '/about[.html]',
+        HomeController::class . '@about'
+    ],
+    [
         'POST',
         '/post',
-        function () {
-            echo 'hello, welcome. only allow POST';
-        }
+        'post_handler'
     ],
     [
         ['post', 'delete'],
         '/pd',
-        function () {
-            echo 'hello, welcome. only allow POST,DELETE';
-        }
+        'multi_method_handler'
     ],
     [
         ['get', 'post'],
         '/user/login',
-        function () {
-            var_dump($_GET, $_POST);
-        }
+        'default_handler'
     ],
     /*
     match: /blog /saying
@@ -69,9 +84,7 @@ $routes = [
     [
         'GET',
         '/test[/optional]',
-        function () {
-            echo 'hello, welcome. match: /test[/optional]';
-        }
+        'default_handler'
     ],
     /*
     match:
@@ -82,17 +95,14 @@ $routes = [
     [
         'GET',
         '/my[/{name}[/{age}]]',
-        function (array $args) {
-            $args = array_merge([
-                'name' => 'NO',
-                'age' => 10
-            ], $args);
-
-            echo "hello, my name: {$args['name']}, my age: {$args['age']}";
-        },
+        'my_handler',
         [
             'params' => [
                 'age' => '\d+'
+            ],
+            'defaults' => [
+                'name' => 'God',
+                'age' => 25,
             ]
         ]
     ],
@@ -112,7 +122,7 @@ $routes = [
             'params' => [
                 'name' => '\w+'
             ],
-            'default' => [
+            'defaults' => [
                 'name' => 'default val'
             ]
         ]

@@ -6,7 +6,7 @@
  * Time: 下午9:12
  *
  * you can test use:
- *  php examples/object/swoole_svr.php
+ *  php examples/swoole_svr.php
  *
  * then you can access url: http://127.0.0.1:5675
  */
@@ -14,10 +14,7 @@
 use Inhere\Route\Dispatcher;
 use Inhere\Route\ORouter;
 
-require dirname(__DIR__) . '/simple-loader.php';
-
-error_reporting(E_ALL | E_STRICT);
-date_default_timezone_set('Asia/Shanghai');
+require __DIR__ . '/simple-loader.php';
 
 $router = new ORouter;
 
@@ -49,7 +46,24 @@ $router->get('/routes', function() use($router) {
     );
 });
 
-require __DIR__ . '/routes.php';
+/** @var array $routes */
+$routes = require __DIR__ . '/some-routes.php';
+
+foreach ($routes as $route) {
+    // group
+    if (is_array($route[1])) {
+        $rs = $route[1];
+        $router->group($route[0], function (ORouter $router) use($rs){
+            foreach ($rs as $r) {
+                $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
+            }
+        });
+
+        continue;
+    }
+
+    $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
+}
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

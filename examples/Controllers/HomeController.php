@@ -23,4 +23,9 @@ class HomeController
     {
         echo 'hello, this is ' . __METHOD__ . "<br>";
     }
+
+    public function aboutAction()
+    {
+        echo 'hello, this is about page';
+    }
 }
