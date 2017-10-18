@@ -23,7 +23,7 @@ SRouter::get('/', function() {
 SRouter::get('/test/{name}', function($arg) {
     echo $arg; // 'john'
 }, [
-    'tokens' => [
+    'params' => [
         'name' => '\w+', // 添加参数匹配限制。若不添加对应的限制，将会自动设置为匹配除了'/'外的任何字符
     ]
 ]);
@@ -32,7 +32,7 @@ SRouter::get('/test/{name}', function($arg) {
 SRouter::get('/hello[/{name}]', function($name = 'No') {
     echo $name; // 'john'
 }, [
-    'tokens' => [
+    'params' => [
         'name' => '\w+', // 添加参数匹配限制
     ]
 ]);
@@ -118,7 +118,7 @@ match:
 $router->get('/hello[/{name}]', function($name='NO') {
     echo "hello, $name"; // 'john'
 },[
-    'tokens' => [
+    'params' => [
         'name' => '\w+'
     ]
 ]);
@@ -130,7 +130,7 @@ $router->get('/hello[/{name}]', function($name='NO') {
 
 ```php
 $router->get('/{name}', 'default_handler', [
-    'tokens' => [
+    'params' => [
         'name' => 'blog|saying'
     ]
 ]);
@@ -178,14 +178,14 @@ $route = SRouter::match($path, $method);
         'handler' => 'handler', 
         
         // 此路由的自定义选项信息. 可能为空
-        // - tokens - 来自添加路由时设置的参数匹配信息, 若有的话
+        // - params - 来自添加路由时设置的参数匹配信息, 若有的话
         // 还可以自定义追加此路由的选项：如下经供参考
         // - domains 允许访问路由的域名
         // - schema 允许访问路由的schema
         // - enter 进入路由的事件回调
         // ... ...
         'option' => [
-            'tokens' => [],
+            'params' => [],
 
             // 'domains' => null,
             // 'schema' => null, // ['http','https'],

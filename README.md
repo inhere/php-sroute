@@ -1,6 +1,6 @@
 # php simple router
 
-a very lightweight router.
+a very lightweight and fast speed router.
 
 - Lightweight and fast speed, the search speed is not affected by the routing number
 - supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
@@ -10,7 +10,7 @@ a very lightweight router.
 - more interesting config, please see `SRouter::setConfig`
 - You can also do not have to configure anything, it can also work very well
 
-**[中文README](./README_zh.md)**
+**[中文README](./README_zh.md)更详细**
 
 ## project
 
