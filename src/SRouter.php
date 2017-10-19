@@ -24,8 +24,6 @@ namespace Inhere\Route;
  */
 class SRouter extends AbstractRouter
 {
-    const DEFAULT_TWO_LEVEL_KEY = '_NO_';
-
     /** @var int  */
     private static $routeCounter = 0;
 
@@ -84,30 +82,18 @@ class SRouter extends AbstractRouter
 
     /**
      * some setting for self
+     * @see ORouter::$config
      * @var array
      */
     private static $config = [
-        // the routes php file.
         'routesFile' => null,
-
-        // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
-
-        // 'tmpCacheNumber' => 100,
         'tmpCacheNumber' => 0,
-
-        // intercept all request.
-        // 1. If is a valid URI path, will intercept all request uri to the path.
-        // 2. If is a closure, will intercept all request then call it
-        // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-        'intercept' => '',
+        'intercept' => null,
 
         // auto route match @like yii framework
-        // If is True, will auto find the handler controller file.
         'autoRoute' => false,
-        // The default controllers namespace, is valid when `'enable' = true`
         'controllerNamespace' => '', // eg: 'app\\controllers'
-        // controller suffix, is valid when `'enable' = true`
         'controllerSuffix' => '',    // eg: 'Controller'
     ];
 
@@ -297,8 +283,7 @@ class SRouter extends AbstractRouter
                         return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
                     }
 
-                    // first node is $path
-                    $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+                    $conf['matches'] = self::filterMatches($matches, $conf);
 
                     // cache latest $number routes.
                     if ($number > 0) {
@@ -326,7 +311,7 @@ class SRouter extends AbstractRouter
                     return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
                 }
 
-                $conf['matches'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+                $conf['matches'] = self::filterMatches($matches, $conf);
 
                 // cache last $number routes.
                 if ($number > 0) {
@@ -344,7 +329,7 @@ class SRouter extends AbstractRouter
         // handle Auto Route
         if (
             self::$config['autoRoute'] &&
-            ($handler = ORouter::matchAutoRoute($path, self::$config['controllerNamespace'], self::$config['controllerSuffix']))
+            ($handler = self::matchAutoRoute($path, self::$config['controllerNamespace'], self::$config['controllerSuffix']))
         ) {
             return [self::FOUND, $path, [
                 'handler' => $handler,

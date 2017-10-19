@@ -162,7 +162,7 @@ class ORouter extends AbstractRouter
         // 1. If is a valid URI path, will intercept all request uri to the path.
         // 2. If is a closure, will intercept all request then call it
         // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-        'intercept' => '',
+        'intercept' => null,
 
         // auto route match @like yii framework
         // If is True, will auto find the handler controller file.
@@ -451,67 +451,6 @@ class ORouter extends AbstractRouter
 
         // oo ... not found
         return [self::NOT_FOUND, $path, null];
-    }
-
-    /**
-     * handle auto route match, when config `'autoRoute' => true`
-     * @param string $path The route path
-     * @param string $controllerNamespace controller namespace. eg: 'app\\controllers'
-     * @param string $controllerSuffix controller suffix. eg: 'Controller'
-     * @return bool|callable
-     */
-    public static function matchAutoRoute($path, $controllerNamespace, $controllerSuffix = '')
-    {
-        $cnp = trim($controllerNamespace);
-        $sfx = trim($controllerSuffix);
-        $tmp = trim($path, '/- ');
-
-        // one node. eg: 'home'
-        if (!strpos($tmp, '/')) {
-            $tmp = self::convertNodeStr($tmp);
-            $class = "$cnp\\" . ucfirst($tmp) . $sfx;
-
-            return class_exists($class) ? $class : false;
-        }
-
-        $ary = array_map([self::class, 'convertNodeStr'], explode('/', $tmp));
-        $cnt = count($ary);
-
-        // two nodes. eg: 'home/test' 'admin/user'
-        if ($cnt === 2) {
-            list($n1, $n2) = $ary;
-
-            // last node is an controller class name. eg: 'admin/user'
-            $class = "$cnp\\$n1\\" . ucfirst($n2) . $sfx;
-
-            if (class_exists($class)) {
-                return $class;
-            }
-
-            // first node is an controller class name, second node is a action name,
-            $class = "$cnp\\" . ucfirst($n1) . $sfx;
-
-            return class_exists($class) ? "$class@$n2" : false;
-        }
-
-        // max allow 5 nodes
-        if ($cnt > 5) {
-            return false;
-        }
-
-        // last node is an controller class name
-        $n2 = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n2) . $sfx);
-
-        if (class_exists($class)) {
-            return $class;
-        }
-
-        // last second is an controller class name, last node is a action name,
-        $n1 = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n1) . $sfx);
-
-        return class_exists($class) ? "$class@$n2" : false;
     }
 
     /*******************************************************************************

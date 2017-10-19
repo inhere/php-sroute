@@ -46,6 +46,13 @@ interface RouterInterface
     const ANY = 'ANY';
 
     /**
+     * the matched result index key
+     */
+    const INDEX_STATUS = 0;
+    const INDEX_PATH = 1;
+    const INDEX_INFO = 2;
+
+    /**
      * @return array
      */
     public static function getSupportedMethods();

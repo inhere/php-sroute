@@ -110,8 +110,8 @@ SRouter::get('/', function() {
 });
 
 // 匹配参数 'test/john'
-SRouter::get('/test/{name}', function($arg) {
-    echo $arg; // 'john'
+SRouter::get('/test/{name}', function($params) {
+    echo $params['name']; // 'john'
 }, [
     'params' => [
         'name' => '\w+', // 添加参数匹配限制。若不添加对应的限制，将会自动设置为匹配除了'/'外的任何字符
@@ -119,8 +119,8 @@ SRouter::get('/test/{name}', function($arg) {
 ]);
 
 // 可选参数支持。匹配  'hello' 'hello/john'
-SRouter::get('/hello[/{name}]', function($name = 'No') {
-    echo $name; // 'john'
+SRouter::get('/hello[/{name}]', function() {
+    echo $params['name'] ?? 'No input'; // 'john'
 }, [
     'params' => [
         'name' => '\w+', // 添加参数匹配限制
@@ -142,7 +142,7 @@ SRouter::any('/home', function() {
     echo 'hello, you request page is /home';
 });
 SRouter::any('/404', function() {
-    echo "Sorry,This page {$_GET['_src_path']} not found.";
+    echo "Sorry,This page not found.";
 });
 
 // 路由组

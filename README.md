@@ -96,8 +96,8 @@ SRouter::get('/', function() {
 });
 
 // access 'test/john'
-SRouter::get('/test/{name}', function($arg) {
-    echo $arg; // 'john'
+SRouter::get('/test/{name}', function($params) {
+    echo $params['name']; // 'john'
 });
 
 // match POST
