@@ -101,6 +101,11 @@ abstract class AbstractRouter implements RouterInterface
             $matches = array_merge($conf['option']['defaults'], $matches);
         }
 
+        // decode ...
+//        foreach ($matches as $k => $v) {
+//            $matches[$k] = urldecode($v);
+//        }
+
         return $matches;
     }
 

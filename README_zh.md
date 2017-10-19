@@ -299,6 +299,9 @@ $route = SRouter::match($path, $method);
         // 此路由的 handler callback
         'handler' => 'handler', 
         
+        // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里
+        'matches' => ['name' => value ],
+        
         // 此路由的自定义选项信息. 可能为空
         // - params - 来自添加路由时设置的参数匹配信息, 若有的话
         // - defaults - 有可选参数时，可以设置默认值
@@ -318,8 +321,6 @@ $route = SRouter::match($path, $method);
             // 'leave' => null,
         ], 
         
-        // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里
-        'matches' => []
     ],
 ]
 ```

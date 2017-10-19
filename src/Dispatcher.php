@@ -166,13 +166,9 @@ class Dispatcher implements DispatcherInterface
         $options = $route['option'];
         unset($route['option']);
 
-        // schema,domains ... metadata validate
-        if (false === $this->validateMetadata($options)) {
-            return $result;
-        }
-
         // fire enter event
-        if (isset($options['enter']) && false === $this->fireCallback($options['enter'], [$path])) {
+        // schema,domains ... metadata validate
+        if (isset($options['enter']) && false === $this->fireCallback($options['enter'], [$options, $path])) {
             return $result;
         }
 
@@ -187,7 +183,7 @@ class Dispatcher implements DispatcherInterface
 
             // fire leave event
             if (isset($options['leave'])) {
-                $this->fireCallback($options['leave'], [$path]);
+                $this->fireCallback($options['leave'], [$options, $path]);
             }
 
             // trigger route exec_end event
