@@ -307,7 +307,7 @@ $route = SRouter::match($path, $method);
         // - defaults - 有可选参数时，可以设置默认值
         // 还可以自定义追加此路由的选项：如下经供参考
         // - domains 允许访问路由的域名
-        // - schema 允许访问路由的schema
+        // - schemas 允许访问路由的schema
         // - enter 进入路由的事件回调
         // ... ...
         'option' => [
@@ -315,7 +315,7 @@ $route = SRouter::match($path, $method);
             'defaults' => [],
 
             // 'domains' => null,
-            // 'schema' => null, // ['http','https'],
+            // 'schemas' => null, // ['http','https'],
             // route event. custom design ...
             // 'enter' => null,
             // 'leave' => null,

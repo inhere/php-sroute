@@ -27,19 +27,6 @@ class SRouter extends AbstractRouter
     /** @var int  */
     private static $routeCounter = 0;
 
-    /**
-     * some available patterns regex
-     * $router->get('/user/{num}', 'handler');
-     * @var array
-     */
-    private static $globalParams = [
-        'any' => '[^/]+',   // match any except '/'
-        'num' => '[0-9]+',  // match a number
-        'id'  => '[1-9][0-9]*',  // match a ID number
-        'act' => '[a-zA-Z][\w-]+', // match a action name
-        'all' => '.*'
-    ];
-
     /** @var string  */
     private static $currentGroupPrefix = '';
 
@@ -376,26 +363,6 @@ class SRouter extends AbstractRouter
 //////////////////////////////////////////////////////////////////////
 
     /**
-     * @param array $params
-     */
-    public static function addGlobalParams(array $params)
-    {
-        foreach ($params as $name => $pattern) {
-            self::addGlobalParam($name, $pattern);
-        }
-    }
-
-    /**
-     * @param $name
-     * @param $pattern
-     */
-    public static function addGlobalParam($name, $pattern)
-    {
-        $name = trim($name, '{} ');
-        self::$globalParams[$name] = $pattern;
-    }
-
-    /**
      * @return int
      */
     public static function count()
@@ -417,14 +384,6 @@ class SRouter extends AbstractRouter
     public static function getRegularRoutes()
     {
         return self::$regularRoutes;
-    }
-
-    /**
-     * @return array
-     */
-    public static function getVagueRoutes()
-    {
-        return self::$vagueRoutes;
     }
 
     /**

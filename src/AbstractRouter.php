@@ -15,6 +15,19 @@ namespace Inhere\Route;
 abstract class AbstractRouter implements RouterInterface
 {
     /**
+     * some available patterns regex
+     * $router->get('/user/{num}', 'handler');
+     * @var array
+     */
+    protected static $globalParams = [
+        'any' => '[^/]+',   // match any except '/'
+        'num' => '[0-9]+',  // match a number
+        'id'  => '[1-9][0-9]*',  // match a ID number
+        'act' => '[a-zA-Z][\w-]+', // match a action name
+        'all' => '.*'
+    ];
+
+    /**
      * validate and format arguments
      * @param string|array $methods
      * @param mixed $handler
@@ -307,11 +320,38 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
+     * @param array $params
+     */
+    public function addGlobalParams(array $params)
+    {
+        foreach ($params as $name => $pattern) {
+            $this->addGlobalParam($name, $pattern);
+        }
+    }
+
+    /**
+     * @param $name
+     * @param $pattern
+     */
+    public function addGlobalParam($name, $pattern)
+    {
+        $name = trim($name, '{} ');
+        self::$globalParams[$name] = $pattern;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGlobalParams()
+    {
+        return self::$globalParams;
+    }
+
+    /**
      * @return array
      */
     public static function getSupportedMethods()
     {
         return self::SUPPORTED_METHODS;
     }
-
 }
