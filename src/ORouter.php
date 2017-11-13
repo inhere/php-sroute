@@ -144,7 +144,7 @@ class ORouter extends AbstractRouter
      */
     protected $config = [
         // the routes php file.
-        'routesFile' => null,
+        'routesFile' => false,
 
         // ignore last '/' char. If is True, will clear last '/'.
         'ignoreLastSep' => false,
@@ -156,7 +156,7 @@ class ORouter extends AbstractRouter
         // 1. If is a valid URI path, will intercept all request uri to the path.
         // 2. If is a closure, will intercept all request then call it
         // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-        'intercept' => null,
+        'intercept' => false,
 
         // auto route match @like yii framework
         // If is True, will auto find the handler controller file.
@@ -192,11 +192,6 @@ class ORouter extends AbstractRouter
 
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
-
-        // load routes
-        if (($file = $this->config['routesFile']) && is_file($file)) {
-            require $file;
-        }
     }
 
     /**
@@ -213,6 +208,11 @@ class ORouter extends AbstractRouter
             if (isset($this->config[$name])) {
                 $this->config[$name] = $value;
             }
+        }
+
+        // load routes
+        if (($file = $this->config['routesFile']) && is_file($file)) {
+            require $file;
         }
     }
 
