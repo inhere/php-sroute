@@ -188,7 +188,7 @@ class SRouter extends AbstractRouter
         self::$routeCounter++;
         $opts = array_replace([
             'params' => null,
-            'domains'  => null,
+            // 'domains'  => null,
         ], self::$currentGroupOption, $opts);
         $conf = [
             'methods' => $methods,

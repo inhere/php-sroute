@@ -115,9 +115,9 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // decode ...
-//        foreach ($matches as $k => $v) {
-//            $matches[$k] = urldecode($v);
-//        }
+        // foreach ($matches as $k => $v) {
+        //     $matches[$k] = urldecode($v);
+        // }
 
         return $matches;
     }
@@ -149,7 +149,7 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // quote '.','/' to '\.','\/'
-//        $route = preg_quote($route, '/');
+        // $route = preg_quote($route, '/');
         $route = str_replace('.', '\.', $route);
 
         // 解析参数，替换为对应的 正则
@@ -202,6 +202,19 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * @param array $routes
+     * [
+     *   'GET,POST,' => [
+     *       'handler' => 'handler',
+     *       'methods' => 'GET,POST,',
+     *       'option' => [...],
+     *   ],
+     *   'PUT,' => [
+     *       'handler' => 'handler',
+     *       'methods' => 'PUT,',
+     *       'option' => [...],
+     *   ],
+     *   ...
+     * ]
      * @param string $path
      * @param string $method
      * @return array

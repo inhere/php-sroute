@@ -14,8 +14,6 @@ namespace Inhere\Route;
  */
 interface RouterInterface
 {
-    const ANY_METHOD = 'ANY';
-
     // match result status
     const FOUND = 1;
     const NOT_FOUND = 2;
@@ -23,14 +21,8 @@ interface RouterInterface
 
     const DEFAULT_REGEX = '[^/]+';
 
-    /**
-     * supported Methods
-     * @var array
-     */
-    const SUPPORTED_METHODS = [
-        'ANY',
-        'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
-    ];
+    // supported method list
+    const ANY = 'ANY';
 
     const GET = 'GET';
     const POST = 'POST';
@@ -43,7 +35,14 @@ interface RouterInterface
     const CONNECT = 'CONNECT';
     const TRACE = 'TRACE';
 
-    const ANY = 'ANY';
+    /**
+     * supported methods
+     * @var array
+     */
+    const SUPPORTED_METHODS = [
+        'ANY',
+        'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'SEARCH', 'CONNECT', 'TRACE',
+    ];
 
     /**
      * the matched result index key

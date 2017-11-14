@@ -14,6 +14,8 @@ namespace Inhere\Route;
  */
 interface DispatcherInterface
 {
+    const FAV_ICON = '/favicon.ico';
+
     // events
     const ON_FOUND = 'found';
     const ON_NOT_FOUND = 'notFound';

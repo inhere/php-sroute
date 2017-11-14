@@ -9,10 +9,10 @@
 namespace Inhere\Route;
 
 /**
- * Class CachedRouter - this is object version.
+ * Class CachedRouter - this is object version and support cache routes.
  *
  * - 支持缓存路由信息到文件
- * - handler 将不支持设置为 \Closure 无法缓存 \Closure)
+ * - handler 将不支持设置为 \Closure (无法缓存 \Closure)
  * - 路由选项的 选项值 同样不允许 \Closure
  *
  * @package Inhere\Route
@@ -137,14 +137,17 @@ class CachedRouter extends ORouter
         $code = <<<EOF
 <?php
 /*
- * This inhere/sroute routes cache file. 
+ * This `inhere/sroute` routes cache file.
  * It is auto generate by $class.
  * @date $date
- * @notice Please don't change it.
+ * @notice Please don't edit it.
  */
 return [
+    // static routes
     'staticRoutes' => $staticRoutes,
+    // regular routes
     'regularRoutes' => $regularRoutes,
+    // vague routes
     'vagueRoutes' => $vagueRoutes,
 ];
 EOF;

@@ -25,6 +25,7 @@ class ORouter extends AbstractRouter
 {
     /** @var int */
     private $routeCounter = 0;
+    private $cacheCounter = 0;
 
     /** @var array global Options */
     private $globalOptions = [
@@ -48,15 +49,16 @@ class ORouter extends AbstractRouter
      * @var array[]
      * [
      *     '/user/login' => [
-     *         [
+     *         // METHODS => [...] // 这里 key 和 value里的 'methods' 是一样的。仅是为了防止重复添加
+     *         'GET,POST,' => [
      *              'handler' => 'handler',
      *              'methods' => 'GET,POST,',
-     *              'option' => null,
+     *              'option' => [...],
      *          ],
-     *         [
+     *          'PUT,' => [
      *              'handler' => 'handler',
-     *              'methods' => 'GET,POST,',
-     *              'option' => null,
+     *              'methods' => 'PUT,',
+     *              'option' => [...],
      *          ],
      *          ...
      *      ]
@@ -77,7 +79,7 @@ class ORouter extends AbstractRouter
      *              'regex' => '/a/(\w+)',
      *              'methods' => 'GET,POST,',
      *              'handler' => 'handler',
-     *              'option' => null,
+     *              'option' => [...],
      *          ],
      *          ... ...
      *      ],
@@ -87,17 +89,17 @@ class ORouter extends AbstractRouter
      *              'regex' => '/add/(\w+)',
      *              'methods' => 'GET,',
      *              'handler' => 'handler',
-     *              'option' => null,
+     *              'option' => [...],
      *          ],
      *          ... ...
      *      ],
      *     'blog' => [
      *        [
-     *              'start' => '/blog/',
-     *              'regex' => '/blog/(\w+)',
+     *              'start' => '/blog/post-',
+     *              'regex' => '/blog/post-(\w+)',
      *              'methods' => 'GET,',
      *              'handler' => 'handler',
-     *              'option' => null,
+     *              'option' => [...],
      *        ],
      *        ... ...
      *     ],
@@ -117,14 +119,14 @@ class ORouter extends AbstractRouter
      *         'regex' => '/(\w+)/profile',
      *         'methods' => 'GET,',
      *         'handler' => 'handler',
-     *         'option' => null,
+     *         'option' => [...],
      *     ],
      *     [
      *         'include' => null,
      *         'regex' => '/(\w+)/(\w+)',
      *         'methods' => 'GET,POST,',
      *         'handler' => 'handler',
-     *         'option' => null,
+     *         'option' => [...],
      *     ],
      *      ... ...
      * ]
@@ -192,6 +194,11 @@ class ORouter extends AbstractRouter
 
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
+
+        // load routes
+        if (($file = $this->config['routesFile']) && is_file($file)) {
+            require $file;
+        }
     }
 
     /**
@@ -208,11 +215,6 @@ class ORouter extends AbstractRouter
             if (isset($this->config[$name])) {
                 $this->config[$name] = $value;
             }
-        }
-
-        // load routes
-        if (($file = $this->config['routesFile']) && is_file($file)) {
-            require $file;
         }
     }
 
@@ -304,7 +306,7 @@ class ORouter extends AbstractRouter
         $this->routeCounter++;
         $opts = array_replace([
             'params' => null,
-            'domains' => null,
+            // 'domains' => null,
         ], $this->currentGroupOption, $opts);
         $conf = [
             'methods' => $methods,
@@ -314,7 +316,7 @@ class ORouter extends AbstractRouter
 
         // no dynamic param params
         if (self::isNoDynamicParam($route)) {
-            $this->staticRoutes[$route][] = $conf;
+            $this->staticRoutes[$route][$methods] = $conf;
 
             return $this;
         }
@@ -362,7 +364,6 @@ class ORouter extends AbstractRouter
         // clear '//', '///' => '/'
         $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
         $method = strtoupper($method);
-        $number = $this->config['tmpCacheNumber'];
 
         // setting 'ignoreLastSep'
         if ($path !== '/' && $this->config['ignoreLastSep']) {
@@ -380,27 +381,14 @@ class ORouter extends AbstractRouter
         }
 
         $first = self::getFirstFromPath($path);
-        // is a regular dynamic route(the first char is 1th level index key).
+
+        // is a regular dynamic route(the first node is 1th level index key).
         if (isset($this->regularRoutes[$first])) {
             foreach ($this->regularRoutes[$first] as $conf) {
                 if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
-                    // method not allowed
-                    if (false === strpos($conf['methods'], $method . ',')) {
-                        return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
-                    }
+                    $conf['matches'] = $matches;
 
-                    $conf['matches'] = self::filterMatches($matches, $conf);
-
-                    // cache latest $number routes.
-                    if ($number > 0) {
-                        if (count($this->routeCaches) === $number) {
-                            array_shift($this->routeCaches);
-                        }
-
-                        $this->routeCaches[$path][] = $conf;
-                    }
-
-                    return [self::FOUND, $path, $conf];
+                    return $this->checkMatched($path, $method, $conf);
                 }
             }
         }
@@ -412,23 +400,9 @@ class ORouter extends AbstractRouter
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
-                // method not allowed
-                if (false === strpos($conf['methods'], $method . ',')) {
-                    return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
-                }
+                $conf['matches'] = $matches;
 
-                $conf['matches'] = self::filterMatches($matches, $conf);
-
-                // cache last $number routes.
-                if ($number > 0) {
-                    if (count($this->routeCaches) === $number) {
-                        array_shift($this->routeCaches);
-                    }
-
-                    $this->routeCaches[$path][] = $conf;
-                }
-
-                return [self::FOUND, $path, $conf];
+                return $this->checkMatched($path, $method, $conf);
             }
         }
 
@@ -480,6 +454,40 @@ class ORouter extends AbstractRouter
     /*******************************************************************************
      * helper methods
      ******************************************************************************/
+
+    /**
+     * checkMatched
+     * @param  string $path
+     * @param  string $method
+     * @param  array  $conf
+     * @return array
+     */
+    protected function checkMatched($path, $method, array $conf)
+    {
+        $methods = $conf['methods'];
+        $cacheNumber = (int)$this->config['tmpCacheNumber'];
+
+        // method not allowed
+        if (false === strpos($methods, $method . ',')) {
+            return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($methods, ','))];
+        }
+
+        $conf['matches'] = self::filterMatches($conf['matches'], $conf);
+
+        // cache last $cacheNumber routes.
+        if ($cacheNumber > 0) {
+            if ($this->cacheCounter === $cacheNumber) {
+                array_shift($this->routeCaches);
+            }
+
+            if (!isset($this->routeCaches[$path][$methods])) {
+                $this->cacheCounter++;
+                $this->routeCaches[$path][$methods] = $conf;
+            }
+        }
+
+        return [self::FOUND, $path, $conf];
+    }
 
     /**
      * @return int

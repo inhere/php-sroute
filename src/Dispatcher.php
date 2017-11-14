@@ -14,8 +14,6 @@ namespace Inhere\Route;
  */
 class Dispatcher implements DispatcherInterface
 {
-    const FAV_ICON = '/favicon.ico';
-
     /**
      * event handlers
      * @var array
@@ -43,7 +41,7 @@ class Dispatcher implements DispatcherInterface
         //  $router->any('/demo/{act}', app\controllers\Demo::class);
         //  you access '/demo/test' will call 'app\controllers\Demo::test()'
         'dynamicAction' => false,
-        // @see ORouter::$globalTokens['act']
+        // @see ORouter::$globalParams['act']
         'dynamicActionVar' => 'act',
 
         // action executor. will auto call controller's executor method to run all action.
