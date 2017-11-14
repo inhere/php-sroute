@@ -86,6 +86,16 @@ $routes = [
         '/test[/optional]',
         'default_handler'
     ],
+    [
+        'GET',
+        '/blog-{post}',
+        'default_handler'
+    ],
+    [
+        'GET',
+        '/blog[index]',
+        'default_handler'
+    ],
     /*
     match:
         /my/tom/78
@@ -151,6 +161,11 @@ $routes = [
                 function () {
                     echo 'hello. you access: /user/index';
                 }
+            ],
+            [
+                'GET',
+                '/{some}',
+                'default_handler'
             ],
         ]
     ]

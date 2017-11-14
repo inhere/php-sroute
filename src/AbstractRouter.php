@@ -177,7 +177,8 @@ abstract class AbstractRouter implements RouterInterface
         // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
         // if (preg_match('#^/([\w-]+)#', $tmp, $m)) {
-        if (preg_match('#^/([\w-]+)/?[\w-]*#', $tmp, $m)) {
+        // if (preg_match('#^/([\w-]+)/?[\w-]*#', $tmp, $m)) {
+        if (preg_match('#^/([\w-]+)/[\w-]*#', $tmp, $m)) {
             $first = $m[1];
             $info = [
                 'regex'  => $regex,

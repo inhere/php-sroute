@@ -258,8 +258,7 @@ class SRouter extends AbstractRouter
             return self::findInStaticRoutes(self::$staticRoutes[$path], $path, $method);
         }
 
-        $tmp = trim($path, '/'); // clear first,end '/'
-        $first = strpos($tmp, '/') ? strstr($tmp, '/', true) : $tmp;
+        $first = self::getFirstFromPath($path);
 
         // is a regular dynamic route(the first char is 1th level index key).
         if (isset(self::$regularRoutes[$first])) {

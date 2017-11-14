@@ -154,6 +154,10 @@ SRouter::group('/user', function () {
         echo 'hello. you access: /user/index';
     });
 });
+
+// 使用 控制器
+SRouter::get('/', app\controllers\HomeController::class);
+SRouter::get('/index', 'app\controllers\HomeController@index');
 ```
 
 > 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
@@ -358,10 +362,10 @@ $dispatcher->on('notFound', function ($uri) {
 通过`@`符号连接控制器类和方法名可以指定执行方法。
 
 ```php
-SRouter::get('/', app\controllers\Home::class);
+SRouter::get('/', app\controllers\HomeController::class);
 
-SRouter::get('/index', 'app\controllers\Home@index');
-SRouter::get('/about', 'app\controllers\Home@about');
+SRouter::get('/index', 'app\controllers\HomeController@index');
+SRouter::get('/about', 'app\controllers\HomeController@about');
 ```
 
 > NOTICE: 若第二个参数仅仅是个 类，将会尝试执行通过 `defaultAction` 配置的默认方法
@@ -373,11 +377,11 @@ SRouter::get('/about', 'app\controllers\Home@about');
 > NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时无法限定请求方法 `REQUEST_METHOD`
 
 ```php
-// 访问 '/home/test' 将会执行 'app\controllers\Home::test()'
-SRouter::any('/home/{any}', app\controllers\Home::class);
+// 访问 '/home/test' 将会执行 'app\controllers\HomeController::test()'
+SRouter::any('/home/{any}', app\controllers\HomeController::class);
 
 // 可匹配 '/home', '/home/test' 等
-SRouter::any('/home[/{name}]', app\controllers\Home::class);
+SRouter::any('/home[/{name}]', app\controllers\HomeController::class);
 ```
 
 > NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
@@ -392,16 +396,16 @@ SRouter::any('/home[/{name}]', app\controllers\Home::class);
 示例：
 
 ```php
-// 访问 '/user', 将会调用 app\controllers\User::run('')
-SRouter::get('/user', 'app\controllers\User');
+// 访问 '/user', 将会调用 app\controllers\UserController::run('')
+SRouter::get('/user', 'app\controllers\UserController');
 
-// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRouter::get('/user/profile', 'app\controllers\User');
+// 访问 '/user/profile', 将会调用 app\controllers\UserController::run('profile')
+SRouter::get('/user/profile', 'app\controllers\UserController');
 
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
-// 访问 '/user', 将会调用 app\controllers\User::run('')
-// 访问 '/user/profile', 将会调用 app\controllers\User::run('profile')
-SRouter::any('/user[/{name}]', 'app\controllers\User');
+// 访问 '/user', 将会调用 app\controllers\UserController::run('')
+// 访问 '/user/profile', 将会调用 app\controllers\UserController::run('profile')
+SRouter::any('/user[/{name}]', 'app\controllers\UserController');
 ```
 
 ## 开始路由匹配和调度

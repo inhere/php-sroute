@@ -93,7 +93,7 @@ $router->group('/user', function ($router) {
 
 > 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
 
-### 如何收集
+### 实现原理(如何收集)
 
 添加的路由将会分为三类 `静态路由` `(有规律的)动态路由` `(无规律的)动态路由`
 
@@ -202,6 +202,8 @@ $route = SRouter::match($path, $method);
 
 ### 匹配原理
 
+匹配优先级按 `cached -> static -> regular -> vague -> autoRoute(if it is enabled)`
+
 todo ...
 
 ## 路由配置
@@ -210,11 +212,9 @@ todo ...
 // set config
 SRouter::setConfig([
     'ignoreLastSep' => true,    
-    'autoRoute' => [
-        'enable' => 1,
-        'controllerNamespace' => 'app\\controllers',
-        'controllerSuffix' => 'Controller',
-    ],
+    'autoRoute' => 1,
+    'controllerNamespace' => 'app\\controllers',
+    'controllerSuffix' => 'Controller',
 ]);
 ```
 
