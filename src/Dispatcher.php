@@ -239,17 +239,17 @@ class Dispatcher implements DispatcherInterface
         $args = array_values($args);
 
         // is a \Closure or a callable object
-        if (is_object($handler)) {
+        if (\is_object($handler)) {
             return $handler(...$args);
         }
 
         //// $handler is string
 
         // is array ['controller', 'action']
-        if (is_array($handler)) {
+        if (\is_array($handler)) {
             $segments = $handler;
-        } elseif (is_string($handler)) {
-            if (strpos($handler, '@') === false && function_exists($handler)) {
+        } elseif (\is_string($handler)) {
+            if (strpos($handler, '@') === false && \function_exists($handler)) {
                 return $handler(...$args);
             }
 
@@ -311,7 +311,7 @@ class Dispatcher implements DispatcherInterface
             $notFoundHandler = self::$events[self::ON_NOT_FOUND];
 
             // is a route path. like '/site/notFound'
-            if (is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
+            if (\is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
                 $_GET['_src_path'] = $path;
 
                 if ($path === $notFoundHandler) {
@@ -347,7 +347,7 @@ class Dispatcher implements DispatcherInterface
             $handler = self::$events[self::ON_METHOD_NOT_ALLOWED];
 
             // is a route path. like '/site/notFound'
-            if (is_string($handler) && '/' === $handler{0}) {
+            if (\is_string($handler) && '/' === $handler{0}) {
                 $_GET['_src_path'] = $path;
 
                 if ($path === $handler) {
@@ -448,15 +448,15 @@ class Dispatcher implements DispatcherInterface
             return true;
         }
 
-        if (is_array($cb)) {
+        if (\is_array($cb)) {
             // return call_user_func($cb, $path);
             list($obj, $mhd) = $cb;
 
-            return is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
+            return \is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
         }
 
-        if (is_string($cb)) {
-            if (function_exists($cb)) {
+        if (\is_string($cb)) {
+            if (\function_exists($cb)) {
                 return $cb(...$args);
             }
 
@@ -467,7 +467,7 @@ class Dispatcher implements DispatcherInterface
         }
 
         // a \Closure or Object implement '__invoke'
-        if (is_object($cb) && method_exists($cb, '__invoke')) {
+        if (\is_object($cb) && method_exists($cb, '__invoke')) {
             return $cb(...$args);
         }
 
@@ -504,7 +504,7 @@ class Dispatcher implements DispatcherInterface
      */
     public static function isSupportedEvent($name)
     {
-        return in_array($name, static::getSupportedEvents(), true);
+        return \in_array($name, static::getSupportedEvents(), true);
     }
 
     /**

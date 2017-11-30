@@ -16,12 +16,12 @@ class HomeController
 {
     public function indexAction()
     {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
     public function testAction()
     {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
     public function aboutAction()

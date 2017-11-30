@@ -1,26 +1,40 @@
 # php simple router
 
+[![License](https://img.shields.io/packagist/l/inhere/console.svg?style=flat-square)](LICENSE.md)
+[![Php Version](https://img.shields.io/badge/php-%3E=5.6-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
+[![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
+
 非常轻量级的路由器。无依赖、简洁、速度快、自定义性强
 
 - 轻量级且速度快，查找速度不受路由数量的影响
-- 支持路由参数定义，以及路由选项(比如设定 domains、schema等检查限制)
+- 支持路由组。支持路由参数定义，以及丰富的自定义路由选项(比如设定 默认值、domains、schemas等检查限制)
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
+- 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute`. 
+- 三个版本：静态版本 `SRouter`, 对象版本 `ORouter`, 支持路由缓存的对象版本 `CachedRouter`
+
+内置了一个调度器：
+
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
-- 支持动态获取action名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
-- 支持自动匹配路由到控制器就像 yii 一样, 请参看配置项 `autoRoute`. 
+- 支持动态获取`action`名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持通过方法 `SRouter::dispatch($path, $method)` 手动调度一个路由
-- 你也可以不配置任何东西, 它也能很好的工作
+- 你即使不配置任何东西, 它也能很好的工作
 
 **[EN README](./README.md)**
 
 ## 项目地址
 
 - **github** https://github.com/inhere/php-srouter.git
-- **git@osc** https://git.oschina.net/inhere/php-srouter.git
+- **git@osc** https://gitee.com/inhere/php-srouter.git
 
 ## 安装
 
-- composer
+- composer 命令
+
+```php
+composer require inhere/sroute
+```
+
+- composer.json
 
 ```json
 {
@@ -303,6 +317,9 @@ $route = SRouter::match($path, $method);
         // 此路由的 handler callback
         'handler' => 'handler', 
         
+        // (可能存在)此路由的 原始path。 仅动态路由有
+        'original' => '/hi/{name}', 
+        
         // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里
         'matches' => ['name' => value ],
         
@@ -426,6 +443,12 @@ SRouter::dispatch($dispatcher);
 - 对象版本
 
 你可以通过 `php -S 127.0.0.1:5670 examples/object.php` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5671
+
+## 测试 
+
+```bash
+phpunit
+```
 
 ## License 
 

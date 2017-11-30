@@ -51,21 +51,21 @@ abstract class AbstractRouter implements RouterInterface
             return $m;
         }, (array)$methods);
 
-        if (!is_string($handler) && !is_object($handler)) {
+        if (!\is_string($handler) && !\is_object($handler)) {
             throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,object');
         }
 
-        if (is_object($handler) && !is_callable($handler)) {
+        if (\is_object($handler) && !\is_callable($handler)) {
             throw new \InvalidArgumentException('The route object handler must be is callable');
         }
 
         $methods = implode(',', $methods) . ',';
 
         if (false !== strpos($methods, self::ANY)) {
-            return $allow;
+            return trim($allow, ',');
         }
 
-        return $methods;
+        return trim($methods, ',');
     }
 
     /**
@@ -107,7 +107,7 @@ abstract class AbstractRouter implements RouterInterface
     protected static function filterMatches(array $matches, array $conf)
     {
         // clear all int key
-        $matches = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+        $matches = array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
 
         // apply some default param value
         if (isset($conf['option']['defaults'])) {
@@ -138,7 +138,7 @@ abstract class AbstractRouter implements RouterInterface
         // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
         if (false !== strpos($route, ']')) {
             $withoutClosingOptionals = rtrim($route, ']');
-            $optionalNum = strlen($route) - strlen($withoutClosingOptionals);
+            $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
 
             if ($optionalNum !== substr_count($withoutClosingOptionals, '[')) {
                 throw new \LogicException('Optional segments can only occur at the end of a route');
@@ -183,6 +183,7 @@ abstract class AbstractRouter implements RouterInterface
             $info = [
                 'regex'  => $regex,
                 'start' => $m[0],
+                'original' => $tmp,
             ];
             // first node contain regex param '/{some}/{some2}/xyz'
         } else {
@@ -195,6 +196,7 @@ abstract class AbstractRouter implements RouterInterface
             $info = [
                 'regex' => $regex,
                 'include' => $include,
+                'original' => $tmp,
             ];
         }
 
@@ -204,14 +206,14 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @param array $routes
      * [
-     *   'GET,POST,' => [
+     *   'GET,POST' => [
      *       'handler' => 'handler',
-     *       'methods' => 'GET,POST,',
+     *       'methods' => 'GET,POST',
      *       'option' => [...],
      *   ],
-     *   'PUT,' => [
+     *   'PUT' => [
      *       'handler' => 'handler',
-     *       'methods' => 'PUT,',
+     *       'methods' => 'PUT',
      *       'option' => [...],
      *   ],
      *   ...
@@ -225,11 +227,11 @@ abstract class AbstractRouter implements RouterInterface
         $methods = null;
 
         foreach ($routes as $conf) {
-            if (false !== strpos($conf['methods'], $method . ',')) {
+            if (false !== strpos($conf['methods'] . ',', $method . ',')) {
                 return [self::FOUND, $path, $conf];
             }
 
-            $methods .= $conf['methods'];
+            $methods .= $conf['methods'] . ',';
         }
 
         // method not allowed
@@ -258,7 +260,7 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         $ary = array_map([self::class, 'convertNodeStr'], explode('/', $tmp));
-        $cnt = count($ary);
+        $cnt = \count($ary);
 
         // two nodes. eg: 'home/test' 'admin/user'
         if ($cnt === 2) {
@@ -356,7 +358,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @return array
      */
-    public function getGlobalParams()
+    public static function getGlobalParams()
     {
         return self::$globalParams;
     }

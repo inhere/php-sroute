@@ -16,17 +16,17 @@ class DemoController
 {
     public function indexAction()
     {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
     public function testAction()
     {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
     // you can access by '/demo/oneTwo' or '/demo/one-two'
     public function oneTwoAction()
     {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 }

@@ -50,14 +50,14 @@ class ORouter extends AbstractRouter
      * [
      *     '/user/login' => [
      *         // METHODS => [...] // 这里 key 和 value里的 'methods' 是一样的。仅是为了防止重复添加
-     *         'GET,POST,' => [
+     *         'GET,POST' => [
      *              'handler' => 'handler',
-     *              'methods' => 'GET,POST,',
+     *              'methods' => 'GET,POST',
      *              'option' => [...],
      *          ],
-     *          'PUT,' => [
+     *          'PUT' => [
      *              'handler' => 'handler',
-     *              'methods' => 'PUT,',
+     *              'methods' => 'PUT',
      *              'option' => [...],
      *          ],
      *          ...
@@ -77,7 +77,7 @@ class ORouter extends AbstractRouter
      *          [
      *              'start' => '/a/',
      *              'regex' => '/a/(\w+)',
-     *              'methods' => 'GET,POST,',
+     *              'methods' => 'GET,POST',
      *              'handler' => 'handler',
      *              'option' => [...],
      *          ],
@@ -87,7 +87,7 @@ class ORouter extends AbstractRouter
      *          [
      *              'start' => '/add/',
      *              'regex' => '/add/(\w+)',
-     *              'methods' => 'GET,',
+     *              'methods' => 'GET',
      *              'handler' => 'handler',
      *              'option' => [...],
      *          ],
@@ -97,7 +97,7 @@ class ORouter extends AbstractRouter
      *        [
      *              'start' => '/blog/post-',
      *              'regex' => '/blog/post-(\w+)',
-     *              'methods' => 'GET,',
+     *              'methods' => 'GET',
      *              'handler' => 'handler',
      *              'option' => [...],
      *        ],
@@ -117,14 +117,14 @@ class ORouter extends AbstractRouter
      *         // 必定包含的字符串
      *         'include' => '/profile',
      *         'regex' => '/(\w+)/profile',
-     *         'methods' => 'GET,',
+     *         'methods' => 'GET',
      *         'handler' => 'handler',
      *         'option' => [...],
      *     ],
      *     [
      *         'include' => null,
      *         'regex' => '/(\w+)/(\w+)',
-     *         'methods' => 'GET,POST,',
+     *         'methods' => 'GET,POST',
      *         'handler' => 'handler',
      *         'option' => [...],
      *     ],
@@ -232,7 +232,7 @@ class ORouter extends AbstractRouter
      */
     public function __call($method, array $args)
     {
-        if (count($args) < 2) {
+        if (\count($args) < 2) {
             throw new \InvalidArgumentException("The method [$method] parameters is missing.");
         }
 
@@ -351,9 +351,9 @@ class ORouter extends AbstractRouter
     {
         // if enable 'intercept'
         if ($intercept = $this->config['intercept']) {
-            if (is_string($intercept) && $intercept{0} === '/') {
+            if (\is_string($intercept) && $intercept{0} === '/') {
                 $path = $intercept;
-            } elseif (is_callable($intercept)) {
+            } elseif (\is_callable($intercept)) {
                 return [self::FOUND, $path, [
                     'handler' => $intercept,
                     'option' => [],
@@ -431,13 +431,14 @@ class ORouter extends AbstractRouter
      * @param null|string $path
      * @param null|string $method
      * @return mixed
+     * @throws \Throwable
      */
     public function dispatch($dispatcher = null, $path = null, $method = null)
     {
         if ($dispatcher) {
             if ($dispatcher instanceof DispatcherInterface) {
                 $this->dispatcher = $dispatcher;
-            } elseif (is_array($dispatcher)) {
+            } elseif (\is_array($dispatcher)) {
                 $this->dispatcher = new Dispatcher($dispatcher);
             }
         }
@@ -468,8 +469,8 @@ class ORouter extends AbstractRouter
         $cacheNumber = (int)$this->config['tmpCacheNumber'];
 
         // method not allowed
-        if (false === strpos($methods, $method . ',')) {
-            return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($methods, ','))];
+        if (false === strpos($methods . ',', $method . ',')) {
+            return [self::METHOD_NOT_ALLOWED, $path, explode(',', $methods)];
         }
 
         $conf['matches'] = self::filterMatches($conf['matches'], $conf);
@@ -582,6 +583,25 @@ class ORouter extends AbstractRouter
     public function setDispatcher(DispatcherInterface $dispatcher)
     {
         $this->dispatcher = $dispatcher;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGlobalOptions(): array
+    {
+        return $this->globalOptions;
+    }
+
+    /**
+     * @param array $globalOptions
+     * @return $this
+     */
+    public function setGlobalOptions(array $globalOptions)
+    {
+        $this->globalOptions = $globalOptions;
 
         return $this;
     }

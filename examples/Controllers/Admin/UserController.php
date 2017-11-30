@@ -16,11 +16,11 @@ class UserController
 {
     public function indexAction()
     {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
     public function infoAction()
     {
-        echo 'hello, this is ' . __METHOD__ . "<br>";
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 }

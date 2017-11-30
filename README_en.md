@@ -1,5 +1,9 @@
 # php simple router
 
+[![License](https://img.shields.io/packagist/l/inhere/console.svg?style=flat-square)](LICENSE.md)
+[![Php Version](https://img.shields.io/badge/php-%3E=5.6-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
+[![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
+
 a very lightweight and fast speed router.
 
 - Lightweight and fast speed, the search speed is not affected by the routing number

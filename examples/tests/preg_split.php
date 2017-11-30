@@ -21,7 +21,7 @@ $segments = preg_split('~' . $variable_regex . '(*SKIP)(*F) | \[~x', $withoutClo
 if ($numOptionals !== count($segments) - 1) {
     // If there are any ] in the middle of the route, throw a more specific error message
     if (preg_match('~' . $variable_regex . '(*SKIP)(*F) | \]~x', $routeWithoutClosingOptionals)) {
-        throw new \LogicException("Optional segments can only occur at the end of a route");
+        throw new \LogicException('Optional segments can only occur at the end of a route');
     }
 
     throw new \LogicException("Number of opening '[' and closing ']' does not match");
@@ -35,7 +35,7 @@ preg_match_all(
     PREG_OFFSET_CAPTURE | PREG_SET_ORDER
 );
 
-$e1 = "/user/{name}[/{id:[0-9]+}]";
+$e1 = '/user/{name}[/{id:[0-9]+}]';
 // $e2 = '/hello/{name}[/{foo}[/{bar}]]';
 $e2 = '/hello/{name}[/{foo}/{bar}]';
 

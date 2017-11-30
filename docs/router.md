@@ -177,6 +177,12 @@ $route = SRouter::match($path, $method);
         // 此路由的 handler callback
         'handler' => 'handler', 
         
+        // (可能存在)此路由的 原始path。 仅动态路由有
+        'original' => '/hi/{name}', 
+        
+        // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里。 仅动态路由有
+        'matches' => ['name' => value ],
+        
         // 此路由的自定义选项信息. 可能为空
         // - params - 来自添加路由时设置的参数匹配信息, 若有的话
         // 还可以自定义追加此路由的选项：如下经供参考

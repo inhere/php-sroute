@@ -26,6 +26,7 @@ class SRouter extends AbstractRouter
 {
     /** @var int  */
     private static $routeCounter = 0;
+    private static $cacheCounter = 0;
 
     /** @var string  */
     private static $currentGroupPrefix = '';
@@ -122,7 +123,7 @@ class SRouter extends AbstractRouter
      */
     public static function __callStatic($method, array $args)
     {
-        if (count($args) < 2) {
+        if (\count($args) < 2) {
             throw new \InvalidArgumentException("The method [$method] parameters is required.");
         }
 
@@ -233,9 +234,9 @@ class SRouter extends AbstractRouter
     {
         // if enable 'intercept'
         if ($intercept = static::$config['intercept']) {
-            if (is_string($intercept) && $intercept{0} === '/') {
+            if (\is_string($intercept) && $intercept{0} === '/') {
                 $path = $intercept;
-            } elseif (is_callable($intercept)) {
+            } elseif (\is_callable($intercept)) {
                 return [self::FOUND, $path, [
                     'handler' => $intercept,
                     'option' => [],
@@ -264,23 +265,9 @@ class SRouter extends AbstractRouter
         if (isset(self::$regularRoutes[$first])) {
             foreach (self::$regularRoutes[$first] as $conf) {
                 if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
-                    // method not allowed
-                    if (false === strpos($conf['methods'], $method . ',')) {
-                        return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
-                    }
+                    $conf['matches'] = $matches;
 
-                    $conf['matches'] = self::filterMatches($matches, $conf);
-
-                    // cache latest $number routes.
-                    if ($number > 0) {
-                        if (count(self::$routeCaches) === $number) {
-                            array_shift(self::$routeCaches);
-                        }
-
-                        self::$routeCaches[$path][$conf['methods']] = $conf;
-                    }
-
-                    return [self::FOUND, $path, $conf];
+                    return self::checkMatched($path, $method, $conf);
                 }
             }
         }
@@ -292,23 +279,9 @@ class SRouter extends AbstractRouter
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
-                // method not allowed
-                if (false === strpos($conf['methods'], $method . ',')) {
-                    return [self::METHOD_NOT_ALLOWED, $path, explode(',', trim($conf['methods'], ','))];
-                }
+                $conf['matches'] = $matches;
 
-                $conf['matches'] = self::filterMatches($matches, $conf);
-
-                // cache last $number routes.
-                if ($number > 0) {
-                    if (count(self::$routeCaches) === $number) {
-                        array_shift(self::$routeCaches);
-                    }
-
-                    self::$routeCaches[$path][$conf['methods']] = $conf;
-                }
-
-                return [self::FOUND, $path, $conf];
+                return self::checkMatched($path, $method, $conf);
             }
         }
 
@@ -337,13 +310,14 @@ class SRouter extends AbstractRouter
      * @param null|string $path
      * @param null|string $method
      * @return mixed
+     * @throws \Throwable
      */
     public static function dispatch($dispatcher = null, $path = null, $method = null)
     {
         if ($dispatcher) {
             if ($dispatcher instanceof DispatcherInterface) {
                 self::$dispatcher = $dispatcher;
-            } elseif (is_array($dispatcher)) {
+            } elseif (\is_array($dispatcher)) {
                 self::$dispatcher = new Dispatcher($dispatcher);
             }
         }
@@ -361,6 +335,40 @@ class SRouter extends AbstractRouter
 /// helper methods
 //////////////////////////////////////////////////////////////////////
 
+    /**
+     * checkMatched
+     * @param  string $path
+     * @param  string $method
+     * @param  array  $conf
+     * @return array
+     */
+    protected static function checkMatched($path, $method, array $conf)
+    {
+        $methods = $conf['methods'];
+        $cacheNumber = (int)self::$config['tmpCacheNumber'];
+
+        // method not allowed
+        if (false === strpos($methods . ',', $method . ',')) {
+            return [self::METHOD_NOT_ALLOWED, $path, explode(',', $methods)];
+        }
+
+        $conf['matches'] = self::filterMatches($conf['matches'], $conf);
+
+        // cache last $cacheNumber routes.
+        if ($cacheNumber > 0) {
+            if (self::$cacheCounter === $cacheNumber) {
+                array_shift(self::$routeCaches);
+            }
+
+            if (!isset(self::$routeCaches[$path][$methods])) {
+                self::$cacheCounter++;
+                self::$routeCaches[$path][$methods] = $conf;
+            }
+        }
+
+        return [self::FOUND, $path, $conf];
+    }
+    
     /**
      * @return int
      */
@@ -388,9 +396,9 @@ class SRouter extends AbstractRouter
     /**
      * @return array
      */
-    public static function getGlobalParams()
+    public static function getVagueRoutes()
     {
-        return self::$globalParams;
+        return self::$vagueRoutes;
     }
 
     /**
@@ -416,4 +424,5 @@ class SRouter extends AbstractRouter
     {
         self::$dispatcher = $dispatcher;
     }
+
 }
