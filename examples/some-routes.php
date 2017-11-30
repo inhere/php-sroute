@@ -13,6 +13,10 @@ function handler0() {
     echo 'hello, welcome';
 }
 
+function main_handler() {
+    echo 'hello, welcome. METHOD: ' . $_SERVER['REQUEST_METHOD'] . '. you request URI: ' . $_SERVER['REQUEST_URI'];
+}
+
 function post_handler() {
     echo 'hello, welcome. only allow POST';
 }
@@ -56,6 +60,21 @@ $routes = [
         'POST',
         '/post',
         'post_handler'
+    ],
+    [
+        'PUT',
+        '/put',
+        'main_handler'
+    ],
+    [
+        'DELETE',
+        '/del',
+        'main_handler'
+    ],
+    [
+        'DELETE',
+        '/del/{uid}',
+        'main_handler'
     ],
     [
         ['post', 'delete'],
