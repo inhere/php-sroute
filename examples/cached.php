@@ -24,8 +24,8 @@ $router = new CachedRouter([
     'cacheFile' => __DIR__ . '/cached/routes-cache.php',
     'cacheEnable' => 1,
 
-//    'intercept' => '/', // a route path
-//    'intercept' => function () {
+//    'matchAll' => '/', // a route path
+//    'matchAll' => function () {
 //        echo 'System Maintaining ... ...';
 //    },
 

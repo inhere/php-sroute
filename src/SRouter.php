@@ -74,10 +74,10 @@ class SRouter extends AbstractRouter
      * @var array
      */
     private static $config = [
-        'routesFile' => null,
+        'routesFile' => '',
         'ignoreLastSep' => false,
         'tmpCacheNumber' => 0,
-        'intercept' => null,
+        'matchAll' => false,
 
         // auto route match @like yii framework
         'autoRoute' => false,
@@ -110,9 +110,9 @@ class SRouter extends AbstractRouter
         }
     }
 
-//////////////////////////////////////////////////////////////////////
-/// route collection
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * route collection
+     ******************************************************************************/
 
     /**
      * Defines a route callback and method
@@ -220,9 +220,9 @@ class SRouter extends AbstractRouter
         return true;
     }
 
-//////////////////////////////////////////////////////////////////////
-/// route match
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * route match
+     ******************************************************************************/
 
     /**
      * find the matched route info for the given request uri path
@@ -232,13 +232,13 @@ class SRouter extends AbstractRouter
      */
     public static function match($path, $method = self::GET)
     {
-        // if enable 'intercept'
-        if ($intercept = static::$config['intercept']) {
-            if (\is_string($intercept) && $intercept{0} === '/') {
-                $path = $intercept;
-            } elseif (\is_callable($intercept)) {
+        // if enable 'matchAll'
+        if ($matchAll = static::$config['matchAll']) {
+            if (\is_string($matchAll) && $matchAll{0} === '/') {
+                $path = $matchAll;
+            } elseif (\is_callable($matchAll)) {
                 return [self::FOUND, $path, [
-                    'handler' => $intercept,
+                    'handler' => $matchAll,
                     'option' => [],
                 ]];
             }
@@ -247,7 +247,6 @@ class SRouter extends AbstractRouter
         // clear '//', '///' => '/'
         $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
         $method = strtoupper($method);
-        $number = static::$config['tmpCacheNumber'];
 
         // find in class cache.
         if (self::$routeCaches && isset(self::$routeCaches[$path])) {
@@ -300,9 +299,9 @@ class SRouter extends AbstractRouter
         return [self::NOT_FOUND, $path, null];
     }
 
-//////////////////////////////////////////////////////////////////////
-/// route callback handler dispatch
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * route callback handler dispatch
+     ******************************************************************************/
 
     /**
      * Runs the callback for the given request
@@ -331,9 +330,9 @@ class SRouter extends AbstractRouter
         })->dispatch($path, $method);
     }
 
-//////////////////////////////////////////////////////////////////////
-/// helper methods
-//////////////////////////////////////////////////////////////////////
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
 
     /**
      * checkMatched
@@ -368,7 +367,7 @@ class SRouter extends AbstractRouter
 
         return [self::FOUND, $path, $conf];
     }
-    
+
     /**
      * @return int
      */

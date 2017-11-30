@@ -19,6 +19,7 @@ interface RouterInterface
     const NOT_FOUND = 2;
     const METHOD_NOT_ALLOWED = 3;
 
+    const FAV_ICON = '/favicon.ico';
     const DEFAULT_REGEX = '[^/]+';
 
     // supported method list

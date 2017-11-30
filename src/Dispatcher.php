@@ -232,6 +232,7 @@ class Dispatcher implements DispatcherInterface
      *  'matches' => []
      * ]
      * @return mixed
+     * @throws \Throwable
      */
     protected function callRouteHandler($path, $method, $handler, array $args = [])
     {
@@ -299,6 +300,7 @@ class Dispatcher implements DispatcherInterface
      *  True: The `$path` is matched success, but action not exist on route parser
      *  False: The `$path` is matched fail
      * @return bool|mixed
+     * @throws \Throwable
      */
     protected function handleNotFound($path, $method, $actionNotExist = false)
     {
