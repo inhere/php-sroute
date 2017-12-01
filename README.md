@@ -241,14 +241,14 @@ Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
 
 ### 匹配所有
 
-配置 `intercept` 可用于拦截所有请求。 （例如网站维护时）
+配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
 
-可允许配置 `intercept` 的值为 
+可允许配置 `matchAll` 的值为 
 
 - 路由path
 
 ```php
-    'intercept' => '/about', // a route path
+    'matchAll' => '/about', // a route path
 ```
 
 将会直接执行此路由后停止执行
@@ -256,7 +256,7 @@ Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
 - 回调
 
 ```php 
-    'intercept' => function () {
+    'matchAll' => function () {
         echo '系统维护中 :)';
     },
 ```
@@ -298,7 +298,18 @@ $method = $_SERVER['REQUEST_METHOD'];
 $route = SRouter::match($path, $method);
 ```
 
+<a name="#matched-route-info"></a>
 将会返回如下格式的信息. 可以根据此信息进行 判断匹配是否成功 -> 路由调度
+
+> 始终是三个元素的数组。第一二个元素是固定的, 第三个根据状态有所变化
+
+- 第一个 匹配结果状态. 只有三个 `FOUND`, `NOT_FOUND`, `METHOD_NOT_ALLOWED`
+- 第二个 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
+- 第三个 根据状态有所不同： 
+  - `FOUND` 路由信息 `array`
+  - `NOT_FOUND` 为空 `null`
+  - `METHOD_NOT_ALLOWED` 返回的是允许的 METHODs `array`
+- 结构信息如下:
 
 ```php
 [
@@ -309,12 +320,14 @@ $route = SRouter::match($path, $method);
     // 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
     'URI PATH', 
     
-    // 路由信息。 匹配失败时(RouterInterface::NOT_FOUND)为 null 
+    // NOT_FOUND 匹配失败时为 null, 
+    // METHOD_NOT_ALLOWED 返回的是允许的 METHODs
+    // FOUND 时为下面的路由信息
     [
         // (可能存在)配置的请求 METHOD。 自动匹配时无此key
         'method' => 'GET', 
         
-        // 此路由的 handler callback
+        // (必定存在)此路由的 handler callback
         'handler' => 'handler', 
         
         // (可能存在)此路由的 原始path。 仅动态路由有
@@ -341,7 +354,6 @@ $route = SRouter::match($path, $method);
             // 'enter' => null,
             // 'leave' => null,
         ], 
-        
     ],
 ]
 ```

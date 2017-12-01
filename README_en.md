@@ -14,7 +14,7 @@ a very lightweight and fast speed router.
 - more interesting config, please see `SRouter::setConfig`
 - You can also do not have to configure anything, it can also work very well
 
-**[中文README](./README_zh.md)更详细**
+## [中文README](./README_zh.md)更详细
 
 ## project
 
@@ -178,16 +178,16 @@ Support automatic matching like yii routed to the controller, need config `autoR
     'controllerSuffix' => 'Controller', // The controller class suffix
 ```
 
-### intercept all requests
+### match all requests
 
-you can config 'intercept', All requests for intercepting。 (eg. web site maintenance)
+you can config 'matchAll', All requests for matchAlling。 (eg. web site maintenance)
 
-you can config 'intercept' as
+you can config 'matchAll' as
 
 - route path
 
 ```php
-    'intercept' => '/about', // a route path
+    'matchAll' => '/about', // a route path
 ```
 
 Will be executed directly the route.
@@ -195,7 +195,7 @@ Will be executed directly the route.
 - callback
 
 ```php 
-    'intercept' => function () {
+    'matchAll' => function () {
         echo 'System Maintaining ... ...';
     },
 ```
@@ -209,8 +209,8 @@ Will directly execute the callback
 SRouter::setConfig([
     'ignoreLastSep' => true,
     
-//    'intercept' => '/', // a route path
-//    'intercept' => function () {
+//    'matchAll' => '/', // a route path
+//    'matchAll' => function () {
 //        echo 'System Maintaining ... ...';
 //    },
     
@@ -230,10 +230,10 @@ SRouter::setConfig([
     // ignore last '/' char. If is True, will clear last '/', so '/home' equals to '/home/'
     'ignoreLastSep' => false,
 
-    // intercept all request.
-    // 1. If is a valid URI path, will intercept all request uri to the path.
-    // 2. If is a closure, will intercept all request then call it
-    'intercept' => '', // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
+    // matchAll all request.
+    // 1. If is a valid URI path, will matchAll all request uri to the path.
+    // 2. If is a closure, will matchAll all request then call it
+    'matchAll' => '', // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
 
     // auto route match @like yii framework
     // If is True, will auto find the handler controller file.
