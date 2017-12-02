@@ -304,10 +304,7 @@ class ORouter extends AbstractRouter
         }
 
         $this->routeCounter++;
-        $opts = array_replace([
-            'params' => null,
-            // 'domains' => null,
-        ], $this->currentGroupOption, $opts);
+        $opts = array_merge($this->currentGroupOption, $opts);
         $conf = [
             'methods' => $methods,
             'handler' => $handler,
@@ -324,7 +321,7 @@ class ORouter extends AbstractRouter
         // have dynamic param params
 
         // replace param name To pattern regex
-        $params = static::getAvailableParams(self::$globalParams, $opts['params']);
+        $params = static::getAvailableParams(self::$globalParams, isset($opts['params']) ? $opts['params'] : null);
         list($first, $conf) = static::parseParamRoute($route, $params, $conf);
 
         // route string have regular

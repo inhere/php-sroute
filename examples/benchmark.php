@@ -15,12 +15,13 @@
 require __DIR__ . '/simple-loader.php';
 
 global $argv;
-$n = isset( $argv[1] ) ? (int)$argv[1] : 1000;
+$n = isset($argv[1]) ? (int)$argv[1] : 1000;
 
-echo "Will generate $n routes.\n";
+echo "There are generate $n routes. and dynamic route with 10% chance\n\n";
 
 // generates a random request url
-function random_request_url() {
+function random_request_url()
+{
     $characters = 'abcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
     $randomString = '/';
@@ -30,29 +31,37 @@ function random_request_url() {
     for ($i = 0; $i < $rand; $i++) {
         $randomString .= $characters[random_int(0, $charactersLength - 1)];
 
-        if( random_int(1, 10) === 1 ) {
+        if (random_int(1, 10) === 1) {
             $randomString .= '/';
         }
     }
 
     // add dynamic route with 10% chance
-    if ( random_int(1, 10) === 1 ) {
-        $randomString = rtrim( $randomString, '/' ) . '/[:part]';
+    if (random_int(1, 10) === 1) {
+        $randomString = rtrim($randomString, '/') . '/{name}';
     }
 
     return $randomString;
 }
 
 // generate a random request method
-function random_request_method() {
-    static $methods = array( 'GET', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE' );
-    $random_key = array_rand( $methods );
-    return $methods[ $random_key ];
+function random_request_method()
+{
+    static $methods = ['GET', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE'];
+    $random_key = array_rand($methods);
+    return $methods[$random_key];
+}
+
+function pretty_match_result($ret)
+{
+    $str = json_encode($ret, JSON_PRETTY_PRINT);
+
+    return str_replace('\\', '', $str);
 }
 
 // prepare benchmark data
 $requests = array();
-for($i=0; $i<$n; $i++) {
+for ($i = 0; $i < $n; $i++) {
     $requests[] = array(
         'method' => random_request_method(),
         'url' => random_request_url(),
@@ -63,35 +72,57 @@ $router = new \Inhere\Route\ORouter();
 
 // map requests
 $start = microtime(true);
-foreach($requests as $r) {
-    $router->map($r['method'], $r['url'], function(){});
+foreach ($requests as $r) {
+    $router->map($r['method'], $r['url'], 'handler_func');
 }
 $end = microtime(true);
 $map_time = $end - $start;
-echo 'Map time (add routes): ' . number_format($map_time, 6). ' seconds' . PHP_EOL;
+echo "Build time ($n routes): " . number_format($map_time, 6) . " seconds\n";
 
+$r = $requests[0];
+
+// match first known route
+$start = microtime(true);
+$ret = $router->match($r['url'], $r['method']);
+$end = microtime(true);
+$matchTime = $end - $start;
+echo 'Match time (first route): ' . number_format($matchTime, 6) . " seconds(URI: {$r['url']})\n";
+// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // pick random route to match
-$r = $requests[array_rand($requests)];
+$r = $requests[random_int(0, $n)];
 
 // match random known route
 $start = microtime(true);
-$router->match($r['url'], $r['method']);
+$ret = $router->match($r['url'], $r['method']);
 $end = microtime(true);
-$match_time_known_route = $end - $start;
-echo 'Match time (known route): ' . number_format($match_time_known_route, 6). ' seconds' . PHP_EOL;
+$matchTime = $end - $start;
+echo 'Match time (random route): ' . number_format($matchTime, 6) . " seconds(URI: {$r['url']})\n" ;
+// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
-// match unexisting route
+$r = $requests[$n-1];
+
+// match first known route
 $start = microtime(true);
-$router->match('/55-foo-bar', 'GET');
+$ret = $router->match($r['url'], $r['method']);
+$end = microtime(true);
+$matchTime = $end - $start;
+echo 'Match time (last route): ' . number_format($matchTime, 6) . " seconds(URI: {$r['url']})\n";
+// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
+
+// match un-existing route
+$start = microtime(true);
+$ret = $router->match('/55-foo-bar', 'GET');
 $end = microtime(true);
 $match_time_unknown_route = $end - $start;
-echo 'Match time (unknown route): ' . number_format($match_time_unknown_route, 6). ' seconds' . PHP_EOL;
+echo 'Match time (unknown route): ' . number_format($match_time_unknown_route, 6) . " seconds\n";
+// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // print totals
-echo 'Total time: ' . number_format($map_time + $match_time_known_route + $match_time_unknown_route, 6). ' seconds' . PHP_EOL;
-echo 'Memory usage: ' . round( memory_get_usage() / 1024 ) . 'KB' . PHP_EOL;
-echo 'Peak memory usage: ' . round( memory_get_peak_usage( true ) / 1024 ) . 'KB' . PHP_EOL;
+echo 'Total time: ' . number_format($map_time + $matchTime + $match_time_unknown_route,
+        6) . ' seconds' . PHP_EOL;
+echo 'Memory usage: ' . round(memory_get_usage() / 1024) . ' KB' . PHP_EOL;
+echo 'Peak memory usage: ' . round(memory_get_peak_usage(true) / 1024) . ' KB' . PHP_EOL;
 
 
 

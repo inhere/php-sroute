@@ -247,9 +247,13 @@ class SRouter extends AbstractRouter
         $path = self::formatUriPath($path, self::$config['ignoreLastSep']);
         $method = strtoupper($method);
 
-        // find in class cache.
+        // find in routes temp cache.
         if (self::$routeCaches && isset(self::$routeCaches[$path])) {
-            return self::findInStaticRoutes(self::$staticRoutes[$path], $path, $method);
+            $data = self::findInStaticRoutes(self::$routeCaches[$path], $path, $method, true);
+
+            if ($data[0] === self::FOUND) {
+                return $data;
+            }
         }
 
         // is a static path route
