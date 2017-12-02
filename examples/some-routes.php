@@ -72,6 +72,26 @@ $routes = [
         'main_handler'
     ],
     [
+        'GET',
+        '/user/{id}',
+        'main_handler'
+    ],
+    [
+        'POST',
+        '/user/{id}',
+        'main_handler'
+    ],
+    [
+        'PUT',
+        '/user/{id}',
+        'main_handler'
+    ],
+    [
+        'DELETE',
+        '/user/{id}',
+        'main_handler'
+    ],
+    [
         'DELETE',
         '/del/{uid}',
         'main_handler'
