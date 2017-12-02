@@ -238,9 +238,10 @@ abstract class AbstractRouter implements RouterInterface
      * ]
      * @param string $path
      * @param string $method
+     * @param bool $inCache
      * @return array
      */
-    public static function findInStaticRoutes(array $routes, $path, $method)
+    public static function findInStaticRoutes(array $routes, $path, $method, $inCache = false)
     {
         $methods = null;
 
@@ -250,6 +251,10 @@ abstract class AbstractRouter implements RouterInterface
             }
 
             $methods .= $conf['methods'] . ',';
+        }
+
+        if ($inCache) {
+            return [self::NOT_FOUND];
         }
 
         // method not allowed
