@@ -100,6 +100,24 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
+     * @param string $path
+     * @param bool $ignoreLastSep
+     * @return string
+     */
+    protected static function formatUriPath($path, $ignoreLastSep)
+    {
+        // clear '//', '///' => '/'
+        $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
+
+        // setting 'ignoreLastSep'
+        if ($path !== '/' && $ignoreLastSep) {
+            $path = rtrim($path, '/');
+        }
+
+        return $path;
+    }
+
+    /**
      * @param array $matches
      * @param array $conf
      * @return array
@@ -235,7 +253,11 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // method not allowed
-        return [self::METHOD_NOT_ALLOWED, $path, array_unique(explode(',', trim($methods, ',')))];
+        return [
+            self::METHOD_NOT_ALLOWED,
+            $path,
+            array_unique(explode(',', trim($methods, ',')))
+        ];
     }
 
     /**

@@ -361,14 +361,8 @@ class ORouter extends AbstractRouter
             }
         }
 
-        // clear '//', '///' => '/'
-        $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
+        $path = self::formatUriPath($path, $this->config['ignoreLastSep']);
         $method = strtoupper($method);
-
-        // setting 'ignoreLastSep'
-        if ($path !== '/' && $this->config['ignoreLastSep']) {
-            $path = rtrim($path, '/');
-        }
 
         // find in route caches.
         if ($this->routeCaches && isset($this->routeCaches[$path])) {
@@ -381,15 +375,20 @@ class ORouter extends AbstractRouter
         }
 
         $first = self::getFirstFromPath($path);
+        $founded = [];
 
         // is a regular dynamic route(the first node is 1th level index key).
         if (isset($this->regularRoutes[$first])) {
             foreach ($this->regularRoutes[$first] as $conf) {
                 if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                     $conf['matches'] = $matches;
-
-                    return $this->checkMatched($path, $method, $conf);
+                    $founded[] = $conf;
+                    // return $this->checkMatched($path, $method, $conf);
                 }
+            }
+
+            if ($founded) {
+                return $this->findInPossibleParamRoutes($founded, $path, $method);
             }
         }
 
@@ -401,9 +400,13 @@ class ORouter extends AbstractRouter
 
             if (preg_match($conf['regex'], $path, $matches)) {
                 $conf['matches'] = $matches;
-
-                return $this->checkMatched($path, $method, $conf);
+                $founded[] = $conf;
+                // return $this->checkMatched($path, $method, $conf);
             }
+        }
+
+        if ($founded) {
+            return $this->findInPossibleParamRoutes($founded, $path, $method);
         }
 
         // handle Auto Route
@@ -457,23 +460,43 @@ class ORouter extends AbstractRouter
      ******************************************************************************/
 
     /**
-     * checkMatched
-     * @param  string $path
-     * @param  string $method
-     * @param  array  $conf
+     * @param array $routes
+     * @param string $path
+     * @param string $method
      * @return array
      */
-    protected function checkMatched($path, $method, array $conf)
+    protected function findInPossibleParamRoutes(array $routes, $path, $method)
+    {
+        $methods = null;
+
+        foreach ($routes as $conf) {
+            if (false !== strpos($conf['methods'] . ',', $method . ',')) {
+                $conf['matches'] = self::filterMatches($conf['matches'], $conf);
+
+                $this->cacheMatchedParamRoute($path, $conf);
+
+                return [self::FOUND, $path, $conf];
+            }
+
+            $methods .= $conf['methods'] . ',';
+        }
+
+        // method not allowed
+        return [
+            self::METHOD_NOT_ALLOWED,
+            $path,
+            array_unique(explode(',', trim($methods, ',')))
+        ];
+    }
+
+    /**
+     * @param string $path
+     * @param array $conf
+     */
+    protected function cacheMatchedParamRoute($path, array $conf)
     {
         $methods = $conf['methods'];
         $cacheNumber = (int)$this->config['tmpCacheNumber'];
-
-        // method not allowed
-        if (false === strpos($methods . ',', $method . ',')) {
-            return [self::METHOD_NOT_ALLOWED, $path, explode(',', $methods)];
-        }
-
-        $conf['matches'] = self::filterMatches($conf['matches'], $conf);
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0) {
@@ -486,8 +509,6 @@ class ORouter extends AbstractRouter
                 $this->routeCaches[$path][$methods] = $conf;
             }
         }
-
-        return [self::FOUND, $path, $conf];
     }
 
     /**

@@ -244,8 +244,7 @@ class SRouter extends AbstractRouter
             }
         }
 
-        // clear '//', '///' => '/'
-        $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
+        $path = self::formatUriPath($path, self::$config['ignoreLastSep']);
         $method = strtoupper($method);
 
         // find in class cache.
@@ -259,15 +258,19 @@ class SRouter extends AbstractRouter
         }
 
         $first = self::getFirstFromPath($path);
+        $founded = [];
 
         // is a regular dynamic route(the first char is 1th level index key).
         if (isset(self::$regularRoutes[$first])) {
             foreach (self::$regularRoutes[$first] as $conf) {
                 if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                     $conf['matches'] = $matches;
-
-                    return self::checkMatched($path, $method, $conf);
+                    $founded[] = $conf;
                 }
+            }
+
+            if ($founded) {
+                return self::findInPossibleParamRoutes($founded, $path, $method);
             }
         }
 
@@ -279,9 +282,12 @@ class SRouter extends AbstractRouter
 
             if (preg_match($conf['regex'], $path, $matches)) {
                 $conf['matches'] = $matches;
-
-                return self::checkMatched($path, $method, $conf);
+                $founded[] = $conf;
             }
+        }
+
+        if ($founded) {
+            return self::findInPossibleParamRoutes($founded, $path, $method);
         }
 
         // handle Auto Route
@@ -335,23 +341,43 @@ class SRouter extends AbstractRouter
      ******************************************************************************/
 
     /**
-     * checkMatched
-     * @param  string $path
-     * @param  string $method
-     * @param  array  $conf
+     * @param array $routes
+     * @param string $path
+     * @param string $method
      * @return array
      */
-    protected static function checkMatched($path, $method, array $conf)
+    protected static function findInPossibleParamRoutes(array $routes, $path, $method)
+    {
+        $methods = null;
+
+        foreach ($routes as $conf) {
+            if (false !== strpos($conf['methods'] . ',', $method . ',')) {
+                $conf['matches'] = self::filterMatches($conf['matches'], $conf);
+
+                self::cacheMatchedParamRoute($path, $conf);
+
+                return [self::FOUND, $path, $conf];
+            }
+
+            $methods .= $conf['methods'] . ',';
+        }
+
+        // method not allowed
+        return [
+            self::METHOD_NOT_ALLOWED,
+            $path,
+            array_unique(explode(',', trim($methods, ',')))
+        ];
+    }
+
+    /**
+     * @param string $path
+     * @param array $conf
+     */
+    protected static function cacheMatchedParamRoute($path, array $conf)
     {
         $methods = $conf['methods'];
         $cacheNumber = (int)self::$config['tmpCacheNumber'];
-
-        // method not allowed
-        if (false === strpos($methods . ',', $method . ',')) {
-            return [self::METHOD_NOT_ALLOWED, $path, explode(',', $methods)];
-        }
-
-        $conf['matches'] = self::filterMatches($conf['matches'], $conf);
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0) {
@@ -364,8 +390,6 @@ class SRouter extends AbstractRouter
                 self::$routeCaches[$path][$methods] = $conf;
             }
         }
-
-        return [self::FOUND, $path, $conf];
     }
 
     /**

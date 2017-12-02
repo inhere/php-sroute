@@ -14,12 +14,19 @@ class ORouterTest extends TestCase
         $r = new ORouter();
         $r->get('/', 'handler0');
         $r->get('/test', 'handler1');
+
+        $r->get('/test1[/optional]', 'handler');
+
         $r->get('/{name}', 'handler2');
+
         $r->get('/hi/{name}', 'handler3', [
             'params' => [
                 'name' => '\w+',
             ]
         ]);
+
+        $r->post('/hi/{name}', 'handler4');
+        $r->put('/hi/{name}', 'handler5');
 
         return $r;
     }
@@ -28,12 +35,10 @@ class ORouterTest extends TestCase
     {
         $router = $this->createRouter();
 
-        $this->assertSame(4, $router->count());
+        $this->assertTrue(4 < $router->count());
         $this->assertCount(2, $router->getStaticRoutes());
-        $this->assertCount(1, $router->getRegularRoutes());
-        $this->assertCount(1, $router->getVagueRoutes());
     }
-    
+
     public function testStaticRoute()
     {
         $router = $this->createRouter();
@@ -48,6 +53,32 @@ class ORouterTest extends TestCase
         $this->assertSame(ORouter::FOUND, $status);
         $this->assertSame('/', $path);
         $this->assertSame('handler0', $route['handler']);
+
+    }
+
+    public function testOptionalParamRoute()
+    {
+        $router = $this->createRouter();
+
+        // route: '/test1[/optional]'
+        $ret = $router->match('/test1', 'GET');
+
+        $this->assertCount(3, $ret);
+
+        list($status, , $route) = $ret;
+
+        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame('handler', $route['handler']);
+
+        // route: '/test1[/optional]'
+        $ret = $router->match('/test1/optional', 'GET');
+
+        $this->assertCount(3, $ret);
+
+        list($status, , $route) = $ret;
+
+        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame('handler', $route['handler']);
 
     }
 
@@ -78,5 +109,37 @@ class ORouterTest extends TestCase
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('/hi/{name}', $route['original']);
         $this->assertSame('handler3', $route['handler']);
+    }
+
+    public function testMethods()
+    {
+        $router = $this->createRouter();
+
+        // route: /hi/{name}
+        $ret = $router->match('/hi/tom', 'post');
+
+        $this->assertCount(3, $ret);
+
+        list($status, , $route) = $ret;
+        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertArrayHasKey('name', $route['matches']);
+        $this->assertSame('handler4', $route['handler']);
+
+        // route: /hi/{name}
+        $ret = $router->match('/hi/tom', 'put');
+
+        list($status, , $route) = $ret;
+        $this->assertCount(3, $ret);
+        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertArrayHasKey('name', $route['matches']);
+        $this->assertSame('handler5', $route['handler']);
+
+        // route: /hi/{name}
+        $ret = $router->match('/hi/tom', 'delete');
+
+        list($status, , $methods) = $ret;
+        $this->assertCount(3, $ret);
+        $this->assertSame(ORouter::METHOD_NOT_ALLOWED, $status);
+        $this->assertCount(3, $methods);
     }
 }
