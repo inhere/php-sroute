@@ -48,7 +48,7 @@ composer require inhere/sroute
 
 ```bash
 git clone https://github.com/inhere/php-srouter.git // github
-git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
+git clone https://gitee.com/inhere/php-srouter.git // git@osc
 ```
 
 ## 压测
@@ -57,50 +57,55 @@ git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
 
 - 第一条路由匹配
 - 最后一条路由匹配
-- 不会匹配到的路由
+- 不存在的路由匹配
+
+详细的测试代码请看仓库 https://github.com/ulue/php-router-benchmark
+
+- An example route: `/9b37eef21e/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/bda37e9f9b`
 
 压测结果
 
 ## Worst-case matching
 
-This benchmark matches the last route and unknown route. It generates a randomly prefixed and suffixed route in an attempt to thwart any optimization. 1,000 routes each with 9 arguments.
-
-This benchmark consists of 14 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
-
-Test Name | Results | Time | + Interval | Change
+Test Name | Results | Time(ms) | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
-**ORouter** - unknown route (1000 routes) | 988 | 0.0000120063 | +0.0000000000 | baseline
-**ORouter** - last route (1000 routes) | 988 | 0.0000122867 | +0.0000002804 | 2% slower
-**SRouter** - unknown route (1000 routes) | 983 | 0.0000123633 | +0.0000003570 | 3% slower
-**SRouter** - last route (1000 routes) | 998 | 0.0000142205 | +0.0000022142 | 18% slower
-Symfony2 Dumped - last route (1000 routes) | 990 | 0.0000468579 | +0.0000348516 | 290% slower
-Symfony2 Dumped - unknown route (1000 routes) | 995 | 0.0000490268 | +0.0000370205 | 308% slower
-FastRoute - unknown route (1000 routes) | 968 | 0.0001358227 | +0.0001238164 | 1031% slower
-FastRoute(cached) - last route (1000 routes) | 999 | 0.0001397746 | +0.0001277683 | 1064% slower
-FastRoute(cached) - unknown route (1000 routes) | 960 | 0.0001424064 | +0.0001304001 | 1086% slower
-FastRoute - last route (1000 routes) | 999 | 0.0001659009 | +0.0001538946 | 1282% slower
-Pux PHP - unknown route (1000 routes) | 964 | 0.0013507533 | +0.0013387470 | 11150% slower
-Pux PHP - last route (1000 routes) | 999 | 0.0014749475 | +0.0014629412 | 12185% slower
-Symfony2 - unknown route (1000 routes) | 979 | 0.0038350259 | +0.0038230196 | 31842% slower
-Symfony2 - last route (1000 routes) | 999 | 0.0040060059 | +0.0039939995 | 33266% slower
+inhere/sroute(ORouter) - unknown route (1000 routes) | 987 | 0.010222 | +0.000000 | baseline
+inhere/sroute(SRouter) - unknown route (1000 routes) | 984 | 0.012239 | +0.002017 | 20% slower
+inhere/sroute(SRouter) - last route (1000 routes) | 999 | 0.024386 | +0.014820 | 155% slower
+inhere/sroute(ORouter) - last route (1000 routes) | 975 | 0.024554 | +0.014989 | 157% slower
+Symfony2 Cached - last route (1000 routes) | 997 | 0.029091 | +0.019525 | 204% slower
+Symfony2 Cached - unknown route (1000 routes) | 985 | 0.037226 | +0.027661 | 289% slower
+FastRoute - unknown route (1000 routes) | 988 | 0.089904 | +0.080338 | 840% slower
+FastRoute(cached) - unknown route (1000 routes) | 988 | 0.091358 | +0.081792 | 855% slower
+FastRoute(cached) - last route (1000 routes) | 999 | 0.092567 | +0.083001 | 868% slower
+FastRoute - last route (1000 routes) | 999 | 0.113668 | +0.104103 | 1088% slower
+phroute/phroute - unknown route (1000 routes) | 987 | 0.168871 | +0.159305 | 1665% slower
+phroute/phroute - last route (1000 routes) | 999 | 0.169914 | +0.160348 | 1676% slower
+Pux PHP - unknown route (1000 routes) | 981 | 0.866280 | +0.856714 | 8956% slower
+Pux PHP - last route (1000 routes) | 999 | 0.941322 | +0.931757 | 9741% slower
+AltoRouter - unknown route (1000 routes) | 982 | 2.245384 | +2.235819 | 23373% slower
+AltoRouter - last route (1000 routes) | 979 | 2.281995 | +2.272429 | 23756% slower
+Symfony2 - unknown route (1000 routes) | 984 | 2.488247 | +2.478681 | 25912% slower
+Symfony2 - last route (1000 routes) | 999 | 2.540170 | +2.530605 | 26455% slower
+Macaw - unknown route (1000 routes) | 982 | 2.617635 | +2.608069 | 27265% slower
+Macaw - last route (1000 routes) | 999 | 2.700128 | +2.690562 | 28127% slower
 
 
 ## First route matching
 
-This benchmark tests how quickly each router can match the first route. 1,000 routes each with 9 arguments.
-
-This benchmark consists of 7 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
-
-
-Test Name | Results | Time | + Interval | Change
+Test Name | Results | Time(ms) | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
-Pux PHP - first route(1000) | 993 | 0.0000105502 | +0.0000000000 | baseline
-**ORouter** - first route(1000) | 984 | 0.0000118334 | +0.0000012832 | 12% slower
-**SRouter** - first route(1000) | 982 | 0.0000118473 | +0.0000012971 | 12% slower
-FastRoute(cached) - first route(1000) | 999 | 0.0000143361 | +0.0000037859 | 36% slower
-FastRoute - first route(1000) | 999 | 0.0000143980 | +0.0000038477 | 36% slower
-Symfony2 Dumped - first route | 993 | 0.0000350874 | +0.0000245372 | 233% slower
-Symfony2 - first route | 999 | 0.0000630564 | +0.0000525061 | 498% slower
+Pux PHP - first route(1000) | 997 | 0.006587 | +0.000000 | baseline
+FastRoute - first route(1000) | 999 | 0.008751 | +0.002165 | 33% slower
+phroute/phroute - first route (1000 routes) | 999 | 0.021902 | +0.015315 | 233% slower
+Symfony2 Dumped - first route | 997 | 0.022254 | +0.015667 | 238% slower
+ORouter - first route(1000) | 993 | 0.025026 | +0.018440 | 280% slower
+SRouter - first route(1000) | 997 | 0.025553 | +0.018967 | 288% slower
+noodlehaus/dispatch - first route (1000 routes) | 989 | 0.030126 | +0.023540 | 357% slower
+AltoRouter - first route (1000 routes) | 994 | 0.041488 | +0.034902 | 530% slower
+Symfony2 - first route | 991 | 0.047335 | +0.040748 | 619% slower
+FastRoute(cached) - first route(1000) | 999 | 0.092703 | +0.086117 | 1307% slower
+Macaw - first route (1000 routes) | 999 | 2.710132 | +2.703545 | 41047% slower
 
 ## 使用
 
@@ -443,16 +448,11 @@ $router->any('/user[/{name}]', 'app\controllers\UserController');
 
 ```php
 $router->dispatch($dispatcher);
-// $router->dispatch($dispatcher);
 ```
 
 ## 运行示例
 
 示例代码在 `examples` 下。
-
-- 静态版本
-
-你可以通过 `php -S 127.0.0.1:5670 examples/static.php` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
 
 - 对象版本
 
