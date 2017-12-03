@@ -1,191 +1,227 @@
 <?php
 /*
- * This inhere/sroute routes cache file. 
+ * This `inhere/sroute` routes cache file.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2017-10-18 10:47:53
- * @notice Please don't change it.
+ * @date 2017-12-03 13:48:20
+ * @count 22
+ * @notice Please don't edit it.
  */
-return [
-    'staticRoutes' => array (
-  '/routes' => 
-  array (
-    0 => 
-    array (
-      'methods' => 'GET,',
+return array (
+// static routes
+'staticRoutes' => array (
+  '/routes' => array (
+    'GET' => array (
+      'methods' => 'GET',
       'handler' => 'dump_routes',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
-  '/' => 
-  array (
-    0 => 
-    array (
-      'methods' => 'GET,',
+  '/' => array (
+    'GET' => array (
+      'methods' => 'GET',
       'handler' => 'handler0',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
-  '/home' => 
-  array (
-    0 => 
-    array (
-      'methods' => 'GET,',
+  '/home' => array (
+    'GET' => array (
+      'methods' => 'GET',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@index',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
-  '/post' => 
-  array (
-    0 => 
-    array (
-      'methods' => 'POST,',
+  '/post' => array (
+    'POST' => array (
+      'methods' => 'POST',
       'handler' => 'post_handler',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
-  '/pd' => 
-  array (
-    0 => 
-    array (
-      'methods' => 'POST,DELETE,',
+  '/put' => array (
+    'PUT' => array (
+      'methods' => 'PUT',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/del' => array (
+    'DELETE' => array (
+      'methods' => 'DELETE',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/pd' => array (
+    'POST,DELETE' => array (
+      'methods' => 'POST,DELETE',
       'handler' => 'multi_method_handler',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
-  '/user/login' => 
-  array (
-    0 => 
-    array (
-      'methods' => 'GET,POST,',
+  '/user/login' => array (
+    'GET,POST' => array (
+      'methods' => 'GET,POST',
       'handler' => 'default_handler',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
 ),
-    'regularRoutes' => array (
-  '50be3774f6' => 
-  array (
-    0 => 
-    array (
+// regular routes
+'regularRoutes' => array (
+  '50be3774f6' => array (
+    0 => array (
       'regex' => '#^/50be3774f6/(?P<arg1>[^/]+)/(?P<arg2>[^/]+)/(?P<arg3>[^/]+)/(?P<arg4>[^/]+)/(?P<arg5>[^/]+)/(?P<arg6>[^/]+)/(?P<arg7>[^/]+)/(?P<arg8>[^/]+)/(?P<arg9>[^/]+)/850726135a$#',
       'start' => '/50be3774f6/',
-      'methods' => 'GET,',
+      'original' => '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a',
+      'methods' => 'GET',
       'handler' => 'handler0',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
-  'about' => 
-  array (
-    0 => 
-    array (
-      'regex' => '#^/about(?:\\.html)?$#',
-      'start' => '/about',
-      'methods' => 'GET,',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+  'user' => array (
+    0 => array (
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/',
+      'original' => '/user/{id}',
+      'methods' => 'GET',
+      'handler' => 'main_handler',
+      'option' => array (
       ),
     ),
-  ),
-  'test' => 
-  array (
-    0 => 
-    array (
-      'regex' => '#^/test(?:/optional)?$#',
-      'start' => '/test',
-      'methods' => 'GET,',
+    1 => array (
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/',
+      'original' => '/user/{id}',
+      'methods' => 'POST',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    2 => array (
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/',
+      'original' => '/user/{id}',
+      'methods' => 'PUT',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    3 => array (
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/',
+      'original' => '/user/{id}',
+      'methods' => 'DELETE',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    4 => array (
+      'regex' => '#^/user/(?P<some>[^/]+)$#',
+      'start' => '/user/',
+      'original' => '/user/{some}',
+      'methods' => 'GET',
       'handler' => 'default_handler',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
-  'my' => 
-  array (
-    0 => 
-    array (
-      'regex' => '#^/my(?:/(?P<name>[^/]+)(?:/(?P<age>\\d+))?)?$#',
-      'start' => '/my',
-      'methods' => 'GET,',
-      'handler' => 'my_handler',
-      'option' => 
-      array (
-        'params' => 
-        array (
-          'age' => '\\d+',
-        ),
-        'domains' => NULL,
-        'defaults' => 
-        array (
-          'name' => 'God',
-          'age' => 25,
-        ),
+  'del' => array (
+    0 => array (
+      'regex' => '#^/del/(?P<uid>[^/]+)$#',
+      'start' => '/del/',
+      'original' => '/del/{uid}',
+      'methods' => 'DELETE',
+      'handler' => 'main_handler',
+      'option' => array (
       ),
     ),
   ),
-  'home' => 
-  array (
-    0 => 
-    array (
+  'home' => array (
+    0 => array (
       'regex' => '#^/home/(?P<act>[a-zA-Z][\\w-]+)$#',
       'start' => '/home/',
-      'methods' => 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,SEARCH,CONNECT,TRACE,',
+      'original' => '/home/{act}',
+      'methods' => 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,SEARCH,CONNECT,TRACE',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController',
-      'option' => 
-      array (
-        'params' => NULL,
-        'domains' => NULL,
+      'option' => array (
       ),
     ),
   ),
 ),
-    'vagueRoutes' => array (
-  0 => 
-  array (
+// vague routes
+'vagueRoutes' => array (
+  0 => array (
+    'regex' => '#^/about(?:\\.html)?$#',
+    'include' => '/about',
+    'original' => '/about[.html]',
+    'methods' => 'GET',
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
+    'option' => array (
+    ),
+  ),
+  1 => array (
     'regex' => '#^/(?P<name>blog|saying)$#',
     'include' => NULL,
-    'methods' => 'GET,',
+    'original' => '/{name}',
+    'methods' => 'GET',
     'handler' => 'default_handler',
-    'option' => 
-    array (
-      'params' => 
-      array (
+    'option' => array (
+      'params' => array (
         'name' => 'blog|saying',
       ),
-      'domains' => NULL,
+    ),
+  ),
+  2 => array (
+    'regex' => '#^/test(?:/optional)?$#',
+    'include' => '/test',
+    'original' => '/test[/optional]',
+    'methods' => 'GET',
+    'handler' => 'default_handler',
+    'option' => array (
+    ),
+  ),
+  3 => array (
+    'regex' => '#^/blog-(?P<post>[^/]+)$#',
+    'include' => '/blog-',
+    'original' => '/blog-{post}',
+    'methods' => 'GET',
+    'handler' => 'default_handler',
+    'option' => array (
+    ),
+  ),
+  4 => array (
+    'regex' => '#^/blog(?:index)?$#',
+    'include' => '/blog',
+    'original' => '/blog[index]',
+    'methods' => 'GET',
+    'handler' => 'default_handler',
+    'option' => array (
+    ),
+  ),
+  5 => array (
+    'regex' => '#^/my(?:/(?P<name>[^/]+)(?:/(?P<age>\\d+))?)?$#',
+    'include' => '/my',
+    'original' => '/my[/{name}[/{age}]]',
+    'methods' => 'GET',
+    'handler' => 'my_handler',
+    'option' => array (
+      'params' => array (
+        'age' => '\\d+',
+      ),
+      'defaults' => array (
+        'name' => 'God',
+        'age' => 25,
+      ),
     ),
   ),
 ),
-];
+);

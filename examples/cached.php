@@ -22,7 +22,7 @@ $router = new CachedRouter([
 
 //    'cacheFile' => '',
     'cacheFile' => __DIR__ . '/cached/routes-cache.php',
-    'cacheEnable' => 1,
+    'cacheEnable' => 0,
 
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {
@@ -38,13 +38,14 @@ $router = new CachedRouter([
 
 function dump_routes() {
     global $router;
-
-    var_dump(
-        $router->getStaticRoutes(),
-        $router->getVagueRoutes()
-    );
-
-    var_dump($router->getRegularRoutes());
+    echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
+    echo "<h2>RegularRoutes:</h2>\n";
+    print_r($router->getStaticRoutes());
+    echo "<h2>RegularRoutes:</h2>\n";
+    print_r($router->getRegularRoutes());
+    echo "<h2>VagueRoutes:</h2>\n";
+    print_r($router->getVagueRoutes());
+    echo '</pre>';
 }
 
 $router->get('/routes', 'dump_routes');
@@ -89,4 +90,8 @@ $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
 // $dispatcher->dispatch();
 
 // var_dump($router->getConfig(),$router);die;
-$router->dispatch($dispatcher);
+try {
+    $router->dispatch($dispatcher);
+} catch (Throwable $e) {
+    var_dump($e);
+}

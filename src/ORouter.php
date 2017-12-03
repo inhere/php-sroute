@@ -18,6 +18,7 @@ namespace Inhere\Route;
  * @method options(string $route, mixed $handler, array $opts = [])
  * @method head(string $route, mixed $handler, array $opts = [])
  * @method search(string $route, mixed $handler, array $opts = [])
+ * @method connect(string $route, mixed $handler, array $opts = [])
  * @method trace(string $route, mixed $handler, array $opts = [])
  * @method any(string $route, mixed $handler, array $opts = [])
  */
@@ -49,10 +50,10 @@ class ORouter extends AbstractRouter
      * @var array[]
      * [
      *     '/user/login' => [
-     *         // METHODS => [...] // 这里 key 和 value里的 'methods' 是一样的。仅是为了防止重复添加
-     *         'GET,POST' => [
+     *          // METHOD => [...] // 这里 key 和 value里的 'methods' 是一样的
+     *          'GET' => [
      *              'handler' => 'handler',
-     *              'methods' => 'GET,POST',
+     *              'methods' => 'GET',
      *              'option' => [...],
      *          ],
      *          'PUT' => [
@@ -61,7 +62,8 @@ class ORouter extends AbstractRouter
      *              'option' => [...],
      *          ],
      *          ...
-     *      ]
+     *      ],
+     *      ... ...
      * ]
      */
     private $staticRoutes = [];
@@ -81,7 +83,7 @@ class ORouter extends AbstractRouter
      *              'handler' => 'handler',
      *              'option' => [...],
      *          ],
-     *          ... ...
+     *          ...
      *      ],
      *     'add' => [
      *          [
@@ -91,7 +93,7 @@ class ORouter extends AbstractRouter
      *              'handler' => 'handler',
      *              'option' => [...],
      *          ],
-     *          ... ...
+     *          ...
      *      ],
      *     'blog' => [
      *        [
@@ -101,8 +103,9 @@ class ORouter extends AbstractRouter
      *              'handler' => 'handler',
      *              'option' => [...],
      *        ],
-     *        ... ...
+     *        ...
      *     ],
+     *     ... ...
      * ]
      */
     private $regularRoutes = [];
@@ -113,20 +116,27 @@ class ORouter extends AbstractRouter
      * e.g '/{name}/profile' '/{some}/{some2}'
      * @var array
      * [
-     *     [
-     *         // 必定包含的字符串
-     *         'include' => '/profile',
-     *         'regex' => '/(\w+)/profile',
-     *         'methods' => 'GET',
-     *         'handler' => 'handler',
-     *         'option' => [...],
+     *     // 使用 HTTP METHOD 作为 key进行分组
+     *     'GET' => [
+     *          [
+     *              // 必定包含的字符串
+     *              'include' => '/profile',
+     *              'regex' => '/(\w+)/profile',
+     *              'methods' => 'GET',
+     *              'handler' => 'handler',
+     *              'option' => [...],
+     *          ],
+     *          ...
      *     ],
-     *     [
-     *         'include' => null,
-     *         'regex' => '/(\w+)/(\w+)',
-     *         'methods' => 'GET,POST',
-     *         'handler' => 'handler',
-     *         'option' => [...],
+     *     'POST' => [
+     *          [
+     *              'include' => null,
+     *              'regex' => '/(\w+)/(\w+)',
+     *              'methods' => 'POST',
+     *              'handler' => 'handler',
+     *              'option' => [...],
+     *          ],
+     *          ...
      *     ],
      *      ... ...
      * ]
@@ -139,35 +149,6 @@ class ORouter extends AbstractRouter
      * @var array[]
      */
     private $routeCaches = [];
-
-    /**
-     * some setting for self
-     * @var array
-     */
-    protected $config = [
-        // the routes php file.
-        'routesFile' => '',
-
-        // ignore last '/' char. If is True, will clear last '/'.
-        'ignoreLastSep' => false,
-
-        // 'tmpCacheNumber' => 100,
-        'tmpCacheNumber' => 0,
-
-        // match all request.
-        // 1. If is a valid URI path, will matchAll all request uri to the path.
-        // 2. If is a closure, will matchAll all request then call it
-        // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-        'matchAll' => false,
-
-        // auto route match @like yii framework
-        // If is True, will auto find the handler controller file.
-        'autoRoute' => false,
-        // The default controllers namespace, is valid when `'enable' = true`
-        'controllerNamespace' => '', // eg: 'app\\controllers'
-        // controller suffix, is valid when `'enable' = true`
-        'controllerSuffix' => '',    // eg: 'Controller'
-    ];
 
     /** @var DispatcherInterface */
     private $dispatcher;
@@ -232,11 +213,15 @@ class ORouter extends AbstractRouter
      */
     public function __call($method, array $args)
     {
-        if (\count($args) < 2) {
-            throw new \InvalidArgumentException("The method [$method] parameters is missing.");
+        if (\in_array(strtoupper($method), self::SUPPORTED_METHODS, true)) {
+            if (\count($args) < 2) {
+                throw new \InvalidArgumentException("The method [$method] parameters is missing.");
+            }
+
+            return $this->map($method, ...$args);
         }
 
-        return $this->map($method, $args[0], $args[1], isset($args[2]) ? $args[2] : []);
+        throw new \InvalidArgumentException("The method [$method] not exists in the class.");
     }
 
     /**
@@ -286,11 +271,10 @@ class ORouter extends AbstractRouter
         }
 
         $hasPrefix = (bool)$this->currentGroupPrefix;
-        // validate and format arguments
         $methods = static::validateArguments($methods, $handler);
 
+        // always add '/' prefix.
         if ($route = trim($route)) {
-            // always add '/' prefix.
             $route = $route{0} === '/' ? $route : '/' . $route;
         } elseif (!$hasPrefix) {
             $route = '/';
@@ -306,29 +290,31 @@ class ORouter extends AbstractRouter
         $this->routeCounter++;
         $opts = array_merge($this->currentGroupOption, $opts);
         $conf = [
-            'methods' => $methods,
             'handler' => $handler,
             'option' => $opts,
         ];
 
-        // no dynamic param params
-        if (self::isNoDynamicParam($route)) {
-            $this->staticRoutes[$route][$methods] = $conf;
+        // it is static route
+        if (self::isStaticRoute($route)) {
+            foreach (explode(',', $methods) as $method) {
+                $this->staticRoutes[$route][$method] = $conf;
+            }
 
             return $this;
         }
 
-        // have dynamic param params
+        $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
 
-        // replace param name To pattern regex
-        $params = static::getAvailableParams(self::$globalParams, isset($opts['params']) ? $opts['params'] : null);
-        list($first, $conf) = static::parseParamRoute($route, $params, $conf);
+        list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
 
         // route string have regular
         if ($first) {
+            $conf['methods'] = $methods;
             $this->regularRoutes[$first][] = $conf;
         } else {
-            $this->vagueRoutes[] = $conf;
+            foreach (explode(',', $methods) as $method) {
+                $this->vagueRoutes[$method][] = $conf;
+            }
         }
 
         return $this;
@@ -344,7 +330,7 @@ class ORouter extends AbstractRouter
      * @param string $path
      * @return array
      */
-    public function match($path, $method = self::GET)
+    public function match($path, $method = 'GET')
     {
         // if enable 'matchAll'
         if ($matchAll = $this->config['matchAll']) {
@@ -358,62 +344,48 @@ class ORouter extends AbstractRouter
             }
         }
 
-        $path = self::formatUriPath($path, $this->config['ignoreLastSep']);
+        $path = $this->formatUriPath($path, $this->config['ignoreLastSep']);
         $method = strtoupper($method);
 
         // find in route caches.
-        if ($this->routeCaches && isset($this->routeCaches[$path])) {
-            $data = self::findInStaticRoutes($this->routeCaches[$path], $path, $method, true);
-
-            if ($data[0] === self::FOUND) {
-                return $data;
-            }
+        if ($this->routeCaches && isset($this->routeCaches[$path][$method])) {
+            return [self::FOUND, $path, $this->routeCaches[$path][$method]];
         }
 
         // is a static route path
-        if ($this->staticRoutes && isset($this->staticRoutes[$path])) {
-            return self::findInStaticRoutes($this->staticRoutes[$path], $path, $method);
+        if ($this->staticRoutes && isset($this->staticRoutes[$path][$method])) {
+            $conf = $this->staticRoutes[$path][$method];
+
+            return [self::FOUND, $path, $conf];
         }
 
-        $first = self::getFirstFromPath($path);
-        $founded = [];
+        $first = $this->getFirstFromPath($path);
+        $allowedMethods = [];
 
         // is a regular dynamic route(the first node is 1th level index key).
         if (isset($this->regularRoutes[$first])) {
-            foreach ($this->regularRoutes[$first] as $conf) {
-                if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
-                    $conf['matches'] = $matches;
-                    $founded[] = $conf;
-                    // return $this->checkMatched($path, $method, $conf);
-                }
+            $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, $method);
+
+            if ($result[0] === self::FOUND) {
+                return $result;
             }
 
-            if ($founded) {
-                return $this->findInPossibleParamRoutes($founded, $path, $method);
-            }
+            $allowedMethods = $result[1];
         }
 
         // is a irregular dynamic route
-        foreach ($this->vagueRoutes as $conf) {
-            if ($conf['include'] && false === strpos($path, $conf['include'])) {
-                continue;
-            }
+        if (isset($this->vagueRoutes[$method])) {
+            $result = $this->findInVagueRoutes($this->vagueRoutes[$method], $path, $method);
 
-            if (preg_match($conf['regex'], $path, $matches)) {
-                $conf['matches'] = $matches;
-                $founded[] = $conf;
-                // return $this->checkMatched($path, $method, $conf);
+            if ($result[0] === self::FOUND) {
+                return $result;
             }
-        }
-
-        if ($founded) {
-            return $this->findInPossibleParamRoutes($founded, $path, $method);
         }
 
         // handle Auto Route
         if (
             $this->config['autoRoute'] &&
-            ($handler = self::matchAutoRoute($path, $this->config['controllerNamespace'], $this->config['controllerSuffix']))
+            ($handler = $this->matchAutoRoute($path, $this->config['controllerNamespace'], $this->config['controllerSuffix']))
         ) {
             return [self::FOUND, $path, [
                 'handler' => $handler,
@@ -421,8 +393,144 @@ class ORouter extends AbstractRouter
             ]];
         }
 
+        // For HEAD requests, attempt fallback to GET
+        if ($method === self::HEAD) {
+            if (isset($this->routeCaches[$path]['GET'])) {
+                return [self::FOUND, $path, $this->routeCaches[$path]['GET']];
+            }
+
+            if (isset($this->staticRoutes[$path]['GET'])) {
+                return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
+            }
+
+            if (isset($this->regularRoutes[$first])) {
+                $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, 'GET');
+
+                if ($result[0] === self::FOUND) {
+                    return $result;
+                }
+            }
+
+            if (isset($this->vagueRoutes['GET'])) {
+                $result = $this->findInVagueRoutes($this->vagueRoutes['GET'], $path, 'GET');
+
+                if ($result[0] === self::FOUND) {
+                    return $result;
+                }
+            }
+        }
+
+        // If nothing else matches, try fallback routes
+        if ($this->staticRoutes && isset($this->staticRoutes['*'][$method])) {
+            return [self::FOUND, $path, $this->staticRoutes['*'][$method]];
+        }
+
+        // collect allowed methods from: staticRoutes, vagueRoutes
+
+        if (isset($this->staticRoutes[$path])) {
+            $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
+        }
+
+        foreach ($this->vagueRoutes as $m => $routes) {
+            if ($method === $m) {
+                continue;
+            }
+
+            $result = $this->findInVagueRoutes($this->vagueRoutes['GET'], $path, $m);
+
+            if ($result[0] === self::FOUND) {
+                $allowedMethods[] = $method;
+            }
+        }
+
+        if ($allowedMethods) {
+            return [
+                self::METHOD_NOT_ALLOWED,
+                $path,
+                array_unique($allowedMethods)
+            ];
+        }
+
         // oo ... not found
         return [self::NOT_FOUND, $path, null];
+    }
+
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
+
+    /**
+     * @param array $routes
+     * @param string $path
+     * @param string $method
+     * @return array
+     */
+    protected function findInRegularRoutes(array $routes, $path, $method)
+    {
+        $allowedMethods = '';
+
+        foreach ($routes as $conf) {
+            if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
+                $allowedMethods .= $conf['methods'] . ',';
+
+                if (false !== strpos($conf['methods'] . ',', $method . ',')) {
+                    $conf['matches'] = self::filterMatches($matches, $conf);
+
+                    $this->cacheMatchedParamRoute($path, $method, $conf);
+
+                    return [self::FOUND, $path, $conf];
+                }
+            }
+        }
+
+        return [self::NOT_FOUND, explode(',', trim($allowedMethods, ','))];
+    }
+
+    /**
+     * @param array $routes
+     * @param string $path
+     * @param string $method
+     * @return array
+     */
+    protected function findInVagueRoutes(array $routes, $path, $method)
+    {
+        foreach ($routes as $conf) {
+            if ($conf['include'] && false === strpos($path, $conf['include'])) {
+                continue;
+            }
+
+            if (preg_match($conf['regex'], $path, $matches)) {
+                $conf['matches'] = self::filterMatches($matches, $conf);
+
+                $this->cacheMatchedParamRoute($path, $method, $conf);
+
+                return [self::FOUND, $path, $conf];
+            }
+        }
+
+        return [self::NOT_FOUND];
+    }
+
+    /**
+     * @param string $path
+     * @param string $method
+     * @param array $conf
+     */
+    protected function cacheMatchedParamRoute($path, $method, array $conf)
+    {
+        $cacheNumber = (int)$this->config['tmpCacheNumber'];
+
+        // cache last $cacheNumber routes.
+        if ($cacheNumber > 0) {
+            if ($this->cacheCounter === $cacheNumber) {
+                array_shift($this->routeCaches);
+            }
+
+            if (!isset($this->routeCaches[$path][$method])) {
+                $this->cacheCounter++;
+                $this->routeCaches[$path][$method] = $conf;
+            }
+        }
     }
 
     /*******************************************************************************
@@ -454,62 +562,6 @@ class ORouter extends AbstractRouter
         return $this->dispatcher->setMatcher(function ($p, $m) {
             return $this->match($p, $m);
         })->dispatch($path, $method);
-    }
-
-    /*******************************************************************************
-     * helper methods
-     ******************************************************************************/
-
-    /**
-     * @param array $routes
-     * @param string $path
-     * @param string $method
-     * @return array
-     */
-    protected function findInPossibleParamRoutes(array $routes, $path, $method)
-    {
-        $methods = null;
-
-        foreach ($routes as $conf) {
-            if (false !== strpos($conf['methods'] . ',', $method . ',')) {
-                $conf['matches'] = self::filterMatches($conf['matches'], $conf);
-
-                $this->cacheMatchedParamRoute($path, $conf);
-
-                return [self::FOUND, $path, $conf];
-            }
-
-            $methods .= $conf['methods'] . ',';
-        }
-
-        // method not allowed
-        return [
-            self::METHOD_NOT_ALLOWED,
-            $path,
-            array_unique(explode(',', trim($methods, ',')))
-        ];
-    }
-
-    /**
-     * @param string $path
-     * @param array $conf
-     */
-    protected function cacheMatchedParamRoute($path, array $conf)
-    {
-        $methods = $conf['methods'];
-        $cacheNumber = (int)$this->config['tmpCacheNumber'];
-
-        // cache last $cacheNumber routes.
-        if ($cacheNumber > 0) {
-            if ($this->cacheCounter === $cacheNumber) {
-                array_shift($this->routeCaches);
-            }
-
-            if (!isset($this->routeCaches[$path][$methods])) {
-                $this->cacheCounter++;
-                $this->routeCaches[$path][$methods] = $conf;
-            }
-        }
     }
 
     /**
@@ -574,20 +626,6 @@ class ORouter extends AbstractRouter
     public function getRouteCaches()
     {
         return $this->routeCaches;
-    }
-
-    /**
-     * @param null|string $name
-     * @param null|mixed $default
-     * @return array|string
-     */
-    public function getConfig($name = null, $default = null)
-    {
-        if ($name) {
-            return isset($this->config[$name]) ? $this->config[$name] : $default;
-        }
-
-        return $this->config;
     }
 
     /**

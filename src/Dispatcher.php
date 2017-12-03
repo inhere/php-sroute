@@ -389,8 +389,8 @@ class Dispatcher implements DispatcherInterface
             $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
             header($protocol . ' 405 Method Not Allowed');
 
-            echo "<div style='width: 500px; margin: 5% auto;'><h1>:( Method not allowed <code style='font-weight: normal;'>$method: $path</code></h1>",
-            "<p>Method not allowed. Must be one of: <strong>$allow</strong></p></div>";
+            echo "<div style='width: 500px; margin: 5% auto;'><h1>:( Method not allowed <code style='font-weight: normal;font-size: 16px'>for $method $path</code></h1>",
+            "<p style='font-size: 20px'>Method not allowed. Must be one of: <strong>$allow</strong></p></div>";
         };
     }
 

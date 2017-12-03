@@ -6,7 +6,7 @@
  * Time: 上午12:00
  *
  * you can test use:
- *  php -S 127.0.0.1:5670 -t examples/static
+ *  php -S 127.0.0.1:5670 examples/static.php
  *
  * then you can access url: http://127.0.0.1:5670
  */
@@ -39,7 +39,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function () use($rs){
+        SRouter::group($route[0], function () use($rs){
             foreach ($rs as $r) {
                 SRouter::map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
             }
@@ -50,6 +50,16 @@ foreach ($routes as $route) {
 
     SRouter::map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
 }
+
+SRouter::get('routes', function () {
+    echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
+    print_r(SRouter::getStaticRoutes());
+    echo "<h2>RegularRoutes:</h2>\n";
+    print_r(SRouter::getRegularRoutes());
+    echo "<h2>VagueRoutes:</h2>\n";
+    print_r(SRouter::getVagueRoutes());
+    echo '</pre>';
+});
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

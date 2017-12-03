@@ -9,12 +9,12 @@ a very lightweight and fast speed router.
 - Lightweight and fast speed, the search speed is not affected by the routing number
 - supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
 - support event: `found` `notFound`. Some things you can do when the triggering event (such as logging, etc.)
-- support manual dispatch a URI route by `SRouter::dispatch($path, $method)`, you can dispatch a URI in your logic.
+- support manual dispatch a URI route by `$router->dispatch($path, $method)`, you can dispatch a URI in your logic.
 - Support automatic matching routing like yii framework, by config `autoRoute`. 
-- more interesting config, please see `SRouter::setConfig`
+- more interesting config, please see `$router->setConfig`
 - You can also do not have to configure anything, it can also work very well
 
-## [中文README](./README_zh.md)更详细
+## [中文README](./README.md)更详细
 
 ## project
 
@@ -88,43 +88,45 @@ Symfony2 - first route | 999 | 0.0000630564 | +0.0000525061 | 498% slower
 first, import the class
 
 ```php
-use Inhere\Route\SRouter;
+use Inhere\Route\ORouter;
+
+$router = new ORouter();
 ```
 
 ## add some routes
 
 ```php
 // match GET. handler use Closure
-SRouter::get('/', function() {
+$router->get('/', function() {
     echo 'hello';
 });
 
 // access 'test/john'
-SRouter::get('/test/{name}', function($params) {
+$router->get('/test/{name}', function($params) {
     echo $params['name']; // 'john'
 });
 
 // match POST
-SRouter::post('/user/login', function() {
+$router->post('/user/login', function() {
     var_dump($_POST);
 });
 
 // match GET or POST
-SRouter::map(['get', 'post'], '/user/login', function() {
+$router->map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
 // match any method
-SRouter::any('/home', function() {
+$router->any('/home', function() {
     echo 'hello, you request page is /home';
 });
 
 // route group
-SRouter::group('/user', function () {
-    SRouter::get('/', function () {
+$router->group('/user', function () {
+    $router->get('/', function () {
         echo 'hello. you access: /user/';
     });
-    SRouter::get('/index', function () {
+    $router->get('/index', function () {
         echo 'hello. you access: /user/index';
     });
 });
@@ -134,7 +136,7 @@ SRouter::group('/user', function () {
 
 ```php
 // if you config 'ignoreLastSep' => true, '/index' is equals to '/index/'
-SRouter::get('/index', 'app\controllers\Home@index');
+$router->get('/index', 'app\controllers\Home@index');
 ```
 
 ### dynamic action
@@ -145,10 +147,10 @@ match dynamic action, config `'dynamicAction' => true`
 
 ```php
 // access '/home/test' will call 'app\controllers\Home::test()'
-SRouter::any('/home/{name}', app\controllers\Home::class);
+$router->any('/home/{name}', app\controllers\Home::class);
 
 // can match '/home', '/home/test'
-SRouter::any('/home[/{name}]', app\controllers\Home::class);
+$router->any('/home[/{name}]', app\controllers\Home::class);
 ```
 
 ### use action executor
@@ -158,13 +160,13 @@ if you config `'actionExecutor' => 'run'`
 ```php
 // access '/user', will call app\controllers\User::run('')
 // access '/user/profile', will call app\controllers\User::run('profile')
-SRouter::get('/user', 'app\controllers\User');
-SRouter::get('/user/profile', 'app\controllers\User');
+$router->get('/user', 'app\controllers\User');
+$router->get('/user/profile', 'app\controllers\User');
 
 // if config 'actionExecutor' => 'run' and 'dynamicAction' => true,
 // access '/user', will call app\controllers\User::run('')
 // access '/user/profile', will call app\controllers\User::run('profile')
-SRouter::get('/user[/{name}]', 'app\controllers\User');
+$router->get('/user[/{name}]', 'app\controllers\User');
 ```
 
 
@@ -206,7 +208,7 @@ Will directly execute the callback
 
 ```php
 // set config
-SRouter::setConfig([
+$router->setConfig([
     'ignoreLastSep' => true,
     
 //    'matchAll' => '/', // a route path
@@ -245,7 +247,7 @@ SRouter::setConfig([
 ]
 ```
 
-> NOTICE: you must call `SRouter::setConfig()` on before the add route.
+> NOTICE: you must call `$router->setConfig()` on before the add route.
 
 ## route dispatcher
 
@@ -275,7 +277,7 @@ $dispatcher->on('notFound', function ($uri) {
 ## begin dispatch
 
 ```php
-SRouter::dispatch($dispatcher);
+$router->dispatch($dispatcher);
 ```
 
 ## examples

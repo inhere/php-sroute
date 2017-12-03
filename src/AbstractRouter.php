@@ -28,6 +28,35 @@ abstract class AbstractRouter implements RouterInterface
     ];
 
     /**
+     * some setting for self
+     * @var array
+     */
+    protected $config = [
+        // the routes php file.
+        'routesFile' => '',
+
+        // ignore last '/' char. If is True, will clear last '/'.
+        'ignoreLastSep' => false,
+
+        // 'tmpCacheNumber' => 100,
+        'tmpCacheNumber' => 0,
+
+        // match all request.
+        // 1. If is a valid URI path, will matchAll all request uri to the path.
+        // 2. If is a closure, will matchAll all request then call it
+        // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
+        'matchAll' => false,
+
+        // auto route match @like yii framework
+        // If is True, will auto find the handler controller file.
+        'autoRoute' => false,
+        // The default controllers namespace, is valid when `'enable' = true`
+        'controllerNamespace' => '', // eg: 'app\\controllers'
+        // controller suffix, is valid when `'enable' = true`
+        'controllerSuffix' => '',    // eg: 'Controller'
+    ];
+
+    /**
      * validate and format arguments
      * @param string|array $methods
      * @param mixed $handler
@@ -69,11 +98,11 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * has dynamic param
+     * is Static Route
      * @param string $route
      * @return bool
      */
-    protected static function isNoDynamicParam($route)
+    protected static function isStaticRoute($route)
     {
         return strpos($route, '{') === false && strpos($route, '[') === false;
     }
@@ -82,7 +111,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param string $path
      * @return string
      */
-    protected static function getFirstFromPath($path)
+    protected function getFirstFromPath($path)
     {
         $tmp = trim($path, '/'); // clear first,end '/'
 
@@ -104,7 +133,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param bool $ignoreLastSep
      * @return string
      */
-    protected static function formatUriPath($path, $ignoreLastSep)
+    protected function formatUriPath($path, $ignoreLastSep)
     {
         // clear '//', '///' => '/'
         $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
@@ -147,7 +176,7 @@ abstract class AbstractRouter implements RouterInterface
      * @return array
      * @throws \LogicException
      */
-    public static function parseParamRoute($route, array $params, array $conf)
+    public function parseParamRoute($route, array $params, array $conf)
     {
         $tmp = $route;
 
@@ -222,57 +251,13 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * @param array $routes
-     * [
-     *   'GET,POST' => [
-     *       'handler' => 'handler',
-     *       'methods' => 'GET,POST',
-     *       'option' => [...],
-     *   ],
-     *   'PUT' => [
-     *       'handler' => 'handler',
-     *       'methods' => 'PUT',
-     *       'option' => [...],
-     *   ],
-     *   ...
-     * ]
-     * @param string $path
-     * @param string $method
-     * @param bool $inCache
-     * @return array
-     */
-    public static function findInStaticRoutes(array $routes, $path, $method, $inCache = false)
-    {
-        $methods = null;
-
-        foreach ($routes as $conf) {
-            if (false !== strpos($conf['methods'] . ',', $method . ',')) {
-                return [self::FOUND, $path, $conf];
-            }
-
-            $methods .= $conf['methods'] . ',';
-        }
-
-        if ($inCache) {
-            return [self::NOT_FOUND];
-        }
-
-        // method not allowed
-        return [
-            self::METHOD_NOT_ALLOWED,
-            $path,
-            array_unique(explode(',', trim($methods, ',')))
-        ];
-    }
-
-    /**
      * handle auto route match, when config `'autoRoute' => true`
      * @param string $path The route path
      * @param string $controllerNamespace controller namespace. eg: 'app\\controllers'
      * @param string $controllerSuffix controller suffix. eg: 'Controller'
      * @return bool|callable
      */
-    public static function matchAutoRoute($path, $controllerNamespace, $controllerSuffix = '')
+    public function matchAutoRoute($path, $controllerNamespace, $controllerSuffix = '')
     {
         $cnp = trim($controllerNamespace);
         $sfx = trim($controllerSuffix);
@@ -327,12 +312,13 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * @param array $params
      * @param array $tmpParams
      * @return array
      */
-    public static function getAvailableParams(array $params, $tmpParams)
+    public function getAvailableParams(array $tmpParams)
     {
+        $params = self::$globalParams;
+
         if ($tmpParams) {
             foreach ($tmpParams as $name => $pattern) {
                 $key = trim($name, '{}');
@@ -380,6 +366,20 @@ abstract class AbstractRouter implements RouterInterface
     {
         $name = trim($name, '{} ');
         self::$globalParams[$name] = $pattern;
+    }
+
+    /**
+     * @param null|string $name
+     * @param null|mixed $default
+     * @return array|string
+     */
+    public function getConfig($name = null, $default = null)
+    {
+        if ($name) {
+            return isset($this->config[$name]) ? $this->config[$name] : $default;
+        }
+
+        return $this->config;
     }
 
     /**

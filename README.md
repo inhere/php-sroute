@@ -10,13 +10,13 @@
 - 支持路由组。支持路由参数定义，以及丰富的自定义路由选项(比如设定 默认值、domains、schemas等检查限制)
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
 - 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute`. 
-- 三个版本：静态版本 `SRouter`, 对象版本 `ORouter`, 支持路由缓存的对象版本 `CachedRouter`
+- 2个版本：对象版本 `ORouter`, 支持路由缓存的对象版本 `CachedRouter`
 
 内置了一个调度器：
 
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取`action`名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
-- 支持通过方法 `SRouter::dispatch($path, $method)` 手动调度一个路由
+- 支持通过方法 `$router->dispatch($path, $method)` 手动调度一个路由
 - 你即使不配置任何东西, 它也能很好的工作
 
 **[EN README](./README.md)**
@@ -112,19 +112,21 @@ Symfony2 - first route | 999 | 0.0000630564 | +0.0000525061 | 498% slower
 首先, 导入类
 
 ```php
-use Inhere\Route\SRouter;
+use Inhere\Route\ORouter;
+
+$router = new ORouter();
 ```
 
 ## 添加路由
 
 ```php
 // 匹配 GET 请求. 处理器是个闭包 Closure
-SRouter::get('/', function() {
+$router->get('/', function() {
     echo 'hello';
 });
 
 // 匹配参数 'test/john'
-SRouter::get('/test/{name}', function($params) {
+$router->get('/test/{name}', function($params) {
     echo $params['name']; // 'john'
 }, [
     'params' => [
@@ -133,7 +135,7 @@ SRouter::get('/test/{name}', function($params) {
 ]);
 
 // 可选参数支持。匹配  'hello' 'hello/john'
-SRouter::get('/hello[/{name}]', function() {
+$router->get('/hello[/{name}]', function() {
     echo $params['name'] ?? 'No input'; // 'john'
 }, [
     'params' => [
@@ -142,36 +144,36 @@ SRouter::get('/hello[/{name}]', function() {
 ]);
 
 // 匹配 POST 请求
-SRouter::post('/user/login', function() {
+$router->post('/user/login', function() {
     var_dump($_POST);
 });
 
 // 匹配 GET 或者 POST
-SRouter::map(['get', 'post'], '/user/login', function() {
+$router->map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
 // 允许任何请求方法
-SRouter::any('/home', function() {
+$router->any('/home', function() {
     echo 'hello, you request page is /home';
 });
-SRouter::any('/404', function() {
+$router->any('/404', function() {
     echo "Sorry,This page not found.";
 });
 
 // 路由组
-SRouter::group('/user', function () {
-    SRouter::get('/', function () {
+$router->group('/user', function () {
+    $router->get('/', function () {
         echo 'hello. you access: /user/';
     });
-    SRouter::get('/index', function () {
+    $router->get('/index', function () {
         echo 'hello. you access: /user/index';
     });
 });
 
 // 使用 控制器
-SRouter::get('/', app\controllers\HomeController::class);
-SRouter::get('/index', 'app\controllers\HomeController@index');
+$router->get('/', app\controllers\HomeController::class);
+$router->get('/index', 'app\controllers\HomeController@index');
 ```
 
 > 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
@@ -267,7 +269,7 @@ Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
 
 ```php
 // set config
-SRouter::setConfig([
+$router->setConfig([
     'ignoreLastSep' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
@@ -275,7 +277,7 @@ SRouter::setConfig([
 ]);
 ```
 
-> NOTICE: 必须在添加路由之前调用 `SRouter::setConfig()` 
+> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
 
 ## 路由匹配
 
@@ -295,7 +297,7 @@ array public function match($path, $method)
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-$route = SRouter::match($path, $method);
+$route = $router->match($path, $method);
 ```
 
 <a name="#matched-route-info"></a>
@@ -391,10 +393,10 @@ $dispatcher->on('notFound', function ($uri) {
 通过`@`符号连接控制器类和方法名可以指定执行方法。
 
 ```php
-SRouter::get('/', app\controllers\HomeController::class);
+$router->get('/', app\controllers\HomeController::class);
 
-SRouter::get('/index', 'app\controllers\HomeController@index');
-SRouter::get('/about', 'app\controllers\HomeController@about');
+$router->get('/index', 'app\controllers\HomeController@index');
+$router->get('/about', 'app\controllers\HomeController@about');
 ```
 
 > NOTICE: 若第二个参数仅仅是个 类，将会尝试执行通过 `defaultAction` 配置的默认方法
@@ -407,10 +409,10 @@ SRouter::get('/about', 'app\controllers\HomeController@about');
 
 ```php
 // 访问 '/home/test' 将会执行 'app\controllers\HomeController::test()'
-SRouter::any('/home/{any}', app\controllers\HomeController::class);
+$router->any('/home/{any}', app\controllers\HomeController::class);
 
 // 可匹配 '/home', '/home/test' 等
-SRouter::any('/home[/{name}]', app\controllers\HomeController::class);
+$router->any('/home[/{name}]', app\controllers\HomeController::class);
 ```
 
 > NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
@@ -426,21 +428,21 @@ SRouter::any('/home[/{name}]', app\controllers\HomeController::class);
 
 ```php
 // 访问 '/user', 将会调用 app\controllers\UserController::run('')
-SRouter::get('/user', 'app\controllers\UserController');
+$router->get('/user', 'app\controllers\UserController');
 
 // 访问 '/user/profile', 将会调用 app\controllers\UserController::run('profile')
-SRouter::get('/user/profile', 'app\controllers\UserController');
+$router->get('/user/profile', 'app\controllers\UserController');
 
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
 // 访问 '/user', 将会调用 app\controllers\UserController::run('')
 // 访问 '/user/profile', 将会调用 app\controllers\UserController::run('profile')
-SRouter::any('/user[/{name}]', 'app\controllers\UserController');
+$router->any('/user[/{name}]', 'app\controllers\UserController');
 ```
 
 ## 开始路由匹配和调度
 
 ```php
-SRouter::dispatch($dispatcher);
+$router->dispatch($dispatcher);
 // $router->dispatch($dispatcher);
 ```
 
@@ -460,6 +462,12 @@ SRouter::dispatch($dispatcher);
 
 ```bash
 phpunit
+```
+
+- simple benchmark
+
+```bash
+php examples/benchmark.php
 ```
 
 ## License 

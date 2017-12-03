@@ -80,34 +80,37 @@ $map_time = $end - $start;
 echo "Build time ($n routes): " . number_format($map_time, 6) . " seconds\n";
 
 $r = $requests[0];
+$uri = str_replace(['{', '}'], '', $r['url']);
 
 // match first known route
 $start = microtime(true);
-$ret = $router->match($r['url'], $r['method']);
+$ret = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTime = $end - $start;
-echo 'Match time (first route): ' . number_format($matchTime, 6) . " seconds(URI: {$r['url']})\n";
+echo 'Match time (first route): ' . number_format($matchTime, 6) . " seconds(URI: {$uri})\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // pick random route to match
 $r = $requests[random_int(0, $n)];
+$uri = str_replace(['{', '}'], '', $r['url']);
 
 // match random known route
 $start = microtime(true);
-$ret = $router->match($r['url'], $r['method']);
+$ret = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTime = $end - $start;
-echo 'Match time (random route): ' . number_format($matchTime, 6) . " seconds(URI: {$r['url']})\n" ;
+echo 'Match time (random route): ' . number_format($matchTime, 6) . " seconds(URI: {$uri})\n" ;
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 $r = $requests[$n-1];
+$uri = str_replace(['{', '}'], '', $r['url']);
 
-// match first known route
+// match last known route
 $start = microtime(true);
-$ret = $router->match($r['url'], $r['method']);
+$ret = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTime = $end - $start;
-echo 'Match time (last route): ' . number_format($matchTime, 6) . " seconds(URI: {$r['url']})\n";
+echo 'Match time (last route): ' . number_format($matchTime, 6) . " seconds(URI: {$uri})\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // match un-existing route
@@ -126,3 +129,18 @@ echo 'Peak memory usage: ' . round(memory_get_peak_usage(true) / 1024) . ' KB' .
 
 
 
+/*
+// 2017.12.3
+$ php examples/benchmark.php
+There are generate 1000 routes. and dynamic route with 10% chance
+
+Build time (1000 routes): 0.011926 seconds
+Match time (first route): 0.000072 seconds(URI: /rlpkswupqzo/g)
+Match time (random route): 0.000015 seconds(URI: /muq/vs)
+Match time (last route): 0.000013 seconds(URI: /fneek/aedpctey/v/aaxzpf)
+Match time (unknown route): 0.000014 seconds
+Total time: 0.011953 seconds
+Memory usage: 1814 KB
+Peak memory usage: 2048 KB
+
+ */

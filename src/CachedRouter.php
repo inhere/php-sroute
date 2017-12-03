@@ -122,6 +122,7 @@ class CachedRouter extends ORouter
 
         $date = date('Y-m-d H:i:s');
         $class = static::class;
+        $count = $this->count();
         $staticRoutes = var_export($this->getStaticRoutes(), true);
         $regularRoutes = var_export($this->getRegularRoutes(), true);
         $vagueRoutes = var_export($this->getVagueRoutes(), true);
@@ -132,19 +133,19 @@ class CachedRouter extends ORouter
  * This `inhere/sroute` routes cache file.
  * It is auto generate by $class.
  * @date $date
+ * @count $count
  * @notice Please don't edit it.
  */
-return [
-    // static routes
-    'staticRoutes' => $staticRoutes,
-    // regular routes
-    'regularRoutes' => $regularRoutes,
-    // vague routes
-    'vagueRoutes' => $vagueRoutes,
-];
+return array (
+// static routes
+'staticRoutes' => $staticRoutes,
+// regular routes
+'regularRoutes' => $regularRoutes,
+// vague routes
+'vagueRoutes' => $vagueRoutes,
+);
 EOF;
-
-        return file_put_contents($file, $code);
+        return file_put_contents($file, preg_replace('/=>\s+\n\s+array \(/', '=> array (', $code));
     }
 
     /**
