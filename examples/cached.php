@@ -39,7 +39,6 @@ $router = new CachedRouter([
 function dump_routes() {
     global $router;
     echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
-    echo "<h2>RegularRoutes:</h2>\n";
     print_r($router->getStaticRoutes());
     echo "<h2>RegularRoutes:</h2>\n";
     print_r($router->getRegularRoutes());

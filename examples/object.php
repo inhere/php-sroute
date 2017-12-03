@@ -37,7 +37,6 @@ $router->setConfig([
 
 $router->get('/routes', function() use($router) {
     echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
-    echo "<h2>RegularRoutes:</h2>\n";
     print_r($router->getStaticRoutes());
     echo "<h2>RegularRoutes:</h2>\n";
     print_r($router->getRegularRoutes());
@@ -64,6 +63,10 @@ foreach ($routes as $route) {
 
     $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
 }
+
+$router->any('*', function () {
+    echo "This is fallback handler\n";
+});
 
 // var_dump($router);die;
 

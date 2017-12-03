@@ -61,6 +61,7 @@ git clone https://gitee.com/inhere/php-srouter.git // git@osc
 
 详细的测试代码请看仓库 https://github.com/ulue/php-router-benchmark
 
+- 压测日期 **2017.12.3**
 - An example route: `/9b37eef21e/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/bda37e9f9b`
 
 压测结果
@@ -111,6 +112,7 @@ Macaw - first route (1000 routes) | 999 | 2.710132 | +2.703545 | 41047% slower
 
 - `Inhere\Route\SRouter` 是静态类版本
 - `Inhere\Route\ORouter` 是对象版本
+- `Inhere\Route\CachedRouter` 是支持缓存的版本
 
 两个类的方法名和参数都是一样的
 
@@ -179,6 +181,9 @@ $router->group('/user', function () {
 // 使用 控制器
 $router->get('/', app\controllers\HomeController::class);
 $router->get('/index', 'app\controllers\HomeController@index');
+
+// 可以注册一个备用路由处理。 当没匹配到时，就会使用它
+$router->any('*', 'fallback_handler');
 ```
 
 > 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'

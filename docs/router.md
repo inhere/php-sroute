@@ -12,15 +12,17 @@
 ## 路由收集
 
 ```php
-use Inhere\Route\SRouter;
+use Inhere\Route\ORouter;
+
+$router = new ORouter();
 
 // 匹配 GET 请求. 处理器是个闭包 Closure
-SRouter::get('/', function() {
+$router->get('/', function() {
     echo 'hello';
 });
 
 // 匹配参数 'test/john'
-SRouter::get('/test/{name}', function($arg) {
+$router->get('/test/{name}', function($arg) {
     echo $arg; // 'john'
 }, [
     'params' => [
@@ -29,7 +31,7 @@ SRouter::get('/test/{name}', function($arg) {
 ]);
 
 // 可选参数支持。匹配  'hello' 'hello/john'
-SRouter::get('/hello[/{name}]', function($name = 'No') {
+$router->get('/hello[/{name}]', function($name = 'No') {
     echo $name; // 'john'
 }, [
     'params' => [
@@ -38,53 +40,26 @@ SRouter::get('/hello[/{name}]', function($name = 'No') {
 ]);
 
 // 匹配 POST 请求
-SRouter::post('/user/login', function() {
+$router->post('/user/login', function() {
     var_dump($_POST);
 });
 
 // 匹配 GET 或者 POST
-SRouter::map(['get', 'post'], '/user/login', function() {
+$router->map(['get', 'post'], '/user/login', function() {
     var_dump($_GET, $_POST);
 });
 
 // 允许任何请求方法
-SRouter::any('/home', function() {
+$router->any('/home', function() {
     echo 'hello, you request page is /home';
 });
 
 // 路由组
-SRouter::group('/user', function () {
-    SRouter::get('/', function () {
-        echo 'hello. you access: /user/';
-    });
-    SRouter::get('/index', function () {
-        echo 'hello. you access: /user/index';
-    });
-});
-```
-
-使用 `ORouter` 则需先创建对象：
-
-```php
-use Inhere\Route\ORouter;
-
-$router = new ORouter;
-
-// 添加路由
-// $router->get();
-// $router->post();
-// $router->put();
-// ... ...
 $router->group('/user', function ($router) {
     /** @var \Inhere\Route\ORouter $router */
-    $router->get('', function () {
-        echo 'hello. you access: /user';
+    $router->get('/', function () {
+        echo 'hello. you access: /user/';
     });
-
-    //$router->get('/', function () {
-    //    echo 'hello. you access: /user/';
-    //});
-
     $router->get('/index', function () {
         echo 'hello. you access: /user/index';
     });
@@ -99,13 +74,71 @@ $router->group('/user', function ($router) {
 
 #### 1. 静态路由
 
+整个路由 path 都是静态字符串 e.g. '/user/login'
+
 例如：
 
 ```php
 $router->post('/user/signUp', 'handler2');
 ```
 
+- 存储结构
+
+```php
+array (
+  '/' => array (
+    'GET' => array (
+      'handler' => 'handler0',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/home' => array (
+    'GET' => array (
+      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@index',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/post' => array (
+    'POST' => array (
+      'handler' => 'post_handler',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/put' => array (
+    'PUT' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/del' => array (
+    'DELETE' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/pd' => array (
+    'POST' => array (
+      'handler' => 'multi_method_handler',
+      'option' => array (
+      ),
+    ),
+    'DELETE' => array (
+      'handler' => 'multi_method_handler',
+      'option' => array (
+      ),
+    ),
+  ),
+);
+```
+
 #### 2. (有规律的)动态路由
+
+第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
 
 例如：
 
@@ -113,9 +146,8 @@ $router->post('/user/signUp', 'handler2');
 /*
 match:
     /hello/tom
-    /hello
  */
-$router->get('/hello[/{name}]', function($name='NO') {
+$router->get('/hello/{name}', function($name='NO') {
     echo "hello, $name"; // 'john'
 },[
     'params' => [
@@ -124,7 +156,46 @@ $router->get('/hello[/{name}]', function($name='NO') {
 ]);
 ```
 
+- 存储结构
+
+```php
+  'user' => array (
+    0 => array (
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/',
+      'original' => '/user/{id}',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+      'methods' => 'GET',
+    ),
+    1 => array (
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/',
+      'original' => '/user/{id}',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+      'methods' => 'POST',
+    ),
+   ),
+  'home' => array (
+    0 => array (
+      'regex' => '#^/home/(?P<act>[a-zA-Z][\\w-]+)$#',
+      'start' => '/home/',
+      'original' => '/home/{act}',
+      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController',
+      'option' => array (
+      ),
+      'methods' => 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,SEARCH,CONNECT,TRACE',
+    ),
+  ),
+)
+```
+
 #### 3. (无规律的)动态路由
+
+第一节就包含了正则匹配，称之为无规律/模糊的动态路由
 
 例如： 
 
@@ -134,6 +205,52 @@ $router->get('/{name}', 'default_handler', [
         'name' => 'blog|saying'
     ]
 ]);
+```
+
+- 存储结构
+
+```php
+array (
+  'GET' => array (
+    0 => array (
+      'regex' => '#^/about(?:\\.html)?$#',
+      'include' => '/about',
+      'original' => '/about[.html]',
+      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
+      'option' => array (
+      ),
+    ),
+    1 => array (
+      'regex' => '#^/(?P<name>blog|saying)$#',
+      'include' => NULL,
+      'original' => '/{name}',
+      'handler' => 'default_handler',
+      'option' => array (
+        'params' => array (
+          'name' => 'blog|saying',
+        ),
+      ),
+    ),
+    2 => array (
+      'regex' => '#^/test(?:/optional)?$#',
+      'include' => '/test',
+      'original' => '/test[/optional]',
+      'handler' => 'default_handler',
+      'option' => array (
+      ),
+    ),
+    3 => array (
+      'regex' => '#^/blog-(?P<post>[^/]+)$#',
+      'include' => '/blog-',
+      'original' => '/blog-{post}',
+      'handler' => 'default_handler',
+      'option' => array (
+      ),
+    ),
+  ),
+  'POST' => array( ... ),
+  'PUT' => array( ... )
+)
 ```
 
 ## 路由匹配
@@ -154,7 +271,7 @@ array|false public function match($path, $method)
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-$route = SRouter::match($path, $method);
+$route = $router->match($path, $method);
 ```
 
 匹配失败，返回 `false`
@@ -216,7 +333,7 @@ todo ...
 
 ```php
 // set config
-SRouter::setConfig([
+$router->setConfig([
     'ignoreLastSep' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
@@ -246,7 +363,7 @@ SRouter::setConfig([
 ]
 ```
 
-> NOTICE: 必须在添加路由之前调用 `SRouter::setConfig()` 
+> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
 
 ### 自动匹配路由
 

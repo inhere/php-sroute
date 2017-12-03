@@ -53,12 +53,10 @@ class ORouter extends AbstractRouter
      *          // METHOD => [...] // 这里 key 和 value里的 'methods' 是一样的
      *          'GET' => [
      *              'handler' => 'handler',
-     *              'methods' => 'GET',
      *              'option' => [...],
      *          ],
      *          'PUT' => [
      *              'handler' => 'handler',
-     *              'methods' => 'PUT',
      *              'option' => [...],
      *          ],
      *          ...
@@ -122,7 +120,6 @@ class ORouter extends AbstractRouter
      *              // 必定包含的字符串
      *              'include' => '/profile',
      *              'regex' => '/(\w+)/profile',
-     *              'methods' => 'GET',
      *              'handler' => 'handler',
      *              'option' => [...],
      *          ],
@@ -132,7 +129,6 @@ class ORouter extends AbstractRouter
      *          [
      *              'include' => null,
      *              'regex' => '/(\w+)/(\w+)',
-     *              'methods' => 'POST',
      *              'handler' => 'handler',
      *              'option' => [...],
      *          ],
@@ -420,13 +416,12 @@ class ORouter extends AbstractRouter
             }
         }
 
-        // If nothing else matches, try fallback routes
-        if ($this->staticRoutes && isset($this->staticRoutes['*'][$method])) {
-            return [self::FOUND, $path, $this->staticRoutes['*'][$method]];
+        // If nothing else matches, try fallback routes. $router->any('*', 'handler');
+        if ($this->staticRoutes && isset($this->staticRoutes['/*'][$method])) {
+            return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
         }
 
         // collect allowed methods from: staticRoutes, vagueRoutes
-
         if (isset($this->staticRoutes[$path])) {
             $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
         }
