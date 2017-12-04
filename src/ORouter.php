@@ -300,7 +300,6 @@ class ORouter extends AbstractRouter
         }
 
         $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
-
         list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
 
         // route string have regular
@@ -311,6 +310,56 @@ class ORouter extends AbstractRouter
             foreach (explode(',', $methods) as $method) {
                 $this->vagueRoutes[$method][] = $conf;
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * register a group restful routes for the controller class.
+     * ```php
+     * $router->rest('/users', UserController::class);
+     * ```
+     * @param string $prefix eg '/users'
+     * @param string $controllerClass
+     * @param array $map You can append or change default map list.
+     * [
+     *      'index' => null, // set value is empty to delete.
+     *      'list' => 'get', // add new route
+     * ]
+     * @param array $opts Common options
+     * @return ORouter
+     */
+    public function rest($prefix, $controllerClass, array $map = [], array $opts = [])
+    {
+        $map = array_merge([
+            'index' => ['GET'],
+            'create' => ['POST'],
+            'view' => ['GET', '{id}', ['id' => '[1-9]\d*']],
+            'update' => ['PUT', '{id}', ['id' => '[1-9]\d*']],
+            'patch' => ['PATCH', '{id}', ['id' => '[1-9]\d*']],
+            'delete' => ['DELETE', '{id}', ['id' => '[1-9]\d*']],
+        ], $map);
+        //$opts = array_merge([], $opts);
+
+        foreach ($map as $action => $conf) {
+            if (!$conf || !$action) {
+                continue;
+            }
+
+            $route = $prefix;
+
+            // '/users/{id}'
+            if (isset($conf[1]) && ($subPath = trim($conf[1]))) {
+                // allow define a abs route. '/user-other-info'. it's not prepend prefix.
+                $route = $subPath[0] === '/' ? $subPath : $prefix . '/' . $subPath;
+            }
+
+            if (isset($conf[2])) {
+                $opts['params'] = $conf[2];
+            }
+
+            $this->map($conf[0], $route, $controllerClass . '@' . $action, $opts);
         }
 
         return $this;
@@ -379,10 +428,7 @@ class ORouter extends AbstractRouter
         }
 
         // handle Auto Route
-        if (
-            $this->config['autoRoute'] &&
-            ($handler = $this->matchAutoRoute($path, $this->config['controllerNamespace'], $this->config['controllerSuffix']))
-        ) {
+        if ($this->config['autoRoute'] && ($handler = $this->matchAutoRoute($path))) {
             return [self::FOUND, $path, [
                 'handler' => $handler,
                 'option' => [],

@@ -253,14 +253,14 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * handle auto route match, when config `'autoRoute' => true`
      * @param string $path The route path
-     * @param string $controllerNamespace controller namespace. eg: 'app\\controllers'
-     * @param string $controllerSuffix controller suffix. eg: 'Controller'
+     * @internal string $cnp controller namespace. eg: 'app\\controllers'
+     * @internal string $sfx controller suffix. eg: 'Controller'
      * @return bool|callable
      */
-    public function matchAutoRoute($path, $controllerNamespace, $controllerSuffix = '')
+    public function matchAutoRoute($path)
     {
-        $cnp = trim($controllerNamespace);
-        $sfx = trim($controllerSuffix);
+        $cnp = trim($this->config['controllerNamespace']);
+        $sfx = trim($this->config['controllerSuffix']);
         $tmp = trim($path, '/- ');
 
         // one node. eg: 'home'

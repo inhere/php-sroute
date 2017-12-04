@@ -13,6 +13,7 @@
 
 use Inhere\Route\Dispatcher;
 use Inhere\Route\CachedRouter;
+use Inhere\Route\Examples\Controllers\RestController;
 
 require __DIR__ . '/simple-loader.php';
 
@@ -48,6 +49,7 @@ function dump_routes() {
 }
 
 $router->get('/routes', 'dump_routes');
+$router->rest('/rest', RestController::class);
 
 /** @var array $routes */
 $routes = require __DIR__ . '/some-routes.php';

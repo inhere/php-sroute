@@ -12,6 +12,7 @@
  */
 
 use Inhere\Route\Dispatcher;
+use Inhere\Route\Examples\Controllers\RestController;
 use Inhere\Route\ORouter;
 
 require __DIR__ . '/simple-loader.php';
@@ -35,7 +36,9 @@ $router->setConfig([
     'controllerSuffix' => 'Controller',
 ]);
 
-$router->get('/routes', function() use($router) {
+$router->get('/routes', function() {
+    global $router;
+
     echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
     print_r($router->getStaticRoutes());
     echo "<h2>RegularRoutes:</h2>\n";
@@ -63,6 +66,8 @@ foreach ($routes as $route) {
 
     $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
 }
+
+$router->rest('/rest', RestController::class);
 
 $router->any('*', function () {
     echo "This is fallback handler\n";
