@@ -56,6 +56,34 @@ interface RouterInterface
     const INDEX_INFO = 2;
 
     /**
+     * @param string|array $methods The match request method(s).
+     * e.g
+     *  string: 'get'
+     *  array: ['get','post']
+     * @param string $route The route path string. is allow empty string. eg: '/user/login'
+     * @param callable|string $handler
+     * @param array $opts some option data
+     * [
+     *     'params' => [ 'id' => '[0-9]+', ],
+     *     'defaults' => [ 'id' => 10, ],
+     *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
+     *     'schemas' => ['https'],
+     * ]
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function map($methods, $route, $handler, array $opts = []);
+
+    /**
+     * find the matched route info for the given request uri path
+     * @param string $method
+     * @param string $path
+     * @return array
+     */
+    public function match($path, $method = 'GET');
+
+    /**
      * @return array
      */
     public static function getSupportedMethods();

@@ -11,6 +11,17 @@ namespace Inhere\Route;
 /**
  * Class AbstractRouter
  * @package Inhere\Route
+ *
+ * @method get(string $route, mixed $handler, array $opts = [])
+ * @method post(string $route, mixed $handler, array $opts = [])
+ * @method put(string $route, mixed $handler, array $opts = [])
+ * @method delete(string $route, mixed $handler, array $opts = [])
+ * @method options(string $route, mixed $handler, array $opts = [])
+ * @method head(string $route, mixed $handler, array $opts = [])
+ * @method search(string $route, mixed $handler, array $opts = [])
+ * @method connect(string $route, mixed $handler, array $opts = [])
+ * @method trace(string $route, mixed $handler, array $opts = [])
+ * @method any(string $route, mixed $handler, array $opts = [])
  */
 abstract class AbstractRouter implements RouterInterface
 {
@@ -26,6 +37,15 @@ abstract class AbstractRouter implements RouterInterface
         'act' => '[a-zA-Z][\w-]+', // match a action name
         'all' => '.*'
     ];
+
+    /** @var bool */
+    protected $initialized = false;
+
+    /** @var string */
+    protected $currentGroupPrefix;
+
+    /** @var array */
+    protected $currentGroupOption;
 
     /**
      * some setting for self
@@ -55,6 +75,99 @@ abstract class AbstractRouter implements RouterInterface
         // controller suffix, is valid when `'enable' = true`
         'controllerSuffix' => '',    // eg: 'Controller'
     ];
+
+    /**
+     * object creator.
+     * @param array $config
+     * @return self
+     * @throws \LogicException
+     */
+    public static function make(array $config = [])
+    {
+        return new static($config);
+    }
+
+    /**
+     * object constructor.
+     * @param array $config
+     * @throws \LogicException
+     */
+    public function __construct(array $config = [])
+    {
+        $this->setConfig($config);
+
+        $this->currentGroupPrefix = '';
+        $this->currentGroupOption = [];
+
+        // load routes
+        if (($file = $this->config['routesFile']) && is_file($file)) {
+            require $file;
+        }
+    }
+
+    /**
+     * @param array $config
+     * @throws \LogicException
+     */
+    public function setConfig(array $config)
+    {
+        if ($this->initialized) {
+            throw new \LogicException('Routing has been added, and configuration is not allowed!');
+        }
+
+        foreach ($config as $name => $value) {
+            if (isset($this->config[$name])) {
+                $this->config[$name] = $value;
+            }
+        }
+    }
+
+    /*******************************************************************************
+     * route collection
+     ******************************************************************************/
+
+    /**
+     * Defines a route callback and method
+     * @param string $method
+     * @param array $args
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function __call($method, array $args)
+    {
+        if (\in_array(strtoupper($method), self::SUPPORTED_METHODS, true)) {
+            if (\count($args) < 2) {
+                throw new \InvalidArgumentException("The method [$method] parameters is missing.");
+            }
+
+            return $this->map($method, ...$args);
+        }
+
+        throw new \InvalidArgumentException("The method [$method] not exists in the class.");
+    }
+
+    /**
+     * Create a route group with a common prefix.
+     * All routes created in the passed callback will have the given group prefix prepended.
+     * @ref package 'nikic/fast-route'
+     * @param string $prefix
+     * @param \Closure $callback
+     * @param array $opts
+     */
+    public function group($prefix, \Closure $callback, array $opts = [])
+    {
+        $previousGroupPrefix = $this->currentGroupPrefix;
+        $this->currentGroupPrefix = $previousGroupPrefix . '/' . trim($prefix, '/');
+
+        $previousGroupOption = $this->currentGroupOption;
+        $this->currentGroupOption = $opts;
+
+        $callback($this);
+
+        $this->currentGroupPrefix = $previousGroupPrefix;
+        $this->currentGroupOption = $previousGroupOption;
+    }
 
     /**
      * validate and format arguments
@@ -249,6 +362,22 @@ abstract class AbstractRouter implements RouterInterface
 
         return [$first, array_merge($info, $conf)];
     }
+
+    /**
+     * @param array $routesData
+     * @param string $path
+     * @param string $method
+     * @return array
+     */
+    abstract protected function findInRegularRoutes(array $routesData, $path, $method);
+
+    /**
+     * @param array $routesData
+     * @param string $path
+     * @param string $method
+     * @return array
+     */
+    abstract protected function findInVagueRoutes(array $routesData, $path, $method);
 
     /**
      * handle auto route match, when config `'autoRoute' => true`

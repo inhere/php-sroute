@@ -11,16 +11,6 @@ namespace Inhere\Route;
 /**
  * Class ORouter - this is object version
  * @package Inhere\Route
- * @method get(string $route, mixed $handler, array $opts = [])
- * @method post(string $route, mixed $handler, array $opts = [])
- * @method put(string $route, mixed $handler, array $opts = [])
- * @method delete(string $route, mixed $handler, array $opts = [])
- * @method options(string $route, mixed $handler, array $opts = [])
- * @method head(string $route, mixed $handler, array $opts = [])
- * @method search(string $route, mixed $handler, array $opts = [])
- * @method connect(string $route, mixed $handler, array $opts = [])
- * @method trace(string $route, mixed $handler, array $opts = [])
- * @method any(string $route, mixed $handler, array $opts = [])
  */
 class ORouter extends AbstractRouter
 {
@@ -34,15 +24,6 @@ class ORouter extends AbstractRouter
         // 'schemas' => [ 'http' ], // allowed schemas
         // 'time' => ['12'],
     ];
-
-    /** @var string */
-    private $currentGroupPrefix;
-
-    /** @var array */
-    private $currentGroupOption;
-
-    /** @var bool */
-    private $initialized = false;
 
     /**
      * static Routes - no dynamic argument match
@@ -149,98 +130,9 @@ class ORouter extends AbstractRouter
     /** @var DispatcherInterface */
     private $dispatcher;
 
-    /**
-     * object creator.
-     * @param array $config
-     * @return self
-     * @throws \LogicException
-     */
-    public static function make(array $config = [])
-    {
-        return new static($config);
-    }
-
-    /**
-     * object constructor.
-     * @param array $config
-     * @throws \LogicException
-     */
-    public function __construct(array $config = [])
-    {
-        $this->setConfig($config);
-
-        $this->currentGroupPrefix = '';
-        $this->currentGroupOption = [];
-
-        // load routes
-        if (($file = $this->config['routesFile']) && is_file($file)) {
-            require $file;
-        }
-    }
-
-    /**
-     * @param array $config
-     * @throws \LogicException
-     */
-    public function setConfig(array $config)
-    {
-        if ($this->initialized) {
-            throw new \LogicException('Routing has been added, and configuration is not allowed!');
-        }
-
-        foreach ($config as $name => $value) {
-            if (isset($this->config[$name])) {
-                $this->config[$name] = $value;
-            }
-        }
-    }
-
     /*******************************************************************************
      * route collection
      ******************************************************************************/
-
-    /**
-     * Defines a route callback and method
-     * @param string $method
-     * @param array $args
-     * @return ORouter
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
-    public function __call($method, array $args)
-    {
-        if (\in_array(strtoupper($method), self::SUPPORTED_METHODS, true)) {
-            if (\count($args) < 2) {
-                throw new \InvalidArgumentException("The method [$method] parameters is missing.");
-            }
-
-            return $this->map($method, ...$args);
-        }
-
-        throw new \InvalidArgumentException("The method [$method] not exists in the class.");
-    }
-
-    /**
-     * Create a route group with a common prefix.
-     * All routes created in the passed callback will have the given group prefix prepended.
-     * @ref package 'nikic/fast-route'
-     * @param string $prefix
-     * @param \Closure $callback
-     * @param array $opts
-     */
-    public function group($prefix, \Closure $callback, array $opts = [])
-    {
-        $previousGroupPrefix = $this->currentGroupPrefix;
-        $this->currentGroupPrefix = $previousGroupPrefix . '/' . trim($prefix, '/');
-
-        $previousGroupOption = $this->currentGroupOption;
-        $this->currentGroupOption = $opts;
-
-        $callback($this);
-
-        $this->currentGroupPrefix = $previousGroupPrefix;
-        $this->currentGroupOption = $previousGroupOption;
-    }
 
     /**
      * @param string|array $methods The match request method(s).
@@ -316,7 +208,7 @@ class ORouter extends AbstractRouter
     }
 
     /**
-     * register a group restful routes for the controller class.
+     * quick register a group restful routes for the controller class.
      * ```php
      * $router->rest('/users', UserController::class);
      * ```
@@ -328,7 +220,9 @@ class ORouter extends AbstractRouter
      *      'list' => 'get', // add new route
      * ]
      * @param array $opts Common options
-     * @return ORouter
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
      */
     public function rest($prefix, $controllerClass, array $map = [], array $opts = [])
     {
@@ -360,6 +254,45 @@ class ORouter extends AbstractRouter
             }
 
             $this->map($conf[0], $route, $controllerClass . '@' . $action, $opts);
+        }
+
+        return $this;
+    }
+
+    /**
+     * quick register a group universal routes for the controller class.
+     *
+     * ```php
+     * $router->rest('/users', UserController::class, [
+     *      'index' => 'get',
+     *      'create' => 'post',
+     *      'update' => 'post',
+     *      'delete' => 'delete',
+     * ]);
+     * ```
+     *
+     * @param string $prefix eg '/users'
+     * @param string $controllerClass
+     * @param array $map You can append or change default map list.
+     * [
+     *      'index' => null, // set value is empty to delete.
+     *      'list' => 'get', // add new route
+     * ]
+     * @param array $opts Common options
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = [])
+    {
+        foreach ($map as $action => $method) {
+            if (!$method || !$action) {
+                continue;
+            }
+
+            $route = $prefix . '/' . $action;
+
+            $this->map($method, $route, $controllerClass . '@' . $action, $opts);
         }
 
         return $this;
@@ -501,16 +434,16 @@ class ORouter extends AbstractRouter
      ******************************************************************************/
 
     /**
-     * @param array $routes
+     * @param array $routesData
      * @param string $path
      * @param string $method
      * @return array
      */
-    protected function findInRegularRoutes(array $routes, $path, $method)
+    protected function findInRegularRoutes(array $routesData, $path, $method)
     {
         $allowedMethods = '';
 
-        foreach ($routes as $conf) {
+        foreach ($routesData as $conf) {
             if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                 $allowedMethods .= $conf['methods'] . ',';
 
@@ -528,14 +461,14 @@ class ORouter extends AbstractRouter
     }
 
     /**
-     * @param array $routes
+     * @param array $routesData
      * @param string $path
      * @param string $method
      * @return array
      */
-    protected function findInVagueRoutes(array $routes, $path, $method)
+    protected function findInVagueRoutes(array $routesData, $path, $method)
     {
-        foreach ($routes as $conf) {
+        foreach ($routesData as $conf) {
             if ($conf['include'] && false === strpos($path, $conf['include'])) {
                 continue;
             }
