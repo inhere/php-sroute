@@ -184,11 +184,16 @@ class ORouter extends AbstractRouter
     public function ctrl($prefix, $controllerClass, array $map = [], array $opts = [])
     {
         foreach ($map as $action => $method) {
-            if (!$method || !$action) {
+            if (!$method || !\is_string($action)) {
                 continue;
             }
 
-            $route = $prefix . '/' . $action;
+            if ($action) {
+                $route = $prefix . '/' . $action;
+            } else {
+                $route = $prefix;
+                $action = 'index';
+            }
 
             $this->map($method, $route, $controllerClass . '@' . $action, $opts);
         }
