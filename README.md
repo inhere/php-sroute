@@ -179,8 +179,11 @@ $router->group('/user', function () {
 });
 
 // 使用 控制器
-$router->get('/', app\controllers\HomeController::class);
-$router->get('/index', 'app\controllers\HomeController@index');
+$router->get('/', App\Controllers\HomeController::class);
+$router->get('/index', 'App\Controllers\HomeController@index');
+
+// 使用 rest() 可以快速将一个控制器类注册成一组 RESTful 路由
+$router->rest('/users', App\Controllers\UserController::class);
 
 // 可以注册一个备用路由处理。 当没匹配到时，就会使用它
 $router->any('*', 'fallback_handler');
@@ -403,10 +406,10 @@ $dispatcher->on('notFound', function ($uri) {
 通过`@`符号连接控制器类和方法名可以指定执行方法。
 
 ```php
-$router->get('/', app\controllers\HomeController::class);
+$router->get('/', App\Controllers\HomeController::class);
 
-$router->get('/index', 'app\controllers\HomeController@index');
-$router->get('/about', 'app\controllers\HomeController@about');
+$router->get('/index', 'App\Controllers\HomeController@index');
+$router->get('/about', 'App\Controllers\HomeController@about');
 ```
 
 > NOTICE: 若第二个参数仅仅是个 类，将会尝试执行通过 `defaultAction` 配置的默认方法
@@ -418,11 +421,11 @@ $router->get('/about', 'app\controllers\HomeController@about');
 > NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时无法限定请求方法 `REQUEST_METHOD`
 
 ```php
-// 访问 '/home/test' 将会执行 'app\controllers\HomeController::test()'
-$router->any('/home/{any}', app\controllers\HomeController::class);
+// 访问 '/home/test' 将会执行 'App\Controllers\HomeController::test()'
+$router->any('/home/{any}', App\Controllers\HomeController::class);
 
 // 可匹配 '/home', '/home/test' 等
-$router->any('/home[/{name}]', app\controllers\HomeController::class);
+$router->any('/home[/{name}]', App\Controllers\HomeController::class);
 ```
 
 > NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
@@ -437,16 +440,16 @@ $router->any('/home[/{name}]', app\controllers\HomeController::class);
 示例：
 
 ```php
-// 访问 '/user', 将会调用 app\controllers\UserController::run('')
-$router->get('/user', 'app\controllers\UserController');
+// 访问 '/user', 将会调用 App\Controllers\UserController::run('')
+$router->get('/user', 'App\Controllers\UserController');
 
-// 访问 '/user/profile', 将会调用 app\controllers\UserController::run('profile')
-$router->get('/user/profile', 'app\controllers\UserController');
+// 访问 '/user/profile', 将会调用 App\Controllers\UserController::run('profile')
+$router->get('/user/profile', 'App\Controllers\UserController');
 
 // 同时配置 'actionExecutor' => 'run' 和 'dynamicAction' => true,
-// 访问 '/user', 将会调用 app\controllers\UserController::run('')
-// 访问 '/user/profile', 将会调用 app\controllers\UserController::run('profile')
-$router->any('/user[/{name}]', 'app\controllers\UserController');
+// 访问 '/user', 将会调用 App\Controllers\UserController::run('')
+// 访问 '/user/profile', 将会调用 App\Controllers\UserController::run('profile')
+$router->any('/user[/{name}]', 'App\Controllers\UserController');
 ```
 
 ## 开始路由匹配和调度

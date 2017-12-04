@@ -80,6 +80,11 @@ interface RouterInterface
      * @param string $method
      * @param string $path
      * @return array
+     *
+     *  [self::NOT_FOUND, $path, null]
+     *  [self::METHOD_NOT_ALLOWED, $path, ['GET', 'OTHER_ALLOWED_METHODS']]
+     *  [self::FOUND, $path, array () // routeData ]
+     *
      */
     public function match($path, $method = 'GET');
 
