@@ -73,6 +73,16 @@ $routes = [
     ],
     [
         'GET',
+        '/user/follows/{id}',
+        'main_handler'
+    ],
+    [
+        'PUT',
+        '/user/follows/{id}',
+        'main_handler'
+    ],
+    [
+        'GET',
         '/user/{id}',
         'main_handler'
     ],
