@@ -336,9 +336,9 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // eg '/about.html'
-        if (strpos($tmp, '.')) {
-            return strstr($tmp, '.', true);
-        }
+        // if (strpos($tmp, '.')) {
+        //     return strstr($tmp, '.', true);
+        // }
 
         return $tmp;
     }
@@ -394,15 +394,15 @@ abstract class AbstractRouter implements RouterInterface
     public function parseParamRoute($route, array $params, array $conf)
     {
         $bak = $route;
-        $noOptional = null;
-        $hasOptional = false;
+        // $noOptional = null;
+        // $hasOptional = false;
 
         // 解析可选参数位
         // '/hello[/{name}]'      match: /hello/tom   /hello
         // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
         if (false !== ($pos = strpos($route, '['))) {
-            $hasOptional = true;
-            $noOptional = substr($route, 0, $pos);
+            // $hasOptional = true;
+            // $noOptional = substr($route, 0, $pos);
             $withoutClosingOptionals = rtrim($route, ']');
             $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
 
@@ -444,7 +444,7 @@ abstract class AbstractRouter implements RouterInterface
         // first node is a normal string
         // if (preg_match('#^/([\w-]+)#', $bak, $m)) {
         // if (preg_match('#^/([\w-]+)/?[\w-]*#', $bak, $m)) {
-        if (preg_match('#^/([\w-]+)/[\w-]*#', $bak, $m)) {
+        if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
             $first = $m[1];
             $info = [
                 'regex'  => $regex,

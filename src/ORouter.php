@@ -73,7 +73,6 @@ class ORouter extends AbstractRouter
             $route = rtrim($route, '/');
         }
 
-        $this->routeCounter++;
         $opts = array_merge($this->currentGroupOption, $opts);
         $conf = [
             'handler' => $handler,
@@ -83,6 +82,7 @@ class ORouter extends AbstractRouter
         // it is static route
         if (self::isStaticRoute($route)) {
             foreach (explode(',', $methods) as $method) {
+                $this->routeCounter++;
                 $this->staticRoutes[$route][$method] = $conf;
             }
 
@@ -94,10 +94,12 @@ class ORouter extends AbstractRouter
 
         // route string have regular
         if ($first) {
+            $this->routeCounter++;
             $conf['methods'] = $methods;
             $this->regularRoutes[$first][] = $conf;
         } else {
             foreach (explode(',', $methods) as $method) {
+                $this->routeCounter++;
                 $this->vagueRoutes[$method][] = $conf;
             }
         }
@@ -241,6 +243,7 @@ class ORouter extends AbstractRouter
         }
 
         $first = $this->getFirstFromPath($path);
+        // $nodeCount = substr_count(trim($path), '/');
         $allowedMethods = [];
 
         // is a regular dynamic route(the first node is 1th level index key).

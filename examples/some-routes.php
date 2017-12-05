@@ -52,11 +52,6 @@ $routes = [
         HomeController::class . '@index'
     ],
     [
-        'GET',
-        '/about[.html]',
-        HomeController::class . '@about'
-    ],
-    [
         'POST',
         '/post',
         'post_handler'
@@ -73,12 +68,17 @@ $routes = [
     ],
     [
         'GET',
-        '/user/follows/{id}',
+        '/user/{id}/followers',
+        'main_handler'
+    ],
+    [
+        'GET',
+        '/user/detail/{id}',
         'main_handler'
     ],
     [
         'PUT',
-        '/user/follows/{id}',
+        '/user/detail/{id}',
         'main_handler'
     ],
     [
@@ -130,6 +130,11 @@ $routes = [
         ]
     ],
     // optional param
+    [
+        'GET',
+        '/about[.html]',
+        HomeController::class . '@about'
+    ],
     [
         'GET',
         '/test[/optional]',

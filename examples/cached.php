@@ -39,17 +39,20 @@ $router = new CachedRouter([
 
 function dump_routes() {
     global $router;
-    echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
+    $count = $router->count();
+    echo "<h1>All Routes($count).</h1><h2>StaticRoutes:</h2><pre><code>\n";
     print_r($router->getStaticRoutes());
-    echo "<h2>RegularRoutes:</h2>\n";
+    echo "</code></pre><h2>RegularRoutes:</h2><pre><code>\n";
     print_r($router->getRegularRoutes());
-    echo "<h2>VagueRoutes:</h2>\n";
+    echo "</code></pre><h2>VagueRoutes:</h2>\n<pre><code>";
     print_r($router->getVagueRoutes());
-    echo '</pre>';
+    echo '</code></pre>';
 }
 
 $router->get('/routes', 'dump_routes');
 $router->rest('/rest', RestController::class);
+
+$router->any('*', 'main_handler');
 
 /** @var array $routes */
 $routes = require __DIR__ . '/some-routes.php';

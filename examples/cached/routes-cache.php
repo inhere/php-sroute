@@ -2,8 +2,8 @@
 /*
  * This `inhere/sroute` routes cache file.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2017-12-05 09:46:10
- * @count 30
+ * @date 2017-12-05 22:21:26
+ * @count 41
  * @notice Please don't edit it.
  */
 return array (
@@ -24,6 +24,48 @@ return array (
     ),
     'POST' => array (
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@create',
+      'option' => array (
+      ),
+    ),
+  ),
+  '/*' => array (
+    'ANY' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    'GET' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    'POST' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    'PUT' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    'PATCH' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    'DELETE' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    'OPTIONS' => array (
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+    ),
+    'HEAD' => array (
+      'handler' => 'main_handler',
       'option' => array (
       ),
     ),
@@ -153,31 +195,31 @@ return array (
   ),
   'user' => array (
     0 => array (
-      'regex' => '#^/user/follows/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/follows',
-      'original' => '/user/follows/{id}',
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)/followers$#',
+      'start' => '/user/',
+      'original' => '/user/{id}/followers',
       'handler' => 'main_handler',
       'option' => array (
       ),
       'methods' => 'GET',
     ),
     1 => array (
-      'regex' => '#^/user/follows/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/follows',
-      'original' => '/user/follows/{id}',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-      'methods' => 'PUT',
-    ),
-    2 => array (
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
-      'original' => '/user/{id}',
+      'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/detail/',
+      'original' => '/user/detail/{id}',
       'handler' => 'main_handler',
       'option' => array (
       ),
       'methods' => 'GET',
+    ),
+    2 => array (
+      'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/detail/',
+      'original' => '/user/detail/{id}',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+      'methods' => 'PUT',
     ),
     3 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
@@ -186,7 +228,7 @@ return array (
       'handler' => 'main_handler',
       'option' => array (
       ),
-      'methods' => 'POST',
+      'methods' => 'GET',
     ),
     4 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
@@ -195,7 +237,7 @@ return array (
       'handler' => 'main_handler',
       'option' => array (
       ),
-      'methods' => 'PUT',
+      'methods' => 'POST',
     ),
     5 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
@@ -204,9 +246,18 @@ return array (
       'handler' => 'main_handler',
       'option' => array (
       ),
-      'methods' => 'DELETE',
+      'methods' => 'PUT',
     ),
     6 => array (
+      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
+      'start' => '/user/',
+      'original' => '/user/{id}',
+      'handler' => 'main_handler',
+      'option' => array (
+      ),
+      'methods' => 'DELETE',
+    ),
+    7 => array (
       'regex' => '#^/user/(?P<some>[^/]+)$#',
       'start' => '/user/',
       'original' => '/user/{some}',
@@ -243,14 +294,6 @@ return array (
 'vagueRoutes' => array (
   'GET' => array (
     0 => array (
-      'regex' => '#^/about(?:\\.html)?$#',
-      'include' => '/about',
-      'original' => '/about[.html]',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
-      'option' => array (
-      ),
-    ),
-    1 => array (
       'regex' => '#^/(?P<name>blog|saying)$#',
       'include' => NULL,
       'original' => '/{name}',
@@ -259,6 +302,14 @@ return array (
         'params' => array (
           'name' => 'blog|saying',
         ),
+      ),
+    ),
+    1 => array (
+      'regex' => '#^/about(?:\\.html)?$#',
+      'include' => '/about',
+      'original' => '/about[.html]',
+      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
+      'option' => array (
       ),
     ),
     2 => array (
