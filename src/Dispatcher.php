@@ -250,6 +250,7 @@ class Dispatcher implements DispatcherInterface
         if (\is_array($handler)) {
             $segments = $handler;
         } elseif (\is_string($handler)) {
+            // is function
             if (strpos($handler, '@') === false && \function_exists($handler)) {
                 return $handler(...$args);
             }
@@ -264,7 +265,7 @@ class Dispatcher implements DispatcherInterface
         $controller = new $segments[0]();
 
         // Already assign action
-        if (isset($segments[1])) {
+        if (!empty($segments[1])) {
             $action = $segments[1];
 
             // use dynamic action

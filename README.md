@@ -191,6 +191,23 @@ $router->any('*', 'fallback_handler');
 
 > 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
 
+#### 注意
+
+可选参数 - 只能是在路由path的最后
+
+正确的：
+
+```php
+/hello[/{name}]      // match: /hello/tom   /hello
+/my[/{name}[/{age}]] // match: /my/tom/78  /my/tom
+```
+
+错误的：
+
+```php
+/my[/{name}]/{age}
+```
+
 ### 添加路由方法
 
 ```php
