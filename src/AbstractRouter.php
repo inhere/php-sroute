@@ -439,19 +439,19 @@ abstract class AbstractRouter implements RouterInterface
         // 分析路由字符串是否是有规律的
         $first = null;
         $regex = '#^' . $route . '$#';
+        $info = [
+            'regex'  => $regex,
+            'original' => $bak,
+        ];
 
-        // e.g '/hello[/{name}]' first: 'hello', '/user/{id}' first: 'user', '/a/{post}' first: 'a'
+        // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
         // if (preg_match('#^/([\w-]+)#', $bak, $m)) {
         // if (preg_match('#^/([\w-]+)/?[\w-]*#', $bak, $m)) {
         if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
             $first = $m[1];
-            $info = [
-                'regex'  => $regex,
-                'start' => $m[0],
-                'original' => $bak,
-            ];
-            // first node contain regex param '/{some}/{some2}/xyz'
+            $info['start'] = $m[0];
+            // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
         } else {
             $include = null;
 
@@ -459,11 +459,7 @@ abstract class AbstractRouter implements RouterInterface
                 $include = $m[0];
             }
 
-            $info = [
-                'regex' => $regex,
-                'include' => $include,
-                'original' => $bak,
-            ];
+            $info['include'] = $include;
         }
 
         return [$first, array_merge($info, $conf)];
