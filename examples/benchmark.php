@@ -17,7 +17,7 @@ require __DIR__ . '/simple-loader.php';
 global $argv;
 $n = isset($argv[1]) ? (int)$argv[1] : 1000;
 
-echo "There are generate $n routes. and dynamic route with 10% chance\n\n";
+echo "There are generate $n routes. and dynamic route with 50% chance\n\n";
 
 // generates a random request url
 function random_request_url()
@@ -36,8 +36,10 @@ function random_request_url()
         }
     }
 
-    // add dynamic route with 10% chance
-    if (random_int(1, 10) === 1) {
+    $v = random_int(1, 10);
+
+    // add dynamic route with 50% chance
+    if ($v <= 5) {
         $randomString = rtrim($randomString, '/') . '/{name}';
     }
 
@@ -68,7 +70,12 @@ for ($i = 0; $i < $n; $i++) {
     );
 }
 
-$router = new \Inhere\Route\ORouter();
+$router = new \Inhere\Route\CachedRouter([
+    'cacheFile' => __DIR__ . '/cached/bench-routes-cache.php',
+    'cacheEnable' => 0,
+    // 'tmpCacheNumber' => 100,
+    // 'notAllowedAsNotFound' => 1,
+]);
 
 // map requests
 $start = microtime(true);

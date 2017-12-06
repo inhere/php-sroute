@@ -27,15 +27,16 @@ abstract class AbstractRouter implements RouterInterface
 {
     /**
      * some available patterns regex
-     * $router->get('/user/{num}', 'handler');
+     * $router->get('/user/{id}', 'handler');
      * @var array
      */
     protected static $globalParams = [
+        'all' => '.*',
         'any' => '[^/]+',   // match any except '/'
         'num' => '[0-9]+',  // match a number
+        'int' => '\d+',     // match a number
         'id'  => '[1-9][0-9]*',  // match a ID number
         'act' => '[a-zA-Z][\w-]+', // match a action name
-        'all' => '.*'
     ];
 
     /** @var bool */
@@ -60,6 +61,9 @@ abstract class AbstractRouter implements RouterInterface
 
         // 'tmpCacheNumber' => 100,
         'tmpCacheNumber' => 0,
+
+        // notAllowed As NotFound. Now, only two status value will be return(FOUND, NOT_FOUND).
+        'notAllowedAsNotFound' => false,
 
         // match all request.
         // 1. If is a valid URI path, will matchAll all request uri to the path.
@@ -295,13 +299,13 @@ abstract class AbstractRouter implements RouterInterface
             return $m;
         }, (array)$methods);
 
-        if (!\is_string($handler) && !\is_object($handler)) {
-            throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,object');
-        }
-
-        if (\is_object($handler) && !\is_callable($handler)) {
-            throw new \InvalidArgumentException('The route object handler must be is callable');
-        }
+        // if (!\is_string($handler) && !\is_object($handler)) {
+        //     throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,object');
+        // }
+        //
+        // if (\is_object($handler) && !\is_callable($handler)) {
+        //     throw new \InvalidArgumentException('The route object handler must be is callable');
+        // }
 
         $methods = implode(',', $methods) . ',';
 

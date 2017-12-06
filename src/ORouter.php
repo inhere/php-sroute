@@ -306,6 +306,10 @@ class ORouter extends AbstractRouter
             return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
         }
 
+        if ($this->config['notAllowedAsNotFound']) {
+            return [self::NOT_FOUND, $path, null];
+        }
+
         // collect allowed methods from: staticRoutes, vagueRoutes
         if (isset($this->staticRoutes[$path])) {
             $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
