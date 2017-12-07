@@ -398,7 +398,7 @@ abstract class AbstractRouter implements RouterInterface
     public function parseParamRoute($route, array $params, array $conf)
     {
         $bak = $route;
-        // $noOptional = null;
+        $noOptional = null;
         // $hasOptional = false;
 
         // 解析可选参数位
@@ -406,7 +406,7 @@ abstract class AbstractRouter implements RouterInterface
         // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
         if (false !== ($pos = strpos($route, '['))) {
             // $hasOptional = true;
-            // $noOptional = substr($route, 0, $pos);
+            $noOptional = substr($route, 0, $pos);
             $withoutClosingOptionals = rtrim($route, ']');
             $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
 
@@ -450,8 +450,6 @@ abstract class AbstractRouter implements RouterInterface
 
         // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
-        // if (preg_match('#^/([\w-]+)#', $bak, $m)) {
-        // if (preg_match('#^/([\w-]+)/?[\w-]*#', $bak, $m)) {
         if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
             $first = $m[1];
             $info['start'] = $m[0];
@@ -459,7 +457,15 @@ abstract class AbstractRouter implements RouterInterface
         } else {
             $include = null;
 
-            if (preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
+            if ($noOptional) {
+                if (strpos($noOptional, '{') === false) {
+                    $include = $noOptional;
+                } else {
+                    $bak = $noOptional;
+                }
+            }
+
+            if (!$include && preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
                 $include = $m[0];
             }
 

@@ -2,7 +2,7 @@
 /*
  * This `inhere/sroute` routes cache file.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2017-12-05 22:21:26
+ * @date 2017-12-07 19:43:41
  * @count 41
  * @notice Please don't edit it.
  */
@@ -135,8 +135,8 @@ return array (
   'rest' => array (
     0 => array (
       'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
       'original' => '/rest/{id}',
+      'start' => '/rest/',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@view',
       'option' => array (
         'params' => array (
@@ -147,8 +147,8 @@ return array (
     ),
     1 => array (
       'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
       'original' => '/rest/{id}',
+      'start' => '/rest/',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@update',
       'option' => array (
         'params' => array (
@@ -159,8 +159,8 @@ return array (
     ),
     2 => array (
       'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
       'original' => '/rest/{id}',
+      'start' => '/rest/',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@patch',
       'option' => array (
         'params' => array (
@@ -171,8 +171,8 @@ return array (
     ),
     3 => array (
       'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
       'original' => '/rest/{id}',
+      'start' => '/rest/',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@delete',
       'option' => array (
         'params' => array (
@@ -185,8 +185,8 @@ return array (
   '50be3774f6' => array (
     0 => array (
       'regex' => '#^/50be3774f6/(?P<arg1>[^/]+)/(?P<arg2>[^/]+)/(?P<arg3>[^/]+)/(?P<arg4>[^/]+)/(?P<arg5>[^/]+)/(?P<arg6>[^/]+)/(?P<arg7>[^/]+)/(?P<arg8>[^/]+)/(?P<arg9>[^/]+)/850726135a$#',
-      'start' => '/50be3774f6/',
       'original' => '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a',
+      'start' => '/50be3774f6/',
       'handler' => 'handler0',
       'option' => array (
       ),
@@ -196,8 +196,8 @@ return array (
   'user' => array (
     0 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)/followers$#',
-      'start' => '/user/',
       'original' => '/user/{id}/followers',
+      'start' => '/user/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -205,8 +205,8 @@ return array (
     ),
     1 => array (
       'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/detail/',
       'original' => '/user/detail/{id}',
+      'start' => '/user/detail/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -214,8 +214,8 @@ return array (
     ),
     2 => array (
       'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/detail/',
       'original' => '/user/detail/{id}',
+      'start' => '/user/detail/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -223,8 +223,8 @@ return array (
     ),
     3 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
       'original' => '/user/{id}',
+      'start' => '/user/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -232,8 +232,8 @@ return array (
     ),
     4 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
       'original' => '/user/{id}',
+      'start' => '/user/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -241,8 +241,8 @@ return array (
     ),
     5 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
       'original' => '/user/{id}',
+      'start' => '/user/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -250,8 +250,8 @@ return array (
     ),
     6 => array (
       'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
       'original' => '/user/{id}',
+      'start' => '/user/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -259,8 +259,8 @@ return array (
     ),
     7 => array (
       'regex' => '#^/user/(?P<some>[^/]+)$#',
-      'start' => '/user/',
       'original' => '/user/{some}',
+      'start' => '/user/',
       'handler' => 'default_handler',
       'option' => array (
       ),
@@ -270,8 +270,8 @@ return array (
   'del' => array (
     0 => array (
       'regex' => '#^/del/(?P<uid>[^/]+)$#',
-      'start' => '/del/',
       'original' => '/del/{uid}',
+      'start' => '/del/',
       'handler' => 'main_handler',
       'option' => array (
       ),
@@ -281,8 +281,8 @@ return array (
   'home' => array (
     0 => array (
       'regex' => '#^/home/(?P<act>[a-zA-Z][\\w-]+)$#',
-      'start' => '/home/',
       'original' => '/home/{act}',
+      'start' => '/home/',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController',
       'option' => array (
       ),
@@ -295,8 +295,8 @@ return array (
   'GET' => array (
     0 => array (
       'regex' => '#^/(?P<name>blog|saying)$#',
-      'include' => NULL,
       'original' => '/{name}',
+      'include' => NULL,
       'handler' => 'default_handler',
       'option' => array (
         'params' => array (
@@ -306,40 +306,40 @@ return array (
     ),
     1 => array (
       'regex' => '#^/about(?:\\.html)?$#',
-      'include' => '/about',
       'original' => '/about[.html]',
+      'include' => '/about',
       'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
       'option' => array (
       ),
     ),
     2 => array (
       'regex' => '#^/test(?:/optional)?$#',
-      'include' => '/test',
       'original' => '/test[/optional]',
+      'include' => '/test',
       'handler' => 'default_handler',
       'option' => array (
       ),
     ),
     3 => array (
       'regex' => '#^/blog-(?P<post>[^/]+)$#',
-      'include' => '/blog-',
       'original' => '/blog-{post}',
+      'include' => '/blog-',
       'handler' => 'default_handler',
       'option' => array (
       ),
     ),
     4 => array (
       'regex' => '#^/blog(?:index)?$#',
-      'include' => '/blog',
       'original' => '/blog[index]',
+      'include' => '/blog',
       'handler' => 'default_handler',
       'option' => array (
       ),
     ),
     5 => array (
       'regex' => '#^/my(?:/(?P<name>[^/]+)(?:/(?P<age>\\d+))?)?$#',
-      'include' => '/my',
       'original' => '/my[/{name}[/{age}]]',
+      'include' => '/my',
       'handler' => 'my_handler',
       'option' => array (
         'params' => array (
