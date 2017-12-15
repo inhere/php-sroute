@@ -20,7 +20,7 @@ $router = new ORouter;
 
 // set config
 $router->setConfig([
-    'ignoreLastSep' => true,
+    'ignoreLastSlash' => true,
     'dynamicAction' => true,
 
     'tmpCacheNumber' => 100,

@@ -345,9 +345,9 @@ $router->setConfig([
 
 ```php
 // 所有的默认的配置
-[   
+
     // 是否忽略最后的 '/' 分隔符. 如果是 true,将清除最后一个 '/', 此时请求 '/home' 和 '/home/' 效果相同
-    'ignoreLastSep' => false,
+    'ignoreLastSep' = false,
 
     // 匹配所有请求
     // 1. 如果是一个有效的URI路径,将匹配所有请求到此URI路径。
@@ -360,7 +360,7 @@ $router->setConfig([
     'controllerNamespace' => '', // eg: 'app\\controllers'
     // 控制器类后缀
     'controllerSuffix' => '',    // eg: 'Controller'
-]
+
 ```
 
 > NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 

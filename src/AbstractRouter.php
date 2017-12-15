@@ -11,7 +11,6 @@ namespace Inhere\Route;
 /**
  * Class AbstractRouter
  * @package Inhere\Route
- *
  * @method get(string $route, mixed $handler, array $opts = [])
  * @method post(string $route, mixed $handler, array $opts = [])
  * @method put(string $route, mixed $handler, array $opts = [])
@@ -35,7 +34,7 @@ abstract class AbstractRouter implements RouterInterface
         'any' => '[^/]+',   // match any except '/'
         'num' => '[0-9]+',  // match a number
         'int' => '\d+',     // match a number
-        'id'  => '[1-9][0-9]*',  // match a ID number
+        'id' => '[1-9][0-9]*',  // match a ID number
         'act' => '[a-zA-Z][\w-]+', // match a action name
     ];
 
@@ -49,44 +48,12 @@ abstract class AbstractRouter implements RouterInterface
     protected $currentGroupOption;
 
     /**
-     * some setting for self
-     * @var array
-     */
-    protected $config = [
-        // the routes php file.
-        'routesFile' => '',
-
-        // ignore last '/' char. If is True, will clear last '/'.
-        'ignoreLastSep' => false,
-
-        // 'tmpCacheNumber' => 100,
-        'tmpCacheNumber' => 0,
-
-        // notAllowed As NotFound. Now, only two status value will be return(FOUND, NOT_FOUND).
-        'notAllowedAsNotFound' => false,
-
-        // match all request.
-        // 1. If is a valid URI path, will matchAll all request uri to the path.
-        // 2. If is a closure, will matchAll all request then call it
-        // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-        'matchAll' => false,
-
-        // auto route match @like yii framework
-        // If is True, will auto find the handler controller file.
-        'autoRoute' => false,
-        // The default controllers namespace, is valid when `'enable' = true`
-        'controllerNamespace' => '', // eg: 'app\\controllers'
-        // controller suffix, is valid when `'enable' = true`
-        'controllerSuffix' => '',    // eg: 'Controller'
-    ];
-
-    /**
      * static Routes - no dynamic argument match
      * 整个路由 path 都是静态字符串 e.g. '/user/login'
      * @var array[]
      * [
      *     '/user/login' => [
-     *          // METHOD => [...] // 这里 key 和 value里的 'methods' 是一样的
+     *          // METHOD => [...]
      *          'GET' => [
      *              'handler' => 'handler',
      *              'option' => [...],
@@ -109,16 +76,6 @@ abstract class AbstractRouter implements RouterInterface
      * @var array[]
      * [
      *     // 使用完整的第一节作为key进行分组
-     *     'a' => [
-     *          [
-     *              'start' => '/a/',
-     *              'regex' => '/a/(\w+)',
-     *              'methods' => 'GET,POST',
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
-     *          ...
-     *      ],
      *     'add' => [
      *          [
      *              'start' => '/add/',
@@ -182,6 +139,61 @@ abstract class AbstractRouter implements RouterInterface
      */
     protected $routeCaches = [];
 
+    /*******************************************************************************
+     * router config
+     ******************************************************************************/
+
+    /**
+     * Setting a routes file.
+     * @var string
+     */
+    public $routesFile;
+
+    /**
+     * Ignore last slash char('/'). If is True, will clear last '/'.
+     * @var bool
+     */
+    public $ignoreLastSlash = false;
+
+    /**
+     * The param route cache number.
+     * @var int
+     */
+    public $tmpCacheNumber = 0;
+
+    /**
+     * Match all request.
+     * 1. If is a valid URI path, will matchAll all request uri to the path.
+     * 2. If is a closure, will matchAll all request then call it
+     * eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
+     * @var mixed
+     */
+    public $matchAll;
+
+    /**
+     * @var bool NotAllowed As NotFound. If True, only two status value will be return(FOUND, NOT_FOUND).
+     */
+    public $notAllowedAsNotFound = false;
+
+    /**
+     * Auto route match @like yii framework
+     * If is True, will auto find the handler controller file.
+     * @var bool
+     */
+    public $autoRoute = false;
+
+    /**
+     * The default controllers namespace. eg: 'App\\Controllers'
+     * @var string
+     */
+    public $controllerNamespace;
+
+    /**
+     * Controller suffix, is valid when '$autoRoute' = true. eg: 'Controller'
+     * @var string
+     */
+    public $controllerSuffix;
+
     /**
      * object creator.
      * @param array $config
@@ -206,7 +218,7 @@ abstract class AbstractRouter implements RouterInterface
         $this->currentGroupOption = [];
 
         // load routes
-        if (($file = $this->config['routesFile']) && is_file($file)) {
+        if (($file = $this->routesFile) && is_file($file)) {
             require $file;
         }
     }
@@ -221,9 +233,20 @@ abstract class AbstractRouter implements RouterInterface
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
         }
 
+        $props = [
+            'routesFile' => 1,
+            'ignoreLastSlash' => 1,
+            'tmpCacheNumber' => 1,
+            'notAllowedAsNotFound' => 1,
+            'matchAll' => 1,
+            'autoRoute' => 1,
+            'controllerNamespace' => 1,
+            'controllerSuffix' => 1,
+        ];
+
         foreach ($config as $name => $value) {
-            if (isset($this->config[$name])) {
-                $this->config[$name] = $value;
+            if (isset($props[$name])) {
+                $this->$name = $value;
             }
         }
     }
@@ -289,7 +312,7 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         $allow = implode(',', self::SUPPORTED_METHODS) . ',';
-        $methods = array_map(function ($m) use($allow) {
+        $methods = array_map(function ($m) use ($allow) {
             $m = strtoupper(trim($m));
 
             if (!$m || false === strpos($allow, $m . ',')) {
@@ -349,16 +372,16 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * @param string $path
-     * @param bool $ignoreLastSep
+     * @param bool $ignoreLastSlash
      * @return string
      */
-    protected function formatUriPath($path, $ignoreLastSep)
+    protected function formatUriPath($path, $ignoreLastSlash)
     {
         // clear '//', '///' => '/'
         $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
 
-        // setting 'ignoreLastSep'
-        if ($path !== '/' && $ignoreLastSep) {
+        // setting 'ignoreLastSlash'
+        if ($path !== '/' && $ignoreLastSlash) {
             $path = rtrim($path, '/');
         }
 
@@ -370,7 +393,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param array $conf
      * @return array
      */
-    protected static function filterMatches(array $matches, array $conf)
+    protected function filterMatches(array $matches, array $conf)
     {
         // clear all int key
         $matches = array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
@@ -444,7 +467,7 @@ abstract class AbstractRouter implements RouterInterface
         $first = null;
         $regex = '#^' . $route . '$#';
         $info = [
-            'regex'  => $regex,
+            'regex' => $regex,
             'original' => $bak,
         ];
 
@@ -507,8 +530,11 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function matchAutoRoute($path)
     {
-        $cnp = trim($this->config['controllerNamespace']);
-        $sfx = trim($this->config['controllerSuffix']);
+        if (!$cnp = trim($this->controllerNamespace)) {
+            return false;
+        }
+
+        $sfx = trim($this->controllerSuffix);
         $tmp = trim($path, '/- ');
 
         // one node. eg: 'home'
@@ -614,20 +640,6 @@ abstract class AbstractRouter implements RouterInterface
     {
         $name = trim($name, '{} ');
         self::$globalParams[$name] = $pattern;
-    }
-
-    /**
-     * @param null|string $name
-     * @param null|mixed $default
-     * @return array|string
-     */
-    public function getConfig($name = null, $default = null)
-    {
-        if ($name) {
-            return isset($this->config[$name]) ? $this->config[$name] : $default;
-        }
-
-        return $this->config;
     }
 
     /**

@@ -21,7 +21,7 @@ $router = new ORouter;
 
 // set config
 $router->setConfig([
-    // 'ignoreLastSep' => true,
+    // 'ignoreLastSlash' => true,
     // 'tmpCacheNumber' => 100,
 
 //    'matchAll' => '/', // a route path

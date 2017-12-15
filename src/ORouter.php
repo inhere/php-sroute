@@ -68,8 +68,8 @@ class ORouter extends AbstractRouter
 
         $route = $this->currentGroupPrefix . $route;
 
-        // setting 'ignoreLastSep'
-        if ($route !== '/' && $this->config['ignoreLastSep']) {
+        // setting 'ignoreLastSlash'
+        if ($route !== '/' && $this->ignoreLastSlash) {
             $route = rtrim($route, '/');
         }
 
@@ -216,7 +216,7 @@ class ORouter extends AbstractRouter
     public function match($path, $method = 'GET')
     {
         // if enable 'matchAll'
-        if ($matchAll = $this->config['matchAll']) {
+        if ($matchAll = $this->matchAll) {
             if (\is_string($matchAll) && $matchAll{0} === '/') {
                 $path = $matchAll;
             } elseif (\is_callable($matchAll)) {
@@ -227,7 +227,7 @@ class ORouter extends AbstractRouter
             }
         }
 
-        $path = $this->formatUriPath($path, $this->config['ignoreLastSep']);
+        $path = $this->formatUriPath($path, $this->ignoreLastSlash);
         $method = strtoupper($method);
 
         // find in route caches.
@@ -267,7 +267,7 @@ class ORouter extends AbstractRouter
         }
 
         // handle Auto Route
-        if ($this->config['autoRoute'] && ($handler = $this->matchAutoRoute($path))) {
+        if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
             return [self::FOUND, $path, [
                 'handler' => $handler,
                 'option' => [],
@@ -306,7 +306,7 @@ class ORouter extends AbstractRouter
             return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
         }
 
-        if ($this->config['notAllowedAsNotFound']) {
+        if ($this->notAllowedAsNotFound) {
             return [self::NOT_FOUND, $path, null];
         }
 
@@ -358,7 +358,7 @@ class ORouter extends AbstractRouter
                 $allowedMethods .= $conf['methods'] . ',';
 
                 if (false !== strpos($conf['methods'] . ',', $method . ',')) {
-                    $conf['matches'] = self::filterMatches($matches, $conf);
+                    $conf['matches'] = $this->filterMatches($matches, $conf);
 
                     $this->cacheMatchedParamRoute($path, $method, $conf);
 
@@ -384,7 +384,7 @@ class ORouter extends AbstractRouter
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
-                $conf['matches'] = self::filterMatches($matches, $conf);
+                $conf['matches'] = $this->filterMatches($matches, $conf);
 
                 $this->cacheMatchedParamRoute($path, $method, $conf);
 
@@ -402,7 +402,7 @@ class ORouter extends AbstractRouter
      */
     protected function cacheMatchedParamRoute($path, $method, array $conf)
     {
-        $cacheNumber = (int)$this->config['tmpCacheNumber'];
+        $cacheNumber = (int)$this->tmpCacheNumber;
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0 && !isset($this->routeCaches[$path][$method])) {

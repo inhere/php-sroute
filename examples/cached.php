@@ -18,7 +18,7 @@ use Inhere\Route\Examples\Controllers\RestController;
 require __DIR__ . '/simple-loader.php';
 
 $router = new CachedRouter([
-    // 'ignoreLastSep' => true,
+    // 'ignoreLastSlash' => true,
     // 'tmpCacheNumber' => 100,
 
 //    'cacheFile' => '',

@@ -18,7 +18,7 @@ require __DIR__ . '/simple-loader.php';
 
 // set config
 SRouter::setConfig([
-    'ignoreLastSep' => true,
+    'ignoreLastSlash' => true,
 
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {

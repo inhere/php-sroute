@@ -23,17 +23,24 @@ class CachedRouter extends ORouter
     private $cacheLoaded = false;
 
     /**
+     * The routes cache file.
+     * @var string
+     */
+    public $cacheFile;
+
+    /**
+     * Enable routes cache
+     * @var bool
+     */
+    public $cacheEnable = true;
+
+    /**
      * object constructor.
      * @param array $config
      * @throws \LogicException
      */
     public function __construct(array $config = [])
     {
-        $this->config = array_merge($this->config,[
-            'cacheFile' => '',
-            'cacheEnable' => true,
-        ]);
-
         parent::__construct($config);
 
         // read route caches from cache file
@@ -89,7 +96,7 @@ class CachedRouter extends ORouter
             return false;
         }
 
-        $file = $this->config['cacheFile'];
+        $file = $this->cacheFile;
 
         if (!$file || !file_exists($file)) {
             return false;
@@ -112,7 +119,7 @@ class CachedRouter extends ORouter
      */
     public function dumpRoutesCache()
     {
-        if (!$file = $this->config['cacheFile']) {
+        if (!$file = $this->cacheFile) {
             return false;
         }
 
@@ -153,7 +160,7 @@ EOF;
      */
     public function isCacheEnabled()
     {
-        return (bool)$this->getConfig('cacheEnable');
+        return (bool)$this->cacheEnable;
     }
 
     /**
@@ -161,7 +168,7 @@ EOF;
      */
     public function isCacheExists()
     {
-        return ($file = $this->config['cacheFile']) && file_exists($file);
+        return ($file = $this->cacheFile) && file_exists($file);
     }
 
     /**
