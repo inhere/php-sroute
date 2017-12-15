@@ -105,7 +105,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
      * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
-     * e.g '/hello[/{name}]' '/user/{id}'
+     * e.g '/hello/{name}' '/user/{id}'
      * @var array[]
      * [
      *     // 使用完整的第一节作为key进行分组
@@ -321,7 +321,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param string $route
      * @return bool
      */
-    protected static function isStaticRoute($route)
+    public static function isStaticRoute($route)
     {
         return strpos($route, '{') === false && strpos($route, '[') === false;
     }

@@ -405,15 +405,13 @@ class ORouter extends AbstractRouter
         $cacheNumber = (int)$this->config['tmpCacheNumber'];
 
         // cache last $cacheNumber routes.
-        if ($cacheNumber > 0) {
-            if ($this->cacheCounter === $cacheNumber) {
+        if ($cacheNumber > 0 && !isset($this->routeCaches[$path][$method])) {
+            if ($this->cacheCounter >= $cacheNumber) {
                 array_shift($this->routeCaches);
             }
 
-            if (!isset($this->routeCaches[$path][$method])) {
-                $this->cacheCounter++;
-                $this->routeCaches[$path][$method] = $conf;
-            }
+            $this->cacheCounter++;
+            $this->routeCaches[$path][$method] = $conf;
         }
     }
 
