@@ -327,12 +327,8 @@ class ORouter extends AbstractRouter
             }
         }
 
-        if ($allowedMethods) {
-            return [
-                self::METHOD_NOT_ALLOWED,
-                $path,
-                array_unique($allowedMethods)
-            ];
+        if ($allowedMethods && ($list = array_unique($allowedMethods))) {
+            return [self::METHOD_NOT_ALLOWED, $path, $list];
         }
 
         // oo ... not found

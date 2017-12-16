@@ -192,7 +192,7 @@ abstract class AbstractRouter implements RouterInterface
      * Controller suffix, is valid when '$autoRoute' = true. eg: 'Controller'
      * @var string
      */
-    public $controllerSuffix;
+    public $controllerSuffix = 'Controller';
 
     /**
      * object creator.
