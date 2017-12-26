@@ -70,6 +70,7 @@ for ($i = 0; $i < $n; $i++) {
     );
 }
 
+$startMem = memory_get_usage();
 $router = new \Inhere\Route\CachedRouter([
     'cacheFile' => __DIR__ . '/cached/bench-routes-cache.php',
     'cacheEnable' => 0,
@@ -83,8 +84,8 @@ foreach ($requests as $r) {
     $router->map($r['method'], $r['url'], 'handler_func');
 }
 $end = microtime(true);
-$map_time = $end - $start;
-echo "Build time ($n routes): " . number_format($map_time, 6) . " seconds\n";
+$buildTime = $end - $start;
+echo "Build time ($n routes): " . number_format($buildTime, 3) . " seconds, For collect and parse routes.\n\n";
 
 $r = $requests[0];
 $uri = str_replace(['{', '}'], '', $r['url']);
@@ -93,8 +94,8 @@ $uri = str_replace(['{', '}'], '', $r['url']);
 $start = microtime(true);
 $ret = $router->match($uri, $r['method']);
 $end = microtime(true);
-$matchTime = $end - $start;
-echo 'Match time (first route): ' . number_format($matchTime, 6) . " seconds(URI: {$uri})\n";
+$matchTimeF = $end - $start;
+echo 'Match time (first route): ' . number_format($matchTimeF, 6) . " seconds(URI: {$uri})\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // pick random route to match
@@ -105,8 +106,8 @@ $uri = str_replace(['{', '}'], '', $r['url']);
 $start = microtime(true);
 $ret = $router->match($uri, $r['method']);
 $end = microtime(true);
-$matchTime = $end - $start;
-echo 'Match time (random route): ' . number_format($matchTime, 6) . " seconds(URI: {$uri})\n" ;
+$matchTimeR = $end - $start;
+echo 'Match time (random route): ' . number_format($matchTimeR, 6) . " seconds(URI: {$uri})\n" ;
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 $r = $requests[$n-1];
@@ -116,25 +117,23 @@ $uri = str_replace(['{', '}'], '', $r['url']);
 $start = microtime(true);
 $ret = $router->match($uri, $r['method']);
 $end = microtime(true);
-$matchTime = $end - $start;
-echo 'Match time (last route): ' . number_format($matchTime, 6) . " seconds(URI: {$uri})\n";
+$matchTimeE = $end - $start;
+echo 'Match time (last route): ' . number_format($matchTimeE, 6) . " seconds(URI: {$uri})\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // match un-existing route
 $start = microtime(true);
 $ret = $router->match('/55-foo-bar', 'GET');
 $end = microtime(true);
-$match_time_unknown_route = $end - $start;
-echo 'Match time (unknown route): ' . number_format($match_time_unknown_route, 6) . " seconds\n";
+$matchTimeU = $end - $start;
+echo 'Match time (unknown route): ' . number_format($matchTimeU, 6) . " seconds\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // print totals
-echo 'Total time: ' . number_format($map_time + $matchTime + $match_time_unknown_route,
-        6) . ' seconds' . PHP_EOL;
-echo 'Memory usage: ' . round(memory_get_usage() / 1024) . ' KB' . PHP_EOL;
+$totalTime = number_format($buildTime + $matchTimeF + $matchTimeR + $matchTimeU, 6);
+echo PHP_EOL . 'Total time: ' . $totalTime . ' seconds' . PHP_EOL;
+echo 'Memory usage: ' . round((memory_get_usage() - $startMem)/ 1024) . ' KB' . PHP_EOL;
 echo 'Peak memory usage: ' . round(memory_get_peak_usage(true) / 1024) . ' KB' . PHP_EOL;
-
-
 
 /*
 // 2017.12.3
@@ -150,4 +149,35 @@ Total time: 0.011953 seconds
 Memory usage: 1814 KB
 Peak memory usage: 2048 KB
 
+// 2017.12.26
+$ php examples/benchmark.php
+There are generate 1000 routes. and dynamic route with 50% chance
+
+Build time (1000 routes): 0.017 seconds, For collect and parse routes.
+
+Match time (first route): 0.000126 seconds(URI: /frlpz/y/yv/hzmjycn/fyuus/name)
+Match time (random route): 0.000012 seconds(URI: /rt/tbivsuspclfyra/mrys)
+Match time (last route): 0.000008 seconds(URI: /ltinm/mxrtqcbjb)
+Match time (unknown route): 0.000015 seconds
+
+Total time: 0.017024 seconds
+Memory usage: 1078 KB
+Peak memory usage: 4096 KB
+
+// 2017.12.26
+$ php examples/benchmark.php
+There are generate 1000 routes. and no dynamic route
+
+Build time (1000 routes): 0.012 seconds, For collect and parse routes.
+
+Match time (first route): 0.000221 seconds(URI: /ltnwon/epwnihhylz/qmd)
+Match time (random route): 0.000014 seconds(URI: /okluuvfaz/bolsgvnjp)
+Match time (last route): 0.000009 seconds(URI: /rwako/vg/x)
+Match time (unknown route): 0.000019 seconds
+
+Total time: 0.012515 seconds
+Memory usage: 1014 KB
+Peak memory usage: 2048 KB
+
  */
+
