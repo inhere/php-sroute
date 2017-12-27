@@ -161,8 +161,12 @@ class Dispatcher implements DispatcherInterface
         $this->fire(self::ON_FOUND, [$path, $route]);
 
         $result = null;
-        $options = $route['option'];
-        unset($route['option']);
+        $options = [];
+
+        if (isset($route['option'])) {
+            $options = $route['option'];
+            unset($route['option']);
+        }
 
         // fire enter event
         // schema,domains ... metadata validate

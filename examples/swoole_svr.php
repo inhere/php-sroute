@@ -14,7 +14,7 @@
 use Inhere\Route\Dispatcher;
 use Inhere\Route\ORouter;
 
-require __DIR__ . '/simple-loader.php';
+require dirname(__DIR__) . '/tests/boot.php';
 
 $router = new ORouter;
 

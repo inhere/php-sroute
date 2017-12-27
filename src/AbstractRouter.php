@@ -233,7 +233,7 @@ abstract class AbstractRouter implements RouterInterface
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
         }
 
-        $props = [
+        static $props = [
             'routesFile' => 1,
             'ignoreLastSlash' => 1,
             'tmpCacheNumber' => 1,
@@ -321,14 +321,6 @@ abstract class AbstractRouter implements RouterInterface
 
             return $m;
         }, (array)$methods);
-
-        // if (!\is_string($handler) && !\is_object($handler)) {
-        //     throw new \InvalidArgumentException('The route handler is not empty and type only allow: string,object');
-        // }
-        //
-        // if (\is_object($handler) && !\is_callable($handler)) {
-        //     throw new \InvalidArgumentException('The route object handler must be is callable');
-        // }
 
         $methods = implode(',', $methods) . ',';
 
@@ -464,17 +456,13 @@ abstract class AbstractRouter implements RouterInterface
 
         // 分析路由字符串是否是有规律的
         $first = null;
-        $regex = '#^' . $route . '$#';
-        $info = [
-            'regex' => $regex,
-            'original' => $bak,
-        ];
+        $conf['regex'] = '#^' . $route . '$#';
 
         // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
         if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
             $first = $m[1];
-            $info['start'] = $m[0];
+            $conf['start'] = $m[0];
             // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
         } else {
             $include = null;
@@ -491,10 +479,10 @@ abstract class AbstractRouter implements RouterInterface
                 $include = $m[0];
             }
 
-            $info['include'] = $include;
+            $conf['include'] = $include;
         }
 
-        return [$first, array_merge($info, $conf)];
+        return [$first, $conf];
     }
 
     /**

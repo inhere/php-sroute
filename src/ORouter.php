@@ -73,11 +73,13 @@ class ORouter extends AbstractRouter
             $route = rtrim($route, '/');
         }
 
-        $opts = array_merge($this->currentGroupOption, $opts);
         $conf = [
             'handler' => $handler,
-            'option' => $opts,
         ];
+
+        if ($opts = array_merge($this->currentGroupOption, $opts)) {
+            $conf['option'] = $opts;
+        }
 
         // it is static route
         if (self::isStaticRoute($route)) {
@@ -89,6 +91,7 @@ class ORouter extends AbstractRouter
             return $this;
         }
 
+        $conf['original'] = $route;
         $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
         list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
 

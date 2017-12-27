@@ -26,13 +26,13 @@ class CachedRouter extends ORouter
      * The routes cache file.
      * @var string
      */
-    public $cacheFile;
+    protected $cacheFile;
 
     /**
      * Enable routes cache
      * @var bool
      */
-    public $cacheEnable = true;
+    protected $cacheEnable = true;
 
     /**
      * object constructor.
@@ -42,6 +42,14 @@ class CachedRouter extends ORouter
     public function __construct(array $config = [])
     {
         parent::__construct($config);
+
+        if (isset($config['cacheFile'])) {
+            $this->cacheFile = $config['cacheFile'];
+        }
+
+        if (isset($config['cacheEnable'])) {
+            $this->setCacheEnable($config['cacheEnable']);
+        }
 
         // read route caches from cache file
         $this->loadRoutesCache();
@@ -77,9 +85,17 @@ class CachedRouter extends ORouter
     public function match($path, $method = self::GET)
     {
         // dump routes to cache file
-        $this->dumpRoutesCache();
+        // $this->dumpRoutesCache();
 
         return parent::match($path, $method);
+    }
+
+    /**
+     * dump routes to cache file
+     */
+    public function dumpCache()
+    {
+        $this->dumpRoutesCache();
     }
 
     /*******************************************************************************
@@ -92,7 +108,7 @@ class CachedRouter extends ORouter
      */
     public function loadRoutesCache()
     {
-        if (!$this->isCacheEnabled()) {
+        if (!$this->isCacheEnable()) {
             return false;
         }
 
@@ -117,13 +133,13 @@ class CachedRouter extends ORouter
      * dump routes to cache file
      * @return bool|int
      */
-    public function dumpRoutesCache()
+    protected function dumpRoutesCache()
     {
         if (!$file = $this->cacheFile) {
             return false;
         }
 
-        if ($this->isCacheEnabled() && file_exists($file)) {
+        if ($this->isCacheEnable() && file_exists($file)) {
             return true;
         }
 
@@ -137,7 +153,7 @@ class CachedRouter extends ORouter
         $code = <<<EOF
 <?php
 /*
- * This `inhere/sroute` routes cache file.
+ * This is routes cache file of the package `inhere/sroute`.
  * It is auto generate by $class.
  * @date $date
  * @count $count
@@ -158,9 +174,33 @@ EOF;
     /**
      * @return bool
      */
-    public function isCacheEnabled()
+    public function isCacheEnable()
     {
         return (bool)$this->cacheEnable;
+    }
+
+    /**
+     * @param bool $cacheEnable
+     */
+    public function setCacheEnable($cacheEnable)
+    {
+        $this->cacheEnable = (bool)$cacheEnable;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCacheFile()
+    {
+        return $this->cacheFile;
+    }
+
+    /**
+     * @param string $cacheFile
+     */
+    public function setCacheFile(string $cacheFile)
+    {
+        $this->cacheFile = $cacheFile;
     }
 
     /**

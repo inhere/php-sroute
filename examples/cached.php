@@ -15,7 +15,7 @@ use Inhere\Route\Dispatcher;
 use Inhere\Route\CachedRouter;
 use Inhere\Route\Examples\Controllers\RestController;
 
-require __DIR__ . '/simple-loader.php';
+require dirname(__DIR__) . '/tests/boot.php';
 
 $router = new CachedRouter([
     // 'ignoreLastSlash' => true,
