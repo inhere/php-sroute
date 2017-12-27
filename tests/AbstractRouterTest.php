@@ -35,6 +35,7 @@ class AbstractRouterTest extends TestCase
 
     public function testParseParamRoute()
     {
+        /** @var AbstractRouter $stub */
         $stub = $this->getMockForAbstractClass(AbstractRouter::class);
 
         // 抽象方法才需要配置
@@ -81,9 +82,21 @@ class AbstractRouterTest extends TestCase
         $this->assertArrayHasKey('start', $ret[1]);
         $this->assertArrayNotHasKey('include', $ret[1]);
 
+        $ret = $stub->parseParamRoute('/hello/friend[/{name}]', [], $conf);
+        $this->assertEquals('hello', $ret[0]);
+        $this->assertEquals('/hello/friend', $ret[1]['start']);
+        $this->assertArrayHasKey('start', $ret[1]);
+        $this->assertArrayNotHasKey('include', $ret[1]);
+
         $ret = $stub->parseParamRoute('/{category}', [], $conf);
         $this->assertNull($ret[0]);
         $this->assertNull($ret[1]['include']);
+        $this->assertArrayHasKey('include', $ret[1]);
+        $this->assertArrayNotHasKey('start', $ret[1]);
+
+        $ret = $stub->parseParamRoute('/{name}/profile', [], $conf);
+        $this->assertNull($ret[0]);
+        $this->assertEquals('/profile', $ret[1]['include']);
         $this->assertArrayHasKey('include', $ret[1]);
         $this->assertArrayNotHasKey('start', $ret[1]);
 

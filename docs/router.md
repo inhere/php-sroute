@@ -316,9 +316,6 @@ $route = $router->match($path, $method);
             // 'enter' => null,
             // 'leave' => null,
         ], 
-        
-        // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里
-        'matches' => []
     ],
 ]
 ```

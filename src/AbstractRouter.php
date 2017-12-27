@@ -139,6 +139,9 @@ abstract class AbstractRouter implements RouterInterface
      */
     protected $routeCaches = [];
 
+    /** @var array[] */
+    protected $routesData = [];
+
     /*******************************************************************************
      * router config
      ******************************************************************************/
@@ -214,6 +217,7 @@ abstract class AbstractRouter implements RouterInterface
     {
         $this->setConfig($config);
 
+        // $this->basicRoute = new Route();
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
 
@@ -311,18 +315,23 @@ abstract class AbstractRouter implements RouterInterface
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
-        $allow = implode(',', self::ALLOWED_METHODS) . ',';
-        $methods = array_map(function ($m) use ($allow) {
+        $allow = self::ALLOWED_METHODS_STR . ',';
+        $hasAny = false;
+        $methods = array_map(function ($m) use ($allow, &$hasAny) {
             $m = strtoupper(trim($m));
 
             if (!$m || false === strpos($allow, $m . ',')) {
                 throw new \InvalidArgumentException("The method [$m] is not supported, Allow: " . trim($allow, ','));
             }
 
+            if (!$hasAny && $m === self::ANY) {
+                $hasAny = true;
+            }
+
             return $m;
         }, (array)$methods);
 
-        if (\in_array(self::ANY, $methods, true)) {
+        if ($hasAny) {
             return self::ALLOWED_METHODS;
         }
 
@@ -339,6 +348,29 @@ abstract class AbstractRouter implements RouterInterface
         return strpos($route, '{') === false && strpos($route, '[') === false;
     }
 
+    // public function createRoute()
+    // {
+    //     $route = clone $this->basicRoute;
+    // }
+
+    /**
+     * @param string $path
+     * @param bool $ignoreLastSlash
+     * @return string
+     */
+    protected function formatUriPath($path, $ignoreLastSlash)
+    {
+        // clear '//', '///' => '/'
+        $path = rawurldecode(preg_replace('#\/\/+#', '/', trim($path)));
+
+        // setting 'ignoreLastSlash'
+        if ($path !== '/' && $ignoreLastSlash) {
+            $path = rtrim($path, '/');
+        }
+
+        return $path;
+    }
+
     /**
      * @param string $path
      * @return string
@@ -352,45 +384,22 @@ abstract class AbstractRouter implements RouterInterface
             return strstr($tmp, '/', true);
         }
 
-        // eg '/about.html'
-        // if (strpos($tmp, '.')) {
-        //     return strstr($tmp, '.', true);
-        // }
-
         return $tmp;
     }
 
     /**
-     * @param string $path
-     * @param bool $ignoreLastSlash
-     * @return string
-     */
-    protected function formatUriPath($path, $ignoreLastSlash)
-    {
-        // clear '//', '///' => '/'
-        $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
-
-        // setting 'ignoreLastSlash'
-        if ($path !== '/' && $ignoreLastSlash) {
-            $path = rtrim($path, '/');
-        }
-
-        return $path;
-    }
-
-    /**
      * @param array $matches
-     * @param array $conf
+     * @param array|\stdClass $conf
      * @return array
      */
-    protected function filterMatches(array $matches, array $conf)
+    protected function filterMatches(array $matches, $conf)
     {
         // clear all int key
         $matches = array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
 
         // apply some default param value
-        if (isset($conf['option']['defaults'])) {
-            $matches = array_merge($conf['option']['defaults'], $matches);
+        if (isset($conf->option['defaults'])) {
+            $matches = array_merge($conf->option['defaults'], $matches);
         }
 
         // decode ...
@@ -454,13 +463,15 @@ abstract class AbstractRouter implements RouterInterface
 
         // 分析路由字符串是否是有规律的
         $first = null;
-        $conf['regex'] = '#^' . $route . '$#';
 
         // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
+        /** @var string[] $m */
         if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
             $first = $m[1];
             $conf['start'] = $m[0];
+            $conf['startLen'] = \strlen($m[0]);
+            $conf['regex'] = '#^' . substr($route, $conf['startLen']) . '$#';
             // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
         } else {
             $include = null;
@@ -477,6 +488,7 @@ abstract class AbstractRouter implements RouterInterface
                 $include = $m[0];
             }
 
+            $conf['regex'] = '#^' . $route . '$#';
             $conf['include'] = $include;
         }
 
@@ -504,7 +516,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param string $method
      * @param array $conf
      */
-    abstract protected function cacheMatchedParamRoute($path, $method, array $conf);
+    abstract protected function cacheMatchedParamRoute($path, $method, $conf);
 
     /**
      * handle auto route match, when config `'autoRoute' => true`
@@ -689,6 +701,22 @@ abstract class AbstractRouter implements RouterInterface
     public function getVagueRoutes()
     {
         return $this->vagueRoutes;
+    }
+
+    /**
+     * @param array[] $routesData
+     */
+    public function setRoutesData($routesData)
+    {
+        $this->routesData = $routesData;
+    }
+
+    /**
+     * @return array[]
+     */
+    public function getRoutesData()
+    {
+        return $this->routesData;
     }
 
     /**

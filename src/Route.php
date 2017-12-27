@@ -14,5 +14,26 @@ namespace Inhere\Route;
  */
 class Route
 {
+    /** @var mixed Uri path */
+    public $path;
 
+    /** @var mixed Route handler */
+    public $handler;
+
+    /** @var string Allow method */
+    public $method;
+
+    /** @var string Original route pattern */
+    public $original;
+
+    /** @var array Matched route param values. */
+    public $matches;
+
+    /** @var array Route option. */
+    public $option;
+
+    public function init()
+    {
+
+    }
 }

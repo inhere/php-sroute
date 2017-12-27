@@ -14,9 +14,11 @@ namespace Inhere\Route;
  */
 class ORouter extends AbstractRouter
 {
-    /** @var int */
-    private $routeCounter = 0;
+    /** @var int  */
     private $cacheCounter = 0;
+
+    /** @var int */
+    protected $routeCounter = 0;
 
     /** @var array global Options */
     private $globalOptions = [
@@ -84,8 +86,9 @@ class ORouter extends AbstractRouter
         // it is static route
         if (self::isStaticRoute($route)) {
             foreach ($methods as $method) {
-                $this->routeCounter++;
-                $this->staticRoutes[$route][$method] = $conf;
+                $id = $this->routeCounter++;
+                $this->routesData[$id] = $conf;
+                $this->staticRoutes[$route][$method] = $id;
             }
 
             return $this;
@@ -224,8 +227,7 @@ class ORouter extends AbstractRouter
                 $path = $matchAll;
             } elseif (\is_callable($matchAll)) {
                 return [self::FOUND, $path, [
-                    'handler' => $matchAll,
-                    'option' => [],
+                    'handler' => $matchAll
                 ]];
             }
         }
@@ -239,10 +241,10 @@ class ORouter extends AbstractRouter
         }
 
         // is a static route path
-        if ($this->staticRoutes && isset($this->staticRoutes[$path][$method])) {
-            $conf = $this->staticRoutes[$path][$method];
+        if (isset($this->staticRoutes[$path][$method])) {
+            $index = $this->staticRoutes[$path][$method];
 
-            return [self::FOUND, $path, $conf];
+            return [self::FOUND, $path, $this->routesData[$index]];
         }
 
         $first = $this->getFirstFromPath($path);
@@ -273,7 +275,6 @@ class ORouter extends AbstractRouter
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
             return [self::FOUND, $path, [
                 'handler' => $handler,
-                'option' => [],
             ]];
         }
 
@@ -284,7 +285,9 @@ class ORouter extends AbstractRouter
             }
 
             if (isset($this->staticRoutes[$path]['GET'])) {
-                return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
+                $index = $this->staticRoutes[$path]['GET'];
+
+                return [self::FOUND, $path, $this->routesData[$index]];
             }
 
             if (isset($this->regularRoutes[$first])) {
@@ -306,7 +309,9 @@ class ORouter extends AbstractRouter
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
         if ($this->staticRoutes && isset($this->staticRoutes['/*'][$method])) {
-            return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
+            $index = $this->staticRoutes['/*'][$method];
+
+            return [self::FOUND, $path, $this->routesData[$index]];
         }
 
         if ($this->notAllowedAsNotFound) {
@@ -353,7 +358,13 @@ class ORouter extends AbstractRouter
         $allowedMethods = '';
 
         foreach ($routesData as $conf) {
-            if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
+            if (0 === strpos($path, $conf['start'])) {
+                $subject = substr($path, $conf['startLen']);
+
+                if (!preg_match($conf['regex'], $subject, $matches)) {
+                    continue;
+                }
+
                 $allowedMethods .= $conf['methods'] . ',';
 
                 if (false !== strpos($conf['methods'] . ',', $method . ',')) {
@@ -399,7 +410,7 @@ class ORouter extends AbstractRouter
      * @param string $method
      * @param array $conf
      */
-    protected function cacheMatchedParamRoute($path, $method, array $conf)
+    protected function cacheMatchedParamRoute($path, $method, $conf)
     {
         $cacheNumber = (int)$this->tmpCacheNumber;
 

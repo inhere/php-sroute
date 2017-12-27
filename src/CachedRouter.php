@@ -130,13 +130,23 @@ class CachedRouter extends ORouter
             return false;
         }
 
+        /**
+         * @var int $count
+         * @var array $staticRoutes
+         * @var array $regularRoutes
+         * @var array $vagueRoutes
+         * @var array $routesData
+         *
+         */
         // load routes
-        $map = include $file;
+        include $file;
 
-        $this->setStaticRoutes($map['staticRoutes']);
-        $this->setRegularRoutes($map['regularRoutes']);
-        $this->setVagueRoutes($map['vagueRoutes']);
         $this->cacheLoaded = true;
+        $this->routeCounter = $count;
+        $this->setStaticRoutes($staticRoutes);
+        $this->setRegularRoutes($regularRoutes);
+        $this->setVagueRoutes($vagueRoutes);
+        $this->setRoutesData($routesData);
 
         return true;
     }
@@ -161,6 +171,7 @@ class CachedRouter extends ORouter
         $staticRoutes = var_export($this->getStaticRoutes(), true);
         $regularRoutes = var_export($this->getRegularRoutes(), true);
         $vagueRoutes = var_export($this->getVagueRoutes(), true);
+        $routesData = var_export($this->getRoutesData(), true);
 
         $code = <<<EOF
 <?php
@@ -171,14 +182,20 @@ class CachedRouter extends ORouter
  * @count $count
  * @notice Please don't edit it.
  */
-return array (
+
+\$count = $count;
+
 // static routes
-'staticRoutes' => $staticRoutes,
+\$staticRoutes = $staticRoutes;
+
 // regular routes
-'regularRoutes' => $regularRoutes,
+\$regularRoutes = $regularRoutes;
+
 // vague routes
-'vagueRoutes' => $vagueRoutes,
-);
+\$vagueRoutes = $vagueRoutes;
+
+// routes Data
+\$routesData = $routesData;
 EOF;
         return file_put_contents($file, preg_replace('/=>\s+\n\s+array \(/', '=> array (', $code));
     }
