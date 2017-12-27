@@ -85,7 +85,7 @@ foreach ($requests as $r) {
 }
 $end = microtime(true);
 $buildTime = $end - $start;
-echo "Build time ($n routes): " . number_format($buildTime, 3) . " seconds, For collect and parse routes.\n\n";
+echo "Build time ($n routes): " . number_format($buildTime, 3) . " ms, For collect and parse routes.\n\n";
 
 $r = $requests[0];
 $uri = str_replace(['{', '}'], '', $r['url']);
@@ -95,7 +95,7 @@ $start = microtime(true);
 $ret = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeF = $end - $start;
-echo 'Match time (first route): ' . number_format($matchTimeF, 6) . " seconds(URI: {$uri})\n";
+echo 'Match time (first route): ' . number_format($matchTimeF, 6) . " s(URI: {$uri})\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // pick random route to match
@@ -107,7 +107,7 @@ $start = microtime(true);
 $ret = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeR = $end - $start;
-echo 'Match time (random route): ' . number_format($matchTimeR, 6) . " seconds(URI: {$uri})\n" ;
+echo 'Match time (random route): ' . number_format($matchTimeR, 6) . " s(URI: {$uri})\n" ;
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 $r = $requests[$n-1];
@@ -118,7 +118,7 @@ $start = microtime(true);
 $ret = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeE = $end - $start;
-echo 'Match time (last route): ' . number_format($matchTimeE, 6) . " seconds(URI: {$uri})\n";
+echo 'Match time (last route): ' . number_format($matchTimeE, 6) . " s(URI: {$uri})\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // match un-existing route
@@ -126,12 +126,12 @@ $start = microtime(true);
 $ret = $router->match('/55-foo-bar', 'GET');
 $end = microtime(true);
 $matchTimeU = $end - $start;
-echo 'Match time (unknown route): ' . number_format($matchTimeU, 6) . " seconds\n";
+echo 'Match time (unknown route): ' . number_format($matchTimeU, 6) . " s\n";
 // echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // print totals
-$totalTime = number_format($buildTime + $matchTimeF + $matchTimeR + $matchTimeU, 6);
-echo PHP_EOL . 'Total time: ' . $totalTime . ' seconds' . PHP_EOL;
+$totalTime = number_format($buildTime + $matchTimeF + $matchTimeR + $matchTimeU, 5);
+echo PHP_EOL . 'Total time: ' . $totalTime . ' s' . PHP_EOL;
 echo 'Memory usage: ' . round((memory_get_usage() - $startMem)/ 1024) . ' KB' . PHP_EOL;
 echo 'Peak memory usage: ' . round(memory_get_peak_usage(true) / 1024) . ' KB' . PHP_EOL;
 
@@ -140,12 +140,12 @@ echo 'Peak memory usage: ' . round(memory_get_peak_usage(true) / 1024) . ' KB' .
 $ php examples/benchmark.php
 There are generate 1000 routes. and dynamic route with 10% chance
 
-Build time (1000 routes): 0.011926 seconds
-Match time (first route): 0.000072 seconds(URI: /rlpkswupqzo/g)
-Match time (random route): 0.000015 seconds(URI: /muq/vs)
-Match time (last route): 0.000013 seconds(URI: /fneek/aedpctey/v/aaxzpf)
-Match time (unknown route): 0.000014 seconds
-Total time: 0.011953 seconds
+Build time (1000 routes): 0.011926 s
+Match time (first route): 0.000072 s(URI: /rlpkswupqzo/g)
+Match time (random route): 0.000015 s(URI: /muq/vs)
+Match time (last route): 0.000013 s(URI: /fneek/aedpctey/v/aaxzpf)
+Match time (unknown route): 0.000014 s
+Total time: 0.011953 s
 Memory usage: 1814 KB
 Peak memory usage: 2048 KB
 
@@ -153,14 +153,14 @@ Peak memory usage: 2048 KB
 $ php examples/benchmark.php
 There are generate 1000 routes. and dynamic route with 50% chance
 
-Build time (1000 routes): 0.017 seconds, For collect and parse routes.
+Build time (1000 routes): 0.017 s, For collect and parse routes.
 
-Match time (first route): 0.000126 seconds(URI: /frlpz/y/yv/hzmjycn/fyuus/name)
-Match time (random route): 0.000012 seconds(URI: /rt/tbivsuspclfyra/mrys)
-Match time (last route): 0.000008 seconds(URI: /ltinm/mxrtqcbjb)
-Match time (unknown route): 0.000015 seconds
+Match time (first route): 0.000126 s(URI: /frlpz/y/yv/hzmjycn/fyuus/name)
+Match time (random route): 0.000012 s(URI: /rt/tbivsuspclfyra/mrys)
+Match time (last route): 0.000008 s(URI: /ltinm/mxrtqcbjb)
+Match time (unknown route): 0.000015 s
 
-Total time: 0.017024 seconds
+Total time: 0.017024 s
 Memory usage: 1078 KB
 Peak memory usage: 4096 KB
 
@@ -168,14 +168,14 @@ Peak memory usage: 4096 KB
 $ php examples/benchmark.php
 There are generate 1000 routes. and no dynamic route
 
-Build time (1000 routes): 0.012 seconds, For collect and parse routes.
+Build time (1000 routes): 0.012 s, For collect and parse routes.
 
-Match time (first route): 0.000221 seconds(URI: /ltnwon/epwnihhylz/qmd)
-Match time (random route): 0.000014 seconds(URI: /okluuvfaz/bolsgvnjp)
-Match time (last route): 0.000009 seconds(URI: /rwako/vg/x)
-Match time (unknown route): 0.000019 seconds
+Match time (first route): 0.000221 s(URI: /ltnwon/epwnihhylz/qmd)
+Match time (random route): 0.000014 s(URI: /okluuvfaz/bolsgvnjp)
+Match time (last route): 0.000009 s(URI: /rwako/vg/x)
+Match time (unknown route): 0.000019 s
 
-Total time: 0.012515 seconds
+Total time: 0.012515 s
 Memory usage: 1014 KB
 Peak memory usage: 2048 KB
 
