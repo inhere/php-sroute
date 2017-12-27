@@ -2,6957 +2,6859 @@
 /*
  * This is routes cache file of the package `inhere/sroute`.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2017-12-27 21:44:33
+ * @date 2017-12-27 22:04:22
  * @count 1000
  * @notice Please don't edit it.
  */
 return array (
 // static routes
 'staticRoutes' => array (
-  '/y/fupjfmu/vzp/wv' => array (
-    'PUT' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/rncyno' => array (
-    'PUT' => array (
+  '/a/mcfxkub/jjkzvh' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bcatenqhnb' => array (
+  '/lgepzlleurihj/' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/krowlqaxgogttqrne/p' => array (
-    'PATCH' => array (
+  '/kdnqsc' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/kezemshvpgtqxkshqpp' => array (
-    'POST' => array (
+  '/vrtlmvaq/rqsuh' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/d/aysn' => array (
+  '/uktbc' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ywmomb' => array (
+  '/rt/i/nmnhs' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xnwtfzwnzk' => array (
+  '/veittga/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/skxguofmtppf' => array (
-    'PATCH' => array (
+  '/re/pau/ueankargo' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pwjpxtprv/ekb/vtg' => array (
+  '/whhouwrj' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mdvoxvpbykgqkbmg' => array (
+  '/dbfpxd/zlsgynuxw' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mgxghxxtjvzimhqdd' => array (
+  '/llvm/ra/ld/aucb' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rzoebppoh' => array (
-    'PUT' => array (
+  '/gredvcyrs/imwgsxs/' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ocg/zdmqdqinlyeomlg/u' => array (
-    'PUT' => array (
+  '/qknccxybyicvwns' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nmgncpdn/ghfbh' => array (
-    'GET' => array (
+  '/zxhntm' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/glizewyhodcbowpvq' => array (
+  '/aklzoq/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/henxy' => array (
-    'PUT' => array (
+  '/qgc/o/adzddxuauevvlmrg' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wshjd' => array (
-    'PUT' => array (
+  '/ufchmsslhyw/yom/xauqly' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xbstxh/czklcehvw' => array (
+  '/lajpbjanxu/ebq' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hextjqf' => array (
-    'PATCH' => array (
+  '/jyeqsxrxrko' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ewybw' => array (
+  '/aywrx/g/flqe' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xxf/bmbfqo/eumqs/gmomh' => array (
+  '/jjxrbxjlxkcw/' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/deelxeoyuajsbz' => array (
+  '/bydj/kcfaejystw/br' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fvkpmvclkhxtnxqcnqoj' => array (
+  '/r/uu/cqjrzsqef' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lmdzbuxzhpes/jmlej/o' => array (
+  '/ffrouq' => array (
+    'PATCH' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/f/vnhmkau/auak/' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lwqz/kcfm/l/el' => array (
-    'POST' => array (
+  '/fht/taffu/fwrfsksg/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rinuxageqtzblebvv' => array (
-    'PATCH' => array (
+  '/cpzdli/wqwom' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cgayx/dhlwwq' => array (
-    'DELETE' => array (
+  '/bowroxhjygcxrbwpixda' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xgdg/st/' => array (
-    'DELETE' => array (
+  '/rkyrcq/eq/wbd/svb/dc' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/helhze/uq' => array (
-    'GET' => array (
+  '/z/jsavkp/jksov/wbix' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cgvjqjkzpk/vgoos' => array (
+  '/v/c/s/rxj/mytto/cy' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jzxefxpfx/hqcdlhdcjh' => array (
-    'GET' => array (
+  '/iqokkg/c' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lwmndpli/yx/ssw' => array (
-    'GET' => array (
+  '/we/kxcsef' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cy/lqwotz' => array (
-    'DELETE' => array (
+  '/vbnufakkdeoijdzu' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/uibqx/iat/fj/' => array (
-    'GET' => array (
+  '/muhzjgu' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lxd/wdh/gmgv' => array (
-    'DELETE' => array (
+  '/o/saojfjs' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ley/c/rltts' => array (
-    'GET' => array (
+  '/kvkfln' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tcikq' => array (
+  '/tdla/c/clrhmivh/tja' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/imapwsfjvp/lsdi' => array (
+  '/k/xdp/y/dzgxub' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/klfg/p/uxlxtbatbnaz/a' => array (
+  '/crgtfjzzhebo' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/echjtzrmhzwvgqqi' => array (
-    'GET' => array (
+  '/wuusmcjtkcybq' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/avpbs/yomkiizb/fl' => array (
+  '/yfgxuedemhcmdibx' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dfd/wa' => array (
-    'DELETE' => array (
+  '/x/fkkyig' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eqghc/csgosrv/j/ylxuhn' => array (
-    'PATCH' => array (
+  '/slpzgfhd/uxqrrwxun' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jfusfzd/akdz' => array (
+  '/luydbnq' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dcmhxkj/b/kyfz/inzhahw/' => array (
-    'POST' => array (
+  '/vlil/ivlg/g/' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yao/umxglg/qezugtsfxk' => array (
+  '/chhv/j/j' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cxwby/gbaysnb' => array (
-    'POST' => array (
+  '/jnhvwriqhni' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jnhauh/mkt/hbrau' => array (
-    'DELETE' => array (
+  '/og/roam/klmp/' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/encckpmwz' => array (
-    'GET' => array (
+  '/d/sgiqx/' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/emwl/o/wtyvaujekepu/' => array (
+  '/shmijchisefsy/zl' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/v/opxmsrsuk/s/' => array (
-    'PUT' => array (
+  '/qppclvlonbreh/h/mosxp' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/npwwvtgyebb' => array (
+  '/tcsvew/vmfzhmpz/exqek' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nfwlkh/rbmfbj/now' => array (
-    'PATCH' => array (
+  '/ltmwru/gxltex' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nmtsydqxd/l/bd' => array (
-    'PATCH' => array (
+  '/xtzjrpl/j/y/x/g/olyzfb/b' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fvcqip' => array (
-    'POST' => array (
+  '/nree/xs' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cvrbtgxitoumk/ygapmv' => array (
-    'GET' => array (
+  '/zuxvh' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/znd/ovzok/f' => array (
-    'GET' => array (
+  '/vmxcffdp' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tdcgb/o/diw' => array (
-    'PATCH' => array (
+  '/ufv/ngbtesxfcduic/foty' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tzvtudtgfjyvonf/' => array (
-    'DELETE' => array (
+  '/luoqqe/' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ilw/pfninpvvuf' => array (
-    'PATCH' => array (
+  '/etnepetrpha' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/drwa/a/bmxzncpc' => array (
+  '/r/fz/k/ckfcswaghsw/v' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/i/nh/ogeit/it/auzjl' => array (
-    'GET' => array (
+  '/vczf/ktftf/acacgvoy' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vwyc/ywobpbadf/phnjpy' => array (
+  '/fzcrghfzpvh/ssgtzu' => array (
     'PUT' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/ve/ugvwsfwxsb/itw/v' => array (
-    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/i/jgiwwe' => array (
+  '/nxawnbunrkerxxu/b' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/abfea/aabtc/' => array (
-    'POST' => array (
+  '/j/glpmaobtfyrxtwsoza' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/midarcscvgcvykf' => array (
-    'POST' => array (
+  '/ypfqzdqw/qjeotg/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ts/sh/prkeolnceft' => array (
-    'GET' => array (
+  '/wcvrryuhthygpxka' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wqfdvjwfsmp' => array (
+  '/dryabzjru/sdg' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ugzjiazdc/thez' => array (
-    'POST' => array (
+  '/pmwwvyw/deptfq' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/betpxovayzrc' => array (
-    'GET' => array (
+  '/tzagim/lfqigl' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/i/ifpmbcrmpypqm/nxuhn' => array (
-    'GET' => array (
+  '/a/pxml/qnhd/p' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ru/h/acjtdrzov' => array (
-    'POST' => array (
+  '/q/usyvvhoxdyjp/i/ihfg' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wyz/qh/ccp/s/rsujrmf/e' => array (
-    'POST' => array (
+  '/tceliowjjtdvmea/movg' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mej/xksgztwerqpp' => array (
+  '/evxbygeh/kzv/h' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eeinbyo' => array (
-    'POST' => array (
+  '/r/prryyl' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vht/h/ip' => array (
+  '/dymlsh/zposn' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wcvcdgfeu/hecgyyl' => array (
+  '/clbslhqb/dtz/aqi' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mmpas/percj' => array (
+  '/kjroflgxmvjlq/' => array (
     'PUT' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/ctmipdethqp' => array (
-    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ozvv/a' => array (
-    'POST' => array (
+  '/pdlcdruvlu' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cf/qiepjojihsqynzu' => array (
+  '/dv/hzq' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pe/h/gslpc' => array (
-    'GET' => array (
+  '/wvfnvgx' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/saigxnnb/g/yrlfci' => array (
-    'PATCH' => array (
+  '/kajnlkvl' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/frzunrtc/zsfhtngnh' => array (
+  '/coerduocafiutoa/d' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bltoeqfbwiltodzeipuk/' => array (
-    'GET' => array (
+  '/rzqxwsmer/icgzskxj' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vqnwuxnezhlasklbo' => array (
+  '/o/vq/nctnvygmp/gqke/i' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pbhygixx/bqnqdlskgw/' => array (
+  '/ijv/epsx/kyzd' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cflanxxyvtmbnqx' => array (
-    'PATCH' => array (
+  '/leuxydy/kbuggh' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yg/rxt/qmkkgvfjw' => array (
-    'PATCH' => array (
+  '/ftpbcxybbdfvakte' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fswtpbixbt/ewjhw' => array (
-    'DELETE' => array (
+  '/qpicjdajbpmjxdzzff' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qjwfahh/kwxhzjtg' => array (
-    'PUT' => array (
+  '/anbaaz/hqzpct' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/trlitrqzqtokd/zv' => array (
+  '/iropsnnrvxqc' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rfp/qtj/foaadsjru/m' => array (
+  '/ennlczkebr' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/oqmmhqkzzqogo' => array (
+  '/uqsy/wyxczexnxzbvgd/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bzovda/lm' => array (
-    'GET' => array (
+  '/jmqatbl/qxg/q/g' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vuinm/' => array (
+  '/t/i/eqkopbsvxoheumqw' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/omgrn/w/p/zh/z/' => array (
-    'GET' => array (
+  '/croczudyorw/hznsfqw' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nzjgu/iluhssefggdakrk' => array (
+  '/bywpwl' => array (
     'DELETE' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/wjzeoj/fvh/rvopdvzfp/' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vnfi/h' => array (
+  '/rr/xkxu/lvfd/epuhtlsb' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/j/ccxvwqbquma/jmvdng' => array (
-    'GET' => array (
+  '/qnzfo/' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rnjyprydung/ld/' => array (
-    'GET' => array (
+  '/ukuiafsteejral/' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/l/rjwelbfah/tzxm' => array (
-    'PUT' => array (
+  '/rzdcutrcwpdkwhaoem' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gh/mlwyuatdlq/saj' => array (
-    'DELETE' => array (
+  '/uqqegecvj/jt/kvoo/xtzv' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cziv/sgmtvdzkumsojlm/r' => array (
-    'PATCH' => array (
+  '/mcti/c' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zyhmrqqehuajowltusys' => array (
+  '/sghrqadcwyr/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ewiezcqhz/' => array (
+  '/ghao/hqhwpu' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/uchx/moi' => array (
-    'POST' => array (
+  '/c/iqstouxaqdgcipudofd' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fusnbh' => array (
+  '/mqichads' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wqn/rtj' => array (
-    'GET' => array (
+  '/tsntexzwk' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pyjdr/zfvamnc/to' => array (
+  '/ip/itjz/aiybhqluoyxm' => array (
     'GET' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/fzzmozm' => array (
-    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eddihxlhod/kx/kptqthm/f' => array (
-    'GET' => array (
+  '/q/mfthkxmjasd' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pxltrnkmktxnncshdx' => array (
+  '/olkebwkygebil/ohq' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qy/fopwf/' => array (
-    'GET' => array (
+  '/h/ucawkghnfyaq' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mulg/ifjuq/eqn' => array (
-    'GET' => array (
+  '/va/geuikay/minik/fkmph/' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eijjoi/df' => array (
+  '/aleryhzec/loi/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nsgxbqmytsqqavzk/y' => array (
-    'PUT' => array (
+  '/ocuxdgz/gzobk' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/owqxwuybd/afjd/nh' => array (
+  '/iarbnspqx/csqleod' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jmhfxxufvx/r/lcdxf' => array (
-    'PATCH' => array (
+  '/xqxbhz/jdxrfrit' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/j/svdvwvevij/ewugl' => array (
-    'DELETE' => array (
+  '/zdaqa/scx/lctidd/zl' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lkhsbzk/wygvznsaazzpp' => array (
-    'GET' => array (
+  '/nfuvcxf' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ujysdrcho/zhngck' => array (
-    'DELETE' => array (
+  '/tnw/vdjsorezc/jhasvfh' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/czsmog/qierxw/vd' => array (
+  '/vpnngwy' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fkjvqc' => array (
-    'GET' => array (
+  '/dp/jrnwgqlaamgepsqsn' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rirzopmyluaa' => array (
-    'POST' => array (
+  '/z/sbokrvvgl' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eo/jrh' => array (
-    'PATCH' => array (
+  '/oukmtd' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xexizkgexonrpms' => array (
-    'PATCH' => array (
+  '/kcewpwq' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/auurguf' => array (
-    'POST' => array (
+  '/gehmea' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/z/lmupei' => array (
+  '/rokis' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cxlivm' => array (
-    'GET' => array (
+  '/tnqblkyn/w/q/tc/q' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zrvcdifokekrilf/x' => array (
-    'GET' => array (
+  '/qihgfpfytmdzwub' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wysjsnk/nio' => array (
-    'DELETE' => array (
+  '/nbgotwgvsbwidqailf' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yocnb/ouooqfrp' => array (
-    'PUT' => array (
+  '/h/vpjgmzzjfk/sn' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xhjeek' => array (
-    'DELETE' => array (
+  '/hcmie/iune' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qchvejkgcner' => array (
+  '/yzwjx/rtgeulpqskm' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vtyjxwwgdcopgokkpma/l' => array (
+  '/vztejfbikbei' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wkg/u/ksr/boei' => array (
-    'PATCH' => array (
+  '/w/tjsuso/qc/vl/oxyfluxg/r/' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/voqwuacsroblgq/uvy' => array (
+  '/scqb/t/srsy' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dbe/iupfq/iovmfajj/' => array (
+  '/tq/zppjcti' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mqe/phymwfcuk/kovhnmsi' => array (
-    'POST' => array (
+  '/mhgbujvgklr/hvxrzss' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xjntl' => array (
-    'PUT' => array (
+  '/lq/xs/shdacd/r/jd/o/jswau' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/trjeq/lbi/hhlsdn/' => array (
+  '/ccwcmuvwlmubnox' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wumih/ayw/x/' => array (
-    'DELETE' => array (
+  '/ybsacev' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ir/enzjrge/r/zlztlctc' => array (
-    'PUT' => array (
+  '/tjrlfbao' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gsyxyut/forzi/jeju' => array (
-    'POST' => array (
+  '/bkxzceh' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pieuv/ea/nf/cqf' => array (
+  '/uioq/wb' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zojgledsekrmza/bf/' => array (
-    'PUT' => array (
+  '/bhftshzisutm' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mmyvrpw/na' => array (
+  '/or/gxxkfv/dtw/z' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/twhgj/nqtykl/cbi' => array (
+  '/cwyrs' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wckwl' => array (
-    'PATCH' => array (
+  '/xg/yyvy/ohvphenri' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ecsbwvqckue' => array (
-    'PUT' => array (
+  '/zanxn/cvhy/rihqt/ym/kg' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/praswh' => array (
-    'PUT' => array (
+  '/tpzoolk/omx/og' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jlkqdei/blwft' => array (
-    'GET' => array (
+  '/uvw/xkcz/xod' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/whecvqj/sppjp/w/mxe/z' => array (
+  '/hgaboh/lxakez' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eo/njlv' => array (
-    'PUT' => array (
+  '/kfkta/oj/ysgn/r' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/p/fmw/rdw' => array (
+  '/m/cme/btyhs' => array (
     'PUT' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/rd/sxqlsqan' => array (
-    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lz/iigzmgkwg/obbt/shc' => array (
-    'DELETE' => array (
+  '/dtvrdsfobg' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/f/e/tsyiod' => array (
+  '/vqwteohn' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gmd/zyyerjlywfzmsgl' => array (
-    'GET' => array (
+  '/yeuthe' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fvvdzff/pq' => array (
+  '/azgbnjutab' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vuaesaqumamq/l/bbp' => array (
+  '/ufxavgftrebsj' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/apqqnescq' => array (
-    'PATCH' => array (
+  '/oxoispetwrsep/pg/ebl' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ecnq/dn/' => array (
-    'DELETE' => array (
+  '/vfzfsexj' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/uhxwlezs/tyliv' => array (
+  '/shlbgbgfhldfoszg/cdiw' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qnihqkcjqift/' => array (
-    'GET' => array (
+  '/rny/rel/' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ulmu/wv/vwii' => array (
-    'POST' => array (
+  '/mrxab/ifvxeghesiwvmd/' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/q/qt/npmmkim/sfqa/' => array (
-    'GET' => array (
+  '/i/ppe/zenan/xw/hr/givyak' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/re/told' => array (
-    'POST' => array (
+  '/uvzfvffpis/zxr' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/drhfncyumgd' => array (
-    'PUT' => array (
+  '/kroae/yrtqcx/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/flfh/kdjfa' => array (
+  '/ndnzeoupsyopdh/nnzt/i/' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/chqln/' => array (
-    'PUT' => array (
+  '/zfqqemy/gynriwkegg' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cc/ndtefiuekughw/pgz/p/a' => array (
+  '/hvxfbnkkpqmgkcw' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dt/shseti' => array (
-    'PATCH' => array (
+  '/j/zzuc/piprinxqg' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fkcz/zythgdgak' => array (
-    'PATCH' => array (
+  '/ahlxckgp/ppxsvhzdmr' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/phxceguyrfzm/qthsfq' => array (
-    'DELETE' => array (
+  '/mittu' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nemqeklhvo/cdnsx' => array (
+  '/mcl/ufmanhassrl' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nvua/t/sg/stx/pcew/g/' => array (
-    'GET' => array (
+  '/li/tmkf' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/b/kmrmapkx/sj/krjorbbg' => array (
-    'GET' => array (
+  '/xtuey' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hdl/haer/uj' => array (
+  '/kx/bmatljj' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/g/ss/fnmw/ysnau' => array (
-    'PUT' => array (
+  '/ewtocdqvamy/kh/rmjm/gp/e' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/btauooes/dm' => array (
-    'POST' => array (
+  '/utufajqu/cfbidu/iyixc' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mg/osbig' => array (
-    'DELETE' => array (
+  '/p/nxdelpd' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/u/jwhdy' => array (
+  '/ckchiuwqim' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/o/rkvwlibmxm/ltfks' => array (
-    'POST' => array (
+  '/ymevzz' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/srbbp/khjy/d' => array (
+  '/fqssg' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/k/gwuenfw/r/yt' => array (
+  '/oc/sqdfdjotxbo' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yong/w' => array (
-    'POST' => array (
+  '/uill/eii' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hnarvxpfzlqzfjjzd' => array (
-    'GET' => array (
+  '/euhpzuirlbmngciu' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/msxjfsyuybrc/yofhjoj' => array (
-    'DELETE' => array (
+  '/nqwvssm/uc/pkx' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hjhhpmv/bid' => array (
-    'DELETE' => array (
+  '/iikoitqvc/xpjfrudc' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ahfkkhuuoehkn' => array (
+  '/qjxcmcsbnskkray/ypnz' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vonphzljoegcwikpu' => array (
+  '/wptsmco' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/kxtuxvxu/ctw' => array (
-    'PATCH' => array (
+  '/lqmj/lplh' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gmnlerxkta/' => array (
-    'PUT' => array (
+  '/e/ffm/hhf/aasoi/glzemm/h' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zl/rvsnhsx/yfbsittvtfu' => array (
-    'PUT' => array (
+  '/aejduas' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wcuixze' => array (
-    'PUT' => array (
+  '/rhsj/i' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/byulfdlydi/xaxdgwongb' => array (
-    'POST' => array (
+  '/jdpgfftjkjmtptsbp' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tdsgjilqa/otxjd' => array (
-    'GET' => array (
+  '/iopnznr' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cldjsvjtzay/kjm/p' => array (
+  '/m/d/mrc' => array (
     'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/skq/ps' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lgts/kios' => array (
+  '/mkw/yb/j' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ntsnktpgpplhx/' => array (
+  '/fclenxlgrfpl/pknn/' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eannxxvofu' => array (
-    'GET' => array (
+  '/ypkob/eaazlvzla' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vuyrk' => array (
-    'GET' => array (
+  '/pui/x/artcnw' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/u/krscvni' => array (
+  '/riymyoupryv/wzmjq' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qjh/ezhbolfjbfikdpq/r' => array (
-    'PATCH' => array (
+  '/yptqqknlovejftipxxf' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/s/iyk/jilarboqzcr/c' => array (
+  '/coms/uoeminklhloex' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nwoyzfk/hcjdd' => array (
-    'PUT' => array (
+  '/gkiyoaqsd/bhwxeufn' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xvk/ldhsdbr/lwbbd/mjdz' => array (
+  '/ds/awyidhvnu' => array (
+    'PATCH' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/rwyltk/bnn' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fqwu/dzdeaqxlmrztm' => array (
-    'PATCH' => array (
+  '/w/gvqydntw/cmyb/x/xc/pein' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/o/ljxcckhqrovafkynur' => array (
+  '/xjfmk/u/mfexziex' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nokavs/h' => array (
-    'DELETE' => array (
+  '/ctvy/lzw' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tojvdro/c' => array (
+  '/kedgcea/lzp/afvfaj' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qercy/nswcw/lwkur/at' => array (
-    'PATCH' => array (
+  '/wpyfrjiisq' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yqldznltunrdloguu/' => array (
+  '/jrvdixdi' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zolh/x/tchl' => array (
-    'GET' => array (
+  '/tpg/q/qjnqxvgibv/d/eabxy' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wyhayv/kh' => array (
+  '/c/rgndldjmp' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jwnvkxnlqde' => array (
+  '/gjhzrtjfqdp' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/saifcihbwhqwsrr/j' => array (
-    'DELETE' => array (
+  '/s/qofqg' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yndpiffgz/o/q/w' => array (
+  '/qrpo/jepd' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/oshdxbdolaxzxm' => array (
-    'PUT' => array (
+  '/pwj/l/yawq' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/h/mpuxgodeqvkgrzdesy' => array (
-    'PUT' => array (
+  '/ztztqrizymbmbnvbst/ox' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cer/ekr' => array (
-    'GET' => array (
+  '/qxduato/l/x/' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zqgdjqx' => array (
+  '/ksmtzhw/bd/lgdy' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gdrrjyt/fn/wolwg' => array (
-    'GET' => array (
+  '/vfdxecdendily' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ttwcbqkwvk/ji/aabcgynv' => array (
-    'DELETE' => array (
+  '/yikeypesfz' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/si/jgi' => array (
-    'PATCH' => array (
+  '/ppiirbvmmifnsndaci/p' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dmtblgufco/jl/tw/sxbfdh' => array (
-    'DELETE' => array (
+  '/ya/hrn/xbyguvpgfgm' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wyosxolrzytf/' => array (
-    'POST' => array (
+  '/b/toslxcyht' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hdbvh/vpvb/' => array (
-    'POST' => array (
+  '/hj/czir' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fvztatsctgxnjqrvimq' => array (
-    'GET' => array (
+  '/otwnvfvtrjcaosj' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ennt/kuiivyy/uve' => array (
+  '/khzqdut/i/pnfnq' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zhcgdws/' => array (
+  '/jstbvhnbw' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wsmnvwznubbciov' => array (
+  '/vkojh' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xjnaxhyuh' => array (
+  '/m/riguyydclltiwik' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/poei/swm' => array (
+  '/ydvsz/aoyltbe/zcipg' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bmdfpxmk/pncnqlihgux/q' => array (
-    'GET' => array (
+  '/rqomga' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mzsvmv/ufjiq' => array (
-    'GET' => array (
+  '/tpjls/a' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cbtruti' => array (
-    'GET' => array (
+  '/xbkqmxkbdfcc/adfb/m' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/liqmtvnbarxnhhmkca' => array (
+  '/ziltcypeelwwhpsh' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ygrjdgz/u' => array (
-    'DELETE' => array (
+  '/xijkphyxvwxja' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xlswyttqu' => array (
+  '/fxxyfsi/znitpwcihxa' => array (
     'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/mezsc/e/ohcpxlh/f' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rxckpugmrpyu' => array (
+  '/qntbm' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/uiear/us' => array (
-    'GET' => array (
+  '/acayoxe/gtp' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lqlmzjoxdqqvmsg' => array (
-    'GET' => array (
+  '/glgz/tbhasox' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pwyibnwhyjkm/xltkfeq' => array (
-    'PATCH' => array (
+  '/dxs/vmxvaqnham/t' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qtgtvmba/aqcxzoepb' => array (
-    'DELETE' => array (
+  '/xqxha/odinok/hgke/uo/fo' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/eicz/i' => array (
+  '/rcylakbil/j/ayxbzwqk' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/t/v/fv/ymowc' => array (
+  '/dsniomljq/rx/kfwespd/vw' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ojcfkf' => array (
-    'GET' => array (
+  '/rcrnar/axkun/lzwog/d/u' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/myfjxaa' => array (
-    'GET' => array (
+  '/ivbhpy/pfrchtncbgduj' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wqkp/hlbds' => array (
+  '/yyu/ytqjzui/smwsolif' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yiommzxrc' => array (
+  '/i/rjvmkufsjubn' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vmsnolqg/jq/ggdnzkuesf' => array (
-    'GET' => array (
+  '/gfitxsdhwrujmbrnlu' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tfpz/ylnkgwykl' => array (
+  '/b/hvlrnbhi' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cthl/md/iydchxprfszslw' => array (
+  '/y/rfalcaqykzsonbraz' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xrxmcwoapxjhvbbym' => array (
-    'DELETE' => array (
+  '/kgixnviqskwn/ydjm' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/c/bohayeju/zlfswvl' => array (
-    'PATCH' => array (
+  '/xprosw' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ejkjeaanqaikf' => array (
+  '/yiu/fnag/wsvqrkiegcb' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pfcnvhahyrcrkaj' => array (
-    'PATCH' => array (
+  '/bhqaf/bpe/c' => array (
+    'PUT' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/wljcd/fit' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rjetz/agq/faqtvyumj/ag' => array (
+  '/gbax/czkcoksy' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/brxaq/vekuf' => array (
+  '/hcylsrgwe/v/cyy/ao/jkvgx' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cjgwcv/sioehiwrgfwg' => array (
+  '/dwgyaw/' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/kxq/e/d' => array (
-    'PUT' => array (
+  '/dw/iw/j/yw' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/r/affdwlzw' => array (
+  '/wpvkbs' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/migrwr/' => array (
-    'PATCH' => array (
+  '/elei/ptlxo/foct' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tvmimfuhuzv/wzadqtkmj' => array (
+  '/uwriufxcgeh' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/apzwvpqsugr/idpgy/yovd' => array (
-    'GET' => array (
+  '/zdfbq' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bdszk' => array (
-    'GET' => array (
+  '/sl/mq/uau/jlmv/qmtvrxbg' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bqtsaw/efhan/fqiyzq' => array (
-    'DELETE' => array (
+  '/bteht/rxzgrniboiz/hjhd' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tt/oniiihqmclwawnjeqe' => array (
-    'PUT' => array (
+  '/xt/q/kxqanjtjkj' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ag/epagwdxyrv' => array (
+  '/v/qvvmcww' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/r/wousgobwpam/zp' => array (
-    'PUT' => array (
+  '/ezpkg/iqincbscttf' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/oelav' => array (
-    'GET' => array (
+  '/phiufdrq/bzt' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jtwnfihnswqeenaxyl/' => array (
-    'PUT' => array (
+  '/rekfpbs/zrdmz' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jseir' => array (
-    'GET' => array (
+  '/djoxeuahwnbyqe' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/prqjtwp/erfajg/m' => array (
-    'PATCH' => array (
+  '/ulthmbnzf/qfkgtz' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wqvqzvst/rp' => array (
+  '/anlkb' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nyqoxdqnn/u' => array (
+  '/yhklmtcmkrustrov/kc' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/sdcqynor' => array (
-    'POST' => array (
+  '/aetjb/hp/u/ys' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/biobsh' => array (
+  '/e/btsxb/g' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fw/arihrgnsrep' => array (
-    'PATCH' => array (
+  '/pttxjvllu' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qrgnldfj' => array (
-    'POST' => array (
+  '/otr/ki/i' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gfrqlnzcf' => array (
-    'DELETE' => array (
+  '/nqjqj/mhlmz' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jeicaildd' => array (
-    'PATCH' => array (
+  '/ugkdex/grilmmbqm/uiy' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/u/acgvxqaslmlgcplvcjo' => array (
-    'PUT' => array (
+  '/xvfzim/pji/zq' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dit/jzen' => array (
-    'PUT' => array (
+  '/z/frijjo' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jjycfsarrmjy' => array (
-    'POST' => array (
+  '/hlmidtjkfj/sxubqib/a/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/u/eiafqf/vhsihjfjr' => array (
-    'DELETE' => array (
+  '/kgenazobr' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pmlgg/ycfdzr/oy' => array (
-    'PUT' => array (
+  '/baxtov/wpfouhg' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bjuggmb/ozcow' => array (
-    'DELETE' => array (
+  '/xyyzxihixirqk/epv' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/oaofo' => array (
-    'POST' => array (
+  '/fvejicxicvocvuamme/nd' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xukwet/bge' => array (
-    'DELETE' => array (
+  '/nextuqkjzhtnhju' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/czqqt' => array (
-    'DELETE' => array (
+  '/qzvvixtuxu' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gaty/iudznfitjbfpwj' => array (
+  '/ahxhzk/bzhpg/jaxf' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/obgrwhihq' => array (
-    'PATCH' => array (
+  '/ttpw/edqnkixecdghb/f/sm' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hysppin' => array (
-    'GET' => array (
+  '/mfbr/cblmkt' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wc/uachy' => array (
-    'DELETE' => array (
+  '/ctk/kkvlnf/w/uq' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lqppybyrj/flj' => array (
+  '/p/rhaepidu' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nnfcquxvvtlnyh/' => array (
-    'POST' => array (
+  '/k/i/swdgaconiphpucun' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vltpb/p/etprecd' => array (
+  '/hby/hzl/botttcphtlb' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/te/yf/vh/jc/a/nr' => array (
-    'DELETE' => array (
+  '/iuq/newqtxtugw/fdn' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lnl/ebyubqxcp' => array (
+  '/tqbqt/pa' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/unfxvtgyqwwgaan' => array (
-    'POST' => array (
+  '/yytcr' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mjm/wxsg/nyffmiv/gnied' => array (
-    'PATCH' => array (
+  '/d/cxfninj/licjerectd/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zmbndbjt' => array (
-    'GET' => array (
+  '/wlmas' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/shjv/gpqkzk/xattz' => array (
-    'PATCH' => array (
+  '/dqchwtw' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/asugcyerywxscdhh' => array (
-    'DELETE' => array (
+  '/trbfzdotgma/jj/zxw/n' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bjvcluxxjp' => array (
+  '/ajxqlghlarqiuxktmgk' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ulzjvlngds' => array (
+  '/i/hqfmzludqj/wgrg' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/kcloczxgo/t' => array (
-    'PATCH' => array (
+  '/k/g/biwnep' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ccz/ppsdwvqxezit/s' => array (
+  '/vuw/sm/imbosdv/xznsnj' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/grpvigzfgwaace' => array (
+  '/gmcbwz/xkc' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gzgtdc/nurqs' => array (
-    'PUT' => array (
+  '/xtdh/ok/fijaytmtt' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ttxadyqpjz' => array (
-    'PUT' => array (
+  '/rsepyzhaaudub/g/mq/' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/p/et/x/lgwjreixpd/bqzk' => array (
-    'POST' => array (
+  '/lmnlaiy/roy/fwugao' => array (
+    'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/kxikpxcvjltuhll' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lkyhqhshbvpfhypr' => array (
+  '/ld/aswecyinsyv' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qjfwbbvl' => array (
-    'PATCH' => array (
+  '/vcpafumvmvmf/gls' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gxgaqlsnw' => array (
-    'PUT' => array (
+  '/sbtb/d/ye' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/u/arhyif/' => array (
-    'DELETE' => array (
+  '/efjs/nvvi' => array (
+    'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/pflypefkxsk' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gyiqdqmpv/qvw/ttgujtvl' => array (
+  '/keyct/amqihxhchcapkbl' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qloxkpkhc' => array (
+  '/wyk/kiqcxf/i/jhpr/ifmp' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cukbpkjvkbk/q' => array (
+  '/xpauvjji/njgcb' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/usled' => array (
+  '/yadmlqey/sx/f/gu/' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jybrrc' => array (
-    'POST' => array (
+  '/lumrcsiccpe' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wllkwesgyioged' => array (
-    'PATCH' => array (
+  '/lducwrxcag' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rtyyvelrk' => array (
-    'PATCH' => array (
+  '/dasbfnim/ll' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/x/ppvicpyfgsytmcb' => array (
-    'PATCH' => array (
+  '/v/znlnngkrursgaij/s' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nzgjq/ne' => array (
+  '/nmhnrowwtknr/jdg/c/ht' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xj/vujnqxwtmtawqp' => array (
+  '/f/vklshmvkmjfji' => array (
     'DELETE' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/qrs/z/kceycfg' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bpuw/mlw' => array (
+  '/abzxiabu' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/w/cwvbqnbdnwu/' => array (
-    'POST' => array (
+  '/vjtbnyhtknbi' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/faq/smwqmit' => array (
+  '/fjtb/zmpbpm' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/iaxgbqmpkniotu' => array (
+  '/skqfazj/gwbrzgyx/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/astnvealhqed' => array (
+  '/jpdlttabfih/' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jcwsahsy/hbqzqk/tqi' => array (
-    'PATCH' => array (
+  '/mahvxwfyfsndina/twdnv' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lj/rcll' => array (
-    'DELETE' => array (
+  '/zxtrumqygiqezr' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rhs/nmbgevhm/wsna' => array (
-    'POST' => array (
+  '/nzihdelpw/eq/dgwi' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gk/hw/so' => array (
-    'POST' => array (
+  '/bruuh/uhs/ovviyxj/p' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/u/cwn/eaqbx' => array (
+  '/ubjfrp/vr/qj' => array (
     'DELETE' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/axxzohlg' => array (
-    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/piqmjwzqu/oxm' => array (
-    'PUT' => array (
+  '/j/bnxup/oblgcmp/ah/liy' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qhnixtauolcw' => array (
-    'GET' => array (
+  '/nvoaoqlqkts/e' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/shydcvnigocxcnefsq' => array (
+  '/ikhlhnelx/wq' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gelpbklq' => array (
-    'GET' => array (
+  '/mvr/swjpkpd/fwtqxmvi' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gdssnrvkf/r/hnjxrxn' => array (
+  '/jkmkkyw/j' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mbdgcpipe/onsv' => array (
-    'POST' => array (
+  '/llkkjfkkfsyt' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/c/nswul/wcwfhonerwv' => array (
-    'GET' => array (
+  '/nnloliig' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ododosnkut/d' => array (
-    'DELETE' => array (
+  '/rfoazspzkxygycj' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/arwuyhmp' => array (
-    'DELETE' => array (
+  '/publypzswoaszmxnqvm' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/cyqkczfmshh' => array (
-    'GET' => array (
+  '/sgoeauhhbeoenubefwl' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pytyl' => array (
-    'PUT' => array (
+  '/xguhbtdknioqero' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hbeae/othae/d' => array (
+  '/prgllsejgtva' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rikoptgcxax' => array (
+  '/wz/tg/b' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bfi/abk/tju/btbgydsv' => array (
-    'PATCH' => array (
+  '/lzcup' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dl/ypx/ywdpbm' => array (
-    'PUT' => array (
+  '/grdawy/asbfkbfvdtzhsg/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/kk/yrhx' => array (
-    'PUT' => array (
+  '/r/ayiuflf' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ppwge/anta' => array (
+  '/mrdxps/ttwj/bgzzgon' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ct/kjz' => array (
-    'DELETE' => array (
+  '/oowwkcwxwmyxidp' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qslunu/tktjrdxy/htuzm/c' => array (
-    'POST' => array (
+  '/y/hgkt/vcnyoe/j/xy' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qzlrds' => array (
+  '/bpovckcde/f' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mg/pwgbabzgulkctq/' => array (
-    'DELETE' => array (
+  '/fnldc/v/uiydcagstis/fa' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gddlox' => array (
+  '/kecsrhxy/bnnegl' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/nbhxg/' => array (
+  '/zkechx/sv/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/scnm/oxlh/tirw/wynr' => array (
-    'PATCH' => array (
+  '/nlaugpu/es' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/u/vdnvvmq' => array (
+  '/qc/sr/dj/wa' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dtr/hsn/v' => array (
-    'POST' => array (
+  '/sharyasawdzcvhcwsw/nz' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ongzfzmw' => array (
+  '/simnmlf/imw' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/gokzulrqz/' => array (
+  '/dsexajvafp' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/brzsulgnmbjcs/ulg' => array (
-    'GET' => array (
+  '/xefkc/' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/irn/xz/idavbifj' => array (
-    'DELETE' => array (
+  '/cthieq/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ukdkkxvo/qxngyl' => array (
+  '/nood/cr' => array (
     'POST' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/vjbjhnmc/elsysmvmlau/' => array (
-    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/h/yoizu' => array (
-    'GET' => array (
+  '/uq/jav/mttp' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xstinxdygt/qxvw/vfzmd' => array (
-    'GET' => array (
+  '/qxgj/pgjyoohyqdfzn' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/iseyo/n/cwkbpftym' => array (
-    'DELETE' => array (
+  '/idgeuehe/v' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/hnkwufydnnh' => array (
-    'DELETE' => array (
+  '/za/thfowj/owk' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xcu/eberadjsp' => array (
+  '/snljrtijnsd/cmbxmvxm' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mhyuwt/bngydds' => array (
-    'POST' => array (
+  '/lpsl/kxz' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tctusojysna/k/mwwz/x' => array (
-    'GET' => array (
+  '/pmpvc/uoteo/skv/b' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/texzcim' => array (
-    'GET' => array (
+  '/vzxg/ixcnxp' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/z/nlleiqlmzbot/njd' => array (
-    'DELETE' => array (
+  '/qd/ye/yhrzrck/sy/u/caw' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zlitia/mdey/e' => array (
+  '/fjnxvord/vvvgpmsfpoey' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pbcmqof/qtkf/znkagaqc' => array (
-    'DELETE' => array (
+  '/ytkynqtixadphyjsmob' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zntjltxn/wphhlg' => array (
+  '/jwhihdeqfrpiz/u' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/w/nfdmkvc' => array (
+  '/tngkgpjtx/gg' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/sbpb/viqtcfkzk/jln' => array (
-    'PUT' => array (
+  '/traoxfpepz' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/twnzf/aj/y' => array (
-    'PUT' => array (
+  '/bun/itmmpvsohbgqumkhi' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wpcvtxwuobppseta/' => array (
+  '/uv/tsabmls/ua' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qtzzdkra/' => array (
+  '/ulbvptk/w/uducdsp/yzpn' => array (
     'GET' => array (
-      'handler' => 'handler_func',
-    ),
-  ),
-  '/yjnj/zygpsrcmq' => array (
-    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rt/jwj' => array (
-    'POST' => array (
+  '/l/bjakhtokzsukgeu' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/z/mjapl/jdmnhcoft/i' => array (
-    'GET' => array (
+  '/bemywteby' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jnjnlffpznc' => array (
+  '/okisqfnfkchz/ec' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zpeumlfrhtjv' => array (
-    'PATCH' => array (
+  '/uyccil' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/j/dwplf' => array (
+  '/o/hfnrrvdqdhlszx' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bvzbdm/do/xibcj' => array (
+  '/vwxmsy/vosil/pdis' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/egdin' => array (
+  '/nvddmy/dky/sspqkf/' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/txrvhj/cwakgrsciquawp' => array (
-    'GET' => array (
+  '/kxeaewpczigh/z' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fnxjkpj/mfpyshhzmk/' => array (
-    'POST' => array (
+  '/leeiqtfjhcsmpctt' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/marcbkmex/zavsaxvf' => array (
+  '/kshqa/sziww/ua/rsg' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fyuty' => array (
-    'PUT' => array (
+  '/owxxelkpfuefbvpw/a/i' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bqmjzfmhcatgnnbwmaot' => array (
-    'PATCH' => array (
+  '/vshwq' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pkqjlxrkjnzv' => array (
-    'PUT' => array (
+  '/izv/hvqdbhb' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ighlbdm' => array (
+  '/wt/ihe/k/qxihni' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tiyrlbcrmen/ckb/igi' => array (
-    'PATCH' => array (
+  '/kzt/otpgsmsm/d' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/blvsfh/awt' => array (
-    'PATCH' => array (
+  '/gv/btvuy/hbkdqnwjzosww' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vykotvxuwz' => array (
-    'PUT' => array (
+  '/kogayi' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bg/udmndpr/pp' => array (
-    'GET' => array (
+  '/nfhwn/tfwjajpew' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vssvu/zszessvftjdinnr' => array (
-    'GET' => array (
+  '/fnflehsukp/z' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xuueajxns/' => array (
-    'GET' => array (
+  '/izynhgzckvn/' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ltiwebdjatvdsmpccnv' => array (
-    'DELETE' => array (
+  '/ouqhuchypbuve/lt' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qwowzzjfgqmyn' => array (
+  '/tfgzhssiggejyceliue' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ptjxqlddx' => array (
-    'PUT' => array (
+  '/vh/dtk/vc/iomygprdul' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bpqxxvs/ecbxziucxpx' => array (
-    'PUT' => array (
+  '/wbirpmsb/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rusvppijb' => array (
-    'PATCH' => array (
+  '/hgumidlby/aezropinle' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pwssbfjqsnshuml' => array (
-    'PATCH' => array (
+  '/pjghg/xiwt/vz/xqom/p/i/h/u' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ue/ras' => array (
-    'DELETE' => array (
+  '/stpettmadtbcyip' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/siudg' => array (
-    'GET' => array (
+  '/e/xxbsmjuwm/anwqpx' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/slvwnive' => array (
+  '/hfqxlyzcpywxymc/mk/jw' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xzqiowok' => array (
+  '/ep/f/qle/sxbambwgtqvr' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wpgisvtvjokdmnvqj' => array (
-    'PATCH' => array (
+  '/uvyodmitma/layi/yxyu/et' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/g/sxbnpbxvitwgbqheuv/o' => array (
-    'GET' => array (
+  '/fgakipofgtr/pqds' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/whnbwrfiibpf' => array (
-    'POST' => array (
+  '/yhuog' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rysxlwmtephgtm' => array (
-    'GET' => array (
+  '/anahypiuu/xcxiymmuqjd' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yeuefiz' => array (
-    'DELETE' => array (
+  '/vzcpyui/swzcd' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/honwetmfrmvrlfmrqt' => array (
-    'POST' => array (
+  '/peitsesmuj' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pgszsnn' => array (
+  '/msmic/bd/r/cqyrrypv' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/l/motwe/idgvscuq' => array (
-    'POST' => array (
+  '/k/syvunkz' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xzcmarhvgx' => array (
+  '/exet/afedohiizwxwfk' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zjelu' => array (
-    'PUT' => array (
+  '/kyz/znkdhztxwkfl/' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/n/vyrjpufwv/erbacpvcdv/' => array (
-    'GET' => array (
+  '/trozp/xodnni/q' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wyt/lbcc' => array (
+  '/sopty' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zrov/yihplbzn/gmr' => array (
+  '/hr/zosldj' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/se/odshksqkkah/' => array (
+  '/eyuvvvdsfzkvypz' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/admdqfm/wyte' => array (
-    'POST' => array (
+  '/npmkw/uvafokgpr' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ptupiqjyhpibmobcgxdc' => array (
+  '/qkgcftjuonch/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pqrixswh/qunpvugn' => array (
-    'DELETE' => array (
+  '/jl/ekiujqzabl/le' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/akxp/ywlg/y/wzue' => array (
+  '/ypmoq' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/iziaxhceq/cosjm/s/ti/' => array (
-    'PATCH' => array (
+  '/dscahv' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ncotorqudtjsvce/f/x' => array (
-    'POST' => array (
+  '/rhyjqtpchzt/vzbglc/jr' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/opdogkndznq/gupd/xhi' => array (
-    'GET' => array (
+  '/s/rvjlyfwwifwubibwr' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/subxxtu/ztguucj/zfb' => array (
-    'DELETE' => array (
+  '/fjrjp/kndudpwzydrx' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vfmcvtvmjmdqtweexsd' => array (
+  '/sfcqyzprzwlldcn' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qmimqkemg' => array (
+  '/wv/djclwshghh' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/i/ghbz/pjsdupxqr' => array (
+  '/jv/wibmsob/cs/dwrfw' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vs/v/vpotdnogww' => array (
-    'PATCH' => array (
+  '/t/zney/xkfyghxbkfv' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/zwdgppnuatpnbdtn' => array (
+  '/nr/tdpn/et/wliqio' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/betwehcs' => array (
+  '/iuuupyzl' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/oy/s/ieu/z/wcbcyebt/rdazg' => array (
+  '/uvba/hjz' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wamujnzijjg' => array (
-    'PUT' => array (
+  '/boupbgbm/dhyr' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jhv/xmz' => array (
-    'PATCH' => array (
+  '/yegexrtjej/xbnw' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qujopv/f' => array (
+  '/cmravgetdqcptocwivu' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lniexq' => array (
+  '/t/z/p/uxhlewe' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mrx/fx/' => array (
-    'DELETE' => array (
+  '/upcsrygdjzm' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ljhv/kpobp' => array (
+  '/fjckhnsoay' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/fmkqgvcxghsmnkmhek/ka' => array (
-    'PUT' => array (
+  '/towhvts' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/kyroc/xiiyprqgfvga' => array (
+  '/tie/f/jlgwjqvhivbcrw' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/m/bty/g' => array (
+  '/jtc/bznlldw' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/jrmkuebcnuh/m' => array (
-    'PATCH' => array (
+  '/ad/akljgda' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vodzimgviyaafnolvrqp' => array (
-    'POST' => array (
+  '/cvbrnecbrefrvuvvrvru' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/whxaw/lwpxuzk' => array (
-    'PUT' => array (
+  '/zqcxgexrblm' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/srxjkc' => array (
-    'POST' => array (
+  '/khxaxow' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/spdmvovqfkxueqxnnf/z' => array (
+  '/dbnggxh/ujqmmii/o/r' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mgryiuulc' => array (
-    'PATCH' => array (
+  '/i/wybrtoe/g/l/ssspm' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yfmebvf' => array (
+  '/xbdays/' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qnrxcjiornmzsy' => array (
+  '/uogzho/dsqos/' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yizgm/j/tobrkqit' => array (
+  '/tprkp' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qvqyahhiba/zij' => array (
+  '/obkkr/brlbxdf' => array (
+    'PUT' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/llwalkmvcdilq/d' => array (
+    'DELETE' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/gvwwrkskf/c/f/qtunas' => array (
+    'POST' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/fywwuwkqleszxvkvh' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/idhntr' => array (
+  '/jej/evth/qxixjzvatopdw' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qyzeecmfgewpd/d' => array (
-    'GET' => array (
+  '/qhfvm' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ly/rrexhfkbgoi' => array (
+  '/etcliyocudv' => array (
+    'PATCH' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/q/hfnexeoy' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/q/jwukjwwgbe' => array (
-    'PATCH' => array (
+  '/pkqacwhpa' => array (
+    'POST' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/y/upaydgqaen/k' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/l/bqcsefq/bgzcguyc' => array (
+  '/quyeuu/kmlfwhqav' => array (
     'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/k/rdtnpxh' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/safl/kryrxi' => array (
+  '/hquyzhk/guxhyw/j/ntt' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/tyqo/zrobt/jiu/d' => array (
-    'DELETE' => array (
+  '/mgzcmuljn/nu' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/c/gwmzi' => array (
-    'DELETE' => array (
+  '/qsdocukvzpsm/' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/ihszyu' => array (
+  '/bwfc/yjz/zr/njmiexd' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/dvkub' => array (
+  '/ihnybjwsshaei/t/qltuqf' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/mbrlerrjw/qpkpbdn' => array (
+  '/serxgvc/arqv' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/q/ftyuz/p/fupni' => array (
-    'DELETE' => array (
+  '/ftstquiw/jj/f' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/blxdrz/gms' => array (
-    'PUT' => array (
+  '/ofi/rbr/ltwyim/yfp/jq' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/vwhdly/w/i/qhakp' => array (
-    'GET' => array (
+  '/wotovxtyhmcn' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/iqpxe' => array (
-    'PATCH' => array (
+  '/d/yp/aclhj/jjy/zzdmvpv' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qmorgcsmm' => array (
+  '/yqygy' => array (
     'PATCH' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/f/fdqszfyccpzcbnc' => array (
+    'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bxqabvt/i/fm' => array (
+  '/ryo/tgwpj/gq/qjozwa' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yitz/eiolaufywz/' => array (
-    'DELETE' => array (
+  '/kamyd/tg/f' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/z/l/bm/a/amngug/utsjbakma/' => array (
-    'PUT' => array (
+  '/yjtyyfhtquzcqvk/qw/' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/y/d/peaay/vzecic/cn' => array (
+  '/fs/wu/pxsfxfegc' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rehil/l/cimevu' => array (
+  '/fpmycoof/qempbb/e' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/bckh/ddee/iefvjqp' => array (
-    'DELETE' => array (
+  '/n/cfuwv/ppwzdjgq' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lqrhzv' => array (
-    'PUT' => array (
+  '/oppojxk/odj/qdk' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/kgkuxug/xzdcypb' => array (
+  '/geq/chzor/xa/s' => array (
     'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/pwo/evd/hxq/bdokzgnmfj' => array (
-    'DELETE' => array (
+  '/pj/i/zlf' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/sjqllni/su' => array (
-    'DELETE' => array (
+  '/obefpzxudmdcap/vbj' => array (
+    'PUT' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/bjokbhgc' => array (
+    'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/rgjggs/cqp/ghgjgtkbxs' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/uwjlbd/tn/cq' => array (
+  '/fbukvyxigqglchyh' => array (
     'PATCH' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/uigs/oksz' => array (
+    'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/vyb/ftxxovyo' => array (
+    'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/xrnnmt/ctlluho' => array (
+  '/mhyxrcygnwbyquqaccve' => array (
     'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/klixquxjjkg' => array (
+  '/iawc/jzdgo' => array (
     'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/cnfpkxy/hbyxzcwgim' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qdumqebpx/r/ydivzkoh' => array (
+  '/epearjk' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/lyeodmk/xckahpuo' => array (
-    'PUT' => array (
+  '/rkviqot/wbuae/ocb' => array (
+    'POST' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/wuxcpxhnazse/dkw' => array (
+  '/ulrywr/vbj' => array (
     'GET' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/qk/ic/n/sf' => array (
+  '/zaz/jd/nubttb/dlhghumyj/' => array (
     'DELETE' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/aeqxk/' => array (
-    'GET' => array (
+  '/vv/hx/bzzowdqh/lxn/' => array (
+    'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/yevbcjskty/a' => array (
+  '/rrawveruwxj' => array (
     'PATCH' => array (
       'handler' => 'handler_func',
     ),
   ),
-  '/rzmqf/ejru/nw' => array (
+  '/x/y/lzm/h' => array (
     'GET' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/o/pwsxt/n/gixqfjh' => array (
+    'POST' => array (
+      'handler' => 'handler_func',
+    ),
+  ),
+  '/a/oqpiyxiofoosbqye' => array (
+    'PUT' => array (
       'handler' => 'handler_func',
     ),
   ),
 ),
 // regular routes
 'regularRoutes' => array (
+  'qmsiyfbez' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qmsiyfbez/rgcj/{name}',
+      'regex' => '#^/qmsiyfbez/rgcj/(?P<name>[^/]+)$#',
+      'start' => '/qmsiyfbez/rgcj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'zeavi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zeavi/{name}',
+      'regex' => '#^/zeavi/(?P<name>[^/]+)$#',
+      'start' => '/zeavi/',
+      'methods' => 'GET',
+    ),
+  ),
+  'xlfeembrmt' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xlfeembrmt/nty/{name}',
+      'regex' => '#^/xlfeembrmt/nty/(?P<name>[^/]+)$#',
+      'start' => '/xlfeembrmt/nty/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'aooiujicf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/aooiujicf/zjpqot/e/{name}',
+      'regex' => '#^/aooiujicf/zjpqot/e/(?P<name>[^/]+)$#',
+      'start' => '/aooiujicf/zjpqot/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'iony' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/iony/pcsv/{name}',
+      'regex' => '#^/iony/pcsv/(?P<name>[^/]+)$#',
+      'start' => '/iony/pcsv/',
+      'methods' => 'GET',
+    ),
+  ),
+  'bnb' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bnb/ewciyrxzdj/{name}',
+      'regex' => '#^/bnb/ewciyrxzdj/(?P<name>[^/]+)$#',
+      'start' => '/bnb/ewciyrxzdj/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'wbrwhz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wbrwhz/g/puwx/{name}',
+      'regex' => '#^/wbrwhz/g/puwx/(?P<name>[^/]+)$#',
+      'start' => '/wbrwhz/g/',
+      'methods' => 'POST',
+    ),
+  ),
+  'vlientwcw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vlientwcw/{name}',
+      'regex' => '#^/vlientwcw/(?P<name>[^/]+)$#',
+      'start' => '/vlientwcw/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'piuy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/piuy/knp/kvaub/ewakuo/{name}',
+      'regex' => '#^/piuy/knp/kvaub/ewakuo/(?P<name>[^/]+)$#',
+      'start' => '/piuy/knp/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'okh' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/okh/dm/t/{name}',
+      'regex' => '#^/okh/dm/t/(?P<name>[^/]+)$#',
+      'start' => '/okh/dm/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'wk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wk/tsqivs/og/{name}',
+      'regex' => '#^/wk/tsqivs/og/(?P<name>[^/]+)$#',
+      'start' => '/wk/tsqivs/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'fvsovkcxitubr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/fvsovkcxitubr/{name}',
+      'regex' => '#^/fvsovkcxitubr/(?P<name>[^/]+)$#',
+      'start' => '/fvsovkcxitubr/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'flmrcjlafvpmvdyv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/flmrcjlafvpmvdyv/{name}',
+      'regex' => '#^/flmrcjlafvpmvdyv/(?P<name>[^/]+)$#',
+      'start' => '/flmrcjlafvpmvdyv/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'qrc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qrc/bvzbqggkllbda/{name}',
+      'regex' => '#^/qrc/bvzbqggkllbda/(?P<name>[^/]+)$#',
+      'start' => '/qrc/bvzbqggkllbda/',
+      'methods' => 'GET',
+    ),
+  ),
+  'wgodc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wgodc/ks/{name}',
+      'regex' => '#^/wgodc/ks/(?P<name>[^/]+)$#',
+      'start' => '/wgodc/ks/',
+      'methods' => 'POST',
+    ),
+  ),
+  'fre' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/fre/b/umb/qmsn/{name}',
+      'regex' => '#^/fre/b/umb/qmsn/(?P<name>[^/]+)$#',
+      'start' => '/fre/b/',
+      'methods' => 'GET',
+    ),
+  ),
+  'gjy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/gjy/ptx/a/dsskq/{name}',
+      'regex' => '#^/gjy/ptx/a/dsskq/(?P<name>[^/]+)$#',
+      'start' => '/gjy/ptx/',
+      'methods' => 'GET',
+    ),
+  ),
+  'hju' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hju/n/xmy/jbne/kg/k/{name}',
+      'regex' => '#^/hju/n/xmy/jbne/kg/k/(?P<name>[^/]+)$#',
+      'start' => '/hju/n/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'sofjj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/sofjj/{name}',
+      'regex' => '#^/sofjj/(?P<name>[^/]+)$#',
+      'start' => '/sofjj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'yczpg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yczpg/{name}',
+      'regex' => '#^/yczpg/(?P<name>[^/]+)$#',
+      'start' => '/yczpg/',
+      'methods' => 'POST',
+    ),
+  ),
+  'jeiniwitrk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jeiniwitrk/lhx/{name}',
+      'regex' => '#^/jeiniwitrk/lhx/(?P<name>[^/]+)$#',
+      'start' => '/jeiniwitrk/lhx/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'xn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xn/ihrrmzscjv/{name}',
+      'regex' => '#^/xn/ihrrmzscjv/(?P<name>[^/]+)$#',
+      'start' => '/xn/ihrrmzscjv/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'lb' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lb/biujfxal/olhvtm/{name}',
+      'regex' => '#^/lb/biujfxal/olhvtm/(?P<name>[^/]+)$#',
+      'start' => '/lb/biujfxal/',
+      'methods' => 'POST',
+    ),
+  ),
+  'vxb' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vxb/oz/inzac/fbpiks/{name}',
+      'regex' => '#^/vxb/oz/inzac/fbpiks/(?P<name>[^/]+)$#',
+      'start' => '/vxb/oz/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'gwfdzh' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/gwfdzh/uxs/{name}',
+      'regex' => '#^/gwfdzh/uxs/(?P<name>[^/]+)$#',
+      'start' => '/gwfdzh/uxs/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'yc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yc/ay/p/{name}',
+      'regex' => '#^/yc/ay/p/(?P<name>[^/]+)$#',
+      'start' => '/yc/ay/',
+      'methods' => 'POST',
+    ),
+  ),
+  'wvytvlua' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wvytvlua/hwk/{name}',
+      'regex' => '#^/wvytvlua/hwk/(?P<name>[^/]+)$#',
+      'start' => '/wvytvlua/hwk/',
+      'methods' => 'GET',
+    ),
+  ),
+  'twbz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/twbz/xg/bch/djov/{name}',
+      'regex' => '#^/twbz/xg/bch/djov/(?P<name>[^/]+)$#',
+      'start' => '/twbz/xg/',
+      'methods' => 'PUT',
+    ),
+  ),
   'g' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/g/qikwhpqryetem/cdc/{name}',
-      'regex' => '#^/g/qikwhpqryetem/cdc/(?P<name>[^/]+)$#',
-      'start' => '/g/qikwhpqryetem/',
-      'methods' => 'POST',
-    ),
-    1 => array (
-      'handler' => 'handler_func',
-      'original' => '/g/jsvlej/{name}',
-      'regex' => '#^/g/jsvlej/(?P<name>[^/]+)$#',
-      'start' => '/g/jsvlej/',
-      'methods' => 'GET',
-    ),
-  ),
-  'hawyqfbjau' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hawyqfbjau/va/my/{name}',
-      'regex' => '#^/hawyqfbjau/va/my/(?P<name>[^/]+)$#',
-      'start' => '/hawyqfbjau/va/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'wofmcdhssdedqe' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/wofmcdhssdedqe/{name}',
-      'regex' => '#^/wofmcdhssdedqe/(?P<name>[^/]+)$#',
-      'start' => '/wofmcdhssdedqe/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'xwbqxkpvrggeymkrz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xwbqxkpvrggeymkrz/r/{name}',
-      'regex' => '#^/xwbqxkpvrggeymkrz/r/(?P<name>[^/]+)$#',
-      'start' => '/xwbqxkpvrggeymkrz/r/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'vygpowgs' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vygpowgs/gjqunf/to/{name}',
-      'regex' => '#^/vygpowgs/gjqunf/to/(?P<name>[^/]+)$#',
-      'start' => '/vygpowgs/gjqunf/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'yqneah' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/yqneah/qlqf/kvbck/{name}',
-      'regex' => '#^/yqneah/qlqf/kvbck/(?P<name>[^/]+)$#',
-      'start' => '/yqneah/qlqf/',
-      'methods' => 'GET',
-    ),
-  ),
-  'chy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/chy/muez/aqcwhlmo/{name}',
-      'regex' => '#^/chy/muez/aqcwhlmo/(?P<name>[^/]+)$#',
-      'start' => '/chy/muez/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'y' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/y/tlu/tcyzxpkjfnfl/{name}',
-      'regex' => '#^/y/tlu/tcyzxpkjfnfl/(?P<name>[^/]+)$#',
-      'start' => '/y/tlu/',
-      'methods' => 'PUT',
-    ),
-    1 => array (
-      'handler' => 'handler_func',
-      'original' => '/y/f/txoo/cjke/mygbckan/{name}',
-      'regex' => '#^/y/f/txoo/cjke/mygbckan/(?P<name>[^/]+)$#',
-      'start' => '/y/f/',
-      'methods' => 'GET',
-    ),
-  ),
-  'bdbyrzibnq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bdbyrzibnq/mqmr/{name}',
-      'regex' => '#^/bdbyrzibnq/mqmr/(?P<name>[^/]+)$#',
-      'start' => '/bdbyrzibnq/mqmr/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'hp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hp/ayxmyd/rkulqrmuv/{name}',
-      'regex' => '#^/hp/ayxmyd/rkulqrmuv/(?P<name>[^/]+)$#',
-      'start' => '/hp/ayxmyd/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'swbwh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/swbwh/ylkcxbjs/{name}',
-      'regex' => '#^/swbwh/ylkcxbjs/(?P<name>[^/]+)$#',
-      'start' => '/swbwh/ylkcxbjs/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'jiujsdl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jiujsdl/{name}',
-      'regex' => '#^/jiujsdl/(?P<name>[^/]+)$#',
-      'start' => '/jiujsdl/',
-      'methods' => 'GET',
-    ),
-  ),
-  'rsqsnj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rsqsnj/xyyuhm/xsewgvu/{name}',
-      'regex' => '#^/rsqsnj/xyyuhm/xsewgvu/(?P<name>[^/]+)$#',
-      'start' => '/rsqsnj/xyyuhm/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'lnd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lnd/wt/{name}',
-      'regex' => '#^/lnd/wt/(?P<name>[^/]+)$#',
-      'start' => '/lnd/wt/',
-      'methods' => 'GET',
-    ),
-  ),
-  'qq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qq/nrjl/sogorjso/u/i/{name}',
-      'regex' => '#^/qq/nrjl/sogorjso/u/i/(?P<name>[^/]+)$#',
-      'start' => '/qq/nrjl/',
-      'methods' => 'GET',
-    ),
-  ),
-  'z' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/z/nscrwwyencnb/{name}',
-      'regex' => '#^/z/nscrwwyencnb/(?P<name>[^/]+)$#',
-      'start' => '/z/nscrwwyencnb/',
-      'methods' => 'PUT',
-    ),
-    1 => array (
-      'handler' => 'handler_func',
-      'original' => '/z/hpjtitfrcdywljsbplp/{name}',
-      'regex' => '#^/z/hpjtitfrcdywljsbplp/(?P<name>[^/]+)$#',
-      'start' => '/z/hpjtitfrcdywljsbplp/',
-      'methods' => 'POST',
-    ),
-  ),
-  'xewfikgxaq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xewfikgxaq/zkqpb/evii/{name}',
-      'regex' => '#^/xewfikgxaq/zkqpb/evii/(?P<name>[^/]+)$#',
-      'start' => '/xewfikgxaq/zkqpb/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'f' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/f/cucegitp/{name}',
-      'regex' => '#^/f/cucegitp/(?P<name>[^/]+)$#',
-      'start' => '/f/cucegitp/',
+      'original' => '/g/fxtzyd/{name}',
+      'regex' => '#^/g/fxtzyd/(?P<name>[^/]+)$#',
+      'start' => '/g/fxtzyd/',
       'methods' => 'DELETE',
     ),
     1 => array (
       'handler' => 'handler_func',
-      'original' => '/f/kldoaqu/{name}',
-      'regex' => '#^/f/kldoaqu/(?P<name>[^/]+)$#',
-      'start' => '/f/kldoaqu/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'inykxi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/inykxi/{name}',
-      'regex' => '#^/inykxi/(?P<name>[^/]+)$#',
-      'start' => '/inykxi/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'umsr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/umsr/lciepparu/{name}',
-      'regex' => '#^/umsr/lciepparu/(?P<name>[^/]+)$#',
-      'start' => '/umsr/lciepparu/',
+      'original' => '/g/jppvoy/dzti/{name}',
+      'regex' => '#^/g/jppvoy/dzti/(?P<name>[^/]+)$#',
+      'start' => '/g/jppvoy/',
       'methods' => 'GET',
     ),
   ),
-  'kophlleswr' => array (
+  'ohwmsnu' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/kophlleswr/{name}',
-      'regex' => '#^/kophlleswr/(?P<name>[^/]+)$#',
-      'start' => '/kophlleswr/',
-      'methods' => 'POST',
-    ),
-  ),
-  'vfrfrevr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vfrfrevr/bla/zy/{name}',
-      'regex' => '#^/vfrfrevr/bla/zy/(?P<name>[^/]+)$#',
-      'start' => '/vfrfrevr/bla/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'dt' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dt/w/ahjjvuvua/{name}',
-      'regex' => '#^/dt/w/ahjjvuvua/(?P<name>[^/]+)$#',
-      'start' => '/dt/w/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'jvtvtf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jvtvtf/szsj/{name}',
-      'regex' => '#^/jvtvtf/szsj/(?P<name>[^/]+)$#',
-      'start' => '/jvtvtf/szsj/',
+      'original' => '/ohwmsnu/{name}',
+      'regex' => '#^/ohwmsnu/(?P<name>[^/]+)$#',
+      'start' => '/ohwmsnu/',
       'methods' => 'GET',
     ),
   ),
-  'vzfkwobdsvyhoxohlcyh' => array (
+  'dgxtiapotzgs' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/vzfkwobdsvyhoxohlcyh/{name}',
-      'regex' => '#^/vzfkwobdsvyhoxohlcyh/(?P<name>[^/]+)$#',
-      'start' => '/vzfkwobdsvyhoxohlcyh/',
+      'original' => '/dgxtiapotzgs/{name}',
+      'regex' => '#^/dgxtiapotzgs/(?P<name>[^/]+)$#',
+      'start' => '/dgxtiapotzgs/',
       'methods' => 'DELETE',
     ),
   ),
-  'ativzizm' => array (
+  'nafzfvledr' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ativzizm/{name}',
-      'regex' => '#^/ativzizm/(?P<name>[^/]+)$#',
-      'start' => '/ativzizm/',
-      'methods' => 'POST',
-    ),
-  ),
-  'old' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/old/zijhc/{name}',
-      'regex' => '#^/old/zijhc/(?P<name>[^/]+)$#',
-      'start' => '/old/zijhc/',
-      'methods' => 'POST',
-    ),
-  ),
-  'refxi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/refxi/cytfffv/{name}',
-      'regex' => '#^/refxi/cytfffv/(?P<name>[^/]+)$#',
-      'start' => '/refxi/cytfffv/',
+      'original' => '/nafzfvledr/bkw/edetz/{name}',
+      'regex' => '#^/nafzfvledr/bkw/edetz/(?P<name>[^/]+)$#',
+      'start' => '/nafzfvledr/bkw/',
       'methods' => 'GET',
     ),
   ),
-  'ttui' => array (
+  'i' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ttui/y/ljeio/iptcy/y/{name}',
-      'regex' => '#^/ttui/y/ljeio/iptcy/y/(?P<name>[^/]+)$#',
-      'start' => '/ttui/y/',
-      'methods' => 'GET',
-    ),
-  ),
-  'cnvqxhz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cnvqxhz/fawmwe/{name}',
-      'regex' => '#^/cnvqxhz/fawmwe/(?P<name>[^/]+)$#',
-      'start' => '/cnvqxhz/fawmwe/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'tqaozss' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/tqaozss/gxvay/{name}',
-      'regex' => '#^/tqaozss/gxvay/(?P<name>[^/]+)$#',
-      'start' => '/tqaozss/gxvay/',
-      'methods' => 'POST',
-    ),
-  ),
-  'mfi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mfi/dzjc/{name}',
-      'regex' => '#^/mfi/dzjc/(?P<name>[^/]+)$#',
-      'start' => '/mfi/dzjc/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'k' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/k/wxgvt/{name}',
-      'regex' => '#^/k/wxgvt/(?P<name>[^/]+)$#',
-      'start' => '/k/wxgvt/',
+      'original' => '/i/vhplnif/{name}',
+      'regex' => '#^/i/vhplnif/(?P<name>[^/]+)$#',
+      'start' => '/i/vhplnif/',
       'methods' => 'PATCH',
     ),
     1 => array (
       'handler' => 'handler_func',
-      'original' => '/k/kzvpxdzfgxp/{name}',
-      'regex' => '#^/k/kzvpxdzfgxp/(?P<name>[^/]+)$#',
-      'start' => '/k/kzvpxdzfgxp/',
+      'original' => '/i/wjzabmefwoa/u/tsefhuu/{name}',
+      'regex' => '#^/i/wjzabmefwoa/u/tsefhuu/(?P<name>[^/]+)$#',
+      'start' => '/i/wjzabmefwoa/',
       'methods' => 'PUT',
     ),
   ),
-  'xuiefeipibtravqi' => array (
+  'a' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/xuiefeipibtravqi/{name}',
-      'regex' => '#^/xuiefeipibtravqi/(?P<name>[^/]+)$#',
-      'start' => '/xuiefeipibtravqi/',
-      'methods' => 'GET',
-    ),
-  ),
-  'pr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/pr/qrqrn/{name}',
-      'regex' => '#^/pr/qrqrn/(?P<name>[^/]+)$#',
-      'start' => '/pr/qrqrn/',
-      'methods' => 'GET',
-    ),
-  ),
-  'iedshey' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/iedshey/{name}',
-      'regex' => '#^/iedshey/(?P<name>[^/]+)$#',
-      'start' => '/iedshey/',
-      'methods' => 'GET',
-    ),
-  ),
-  'vs' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vs/bg/slkctgqbjluxb/{name}',
-      'regex' => '#^/vs/bg/slkctgqbjluxb/(?P<name>[^/]+)$#',
-      'start' => '/vs/bg/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'vmdvmkbbk' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vmdvmkbbk/{name}',
-      'regex' => '#^/vmdvmkbbk/(?P<name>[^/]+)$#',
-      'start' => '/vmdvmkbbk/',
-      'methods' => 'GET',
-    ),
-  ),
-  'qv' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qv/pegl/z/sdzjtwbrjwy/{name}',
-      'regex' => '#^/qv/pegl/z/sdzjtwbrjwy/(?P<name>[^/]+)$#',
-      'start' => '/qv/pegl/',
+      'original' => '/a/clsylvzxlwjxqpd/{name}',
+      'regex' => '#^/a/clsylvzxlwjxqpd/(?P<name>[^/]+)$#',
+      'start' => '/a/clsylvzxlwjxqpd/',
       'methods' => 'DELETE',
-    ),
-  ),
-  'wuw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/wuw/rgnrysqbmf/cpkc/f/{name}',
-      'regex' => '#^/wuw/rgnrysqbmf/cpkc/f/(?P<name>[^/]+)$#',
-      'start' => '/wuw/rgnrysqbmf/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'dcuzj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dcuzj/kahzsia/{name}',
-      'regex' => '#^/dcuzj/kahzsia/(?P<name>[^/]+)$#',
-      'start' => '/dcuzj/kahzsia/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'cep' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cep/q/ihfzxrbei/{name}',
-      'regex' => '#^/cep/q/ihfzxrbei/(?P<name>[^/]+)$#',
-      'start' => '/cep/q/',
-      'methods' => 'GET',
-    ),
-  ),
-  'opdx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/opdx/mqewny/qljqg/v/dzz/{name}',
-      'regex' => '#^/opdx/mqewny/qljqg/v/dzz/(?P<name>[^/]+)$#',
-      'start' => '/opdx/mqewny/',
-      'methods' => 'POST',
-    ),
-  ),
-  'ehqzkvehqgtyef' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ehqzkvehqgtyef/ju/e/huq/{name}',
-      'regex' => '#^/ehqzkvehqgtyef/ju/e/huq/(?P<name>[^/]+)$#',
-      'start' => '/ehqzkvehqgtyef/ju/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'fbh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/fbh/jprj/ovmcwovinaa/{name}',
-      'regex' => '#^/fbh/jprj/ovmcwovinaa/(?P<name>[^/]+)$#',
-      'start' => '/fbh/jprj/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'fetf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/fetf/jnhkztij/{name}',
-      'regex' => '#^/fetf/jnhkztij/(?P<name>[^/]+)$#',
-      'start' => '/fetf/jnhkztij/',
-      'methods' => 'GET',
-    ),
-  ),
-  'kefznwtp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kefznwtp/myxjtlk/{name}',
-      'regex' => '#^/kefznwtp/myxjtlk/(?P<name>[^/]+)$#',
-      'start' => '/kefznwtp/myxjtlk/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'wnfyvaiuvgkwjf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/wnfyvaiuvgkwjf/utc/{name}',
-      'regex' => '#^/wnfyvaiuvgkwjf/utc/(?P<name>[^/]+)$#',
-      'start' => '/wnfyvaiuvgkwjf/utc/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'kzbfjszi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kzbfjszi/a/{name}',
-      'regex' => '#^/kzbfjszi/a/(?P<name>[^/]+)$#',
-      'start' => '/kzbfjszi/a/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'mso' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mso/viy/kawl/nooai/c/{name}',
-      'regex' => '#^/mso/viy/kawl/nooai/c/(?P<name>[^/]+)$#',
-      'start' => '/mso/viy/',
-      'methods' => 'GET',
-    ),
-  ),
-  'lamjqifkl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lamjqifkl/{name}',
-      'regex' => '#^/lamjqifkl/(?P<name>[^/]+)$#',
-      'start' => '/lamjqifkl/',
-      'methods' => 'POST',
-    ),
-  ),
-  'zg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zg/qjijs/qzzla/{name}',
-      'regex' => '#^/zg/qjijs/qzzla/(?P<name>[^/]+)$#',
-      'start' => '/zg/qjijs/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'aevkiqexi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/aevkiqexi/{name}',
-      'regex' => '#^/aevkiqexi/(?P<name>[^/]+)$#',
-      'start' => '/aevkiqexi/',
-      'methods' => 'GET',
-    ),
-  ),
-  'noawjzwouobppvxuz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/noawjzwouobppvxuz/{name}',
-      'regex' => '#^/noawjzwouobppvxuz/(?P<name>[^/]+)$#',
-      'start' => '/noawjzwouobppvxuz/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'xxr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xxr/xkvusrhfl/{name}',
-      'regex' => '#^/xxr/xkvusrhfl/(?P<name>[^/]+)$#',
-      'start' => '/xxr/xkvusrhfl/',
-      'methods' => 'GET',
-    ),
-  ),
-  'oboaz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/oboaz/{name}',
-      'regex' => '#^/oboaz/(?P<name>[^/]+)$#',
-      'start' => '/oboaz/',
-      'methods' => 'GET',
-    ),
-  ),
-  'xzuoiloowomtfds' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xzuoiloowomtfds/{name}',
-      'regex' => '#^/xzuoiloowomtfds/(?P<name>[^/]+)$#',
-      'start' => '/xzuoiloowomtfds/',
-      'methods' => 'GET',
-    ),
-  ),
-  'xaruervfgmgf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xaruervfgmgf/{name}',
-      'regex' => '#^/xaruervfgmgf/(?P<name>[^/]+)$#',
-      'start' => '/xaruervfgmgf/',
-      'methods' => 'POST',
-    ),
-  ),
-  'jihga' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jihga/vikkxpkcfibs/{name}',
-      'regex' => '#^/jihga/vikkxpkcfibs/(?P<name>[^/]+)$#',
-      'start' => '/jihga/vikkxpkcfibs/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'koiygui' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/koiygui/{name}',
-      'regex' => '#^/koiygui/(?P<name>[^/]+)$#',
-      'start' => '/koiygui/',
-      'methods' => 'GET',
-    ),
-  ),
-  'nsy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nsy/hzphhmmfgs/k/{name}',
-      'regex' => '#^/nsy/hzphhmmfgs/k/(?P<name>[^/]+)$#',
-      'start' => '/nsy/hzphhmmfgs/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'kgjm' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kgjm/yza/uryoultd/yvfq/{name}',
-      'regex' => '#^/kgjm/yza/uryoultd/yvfq/(?P<name>[^/]+)$#',
-      'start' => '/kgjm/yza/',
-      'methods' => 'POST',
-    ),
-  ),
-  'lra' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lra/bie/misleb/synj/{name}',
-      'regex' => '#^/lra/bie/misleb/synj/(?P<name>[^/]+)$#',
-      'start' => '/lra/bie/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'lpqfximcncf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lpqfximcncf/kho/njn/{name}',
-      'regex' => '#^/lpqfximcncf/kho/njn/(?P<name>[^/]+)$#',
-      'start' => '/lpqfximcncf/kho/',
-      'methods' => 'GET',
-    ),
-  ),
-  'dnrklffdw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dnrklffdw/nd/{name}',
-      'regex' => '#^/dnrklffdw/nd/(?P<name>[^/]+)$#',
-      'start' => '/dnrklffdw/nd/',
-      'methods' => 'GET',
-    ),
-  ),
-  'kpqzn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kpqzn/ekcfiitwbfjh/m/{name}',
-      'regex' => '#^/kpqzn/ekcfiitwbfjh/m/(?P<name>[^/]+)$#',
-      'start' => '/kpqzn/ekcfiitwbfjh/',
-      'methods' => 'POST',
-    ),
-  ),
-  'tf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/tf/vufrz/{name}',
-      'regex' => '#^/tf/vufrz/(?P<name>[^/]+)$#',
-      'start' => '/tf/vufrz/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'bdorkhxkkrtfcnpx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bdorkhxkkrtfcnpx/wli/{name}',
-      'regex' => '#^/bdorkhxkkrtfcnpx/wli/(?P<name>[^/]+)$#',
-      'start' => '/bdorkhxkkrtfcnpx/wli/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ff' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ff/davqhnzbmd/{name}',
-      'regex' => '#^/ff/davqhnzbmd/(?P<name>[^/]+)$#',
-      'start' => '/ff/davqhnzbmd/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'ioqrnr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ioqrnr/k/ijphxkcf/bd/{name}',
-      'regex' => '#^/ioqrnr/k/ijphxkcf/bd/(?P<name>[^/]+)$#',
-      'start' => '/ioqrnr/k/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'wreisqb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/wreisqb/{name}',
-      'regex' => '#^/wreisqb/(?P<name>[^/]+)$#',
-      'start' => '/wreisqb/',
-      'methods' => 'POST',
-    ),
-  ),
-  'tnsc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/tnsc/lusvfluk/{name}',
-      'regex' => '#^/tnsc/lusvfluk/(?P<name>[^/]+)$#',
-      'start' => '/tnsc/lusvfluk/',
-      'methods' => 'GET',
-    ),
-  ),
-  'och' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/och/bf/mtaj/hmmoaymkulu/{name}',
-      'regex' => '#^/och/bf/mtaj/hmmoaymkulu/(?P<name>[^/]+)$#',
-      'start' => '/och/bf/',
-      'methods' => 'POST',
-    ),
-  ),
-  'hjq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hjq/oroahy/{name}',
-      'regex' => '#^/hjq/oroahy/(?P<name>[^/]+)$#',
-      'start' => '/hjq/oroahy/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'jnycubfwqzeqef' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jnycubfwqzeqef/n/{name}',
-      'regex' => '#^/jnycubfwqzeqef/n/(?P<name>[^/]+)$#',
-      'start' => '/jnycubfwqzeqef/n/',
-      'methods' => 'POST',
-    ),
-  ),
-  'jgwpaxvx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jgwpaxvx/{name}',
-      'regex' => '#^/jgwpaxvx/(?P<name>[^/]+)$#',
-      'start' => '/jgwpaxvx/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'dghjie' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dghjie/ydxtnsv/{name}',
-      'regex' => '#^/dghjie/ydxtnsv/(?P<name>[^/]+)$#',
-      'start' => '/dghjie/ydxtnsv/',
-      'methods' => 'GET',
-    ),
-  ),
-  'yfaf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/yfaf/jh/{name}',
-      'regex' => '#^/yfaf/jh/(?P<name>[^/]+)$#',
-      'start' => '/yfaf/jh/',
-      'methods' => 'GET',
-    ),
-  ),
-  'n' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/n/dcuuuky/ah/{name}',
-      'regex' => '#^/n/dcuuuky/ah/(?P<name>[^/]+)$#',
-      'start' => '/n/dcuuuky/',
-      'methods' => 'GET',
     ),
     1 => array (
       'handler' => 'handler_func',
-      'original' => '/n/reovu/tzgknoneo/{name}',
-      'regex' => '#^/n/reovu/tzgknoneo/(?P<name>[^/]+)$#',
-      'start' => '/n/reovu/',
-      'methods' => 'POST',
+      'original' => '/a/jg/t/f/jfnwqqto/u/{name}',
+      'regex' => '#^/a/jg/t/f/jfnwqqto/u/(?P<name>[^/]+)$#',
+      'start' => '/a/jg/',
+      'methods' => 'GET',
     ),
     2 => array (
       'handler' => 'handler_func',
-      'original' => '/n/jhpvoitr/rxckbya/{name}',
-      'regex' => '#^/n/jhpvoitr/rxckbya/(?P<name>[^/]+)$#',
-      'start' => '/n/jhpvoitr/',
+      'original' => '/a/pecrhzp/yfgsvehot/x/{name}',
+      'regex' => '#^/a/pecrhzp/yfgsvehot/x/(?P<name>[^/]+)$#',
+      'start' => '/a/pecrhzp/',
       'methods' => 'GET',
     ),
   ),
-  'wfsg' => array (
+  'zyhyzot' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/wfsg/vm/{name}',
-      'regex' => '#^/wfsg/vm/(?P<name>[^/]+)$#',
-      'start' => '/wfsg/vm/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'nswvdfkcqui' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nswvdfkcqui/{name}',
-      'regex' => '#^/nswvdfkcqui/(?P<name>[^/]+)$#',
-      'start' => '/nswvdfkcqui/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'krcweqputzl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/krcweqputzl/{name}',
-      'regex' => '#^/krcweqputzl/(?P<name>[^/]+)$#',
-      'start' => '/krcweqputzl/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'setamt' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/setamt/df/vtbgkjnl/{name}',
-      'regex' => '#^/setamt/df/vtbgkjnl/(?P<name>[^/]+)$#',
-      'start' => '/setamt/df/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ovk' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ovk/umkefv/cfzbc/{name}',
-      'regex' => '#^/ovk/umkefv/cfzbc/(?P<name>[^/]+)$#',
-      'start' => '/ovk/umkefv/',
-      'methods' => 'GET',
-    ),
-  ),
-  'px' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/px/cxffkt/{name}',
-      'regex' => '#^/px/cxffkt/(?P<name>[^/]+)$#',
-      'start' => '/px/cxffkt/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ulqazrgpieu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ulqazrgpieu/hzosm/{name}',
-      'regex' => '#^/ulqazrgpieu/hzosm/(?P<name>[^/]+)$#',
-      'start' => '/ulqazrgpieu/hzosm/',
-      'methods' => 'POST',
-    ),
-  ),
-  'paqggeypaz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/paqggeypaz/bdcmikr/{name}',
-      'regex' => '#^/paqggeypaz/bdcmikr/(?P<name>[^/]+)$#',
-      'start' => '/paqggeypaz/bdcmikr/',
+      'original' => '/zyhyzot/{name}',
+      'regex' => '#^/zyhyzot/(?P<name>[^/]+)$#',
+      'start' => '/zyhyzot/',
       'methods' => 'PUT',
     ),
   ),
-  'augfm' => array (
+  'nngdxxe' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/augfm/griml/wkoaqrjot/r/{name}',
-      'regex' => '#^/augfm/griml/wkoaqrjot/r/(?P<name>[^/]+)$#',
-      'start' => '/augfm/griml/',
+      'original' => '/nngdxxe/i/aw/{name}',
+      'regex' => '#^/nngdxxe/i/aw/(?P<name>[^/]+)$#',
+      'start' => '/nngdxxe/i/',
       'methods' => 'POST',
     ),
   ),
-  'pmzfn' => array (
+  'tjxt' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/pmzfn/{name}',
-      'regex' => '#^/pmzfn/(?P<name>[^/]+)$#',
-      'start' => '/pmzfn/',
+      'original' => '/tjxt/tu/{name}',
+      'regex' => '#^/tjxt/tu/(?P<name>[^/]+)$#',
+      'start' => '/tjxt/tu/',
+      'methods' => 'GET',
+    ),
+  ),
+  'chyabvfddu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/chyabvfddu/{name}',
+      'regex' => '#^/chyabvfddu/(?P<name>[^/]+)$#',
+      'start' => '/chyabvfddu/',
+      'methods' => 'POST',
+    ),
+  ),
+  'bsv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bsv/is/bzcn/azq/irfbhhul/{name}',
+      'regex' => '#^/bsv/is/bzcn/azq/irfbhhul/(?P<name>[^/]+)$#',
+      'start' => '/bsv/is/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rbxnkgjlkjr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rbxnkgjlkjr/va/{name}',
+      'regex' => '#^/rbxnkgjlkjr/va/(?P<name>[^/]+)$#',
+      'start' => '/rbxnkgjlkjr/va/',
+      'methods' => 'GET',
+    ),
+  ),
+  'mjebqtfvs' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mjebqtfvs/ikjdnr/{name}',
+      'regex' => '#^/mjebqtfvs/ikjdnr/(?P<name>[^/]+)$#',
+      'start' => '/mjebqtfvs/ikjdnr/',
       'methods' => 'DELETE',
     ),
   ),
-  'j' => array (
+  'fsqiswych' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/j/n/clcycruzibrtg/{name}',
-      'regex' => '#^/j/n/clcycruzibrtg/(?P<name>[^/]+)$#',
-      'start' => '/j/n/',
-      'methods' => 'PATCH',
+      'original' => '/fsqiswych/{name}',
+      'regex' => '#^/fsqiswych/(?P<name>[^/]+)$#',
+      'start' => '/fsqiswych/',
+      'methods' => 'GET',
+    ),
+  ),
+  'mwo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mwo/a/oqeyyallffmjwvk/{name}',
+      'regex' => '#^/mwo/a/oqeyyallffmjwvk/(?P<name>[^/]+)$#',
+      'start' => '/mwo/a/',
+      'methods' => 'GET',
+    ),
+  ),
+  'cbyvrpgwpsgqz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/cbyvrpgwpsgqz/gl/o/udps/{name}',
+      'regex' => '#^/cbyvrpgwpsgqz/gl/o/udps/(?P<name>[^/]+)$#',
+      'start' => '/cbyvrpgwpsgqz/gl/',
+      'methods' => 'POST',
+    ),
+  ),
+  'oa' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oa/egpct/dw/{name}',
+      'regex' => '#^/oa/egpct/dw/(?P<name>[^/]+)$#',
+      'start' => '/oa/egpct/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'vccpoosivzb' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vccpoosivzb/lr/xz/f/exix/{name}',
+      'regex' => '#^/vccpoosivzb/lr/xz/f/exix/(?P<name>[^/]+)$#',
+      'start' => '/vccpoosivzb/lr/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'is' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/is/prlj/{name}',
+      'regex' => '#^/is/prlj/(?P<name>[^/]+)$#',
+      'start' => '/is/prlj/',
+      'methods' => 'GET',
+    ),
+  ),
+  't' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/t/fkjasv/{name}',
+      'regex' => '#^/t/fkjasv/(?P<name>[^/]+)$#',
+      'start' => '/t/fkjasv/',
+      'methods' => 'PUT',
     ),
     1 => array (
       'handler' => 'handler_func',
-      'original' => '/j/i/oqfu/{name}',
-      'regex' => '#^/j/i/oqfu/(?P<name>[^/]+)$#',
-      'start' => '/j/i/',
-      'methods' => 'PUT',
+      'original' => '/t/v/t/ufphwtwlksh/{name}',
+      'regex' => '#^/t/v/t/ufphwtwlksh/(?P<name>[^/]+)$#',
+      'start' => '/t/v/',
+      'methods' => 'GET',
     ),
-  ),
-  'fwnvnz' => array (
-    0 => array (
+    2 => array (
       'handler' => 'handler_func',
-      'original' => '/fwnvnz/{name}',
-      'regex' => '#^/fwnvnz/(?P<name>[^/]+)$#',
-      'start' => '/fwnvnz/',
-      'methods' => 'DELETE',
+      'original' => '/t/sxwatihpoc/{name}',
+      'regex' => '#^/t/sxwatihpoc/(?P<name>[^/]+)$#',
+      'start' => '/t/sxwatihpoc/',
+      'methods' => 'GET',
     ),
-  ),
-  'ldm' => array (
-    0 => array (
+    3 => array (
       'handler' => 'handler_func',
-      'original' => '/ldm/kqzhguxnsb/o/vc/{name}',
-      'regex' => '#^/ldm/kqzhguxnsb/o/vc/(?P<name>[^/]+)$#',
-      'start' => '/ldm/kqzhguxnsb/',
+      'original' => '/t/v/n/bgpumoke/faj/{name}',
+      'regex' => '#^/t/v/n/bgpumoke/faj/(?P<name>[^/]+)$#',
+      'start' => '/t/v/',
+      'methods' => 'GET',
+    ),
+    4 => array (
+      'handler' => 'handler_func',
+      'original' => '/t/zj/yqz/{name}',
+      'regex' => '#^/t/zj/yqz/(?P<name>[^/]+)$#',
+      'start' => '/t/zj/',
+      'methods' => 'GET',
+    ),
+    5 => array (
+      'handler' => 'handler_func',
+      'original' => '/t/lzwblbhc/ew/{name}',
+      'regex' => '#^/t/lzwblbhc/ew/(?P<name>[^/]+)$#',
+      'start' => '/t/lzwblbhc/',
       'methods' => 'GET',
     ),
   ),
-  'ynqsvglevosp' => array (
+  'gx' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ynqsvglevosp/ylqv/{name}',
-      'regex' => '#^/ynqsvglevosp/ylqv/(?P<name>[^/]+)$#',
-      'start' => '/ynqsvglevosp/ylqv/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'xbbixibabnjka' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xbbixibabnjka/{name}',
-      'regex' => '#^/xbbixibabnjka/(?P<name>[^/]+)$#',
-      'start' => '/xbbixibabnjka/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'kxexmckp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kxexmckp/fxpcot/{name}',
-      'regex' => '#^/kxexmckp/fxpcot/(?P<name>[^/]+)$#',
-      'start' => '/kxexmckp/fxpcot/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'ekvjavscvqvzz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ekvjavscvqvzz/nm/{name}',
-      'regex' => '#^/ekvjavscvqvzz/nm/(?P<name>[^/]+)$#',
-      'start' => '/ekvjavscvqvzz/nm/',
+      'original' => '/gx/suj/nrn/{name}',
+      'regex' => '#^/gx/suj/nrn/(?P<name>[^/]+)$#',
+      'start' => '/gx/suj/',
       'methods' => 'PATCH',
     ),
   ),
-  'tzksww' => array (
+  'zgimwhw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/tzksww/{name}',
-      'regex' => '#^/tzksww/(?P<name>[^/]+)$#',
-      'start' => '/tzksww/',
-      'methods' => 'PUT',
+      'original' => '/zgimwhw/{name}',
+      'regex' => '#^/zgimwhw/(?P<name>[^/]+)$#',
+      'start' => '/zgimwhw/',
+      'methods' => 'GET',
     ),
   ),
-  'gdadzwvlbcke' => array (
+  'skhqj' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/gdadzwvlbcke/{name}',
-      'regex' => '#^/gdadzwvlbcke/(?P<name>[^/]+)$#',
-      'start' => '/gdadzwvlbcke/',
-      'methods' => 'PUT',
+      'original' => '/skhqj/{name}',
+      'regex' => '#^/skhqj/(?P<name>[^/]+)$#',
+      'start' => '/skhqj/',
+      'methods' => 'GET',
     ),
   ),
-  'he' => array (
+  'xoafm' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/he/vde/qxrt/fr/{name}',
-      'regex' => '#^/he/vde/qxrt/fr/(?P<name>[^/]+)$#',
-      'start' => '/he/vde/',
+      'original' => '/xoafm/d/b/yjzrlptq/{name}',
+      'regex' => '#^/xoafm/d/b/yjzrlptq/(?P<name>[^/]+)$#',
+      'start' => '/xoafm/d/',
+      'methods' => 'GET',
+    ),
+  ),
+  'qeujgqgfyn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qeujgqgfyn/{name}',
+      'regex' => '#^/qeujgqgfyn/(?P<name>[^/]+)$#',
+      'start' => '/qeujgqgfyn/',
       'methods' => 'DELETE',
-    ),
-  ),
-  'glnbunanxmqtiamej' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/glnbunanxmqtiamej/{name}',
-      'regex' => '#^/glnbunanxmqtiamej/(?P<name>[^/]+)$#',
-      'start' => '/glnbunanxmqtiamej/',
-      'methods' => 'GET',
-    ),
-  ),
-  'amhsbnowmgt' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/amhsbnowmgt/{name}',
-      'regex' => '#^/amhsbnowmgt/(?P<name>[^/]+)$#',
-      'start' => '/amhsbnowmgt/',
-      'methods' => 'POST',
-    ),
-  ),
-  'hpjzn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hpjzn/ubkpcyzmrqnf/{name}',
-      'regex' => '#^/hpjzn/ubkpcyzmrqnf/(?P<name>[^/]+)$#',
-      'start' => '/hpjzn/ubkpcyzmrqnf/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'dhotjhupaw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dhotjhupaw/h/{name}',
-      'regex' => '#^/dhotjhupaw/h/(?P<name>[^/]+)$#',
-      'start' => '/dhotjhupaw/h/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ekzxtm' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ekzxtm/hkctweulbkpy/b/{name}',
-      'regex' => '#^/ekzxtm/hkctweulbkpy/b/(?P<name>[^/]+)$#',
-      'start' => '/ekzxtm/hkctweulbkpy/',
-      'methods' => 'GET',
     ),
   ),
   'm' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/m/jxgrz/ihzwjwr/{name}',
-      'regex' => '#^/m/jxgrz/ihzwjwr/(?P<name>[^/]+)$#',
-      'start' => '/m/jxgrz/',
-      'methods' => 'GET',
-    ),
-  ),
-  'iyolrsv' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/iyolrsv/lps/smauiu/{name}',
-      'regex' => '#^/iyolrsv/lps/smauiu/(?P<name>[^/]+)$#',
-      'start' => '/iyolrsv/lps/',
+      'original' => '/m/w/zevqwccrk/{name}',
+      'regex' => '#^/m/w/zevqwccrk/(?P<name>[^/]+)$#',
+      'start' => '/m/w/',
       'methods' => 'PUT',
-    ),
-  ),
-  'lz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lz/gccjhdwxhtpsw/{name}',
-      'regex' => '#^/lz/gccjhdwxhtpsw/(?P<name>[^/]+)$#',
-      'start' => '/lz/gccjhdwxhtpsw/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'omjqingxgqz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/omjqingxgqz/{name}',
-      'regex' => '#^/omjqingxgqz/(?P<name>[^/]+)$#',
-      'start' => '/omjqingxgqz/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'sd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/sd/jt/yczxzf/{name}',
-      'regex' => '#^/sd/jt/yczxzf/(?P<name>[^/]+)$#',
-      'start' => '/sd/jt/',
-      'methods' => 'GET',
-    ),
-  ),
-  'qmxt' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qmxt/snqwvonucxfpw/{name}',
-      'regex' => '#^/qmxt/snqwvonucxfpw/(?P<name>[^/]+)$#',
-      'start' => '/qmxt/snqwvonucxfpw/',
-      'methods' => 'GET',
-    ),
-  ),
-  'yikmy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/yikmy/{name}',
-      'regex' => '#^/yikmy/(?P<name>[^/]+)$#',
-      'start' => '/yikmy/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'e' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/e/bodx/{name}',
-      'regex' => '#^/e/bodx/(?P<name>[^/]+)$#',
-      'start' => '/e/bodx/',
-      'methods' => 'POST',
     ),
     1 => array (
       'handler' => 'handler_func',
-      'original' => '/e/pvxxft/yyjelgy/{name}',
-      'regex' => '#^/e/pvxxft/yyjelgy/(?P<name>[^/]+)$#',
-      'start' => '/e/pvxxft/',
+      'original' => '/m/knepdm/{name}',
+      'regex' => '#^/m/knepdm/(?P<name>[^/]+)$#',
+      'start' => '/m/knepdm/',
       'methods' => 'GET',
     ),
   ),
-  'drsusasr' => array (
+  'tvs' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/drsusasr/abwzmzj/kwp/{name}',
-      'regex' => '#^/drsusasr/abwzmzj/kwp/(?P<name>[^/]+)$#',
-      'start' => '/drsusasr/abwzmzj/',
-      'methods' => 'PUT',
+      'original' => '/tvs/iggs/{name}',
+      'regex' => '#^/tvs/iggs/(?P<name>[^/]+)$#',
+      'start' => '/tvs/iggs/',
+      'methods' => 'GET',
     ),
   ),
-  'lgqkeffi' => array (
+  'uivlbueum' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/lgqkeffi/gvjkskyl/{name}',
-      'regex' => '#^/lgqkeffi/gvjkskyl/(?P<name>[^/]+)$#',
-      'start' => '/lgqkeffi/gvjkskyl/',
+      'original' => '/uivlbueum/{name}',
+      'regex' => '#^/uivlbueum/(?P<name>[^/]+)$#',
+      'start' => '/uivlbueum/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'bgvv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bgvv/i/vyhzulhxkavui/{name}',
+      'regex' => '#^/bgvv/i/vyhzulhxkavui/(?P<name>[^/]+)$#',
+      'start' => '/bgvv/i/',
       'methods' => 'POST',
     ),
   ),
-  'dlmamc' => array (
+  'hg' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/dlmamc/vt/{name}',
-      'regex' => '#^/dlmamc/vt/(?P<name>[^/]+)$#',
-      'start' => '/dlmamc/vt/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'nfrppll' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nfrppll/{name}',
-      'regex' => '#^/nfrppll/(?P<name>[^/]+)$#',
-      'start' => '/nfrppll/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'lpsfvnouy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lpsfvnouy/{name}',
-      'regex' => '#^/lpsfvnouy/(?P<name>[^/]+)$#',
-      'start' => '/lpsfvnouy/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'dwnh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dwnh/ojafe/{name}',
-      'regex' => '#^/dwnh/ojafe/(?P<name>[^/]+)$#',
-      'start' => '/dwnh/ojafe/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'zkbntspe' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zkbntspe/bc/{name}',
-      'regex' => '#^/zkbntspe/bc/(?P<name>[^/]+)$#',
-      'start' => '/zkbntspe/bc/',
+      'original' => '/hg/qypgr/da/zqmtk/{name}',
+      'regex' => '#^/hg/qypgr/da/zqmtk/(?P<name>[^/]+)$#',
+      'start' => '/hg/qypgr/',
       'methods' => 'GET',
     ),
-  ),
-  'ifqdutlkdd' => array (
-    0 => array (
+    1 => array (
       'handler' => 'handler_func',
-      'original' => '/ifqdutlkdd/{name}',
-      'regex' => '#^/ifqdutlkdd/(?P<name>[^/]+)$#',
-      'start' => '/ifqdutlkdd/',
-      'methods' => 'GET',
-    ),
-  ),
-  'efdaguj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/efdaguj/auvta/{name}',
-      'regex' => '#^/efdaguj/auvta/(?P<name>[^/]+)$#',
-      'start' => '/efdaguj/auvta/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'gwnogis' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/gwnogis/hfuvy/{name}',
-      'regex' => '#^/gwnogis/hfuvy/(?P<name>[^/]+)$#',
-      'start' => '/gwnogis/hfuvy/',
-      'methods' => 'GET',
-    ),
-  ),
-  'd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/d/sv/u/oclyoacie/{name}',
-      'regex' => '#^/d/sv/u/oclyoacie/(?P<name>[^/]+)$#',
-      'start' => '/d/sv/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'vojxzl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vojxzl/hgzq/{name}',
-      'regex' => '#^/vojxzl/hgzq/(?P<name>[^/]+)$#',
-      'start' => '/vojxzl/hgzq/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'gkdzeq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/gkdzeq/st/vglek/mvuaa/{name}',
-      'regex' => '#^/gkdzeq/st/vglek/mvuaa/(?P<name>[^/]+)$#',
-      'start' => '/gkdzeq/st/',
-      'methods' => 'GET',
-    ),
-  ),
-  'tdoqrzhel' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/tdoqrzhel/{name}',
-      'regex' => '#^/tdoqrzhel/(?P<name>[^/]+)$#',
-      'start' => '/tdoqrzhel/',
-      'methods' => 'GET',
-    ),
-  ),
-  'qxwzddnfx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qxwzddnfx/sxe/{name}',
-      'regex' => '#^/qxwzddnfx/sxe/(?P<name>[^/]+)$#',
-      'start' => '/qxwzddnfx/sxe/',
+      'original' => '/hg/exttlrkarqpahocpk/{name}',
+      'regex' => '#^/hg/exttlrkarqpahocpk/(?P<name>[^/]+)$#',
+      'start' => '/hg/exttlrkarqpahocpk/',
       'methods' => 'POST',
     ),
   ),
-  'qh' => array (
+  'qcz' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/qh/zi/vt/{name}',
-      'regex' => '#^/qh/zi/vt/(?P<name>[^/]+)$#',
-      'start' => '/qh/zi/',
+      'original' => '/qcz/dxeuy/v/{name}',
+      'regex' => '#^/qcz/dxeuy/v/(?P<name>[^/]+)$#',
+      'start' => '/qcz/dxeuy/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'gondwnbmztt' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/gondwnbmztt/{name}',
+      'regex' => '#^/gondwnbmztt/(?P<name>[^/]+)$#',
+      'start' => '/gondwnbmztt/',
+      'methods' => 'POST',
+    ),
+  ),
+  'nmbkq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nmbkq/rxtgt/{name}',
+      'regex' => '#^/nmbkq/rxtgt/(?P<name>[^/]+)$#',
+      'start' => '/nmbkq/rxtgt/',
+      'methods' => 'GET',
+    ),
+  ),
+  'sqjlgx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/sqjlgx/{name}',
+      'regex' => '#^/sqjlgx/(?P<name>[^/]+)$#',
+      'start' => '/sqjlgx/',
+      'methods' => 'GET',
+    ),
+  ),
+  'k' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/k/nulfhyfucz/ipm/ina/{name}',
+      'regex' => '#^/k/nulfhyfucz/ipm/ina/(?P<name>[^/]+)$#',
+      'start' => '/k/nulfhyfucz/',
+      'methods' => 'PATCH',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/k/svpqsjhsnftpphi/{name}',
+      'regex' => '#^/k/svpqsjhsnftpphi/(?P<name>[^/]+)$#',
+      'start' => '/k/svpqsjhsnftpphi/',
+      'methods' => 'POST',
+    ),
+  ),
+  'xaksznx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xaksznx/{name}',
+      'regex' => '#^/xaksznx/(?P<name>[^/]+)$#',
+      'start' => '/xaksznx/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'vshcj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vshcj/mbb/{name}',
+      'regex' => '#^/vshcj/mbb/(?P<name>[^/]+)$#',
+      'start' => '/vshcj/mbb/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'xzqkcoox' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xzqkcoox/metcychuci/{name}',
+      'regex' => '#^/xzqkcoox/metcychuci/(?P<name>[^/]+)$#',
+      'start' => '/xzqkcoox/metcychuci/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rhthykjhsmotaq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rhthykjhsmotaq/{name}',
+      'regex' => '#^/rhthykjhsmotaq/(?P<name>[^/]+)$#',
+      'start' => '/rhthykjhsmotaq/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'wfluptf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wfluptf/ksqy/{name}',
+      'regex' => '#^/wfluptf/ksqy/(?P<name>[^/]+)$#',
+      'start' => '/wfluptf/ksqy/',
+      'methods' => 'GET',
+    ),
+  ),
+  'xh' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xh/zqyeeljrw/{name}',
+      'regex' => '#^/xh/zqyeeljrw/(?P<name>[^/]+)$#',
+      'start' => '/xh/zqyeeljrw/',
       'methods' => 'DELETE',
     ),
   ),
-  'jhzeiiqvrubz' => array (
+  'ipm' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/jhzeiiqvrubz/{name}',
-      'regex' => '#^/jhzeiiqvrubz/(?P<name>[^/]+)$#',
-      'start' => '/jhzeiiqvrubz/',
+      'original' => '/ipm/i/cymnushnu/{name}',
+      'regex' => '#^/ipm/i/cymnushnu/(?P<name>[^/]+)$#',
+      'start' => '/ipm/i/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'tpsizikyshruw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tpsizikyshruw/{name}',
+      'regex' => '#^/tpsizikyshruw/(?P<name>[^/]+)$#',
+      'start' => '/tpsizikyshruw/',
+      'methods' => 'POST',
+    ),
+  ),
+  'hjhu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hjhu/odp/ywj/jiayeagzs/{name}',
+      'regex' => '#^/hjhu/odp/ywj/jiayeagzs/(?P<name>[^/]+)$#',
+      'start' => '/hjhu/odp/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ppfzxgazwkkc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ppfzxgazwkkc/{name}',
+      'regex' => '#^/ppfzxgazwkkc/(?P<name>[^/]+)$#',
+      'start' => '/ppfzxgazwkkc/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'z' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/z/yioqxuvh/glr/quvywss/{name}',
+      'regex' => '#^/z/yioqxuvh/glr/quvywss/(?P<name>[^/]+)$#',
+      'start' => '/z/yioqxuvh/',
+      'methods' => 'PATCH',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/z/r/bbrfejg/exsx/gzxvn/{name}',
+      'regex' => '#^/z/r/bbrfejg/exsx/gzxvn/(?P<name>[^/]+)$#',
+      'start' => '/z/r/',
+      'methods' => 'GET',
+    ),
+    2 => array (
+      'handler' => 'handler_func',
+      'original' => '/z/zphhp/wndcahrxuqdjgz/{name}',
+      'regex' => '#^/z/zphhp/wndcahrxuqdjgz/(?P<name>[^/]+)$#',
+      'start' => '/z/zphhp/',
+      'methods' => 'PATCH',
+    ),
+    3 => array (
+      'handler' => 'handler_func',
+      'original' => '/z/cnazip/{name}',
+      'regex' => '#^/z/cnazip/(?P<name>[^/]+)$#',
+      'start' => '/z/cnazip/',
       'methods' => 'PUT',
     ),
   ),
-  'ioyrzew' => array (
+  'onftuy' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ioyrzew/bmpcuqt/ahvm/{name}',
-      'regex' => '#^/ioyrzew/bmpcuqt/ahvm/(?P<name>[^/]+)$#',
-      'start' => '/ioyrzew/bmpcuqt/',
+      'original' => '/onftuy/mjbxqoe/lj/{name}',
+      'regex' => '#^/onftuy/mjbxqoe/lj/(?P<name>[^/]+)$#',
+      'start' => '/onftuy/mjbxqoe/',
       'methods' => 'GET',
     ),
   ),
-  'ggpfucml' => array (
+  'rwsizpjn' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ggpfucml/p/{name}',
-      'regex' => '#^/ggpfucml/p/(?P<name>[^/]+)$#',
-      'start' => '/ggpfucml/p/',
-      'methods' => 'PATCH',
+      'original' => '/rwsizpjn/{name}',
+      'regex' => '#^/rwsizpjn/(?P<name>[^/]+)$#',
+      'start' => '/rwsizpjn/',
+      'methods' => 'PUT',
     ),
   ),
-  'xxcrrunuyfzsde' => array (
+  'lmicpdwie' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/xxcrrunuyfzsde/{name}',
-      'regex' => '#^/xxcrrunuyfzsde/(?P<name>[^/]+)$#',
-      'start' => '/xxcrrunuyfzsde/',
-      'methods' => 'PATCH',
+      'original' => '/lmicpdwie/tbzwpct/{name}',
+      'regex' => '#^/lmicpdwie/tbzwpct/(?P<name>[^/]+)$#',
+      'start' => '/lmicpdwie/tbzwpct/',
+      'methods' => 'PUT',
     ),
   ),
-  'ugtlu' => array (
+  'dvazjjtszmyva' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ugtlu/{name}',
-      'regex' => '#^/ugtlu/(?P<name>[^/]+)$#',
-      'start' => '/ugtlu/',
+      'original' => '/dvazjjtszmyva/{name}',
+      'regex' => '#^/dvazjjtszmyva/(?P<name>[^/]+)$#',
+      'start' => '/dvazjjtszmyva/',
+      'methods' => 'POST',
+    ),
+  ),
+  's' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/s/bwjnverhand/{name}',
+      'regex' => '#^/s/bwjnverhand/(?P<name>[^/]+)$#',
+      'start' => '/s/bwjnverhand/',
       'methods' => 'GET',
+    ),
+  ),
+  'reqf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/reqf/qxw/n/{name}',
+      'regex' => '#^/reqf/qxw/n/(?P<name>[^/]+)$#',
+      'start' => '/reqf/qxw/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'ygsdp' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ygsdp/{name}',
+      'regex' => '#^/ygsdp/(?P<name>[^/]+)$#',
+      'start' => '/ygsdp/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'lktiogicarf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lktiogicarf/{name}',
+      'regex' => '#^/lktiogicarf/(?P<name>[^/]+)$#',
+      'start' => '/lktiogicarf/',
+      'methods' => 'GET',
+    ),
+  ),
+  'mvmify' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mvmify/wyqbz/hjsy/{name}',
+      'regex' => '#^/mvmify/wyqbz/hjsy/(?P<name>[^/]+)$#',
+      'start' => '/mvmify/wyqbz/',
+      'methods' => 'POST',
+    ),
+  ),
+  'hxmpkzlivgisfwubx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hxmpkzlivgisfwubx/{name}',
+      'regex' => '#^/hxmpkzlivgisfwubx/(?P<name>[^/]+)$#',
+      'start' => '/hxmpkzlivgisfwubx/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'bynhcsre' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bynhcsre/ccvqqa/{name}',
+      'regex' => '#^/bynhcsre/ccvqqa/(?P<name>[^/]+)$#',
+      'start' => '/bynhcsre/ccvqqa/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'swqx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/swqx/yhazw/iygb/w/szmwo/{name}',
+      'regex' => '#^/swqx/yhazw/iygb/w/szmwo/(?P<name>[^/]+)$#',
+      'start' => '/swqx/yhazw/',
+      'methods' => 'GET',
+    ),
+  ),
+  'jy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jy/myruurkibq/sxvmhnui/{name}',
+      'regex' => '#^/jy/myruurkibq/sxvmhnui/(?P<name>[^/]+)$#',
+      'start' => '/jy/myruurkibq/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'xwzwicp' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xwzwicp/gbabbplqivq/{name}',
+      'regex' => '#^/xwzwicp/gbabbplqivq/(?P<name>[^/]+)$#',
+      'start' => '/xwzwicp/gbabbplqivq/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'dcpe' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/dcpe/gemckof/ml/{name}',
+      'regex' => '#^/dcpe/gemckof/ml/(?P<name>[^/]+)$#',
+      'start' => '/dcpe/gemckof/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'bjlmr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bjlmr/bkkats/{name}',
+      'regex' => '#^/bjlmr/bkkats/(?P<name>[^/]+)$#',
+      'start' => '/bjlmr/bkkats/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'nazswvoksqud' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nazswvoksqud/{name}',
+      'regex' => '#^/nazswvoksqud/(?P<name>[^/]+)$#',
+      'start' => '/nazswvoksqud/',
+      'methods' => 'GET',
+    ),
+  ),
+  'y' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/y/of/qj/wbuxbdi/luf/{name}',
+      'regex' => '#^/y/of/qj/wbuxbdi/luf/(?P<name>[^/]+)$#',
+      'start' => '/y/of/',
+      'methods' => 'DELETE',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/y/vjzdpovtwriw/{name}',
+      'regex' => '#^/y/vjzdpovtwriw/(?P<name>[^/]+)$#',
+      'start' => '/y/vjzdpovtwriw/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'qitwn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qitwn/crwevw/pc/rf/{name}',
+      'regex' => '#^/qitwn/crwevw/pc/rf/(?P<name>[^/]+)$#',
+      'start' => '/qitwn/crwevw/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'jisqkemlio' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jisqkemlio/{name}',
+      'regex' => '#^/jisqkemlio/(?P<name>[^/]+)$#',
+      'start' => '/jisqkemlio/',
+      'methods' => 'GET',
+    ),
+  ),
+  'eqspsnvyy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/eqspsnvyy/s/{name}',
+      'regex' => '#^/eqspsnvyy/s/(?P<name>[^/]+)$#',
+      'start' => '/eqspsnvyy/s/',
+      'methods' => 'GET',
+    ),
+  ),
+  'tnjes' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tnjes/lyirao/u/y/whc/{name}',
+      'regex' => '#^/tnjes/lyirao/u/y/whc/(?P<name>[^/]+)$#',
+      'start' => '/tnjes/lyirao/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'jpnd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jpnd/aw/{name}',
+      'regex' => '#^/jpnd/aw/(?P<name>[^/]+)$#',
+      'start' => '/jpnd/aw/',
+      'methods' => 'GET',
+    ),
+  ),
+  'xachpm' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xachpm/qo/l/ntgu/lxmlr/{name}',
+      'regex' => '#^/xachpm/qo/l/ntgu/lxmlr/(?P<name>[^/]+)$#',
+      'start' => '/xachpm/qo/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'scpczgfqw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/scpczgfqw/{name}',
+      'regex' => '#^/scpczgfqw/(?P<name>[^/]+)$#',
+      'start' => '/scpczgfqw/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'es' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/es/c/df/keh/jvnnoms/{name}',
+      'regex' => '#^/es/c/df/keh/jvnnoms/(?P<name>[^/]+)$#',
+      'start' => '/es/c/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'hlrfwrztd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hlrfwrztd/ebxadxmbrqm/{name}',
+      'regex' => '#^/hlrfwrztd/ebxadxmbrqm/(?P<name>[^/]+)$#',
+      'start' => '/hlrfwrztd/ebxadxmbrqm/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'tma' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tma/sxatet/{name}',
+      'regex' => '#^/tma/sxatet/(?P<name>[^/]+)$#',
+      'start' => '/tma/sxatet/',
+      'methods' => 'POST',
+    ),
+  ),
+  'farhveq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/farhveq/whca/i/{name}',
+      'regex' => '#^/farhveq/whca/i/(?P<name>[^/]+)$#',
+      'start' => '/farhveq/whca/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ikdg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ikdg/hfkjqn/{name}',
+      'regex' => '#^/ikdg/hfkjqn/(?P<name>[^/]+)$#',
+      'start' => '/ikdg/hfkjqn/',
+      'methods' => 'GET',
+    ),
+  ),
+  'fbfxj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/fbfxj/zwwhsyeesb/{name}',
+      'regex' => '#^/fbfxj/zwwhsyeesb/(?P<name>[^/]+)$#',
+      'start' => '/fbfxj/zwwhsyeesb/',
+      'methods' => 'GET',
+    ),
+  ),
+  'lj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lj/cnjwyxnvrgo/{name}',
+      'regex' => '#^/lj/cnjwyxnvrgo/(?P<name>[^/]+)$#',
+      'start' => '/lj/cnjwyxnvrgo/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'znpmbg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/znpmbg/{name}',
+      'regex' => '#^/znpmbg/(?P<name>[^/]+)$#',
+      'start' => '/znpmbg/',
+      'methods' => 'POST',
+    ),
+  ),
+  'kvizz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/kvizz/hydrshjjj/l/{name}',
+      'regex' => '#^/kvizz/hydrshjjj/l/(?P<name>[^/]+)$#',
+      'start' => '/kvizz/hydrshjjj/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'uy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/uy/nlzakjztyppd/uald/{name}',
+      'regex' => '#^/uy/nlzakjztyppd/uald/(?P<name>[^/]+)$#',
+      'start' => '/uy/nlzakjztyppd/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'n' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/n/cgymtublgpm/{name}',
+      'regex' => '#^/n/cgymtublgpm/(?P<name>[^/]+)$#',
+      'start' => '/n/cgymtublgpm/',
+      'methods' => 'GET',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/n/z/mzdkqyrhwxg/{name}',
+      'regex' => '#^/n/z/mzdkqyrhwxg/(?P<name>[^/]+)$#',
+      'start' => '/n/z/',
+      'methods' => 'DELETE',
+    ),
+    2 => array (
+      'handler' => 'handler_func',
+      'original' => '/n/ctkttatxklts/{name}',
+      'regex' => '#^/n/ctkttatxklts/(?P<name>[^/]+)$#',
+      'start' => '/n/ctkttatxklts/',
+      'methods' => 'DELETE',
+    ),
+    3 => array (
+      'handler' => 'handler_func',
+      'original' => '/n/dnfqrlfstvlftjqwbl/{name}',
+      'regex' => '#^/n/dnfqrlfstvlftjqwbl/(?P<name>[^/]+)$#',
+      'start' => '/n/dnfqrlfstvlftjqwbl/',
+      'methods' => 'GET',
+    ),
+  ),
+  'wwery' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wwery/{name}',
+      'regex' => '#^/wwery/(?P<name>[^/]+)$#',
+      'start' => '/wwery/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'owatpojx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/owatpojx/{name}',
+      'regex' => '#^/owatpojx/(?P<name>[^/]+)$#',
+      'start' => '/owatpojx/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'rlflyaugzx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rlflyaugzx/p/{name}',
+      'regex' => '#^/rlflyaugzx/p/(?P<name>[^/]+)$#',
+      'start' => '/rlflyaugzx/p/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'avifnjtrtnr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/avifnjtrtnr/{name}',
+      'regex' => '#^/avifnjtrtnr/(?P<name>[^/]+)$#',
+      'start' => '/avifnjtrtnr/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'wp' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wp/kpsnzomeli/vx/h/{name}',
+      'regex' => '#^/wp/kpsnzomeli/vx/h/(?P<name>[^/]+)$#',
+      'start' => '/wp/kpsnzomeli/',
+      'methods' => 'GET',
+    ),
+  ),
+  'hgj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hgj/otteubupeqka/{name}',
+      'regex' => '#^/hgj/otteubupeqka/(?P<name>[^/]+)$#',
+      'start' => '/hgj/otteubupeqka/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'wsvorkae' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wsvorkae/grxfu/{name}',
+      'regex' => '#^/wsvorkae/grxfu/(?P<name>[^/]+)$#',
+      'start' => '/wsvorkae/grxfu/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ftgewrw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ftgewrw/sn/{name}',
+      'regex' => '#^/ftgewrw/sn/(?P<name>[^/]+)$#',
+      'start' => '/ftgewrw/sn/',
+      'methods' => 'GET',
+    ),
+  ),
+  'x' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/x/wsdffayfiecmum/{name}',
+      'regex' => '#^/x/wsdffayfiecmum/(?P<name>[^/]+)$#',
+      'start' => '/x/wsdffayfiecmum/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'mavxw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mavxw/hqf/n/ks/y/{name}',
+      'regex' => '#^/mavxw/hqf/n/ks/y/(?P<name>[^/]+)$#',
+      'start' => '/mavxw/hqf/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ksfofahekm' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ksfofahekm/{name}',
+      'regex' => '#^/ksfofahekm/(?P<name>[^/]+)$#',
+      'start' => '/ksfofahekm/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'rkkcgqdjap' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rkkcgqdjap/y/{name}',
+      'regex' => '#^/rkkcgqdjap/y/(?P<name>[^/]+)$#',
+      'start' => '/rkkcgqdjap/y/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'oaegiouw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oaegiouw/{name}',
+      'regex' => '#^/oaegiouw/(?P<name>[^/]+)$#',
+      'start' => '/oaegiouw/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'burxoyoo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/burxoyoo/{name}',
+      'regex' => '#^/burxoyoo/(?P<name>[^/]+)$#',
+      'start' => '/burxoyoo/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ykmysqplntoapkqzjq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ykmysqplntoapkqzjq/{name}',
+      'regex' => '#^/ykmysqplntoapkqzjq/(?P<name>[^/]+)$#',
+      'start' => '/ykmysqplntoapkqzjq/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'byelopqcwdrutu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/byelopqcwdrutu/{name}',
+      'regex' => '#^/byelopqcwdrutu/(?P<name>[^/]+)$#',
+      'start' => '/byelopqcwdrutu/',
+      'methods' => 'GET',
+    ),
+  ),
+  'zosxllzul' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zosxllzul/c/{name}',
+      'regex' => '#^/zosxllzul/c/(?P<name>[^/]+)$#',
+      'start' => '/zosxllzul/c/',
+      'methods' => 'GET',
+    ),
+  ),
+  'lfbfubhbxakvvps' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lfbfubhbxakvvps/{name}',
+      'regex' => '#^/lfbfubhbxakvvps/(?P<name>[^/]+)$#',
+      'start' => '/lfbfubhbxakvvps/',
+      'methods' => 'GET',
+    ),
+  ),
+  'uluhu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/uluhu/{name}',
+      'regex' => '#^/uluhu/(?P<name>[^/]+)$#',
+      'start' => '/uluhu/',
+      'methods' => 'GET',
+    ),
+  ),
+  'lvo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lvo/kgyi/yui/{name}',
+      'regex' => '#^/lvo/kgyi/yui/(?P<name>[^/]+)$#',
+      'start' => '/lvo/kgyi/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'ytzfsnn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ytzfsnn/{name}',
+      'regex' => '#^/ytzfsnn/(?P<name>[^/]+)$#',
+      'start' => '/ytzfsnn/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'kabjbdi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/kabjbdi/{name}',
+      'regex' => '#^/kabjbdi/(?P<name>[^/]+)$#',
+      'start' => '/kabjbdi/',
+      'methods' => 'GET',
+    ),
+  ),
+  'nsymwl' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nsymwl/{name}',
+      'regex' => '#^/nsymwl/(?P<name>[^/]+)$#',
+      'start' => '/nsymwl/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'ehqw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ehqw/thfv/znvcb/{name}',
+      'regex' => '#^/ehqw/thfv/znvcb/(?P<name>[^/]+)$#',
+      'start' => '/ehqw/thfv/',
+      'methods' => 'GET',
+    ),
+  ),
+  'liv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/liv/whh/{name}',
+      'regex' => '#^/liv/whh/(?P<name>[^/]+)$#',
+      'start' => '/liv/whh/',
+      'methods' => 'POST',
+    ),
+  ),
+  'pwdmcmels' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/pwdmcmels/ncils/{name}',
+      'regex' => '#^/pwdmcmels/ncils/(?P<name>[^/]+)$#',
+      'start' => '/pwdmcmels/ncils/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'pp' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/pp/td/mxdgyvvy/{name}',
+      'regex' => '#^/pp/td/mxdgyvvy/(?P<name>[^/]+)$#',
+      'start' => '/pp/td/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'znsewas' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/znsewas/{name}',
+      'regex' => '#^/znsewas/(?P<name>[^/]+)$#',
+      'start' => '/znsewas/',
+      'methods' => 'POST',
+    ),
+  ),
+  'zh' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zh/toasub/{name}',
+      'regex' => '#^/zh/toasub/(?P<name>[^/]+)$#',
+      'start' => '/zh/toasub/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'ydwkg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ydwkg/{name}',
+      'regex' => '#^/ydwkg/(?P<name>[^/]+)$#',
+      'start' => '/ydwkg/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'orqcq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/orqcq/o/aig/{name}',
+      'regex' => '#^/orqcq/o/aig/(?P<name>[^/]+)$#',
+      'start' => '/orqcq/o/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'ujlqjgvcnc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ujlqjgvcnc/gipu/{name}',
+      'regex' => '#^/ujlqjgvcnc/gipu/(?P<name>[^/]+)$#',
+      'start' => '/ujlqjgvcnc/gipu/',
+      'methods' => 'POST',
+    ),
+  ),
+  'bsjk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bsjk/vcfmkfr/{name}',
+      'regex' => '#^/bsjk/vcfmkfr/(?P<name>[^/]+)$#',
+      'start' => '/bsjk/vcfmkfr/',
+      'methods' => 'GET',
+    ),
+  ),
+  'oaor' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oaor/c/{name}',
+      'regex' => '#^/oaor/c/(?P<name>[^/]+)$#',
+      'start' => '/oaor/c/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ogoqo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ogoqo/bnwbl/{name}',
+      'regex' => '#^/ogoqo/bnwbl/(?P<name>[^/]+)$#',
+      'start' => '/ogoqo/bnwbl/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'wiyza' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wiyza/{name}',
+      'regex' => '#^/wiyza/(?P<name>[^/]+)$#',
+      'start' => '/wiyza/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'ijgg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ijgg/jqc/blzplwdzgl/{name}',
+      'regex' => '#^/ijgg/jqc/blzplwdzgl/(?P<name>[^/]+)$#',
+      'start' => '/ijgg/jqc/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'ep' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ep/dzhprdhm/{name}',
+      'regex' => '#^/ep/dzhprdhm/(?P<name>[^/]+)$#',
+      'start' => '/ep/dzhprdhm/',
+      'methods' => 'DELETE',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/ep/rvixpolo/{name}',
+      'regex' => '#^/ep/rvixpolo/(?P<name>[^/]+)$#',
+      'start' => '/ep/rvixpolo/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'nposmi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nposmi/gswmoxt/{name}',
+      'regex' => '#^/nposmi/gswmoxt/(?P<name>[^/]+)$#',
+      'start' => '/nposmi/gswmoxt/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rtiftwczwl' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rtiftwczwl/{name}',
+      'regex' => '#^/rtiftwczwl/(?P<name>[^/]+)$#',
+      'start' => '/rtiftwczwl/',
+      'methods' => 'GET',
+    ),
+  ),
+  'hqikuwi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hqikuwi/{name}',
+      'regex' => '#^/hqikuwi/(?P<name>[^/]+)$#',
+      'start' => '/hqikuwi/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'bofeuqshlfna' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bofeuqshlfna/xwdnqe/{name}',
+      'regex' => '#^/bofeuqshlfna/xwdnqe/(?P<name>[^/]+)$#',
+      'start' => '/bofeuqshlfna/xwdnqe/',
+      'methods' => 'GET',
+    ),
+  ),
+  'zzjyiyiyx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zzjyiyiyx/{name}',
+      'regex' => '#^/zzjyiyiyx/(?P<name>[^/]+)$#',
+      'start' => '/zzjyiyiyx/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'xiyovv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xiyovv/{name}',
+      'regex' => '#^/xiyovv/(?P<name>[^/]+)$#',
+      'start' => '/xiyovv/',
+      'methods' => 'POST',
+    ),
+  ),
+  'sw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/sw/ww/w/{name}',
+      'regex' => '#^/sw/ww/w/(?P<name>[^/]+)$#',
+      'start' => '/sw/ww/',
+      'methods' => 'POST',
+    ),
+  ),
+  'ptapncaseszjn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ptapncaseszjn/jn/{name}',
+      'regex' => '#^/ptapncaseszjn/jn/(?P<name>[^/]+)$#',
+      'start' => '/ptapncaseszjn/jn/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ryw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ryw/f/aetz/e/{name}',
+      'regex' => '#^/ryw/f/aetz/e/(?P<name>[^/]+)$#',
+      'start' => '/ryw/f/',
+      'methods' => 'GET',
+    ),
+  ),
+  'il' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/il/wbqa/b/zj/{name}',
+      'regex' => '#^/il/wbqa/b/zj/(?P<name>[^/]+)$#',
+      'start' => '/il/wbqa/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'zogbhjjx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zogbhjjx/teue/iqlmu/{name}',
+      'regex' => '#^/zogbhjjx/teue/iqlmu/(?P<name>[^/]+)$#',
+      'start' => '/zogbhjjx/teue/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'ouimwdj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ouimwdj/glvgjk/fe/{name}',
+      'regex' => '#^/ouimwdj/glvgjk/fe/(?P<name>[^/]+)$#',
+      'start' => '/ouimwdj/glvgjk/',
+      'methods' => 'POST',
+    ),
+  ),
+  'iadj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/iadj/swjvqmvni/{name}',
+      'regex' => '#^/iadj/swjvqmvni/(?P<name>[^/]+)$#',
+      'start' => '/iadj/swjvqmvni/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'h' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/h/oozqbzpqc/tfes/cbn/w/{name}',
+      'regex' => '#^/h/oozqbzpqc/tfes/cbn/w/(?P<name>[^/]+)$#',
+      'start' => '/h/oozqbzpqc/',
+      'methods' => 'PUT',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/h/vwjjtrghlo/h/{name}',
+      'regex' => '#^/h/vwjjtrghlo/h/(?P<name>[^/]+)$#',
+      'start' => '/h/vwjjtrghlo/',
+      'methods' => 'PATCH',
+    ),
+    2 => array (
+      'handler' => 'handler_func',
+      'original' => '/h/xwtfsmgx/{name}',
+      'regex' => '#^/h/xwtfsmgx/(?P<name>[^/]+)$#',
+      'start' => '/h/xwtfsmgx/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'zi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zi/uppcrddvu/{name}',
+      'regex' => '#^/zi/uppcrddvu/(?P<name>[^/]+)$#',
+      'start' => '/zi/uppcrddvu/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ovabrkps' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ovabrkps/jzktrdgkbv/{name}',
+      'regex' => '#^/ovabrkps/jzktrdgkbv/(?P<name>[^/]+)$#',
+      'start' => '/ovabrkps/jzktrdgkbv/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'ruxq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ruxq/slu/{name}',
+      'regex' => '#^/ruxq/slu/(?P<name>[^/]+)$#',
+      'start' => '/ruxq/slu/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'mqpv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mqpv/tibxkmmxgeh/{name}',
+      'regex' => '#^/mqpv/tibxkmmxgeh/(?P<name>[^/]+)$#',
+      'start' => '/mqpv/tibxkmmxgeh/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'wqwqaotc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wqwqaotc/mprhdqnk/yd/{name}',
+      'regex' => '#^/wqwqaotc/mprhdqnk/yd/(?P<name>[^/]+)$#',
+      'start' => '/wqwqaotc/mprhdqnk/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'zavvih' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zavvih/{name}',
+      'regex' => '#^/zavvih/(?P<name>[^/]+)$#',
+      'start' => '/zavvih/',
+      'methods' => 'GET',
+    ),
+  ),
+  'yvocab' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yvocab/{name}',
+      'regex' => '#^/yvocab/(?P<name>[^/]+)$#',
+      'start' => '/yvocab/',
+      'methods' => 'GET',
+    ),
+  ),
+  'idfpzyco' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/idfpzyco/mpvorwx/wayvg/{name}',
+      'regex' => '#^/idfpzyco/mpvorwx/wayvg/(?P<name>[^/]+)$#',
+      'start' => '/idfpzyco/mpvorwx/',
+      'methods' => 'GET',
+    ),
+  ),
+  'mkqi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mkqi/u/s/jgfsftuwxiba/g/{name}',
+      'regex' => '#^/mkqi/u/s/jgfsftuwxiba/g/(?P<name>[^/]+)$#',
+      'start' => '/mkqi/u/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'wpy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wpy/bxq/i/{name}',
+      'regex' => '#^/wpy/bxq/i/(?P<name>[^/]+)$#',
+      'start' => '/wpy/bxq/',
+      'methods' => 'GET',
+    ),
+  ),
+  'l' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/l/tomrvuxe/{name}',
+      'regex' => '#^/l/tomrvuxe/(?P<name>[^/]+)$#',
+      'start' => '/l/tomrvuxe/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'bnodqcsgcksz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bnodqcsgcksz/{name}',
+      'regex' => '#^/bnodqcsgcksz/(?P<name>[^/]+)$#',
+      'start' => '/bnodqcsgcksz/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'q' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/q/mzuayxzlmxxhbxfo/{name}',
+      'regex' => '#^/q/mzuayxzlmxxhbxfo/(?P<name>[^/]+)$#',
+      'start' => '/q/mzuayxzlmxxhbxfo/',
+      'methods' => 'GET',
+    ),
+  ),
+  've' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ve/epd/xwmjompfo/lzcdr/a/{name}',
+      'regex' => '#^/ve/epd/xwmjompfo/lzcdr/a/(?P<name>[^/]+)$#',
+      'start' => '/ve/epd/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rdpkqnahnekoerfbpsg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rdpkqnahnekoerfbpsg/{name}',
+      'regex' => '#^/rdpkqnahnekoerfbpsg/(?P<name>[^/]+)$#',
+      'start' => '/rdpkqnahnekoerfbpsg/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'lueo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lueo/vveq/mxyyi/{name}',
+      'regex' => '#^/lueo/vveq/mxyyi/(?P<name>[^/]+)$#',
+      'start' => '/lueo/vveq/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'pfeaksvj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/pfeaksvj/{name}',
+      'regex' => '#^/pfeaksvj/(?P<name>[^/]+)$#',
+      'start' => '/pfeaksvj/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'ydlrdaogfrk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ydlrdaogfrk/{name}',
+      'regex' => '#^/ydlrdaogfrk/(?P<name>[^/]+)$#',
+      'start' => '/ydlrdaogfrk/',
+      'methods' => 'POST',
+    ),
+  ),
+  'gqh' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/gqh/mgdrycyfihs/{name}',
+      'regex' => '#^/gqh/mgdrycyfihs/(?P<name>[^/]+)$#',
+      'start' => '/gqh/mgdrycyfihs/',
+      'methods' => 'POST',
+    ),
+  ),
+  'dngmwqpv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/dngmwqpv/bju/{name}',
+      'regex' => '#^/dngmwqpv/bju/(?P<name>[^/]+)$#',
+      'start' => '/dngmwqpv/bju/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ryglrngxr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ryglrngxr/{name}',
+      'regex' => '#^/ryglrngxr/(?P<name>[^/]+)$#',
+      'start' => '/ryglrngxr/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'tsdscgl' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tsdscgl/hmb/ouzydvv/{name}',
+      'regex' => '#^/tsdscgl/hmb/ouzydvv/(?P<name>[^/]+)$#',
+      'start' => '/tsdscgl/hmb/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'meebcsw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/meebcsw/apwoswle/{name}',
+      'regex' => '#^/meebcsw/apwoswle/(?P<name>[^/]+)$#',
+      'start' => '/meebcsw/apwoswle/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'crwvbzkjdoaoxlx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/crwvbzkjdoaoxlx/{name}',
+      'regex' => '#^/crwvbzkjdoaoxlx/(?P<name>[^/]+)$#',
+      'start' => '/crwvbzkjdoaoxlx/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'b' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/b/beaylngxi/{name}',
+      'regex' => '#^/b/beaylngxi/(?P<name>[^/]+)$#',
+      'start' => '/b/beaylngxi/',
+      'methods' => 'DELETE',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/b/ubwdru/{name}',
+      'regex' => '#^/b/ubwdru/(?P<name>[^/]+)$#',
+      'start' => '/b/ubwdru/',
+      'methods' => 'GET',
+    ),
+    2 => array (
+      'handler' => 'handler_func',
+      'original' => '/b/bhmb/{name}',
+      'regex' => '#^/b/bhmb/(?P<name>[^/]+)$#',
+      'start' => '/b/bhmb/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'zfjfs' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zfjfs/{name}',
+      'regex' => '#^/zfjfs/(?P<name>[^/]+)$#',
+      'start' => '/zfjfs/',
+      'methods' => 'POST',
+    ),
+  ),
+  'ekyei' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ekyei/l/{name}',
+      'regex' => '#^/ekyei/l/(?P<name>[^/]+)$#',
+      'start' => '/ekyei/l/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'airuboligsqv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/airuboligsqv/mqybapp/{name}',
+      'regex' => '#^/airuboligsqv/mqybapp/(?P<name>[^/]+)$#',
+      'start' => '/airuboligsqv/mqybapp/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'oskdtajqjaegsy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oskdtajqjaegsy/{name}',
+      'regex' => '#^/oskdtajqjaegsy/(?P<name>[^/]+)$#',
+      'start' => '/oskdtajqjaegsy/',
+      'methods' => 'GET',
+    ),
+  ),
+  'yrdpddiiji' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yrdpddiiji/{name}',
+      'regex' => '#^/yrdpddiiji/(?P<name>[^/]+)$#',
+      'start' => '/yrdpddiiji/',
+      'methods' => 'GET',
+    ),
+  ),
+  'zcxzqt' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zcxzqt/h/n/u/{name}',
+      'regex' => '#^/zcxzqt/h/n/u/(?P<name>[^/]+)$#',
+      'start' => '/zcxzqt/h/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rbutrvu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rbutrvu/{name}',
+      'regex' => '#^/rbutrvu/(?P<name>[^/]+)$#',
+      'start' => '/rbutrvu/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'nzpftx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nzpftx/ul/{name}',
+      'regex' => '#^/nzpftx/ul/(?P<name>[^/]+)$#',
+      'start' => '/nzpftx/ul/',
+      'methods' => 'POST',
+    ),
+  ),
+  'sxnf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/sxnf/azczjv/fdfz/s/{name}',
+      'regex' => '#^/sxnf/azczjv/fdfz/s/(?P<name>[^/]+)$#',
+      'start' => '/sxnf/azczjv/',
+      'methods' => 'GET',
+    ),
+  ),
+  'czji' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/czji/kdtpujx/{name}',
+      'regex' => '#^/czji/kdtpujx/(?P<name>[^/]+)$#',
+      'start' => '/czji/kdtpujx/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'wlgrvhxugeywyftkd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wlgrvhxugeywyftkd/{name}',
+      'regex' => '#^/wlgrvhxugeywyftkd/(?P<name>[^/]+)$#',
+      'start' => '/wlgrvhxugeywyftkd/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'qdmpg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qdmpg/qkda/pdaouddkhb/{name}',
+      'regex' => '#^/qdmpg/qkda/pdaouddkhb/(?P<name>[^/]+)$#',
+      'start' => '/qdmpg/qkda/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'colnyzrg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/colnyzrg/{name}',
+      'regex' => '#^/colnyzrg/(?P<name>[^/]+)$#',
+      'start' => '/colnyzrg/',
+      'methods' => 'POST',
+    ),
+  ),
+  'hppwb' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hppwb/{name}',
+      'regex' => '#^/hppwb/(?P<name>[^/]+)$#',
+      'start' => '/hppwb/',
+      'methods' => 'POST',
+    ),
+  ),
+  'p' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/p/vpiuoqsedf/{name}',
+      'regex' => '#^/p/vpiuoqsedf/(?P<name>[^/]+)$#',
+      'start' => '/p/vpiuoqsedf/',
+      'methods' => 'GET',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/p/qfvqpxmvweal/di/{name}',
+      'regex' => '#^/p/qfvqpxmvweal/di/(?P<name>[^/]+)$#',
+      'start' => '/p/qfvqpxmvweal/',
+      'methods' => 'GET',
+    ),
+    2 => array (
+      'handler' => 'handler_func',
+      'original' => '/p/yri/b/enc/uirxvjh/beu/{name}',
+      'regex' => '#^/p/yri/b/enc/uirxvjh/beu/(?P<name>[^/]+)$#',
+      'start' => '/p/yri/',
+      'methods' => 'POST',
+    ),
+  ),
+  'jidqdagspdwwd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jidqdagspdwwd/l/{name}',
+      'regex' => '#^/jidqdagspdwwd/l/(?P<name>[^/]+)$#',
+      'start' => '/jidqdagspdwwd/l/',
+      'methods' => 'POST',
+    ),
+  ),
+  'uqhgdrmqcufptnuex' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/uqhgdrmqcufptnuex/{name}',
+      'regex' => '#^/uqhgdrmqcufptnuex/(?P<name>[^/]+)$#',
+      'start' => '/uqhgdrmqcufptnuex/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ze' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ze/cgsnkncu/{name}',
+      'regex' => '#^/ze/cgsnkncu/(?P<name>[^/]+)$#',
+      'start' => '/ze/cgsnkncu/',
+      'methods' => 'GET',
+    ),
+  ),
+  'tvspzriildlsfz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tvspzriildlsfz/{name}',
+      'regex' => '#^/tvspzriildlsfz/(?P<name>[^/]+)$#',
+      'start' => '/tvspzriildlsfz/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'sbegfvfs' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/sbegfvfs/{name}',
+      'regex' => '#^/sbegfvfs/(?P<name>[^/]+)$#',
+      'start' => '/sbegfvfs/',
+      'methods' => 'POST',
+    ),
+  ),
+  'hba' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hba/euhzwym/scppu/{name}',
+      'regex' => '#^/hba/euhzwym/scppu/(?P<name>[^/]+)$#',
+      'start' => '/hba/euhzwym/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ubvuq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ubvuq/agkagedyhcniir/{name}',
+      'regex' => '#^/ubvuq/agkagedyhcniir/(?P<name>[^/]+)$#',
+      'start' => '/ubvuq/agkagedyhcniir/',
+      'methods' => 'PUT',
+    ),
+  ),
+  're' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/re/zriqiejrkoc/{name}',
+      'regex' => '#^/re/zriqiejrkoc/(?P<name>[^/]+)$#',
+      'start' => '/re/zriqiejrkoc/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'lfq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lfq/mam/driavni/{name}',
+      'regex' => '#^/lfq/mam/driavni/(?P<name>[^/]+)$#',
+      'start' => '/lfq/mam/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'oy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oy/occkwp/{name}',
+      'regex' => '#^/oy/occkwp/(?P<name>[^/]+)$#',
+      'start' => '/oy/occkwp/',
+      'methods' => 'PUT',
     ),
   ),
   'w' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/w/o/uh/e/{name}',
-      'regex' => '#^/w/o/uh/e/(?P<name>[^/]+)$#',
-      'start' => '/w/o/',
-      'methods' => 'PATCH',
-    ),
-    1 => array (
-      'handler' => 'handler_func',
-      'original' => '/w/m/vet/{name}',
-      'regex' => '#^/w/m/vet/(?P<name>[^/]+)$#',
-      'start' => '/w/m/',
+      'original' => '/w/fladbcce/{name}',
+      'regex' => '#^/w/fladbcce/(?P<name>[^/]+)$#',
+      'start' => '/w/fladbcce/',
       'methods' => 'GET',
     ),
-    2 => array (
+  ),
+  'fuxilgksh' => array (
+    0 => array (
       'handler' => 'handler_func',
-      'original' => '/w/kn/hz/{name}',
-      'regex' => '#^/w/kn/hz/(?P<name>[^/]+)$#',
-      'start' => '/w/kn/',
+      'original' => '/fuxilgksh/{name}',
+      'regex' => '#^/fuxilgksh/(?P<name>[^/]+)$#',
+      'start' => '/fuxilgksh/',
       'methods' => 'PUT',
     ),
   ),
-  'rc' => array (
+  'omghxn' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/rc/qsctybcpsuhqaxu/{name}',
-      'regex' => '#^/rc/qsctybcpsuhqaxu/(?P<name>[^/]+)$#',
-      'start' => '/rc/qsctybcpsuhqaxu/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'xjwlmjwqv' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xjwlmjwqv/f/{name}',
-      'regex' => '#^/xjwlmjwqv/f/(?P<name>[^/]+)$#',
-      'start' => '/xjwlmjwqv/f/',
+      'original' => '/omghxn/{name}',
+      'regex' => '#^/omghxn/(?P<name>[^/]+)$#',
+      'start' => '/omghxn/',
       'methods' => 'PUT',
     ),
   ),
-  'bmkhqsduyrkizn' => array (
+  'jrmgkzkwfnk' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/bmkhqsduyrkizn/df/{name}',
-      'regex' => '#^/bmkhqsduyrkizn/df/(?P<name>[^/]+)$#',
-      'start' => '/bmkhqsduyrkizn/df/',
-      'methods' => 'GET',
-    ),
-  ),
-  'muiszpgbgo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/muiszpgbgo/{name}',
-      'regex' => '#^/muiszpgbgo/(?P<name>[^/]+)$#',
-      'start' => '/muiszpgbgo/',
+      'original' => '/jrmgkzkwfnk/{name}',
+      'regex' => '#^/jrmgkzkwfnk/(?P<name>[^/]+)$#',
+      'start' => '/jrmgkzkwfnk/',
       'methods' => 'DELETE',
     ),
   ),
-  'nxcqjvesac' => array (
+  'xv' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/nxcqjvesac/tscetwjnq/{name}',
-      'regex' => '#^/nxcqjvesac/tscetwjnq/(?P<name>[^/]+)$#',
-      'start' => '/nxcqjvesac/tscetwjnq/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'it' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/it/a/c/lplfzxn/{name}',
-      'regex' => '#^/it/a/c/lplfzxn/(?P<name>[^/]+)$#',
-      'start' => '/it/a/',
-      'methods' => 'GET',
-    ),
-  ),
-  'owagbp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/owagbp/qqshzjay/{name}',
-      'regex' => '#^/owagbp/qqshzjay/(?P<name>[^/]+)$#',
-      'start' => '/owagbp/qqshzjay/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ad' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ad/defqweufekr/{name}',
-      'regex' => '#^/ad/defqweufekr/(?P<name>[^/]+)$#',
-      'start' => '/ad/defqweufekr/',
-      'methods' => 'POST',
-    ),
-  ),
-  'wze' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/wze/nnr/tqunqflnmowtf/{name}',
-      'regex' => '#^/wze/nnr/tqunqflnmowtf/(?P<name>[^/]+)$#',
-      'start' => '/wze/nnr/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'rqsamkhfa' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rqsamkhfa/{name}',
-      'regex' => '#^/rqsamkhfa/(?P<name>[^/]+)$#',
-      'start' => '/rqsamkhfa/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'qwsxa' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qwsxa/uhhzivuek/n/{name}',
-      'regex' => '#^/qwsxa/uhhzivuek/n/(?P<name>[^/]+)$#',
-      'start' => '/qwsxa/uhhzivuek/',
+      'original' => '/xv/hh/h/dzvihosgrq/u/{name}',
+      'regex' => '#^/xv/hh/h/dzvihosgrq/u/(?P<name>[^/]+)$#',
+      'start' => '/xv/hh/',
       'methods' => 'PATCH',
     ),
   ),
-  'egd' => array (
+  'mp' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/egd/shrlgqgyjnb/wl/k/{name}',
-      'regex' => '#^/egd/shrlgqgyjnb/wl/k/(?P<name>[^/]+)$#',
-      'start' => '/egd/shrlgqgyjnb/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'vtpfjoeboto' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vtpfjoeboto/{name}',
-      'regex' => '#^/vtpfjoeboto/(?P<name>[^/]+)$#',
-      'start' => '/vtpfjoeboto/',
-      'methods' => 'GET',
-    ),
-  ),
-  'uovdih' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uovdih/{name}',
-      'regex' => '#^/uovdih/(?P<name>[^/]+)$#',
-      'start' => '/uovdih/',
-      'methods' => 'GET',
-    ),
-  ),
-  'utqzte' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/utqzte/q/{name}',
-      'regex' => '#^/utqzte/q/(?P<name>[^/]+)$#',
-      'start' => '/utqzte/q/',
-      'methods' => 'GET',
-    ),
-  ),
-  'mbveh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mbveh/ahicbcgglbo/{name}',
-      'regex' => '#^/mbveh/ahicbcgglbo/(?P<name>[^/]+)$#',
-      'start' => '/mbveh/ahicbcgglbo/',
-      'methods' => 'POST',
-    ),
-  ),
-  'jkwaa' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jkwaa/wjvd/{name}',
-      'regex' => '#^/jkwaa/wjvd/(?P<name>[^/]+)$#',
-      'start' => '/jkwaa/wjvd/',
+      'original' => '/mp/weiqlte/v/cdvuzu/{name}',
+      'regex' => '#^/mp/weiqlte/v/cdvuzu/(?P<name>[^/]+)$#',
+      'start' => '/mp/weiqlte/',
       'methods' => 'PATCH',
     ),
   ),
-  'yarnuzdok' => array (
+  'ayicno' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/yarnuzdok/vlhknwlqw/{name}',
-      'regex' => '#^/yarnuzdok/vlhknwlqw/(?P<name>[^/]+)$#',
-      'start' => '/yarnuzdok/vlhknwlqw/',
+      'original' => '/ayicno/ly/cfqv/npfm/{name}',
+      'regex' => '#^/ayicno/ly/cfqv/npfm/(?P<name>[^/]+)$#',
+      'start' => '/ayicno/ly/',
       'methods' => 'POST',
     ),
   ),
-  'nh' => array (
+  'ltjhduzb' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/nh/icqlzpw/x/a/{name}',
-      'regex' => '#^/nh/icqlzpw/x/a/(?P<name>[^/]+)$#',
-      'start' => '/nh/icqlzpw/',
+      'original' => '/ltjhduzb/{name}',
+      'regex' => '#^/ltjhduzb/(?P<name>[^/]+)$#',
+      'start' => '/ltjhduzb/',
       'methods' => 'PUT',
     ),
   ),
-  'ipqgt' => array (
+  'xryztfschq' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ipqgt/tjvwk/so/{name}',
-      'regex' => '#^/ipqgt/tjvwk/so/(?P<name>[^/]+)$#',
-      'start' => '/ipqgt/tjvwk/',
-      'methods' => 'GET',
-    ),
-  ),
-  'hmswhkoxdzbeg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hmswhkoxdzbeg/ikt/{name}',
-      'regex' => '#^/hmswhkoxdzbeg/ikt/(?P<name>[^/]+)$#',
-      'start' => '/hmswhkoxdzbeg/ikt/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'ssbuhp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ssbuhp/{name}',
-      'regex' => '#^/ssbuhp/(?P<name>[^/]+)$#',
-      'start' => '/ssbuhp/',
+      'original' => '/xryztfschq/nuqm/{name}',
+      'regex' => '#^/xryztfschq/nuqm/(?P<name>[^/]+)$#',
+      'start' => '/xryztfschq/nuqm/',
       'methods' => 'PUT',
     ),
   ),
-  'zztqjmxgrujizp' => array (
+  'vf' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/zztqjmxgrujizp/bqz/{name}',
-      'regex' => '#^/zztqjmxgrujizp/bqz/(?P<name>[^/]+)$#',
-      'start' => '/zztqjmxgrujizp/bqz/',
+      'original' => '/vf/nym/{name}',
+      'regex' => '#^/vf/nym/(?P<name>[^/]+)$#',
+      'start' => '/vf/nym/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'tpevlp' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tpevlp/{name}',
+      'regex' => '#^/tpevlp/(?P<name>[^/]+)$#',
+      'start' => '/tpevlp/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'puh' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/puh/yivemdfm/cqdt/{name}',
+      'regex' => '#^/puh/yivemdfm/cqdt/(?P<name>[^/]+)$#',
+      'start' => '/puh/yivemdfm/',
       'methods' => 'GET',
     ),
   ),
-  'fdjvqlpos' => array (
+  'doaohrbzu' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/fdjvqlpos/yyigzwclm/{name}',
-      'regex' => '#^/fdjvqlpos/yyigzwclm/(?P<name>[^/]+)$#',
-      'start' => '/fdjvqlpos/yyigzwclm/',
+      'original' => '/doaohrbzu/{name}',
+      'regex' => '#^/doaohrbzu/(?P<name>[^/]+)$#',
+      'start' => '/doaohrbzu/',
       'methods' => 'GET',
     ),
   ),
-  'dhg' => array (
+  'jqhdyivjqk' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/dhg/fast/znmly/{name}',
-      'regex' => '#^/dhg/fast/znmly/(?P<name>[^/]+)$#',
-      'start' => '/dhg/fast/',
+      'original' => '/jqhdyivjqk/nmxc/s/{name}',
+      'regex' => '#^/jqhdyivjqk/nmxc/s/(?P<name>[^/]+)$#',
+      'start' => '/jqhdyivjqk/nmxc/',
       'methods' => 'GET',
     ),
   ),
-  'nis' => array (
+  'zbmjyq' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/nis/z/w/chxlntvrqhgxk/{name}',
-      'regex' => '#^/nis/z/w/chxlntvrqhgxk/(?P<name>[^/]+)$#',
-      'start' => '/nis/z/',
+      'original' => '/zbmjyq/{name}',
+      'regex' => '#^/zbmjyq/(?P<name>[^/]+)$#',
+      'start' => '/zbmjyq/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ac' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ac/pzosdqembz/{name}',
+      'regex' => '#^/ac/pzosdqembz/(?P<name>[^/]+)$#',
+      'start' => '/ac/pzosdqembz/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'uawjfrgsvgno' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/uawjfrgsvgno/{name}',
+      'regex' => '#^/uawjfrgsvgno/(?P<name>[^/]+)$#',
+      'start' => '/uawjfrgsvgno/',
       'methods' => 'PATCH',
     ),
   ),
-  'gxfk' => array (
+  'pjseoouwbnrqng' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/gxfk/vrxbl/dnwnoftfj/j/{name}',
-      'regex' => '#^/gxfk/vrxbl/dnwnoftfj/j/(?P<name>[^/]+)$#',
-      'start' => '/gxfk/vrxbl/',
-      'methods' => 'POST',
+      'original' => '/pjseoouwbnrqng/u/{name}',
+      'regex' => '#^/pjseoouwbnrqng/u/(?P<name>[^/]+)$#',
+      'start' => '/pjseoouwbnrqng/u/',
+      'methods' => 'PUT',
     ),
   ),
-  'citzplgpxbdzoziis' => array (
+  'jvwrk' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/citzplgpxbdzoziis/{name}',
-      'regex' => '#^/citzplgpxbdzoziis/(?P<name>[^/]+)$#',
-      'start' => '/citzplgpxbdzoziis/',
-      'methods' => 'POST',
-    ),
-  ),
-  'ppmylpgtnjggyla' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ppmylpgtnjggyla/{name}',
-      'regex' => '#^/ppmylpgtnjggyla/(?P<name>[^/]+)$#',
-      'start' => '/ppmylpgtnjggyla/',
+      'original' => '/jvwrk/ysyfz/wzg/bwkp/{name}',
+      'regex' => '#^/jvwrk/ysyfz/wzg/bwkp/(?P<name>[^/]+)$#',
+      'start' => '/jvwrk/ysyfz/',
       'methods' => 'GET',
     ),
   ),
-  'pomluifbiono' => array (
+  'zbheoldrwksywzbsmy' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/pomluifbiono/dt/t/{name}',
-      'regex' => '#^/pomluifbiono/dt/t/(?P<name>[^/]+)$#',
-      'start' => '/pomluifbiono/dt/',
+      'original' => '/zbheoldrwksywzbsmy/{name}',
+      'regex' => '#^/zbheoldrwksywzbsmy/(?P<name>[^/]+)$#',
+      'start' => '/zbheoldrwksywzbsmy/',
+      'methods' => 'GET',
+    ),
+  ),
+  'chsimjmesmtkmfiyzfz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/chsimjmesmtkmfiyzfz/{name}',
+      'regex' => '#^/chsimjmesmtkmfiyzfz/(?P<name>[^/]+)$#',
+      'start' => '/chsimjmesmtkmfiyzfz/',
       'methods' => 'PUT',
     ),
   ),
   'u' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/u/os/zdcoiccj/{name}',
-      'regex' => '#^/u/os/zdcoiccj/(?P<name>[^/]+)$#',
-      'start' => '/u/os/',
-      'methods' => 'GET',
-    ),
-  ),
-  'mrvw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mrvw/pr/xdhaj/s/{name}',
-      'regex' => '#^/mrvw/pr/xdhaj/s/(?P<name>[^/]+)$#',
-      'start' => '/mrvw/pr/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ggmcjobbo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ggmcjobbo/gnges/{name}',
-      'regex' => '#^/ggmcjobbo/gnges/(?P<name>[^/]+)$#',
-      'start' => '/ggmcjobbo/gnges/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'sjnygeyzw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/sjnygeyzw/{name}',
-      'regex' => '#^/sjnygeyzw/(?P<name>[^/]+)$#',
-      'start' => '/sjnygeyzw/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'lcpxbwvd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lcpxbwvd/{name}',
-      'regex' => '#^/lcpxbwvd/(?P<name>[^/]+)$#',
-      'start' => '/lcpxbwvd/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'nf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nf/p/qhth/hbymhgnh/hd/{name}',
-      'regex' => '#^/nf/p/qhth/hbymhgnh/hd/(?P<name>[^/]+)$#',
-      'start' => '/nf/p/',
-      'methods' => 'GET',
-    ),
-  ),
-  'txvbizonoqwb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/txvbizonoqwb/{name}',
-      'regex' => '#^/txvbizonoqwb/(?P<name>[^/]+)$#',
-      'start' => '/txvbizonoqwb/',
-      'methods' => 'GET',
-    ),
-  ),
-  'cnhjwjv' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cnhjwjv/verkd/h/awx/vf/{name}',
-      'regex' => '#^/cnhjwjv/verkd/h/awx/vf/(?P<name>[^/]+)$#',
-      'start' => '/cnhjwjv/verkd/',
-      'methods' => 'GET',
-    ),
-  ),
-  'kszmuvkwdgujif' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kszmuvkwdgujif/{name}',
-      'regex' => '#^/kszmuvkwdgujif/(?P<name>[^/]+)$#',
-      'start' => '/kszmuvkwdgujif/',
-      'methods' => 'GET',
-    ),
-  ),
-  'kouyzzgzrpe' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kouyzzgzrpe/odx/{name}',
-      'regex' => '#^/kouyzzgzrpe/odx/(?P<name>[^/]+)$#',
-      'start' => '/kouyzzgzrpe/odx/',
-      'methods' => 'GET',
-    ),
-  ),
-  'udbznoazzoqbbe' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/udbznoazzoqbbe/{name}',
-      'regex' => '#^/udbznoazzoqbbe/(?P<name>[^/]+)$#',
-      'start' => '/udbznoazzoqbbe/',
-      'methods' => 'GET',
-    ),
-  ),
-  'kyyrspnmbdqfqcir' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kyyrspnmbdqfqcir/{name}',
-      'regex' => '#^/kyyrspnmbdqfqcir/(?P<name>[^/]+)$#',
-      'start' => '/kyyrspnmbdqfqcir/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'h' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/h/p/ampxqebyv/sokl/{name}',
-      'regex' => '#^/h/p/ampxqebyv/sokl/(?P<name>[^/]+)$#',
-      'start' => '/h/p/',
-      'methods' => 'GET',
-    ),
-  ),
-  'aue' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/aue/upsbazoarzvgq/{name}',
-      'regex' => '#^/aue/upsbazoarzvgq/(?P<name>[^/]+)$#',
-      'start' => '/aue/upsbazoarzvgq/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'quhhi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/quhhi/n/{name}',
-      'regex' => '#^/quhhi/n/(?P<name>[^/]+)$#',
-      'start' => '/quhhi/n/',
-      'methods' => 'POST',
-    ),
-  ),
-  'ghnvqqiqugljdlqrql' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ghnvqqiqugljdlqrql/{name}',
-      'regex' => '#^/ghnvqqiqugljdlqrql/(?P<name>[^/]+)$#',
-      'start' => '/ghnvqqiqugljdlqrql/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'hxemqtmy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hxemqtmy/{name}',
-      'regex' => '#^/hxemqtmy/(?P<name>[^/]+)$#',
-      'start' => '/hxemqtmy/',
+      'original' => '/u/gzix/{name}',
+      'regex' => '#^/u/gzix/(?P<name>[^/]+)$#',
+      'start' => '/u/gzix/',
       'methods' => 'DELETE',
-    ),
-  ),
-  'kyunvb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kyunvb/fbebeqenq/{name}',
-      'regex' => '#^/kyunvb/fbebeqenq/(?P<name>[^/]+)$#',
-      'start' => '/kyunvb/fbebeqenq/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ypj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ypj/knbduirqw/kw/h/su/q/{name}',
-      'regex' => '#^/ypj/knbduirqw/kw/h/su/q/(?P<name>[^/]+)$#',
-      'start' => '/ypj/knbduirqw/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ogtd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ogtd/giws/{name}',
-      'regex' => '#^/ogtd/giws/(?P<name>[^/]+)$#',
-      'start' => '/ogtd/giws/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'eikjuelxpghuca' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/eikjuelxpghuca/{name}',
-      'regex' => '#^/eikjuelxpghuca/(?P<name>[^/]+)$#',
-      'start' => '/eikjuelxpghuca/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'yulaumhh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/yulaumhh/{name}',
-      'regex' => '#^/yulaumhh/(?P<name>[^/]+)$#',
-      'start' => '/yulaumhh/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'cftjq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cftjq/gczsytzhkoj/{name}',
-      'regex' => '#^/cftjq/gczsytzhkoj/(?P<name>[^/]+)$#',
-      'start' => '/cftjq/gczsytzhkoj/',
-      'methods' => 'POST',
-    ),
-  ),
-  'sxpy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/sxpy/osjfp/a/{name}',
-      'regex' => '#^/sxpy/osjfp/a/(?P<name>[^/]+)$#',
-      'start' => '/sxpy/osjfp/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'i' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/i/awnmwpuofkswz/{name}',
-      'regex' => '#^/i/awnmwpuofkswz/(?P<name>[^/]+)$#',
-      'start' => '/i/awnmwpuofkswz/',
-      'methods' => 'GET',
     ),
     1 => array (
       'handler' => 'handler_func',
-      'original' => '/i/qi/aqoqmz/psoewpqw/s/{name}',
-      'regex' => '#^/i/qi/aqoqmz/psoewpqw/s/(?P<name>[^/]+)$#',
-      'start' => '/i/qi/',
-      'methods' => 'DELETE',
+      'original' => '/u/bdcw/eh/{name}',
+      'regex' => '#^/u/bdcw/eh/(?P<name>[^/]+)$#',
+      'start' => '/u/bdcw/',
+      'methods' => 'POST',
     ),
     2 => array (
       'handler' => 'handler_func',
-      'original' => '/i/njkaqt/nwqoaxc/{name}',
-      'regex' => '#^/i/njkaqt/nwqoaxc/(?P<name>[^/]+)$#',
-      'start' => '/i/njkaqt/',
+      'original' => '/u/ldera/{name}',
+      'regex' => '#^/u/ldera/(?P<name>[^/]+)$#',
+      'start' => '/u/ldera/',
+      'methods' => 'PATCH',
+    ),
+    3 => array (
+      'handler' => 'handler_func',
+      'original' => '/u/pnjn/o/{name}',
+      'regex' => '#^/u/pnjn/o/(?P<name>[^/]+)$#',
+      'start' => '/u/pnjn/',
+      'methods' => 'GET',
+    ),
+    4 => array (
+      'handler' => 'handler_func',
+      'original' => '/u/lktxhej/ggi/bvoym/{name}',
+      'regex' => '#^/u/lktxhej/ggi/bvoym/(?P<name>[^/]+)$#',
+      'start' => '/u/lktxhej/',
+      'methods' => 'POST',
+    ),
+    5 => array (
+      'handler' => 'handler_func',
+      'original' => '/u/lqllg/kr/bbtk/{name}',
+      'regex' => '#^/u/lqllg/kr/bbtk/(?P<name>[^/]+)$#',
+      'start' => '/u/lqllg/',
       'methods' => 'GET',
     ),
   ),
-  'fmycwqiwq' => array (
+  'jltaunql' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/fmycwqiwq/{name}',
-      'regex' => '#^/fmycwqiwq/(?P<name>[^/]+)$#',
-      'start' => '/fmycwqiwq/',
-      'methods' => 'GET',
-    ),
-  ),
-  'nqzfzcrvhmujl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nqzfzcrvhmujl/f/az/{name}',
-      'regex' => '#^/nqzfzcrvhmujl/f/az/(?P<name>[^/]+)$#',
-      'start' => '/nqzfzcrvhmujl/f/',
-      'methods' => 'GET',
-    ),
-  ),
-  'svicpx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/svicpx/najkhhkhwu/{name}',
-      'regex' => '#^/svicpx/najkhhkhwu/(?P<name>[^/]+)$#',
-      'start' => '/svicpx/najkhhkhwu/',
-      'methods' => 'GET',
-    ),
-  ),
-  'hxnzqpsp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hxnzqpsp/tjc/{name}',
-      'regex' => '#^/hxnzqpsp/tjc/(?P<name>[^/]+)$#',
-      'start' => '/hxnzqpsp/tjc/',
-      'methods' => 'GET',
-    ),
-  ),
-  'crslwadjka' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/crslwadjka/oxfk/twro/{name}',
-      'regex' => '#^/crslwadjka/oxfk/twro/(?P<name>[^/]+)$#',
-      'start' => '/crslwadjka/oxfk/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'zefxhgljji' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zefxhgljji/{name}',
-      'regex' => '#^/zefxhgljji/(?P<name>[^/]+)$#',
-      'start' => '/zefxhgljji/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'nyrkdyrxjfvnixlgl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nyrkdyrxjfvnixlgl/{name}',
-      'regex' => '#^/nyrkdyrxjfvnixlgl/(?P<name>[^/]+)$#',
-      'start' => '/nyrkdyrxjfvnixlgl/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ot' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ot/ghguswlwdcj/b/{name}',
-      'regex' => '#^/ot/ghguswlwdcj/b/(?P<name>[^/]+)$#',
-      'start' => '/ot/ghguswlwdcj/',
+      'original' => '/jltaunql/wcttuhs/{name}',
+      'regex' => '#^/jltaunql/wcttuhs/(?P<name>[^/]+)$#',
+      'start' => '/jltaunql/wcttuhs/',
       'methods' => 'POST',
     ),
   ),
-  'qgahobyme' => array (
+  'zptv' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/qgahobyme/{name}',
-      'regex' => '#^/qgahobyme/(?P<name>[^/]+)$#',
-      'start' => '/qgahobyme/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'dlhihhwqbwva' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dlhihhwqbwva/hw/{name}',
-      'regex' => '#^/dlhihhwqbwva/hw/(?P<name>[^/]+)$#',
-      'start' => '/dlhihhwqbwva/hw/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'dieqwk' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dieqwk/cdfl/wrawkr/{name}',
-      'regex' => '#^/dieqwk/cdfl/wrawkr/(?P<name>[^/]+)$#',
-      'start' => '/dieqwk/cdfl/',
+      'original' => '/zptv/w/zvkuatm/{name}',
+      'regex' => '#^/zptv/w/zvkuatm/(?P<name>[^/]+)$#',
+      'start' => '/zptv/w/',
       'methods' => 'PUT',
     ),
   ),
-  'hf' => array (
+  'ovmfj' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/hf/rpmrxdrsharnglydp/{name}',
-      'regex' => '#^/hf/rpmrxdrsharnglydp/(?P<name>[^/]+)$#',
-      'start' => '/hf/rpmrxdrsharnglydp/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ieivfid' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ieivfid/k/{name}',
-      'regex' => '#^/ieivfid/k/(?P<name>[^/]+)$#',
-      'start' => '/ieivfid/k/',
-      'methods' => 'GET',
-    ),
-  ),
-  'hsducefamge' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hsducefamge/{name}',
-      'regex' => '#^/hsducefamge/(?P<name>[^/]+)$#',
-      'start' => '/hsducefamge/',
+      'original' => '/ovmfj/wgxqm/{name}',
+      'regex' => '#^/ovmfj/wgxqm/(?P<name>[^/]+)$#',
+      'start' => '/ovmfj/wgxqm/',
       'methods' => 'PUT',
-    ),
-  ),
-  'xkzh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xkzh/qpuhtweuhtyya/{name}',
-      'regex' => '#^/xkzh/qpuhtweuhtyya/(?P<name>[^/]+)$#',
-      'start' => '/xkzh/qpuhtweuhtyya/',
-      'methods' => 'GET',
-    ),
-  ),
-  'gsebkl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/gsebkl/mhovnqxusl/{name}',
-      'regex' => '#^/gsebkl/mhovnqxusl/(?P<name>[^/]+)$#',
-      'start' => '/gsebkl/mhovnqxusl/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'bvmtzhf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bvmtzhf/{name}',
-      'regex' => '#^/bvmtzhf/(?P<name>[^/]+)$#',
-      'start' => '/bvmtzhf/',
-      'methods' => 'POST',
-    ),
-  ),
-  'b' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/b/cxltoo/{name}',
-      'regex' => '#^/b/cxltoo/(?P<name>[^/]+)$#',
-      'start' => '/b/cxltoo/',
-      'methods' => 'PUT',
-    ),
-    1 => array (
-      'handler' => 'handler_func',
-      'original' => '/b/qbtfzcxaoudqnevfvw/{name}',
-      'regex' => '#^/b/qbtfzcxaoudqnevfvw/(?P<name>[^/]+)$#',
-      'start' => '/b/qbtfzcxaoudqnevfvw/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'qkppnfmbzvhunlk' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qkppnfmbzvhunlk/avom/{name}',
-      'regex' => '#^/qkppnfmbzvhunlk/avom/(?P<name>[^/]+)$#',
-      'start' => '/qkppnfmbzvhunlk/avom/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'jn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jn/mymwhpmfj/ajtwam/{name}',
-      'regex' => '#^/jn/mymwhpmfj/ajtwam/(?P<name>[^/]+)$#',
-      'start' => '/jn/mymwhpmfj/',
-      'methods' => 'GET',
-    ),
-  ),
-  'evvmua' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/evvmua/ev/w/znhawmbhkz/n/{name}',
-      'regex' => '#^/evvmua/ev/w/znhawmbhkz/n/(?P<name>[^/]+)$#',
-      'start' => '/evvmua/ev/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'hh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hh/olaaluzmxha/nay/{name}',
-      'regex' => '#^/hh/olaaluzmxha/nay/(?P<name>[^/]+)$#',
-      'start' => '/hh/olaaluzmxha/',
-      'methods' => 'GET',
-    ),
-  ),
-  'r' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/r/ggbjytno/u/{name}',
-      'regex' => '#^/r/ggbjytno/u/(?P<name>[^/]+)$#',
-      'start' => '/r/ggbjytno/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'zo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zo/gdjsddij/{name}',
-      'regex' => '#^/zo/gdjsddij/(?P<name>[^/]+)$#',
-      'start' => '/zo/gdjsddij/',
-      'methods' => 'GET',
-    ),
-  ),
-  'xfnxcn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xfnxcn/kmg/nem/{name}',
-      'regex' => '#^/xfnxcn/kmg/nem/(?P<name>[^/]+)$#',
-      'start' => '/xfnxcn/kmg/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'cae' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cae/scccv/{name}',
-      'regex' => '#^/cae/scccv/(?P<name>[^/]+)$#',
-      'start' => '/cae/scccv/',
-      'methods' => 'POST',
-    ),
-  ),
-  'nipkeruviwazvaz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nipkeruviwazvaz/qwlbh/{name}',
-      'regex' => '#^/nipkeruviwazvaz/qwlbh/(?P<name>[^/]+)$#',
-      'start' => '/nipkeruviwazvaz/qwlbh/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'vcbaefkjfvyjr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vcbaefkjfvyjr/{name}',
-      'regex' => '#^/vcbaefkjfvyjr/(?P<name>[^/]+)$#',
-      'start' => '/vcbaefkjfvyjr/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'ccl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ccl/tvy/{name}',
-      'regex' => '#^/ccl/tvy/(?P<name>[^/]+)$#',
-      'start' => '/ccl/tvy/',
-      'methods' => 'GET',
-    ),
-  ),
-  'vuensmlsf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vuensmlsf/cj/rfnz/fwwrk/{name}',
-      'regex' => '#^/vuensmlsf/cj/rfnz/fwwrk/(?P<name>[^/]+)$#',
-      'start' => '/vuensmlsf/cj/',
-      'methods' => 'GET',
-    ),
-  ),
-  'zgqjutc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zgqjutc/{name}',
-      'regex' => '#^/zgqjutc/(?P<name>[^/]+)$#',
-      'start' => '/zgqjutc/',
-      'methods' => 'POST',
-    ),
-  ),
-  'ajjry' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ajjry/paxyq/dwzo/wnhzlu/{name}',
-      'regex' => '#^/ajjry/paxyq/dwzo/wnhzlu/(?P<name>[^/]+)$#',
-      'start' => '/ajjry/paxyq/',
-      'methods' => 'POST',
-    ),
-  ),
-  'hrmgngbmm' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hrmgngbmm/{name}',
-      'regex' => '#^/hrmgngbmm/(?P<name>[^/]+)$#',
-      'start' => '/hrmgngbmm/',
-      'methods' => 'GET',
-    ),
-  ),
-  'fxrihzcd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/fxrihzcd/{name}',
-      'regex' => '#^/fxrihzcd/(?P<name>[^/]+)$#',
-      'start' => '/fxrihzcd/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'oudss' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/oudss/{name}',
-      'regex' => '#^/oudss/(?P<name>[^/]+)$#',
-      'start' => '/oudss/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'mswvh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mswvh/adby/{name}',
-      'regex' => '#^/mswvh/adby/(?P<name>[^/]+)$#',
-      'start' => '/mswvh/adby/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'nb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nb/mh/sresqcfwb/{name}',
-      'regex' => '#^/nb/mh/sresqcfwb/(?P<name>[^/]+)$#',
-      'start' => '/nb/mh/',
-      'methods' => 'GET',
-    ),
-  ),
-  'yfhmlvorws' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/yfhmlvorws/szalnxhj/{name}',
-      'regex' => '#^/yfhmlvorws/szalnxhj/(?P<name>[^/]+)$#',
-      'start' => '/yfhmlvorws/szalnxhj/',
-      'methods' => 'POST',
-    ),
-  ),
-  'a' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/a/vhq/umwho/hnr/{name}',
-      'regex' => '#^/a/vhq/umwho/hnr/(?P<name>[^/]+)$#',
-      'start' => '/a/vhq/',
-      'methods' => 'GET',
-    ),
-  ),
-  'fj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/fj/gpabrf/{name}',
-      'regex' => '#^/fj/gpabrf/(?P<name>[^/]+)$#',
-      'start' => '/fj/gpabrf/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'bomhxbhylnhqfhc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bomhxbhylnhqfhc/{name}',
-      'regex' => '#^/bomhxbhylnhqfhc/(?P<name>[^/]+)$#',
-      'start' => '/bomhxbhylnhqfhc/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'cihwo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cihwo/{name}',
-      'regex' => '#^/cihwo/(?P<name>[^/]+)$#',
-      'start' => '/cihwo/',
-      'methods' => 'GET',
-    ),
-  ),
-  'kbbydifcsabridwzkqgd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kbbydifcsabridwzkqgd/{name}',
-      'regex' => '#^/kbbydifcsabridwzkqgd/(?P<name>[^/]+)$#',
-      'start' => '/kbbydifcsabridwzkqgd/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'hcufzliawwkgdk' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hcufzliawwkgdk/{name}',
-      'regex' => '#^/hcufzliawwkgdk/(?P<name>[^/]+)$#',
-      'start' => '/hcufzliawwkgdk/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'hcfwyqfmfm' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hcfwyqfmfm/nban/{name}',
-      'regex' => '#^/hcfwyqfmfm/nban/(?P<name>[^/]+)$#',
-      'start' => '/hcfwyqfmfm/nban/',
-      'methods' => 'POST',
-    ),
-  ),
-  'zl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zl/jryr/xdttu/{name}',
-      'regex' => '#^/zl/jryr/xdttu/(?P<name>[^/]+)$#',
-      'start' => '/zl/jryr/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'mzpciznqfw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mzpciznqfw/{name}',
-      'regex' => '#^/mzpciznqfw/(?P<name>[^/]+)$#',
-      'start' => '/mzpciznqfw/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'bonqkn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bonqkn/{name}',
-      'regex' => '#^/bonqkn/(?P<name>[^/]+)$#',
-      'start' => '/bonqkn/',
-      'methods' => 'GET',
-    ),
-  ),
-  'fqhgem' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/fqhgem/{name}',
-      'regex' => '#^/fqhgem/(?P<name>[^/]+)$#',
-      'start' => '/fqhgem/',
-      'methods' => 'POST',
-    ),
-  ),
-  'clhtmgugaz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/clhtmgugaz/{name}',
-      'regex' => '#^/clhtmgugaz/(?P<name>[^/]+)$#',
-      'start' => '/clhtmgugaz/',
-      'methods' => 'GET',
-    ),
-  ),
-  'rvouu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rvouu/{name}',
-      'regex' => '#^/rvouu/(?P<name>[^/]+)$#',
-      'start' => '/rvouu/',
-      'methods' => 'GET',
     ),
   ),
   'v' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/v/ym/knbyntyhk/nxa/waln/{name}',
-      'regex' => '#^/v/ym/knbyntyhk/nxa/waln/(?P<name>[^/]+)$#',
-      'start' => '/v/ym/',
+      'original' => '/v/dstd/k/vznzomvzqy/{name}',
+      'regex' => '#^/v/dstd/k/vznzomvzqy/(?P<name>[^/]+)$#',
+      'start' => '/v/dstd/',
       'methods' => 'GET',
     ),
   ),
-  'opfh' => array (
+  'pirqp' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/opfh/el/uafffmz/{name}',
-      'regex' => '#^/opfh/el/uafffmz/(?P<name>[^/]+)$#',
-      'start' => '/opfh/el/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'rwiwsxxidrbnjgms' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rwiwsxxidrbnjgms/tk/{name}',
-      'regex' => '#^/rwiwsxxidrbnjgms/tk/(?P<name>[^/]+)$#',
-      'start' => '/rwiwsxxidrbnjgms/tk/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'vgndq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vgndq/jtlwrqwddhlkis/{name}',
-      'regex' => '#^/vgndq/jtlwrqwddhlkis/(?P<name>[^/]+)$#',
-      'start' => '/vgndq/jtlwrqwddhlkis/',
+      'original' => '/pirqp/vzzmdq/{name}',
+      'regex' => '#^/pirqp/vzzmdq/(?P<name>[^/]+)$#',
+      'start' => '/pirqp/vzzmdq/',
       'methods' => 'GET',
     ),
   ),
-  'zxywlwlrddzdzxvzkac' => array (
+  'kzczvvvge' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/zxywlwlrddzdzxvzkac/{name}',
-      'regex' => '#^/zxywlwlrddzdzxvzkac/(?P<name>[^/]+)$#',
-      'start' => '/zxywlwlrddzdzxvzkac/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ioptob' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ioptob/u/pw/ufdtza/{name}',
-      'regex' => '#^/ioptob/u/pw/ufdtza/(?P<name>[^/]+)$#',
-      'start' => '/ioptob/u/',
+      'original' => '/kzczvvvge/{name}',
+      'regex' => '#^/kzczvvvge/(?P<name>[^/]+)$#',
+      'start' => '/kzczvvvge/',
       'methods' => 'DELETE',
     ),
   ),
-  'tpp' => array (
+  'vphbybhkpzw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/tpp/ffscoeqyrvhmyr/{name}',
-      'regex' => '#^/tpp/ffscoeqyrvhmyr/(?P<name>[^/]+)$#',
-      'start' => '/tpp/ffscoeqyrvhmyr/',
+      'original' => '/vphbybhkpzw/{name}',
+      'regex' => '#^/vphbybhkpzw/(?P<name>[^/]+)$#',
+      'start' => '/vphbybhkpzw/',
+      'methods' => 'GET',
+    ),
+  ),
+  'obmei' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/obmei/{name}',
+      'regex' => '#^/obmei/(?P<name>[^/]+)$#',
+      'start' => '/obmei/',
+      'methods' => 'GET',
+    ),
+  ),
+  'lrxutruhan' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lrxutruhan/{name}',
+      'regex' => '#^/lrxutruhan/(?P<name>[^/]+)$#',
+      'start' => '/lrxutruhan/',
+      'methods' => 'GET',
+    ),
+  ),
+  'tibarna' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tibarna/n/czwmgy/czab/x/{name}',
+      'regex' => '#^/tibarna/n/czwmgy/czab/x/(?P<name>[^/]+)$#',
+      'start' => '/tibarna/n/',
+      'methods' => 'GET',
+    ),
+  ),
+  'qohdjiwskcz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qohdjiwskcz/{name}',
+      'regex' => '#^/qohdjiwskcz/(?P<name>[^/]+)$#',
+      'start' => '/qohdjiwskcz/',
       'methods' => 'PUT',
     ),
   ),
-  'cxevtqmcirqeiaqwosf' => array (
+  'rgbpx' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/cxevtqmcirqeiaqwosf/{name}',
-      'regex' => '#^/cxevtqmcirqeiaqwosf/(?P<name>[^/]+)$#',
-      'start' => '/cxevtqmcirqeiaqwosf/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'qzfkm' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qzfkm/no/{name}',
-      'regex' => '#^/qzfkm/no/(?P<name>[^/]+)$#',
-      'start' => '/qzfkm/no/',
-      'methods' => 'GET',
-    ),
-  ),
-  'pee' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/pee/a/wr/{name}',
-      'regex' => '#^/pee/a/wr/(?P<name>[^/]+)$#',
-      'start' => '/pee/a/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'onybq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/onybq/mranodxiv/{name}',
-      'regex' => '#^/onybq/mranodxiv/(?P<name>[^/]+)$#',
-      'start' => '/onybq/mranodxiv/',
+      'original' => '/rgbpx/avu/weqvm/vl/{name}',
+      'regex' => '#^/rgbpx/avu/weqvm/vl/(?P<name>[^/]+)$#',
+      'start' => '/rgbpx/avu/',
       'methods' => 'PATCH',
     ),
   ),
-  'alqvdmxrzggwahi' => array (
+  'dcujldltw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/alqvdmxrzggwahi/{name}',
-      'regex' => '#^/alqvdmxrzggwahi/(?P<name>[^/]+)$#',
-      'start' => '/alqvdmxrzggwahi/',
+      'original' => '/dcujldltw/{name}',
+      'regex' => '#^/dcujldltw/(?P<name>[^/]+)$#',
+      'start' => '/dcujldltw/',
       'methods' => 'DELETE',
     ),
   ),
-  'knkrjle' => array (
+  'wgyxdih' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/knkrjle/{name}',
-      'regex' => '#^/knkrjle/(?P<name>[^/]+)$#',
-      'start' => '/knkrjle/',
+      'original' => '/wgyxdih/mkp/bhwoiyg/wi/{name}',
+      'regex' => '#^/wgyxdih/mkp/bhwoiyg/wi/(?P<name>[^/]+)$#',
+      'start' => '/wgyxdih/mkp/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'ddwnfio' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ddwnfio/{name}',
+      'regex' => '#^/ddwnfio/(?P<name>[^/]+)$#',
+      'start' => '/ddwnfio/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'ypzcyw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ypzcyw/qg/{name}',
+      'regex' => '#^/ypzcyw/qg/(?P<name>[^/]+)$#',
+      'start' => '/ypzcyw/qg/',
       'methods' => 'GET',
     ),
   ),
-  'iipw' => array (
+  'qmwlroaa' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/iipw/dwkhhkqgtpod/{name}',
-      'regex' => '#^/iipw/dwkhhkqgtpod/(?P<name>[^/]+)$#',
-      'start' => '/iipw/dwkhhkqgtpod/',
+      'original' => '/qmwlroaa/wkmquyjgbw/{name}',
+      'regex' => '#^/qmwlroaa/wkmquyjgbw/(?P<name>[^/]+)$#',
+      'start' => '/qmwlroaa/wkmquyjgbw/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'pxmhmce' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/pxmhmce/{name}',
+      'regex' => '#^/pxmhmce/(?P<name>[^/]+)$#',
+      'start' => '/pxmhmce/',
+      'methods' => 'GET',
+    ),
+  ),
+  'hwr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hwr/m/sieyf/cpalf/{name}',
+      'regex' => '#^/hwr/m/sieyf/cpalf/(?P<name>[^/]+)$#',
+      'start' => '/hwr/m/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'jvrmas' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jvrmas/eheyyyw/fa/{name}',
+      'regex' => '#^/jvrmas/eheyyyw/fa/(?P<name>[^/]+)$#',
+      'start' => '/jvrmas/eheyyyw/',
+      'methods' => 'GET',
+    ),
+  ),
+  'oyphxzvfywotgkjfpu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oyphxzvfywotgkjfpu/r/{name}',
+      'regex' => '#^/oyphxzvfywotgkjfpu/r/(?P<name>[^/]+)$#',
+      'start' => '/oyphxzvfywotgkjfpu/r/',
       'methods' => 'POST',
     ),
   ),
-  'jplb' => array (
+  'dnfa' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/jplb/s/vpwuh/zczb/{name}',
-      'regex' => '#^/jplb/s/vpwuh/zczb/(?P<name>[^/]+)$#',
-      'start' => '/jplb/s/',
+      'original' => '/dnfa/wrjofhpr/e/{name}',
+      'regex' => '#^/dnfa/wrjofhpr/e/(?P<name>[^/]+)$#',
+      'start' => '/dnfa/wrjofhpr/',
       'methods' => 'GET',
     ),
   ),
-  'imxtgk' => array (
+  'mmw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/imxtgk/m/g/wn/{name}',
-      'regex' => '#^/imxtgk/m/g/wn/(?P<name>[^/]+)$#',
-      'start' => '/imxtgk/m/',
-      'methods' => 'GET',
-    ),
-  ),
-  'jq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jq/bdqsqye/c/{name}',
-      'regex' => '#^/jq/bdqsqye/c/(?P<name>[^/]+)$#',
-      'start' => '/jq/bdqsqye/',
-      'methods' => 'GET',
-    ),
-  ),
-  'hzcb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hzcb/cisuld/{name}',
-      'regex' => '#^/hzcb/cisuld/(?P<name>[^/]+)$#',
-      'start' => '/hzcb/cisuld/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'xootupmb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xootupmb/btzwcemsm/{name}',
-      'regex' => '#^/xootupmb/btzwcemsm/(?P<name>[^/]+)$#',
-      'start' => '/xootupmb/btzwcemsm/',
-      'methods' => 'GET',
-    ),
-  ),
-  'qtevsmpux' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qtevsmpux/ojfzgddbnz/{name}',
-      'regex' => '#^/qtevsmpux/ojfzgddbnz/(?P<name>[^/]+)$#',
-      'start' => '/qtevsmpux/ojfzgddbnz/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'uaitubyialgrdv' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uaitubyialgrdv/{name}',
-      'regex' => '#^/uaitubyialgrdv/(?P<name>[^/]+)$#',
-      'start' => '/uaitubyialgrdv/',
+      'original' => '/mmw/e/rspihtkdhdcqrdgt/{name}',
+      'regex' => '#^/mmw/e/rspihtkdhdcqrdgt/(?P<name>[^/]+)$#',
+      'start' => '/mmw/e/',
       'methods' => 'POST',
     ),
   ),
-  'ev' => array (
+  'qf' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ev/s/nrbxh/yqqx/mwgcc/{name}',
-      'regex' => '#^/ev/s/nrbxh/yqqx/mwgcc/(?P<name>[^/]+)$#',
-      'start' => '/ev/s/',
+      'original' => '/qf/fnwknzznomhsrq/{name}',
+      'regex' => '#^/qf/fnwknzznomhsrq/(?P<name>[^/]+)$#',
+      'start' => '/qf/fnwknzznomhsrq/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'yijglj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yijglj/y/{name}',
+      'regex' => '#^/yijglj/y/(?P<name>[^/]+)$#',
+      'start' => '/yijglj/y/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rb' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rb/nqxyiefb/fhctpjwxe/{name}',
+      'regex' => '#^/rb/nqxyiefb/fhctpjwxe/(?P<name>[^/]+)$#',
+      'start' => '/rb/nqxyiefb/',
+      'methods' => 'GET',
+    ),
+  ),
+  'waexkl' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/waexkl/roffkz/qcaq/s/{name}',
+      'regex' => '#^/waexkl/roffkz/qcaq/s/(?P<name>[^/]+)$#',
+      'start' => '/waexkl/roffkz/',
+      'methods' => 'GET',
+    ),
+  ),
+  'o' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/o/ppnyg/ankcank/{name}',
+      'regex' => '#^/o/ppnyg/ankcank/(?P<name>[^/]+)$#',
+      'start' => '/o/ppnyg/',
+      'methods' => 'POST',
+    ),
+  ),
+  'hi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hi/fz/tamt/q/rztxpirfa/{name}',
+      'regex' => '#^/hi/fz/tamt/q/rztxpirfa/(?P<name>[^/]+)$#',
+      'start' => '/hi/fz/',
+      'methods' => 'GET',
+    ),
+  ),
+  'hfhtxdsrdft' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hfhtxdsrdft/{name}',
+      'regex' => '#^/hfhtxdsrdft/(?P<name>[^/]+)$#',
+      'start' => '/hfhtxdsrdft/',
+      'methods' => 'GET',
+    ),
+  ),
+  'jlz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jlz/vpgsdvhqjlgpr/oxh/{name}',
+      'regex' => '#^/jlz/vpgsdvhqjlgpr/oxh/(?P<name>[^/]+)$#',
+      'start' => '/jlz/vpgsdvhqjlgpr/',
       'methods' => 'PATCH',
     ),
   ),
-  'ajfoowr' => array (
+  'tywvs' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ajfoowr/{name}',
-      'regex' => '#^/ajfoowr/(?P<name>[^/]+)$#',
-      'start' => '/ajfoowr/',
-      'methods' => 'POST',
+      'original' => '/tywvs/gzzbdsayfvwks/{name}',
+      'regex' => '#^/tywvs/gzzbdsayfvwks/(?P<name>[^/]+)$#',
+      'start' => '/tywvs/gzzbdsayfvwks/',
+      'methods' => 'DELETE',
     ),
   ),
-  'wzrwngz' => array (
+  'sp' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/wzrwngz/{name}',
-      'regex' => '#^/wzrwngz/(?P<name>[^/]+)$#',
-      'start' => '/wzrwngz/',
+      'original' => '/sp/hwzmybvspo/{name}',
+      'regex' => '#^/sp/hwzmybvspo/(?P<name>[^/]+)$#',
+      'start' => '/sp/hwzmybvspo/',
       'methods' => 'PUT',
     ),
   ),
-  'owxta' => array (
+  'ygcrwdsoxn' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/owxta/uuawa/uwicj/bqt/{name}',
-      'regex' => '#^/owxta/uuawa/uwicj/bqt/(?P<name>[^/]+)$#',
-      'start' => '/owxta/uuawa/',
+      'original' => '/ygcrwdsoxn/{name}',
+      'regex' => '#^/ygcrwdsoxn/(?P<name>[^/]+)$#',
+      'start' => '/ygcrwdsoxn/',
+      'methods' => 'GET',
+    ),
+  ),
+  'wnamu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wnamu/zmhlbtja/{name}',
+      'regex' => '#^/wnamu/zmhlbtja/(?P<name>[^/]+)$#',
+      'start' => '/wnamu/zmhlbtja/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'jnc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jnc/bo/qokm/fcrav/n/{name}',
+      'regex' => '#^/jnc/bo/qokm/fcrav/n/(?P<name>[^/]+)$#',
+      'start' => '/jnc/bo/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rsbcovz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rsbcovz/{name}',
+      'regex' => '#^/rsbcovz/(?P<name>[^/]+)$#',
+      'start' => '/rsbcovz/',
       'methods' => 'DELETE',
     ),
   ),
-  'kwbsmdvcdufkolpgaw' => array (
+  'cf' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/kwbsmdvcdufkolpgaw/{name}',
-      'regex' => '#^/kwbsmdvcdufkolpgaw/(?P<name>[^/]+)$#',
-      'start' => '/kwbsmdvcdufkolpgaw/',
-      'methods' => 'POST',
+      'original' => '/cf/ejsgnju/{name}',
+      'regex' => '#^/cf/ejsgnju/(?P<name>[^/]+)$#',
+      'start' => '/cf/ejsgnju/',
+      'methods' => 'GET',
     ),
   ),
-  'vhfhohplosvwragny' => array (
+  'enmtztvx' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/vhfhohplosvwragny/{name}',
-      'regex' => '#^/vhfhohplosvwragny/(?P<name>[^/]+)$#',
-      'start' => '/vhfhohplosvwragny/',
+      'original' => '/enmtztvx/nzpafjoodx/{name}',
+      'regex' => '#^/enmtztvx/nzpafjoodx/(?P<name>[^/]+)$#',
+      'start' => '/enmtztvx/nzpafjoodx/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'vq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vq/gigon/raovoo/{name}',
+      'regex' => '#^/vq/gigon/raovoo/(?P<name>[^/]+)$#',
+      'start' => '/vq/gigon/',
+      'methods' => 'GET',
+    ),
+  ),
+  'pyutcdibu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/pyutcdibu/kaso/dt/{name}',
+      'regex' => '#^/pyutcdibu/kaso/dt/(?P<name>[^/]+)$#',
+      'start' => '/pyutcdibu/kaso/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'ywqicwfgljauhq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ywqicwfgljauhq/{name}',
+      'regex' => '#^/ywqicwfgljauhq/(?P<name>[^/]+)$#',
+      'start' => '/ywqicwfgljauhq/',
       'methods' => 'DELETE',
     ),
   ),
-  'ndkuuvvxt' => array (
+  'htjxszroahjdrejftxno' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ndkuuvvxt/{name}',
-      'regex' => '#^/ndkuuvvxt/(?P<name>[^/]+)$#',
-      'start' => '/ndkuuvvxt/',
+      'original' => '/htjxszroahjdrejftxno/{name}',
+      'regex' => '#^/htjxszroahjdrejftxno/(?P<name>[^/]+)$#',
+      'start' => '/htjxszroahjdrejftxno/',
+      'methods' => 'GET',
+    ),
+  ),
+  'izmgeroswv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/izmgeroswv/bppqcxd/{name}',
+      'regex' => '#^/izmgeroswv/bppqcxd/(?P<name>[^/]+)$#',
+      'start' => '/izmgeroswv/bppqcxd/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'snwydoplkdj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/snwydoplkdj/{name}',
+      'regex' => '#^/snwydoplkdj/(?P<name>[^/]+)$#',
+      'start' => '/snwydoplkdj/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'bymddhu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bymddhu/gxzyud/{name}',
+      'regex' => '#^/bymddhu/gxzyud/(?P<name>[^/]+)$#',
+      'start' => '/bymddhu/gxzyud/',
       'methods' => 'PATCH',
     ),
   ),
-  'klvtarpdp' => array (
+  'yko' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/klvtarpdp/{name}',
-      'regex' => '#^/klvtarpdp/(?P<name>[^/]+)$#',
-      'start' => '/klvtarpdp/',
+      'original' => '/yko/c/m/da/par/{name}',
+      'regex' => '#^/yko/c/m/da/par/(?P<name>[^/]+)$#',
+      'start' => '/yko/c/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'grdc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/grdc/mvrmkson/wdgz/v/{name}',
+      'regex' => '#^/grdc/mvrmkson/wdgz/v/(?P<name>[^/]+)$#',
+      'start' => '/grdc/mvrmkson/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rqdjwbtvjbbfago' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rqdjwbtvjbbfago/{name}',
+      'regex' => '#^/rqdjwbtvjbbfago/(?P<name>[^/]+)$#',
+      'start' => '/rqdjwbtvjbbfago/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ezf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ezf/ltwiu/ust/u/{name}',
+      'regex' => '#^/ezf/ltwiu/ust/u/(?P<name>[^/]+)$#',
+      'start' => '/ezf/ltwiu/',
       'methods' => 'POST',
     ),
   ),
-  'yt' => array (
+  'amehrphv' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/yt/zvzwvycdfpftkqe/d/{name}',
-      'regex' => '#^/yt/zvzwvycdfpftkqe/d/(?P<name>[^/]+)$#',
-      'start' => '/yt/zvzwvycdfpftkqe/',
+      'original' => '/amehrphv/lzu/qjnc/{name}',
+      'regex' => '#^/amehrphv/lzu/qjnc/(?P<name>[^/]+)$#',
+      'start' => '/amehrphv/lzu/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'uslupkhxkpi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/uslupkhxkpi/cxpudzl/{name}',
+      'regex' => '#^/uslupkhxkpi/cxpudzl/(?P<name>[^/]+)$#',
+      'start' => '/uslupkhxkpi/cxpudzl/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'hdwai' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hdwai/gn/luwnue/{name}',
+      'regex' => '#^/hdwai/gn/luwnue/(?P<name>[^/]+)$#',
+      'start' => '/hdwai/gn/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'qvxo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qvxo/whwldwj/{name}',
+      'regex' => '#^/qvxo/whwldwj/(?P<name>[^/]+)$#',
+      'start' => '/qvxo/whwldwj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'raauzbhlznhiqggxhmd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/raauzbhlznhiqggxhmd/{name}',
+      'regex' => '#^/raauzbhlznhiqggxhmd/(?P<name>[^/]+)$#',
+      'start' => '/raauzbhlznhiqggxhmd/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'ptzqjrdrwooean' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ptzqjrdrwooean/nuwj/c/{name}',
+      'regex' => '#^/ptzqjrdrwooean/nuwj/c/(?P<name>[^/]+)$#',
+      'start' => '/ptzqjrdrwooean/nuwj/',
       'methods' => 'POST',
     ),
   ),
-  'jzrzwu' => array (
+  'kuqz' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/jzrzwu/h/{name}',
-      'regex' => '#^/jzrzwu/h/(?P<name>[^/]+)$#',
-      'start' => '/jzrzwu/h/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'xplxdmu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xplxdmu/{name}',
-      'regex' => '#^/xplxdmu/(?P<name>[^/]+)$#',
-      'start' => '/xplxdmu/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'dsfo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dsfo/agwzqhodpcpyxw/{name}',
-      'regex' => '#^/dsfo/agwzqhodpcpyxw/(?P<name>[^/]+)$#',
-      'start' => '/dsfo/agwzqhodpcpyxw/',
+      'original' => '/kuqz/o/chitztlioeqd/{name}',
+      'regex' => '#^/kuqz/o/chitztlioeqd/(?P<name>[^/]+)$#',
+      'start' => '/kuqz/o/',
       'methods' => 'GET',
     ),
   ),
-  'ca' => array (
+  'lxlmk' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ca/qoijtiu/{name}',
-      'regex' => '#^/ca/qoijtiu/(?P<name>[^/]+)$#',
-      'start' => '/ca/qoijtiu/',
+      'original' => '/lxlmk/m/tetampgrydvar/{name}',
+      'regex' => '#^/lxlmk/m/tetampgrydvar/(?P<name>[^/]+)$#',
+      'start' => '/lxlmk/m/',
       'methods' => 'PUT',
     ),
   ),
-  'uqbqox' => array (
+  'zeu' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/uqbqox/fhqcr/{name}',
-      'regex' => '#^/uqbqox/fhqcr/(?P<name>[^/]+)$#',
-      'start' => '/uqbqox/fhqcr/',
+      'original' => '/zeu/nnkvqmgloeauao/o/n/j/{name}',
+      'regex' => '#^/zeu/nnkvqmgloeauao/o/n/j/(?P<name>[^/]+)$#',
+      'start' => '/zeu/nnkvqmgloeauao/',
       'methods' => 'DELETE',
     ),
   ),
-  'xjbol' => array (
+  'cilfilsgbdtfi' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/xjbol/{name}',
-      'regex' => '#^/xjbol/(?P<name>[^/]+)$#',
-      'start' => '/xjbol/',
+      'original' => '/cilfilsgbdtfi/{name}',
+      'regex' => '#^/cilfilsgbdtfi/(?P<name>[^/]+)$#',
+      'start' => '/cilfilsgbdtfi/',
       'methods' => 'GET',
     ),
   ),
-  'jwyg' => array (
+  'dm' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/jwyg/j/fkbhiogu/ypma/pfh/{name}',
-      'regex' => '#^/jwyg/j/fkbhiogu/ypma/pfh/(?P<name>[^/]+)$#',
-      'start' => '/jwyg/j/',
+      'original' => '/dm/ytqolhz/{name}',
+      'regex' => '#^/dm/ytqolhz/(?P<name>[^/]+)$#',
+      'start' => '/dm/ytqolhz/',
       'methods' => 'POST',
     ),
   ),
-  'bwoqqtwbdt' => array (
+  'e' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/bwoqqtwbdt/q/{name}',
-      'regex' => '#^/bwoqqtwbdt/q/(?P<name>[^/]+)$#',
-      'start' => '/bwoqqtwbdt/q/',
+      'original' => '/e/ovzrueinqsrjzqq/{name}',
+      'regex' => '#^/e/ovzrueinqsrjzqq/(?P<name>[^/]+)$#',
+      'start' => '/e/ovzrueinqsrjzqq/',
       'methods' => 'GET',
     ),
   ),
-  'rt' => array (
+  'uiodr' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/rt/rvh/qaaus/{name}',
-      'regex' => '#^/rt/rvh/qaaus/(?P<name>[^/]+)$#',
-      'start' => '/rt/rvh/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'djrmbev' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/djrmbev/{name}',
-      'regex' => '#^/djrmbev/(?P<name>[^/]+)$#',
-      'start' => '/djrmbev/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'tfrprspwytiz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/tfrprspwytiz/{name}',
-      'regex' => '#^/tfrprspwytiz/(?P<name>[^/]+)$#',
-      'start' => '/tfrprspwytiz/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'hkvcytc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hkvcytc/{name}',
-      'regex' => '#^/hkvcytc/(?P<name>[^/]+)$#',
-      'start' => '/hkvcytc/',
-      'methods' => 'GET',
-    ),
-  ),
-  'uftxt' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uftxt/fpdmbrayjeac/{name}',
-      'regex' => '#^/uftxt/fpdmbrayjeac/(?P<name>[^/]+)$#',
-      'start' => '/uftxt/fpdmbrayjeac/',
-      'methods' => 'GET',
-    ),
-  ),
-  'snmwjwohvbta' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/snmwjwohvbta/{name}',
-      'regex' => '#^/snmwjwohvbta/(?P<name>[^/]+)$#',
-      'start' => '/snmwjwohvbta/',
-      'methods' => 'GET',
-    ),
-  ),
-  'gdbdt' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/gdbdt/ibn/km/abay/{name}',
-      'regex' => '#^/gdbdt/ibn/km/abay/(?P<name>[^/]+)$#',
-      'start' => '/gdbdt/ibn/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ogfsqhtpae' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ogfsqhtpae/ccwz/{name}',
-      'regex' => '#^/ogfsqhtpae/ccwz/(?P<name>[^/]+)$#',
-      'start' => '/ogfsqhtpae/ccwz/',
+      'original' => '/uiodr/{name}',
+      'regex' => '#^/uiodr/(?P<name>[^/]+)$#',
+      'start' => '/uiodr/',
       'methods' => 'DELETE',
     ),
   ),
-  'udm' => array (
+  'rmnrqqgqcduyiumb' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/udm/mifvujnx/{name}',
-      'regex' => '#^/udm/mifvujnx/(?P<name>[^/]+)$#',
-      'start' => '/udm/mifvujnx/',
+      'original' => '/rmnrqqgqcduyiumb/{name}',
+      'regex' => '#^/rmnrqqgqcduyiumb/(?P<name>[^/]+)$#',
+      'start' => '/rmnrqqgqcduyiumb/',
       'methods' => 'GET',
     ),
   ),
-  'rssaexizniufkcdgz' => array (
+  'zus' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/rssaexizniufkcdgz/br/{name}',
-      'regex' => '#^/rssaexizniufkcdgz/br/(?P<name>[^/]+)$#',
-      'start' => '/rssaexizniufkcdgz/br/',
-      'methods' => 'DELETE',
+      'original' => '/zus/jqdmi/ig/{name}',
+      'regex' => '#^/zus/jqdmi/ig/(?P<name>[^/]+)$#',
+      'start' => '/zus/jqdmi/',
+      'methods' => 'GET',
     ),
   ),
-  'kpyeiq' => array (
+  'vgvkbxkgqm' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/kpyeiq/{name}',
-      'regex' => '#^/kpyeiq/(?P<name>[^/]+)$#',
-      'start' => '/kpyeiq/',
+      'original' => '/vgvkbxkgqm/r/{name}',
+      'regex' => '#^/vgvkbxkgqm/r/(?P<name>[^/]+)$#',
+      'start' => '/vgvkbxkgqm/r/',
+      'methods' => 'GET',
+    ),
+  ),
+  'jilfu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jilfu/a/nzvddsrgznvfk/{name}',
+      'regex' => '#^/jilfu/a/nzvddsrgznvfk/(?P<name>[^/]+)$#',
+      'start' => '/jilfu/a/',
       'methods' => 'POST',
     ),
   ),
-  'wmpk' => array (
+  'alrx' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/wmpk/zdwddyvucrujeh/{name}',
-      'regex' => '#^/wmpk/zdwddyvucrujeh/(?P<name>[^/]+)$#',
-      'start' => '/wmpk/zdwddyvucrujeh/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'gkrqwg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/gkrqwg/{name}',
-      'regex' => '#^/gkrqwg/(?P<name>[^/]+)$#',
-      'start' => '/gkrqwg/',
-      'methods' => 'GET',
-    ),
-  ),
-  'sfsi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/sfsi/tqufiijoliicwnm/d/{name}',
-      'regex' => '#^/sfsi/tqufiijoliicwnm/d/(?P<name>[^/]+)$#',
-      'start' => '/sfsi/tqufiijoliicwnm/',
+      'original' => '/alrx/qb/wwkfgagyph/{name}',
+      'regex' => '#^/alrx/qb/wwkfgagyph/(?P<name>[^/]+)$#',
+      'start' => '/alrx/qb/',
       'methods' => 'DELETE',
     ),
   ),
-  'cdvdksm' => array (
+  'r' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/cdvdksm/h/{name}',
-      'regex' => '#^/cdvdksm/h/(?P<name>[^/]+)$#',
-      'start' => '/cdvdksm/h/',
+      'original' => '/r/jkhzs/ghsly/{name}',
+      'regex' => '#^/r/jkhzs/ghsly/(?P<name>[^/]+)$#',
+      'start' => '/r/jkhzs/',
+      'methods' => 'GET',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/r/uqdx/{name}',
+      'regex' => '#^/r/uqdx/(?P<name>[^/]+)$#',
+      'start' => '/r/uqdx/',
+      'methods' => 'GET',
+    ),
+  ),
+  'lxxwvvfguckquxsrg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/lxxwvvfguckquxsrg/{name}',
+      'regex' => '#^/lxxwvvfguckquxsrg/(?P<name>[^/]+)$#',
+      'start' => '/lxxwvvfguckquxsrg/',
+      'methods' => 'GET',
+    ),
+  ),
+  'jlc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jlc/b/rmkusno/gat/v/{name}',
+      'regex' => '#^/jlc/b/rmkusno/gat/v/(?P<name>[^/]+)$#',
+      'start' => '/jlc/b/',
       'methods' => 'POST',
     ),
   ),
-  'gqoyn' => array (
+  'tkbu' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/gqoyn/hvjpdg/ub/jrdfd/{name}',
-      'regex' => '#^/gqoyn/hvjpdg/ub/jrdfd/(?P<name>[^/]+)$#',
-      'start' => '/gqoyn/hvjpdg/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'eyiatyutepyuc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/eyiatyutepyuc/{name}',
-      'regex' => '#^/eyiatyutepyuc/(?P<name>[^/]+)$#',
-      'start' => '/eyiatyutepyuc/',
+      'original' => '/tkbu/prjbzijywfhfdhoq/{name}',
+      'regex' => '#^/tkbu/prjbzijywfhfdhoq/(?P<name>[^/]+)$#',
+      'start' => '/tkbu/prjbzijywfhfdhoq/',
       'methods' => 'DELETE',
     ),
   ),
-  'otwbhxplod' => array (
+  'ssfxxlslguvheqh' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/otwbhxplod/{name}',
-      'regex' => '#^/otwbhxplod/(?P<name>[^/]+)$#',
-      'start' => '/otwbhxplod/',
+      'original' => '/ssfxxlslguvheqh/f/{name}',
+      'regex' => '#^/ssfxxlslguvheqh/f/(?P<name>[^/]+)$#',
+      'start' => '/ssfxxlslguvheqh/f/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'yqip' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yqip/n/adch/{name}',
+      'regex' => '#^/yqip/n/adch/(?P<name>[^/]+)$#',
+      'start' => '/yqip/n/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'vnbiwb' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vnbiwb/{name}',
+      'regex' => '#^/vnbiwb/(?P<name>[^/]+)$#',
+      'start' => '/vnbiwb/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'rmmousk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rmmousk/xdz/llws/{name}',
+      'regex' => '#^/rmmousk/xdz/llws/(?P<name>[^/]+)$#',
+      'start' => '/rmmousk/xdz/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'leop' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/leop/v/{name}',
+      'regex' => '#^/leop/v/(?P<name>[^/]+)$#',
+      'start' => '/leop/v/',
+      'methods' => 'GET',
+    ),
+  ),
+  'idkwrnrfgxnwqwrzy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/idkwrnrfgxnwqwrzy/{name}',
+      'regex' => '#^/idkwrnrfgxnwqwrzy/(?P<name>[^/]+)$#',
+      'start' => '/idkwrnrfgxnwqwrzy/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'gbg' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/gbg/myylutyxzgjyov/{name}',
+      'regex' => '#^/gbg/myylutyxzgjyov/(?P<name>[^/]+)$#',
+      'start' => '/gbg/myylutyxzgjyov/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'vxoghxvhvyftv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vxoghxvhvyftv/kd/{name}',
+      'regex' => '#^/vxoghxvhvyftv/kd/(?P<name>[^/]+)$#',
+      'start' => '/vxoghxvhvyftv/kd/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ci' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ci/oabt/{name}',
+      'regex' => '#^/ci/oabt/(?P<name>[^/]+)$#',
+      'start' => '/ci/oabt/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'bjd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bjd/wvkwziqaavlnmic/{name}',
+      'regex' => '#^/bjd/wvkwziqaavlnmic/(?P<name>[^/]+)$#',
+      'start' => '/bjd/wvkwziqaavlnmic/',
+      'methods' => 'GET',
+    ),
+  ),
+  'wx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wx/cmjz/{name}',
+      'regex' => '#^/wx/cmjz/(?P<name>[^/]+)$#',
+      'start' => '/wx/cmjz/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'mwm' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mwm/hey/{name}',
+      'regex' => '#^/mwm/hey/(?P<name>[^/]+)$#',
+      'start' => '/mwm/hey/',
+      'methods' => 'GET',
+    ),
+  ),
+  'hzbxzwr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hzbxzwr/apj/{name}',
+      'regex' => '#^/hzbxzwr/apj/(?P<name>[^/]+)$#',
+      'start' => '/hzbxzwr/apj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'vkq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vkq/pfclvqbeewp/y/{name}',
+      'regex' => '#^/vkq/pfclvqbeewp/y/(?P<name>[^/]+)$#',
+      'start' => '/vkq/pfclvqbeewp/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ynfemfpicuqhyqjai' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ynfemfpicuqhyqjai/{name}',
+      'regex' => '#^/ynfemfpicuqhyqjai/(?P<name>[^/]+)$#',
+      'start' => '/ynfemfpicuqhyqjai/',
+      'methods' => 'GET',
+    ),
+  ),
+  'dkiojyjjpkyvftcy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/dkiojyjjpkyvftcy/{name}',
+      'regex' => '#^/dkiojyjjpkyvftcy/(?P<name>[^/]+)$#',
+      'start' => '/dkiojyjjpkyvftcy/',
+      'methods' => 'GET',
+    ),
+  ),
+  'kokdklucllu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/kokdklucllu/mwr/pkxz/{name}',
+      'regex' => '#^/kokdklucllu/mwr/pkxz/(?P<name>[^/]+)$#',
+      'start' => '/kokdklucllu/mwr/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'sznnpgbnmewpln' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/sznnpgbnmewpln/{name}',
+      'regex' => '#^/sznnpgbnmewpln/(?P<name>[^/]+)$#',
+      'start' => '/sznnpgbnmewpln/',
       'methods' => 'POST',
     ),
   ),
-  'pugcud' => array (
+  'ozha' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/pugcud/tpwfybmxlah/{name}',
-      'regex' => '#^/pugcud/tpwfybmxlah/(?P<name>[^/]+)$#',
-      'start' => '/pugcud/tpwfybmxlah/',
+      'original' => '/ozha/shiz/op/{name}',
+      'regex' => '#^/ozha/shiz/op/(?P<name>[^/]+)$#',
+      'start' => '/ozha/shiz/',
       'methods' => 'PATCH',
     ),
   ),
-  'sr' => array (
+  'jkpp' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/sr/zlakem/mnf/hxfd/{name}',
-      'regex' => '#^/sr/zlakem/mnf/hxfd/(?P<name>[^/]+)$#',
-      'start' => '/sr/zlakem/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'hddjs' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hddjs/{name}',
-      'regex' => '#^/hddjs/(?P<name>[^/]+)$#',
-      'start' => '/hddjs/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'whpuls' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/whpuls/wss/cincof/xpcx/{name}',
-      'regex' => '#^/whpuls/wss/cincof/xpcx/(?P<name>[^/]+)$#',
-      'start' => '/whpuls/wss/',
+      'original' => '/jkpp/fnlzgvqurb/u/jkuq/{name}',
+      'regex' => '#^/jkpp/fnlzgvqurb/u/jkuq/(?P<name>[^/]+)$#',
+      'start' => '/jkpp/fnlzgvqurb/',
       'methods' => 'GET',
     ),
   ),
-  'jj' => array (
+  'vyqvdbwb' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/jj/mybhed/xgvee/{name}',
-      'regex' => '#^/jj/mybhed/xgvee/(?P<name>[^/]+)$#',
-      'start' => '/jj/mybhed/',
+      'original' => '/vyqvdbwb/orhrl/nm/{name}',
+      'regex' => '#^/vyqvdbwb/orhrl/nm/(?P<name>[^/]+)$#',
+      'start' => '/vyqvdbwb/orhrl/',
       'methods' => 'PUT',
     ),
   ),
-  'wildvco' => array (
+  'ueihj' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/wildvco/{name}',
-      'regex' => '#^/wildvco/(?P<name>[^/]+)$#',
-      'start' => '/wildvco/',
-      'methods' => 'PUT',
+      'original' => '/ueihj/udq/{name}',
+      'regex' => '#^/ueihj/udq/(?P<name>[^/]+)$#',
+      'start' => '/ueihj/udq/',
+      'methods' => 'DELETE',
     ),
   ),
-  'sban' => array (
+  'lrixbtvslzabmm' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/sban/poijpkw/{name}',
-      'regex' => '#^/sban/poijpkw/(?P<name>[^/]+)$#',
-      'start' => '/sban/poijpkw/',
+      'original' => '/lrixbtvslzabmm/{name}',
+      'regex' => '#^/lrixbtvslzabmm/(?P<name>[^/]+)$#',
+      'start' => '/lrixbtvslzabmm/',
+      'methods' => 'GET',
+    ),
+  ),
+  'wpncziybaktckfcf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wpncziybaktckfcf/man/{name}',
+      'regex' => '#^/wpncziybaktckfcf/man/(?P<name>[^/]+)$#',
+      'start' => '/wpncziybaktckfcf/man/',
       'methods' => 'POST',
     ),
   ),
-  'fi' => array (
+  'rxsxqqc' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/fi/ppj/{name}',
-      'regex' => '#^/fi/ppj/(?P<name>[^/]+)$#',
-      'start' => '/fi/ppj/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'cwalr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cwalr/kzovk/{name}',
-      'regex' => '#^/cwalr/kzovk/(?P<name>[^/]+)$#',
-      'start' => '/cwalr/kzovk/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'bmmzuohh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bmmzuohh/{name}',
-      'regex' => '#^/bmmzuohh/(?P<name>[^/]+)$#',
-      'start' => '/bmmzuohh/',
+      'original' => '/rxsxqqc/gumcyrigp/{name}',
+      'regex' => '#^/rxsxqqc/gumcyrigp/(?P<name>[^/]+)$#',
+      'start' => '/rxsxqqc/gumcyrigp/',
       'methods' => 'GET',
     ),
   ),
-  'lanpqkg' => array (
+  'sdaec' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/lanpqkg/qvbd/{name}',
-      'regex' => '#^/lanpqkg/qvbd/(?P<name>[^/]+)$#',
-      'start' => '/lanpqkg/qvbd/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'mlp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mlp/kb/n/{name}',
-      'regex' => '#^/mlp/kb/n/(?P<name>[^/]+)$#',
-      'start' => '/mlp/kb/',
-      'methods' => 'GET',
-    ),
-  ),
-  'uad' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uad/iixdezblrv/{name}',
-      'regex' => '#^/uad/iixdezblrv/(?P<name>[^/]+)$#',
-      'start' => '/uad/iixdezblrv/',
-      'methods' => 'GET',
-    ),
-  ),
-  'fo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/fo/ombnavo/{name}',
-      'regex' => '#^/fo/ombnavo/(?P<name>[^/]+)$#',
-      'start' => '/fo/ombnavo/',
+      'original' => '/sdaec/{name}',
+      'regex' => '#^/sdaec/(?P<name>[^/]+)$#',
+      'start' => '/sdaec/',
       'methods' => 'POST',
     ),
   ),
-  'wgohsbgvda' => array (
+  'gzlni' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/wgohsbgvda/wd/{name}',
-      'regex' => '#^/wgohsbgvda/wd/(?P<name>[^/]+)$#',
-      'start' => '/wgohsbgvda/wd/',
+      'original' => '/gzlni/kqnp/{name}',
+      'regex' => '#^/gzlni/kqnp/(?P<name>[^/]+)$#',
+      'start' => '/gzlni/kqnp/',
       'methods' => 'DELETE',
     ),
   ),
-  'cpks' => array (
+  'qmtxogieg' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/cpks/hrweeky/bkdqiifx/{name}',
-      'regex' => '#^/cpks/hrweeky/bkdqiifx/(?P<name>[^/]+)$#',
-      'start' => '/cpks/hrweeky/',
+      'original' => '/qmtxogieg/ztxcp/{name}',
+      'regex' => '#^/qmtxogieg/ztxcp/(?P<name>[^/]+)$#',
+      'start' => '/qmtxogieg/ztxcp/',
       'methods' => 'POST',
     ),
   ),
-  'rvl' => array (
+  'eo' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/rvl/sxqvvydbxexpzz/{name}',
-      'regex' => '#^/rvl/sxqvvydbxexpzz/(?P<name>[^/]+)$#',
-      'start' => '/rvl/sxqvvydbxexpzz/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'edxvopwhcvlhwex' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/edxvopwhcvlhwex/{name}',
-      'regex' => '#^/edxvopwhcvlhwex/(?P<name>[^/]+)$#',
-      'start' => '/edxvopwhcvlhwex/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'uz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uz/vbx/{name}',
-      'regex' => '#^/uz/vbx/(?P<name>[^/]+)$#',
-      'start' => '/uz/vbx/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'hpzfccieijd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hpzfccieijd/fom/{name}',
-      'regex' => '#^/hpzfccieijd/fom/(?P<name>[^/]+)$#',
-      'start' => '/hpzfccieijd/fom/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'bdd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bdd/vcn/eyeeekwtkiclhp/{name}',
-      'regex' => '#^/bdd/vcn/eyeeekwtkiclhp/(?P<name>[^/]+)$#',
-      'start' => '/bdd/vcn/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'kegtsrqic' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kegtsrqic/{name}',
-      'regex' => '#^/kegtsrqic/(?P<name>[^/]+)$#',
-      'start' => '/kegtsrqic/',
+      'original' => '/eo/juozzbivn/pffc/gfc/{name}',
+      'regex' => '#^/eo/juozzbivn/pffc/gfc/(?P<name>[^/]+)$#',
+      'start' => '/eo/juozzbivn/',
       'methods' => 'GET',
     ),
   ),
-  'gatksjz' => array (
+  'ibshjrluwsy' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/gatksjz/{name}',
-      'regex' => '#^/gatksjz/(?P<name>[^/]+)$#',
-      'start' => '/gatksjz/',
+      'original' => '/ibshjrluwsy/{name}',
+      'regex' => '#^/ibshjrluwsy/(?P<name>[^/]+)$#',
+      'start' => '/ibshjrluwsy/',
+      'methods' => 'GET',
+    ),
+  ),
+  'wsixxrnwuygi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/wsixxrnwuygi/oqd/oif/{name}',
+      'regex' => '#^/wsixxrnwuygi/oqd/oif/(?P<name>[^/]+)$#',
+      'start' => '/wsixxrnwuygi/oqd/',
+      'methods' => 'GET',
+    ),
+  ),
+  'elgyj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/elgyj/{name}',
+      'regex' => '#^/elgyj/(?P<name>[^/]+)$#',
+      'start' => '/elgyj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'pets' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/pets/lukk/{name}',
+      'regex' => '#^/pets/lukk/(?P<name>[^/]+)$#',
+      'start' => '/pets/lukk/',
+      'methods' => 'GET',
+    ),
+  ),
+  'dknlqbtdsfo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/dknlqbtdsfo/{name}',
+      'regex' => '#^/dknlqbtdsfo/(?P<name>[^/]+)$#',
+      'start' => '/dknlqbtdsfo/',
+      'methods' => 'GET',
+    ),
+  ),
+  'vjganekhxrsah' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vjganekhxrsah/{name}',
+      'regex' => '#^/vjganekhxrsah/(?P<name>[^/]+)$#',
+      'start' => '/vjganekhxrsah/',
       'methods' => 'POST',
     ),
   ),
-  'gpetkfppcqab' => array (
+  'ok' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/gpetkfppcqab/x/{name}',
-      'regex' => '#^/gpetkfppcqab/x/(?P<name>[^/]+)$#',
-      'start' => '/gpetkfppcqab/x/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'hjlg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/hjlg/emvlmntk/{name}',
-      'regex' => '#^/hjlg/emvlmntk/(?P<name>[^/]+)$#',
-      'start' => '/hjlg/emvlmntk/',
-      'methods' => 'GET',
-    ),
-  ),
-  'wdidnoy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/wdidnoy/{name}',
-      'regex' => '#^/wdidnoy/(?P<name>[^/]+)$#',
-      'start' => '/wdidnoy/',
+      'original' => '/ok/kcviffkzpmwgdwi/{name}',
+      'regex' => '#^/ok/kcviffkzpmwgdwi/(?P<name>[^/]+)$#',
+      'start' => '/ok/kcviffkzpmwgdwi/',
       'methods' => 'POST',
     ),
   ),
-  'ui' => array (
+  'gpfqbxcpmw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ui/d/wjbcjmhk/b/{name}',
-      'regex' => '#^/ui/d/wjbcjmhk/b/(?P<name>[^/]+)$#',
-      'start' => '/ui/d/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'asmnbc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/asmnbc/vsvuldkpclwwk/{name}',
-      'regex' => '#^/asmnbc/vsvuldkpclwwk/(?P<name>[^/]+)$#',
-      'start' => '/asmnbc/vsvuldkpclwwk/',
+      'original' => '/gpfqbxcpmw/{name}',
+      'regex' => '#^/gpfqbxcpmw/(?P<name>[^/]+)$#',
+      'start' => '/gpfqbxcpmw/',
       'methods' => 'PUT',
     ),
   ),
-  'gm' => array (
+  'udbiyvnflkoq' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/gm/mujjt/{name}',
-      'regex' => '#^/gm/mujjt/(?P<name>[^/]+)$#',
-      'start' => '/gm/mujjt/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ehbqzssptguei' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ehbqzssptguei/d/{name}',
-      'regex' => '#^/ehbqzssptguei/d/(?P<name>[^/]+)$#',
-      'start' => '/ehbqzssptguei/d/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'foboacuffld' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/foboacuffld/{name}',
-      'regex' => '#^/foboacuffld/(?P<name>[^/]+)$#',
-      'start' => '/foboacuffld/',
+      'original' => '/udbiyvnflkoq/{name}',
+      'regex' => '#^/udbiyvnflkoq/(?P<name>[^/]+)$#',
+      'start' => '/udbiyvnflkoq/',
       'methods' => 'POST',
     ),
   ),
-  'uzeafpve' => array (
+  'laforf' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/uzeafpve/f/{name}',
-      'regex' => '#^/uzeafpve/f/(?P<name>[^/]+)$#',
-      'start' => '/uzeafpve/f/',
+      'original' => '/laforf/{name}',
+      'regex' => '#^/laforf/(?P<name>[^/]+)$#',
+      'start' => '/laforf/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'vatleinn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vatleinn/pearpbc/hms/{name}',
+      'regex' => '#^/vatleinn/pearpbc/hms/(?P<name>[^/]+)$#',
+      'start' => '/vatleinn/pearpbc/',
+      'methods' => 'GET',
+    ),
+  ),
+  'nwys' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nwys/yjj/n/wwzvg/{name}',
+      'regex' => '#^/nwys/yjj/n/wwzvg/(?P<name>[^/]+)$#',
+      'start' => '/nwys/yjj/',
       'methods' => 'POST',
     ),
   ),
-  'javeo' => array (
+  'vtz' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/javeo/{name}',
-      'regex' => '#^/javeo/(?P<name>[^/]+)$#',
-      'start' => '/javeo/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'qu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qu/jdh/etnfkp/zdwghux/{name}',
-      'regex' => '#^/qu/jdh/etnfkp/zdwghux/(?P<name>[^/]+)$#',
-      'start' => '/qu/jdh/',
+      'original' => '/vtz/ghz/qqpmxq/ajmol/{name}',
+      'regex' => '#^/vtz/ghz/qqpmxq/ajmol/(?P<name>[^/]+)$#',
+      'start' => '/vtz/ghz/',
       'methods' => 'PUT',
     ),
   ),
-  'wwpdln' => array (
+  'dgidquts' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/wwpdln/{name}',
-      'regex' => '#^/wwpdln/(?P<name>[^/]+)$#',
-      'start' => '/wwpdln/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'cptmzmxbovq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cptmzmxbovq/nas/{name}',
-      'regex' => '#^/cptmzmxbovq/nas/(?P<name>[^/]+)$#',
-      'start' => '/cptmzmxbovq/nas/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'nhjp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/nhjp/ubz/oacaiww/{name}',
-      'regex' => '#^/nhjp/ubz/oacaiww/(?P<name>[^/]+)$#',
-      'start' => '/nhjp/ubz/',
+      'original' => '/dgidquts/tt/{name}',
+      'regex' => '#^/dgidquts/tt/(?P<name>[^/]+)$#',
+      'start' => '/dgidquts/tt/',
       'methods' => 'GET',
     ),
   ),
-  'rnlo' => array (
+  'wfjaz' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/rnlo/paffslkakotcbxyn/{name}',
-      'regex' => '#^/rnlo/paffslkakotcbxyn/(?P<name>[^/]+)$#',
-      'start' => '/rnlo/paffslkakotcbxyn/',
+      'original' => '/wfjaz/uexgj/jcru/{name}',
+      'regex' => '#^/wfjaz/uexgj/jcru/(?P<name>[^/]+)$#',
+      'start' => '/wfjaz/uexgj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'yejbqd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yejbqd/n/{name}',
+      'regex' => '#^/yejbqd/n/(?P<name>[^/]+)$#',
+      'start' => '/yejbqd/n/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'ykkao' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ykkao/{name}',
+      'regex' => '#^/ykkao/(?P<name>[^/]+)$#',
+      'start' => '/ykkao/',
+      'methods' => 'GET',
+    ),
+  ),
+  'opiyl' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/opiyl/fcnumb/{name}',
+      'regex' => '#^/opiyl/fcnumb/(?P<name>[^/]+)$#',
+      'start' => '/opiyl/fcnumb/',
+      'methods' => 'GET',
+    ),
+  ),
+  'nakumfcxpuogoiqroedi' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nakumfcxpuogoiqroedi/{name}',
+      'regex' => '#^/nakumfcxpuogoiqroedi/(?P<name>[^/]+)$#',
+      'start' => '/nakumfcxpuogoiqroedi/',
+      'methods' => 'GET',
+    ),
+  ),
+  'iwuledc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/iwuledc/{name}',
+      'regex' => '#^/iwuledc/(?P<name>[^/]+)$#',
+      'start' => '/iwuledc/',
+      'methods' => 'GET',
+    ),
+  ),
+  'hkjqbcgn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hkjqbcgn/vffsb/{name}',
+      'regex' => '#^/hkjqbcgn/vffsb/(?P<name>[^/]+)$#',
+      'start' => '/hkjqbcgn/vffsb/',
+      'methods' => 'GET',
+    ),
+  ),
+  'cjxpxfzzky' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/cjxpxfzzky/{name}',
+      'regex' => '#^/cjxpxfzzky/(?P<name>[^/]+)$#',
+      'start' => '/cjxpxfzzky/',
       'methods' => 'POST',
     ),
   ),
-  'glcyehfnaajxtxqwb' => array (
+  'snzytr' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/glcyehfnaajxtxqwb/{name}',
-      'regex' => '#^/glcyehfnaajxtxqwb/(?P<name>[^/]+)$#',
-      'start' => '/glcyehfnaajxtxqwb/',
+      'original' => '/snzytr/{name}',
+      'regex' => '#^/snzytr/(?P<name>[^/]+)$#',
+      'start' => '/snzytr/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'hpdvtusaavy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hpdvtusaavy/{name}',
+      'regex' => '#^/hpdvtusaavy/(?P<name>[^/]+)$#',
+      'start' => '/hpdvtusaavy/',
       'methods' => 'GET',
     ),
   ),
-  'rkdhwbxftanork' => array (
+  'lgd' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/rkdhwbxftanork/{name}',
-      'regex' => '#^/rkdhwbxftanork/(?P<name>[^/]+)$#',
-      'start' => '/rkdhwbxftanork/',
-      'methods' => 'GET',
+      'original' => '/lgd/gtilm/{name}',
+      'regex' => '#^/lgd/gtilm/(?P<name>[^/]+)$#',
+      'start' => '/lgd/gtilm/',
+      'methods' => 'PATCH',
     ),
   ),
-  'ebtlqupbtqgx' => array (
+  'meejc' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ebtlqupbtqgx/{name}',
-      'regex' => '#^/ebtlqupbtqgx/(?P<name>[^/]+)$#',
-      'start' => '/ebtlqupbtqgx/',
-      'methods' => 'GET',
+      'original' => '/meejc/rybdjfjcyk/sq/{name}',
+      'regex' => '#^/meejc/rybdjfjcyk/sq/(?P<name>[^/]+)$#',
+      'start' => '/meejc/rybdjfjcyk/',
+      'methods' => 'DELETE',
     ),
   ),
-  'hluerqjeqsekpmokkcm' => array (
+  'ttg' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/hluerqjeqsekpmokkcm/{name}',
-      'regex' => '#^/hluerqjeqsekpmokkcm/(?P<name>[^/]+)$#',
-      'start' => '/hluerqjeqsekpmokkcm/',
-      'methods' => 'GET',
+      'original' => '/ttg/r/us/m/umrokim/{name}',
+      'regex' => '#^/ttg/r/us/m/umrokim/(?P<name>[^/]+)$#',
+      'start' => '/ttg/r/',
+      'methods' => 'PUT',
     ),
   ),
-  'qlvlchtrkpoqq' => array (
+  'lgullwbpaw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/qlvlchtrkpoqq/{name}',
-      'regex' => '#^/qlvlchtrkpoqq/(?P<name>[^/]+)$#',
-      'start' => '/qlvlchtrkpoqq/',
+      'original' => '/lgullwbpaw/{name}',
+      'regex' => '#^/lgullwbpaw/(?P<name>[^/]+)$#',
+      'start' => '/lgullwbpaw/',
       'methods' => 'POST',
     ),
   ),
-  'aryrxugr' => array (
+  'ijfabn' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/aryrxugr/{name}',
-      'regex' => '#^/aryrxugr/(?P<name>[^/]+)$#',
-      'start' => '/aryrxugr/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'uqipojo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uqipojo/vjjfpaucsd/{name}',
-      'regex' => '#^/uqipojo/vjjfpaucsd/(?P<name>[^/]+)$#',
-      'start' => '/uqipojo/vjjfpaucsd/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'czyauzvbmnpp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/czyauzvbmnpp/{name}',
-      'regex' => '#^/czyauzvbmnpp/(?P<name>[^/]+)$#',
-      'start' => '/czyauzvbmnpp/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'ya' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ya/fubuhyiukll/tq/{name}',
-      'regex' => '#^/ya/fubuhyiukll/tq/(?P<name>[^/]+)$#',
-      'start' => '/ya/fubuhyiukll/',
-      'methods' => 'GET',
-    ),
-  ),
-  'tljtsdku' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/tljtsdku/wzknuupb/t/{name}',
-      'regex' => '#^/tljtsdku/wzknuupb/t/(?P<name>[^/]+)$#',
-      'start' => '/tljtsdku/wzknuupb/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ihxdzxu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ihxdzxu/{name}',
-      'regex' => '#^/ihxdzxu/(?P<name>[^/]+)$#',
-      'start' => '/ihxdzxu/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'pqim' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/pqim/csnvyb/{name}',
-      'regex' => '#^/pqim/csnvyb/(?P<name>[^/]+)$#',
-      'start' => '/pqim/csnvyb/',
-      'methods' => 'GET',
-    ),
-  ),
-  'shh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/shh/mciizubrfmcxdz/{name}',
-      'regex' => '#^/shh/mciizubrfmcxdz/(?P<name>[^/]+)$#',
-      'start' => '/shh/mciizubrfmcxdz/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'uvn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uvn/vg/{name}',
-      'regex' => '#^/uvn/vg/(?P<name>[^/]+)$#',
-      'start' => '/uvn/vg/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'td' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/td/gflbj/svcw/{name}',
-      'regex' => '#^/td/gflbj/svcw/(?P<name>[^/]+)$#',
-      'start' => '/td/gflbj/',
-      'methods' => 'GET',
-    ),
-  ),
-  'njdwycxblhdrh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/njdwycxblhdrh/{name}',
-      'regex' => '#^/njdwycxblhdrh/(?P<name>[^/]+)$#',
-      'start' => '/njdwycxblhdrh/',
-      'methods' => 'GET',
-    ),
-  ),
-  'csjtvcob' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/csjtvcob/{name}',
-      'regex' => '#^/csjtvcob/(?P<name>[^/]+)$#',
-      'start' => '/csjtvcob/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ovti' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ovti/tyh/jnp/sdmv/{name}',
-      'regex' => '#^/ovti/tyh/jnp/sdmv/(?P<name>[^/]+)$#',
-      'start' => '/ovti/tyh/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  's' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/s/mhtqjuug/jfrl/{name}',
-      'regex' => '#^/s/mhtqjuug/jfrl/(?P<name>[^/]+)$#',
-      'start' => '/s/mhtqjuug/',
+      'original' => '/ijfabn/{name}',
+      'regex' => '#^/ijfabn/(?P<name>[^/]+)$#',
+      'start' => '/ijfabn/',
       'methods' => 'POST',
     ),
   ),
-  'mjwkerdj' => array (
+  'tucnbfzicqn' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/mjwkerdj/{name}',
-      'regex' => '#^/mjwkerdj/(?P<name>[^/]+)$#',
-      'start' => '/mjwkerdj/',
+      'original' => '/tucnbfzicqn/j/{name}',
+      'regex' => '#^/tucnbfzicqn/j/(?P<name>[^/]+)$#',
+      'start' => '/tucnbfzicqn/j/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'hwlsjfxvgce' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/hwlsjfxvgce/{name}',
+      'regex' => '#^/hwlsjfxvgce/(?P<name>[^/]+)$#',
+      'start' => '/hwlsjfxvgce/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'cxowpymhqmubs' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/cxowpymhqmubs/{name}',
+      'regex' => '#^/cxowpymhqmubs/(?P<name>[^/]+)$#',
+      'start' => '/cxowpymhqmubs/',
+      'methods' => 'GET',
+    ),
+  ),
+  'ygta' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/ygta/hkvpvs/{name}',
+      'regex' => '#^/ygta/hkvpvs/(?P<name>[^/]+)$#',
+      'start' => '/ygta/hkvpvs/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'yhrfane' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yhrfane/{name}',
+      'regex' => '#^/yhrfane/(?P<name>[^/]+)$#',
+      'start' => '/yhrfane/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'mjgil' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mjgil/aqxo/{name}',
+      'regex' => '#^/mjgil/aqxo/(?P<name>[^/]+)$#',
+      'start' => '/mjgil/aqxo/',
       'methods' => 'POST',
     ),
   ),
-  'usjplthc' => array (
+  'guwoz' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/usjplthc/{name}',
-      'regex' => '#^/usjplthc/(?P<name>[^/]+)$#',
-      'start' => '/usjplthc/',
+      'original' => '/guwoz/{name}',
+      'regex' => '#^/guwoz/(?P<name>[^/]+)$#',
+      'start' => '/guwoz/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'gpzymdff' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/gpzymdff/mgjdlirr/io/{name}',
+      'regex' => '#^/gpzymdff/mgjdlirr/io/(?P<name>[^/]+)$#',
+      'start' => '/gpzymdff/mgjdlirr/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'nspdxmkglryufpcgu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nspdxmkglryufpcgu/{name}',
+      'regex' => '#^/nspdxmkglryufpcgu/(?P<name>[^/]+)$#',
+      'start' => '/nspdxmkglryufpcgu/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'rizsdeqosfsu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rizsdeqosfsu/{name}',
+      'regex' => '#^/rizsdeqosfsu/(?P<name>[^/]+)$#',
+      'start' => '/rizsdeqosfsu/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'rurieayn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rurieayn/{name}',
+      'regex' => '#^/rurieayn/(?P<name>[^/]+)$#',
+      'start' => '/rurieayn/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'svtjoatnobv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/svtjoatnobv/{name}',
+      'regex' => '#^/svtjoatnobv/(?P<name>[^/]+)$#',
+      'start' => '/svtjoatnobv/',
+      'methods' => 'GET',
+    ),
+  ),
+  'oqkvsfskapadr' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oqkvsfskapadr/{name}',
+      'regex' => '#^/oqkvsfskapadr/(?P<name>[^/]+)$#',
+      'start' => '/oqkvsfskapadr/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'vwgs' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vwgs/kuweggf/{name}',
+      'regex' => '#^/vwgs/kuweggf/(?P<name>[^/]+)$#',
+      'start' => '/vwgs/kuweggf/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'kbenxir' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/kbenxir/{name}',
+      'regex' => '#^/kbenxir/(?P<name>[^/]+)$#',
+      'start' => '/kbenxir/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'mdvmtu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mdvmtu/ufxevf/{name}',
+      'regex' => '#^/mdvmtu/ufxevf/(?P<name>[^/]+)$#',
+      'start' => '/mdvmtu/ufxevf/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'qch' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qch/am/xmhdm/p/xojbxb/{name}',
+      'regex' => '#^/qch/am/xmhdm/p/xojbxb/(?P<name>[^/]+)$#',
+      'start' => '/qch/am/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'si' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/si/jua/{name}',
+      'regex' => '#^/si/jua/(?P<name>[^/]+)$#',
+      'start' => '/si/jua/',
       'methods' => 'POST',
     ),
   ),
-  'uf' => array (
+  'orqmasc' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/uf/akkjwjqvm/oyaogdotk/{name}',
-      'regex' => '#^/uf/akkjwjqvm/oyaogdotk/(?P<name>[^/]+)$#',
-      'start' => '/uf/akkjwjqvm/',
-      'methods' => 'GET',
-    ),
-  ),
-  'bgyof' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bgyof/{name}',
-      'regex' => '#^/bgyof/(?P<name>[^/]+)$#',
-      'start' => '/bgyof/',
-      'methods' => 'GET',
-    ),
-  ),
-  'qjvtmnorw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qjvtmnorw/ujg/{name}',
-      'regex' => '#^/qjvtmnorw/ujg/(?P<name>[^/]+)$#',
-      'start' => '/qjvtmnorw/ujg/',
-      'methods' => 'GET',
-    ),
-  ),
-  'xo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xo/v/pmphymsfhq/{name}',
-      'regex' => '#^/xo/v/pmphymsfhq/(?P<name>[^/]+)$#',
-      'start' => '/xo/v/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'ksyhkegf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ksyhkegf/{name}',
-      'regex' => '#^/ksyhkegf/(?P<name>[^/]+)$#',
-      'start' => '/ksyhkegf/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ogsak' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ogsak/{name}',
-      'regex' => '#^/ogsak/(?P<name>[^/]+)$#',
-      'start' => '/ogsak/',
-      'methods' => 'GET',
-    ),
-  ),
-  'cgrzj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cgrzj/{name}',
-      'regex' => '#^/cgrzj/(?P<name>[^/]+)$#',
-      'start' => '/cgrzj/',
-      'methods' => 'GET',
-    ),
-  ),
-  'esue' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/esue/el/uxfjcsera/{name}',
-      'regex' => '#^/esue/el/uxfjcsera/(?P<name>[^/]+)$#',
-      'start' => '/esue/el/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'zhfpzmjizcijtl' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zhfpzmjizcijtl/{name}',
-      'regex' => '#^/zhfpzmjizcijtl/(?P<name>[^/]+)$#',
-      'start' => '/zhfpzmjizcijtl/',
-      'methods' => 'GET',
-    ),
-  ),
-  'cavffiwgg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cavffiwgg/{name}',
-      'regex' => '#^/cavffiwgg/(?P<name>[^/]+)$#',
-      'start' => '/cavffiwgg/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'rxhfu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rxhfu/{name}',
-      'regex' => '#^/rxhfu/(?P<name>[^/]+)$#',
-      'start' => '/rxhfu/',
+      'original' => '/orqmasc/ucnd/{name}',
+      'regex' => '#^/orqmasc/ucnd/(?P<name>[^/]+)$#',
+      'start' => '/orqmasc/ucnd/',
       'methods' => 'POST',
     ),
   ),
-  'fxxlrogzvhi' => array (
+  'idvnjgnwjw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/fxxlrogzvhi/vhkat/{name}',
-      'regex' => '#^/fxxlrogzvhi/vhkat/(?P<name>[^/]+)$#',
-      'start' => '/fxxlrogzvhi/vhkat/',
+      'original' => '/idvnjgnwjw/u/{name}',
+      'regex' => '#^/idvnjgnwjw/u/(?P<name>[^/]+)$#',
+      'start' => '/idvnjgnwjw/u/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'vu' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vu/mnmcevki/{name}',
+      'regex' => '#^/vu/mnmcevki/(?P<name>[^/]+)$#',
+      'start' => '/vu/mnmcevki/',
+      'methods' => 'GET',
+    ),
+  ),
+  'bgafk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bgafk/{name}',
+      'regex' => '#^/bgafk/(?P<name>[^/]+)$#',
+      'start' => '/bgafk/',
+      'methods' => 'GET',
+    ),
+  ),
+  'heik' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/heik/qhf/{name}',
+      'regex' => '#^/heik/qhf/(?P<name>[^/]+)$#',
+      'start' => '/heik/qhf/',
       'methods' => 'POST',
     ),
   ),
-  'nq' => array (
+  'zpsehstvnnqg' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/nq/kzm/jhcgnkpo/{name}',
-      'regex' => '#^/nq/kzm/jhcgnkpo/(?P<name>[^/]+)$#',
-      'start' => '/nq/kzm/',
+      'original' => '/zpsehstvnnqg/{name}',
+      'regex' => '#^/zpsehstvnnqg/(?P<name>[^/]+)$#',
+      'start' => '/zpsehstvnnqg/',
       'methods' => 'PATCH',
     ),
   ),
-  'hmwwo' => array (
+  'yjrndgugqpajsmwig' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/hmwwo/tqwnmxyxeop/{name}',
-      'regex' => '#^/hmwwo/tqwnmxyxeop/(?P<name>[^/]+)$#',
-      'start' => '/hmwwo/tqwnmxyxeop/',
+      'original' => '/yjrndgugqpajsmwig/{name}',
+      'regex' => '#^/yjrndgugqpajsmwig/(?P<name>[^/]+)$#',
+      'start' => '/yjrndgugqpajsmwig/',
       'methods' => 'GET',
     ),
   ),
-  'jkfzsxtofjvmu' => array (
+  'rxsha' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/jkfzsxtofjvmu/{name}',
-      'regex' => '#^/jkfzsxtofjvmu/(?P<name>[^/]+)$#',
-      'start' => '/jkfzsxtofjvmu/',
-      'methods' => 'PUT',
+      'original' => '/rxsha/mcv/xwvtizu/{name}',
+      'regex' => '#^/rxsha/mcv/xwvtizu/(?P<name>[^/]+)$#',
+      'start' => '/rxsha/mcv/',
+      'methods' => 'DELETE',
     ),
   ),
-  'jpfdt' => array (
+  'tuqaajwz' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/jpfdt/h/bwdi/{name}',
-      'regex' => '#^/jpfdt/h/bwdi/(?P<name>[^/]+)$#',
-      'start' => '/jpfdt/h/',
-      'methods' => 'PUT',
+      'original' => '/tuqaajwz/{name}',
+      'regex' => '#^/tuqaajwz/(?P<name>[^/]+)$#',
+      'start' => '/tuqaajwz/',
+      'methods' => 'DELETE',
     ),
   ),
-  'krrai' => array (
+  'yiswwj' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/krrai/g/{name}',
-      'regex' => '#^/krrai/g/(?P<name>[^/]+)$#',
-      'start' => '/krrai/g/',
+      'original' => '/yiswwj/{name}',
+      'regex' => '#^/yiswwj/(?P<name>[^/]+)$#',
+      'start' => '/yiswwj/',
       'methods' => 'PATCH',
     ),
   ),
-  'juexrfdfqd' => array (
+  'rzfvufak' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/juexrfdfqd/mkl/iwbs/{name}',
-      'regex' => '#^/juexrfdfqd/mkl/iwbs/(?P<name>[^/]+)$#',
-      'start' => '/juexrfdfqd/mkl/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'oyzdtkutjkj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/oyzdtkutjkj/{name}',
-      'regex' => '#^/oyzdtkutjkj/(?P<name>[^/]+)$#',
-      'start' => '/oyzdtkutjkj/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'mtzetxfuiiy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mtzetxfuiiy/{name}',
-      'regex' => '#^/mtzetxfuiiy/(?P<name>[^/]+)$#',
-      'start' => '/mtzetxfuiiy/',
+      'original' => '/rzfvufak/e/{name}',
+      'regex' => '#^/rzfvufak/e/(?P<name>[^/]+)$#',
+      'start' => '/rzfvufak/e/',
       'methods' => 'POST',
     ),
   ),
-  'mk' => array (
+  'ftkn' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/mk/acydesjfjd/z/zjv/{name}',
-      'regex' => '#^/mk/acydesjfjd/z/zjv/(?P<name>[^/]+)$#',
-      'start' => '/mk/acydesjfjd/',
+      'original' => '/ftkn/jx/ka/{name}',
+      'regex' => '#^/ftkn/jx/ka/(?P<name>[^/]+)$#',
+      'start' => '/ftkn/jx/',
       'methods' => 'GET',
     ),
   ),
-  'cbzeumvljfqttr' => array (
+  'fijcnxwylj' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/cbzeumvljfqttr/{name}',
-      'regex' => '#^/cbzeumvljfqttr/(?P<name>[^/]+)$#',
-      'start' => '/cbzeumvljfqttr/',
+      'original' => '/fijcnxwylj/{name}',
+      'regex' => '#^/fijcnxwylj/(?P<name>[^/]+)$#',
+      'start' => '/fijcnxwylj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'yabnsbasagfnqhdsrw' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/yabnsbasagfnqhdsrw/{name}',
+      'regex' => '#^/yabnsbasagfnqhdsrw/(?P<name>[^/]+)$#',
+      'start' => '/yabnsbasagfnqhdsrw/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'cuiquvdvc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/cuiquvdvc/cie/{name}',
+      'regex' => '#^/cuiquvdvc/cie/(?P<name>[^/]+)$#',
+      'start' => '/cuiquvdvc/cie/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'usx' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/usx/rcrrzmfzlfgxz/{name}',
+      'regex' => '#^/usx/rcrrzmfzlfgxz/(?P<name>[^/]+)$#',
+      'start' => '/usx/rcrrzmfzlfgxz/',
+      'methods' => 'GET',
+    ),
+  ),
+  'vyy' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vyy/w/zypm/djht/uj/{name}',
+      'regex' => '#^/vyy/w/zypm/djht/uj/(?P<name>[^/]+)$#',
+      'start' => '/vyy/w/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'dvilanbkic' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/dvilanbkic/{name}',
+      'regex' => '#^/dvilanbkic/(?P<name>[^/]+)$#',
+      'start' => '/dvilanbkic/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'kecqlmk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/kecqlmk/m/gdg/p/{name}',
+      'regex' => '#^/kecqlmk/m/gdg/p/(?P<name>[^/]+)$#',
+      'start' => '/kecqlmk/m/',
+      'methods' => 'GET',
+    ),
+  ),
+  'mv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/mv/tnlrdwlgdcvuyp/{name}',
+      'regex' => '#^/mv/tnlrdwlgdcvuyp/(?P<name>[^/]+)$#',
+      'start' => '/mv/tnlrdwlgdcvuyp/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'qkqqk' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qkqqk/{name}',
+      'regex' => '#^/qkqqk/(?P<name>[^/]+)$#',
+      'start' => '/qkqqk/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'zzqnobnq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/zzqnobnq/no/ogenr/{name}',
+      'regex' => '#^/zzqnobnq/no/ogenr/(?P<name>[^/]+)$#',
+      'start' => '/zzqnobnq/no/',
+      'methods' => 'GET',
+    ),
+  ),
+  'aerhybsqxxmavag' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/aerhybsqxxmavag/{name}',
+      'regex' => '#^/aerhybsqxxmavag/(?P<name>[^/]+)$#',
+      'start' => '/aerhybsqxxmavag/',
       'methods' => 'POST',
     ),
   ),
-  'bmfdrgximdan' => array (
+  'fwtdf' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/bmfdrgximdan/{name}',
-      'regex' => '#^/bmfdrgximdan/(?P<name>[^/]+)$#',
-      'start' => '/bmfdrgximdan/',
-      'methods' => 'GET',
-    ),
-  ),
-  'uykbc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uykbc/vw/d/{name}',
-      'regex' => '#^/uykbc/vw/d/(?P<name>[^/]+)$#',
-      'start' => '/uykbc/vw/',
+      'original' => '/fwtdf/s/afuq/{name}',
+      'regex' => '#^/fwtdf/s/afuq/(?P<name>[^/]+)$#',
+      'start' => '/fwtdf/s/',
       'methods' => 'PUT',
     ),
   ),
-  'mvn' => array (
+  'pz' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/mvn/vsaytv/{name}',
-      'regex' => '#^/mvn/vsaytv/(?P<name>[^/]+)$#',
-      'start' => '/mvn/vsaytv/',
+      'original' => '/pz/rdaiempqsbahbpd/pz/{name}',
+      'regex' => '#^/pz/rdaiempqsbahbpd/pz/(?P<name>[^/]+)$#',
+      'start' => '/pz/rdaiempqsbahbpd/',
+      'methods' => 'GET',
+    ),
+  ),
+  'jqygblksl' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jqygblksl/lj/{name}',
+      'regex' => '#^/jqygblksl/lj/(?P<name>[^/]+)$#',
+      'start' => '/jqygblksl/lj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'nuoravvrasog' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nuoravvrasog/kw/{name}',
+      'regex' => '#^/nuoravvrasog/kw/(?P<name>[^/]+)$#',
+      'start' => '/nuoravvrasog/kw/',
+      'methods' => 'GET',
+    ),
+  ),
+  'otgoxeaqai' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/otgoxeaqai/{name}',
+      'regex' => '#^/otgoxeaqai/(?P<name>[^/]+)$#',
+      'start' => '/otgoxeaqai/',
+      'methods' => 'GET',
+    ),
+  ),
+  'snknv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/snknv/bwcjrs/{name}',
+      'regex' => '#^/snknv/bwcjrs/(?P<name>[^/]+)$#',
+      'start' => '/snknv/bwcjrs/',
+      'methods' => 'DELETE',
+    ),
+  ),
+  'vtjgswklakic' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vtjgswklakic/{name}',
+      'regex' => '#^/vtjgswklakic/(?P<name>[^/]+)$#',
+      'start' => '/vtjgswklakic/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'bv' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bv/qe/r/{name}',
+      'regex' => '#^/bv/qe/r/(?P<name>[^/]+)$#',
+      'start' => '/bv/qe/',
+      'methods' => 'GET',
+    ),
+  ),
+  'f' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/f/woplxifqre/{name}',
+      'regex' => '#^/f/woplxifqre/(?P<name>[^/]+)$#',
+      'start' => '/f/woplxifqre/',
+      'methods' => 'PUT',
+    ),
+    1 => array (
+      'handler' => 'handler_func',
+      'original' => '/f/yc/asr/{name}',
+      'regex' => '#^/f/yc/asr/(?P<name>[^/]+)$#',
+      'start' => '/f/yc/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'bwxlilukpin' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bwxlilukpin/{name}',
+      'regex' => '#^/bwxlilukpin/(?P<name>[^/]+)$#',
+      'start' => '/bwxlilukpin/',
       'methods' => 'POST',
     ),
   ),
-  'zhelpqeeog' => array (
+  'ixtyjfxtrww' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/zhelpqeeog/dq/{name}',
-      'regex' => '#^/zhelpqeeog/dq/(?P<name>[^/]+)$#',
-      'start' => '/zhelpqeeog/dq/',
+      'original' => '/ixtyjfxtrww/hhaplurxl/{name}',
+      'regex' => '#^/ixtyjfxtrww/hhaplurxl/(?P<name>[^/]+)$#',
+      'start' => '/ixtyjfxtrww/hhaplurxl/',
       'methods' => 'GET',
     ),
   ),
-  'kbgvqvbissj' => array (
+  'auzw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/kbgvqvbissj/{name}',
-      'regex' => '#^/kbgvqvbissj/(?P<name>[^/]+)$#',
-      'start' => '/kbgvqvbissj/',
+      'original' => '/auzw/ynbaltld/lbgsqrt/{name}',
+      'regex' => '#^/auzw/ynbaltld/lbgsqrt/(?P<name>[^/]+)$#',
+      'start' => '/auzw/ynbaltld/',
+      'methods' => 'GET',
+    ),
+  ),
+  'cuvcggpxd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/cuvcggpxd/{name}',
+      'regex' => '#^/cuvcggpxd/(?P<name>[^/]+)$#',
+      'start' => '/cuvcggpxd/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'jwblzfxuveytyuxs' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/jwblzfxuveytyuxs/{name}',
+      'regex' => '#^/jwblzfxuveytyuxs/(?P<name>[^/]+)$#',
+      'start' => '/jwblzfxuveytyuxs/',
       'methods' => 'DELETE',
     ),
   ),
-  'rrxtet' => array (
+  'fpxxvfp' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/rrxtet/{name}',
-      'regex' => '#^/rrxtet/(?P<name>[^/]+)$#',
-      'start' => '/rrxtet/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ogdo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ogdo/jgpkzn/sqig/{name}',
-      'regex' => '#^/ogdo/jgpkzn/sqig/(?P<name>[^/]+)$#',
-      'start' => '/ogdo/jgpkzn/',
+      'original' => '/fpxxvfp/fisp/{name}',
+      'regex' => '#^/fpxxvfp/fisp/(?P<name>[^/]+)$#',
+      'start' => '/fpxxvfp/fisp/',
       'methods' => 'POST',
     ),
   ),
-  'uzahv' => array (
+  'brufzw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/uzahv/oc/nzhfvs/{name}',
-      'regex' => '#^/uzahv/oc/nzhfvs/(?P<name>[^/]+)$#',
-      'start' => '/uzahv/oc/',
+      'original' => '/brufzw/a/{name}',
+      'regex' => '#^/brufzw/a/(?P<name>[^/]+)$#',
+      'start' => '/brufzw/a/',
       'methods' => 'PATCH',
     ),
   ),
-  'lidi' => array (
+  'mtilgaatyw' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/lidi/tfoyn/ruqy/{name}',
-      'regex' => '#^/lidi/tfoyn/ruqy/(?P<name>[^/]+)$#',
-      'start' => '/lidi/tfoyn/',
+      'original' => '/mtilgaatyw/{name}',
+      'regex' => '#^/mtilgaatyw/(?P<name>[^/]+)$#',
+      'start' => '/mtilgaatyw/',
       'methods' => 'PATCH',
     ),
   ),
-  'zmeoaja' => array (
+  'oq' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/zmeoaja/bz/lquc/{name}',
-      'regex' => '#^/zmeoaja/bz/lquc/(?P<name>[^/]+)$#',
-      'start' => '/zmeoaja/bz/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'dqu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dqu/ctahnsmhfw/{name}',
-      'regex' => '#^/dqu/ctahnsmhfw/(?P<name>[^/]+)$#',
-      'start' => '/dqu/ctahnsmhfw/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'pxtdid' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/pxtdid/xzgyrep/r/{name}',
-      'regex' => '#^/pxtdid/xzgyrep/r/(?P<name>[^/]+)$#',
-      'start' => '/pxtdid/xzgyrep/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'mpalz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mpalz/gqmmsh/{name}',
-      'regex' => '#^/mpalz/gqmmsh/(?P<name>[^/]+)$#',
-      'start' => '/mpalz/gqmmsh/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ymblsednbvfes' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ymblsednbvfes/{name}',
-      'regex' => '#^/ymblsednbvfes/(?P<name>[^/]+)$#',
-      'start' => '/ymblsednbvfes/',
+      'original' => '/oq/knetgalr/owk/{name}',
+      'regex' => '#^/oq/knetgalr/owk/(?P<name>[^/]+)$#',
+      'start' => '/oq/knetgalr/',
       'methods' => 'GET',
     ),
   ),
-  'erhjb' => array (
+  'genfmhqca' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/erhjb/vkmhpw/{name}',
-      'regex' => '#^/erhjb/vkmhpw/(?P<name>[^/]+)$#',
-      'start' => '/erhjb/vkmhpw/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'pwfcpy' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/pwfcpy/cwlrt/djxs/{name}',
-      'regex' => '#^/pwfcpy/cwlrt/djxs/(?P<name>[^/]+)$#',
-      'start' => '/pwfcpy/cwlrt/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'vrgnrbo' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vrgnrbo/br/w/xezrq/{name}',
-      'regex' => '#^/vrgnrbo/br/w/xezrq/(?P<name>[^/]+)$#',
-      'start' => '/vrgnrbo/br/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'zvq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zvq/ssnpzsdmmebfznorj/{name}',
-      'regex' => '#^/zvq/ssnpzsdmmebfznorj/(?P<name>[^/]+)$#',
-      'start' => '/zvq/ssnpzsdmmebfznorj/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'rycwcsb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rycwcsb/rwyy/uqtvpxh/{name}',
-      'regex' => '#^/rycwcsb/rwyy/uqtvpxh/(?P<name>[^/]+)$#',
-      'start' => '/rycwcsb/rwyy/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'aag' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/aag/f/cig/fkag/{name}',
-      'regex' => '#^/aag/f/cig/fkag/(?P<name>[^/]+)$#',
-      'start' => '/aag/f/',
-      'methods' => 'GET',
-    ),
-  ),
-  'uhdauyad' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uhdauyad/wlffismt/{name}',
-      'regex' => '#^/uhdauyad/wlffismt/(?P<name>[^/]+)$#',
-      'start' => '/uhdauyad/wlffismt/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'abeavu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/abeavu/t/qdmhpg/td/z/{name}',
-      'regex' => '#^/abeavu/t/qdmhpg/td/z/(?P<name>[^/]+)$#',
-      'start' => '/abeavu/t/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'izlcguwom' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/izlcguwom/{name}',
-      'regex' => '#^/izlcguwom/(?P<name>[^/]+)$#',
-      'start' => '/izlcguwom/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'xuputsgscmage' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xuputsgscmage/{name}',
-      'regex' => '#^/xuputsgscmage/(?P<name>[^/]+)$#',
-      'start' => '/xuputsgscmage/',
+      'original' => '/genfmhqca/u/ebcmbwo/{name}',
+      'regex' => '#^/genfmhqca/u/ebcmbwo/(?P<name>[^/]+)$#',
+      'start' => '/genfmhqca/u/',
       'methods' => 'POST',
     ),
   ),
-  'bivthkhlyamjoeu' => array (
+  'uior' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/bivthkhlyamjoeu/{name}',
-      'regex' => '#^/bivthkhlyamjoeu/(?P<name>[^/]+)$#',
-      'start' => '/bivthkhlyamjoeu/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ykcwtryen' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ykcwtryen/gnpoage/{name}',
-      'regex' => '#^/ykcwtryen/gnpoage/(?P<name>[^/]+)$#',
-      'start' => '/ykcwtryen/gnpoage/',
-      'methods' => 'GET',
-    ),
-  ),
-  'whwexei' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/whwexei/lnae/{name}',
-      'regex' => '#^/whwexei/lnae/(?P<name>[^/]+)$#',
-      'start' => '/whwexei/lnae/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'njanra' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/njanra/usabri/{name}',
-      'regex' => '#^/njanra/usabri/(?P<name>[^/]+)$#',
-      'start' => '/njanra/usabri/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'rmxcku' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rmxcku/yxxvdl/{name}',
-      'regex' => '#^/rmxcku/yxxvdl/(?P<name>[^/]+)$#',
-      'start' => '/rmxcku/yxxvdl/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'mdltqcyllsvxoxcuqhw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mdltqcyllsvxoxcuqhw/{name}',
-      'regex' => '#^/mdltqcyllsvxoxcuqhw/(?P<name>[^/]+)$#',
-      'start' => '/mdltqcyllsvxoxcuqhw/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'uv' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uv/lgnvhsw/{name}',
-      'regex' => '#^/uv/lgnvhsw/(?P<name>[^/]+)$#',
-      'start' => '/uv/lgnvhsw/',
-      'methods' => 'GET',
-    ),
-  ),
-  'sinbbdgdht' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/sinbbdgdht/{name}',
-      'regex' => '#^/sinbbdgdht/(?P<name>[^/]+)$#',
-      'start' => '/sinbbdgdht/',
+      'original' => '/uior/khe/{name}',
+      'regex' => '#^/uior/khe/(?P<name>[^/]+)$#',
+      'start' => '/uior/khe/',
       'methods' => 'PUT',
     ),
   ),
-  'yuum' => array (
+  'qyrvtii' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/yuum/ymc/feugjzg/{name}',
-      'regex' => '#^/yuum/ymc/feugjzg/(?P<name>[^/]+)$#',
-      'start' => '/yuum/ymc/',
+      'original' => '/qyrvtii/w/{name}',
+      'regex' => '#^/qyrvtii/w/(?P<name>[^/]+)$#',
+      'start' => '/qyrvtii/w/',
       'methods' => 'DELETE',
     ),
   ),
-  'laocznjf' => array (
+  'ngvpat' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/laocznjf/{name}',
-      'regex' => '#^/laocznjf/(?P<name>[^/]+)$#',
-      'start' => '/laocznjf/',
+      'original' => '/ngvpat/hgbjf/glip/{name}',
+      'regex' => '#^/ngvpat/hgbjf/glip/(?P<name>[^/]+)$#',
+      'start' => '/ngvpat/hgbjf/',
       'methods' => 'DELETE',
     ),
   ),
-  'iannazn' => array (
+  'pazzem' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/iannazn/ilpeeu/{name}',
-      'regex' => '#^/iannazn/ilpeeu/(?P<name>[^/]+)$#',
-      'start' => '/iannazn/ilpeeu/',
+      'original' => '/pazzem/dpz/{name}',
+      'regex' => '#^/pazzem/dpz/(?P<name>[^/]+)$#',
+      'start' => '/pazzem/dpz/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'dthqicnaj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/dthqicnaj/{name}',
+      'regex' => '#^/dthqicnaj/(?P<name>[^/]+)$#',
+      'start' => '/dthqicnaj/',
+      'methods' => 'GET',
+    ),
+  ),
+  'qtxpzyftrmlqjbxcti' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/qtxpzyftrmlqjbxcti/{name}',
+      'regex' => '#^/qtxpzyftrmlqjbxcti/(?P<name>[^/]+)$#',
+      'start' => '/qtxpzyftrmlqjbxcti/',
+      'methods' => 'GET',
+    ),
+  ),
+  'nhojwhyexsuzvn' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nhojwhyexsuzvn/wotbxd/{name}',
+      'regex' => '#^/nhojwhyexsuzvn/wotbxd/(?P<name>[^/]+)$#',
+      'start' => '/nhojwhyexsuzvn/wotbxd/',
+      'methods' => 'GET',
+    ),
+  ),
+  'tswhuo' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/tswhuo/tw/{name}',
+      'regex' => '#^/tswhuo/tw/(?P<name>[^/]+)$#',
+      'start' => '/tswhuo/tw/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'bfa' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bfa/kgdzb/havo/qk/{name}',
+      'regex' => '#^/bfa/kgdzb/havo/qk/(?P<name>[^/]+)$#',
+      'start' => '/bfa/kgdzb/',
+      'methods' => 'GET',
+    ),
+  ),
+  'vrfsxcmtqabc' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/vrfsxcmtqabc/u/ngstnpa/{name}',
+      'regex' => '#^/vrfsxcmtqabc/u/ngstnpa/(?P<name>[^/]+)$#',
+      'start' => '/vrfsxcmtqabc/u/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'rhibjfyd' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rhibjfyd/{name}',
+      'regex' => '#^/rhibjfyd/(?P<name>[^/]+)$#',
+      'start' => '/rhibjfyd/',
+      'methods' => 'GET',
+    ),
+  ),
+  'smtmahf' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/smtmahf/{name}',
+      'regex' => '#^/smtmahf/(?P<name>[^/]+)$#',
+      'start' => '/smtmahf/',
+      'methods' => 'GET',
+    ),
+  ),
+  'xz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/xz/uhvm/mqjtvb/{name}',
+      'regex' => '#^/xz/uhvm/mqjtvb/(?P<name>[^/]+)$#',
+      'start' => '/xz/uhvm/',
+      'methods' => 'PATCH',
+    ),
+  ),
+  'bue' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/bue/xehteaofexaiwd/{name}',
+      'regex' => '#^/bue/xehteaofexaiwd/(?P<name>[^/]+)$#',
+      'start' => '/bue/xehteaofexaiwd/',
+      'methods' => 'PUT',
+    ),
+  ),
+  'oiq' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/oiq/emmc/{name}',
+      'regex' => '#^/oiq/emmc/(?P<name>[^/]+)$#',
+      'start' => '/oiq/emmc/',
       'methods' => 'POST',
     ),
   ),
-  'gqognlhwcnz' => array (
+  'fu' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/gqognlhwcnz/{name}',
-      'regex' => '#^/gqognlhwcnz/(?P<name>[^/]+)$#',
-      'start' => '/gqognlhwcnz/',
+      'original' => '/fu/ii/zo/{name}',
+      'regex' => '#^/fu/ii/zo/(?P<name>[^/]+)$#',
+      'start' => '/fu/ii/',
+      'methods' => 'GET',
+    ),
+  ),
+  'krmulnpctbeuz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/krmulnpctbeuz/smae/{name}',
+      'regex' => '#^/krmulnpctbeuz/smae/(?P<name>[^/]+)$#',
+      'start' => '/krmulnpctbeuz/smae/',
+      'methods' => 'GET',
+    ),
+  ),
+  'nkvdtjrghityzz' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/nkvdtjrghityzz/fzeyd/{name}',
+      'regex' => '#^/nkvdtjrghityzz/fzeyd/(?P<name>[^/]+)$#',
+      'start' => '/nkvdtjrghityzz/fzeyd/',
+      'methods' => 'GET',
+    ),
+  ),
+  'rcwdj' => array (
+    0 => array (
+      'handler' => 'handler_func',
+      'original' => '/rcwdj/nfsxjsxho/{name}',
+      'regex' => '#^/rcwdj/nfsxjsxho/(?P<name>[^/]+)$#',
+      'start' => '/rcwdj/nfsxjsxho/',
       'methods' => 'POST',
     ),
   ),
-  'ebxqsojmydhpd' => array (
+  'pduy' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ebxqsojmydhpd/{name}',
-      'regex' => '#^/ebxqsojmydhpd/(?P<name>[^/]+)$#',
-      'start' => '/ebxqsojmydhpd/',
-      'methods' => 'GET',
-    ),
-  ),
-  'iyxnhyzinra' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/iyxnhyzinra/{name}',
-      'regex' => '#^/iyxnhyzinra/(?P<name>[^/]+)$#',
-      'start' => '/iyxnhyzinra/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'onwd' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/onwd/ooih/fne/{name}',
-      'regex' => '#^/onwd/ooih/fne/(?P<name>[^/]+)$#',
-      'start' => '/onwd/ooih/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'mvxccu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mvxccu/pskwrtuw/{name}',
-      'regex' => '#^/mvxccu/pskwrtuw/(?P<name>[^/]+)$#',
-      'start' => '/mvxccu/pskwrtuw/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'rlofwdrruggvrx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rlofwdrruggvrx/{name}',
-      'regex' => '#^/rlofwdrruggvrx/(?P<name>[^/]+)$#',
-      'start' => '/rlofwdrruggvrx/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'rmbuwwitafaze' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rmbuwwitafaze/{name}',
-      'regex' => '#^/rmbuwwitafaze/(?P<name>[^/]+)$#',
-      'start' => '/rmbuwwitafaze/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'cim' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cim/kzhuehbts/u/{name}',
-      'regex' => '#^/cim/kzhuehbts/u/(?P<name>[^/]+)$#',
-      'start' => '/cim/kzhuehbts/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'srtruwsndrskgaxhhox' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/srtruwsndrskgaxhhox/{name}',
-      'regex' => '#^/srtruwsndrskgaxhhox/(?P<name>[^/]+)$#',
-      'start' => '/srtruwsndrskgaxhhox/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ohcyflxjwuq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ohcyflxjwuq/{name}',
-      'regex' => '#^/ohcyflxjwuq/(?P<name>[^/]+)$#',
-      'start' => '/ohcyflxjwuq/',
+      'original' => '/pduy/guvlsrq/xz/{name}',
+      'regex' => '#^/pduy/guvlsrq/xz/(?P<name>[^/]+)$#',
+      'start' => '/pduy/guvlsrq/',
       'methods' => 'POST',
     ),
   ),
-  'ctwv' => array (
+  'iqciokono' => array (
     0 => array (
       'handler' => 'handler_func',
-      'original' => '/ctwv/cb/zrhgqp/{name}',
-      'regex' => '#^/ctwv/cb/zrhgqp/(?P<name>[^/]+)$#',
-      'start' => '/ctwv/cb/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'je' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/je/etg/{name}',
-      'regex' => '#^/je/etg/(?P<name>[^/]+)$#',
-      'start' => '/je/etg/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'ulcjobkoespameg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ulcjobkoespameg/{name}',
-      'regex' => '#^/ulcjobkoespameg/(?P<name>[^/]+)$#',
-      'start' => '/ulcjobkoespameg/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'tsjlxhr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/tsjlxhr/{name}',
-      'regex' => '#^/tsjlxhr/(?P<name>[^/]+)$#',
-      'start' => '/tsjlxhr/',
-      'methods' => 'GET',
-    ),
-  ),
-  'gbq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/gbq/azea/{name}',
-      'regex' => '#^/gbq/azea/(?P<name>[^/]+)$#',
-      'start' => '/gbq/azea/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'swjmnvsqulhpcbscxccz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/swjmnvsqulhpcbscxccz/{name}',
-      'regex' => '#^/swjmnvsqulhpcbscxccz/(?P<name>[^/]+)$#',
-      'start' => '/swjmnvsqulhpcbscxccz/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'km' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/km/enzmy/{name}',
-      'regex' => '#^/km/enzmy/(?P<name>[^/]+)$#',
-      'start' => '/km/enzmy/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'upotnemzvkscphwi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/upotnemzvkscphwi/{name}',
-      'regex' => '#^/upotnemzvkscphwi/(?P<name>[^/]+)$#',
-      'start' => '/upotnemzvkscphwi/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'mftg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/mftg/mfbrwe/{name}',
-      'regex' => '#^/mftg/mfbrwe/(?P<name>[^/]+)$#',
-      'start' => '/mftg/mfbrwe/',
-      'methods' => 'GET',
-    ),
-  ),
-  'cb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cb/kxikxwuieqmd/l/apw/{name}',
-      'regex' => '#^/cb/kxikxwuieqmd/l/apw/(?P<name>[^/]+)$#',
-      'start' => '/cb/kxikxwuieqmd/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ctdaaazpcxxkc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ctdaaazpcxxkc/{name}',
-      'regex' => '#^/ctdaaazpcxxkc/(?P<name>[^/]+)$#',
-      'start' => '/ctdaaazpcxxkc/',
-      'methods' => 'GET',
-    ),
-  ),
-  'ccliot' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ccliot/{name}',
-      'regex' => '#^/ccliot/(?P<name>[^/]+)$#',
-      'start' => '/ccliot/',
-      'methods' => 'GET',
-    ),
-  ),
-  'eg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/eg/abqymjr/{name}',
-      'regex' => '#^/eg/abqymjr/(?P<name>[^/]+)$#',
-      'start' => '/eg/abqymjr/',
-      'methods' => 'POST',
-    ),
-  ),
-  'cp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/cp/rjuczu/{name}',
-      'regex' => '#^/cp/rjuczu/(?P<name>[^/]+)$#',
-      'start' => '/cp/rjuczu/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'q' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/q/tjzalmn/{name}',
-      'regex' => '#^/q/tjzalmn/(?P<name>[^/]+)$#',
-      'start' => '/q/tjzalmn/',
-      'methods' => 'GET',
-    ),
-  ),
-  'aftdw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/aftdw/zzgtrua/{name}',
-      'regex' => '#^/aftdw/zzgtrua/(?P<name>[^/]+)$#',
-      'start' => '/aftdw/zzgtrua/',
-      'methods' => 'POST',
-    ),
-  ),
-  'blxr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/blxr/tiz/veqa/vjs/qrwaru/{name}',
-      'regex' => '#^/blxr/tiz/veqa/vjs/qrwaru/(?P<name>[^/]+)$#',
-      'start' => '/blxr/tiz/',
-      'methods' => 'GET',
-    ),
-  ),
-  'brygx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/brygx/qto/{name}',
-      'regex' => '#^/brygx/qto/(?P<name>[^/]+)$#',
-      'start' => '/brygx/qto/',
-      'methods' => 'GET',
-    ),
-  ),
-  'aoltxxcigplwzwt' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/aoltxxcigplwzwt/{name}',
-      'regex' => '#^/aoltxxcigplwzwt/(?P<name>[^/]+)$#',
-      'start' => '/aoltxxcigplwzwt/',
-      'methods' => 'POST',
-    ),
-  ),
-  'kccbtb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kccbtb/aadurtxkyg/{name}',
-      'regex' => '#^/kccbtb/aadurtxkyg/(?P<name>[^/]+)$#',
-      'start' => '/kccbtb/aadurtxkyg/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'ellxf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ellxf/{name}',
-      'regex' => '#^/ellxf/(?P<name>[^/]+)$#',
-      'start' => '/ellxf/',
-      'methods' => 'POST',
-    ),
-  ),
-  'utzkp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/utzkp/zvssof/{name}',
-      'regex' => '#^/utzkp/zvssof/(?P<name>[^/]+)$#',
-      'start' => '/utzkp/zvssof/',
-      'methods' => 'POST',
-    ),
-  ),
-  'rvly' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/rvly/azkmwyeibll/q/{name}',
-      'regex' => '#^/rvly/azkmwyeibll/q/(?P<name>[^/]+)$#',
-      'start' => '/rvly/azkmwyeibll/',
-      'methods' => 'GET',
-    ),
-  ),
-  'srf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/srf/lrksdpkmsmuvljb/{name}',
-      'regex' => '#^/srf/lrksdpkmsmuvljb/(?P<name>[^/]+)$#',
-      'start' => '/srf/lrksdpkmsmuvljb/',
-      'methods' => 'GET',
-    ),
-  ),
-  'sfnehh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/sfnehh/{name}',
-      'regex' => '#^/sfnehh/(?P<name>[^/]+)$#',
-      'start' => '/sfnehh/',
-      'methods' => 'GET',
-    ),
-  ),
-  'svsuqpljqxypfiq' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/svsuqpljqxypfiq/{name}',
-      'regex' => '#^/svsuqpljqxypfiq/(?P<name>[^/]+)$#',
-      'start' => '/svsuqpljqxypfiq/',
-      'methods' => 'GET',
-    ),
-  ),
-  'yj' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/yj/csm/kstdiye/wlkcy/{name}',
-      'regex' => '#^/yj/csm/kstdiye/wlkcy/(?P<name>[^/]+)$#',
-      'start' => '/yj/csm/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'xoyjgf' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xoyjgf/l/vkmkexf/{name}',
-      'regex' => '#^/xoyjgf/l/vkmkexf/(?P<name>[^/]+)$#',
-      'start' => '/xoyjgf/l/',
-      'methods' => 'GET',
-    ),
-  ),
-  'xcknrvsnfuqrea' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xcknrvsnfuqrea/{name}',
-      'regex' => '#^/xcknrvsnfuqrea/(?P<name>[^/]+)$#',
-      'start' => '/xcknrvsnfuqrea/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'qhkvtpnldh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qhkvtpnldh/kkyxyxa/{name}',
-      'regex' => '#^/qhkvtpnldh/kkyxyxa/(?P<name>[^/]+)$#',
-      'start' => '/qhkvtpnldh/kkyxyxa/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'dpb' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dpb/egdyzzcwaicwq/{name}',
-      'regex' => '#^/dpb/egdyzzcwaicwq/(?P<name>[^/]+)$#',
-      'start' => '/dpb/egdyzzcwaicwq/',
-      'methods' => 'GET',
-    ),
-  ),
-  'sfylpzw' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/sfylpzw/r/futxzwofdvg/{name}',
-      'regex' => '#^/sfylpzw/r/futxzwofdvg/(?P<name>[^/]+)$#',
-      'start' => '/sfylpzw/r/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'xxehbkrdspgh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xxehbkrdspgh/o/iv/{name}',
-      'regex' => '#^/xxehbkrdspgh/o/iv/(?P<name>[^/]+)$#',
-      'start' => '/xxehbkrdspgh/o/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'lbvbtnkeeovegs' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/lbvbtnkeeovegs/gwj/{name}',
-      'regex' => '#^/lbvbtnkeeovegs/gwj/(?P<name>[^/]+)$#',
-      'start' => '/lbvbtnkeeovegs/gwj/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'dxx' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dxx/jlrtywoly/oz/o/{name}',
-      'regex' => '#^/dxx/jlrtywoly/oz/o/(?P<name>[^/]+)$#',
-      'start' => '/dxx/jlrtywoly/',
-      'methods' => 'GET',
-    ),
-  ),
-  'vqh' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/vqh/sxyrfndixncqdk/{name}',
-      'regex' => '#^/vqh/sxyrfndixncqdk/(?P<name>[^/]+)$#',
-      'start' => '/vqh/sxyrfndixncqdk/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'fqxacolywpcpcxk' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/fqxacolywpcpcxk/{name}',
-      'regex' => '#^/fqxacolywpcpcxk/(?P<name>[^/]+)$#',
-      'start' => '/fqxacolywpcpcxk/',
-      'methods' => 'GET',
-    ),
-  ),
-  'dwzceojby' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/dwzceojby/{name}',
-      'regex' => '#^/dwzceojby/(?P<name>[^/]+)$#',
-      'start' => '/dwzceojby/',
-      'methods' => 'POST',
-    ),
-  ),
-  'bpafn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/bpafn/ylrjjkqbmtu/{name}',
-      'regex' => '#^/bpafn/ylrjjkqbmtu/(?P<name>[^/]+)$#',
-      'start' => '/bpafn/ylrjjkqbmtu/',
-      'methods' => 'GET',
-    ),
-  ),
-  'xgmrclbnsjqaexg' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xgmrclbnsjqaexg/{name}',
-      'regex' => '#^/xgmrclbnsjqaexg/(?P<name>[^/]+)$#',
-      'start' => '/xgmrclbnsjqaexg/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'kgwcbbrcgrazmwr' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/kgwcbbrcgrazmwr/m/ekm/{name}',
-      'regex' => '#^/kgwcbbrcgrazmwr/m/ekm/(?P<name>[^/]+)$#',
-      'start' => '/kgwcbbrcgrazmwr/m/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'ceydrhgriufor' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ceydrhgriufor/{name}',
-      'regex' => '#^/ceydrhgriufor/(?P<name>[^/]+)$#',
-      'start' => '/ceydrhgriufor/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'zyjmbkxmxpezmqjof' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zyjmbkxmxpezmqjof/{name}',
-      'regex' => '#^/zyjmbkxmxpezmqjof/(?P<name>[^/]+)$#',
-      'start' => '/zyjmbkxmxpezmqjof/',
-      'methods' => 'POST',
-    ),
-  ),
-  'ewvjqp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ewvjqp/g/{name}',
-      'regex' => '#^/ewvjqp/g/(?P<name>[^/]+)$#',
-      'start' => '/ewvjqp/g/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'izey' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/izey/rb/{name}',
-      'regex' => '#^/izey/rb/(?P<name>[^/]+)$#',
-      'start' => '/izey/rb/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'zziaowdp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zziaowdp/{name}',
-      'regex' => '#^/zziaowdp/(?P<name>[^/]+)$#',
-      'start' => '/zziaowdp/',
-      'methods' => 'GET',
-    ),
-  ),
-  'zeepwmdzspmyodznp' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/zeepwmdzspmyodznp/s/{name}',
-      'regex' => '#^/zeepwmdzspmyodznp/s/(?P<name>[^/]+)$#',
-      'start' => '/zeepwmdzspmyodznp/s/',
-      'methods' => 'GET',
-    ),
-  ),
-  'xpgdjoe' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xpgdjoe/qkhxyzgig/ojr/{name}',
-      'regex' => '#^/xpgdjoe/qkhxyzgig/ojr/(?P<name>[^/]+)$#',
-      'start' => '/xpgdjoe/qkhxyzgig/',
-      'methods' => 'GET',
-    ),
-  ),
-  'jumrmwi' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/jumrmwi/{name}',
-      'regex' => '#^/jumrmwi/(?P<name>[^/]+)$#',
-      'start' => '/jumrmwi/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'yhem' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/yhem/bfb/ohdra/cpvlci/{name}',
-      'regex' => '#^/yhem/bfb/ohdra/cpvlci/(?P<name>[^/]+)$#',
-      'start' => '/yhem/bfb/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'qguhm' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/qguhm/tovn/iafatgu/utcv/{name}',
-      'regex' => '#^/qguhm/tovn/iafatgu/utcv/(?P<name>[^/]+)$#',
-      'start' => '/qguhm/tovn/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'xykahlvpspbzxbbozpz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/xykahlvpspbzxbbozpz/{name}',
-      'regex' => '#^/xykahlvpspbzxbbozpz/(?P<name>[^/]+)$#',
-      'start' => '/xykahlvpspbzxbbozpz/',
-      'methods' => 'GET',
-    ),
-  ),
-  'azvivffn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/azvivffn/sg/xqjg/{name}',
-      'regex' => '#^/azvivffn/sg/xqjg/(?P<name>[^/]+)$#',
-      'start' => '/azvivffn/sg/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'uuqfkn' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/uuqfkn/mfg/{name}',
-      'regex' => '#^/uuqfkn/mfg/(?P<name>[^/]+)$#',
-      'start' => '/uuqfkn/mfg/',
-      'methods' => 'PUT',
-    ),
-  ),
-  'toxu' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/toxu/jkrxeta/txgir/{name}',
-      'regex' => '#^/toxu/jkrxeta/txgir/(?P<name>[^/]+)$#',
-      'start' => '/toxu/jkrxeta/',
-      'methods' => 'DELETE',
-    ),
-  ),
-  'daytatvotaz' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/daytatvotaz/{name}',
-      'regex' => '#^/daytatvotaz/(?P<name>[^/]+)$#',
-      'start' => '/daytatvotaz/',
-      'methods' => 'PATCH',
-    ),
-  ),
-  'ywtihc' => array (
-    0 => array (
-      'handler' => 'handler_func',
-      'original' => '/ywtihc/ep/pyk/{name}',
-      'regex' => '#^/ywtihc/ep/pyk/(?P<name>[^/]+)$#',
-      'start' => '/ywtihc/ep/',
+      'original' => '/iqciokono/{name}',
+      'regex' => '#^/iqciokono/(?P<name>[^/]+)$#',
+      'start' => '/iqciokono/',
       'methods' => 'POST',
     ),
   ),

@@ -57,7 +57,7 @@ class ORouter extends AbstractRouter
         }
 
         $hasPrefix = (bool)$this->currentGroupPrefix;
-        $methods = static::validateArguments($methods, $handler);
+        $methods = $this->validateArguments($methods, $handler);
 
         // always add '/' prefix.
         if ($route = trim($route)) {
@@ -83,7 +83,7 @@ class ORouter extends AbstractRouter
 
         // it is static route
         if (self::isStaticRoute($route)) {
-            foreach (explode(',', $methods) as $method) {
+            foreach ($methods as $method) {
                 $this->routeCounter++;
                 $this->staticRoutes[$route][$method] = $conf;
             }
@@ -97,11 +97,11 @@ class ORouter extends AbstractRouter
 
         // route string have regular
         if ($first) {
+            $conf['methods'] = implode(',', $methods);
             $this->routeCounter++;
-            $conf['methods'] = $methods;
             $this->regularRoutes[$first][] = $conf;
         } else {
-            foreach (explode(',', $methods) as $method) {
+            foreach ($methods as $method) {
                 $this->routeCounter++;
                 $this->vagueRoutes[$method][] = $conf;
             }

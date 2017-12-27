@@ -43,12 +43,16 @@ interface RouterInterface
     const CONNECT = 'CONNECT';
     const TRACE = 'TRACE';
 
-    /** @var array supported methods */
-    const SUPPORTED_METHODS = [
+    /** supported methods list */
+    const ALLOWED_METHODS = [
         'ANY',
         'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD',
         // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'CONNECT', 'TRACE',
     ];
+
+    // ,COPY,PURGE,LINK,UNLINK,LOCK,UNLOCK,VIEW,SEARCH,CONNECT,TRACE';
+    /** supported methods string */
+    const ALLOWED_METHODS_STR = 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD';
 
     /** the matched result index key */
     const INDEX_STATUS = 0;

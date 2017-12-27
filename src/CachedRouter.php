@@ -35,6 +35,12 @@ class CachedRouter extends ORouter
     protected $cacheEnable = true;
 
     /**
+     * dump routes cache on matching
+     * @var bool
+     */
+    protected $cacheOnMatching = true;
+
+    /**
      * object constructor.
      * @param array $config
      * @throws \LogicException
@@ -49,6 +55,10 @@ class CachedRouter extends ORouter
 
         if (isset($config['cacheEnable'])) {
             $this->setCacheEnable($config['cacheEnable']);
+        }
+
+        if (isset($config['cacheOnMatching'])) {
+            $this->setCacheOnMatching($config['cacheOnMatching']);
         }
 
         // read route caches from cache file
@@ -85,7 +95,9 @@ class CachedRouter extends ORouter
     public function match($path, $method = self::GET)
     {
         // dump routes to cache file
-        // $this->dumpRoutesCache();
+        if ($this->cacheOnMatching) {
+            $this->dumpRoutesCache();
+        }
 
         return parent::match($path, $method);
     }
@@ -124,7 +136,7 @@ class CachedRouter extends ORouter
         $this->setStaticRoutes($map['staticRoutes']);
         $this->setRegularRoutes($map['regularRoutes']);
         $this->setVagueRoutes($map['vagueRoutes']);
-        $this->cacheLoaded =  true;
+        $this->cacheLoaded = true;
 
         return true;
     }
@@ -218,4 +230,21 @@ EOF;
     {
         return $this->cacheLoaded;
     }
+
+    /**
+     * @param bool $cacheOnMatching
+     */
+    public function setCacheOnMatching($cacheOnMatching)
+    {
+        $this->cacheOnMatching = (bool)$cacheOnMatching;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCacheOnMatching(): bool
+    {
+        return $this->cacheOnMatching;
+    }
+
 }

@@ -265,7 +265,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function __call($method, array $args)
     {
-        if (\in_array(strtoupper($method), self::SUPPORTED_METHODS, true)) {
+        if (\in_array(strtoupper($method), self::ALLOWED_METHODS, true)) {
             if (\count($args) < 2) {
                 throw new \InvalidArgumentException("The method [$method] parameters is missing.");
             }
@@ -302,33 +302,31 @@ abstract class AbstractRouter implements RouterInterface
      * validate and format arguments
      * @param string|array $methods
      * @param mixed $handler
-     * @return string
+     * @return array
      * @throws \InvalidArgumentException
      */
-    public static function validateArguments($methods, $handler)
+    public function validateArguments($methods, $handler)
     {
         if (!$methods || !$handler) {
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
-        $allow = implode(',', self::SUPPORTED_METHODS) . ',';
+        $allow = implode(',', self::ALLOWED_METHODS) . ',';
         $methods = array_map(function ($m) use ($allow) {
             $m = strtoupper(trim($m));
 
             if (!$m || false === strpos($allow, $m . ',')) {
-                throw new \InvalidArgumentException("The method [$m] is not supported, Allow: $allow");
+                throw new \InvalidArgumentException("The method [$m] is not supported, Allow: " . trim($allow, ','));
             }
 
             return $m;
         }, (array)$methods);
 
-        $methods = implode(',', $methods) . ',';
-
-        if (false !== strpos($methods, self::ANY)) {
-            return trim($allow, ',');
+        if (\in_array(self::ANY, $methods, true)) {
+            return self::ALLOWED_METHODS;
         }
 
-        return trim($methods, ',');
+        return $methods;
     }
 
     /**
@@ -642,7 +640,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public static function getSupportedMethods()
     {
-        return self::SUPPORTED_METHODS;
+        return self::ALLOWED_METHODS;
     }
 
     /**
