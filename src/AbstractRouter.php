@@ -425,8 +425,6 @@ abstract class AbstractRouter implements RouterInterface
         // $hasOptional = false;
 
         // 解析可选参数位
-        // '/hello[/{name}]'      match: /hello/tom   /hello
-        // '/my[/{name}[/{age}]]' match: /my/tom/78  /my/tom
         if (false !== ($pos = strpos($route, '['))) {
             // $hasOptional = true;
             $noOptional = substr($route, 0, $pos);
@@ -442,8 +440,10 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // quote '.','/' to '\.','\/'
-        // $route = preg_quote($route, '/');
-        $route = str_replace('.', '\.', $route);
+        if (false !== strpos($route, '.')) {
+            // $route = preg_quote($route, '/');
+            $route = str_replace('.', '\.', $route);
+        }
 
         // 解析参数，替换为对应的 正则
         if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
@@ -452,7 +452,6 @@ abstract class AbstractRouter implements RouterInterface
 
             foreach ($m[1] as $name) {
                 $key = '{' . $name . '}';
-                // 匹配定义的 param  , 未匹配到的使用默认 self::DEFAULT_REGEX
                 $regex = isset($params[$name]) ? $params[$name] : self::DEFAULT_REGEX;
 
                 // 将匹配结果命名 (?P<arg1>[^/]+)

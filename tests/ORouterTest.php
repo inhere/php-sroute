@@ -39,6 +39,7 @@ class ORouterTest extends TestCase
         $this->assertCount(2, $router->getStaticRoutes());
     }
 
+
     public function testStaticRoute()
     {
         $router = $this->createRouter();
