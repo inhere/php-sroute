@@ -16,6 +16,7 @@ require dirname(__DIR__) . '/tests/boot.php';
 
 global $argv;
 $n = isset($argv[1]) ? (int)$argv[1] : 1000;
+$m = isset($argv[2]) ? (int)$argv[2] : 30000;
 
 echo "There are generate $n routes. and dynamic route with 50% chance\n\n";
 
@@ -54,6 +55,8 @@ pretty_echo(number_format($buildTime, 3), 'cyan'),
 // dump caches
 $router->dumpCache();
 
+echo 'Now, will test matching first,random,last,unknown route ', pretty_echo($m, 'cyan') ," times\n\n";
+
 /**
  * match first route
  */
@@ -62,13 +65,14 @@ $r = $requests[0];
 $uri = str_replace(['{', '}'], '1', $r['url']);
 
 $start = microtime(true);
-$ret['first'] = $router->match($uri, $r['method']);
+for ($i = 0; $i < $m; $i++) {
+    $ret['first'] = $router->match($uri, $r['method']);
+}
 $end = microtime(true);
 $matchTimeF = $end - $start;
 echo 'Match time (first route):  ',
 pretty_echo(number_format($matchTimeF, 6)),
-" s.\n - URI: {$uri}, will match: {$r['url']}\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
+" s.\n - METHOD: {$r['method']}, URI: {$uri}, will match: {$r['url']}\n";
 
 /**
  * match random route
@@ -79,13 +83,14 @@ $r = $requests[random_int(0, $n)];
 $uri = str_replace(['{', '}'], '2', $r['url']);
 
 $start = microtime(true);
-$ret['random'] = $router->match($uri, $r['method']);
+for ($i = 0; $i < $m; $i++) {
+    $ret['random'] = $router->match($uri, $r['method']);
+}
 $end = microtime(true);
 $matchTimeR = $end - $start;
 echo 'Match time (random route): ',
 pretty_echo(number_format($matchTimeR, 6)),
-" s.\n - URI: {$uri}, will match: {$r['url']}\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
+" s.\n - METHOD: {$r['method']}, URI: {$uri}, will match: {$r['url']}\n";
 
 /**
  * match last route
@@ -94,23 +99,25 @@ $r = $requests[$n - 1];
 $uri = str_replace(['{', '}'], '3', $r['url']);
 
 $start = microtime(true);
-$ret['last'] = $router->match($uri, $r['method']);
+for ($i = 0; $i < $m; $i++) {
+    $ret['last'] = $router->match($uri, $r['method']);
+}
 $end = microtime(true);
 $matchTimeE = $end - $start;
 echo 'Match time (last route):   ',
 pretty_echo(number_format($matchTimeE, 6)),
-" s.\n - URI: {$uri}, will match: {$r['url']}\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
+" s.\n - METHOD: {$r['method']}, URI: {$uri}, will match: {$r['url']}\n";
 
 /**
  * match unknown route
  */
 $start = microtime(true);
-$ret['unknown'] = $router->match('/55-foo-bar', 'GET');
+for ($i = 0; $i < $m; $i++) {
+    $ret['unknown'] = $router->match('/55-foo-bar', 'GET');
+}
 $end = microtime(true);
 $matchTimeU = $end - $start;
 echo 'Match time (unknown route): ', pretty_echo(number_format($matchTimeU, 6)), " s\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // print totals
 $totalTime = number_format($buildTime + $matchTimeF + $matchTimeR + $matchTimeU, 5);
