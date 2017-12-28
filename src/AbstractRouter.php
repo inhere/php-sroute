@@ -475,14 +475,19 @@ abstract class AbstractRouter implements RouterInterface
     // }
 
     /**
-     * @param string $path
+     * @param string|null $path
      * @param bool $ignoreLastSlash
      * @return string
      */
     protected function formatUriPath($path, $ignoreLastSlash)
     {
         // clear '//', '///' => '/'
-        $path = rawurldecode(preg_replace('#\/\/+#', '/', trim($path)));
+        if (false !== strpos($path, '//')) {
+            $path = (string)preg_replace('#\/\/+#', '/', $path);
+        }
+
+        // decode
+        $path = rawurldecode(trim($path));
 
         // setting 'ignoreLastSlash'
         if ($path !== '/' && $ignoreLastSlash) {
@@ -494,18 +499,16 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * @param string $path
-     * @return string
+     * @return string|null
      */
     protected function getFirstFromPath($path)
     {
-        $tmp = trim($path, '/'); // clear first,end '/'
-
         // eg '/article/12'
-        if (strpos($tmp, '/')) {
-            return strstr($tmp, '/', true);
+        if ($pos = strpos($path, '/', 1)) {
+            return substr($path, 1, $pos);
         }
 
-        return $tmp;
+        return null;
     }
 
     /**
@@ -519,8 +522,8 @@ abstract class AbstractRouter implements RouterInterface
         $matches = array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
 
         // apply some default param value
-        if (isset($conf->option['defaults'])) {
-            $matches = array_merge($conf->option['defaults'], $matches);
+        if (isset($conf['option']['defaults'])) {
+            $matches = array_merge($conf['option']['defaults'], $matches);
         }
 
         // decode ...

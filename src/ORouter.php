@@ -158,7 +158,7 @@ class ORouter extends AbstractRouter
         $allowedMethods = [];
 
         // is a regular dynamic route(the first node is 1th level index key).
-        if (isset($this->regularRoutes[$first])) {
+        if ($first && isset($this->regularRoutes[$first])) {
             $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, $method);
 
             if ($result[0] === self::FOUND) {
@@ -194,7 +194,7 @@ class ORouter extends AbstractRouter
                 return [self::FOUND, $path, $routeInfo];
             }
 
-            if (isset($this->regularRoutes[$first])) {
+            if ($first && isset($this->regularRoutes[$first])) {
                 $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, 'GET');
 
                 if ($result[0] === self::FOUND) {
@@ -292,12 +292,13 @@ class ORouter extends AbstractRouter
                 $allowedMethods .= $conf['methods'] . ',';
 
                 if (false !== strpos($conf['methods'] . ',', $method . ',')) {
-                    $conf = $this->paddingRouteData($conf, $id);
-                    $conf['matches'] = $this->filterMatches($matches, $conf);
+                    // $conf = $this->paddingRouteData($conf, $id);
+                    $data = $this->routesData[$id];
+                    $data['matches'] = $this->filterMatches($matches, $data);
 
-                    $this->cacheMatchedParamRoute($path, $method, $conf);
+                    $this->cacheMatchedParamRoute($path, $method, $data);
 
-                    return [self::FOUND, $path, $conf];
+                    return [self::FOUND, $path, $data];
                 }
             }
         }
@@ -319,12 +320,13 @@ class ORouter extends AbstractRouter
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
-                $conf = $this->paddingRouteData($conf, $id);
-                $conf['matches'] = $this->filterMatches($matches, $conf);
+                // $conf = $this->paddingRouteData($conf, $id);
+                $data = $this->routesData[$id];
+                $data['matches'] = $this->filterMatches($matches, $data);
 
-                $this->cacheMatchedParamRoute($path, $method, $conf);
+                $this->cacheMatchedParamRoute($path, $method, $data);
 
-                return [self::FOUND, $path, $conf];
+                return [self::FOUND, $path, $data];
             }
         }
 
@@ -351,10 +353,10 @@ class ORouter extends AbstractRouter
         }
     }
 
-    private function paddingRouteData(array $conf, $index)
-    {
-        return array_merge($conf, $this->routesData[$index]);
-    }
+    // private function paddingRouteData(array $conf, $index)
+    // {
+    //     return array_merge($conf, $this->routesData[$index]);
+    // }
 
     /*******************************************************************************
      * route callback handler dispatch
