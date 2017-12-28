@@ -150,6 +150,11 @@ $routes = [
         '/blog[index]',
         'default_handler'
     ],
+    [
+        'GET',
+        '/{user}/profile',
+        'default_handler'
+    ],
     /*
     match:
         /my/tom/78

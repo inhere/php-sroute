@@ -1,356 +1,373 @@
 <?php
 /*
- * This `inhere/sroute` routes cache file.
+ * This is routes cache file of the package `inhere/sroute`.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2017-12-07 19:43:41
- * @count 41
+ * @date 2017-12-28 11:01:33
+ * @count 42
  * @notice Please don't edit it.
  */
-return array (
+
+$count = 42;
+
 // static routes
-'staticRoutes' => array (
+$staticRoutes = array (
   '/routes' => array (
-    'GET' => array (
-      'handler' => 'dump_routes',
-      'option' => array (
-      ),
-    ),
+    'GET' => 0,
   ),
   '/rest' => array (
-    'GET' => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@index',
-      'option' => array (
-      ),
-    ),
-    'POST' => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@create',
-      'option' => array (
-      ),
-    ),
+    'GET' => 1,
+    'POST' => 2,
   ),
   '/*' => array (
-    'ANY' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
-    'GET' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
-    'POST' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
-    'PUT' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
-    'PATCH' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
-    'DELETE' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
-    'OPTIONS' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
-    'HEAD' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
+    'ANY' => 7,
+    'GET' => 7,
+    'POST' => 7,
+    'PUT' => 7,
+    'PATCH' => 7,
+    'DELETE' => 7,
+    'OPTIONS' => 7,
+    'HEAD' => 7,
   ),
   '/' => array (
-    'GET' => array (
-      'handler' => 'handler0',
-      'option' => array (
-      ),
-    ),
+    'GET' => 16,
   ),
   '/home' => array (
-    'GET' => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@index',
-      'option' => array (
-      ),
-    ),
+    'GET' => 17,
   ),
   '/post' => array (
-    'POST' => array (
-      'handler' => 'post_handler',
-      'option' => array (
-      ),
-    ),
+    'POST' => 18,
   ),
   '/put' => array (
-    'PUT' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
+    'PUT' => 19,
   ),
   '/del' => array (
-    'DELETE' => array (
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
-    ),
+    'DELETE' => 20,
   ),
   '/pd' => array (
-    'POST' => array (
-      'handler' => 'multi_method_handler',
-      'option' => array (
-      ),
-    ),
-    'DELETE' => array (
-      'handler' => 'multi_method_handler',
-      'option' => array (
-      ),
-    ),
+    'POST' => 29,
+    'DELETE' => 29,
   ),
   '/user/login' => array (
-    'GET' => array (
-      'handler' => 'default_handler',
-      'option' => array (
-      ),
-    ),
-    'POST' => array (
-      'handler' => 'default_handler',
-      'option' => array (
-      ),
-    ),
+    'GET' => 31,
+    'POST' => 31,
   ),
-),
+);
+
 // regular routes
-'regularRoutes' => array (
+$regularRoutes = array (
   'rest' => array (
     0 => array (
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'original' => '/rest/{id}',
+      'dataId' => 3,
       'start' => '/rest/',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@view',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9]\\d*)$#',
       'methods' => 'GET',
     ),
     1 => array (
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'original' => '/rest/{id}',
+      'dataId' => 4,
       'start' => '/rest/',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@update',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9]\\d*)$#',
       'methods' => 'PUT',
     ),
     2 => array (
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'original' => '/rest/{id}',
+      'dataId' => 5,
       'start' => '/rest/',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@patch',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9]\\d*)$#',
       'methods' => 'PATCH',
     ),
     3 => array (
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'original' => '/rest/{id}',
+      'dataId' => 6,
       'start' => '/rest/',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@delete',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9]\\d*)$#',
       'methods' => 'DELETE',
     ),
   ),
   '50be3774f6' => array (
     0 => array (
-      'regex' => '#^/50be3774f6/(?P<arg1>[^/]+)/(?P<arg2>[^/]+)/(?P<arg3>[^/]+)/(?P<arg4>[^/]+)/(?P<arg5>[^/]+)/(?P<arg6>[^/]+)/(?P<arg7>[^/]+)/(?P<arg8>[^/]+)/(?P<arg9>[^/]+)/850726135a$#',
-      'original' => '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a',
+      'dataId' => 15,
       'start' => '/50be3774f6/',
-      'handler' => 'handler0',
-      'option' => array (
-      ),
+      'startLen' => 12,
+      'regex' => '#^(?P<arg1>[^/]+)/(?P<arg2>[^/]+)/(?P<arg3>[^/]+)/(?P<arg4>[^/]+)/(?P<arg5>[^/]+)/(?P<arg6>[^/]+)/(?P<arg7>[^/]+)/(?P<arg8>[^/]+)/(?P<arg9>[^/]+)/850726135a$#',
       'methods' => 'GET',
     ),
   ),
   'user' => array (
     0 => array (
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)/followers$#',
-      'original' => '/user/{id}/followers',
+      'dataId' => 21,
       'start' => '/user/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9][0-9]*)/followers$#',
       'methods' => 'GET',
     ),
     1 => array (
-      'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
-      'original' => '/user/detail/{id}',
+      'dataId' => 22,
       'start' => '/user/detail/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 13,
+      'regex' => '#^(?P<id>[1-9][0-9]*)$#',
       'methods' => 'GET',
     ),
     2 => array (
-      'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
-      'original' => '/user/detail/{id}',
+      'dataId' => 23,
       'start' => '/user/detail/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 13,
+      'regex' => '#^(?P<id>[1-9][0-9]*)$#',
       'methods' => 'PUT',
     ),
     3 => array (
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'original' => '/user/{id}',
+      'dataId' => 24,
       'start' => '/user/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9][0-9]*)$#',
       'methods' => 'GET',
     ),
     4 => array (
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'original' => '/user/{id}',
+      'dataId' => 25,
       'start' => '/user/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9][0-9]*)$#',
       'methods' => 'POST',
     ),
     5 => array (
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'original' => '/user/{id}',
+      'dataId' => 26,
       'start' => '/user/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9][0-9]*)$#',
       'methods' => 'PUT',
     ),
     6 => array (
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'original' => '/user/{id}',
+      'dataId' => 27,
       'start' => '/user/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<id>[1-9][0-9]*)$#',
       'methods' => 'DELETE',
     ),
     7 => array (
-      'regex' => '#^/user/(?P<some>[^/]+)$#',
-      'original' => '/user/{some}',
+      'dataId' => 41,
       'start' => '/user/',
-      'handler' => 'default_handler',
-      'option' => array (
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<some>[^/]+)$#',
       'methods' => 'GET',
     ),
   ),
   'del' => array (
     0 => array (
-      'regex' => '#^/del/(?P<uid>[^/]+)$#',
-      'original' => '/del/{uid}',
+      'dataId' => 28,
       'start' => '/del/',
-      'handler' => 'main_handler',
-      'option' => array (
-      ),
+      'startLen' => 5,
+      'regex' => '#^(?P<uid>[^/]+)$#',
       'methods' => 'DELETE',
     ),
   ),
   'home' => array (
     0 => array (
-      'regex' => '#^/home/(?P<act>[a-zA-Z][\\w-]+)$#',
-      'original' => '/home/{act}',
+      'dataId' => 40,
       'start' => '/home/',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController',
-      'option' => array (
-      ),
+      'startLen' => 6,
+      'regex' => '#^(?P<act>[a-zA-Z][\\w-]+)$#',
       'methods' => 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD',
     ),
   ),
-),
+);
+
 // vague routes
-'vagueRoutes' => array (
+$vagueRoutes = array (
   'GET' => array (
     0 => array (
+      'dataId' => 33,
       'regex' => '#^/(?P<name>blog|saying)$#',
-      'original' => '/{name}',
       'include' => NULL,
-      'handler' => 'default_handler',
-      'option' => array (
-        'params' => array (
-          'name' => 'blog|saying',
-        ),
-      ),
     ),
     1 => array (
+      'dataId' => 34,
       'regex' => '#^/about(?:\\.html)?$#',
-      'original' => '/about[.html]',
       'include' => '/about',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
-      'option' => array (
-      ),
     ),
     2 => array (
+      'dataId' => 35,
       'regex' => '#^/test(?:/optional)?$#',
-      'original' => '/test[/optional]',
       'include' => '/test',
-      'handler' => 'default_handler',
-      'option' => array (
-      ),
     ),
     3 => array (
+      'dataId' => 36,
       'regex' => '#^/blog-(?P<post>[^/]+)$#',
-      'original' => '/blog-{post}',
       'include' => '/blog-',
-      'handler' => 'default_handler',
-      'option' => array (
-      ),
     ),
     4 => array (
+      'dataId' => 37,
       'regex' => '#^/blog(?:index)?$#',
-      'original' => '/blog[index]',
       'include' => '/blog',
-      'handler' => 'default_handler',
-      'option' => array (
-      ),
     ),
     5 => array (
-      'regex' => '#^/my(?:/(?P<name>[^/]+)(?:/(?P<age>\\d+))?)?$#',
-      'original' => '/my[/{name}[/{age}]]',
+      'dataId' => 38,
+      'regex' => '#^/(?P<user>[^/]+)/profile$#',
+      'include' => '/profile',
+    ),
+    6 => array (
+      'dataId' => 39,
+      'regex' => '#^/my(?:/{name}(?:/{age})?)?$#',
       'include' => '/my',
-      'handler' => 'my_handler',
-      'option' => array (
-        'params' => array (
-          'age' => '\\d+',
-        ),
-        'defaults' => array (
-          'name' => 'God',
-          'age' => 25,
-        ),
-      ),
     ),
   ),
-),
+);
+
+// routes Data
+$routesData = array (
+  0 => array (
+    'handler' => 'dump_routes',
+  ),
+  1 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@index',
+  ),
+  2 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@create',
+  ),
+  3 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@view',
+    'option' => array (
+      'params' => array (
+        'id' => '[1-9]\\d*',
+      ),
+    ),
+    'original' => '/rest/{id}',
+  ),
+  4 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@update',
+    'option' => array (
+      'params' => array (
+        'id' => '[1-9]\\d*',
+      ),
+    ),
+    'original' => '/rest/{id}',
+  ),
+  5 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@patch',
+    'option' => array (
+      'params' => array (
+        'id' => '[1-9]\\d*',
+      ),
+    ),
+    'original' => '/rest/{id}',
+  ),
+  6 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@delete',
+    'option' => array (
+      'params' => array (
+        'id' => '[1-9]\\d*',
+      ),
+    ),
+    'original' => '/rest/{id}',
+  ),
+  7 => array (
+    'handler' => 'main_handler',
+  ),
+  15 => array (
+    'handler' => 'handler0',
+    'original' => '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a',
+  ),
+  16 => array (
+    'handler' => 'handler0',
+  ),
+  17 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@index',
+  ),
+  18 => array (
+    'handler' => 'post_handler',
+  ),
+  19 => array (
+    'handler' => 'main_handler',
+  ),
+  20 => array (
+    'handler' => 'main_handler',
+  ),
+  21 => array (
+    'handler' => 'main_handler',
+    'original' => '/user/{id}/followers',
+  ),
+  22 => array (
+    'handler' => 'main_handler',
+    'original' => '/user/detail/{id}',
+  ),
+  23 => array (
+    'handler' => 'main_handler',
+    'original' => '/user/detail/{id}',
+  ),
+  24 => array (
+    'handler' => 'main_handler',
+    'original' => '/user/{id}',
+  ),
+  25 => array (
+    'handler' => 'main_handler',
+    'original' => '/user/{id}',
+  ),
+  26 => array (
+    'handler' => 'main_handler',
+    'original' => '/user/{id}',
+  ),
+  27 => array (
+    'handler' => 'main_handler',
+    'original' => '/user/{id}',
+  ),
+  28 => array (
+    'handler' => 'main_handler',
+    'original' => '/del/{uid}',
+  ),
+  29 => array (
+    'handler' => 'multi_method_handler',
+  ),
+  31 => array (
+    'handler' => 'default_handler',
+  ),
+  33 => array (
+    'handler' => 'default_handler',
+    'option' => array (
+      'params' => array (
+        'name' => 'blog|saying',
+      ),
+    ),
+    'original' => '/{name}',
+  ),
+  34 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
+    'original' => '/about[.html]',
+  ),
+  35 => array (
+    'handler' => 'default_handler',
+    'original' => '/test[/optional]',
+  ),
+  36 => array (
+    'handler' => 'default_handler',
+    'original' => '/blog-{post}',
+  ),
+  37 => array (
+    'handler' => 'default_handler',
+    'original' => '/blog[index]',
+  ),
+  38 => array (
+    'handler' => 'default_handler',
+    'original' => '/{user}/profile',
+  ),
+  39 => array (
+    'handler' => 'my_handler',
+    'option' => array (
+      'params' => array (
+        'age' => '\\d+',
+      ),
+      'defaults' => array (
+        'name' => 'God',
+        'age' => 25,
+      ),
+    ),
+    'original' => '/my[/{name}[/{age}]]',
+  ),
+  40 => array (
+    'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController',
+    'original' => '/home/{act}',
+  ),
+  41 => array (
+    'handler' => 'default_handler',
+    'original' => '/user/{some}',
+  ),
 );

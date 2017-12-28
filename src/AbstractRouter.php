@@ -53,21 +53,24 @@ abstract class AbstractRouter implements RouterInterface
      * @var array[]
      * [
      *     '/user/login' => [
-     *          // METHOD => [...]
-     *          'GET' => [
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
-     *          'PUT' => [
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
+     *          // METHOD => int, (int: data index in the {@see $routesData})
+     *          'GET' => int,
+     *          'PUT' => int,
      *          ...
      *      ],
      *      ... ...
      * ]
      */
     protected $staticRoutes = [];
+
+    /**
+     * @var array
+     * [
+     *  '/user/login#GET' => int, (int: data index in the {@see $routesData})
+     *  '/user/login#PUT' => int,
+     * ]
+     */
+    protected $flatStaticRoutes = [];
 
     /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
@@ -134,8 +137,23 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * There are last route caches
-     * @see $staticRoutes
+     * @see AbstractRouter::$staticRoutes
      * @var array[]
+     * [
+     *     '/user/login' => [
+     *          // METHOD => [...]
+     *          'GET' => [
+     *              'handler' => 'handler',
+     *              'option' => [...],
+     *          ],
+     *          'PUT' => [
+     *              'handler' => 'handler',
+     *              'option' => [...],
+     *          ],
+     *          ...
+     *      ],
+     *      ... ...
+     * ]
      */
     protected $routeCaches = [];
 
@@ -153,6 +171,12 @@ abstract class AbstractRouter implements RouterInterface
     public $routesFile;
 
     /**
+     * Flatten static routes info {@see $flatStaticRoutes}
+     * @var bool
+     */
+    public $flattenStatic = false;
+
+    /**
      * Ignore last slash char('/'). If is True, will clear last '/'.
      * @var bool
      */
@@ -160,6 +184,7 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * The param route cache number.
+     * @notice If is not daemon application, Please don't enable it.
      * @var int
      */
     public $tmpCacheNumber = 0;
@@ -278,6 +303,102 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         throw new \InvalidArgumentException("The method [$method] not exists in the class.");
+    }
+
+    /**
+     * quick register a group restful routes for the controller class.
+     * ```php
+     * $router->rest('/users', UserController::class);
+     * ```
+     * @param string $prefix eg '/users'
+     * @param string $controllerClass
+     * @param array $map You can append or change default map list.
+     * [
+     *      'index' => null, // set value is empty to delete.
+     *      'list' => 'get', // add new route
+     * ]
+     * @param array $opts Common options
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function rest($prefix, $controllerClass, array $map = [], array $opts = [])
+    {
+        $map = array_merge([
+            'index' => ['GET'],
+            'create' => ['POST'],
+            'view' => ['GET', '{id}', ['id' => '[1-9]\d*']],
+            'update' => ['PUT', '{id}', ['id' => '[1-9]\d*']],
+            'patch' => ['PATCH', '{id}', ['id' => '[1-9]\d*']],
+            'delete' => ['DELETE', '{id}', ['id' => '[1-9]\d*']],
+        ], $map);
+        //$opts = array_merge([], $opts);
+
+        foreach ($map as $action => $conf) {
+            if (!$conf || !$action) {
+                continue;
+            }
+
+            $route = $prefix;
+
+            // '/users/{id}'
+            if (isset($conf[1]) && ($subPath = trim($conf[1]))) {
+                // allow define a abs route. '/user-other-info'. it's not prepend prefix.
+                $route = $subPath[0] === '/' ? $subPath : $prefix . '/' . $subPath;
+            }
+
+            if (isset($conf[2])) {
+                $opts['params'] = $conf[2];
+            }
+
+            $this->map($conf[0], $route, $controllerClass . '@' . $action, $opts);
+        }
+
+        return $this;
+    }
+
+    /**
+     * quick register a group universal routes for the controller class.
+     *
+     * ```php
+     * $router->rest('/users', UserController::class, [
+     *      'index' => 'get',
+     *      'create' => 'post',
+     *      'update' => 'post',
+     *      'delete' => 'delete',
+     * ]);
+     * ```
+     *
+     * @param string $prefix eg '/users'
+     * @param string $controllerClass
+     * @param array $map You can append or change default map list.
+     * [
+     *      'index' => null, // set value is empty to delete.
+     *      'list' => 'get', // add new route
+     * ]
+     * @param array $opts Common options
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = [])
+    {
+        foreach ($map as $action => $method) {
+            if (!$method || !\is_string($action)) {
+                continue;
+            }
+
+            if ($action) {
+                $route = $prefix . '/' . $action;
+            } else {
+                $route = $prefix;
+                $action = 'index';
+            }
+
+            $this->map($method, $route, $controllerClass . '@' . $action, $opts);
+        }
+
+        return $this;
     }
 
     /**
@@ -417,16 +538,13 @@ abstract class AbstractRouter implements RouterInterface
      * @return array
      * @throws \LogicException
      */
-    public function parseParamRoute($route, array $params, array $conf)
+    public function parseParamRoute($route, array $params, array $conf = [])
     {
-        $bak = $route;
-        $noOptional = null;
-        // $hasOptional = false;
+        $original = $route;
 
         // 解析可选参数位
         if (false !== ($pos = strpos($route, '['))) {
-            // $hasOptional = true;
-            $noOptional = substr($route, 0, $pos);
+            $original = substr($route, 0, $pos);
             $withoutClosingOptionals = rtrim($route, ']');
             $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
 
@@ -438,6 +556,8 @@ abstract class AbstractRouter implements RouterInterface
             $route = str_replace(['[', ']'], ['(?:', ')?'], $route);
         }
 
+        $hasParam = strpos($original, '{') === false;
+
         // quote '.','/' to '\.','\/'
         if (false !== strpos($route, '.')) {
             // $route = preg_quote($route, '/');
@@ -445,7 +565,7 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // 解析参数，替换为对应的 正则
-        if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
+        if (!$hasParam && preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
             /** @var array[] $m */
             $replacePairs = [];
 
@@ -464,27 +584,22 @@ abstract class AbstractRouter implements RouterInterface
         // 分析路由字符串是否是有规律的
         $first = null;
 
-        // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
+        // e.g '/user/{id}' first: 'user'; '/a/{post}' first: 'a'
         /** @var string[] $m */
-        if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
+        if (preg_match('#^/([\w-]+)/[\w-]*/?#', $original, $m)) {
             $first = $m[1];
             $conf['start'] = $m[0];
             $conf['startLen'] = \strlen($m[0]);
             $conf['regex'] = '#^' . substr($route, $conf['startLen']) . '$#';
+
             // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
         } else {
             $include = null;
 
-            if ($noOptional) {
-                if (strpos($noOptional, '{') === false) {
-                    $include = $noOptional;
-                } else {
-                    $bak = $noOptional;
-                }
-            }
-
-            if (!$include && preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
+            if ($hasParam) {
+                $include = $original;
+            } elseif (preg_match('#/([\w-]+)/?[\w-]*#', $original, $m)) {
                 $include = $m[0];
             }
 
@@ -496,20 +611,27 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * @param array $routesData
      * @param string $path
      * @param string $method
-     * @return array
+     * @return array|false
      */
-    abstract protected function findInRegularRoutes(array $routesData, $path, $method);
+    abstract protected function findInStaticRoutes($path, $method);
 
     /**
-     * @param array $routesData
+     * @param array $routesInfo
      * @param string $path
      * @param string $method
      * @return array
      */
-    abstract protected function findInVagueRoutes(array $routesData, $path, $method);
+    abstract protected function findInRegularRoutes(array $routesInfo, $path, $method);
+
+    /**
+     * @param array $routesInfo
+     * @param string $path
+     * @param string $method
+     * @return array
+     */
+    abstract protected function findInVagueRoutes(array $routesInfo, $path, $method);
 
     /**
      * @param string $path

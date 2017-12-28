@@ -75,26 +75,31 @@ class ORouter extends AbstractRouter
             $route = rtrim($route, '/');
         }
 
-        $conf = [
+        $id = $this->routeCounter;
+        $data = [
             'handler' => $handler,
         ];
 
         if ($opts = array_merge($this->currentGroupOption, $opts)) {
-            $conf['option'] = $opts;
+            $data['option'] = $opts;
         }
 
         // it is static route
         if (self::isStaticRoute($route)) {
+            $this->routesData[$id] = $data;
+
             foreach ($methods as $method) {
-                $id = $this->routeCounter++;
-                $this->routesData[$id] = $conf;
+                $this->routeCounter++;
                 $this->staticRoutes[$route][$method] = $id;
             }
 
             return $this;
         }
 
-        $conf['original'] = $route;
+        $data['original'] = $route;
+        $this->routesData[$id] = $data;
+        $conf = ['dataId' => $id];
+        
         $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
         list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
 
@@ -108,102 +113,6 @@ class ORouter extends AbstractRouter
                 $this->routeCounter++;
                 $this->vagueRoutes[$method][] = $conf;
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * quick register a group restful routes for the controller class.
-     * ```php
-     * $router->rest('/users', UserController::class);
-     * ```
-     * @param string $prefix eg '/users'
-     * @param string $controllerClass
-     * @param array $map You can append or change default map list.
-     * [
-     *      'index' => null, // set value is empty to delete.
-     *      'list' => 'get', // add new route
-     * ]
-     * @param array $opts Common options
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
-    public function rest($prefix, $controllerClass, array $map = [], array $opts = [])
-    {
-        $map = array_merge([
-            'index' => ['GET'],
-            'create' => ['POST'],
-            'view' => ['GET', '{id}', ['id' => '[1-9]\d*']],
-            'update' => ['PUT', '{id}', ['id' => '[1-9]\d*']],
-            'patch' => ['PATCH', '{id}', ['id' => '[1-9]\d*']],
-            'delete' => ['DELETE', '{id}', ['id' => '[1-9]\d*']],
-        ], $map);
-        //$opts = array_merge([], $opts);
-
-        foreach ($map as $action => $conf) {
-            if (!$conf || !$action) {
-                continue;
-            }
-
-            $route = $prefix;
-
-            // '/users/{id}'
-            if (isset($conf[1]) && ($subPath = trim($conf[1]))) {
-                // allow define a abs route. '/user-other-info'. it's not prepend prefix.
-                $route = $subPath[0] === '/' ? $subPath : $prefix . '/' . $subPath;
-            }
-
-            if (isset($conf[2])) {
-                $opts['params'] = $conf[2];
-            }
-
-            $this->map($conf[0], $route, $controllerClass . '@' . $action, $opts);
-        }
-
-        return $this;
-    }
-
-    /**
-     * quick register a group universal routes for the controller class.
-     *
-     * ```php
-     * $router->rest('/users', UserController::class, [
-     *      'index' => 'get',
-     *      'create' => 'post',
-     *      'update' => 'post',
-     *      'delete' => 'delete',
-     * ]);
-     * ```
-     *
-     * @param string $prefix eg '/users'
-     * @param string $controllerClass
-     * @param array $map You can append or change default map list.
-     * [
-     *      'index' => null, // set value is empty to delete.
-     *      'list' => 'get', // add new route
-     * ]
-     * @param array $opts Common options
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
-    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = [])
-    {
-        foreach ($map as $action => $method) {
-            if (!$method || !\is_string($action)) {
-                continue;
-            }
-
-            if ($action) {
-                $route = $prefix . '/' . $action;
-            } else {
-                $route = $prefix;
-                $action = 'index';
-            }
-
-            $this->map($method, $route, $controllerClass . '@' . $action, $opts);
         }
 
         return $this;
@@ -241,14 +150,11 @@ class ORouter extends AbstractRouter
         }
 
         // is a static route path
-        if (isset($this->staticRoutes[$path][$method])) {
-            $index = $this->staticRoutes[$path][$method];
-
-            return [self::FOUND, $path, $this->routesData[$index]];
+        if ($routeInfo = $this->findInStaticRoutes($path, $method)) {
+            return [self::FOUND, $path, $routeInfo];
         }
 
         $first = $this->getFirstFromPath($path);
-        // $nodeCount = substr_count(trim($path), '/');
         $allowedMethods = [];
 
         // is a regular dynamic route(the first node is 1th level index key).
@@ -280,14 +186,12 @@ class ORouter extends AbstractRouter
 
         // For HEAD requests, attempt fallback to GET
         if ($method === self::HEAD) {
-            if (isset($this->routeCaches[$path]['GET'])) {
+            if ($this->tmpCacheNumber && isset($this->routeCaches[$path]['GET'])) {
                 return [self::FOUND, $path, $this->routeCaches[$path]['GET']];
             }
 
-            if (isset($this->staticRoutes[$path]['GET'])) {
-                $index = $this->staticRoutes[$path]['GET'];
-
-                return [self::FOUND, $path, $this->routesData[$index]];
+            if ($routeInfo = $this->findInStaticRoutes($path,'GET')) {
+                return [self::FOUND, $path, $routeInfo];
             }
 
             if (isset($this->regularRoutes[$first])) {
@@ -308,17 +212,30 @@ class ORouter extends AbstractRouter
         }
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
-        if ($this->staticRoutes && isset($this->staticRoutes['/*'][$method])) {
-            $index = $this->staticRoutes['/*'][$method];
-
-            return [self::FOUND, $path, $this->routesData[$index]];
+        if ($routeInfo = $this->findInStaticRoutes('/*', $method)) {
+            return [self::FOUND, $path, $routeInfo];
         }
 
         if ($this->notAllowedAsNotFound) {
             return [self::NOT_FOUND, $path, null];
         }
 
-        // collect allowed methods from: staticRoutes, vagueRoutes
+        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
+        return $this->findAllowedMethods($path, $method, $allowedMethods);
+    }
+
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
+
+    /**
+     * @param string $path
+     * @param string $method
+     * @param array $allowedMethods
+     * @return array
+     */
+    protected function findAllowedMethods($path, $method, array $allowedMethods)
+    {
         if (isset($this->staticRoutes[$path])) {
             $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
         }
@@ -338,26 +255,38 @@ class ORouter extends AbstractRouter
         if ($allowedMethods && ($list = array_unique($allowedMethods))) {
             return [self::METHOD_NOT_ALLOWED, $path, $list];
         }
-
+        
         // oo ... not found
         return [self::NOT_FOUND, $path, null];
     }
+    
+    /**
+     * @param string $path
+     * @param string $method
+     * @return array|false
+     */
+    protected function findInStaticRoutes($path, $method)
+    {
+        if (isset($this->staticRoutes[$path][$method])) {
+            $index = $this->staticRoutes[$path][$method];
 
-    /*******************************************************************************
-     * helper methods
-     ******************************************************************************/
+            return $this->routesData[$index];
+        }
+
+        return false;
+    }
 
     /**
-     * @param array $routesData
+     * @param array $routesInfo
      * @param string $path
      * @param string $method
      * @return array
      */
-    protected function findInRegularRoutes(array $routesData, $path, $method)
+    protected function findInRegularRoutes(array $routesInfo, $path, $method)
     {
         $allowedMethods = '';
 
-        foreach ($routesData as $conf) {
+        foreach ($routesInfo as $conf) {
             if (0 === strpos($path, $conf['start'])) {
                 $subject = substr($path, $conf['startLen']);
 
@@ -368,6 +297,7 @@ class ORouter extends AbstractRouter
                 $allowedMethods .= $conf['methods'] . ',';
 
                 if (false !== strpos($conf['methods'] . ',', $method . ',')) {
+                    $conf = $this->paddingRouteData($conf, $conf['dataId']);
                     $conf['matches'] = $this->filterMatches($matches, $conf);
 
                     $this->cacheMatchedParamRoute($path, $method, $conf);
@@ -381,19 +311,20 @@ class ORouter extends AbstractRouter
     }
 
     /**
-     * @param array $routesData
+     * @param array $routesInfo
      * @param string $path
      * @param string $method
      * @return array
      */
-    protected function findInVagueRoutes(array $routesData, $path, $method)
+    protected function findInVagueRoutes(array $routesInfo, $path, $method)
     {
-        foreach ($routesData as $conf) {
+        foreach ($routesInfo as $conf) {
             if ($conf['include'] && false === strpos($path, $conf['include'])) {
                 continue;
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
+                $conf = $this->paddingRouteData($conf, $conf['dataId']);
                 $conf['matches'] = $this->filterMatches($matches, $conf);
 
                 $this->cacheMatchedParamRoute($path, $method, $conf);
@@ -423,6 +354,11 @@ class ORouter extends AbstractRouter
             $this->cacheCounter++;
             $this->routeCaches[$path][$method] = $conf;
         }
+    }
+
+    private function paddingRouteData(array $conf, $index)
+    {
+        return array_merge($conf, $this->routesData[$index]);
     }
 
     /*******************************************************************************
@@ -486,7 +422,7 @@ class ORouter extends AbstractRouter
     /**
      * @return array
      */
-    public function getGlobalOptions(): array
+    public function getGlobalOptions()
     {
         return $this->globalOptions;
     }
