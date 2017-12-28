@@ -24,13 +24,13 @@ $router = new \Inhere\Route\CachedRouter([
 
 // $r = $requests[0];
 $r = [
-    'url' => '/wjowskzjdtjks/{name}',
+    'url' => '/mxbyr/nm/ycvrac/{name}',
     'method' => 'GET'
 ];
 $uri = str_replace(['{', '}'], '', $r['url']);
 
 $start = microtime(true);
-$ret = $router->match($uri, $r['method']);
+$ret['first'] = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeF = $end - $start;
 echo 'Match time (first route):  ',
@@ -45,14 +45,14 @@ pretty_echo(number_format($matchTimeF, 6)),
 // pick random route to match
 // $r = $requests[random_int(0, $n)];
 $r = [
-    'url' => '/tfg/p/iovc/gw/rnqw/{name}',
-    'method' => 'PUT'
+    'url' => '/clltmniuuyv/{name}',
+    'method' => 'POST'
 ];
 
 $uri = str_replace(['{', '}'], '', $r['url']);
 
 $start = microtime(true);
-$ret = $router->match($uri, $r['method']);
+$ret['random'] = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeR = $end - $start;
 echo 'Match time (random route): ',
@@ -65,14 +65,14 @@ pretty_echo(number_format($matchTimeR, 6)),
  */
 // $r = $requests[$n - 1];
 $r = [
-    'url' => '/onkauj/xppzjp/wrowczx/{name}',
-    'method' => 'GET'
+    'url' => '/bsv/bbtqubcd/optbod/{name}',
+    'method' => 'PUT'
 ];
 
 $uri = str_replace(['{', '}'], '', $r['url']);
 
 $start = microtime(true);
-$ret = $router->match($uri, $r['method']);
+$ret['last'] = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeE = $end - $start;
 echo 'Match time (last route):   ',
@@ -84,7 +84,7 @@ pretty_echo(number_format($matchTimeE, 6)),
  * match unknown route
  */
 $start = microtime(true);
-$ret = $router->match('/55-foo-bar', 'GET');
+$ret['unknown'] = $router->match('/55-foo-bar', 'GET');
 $end = microtime(true);
 $matchTimeU = $end - $start;
 echo 'Match time (unknown route): ', pretty_echo(number_format($matchTimeU, 6)), " s\n";
@@ -95,3 +95,4 @@ $totalTime = number_format($matchTimeF + $matchTimeR + $matchTimeU, 5);
 echo PHP_EOL . 'Total time: ' . $totalTime . ' s' . PHP_EOL;
 echo 'Memory usage: ' . round((memory_get_usage() - $startMem) / 1024) . ' KB' . PHP_EOL;
 echo 'Peak memory usage: ' . round(memory_get_peak_usage(true) / 1024) . ' KB' . PHP_EOL;
+echo "Match result: \n" . pretty_match_result($ret) . "\n";

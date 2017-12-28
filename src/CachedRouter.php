@@ -65,17 +65,6 @@ class CachedRouter extends ORouter
         $this->loadRoutesCache();
     }
 
-    private $indexId = 0;
-
-    /**
-     * generate index id
-     * @return int
-     */
-    protected function generateId()
-    {
-        return ++$this->indexId;
-    }
-
     /**
      * {@inheritdoc}
      */

@@ -292,8 +292,7 @@ class ORouter extends AbstractRouter
         $allowedMethods = '';
 
         foreach ($routesInfo as $id => $conf) {
-            // 0 === strpos($path, $conf['start']) &&
-            if (preg_match($conf['regex'], $path, $matches)) {
+            if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
                 $allowedMethods .= $conf['methods'] . ',';
 
                 if (false !== strpos($conf['methods'] . ',', $method . ',')) {
