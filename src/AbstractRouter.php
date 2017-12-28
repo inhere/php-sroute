@@ -277,6 +277,102 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
+     * quick register a group restful routes for the controller class.
+     * ```php
+     * $router->rest('/users', UserController::class);
+     * ```
+     * @param string $prefix eg '/users'
+     * @param string $controllerClass
+     * @param array $map You can append or change default map list.
+     * [
+     *      'index' => null, // set value is empty to delete.
+     *      'list' => 'get', // add new route
+     * ]
+     * @param array $opts Common options
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function rest($prefix, $controllerClass, array $map = [], array $opts = [])
+    {
+        $map = array_merge([
+            'index' => ['GET'],
+            'create' => ['POST'],
+            'view' => ['GET', '{id}', ['id' => '[1-9]\d*']],
+            'update' => ['PUT', '{id}', ['id' => '[1-9]\d*']],
+            'patch' => ['PATCH', '{id}', ['id' => '[1-9]\d*']],
+            'delete' => ['DELETE', '{id}', ['id' => '[1-9]\d*']],
+        ], $map);
+        //$opts = array_merge([], $opts);
+
+        foreach ($map as $action => $conf) {
+            if (!$conf || !$action) {
+                continue;
+            }
+
+            $route = $prefix;
+
+            // '/users/{id}'
+            if (isset($conf[1]) && ($subPath = trim($conf[1]))) {
+                // allow define a abs route. '/user-other-info'. it's not prepend prefix.
+                $route = $subPath[0] === '/' ? $subPath : $prefix . '/' . $subPath;
+            }
+
+            if (isset($conf[2])) {
+                $opts['params'] = $conf[2];
+            }
+
+            $this->map($conf[0], $route, $controllerClass . '@' . $action, $opts);
+        }
+
+        return $this;
+    }
+
+    /**
+     * quick register a group universal routes for the controller class.
+     *
+     * ```php
+     * $router->rest('/users', UserController::class, [
+     *      'index' => 'get',
+     *      'create' => 'post',
+     *      'update' => 'post',
+     *      'delete' => 'delete',
+     * ]);
+     * ```
+     *
+     * @param string $prefix eg '/users'
+     * @param string $controllerClass
+     * @param array $map You can append or change default map list.
+     * [
+     *      'index' => null, // set value is empty to delete.
+     *      'list' => 'get', // add new route
+     * ]
+     * @param array $opts Common options
+     * @return static
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     */
+    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = [])
+    {
+        foreach ($map as $action => $method) {
+            if (!$method || !\is_string($action)) {
+                continue;
+            }
+
+            if ($action) {
+                $route = $prefix . '/' . $action;
+            } else {
+                $route = $prefix;
+                $action = 'index';
+            }
+
+            $this->map($method, $route, $controllerClass . '@' . $action, $opts);
+        }
+
+        return $this;
+    }
+
+    /**
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
      * @ref package 'nikic/fast-route'
@@ -311,22 +407,24 @@ abstract class AbstractRouter implements RouterInterface
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
-        $allow = implode(',', self::ALLOWED_METHODS) . ',';
-        $methods = array_map(function ($m) use ($allow) {
+        $allow = self::ALLOWED_METHODS_STR . ',';
+        $hasAny = false;
+
+        $methods = array_map(function ($m) use ($allow, &$hasAny) {
             $m = strtoupper(trim($m));
 
             if (!$m || false === strpos($allow, $m . ',')) {
                 throw new \InvalidArgumentException("The method [$m] is not supported, Allow: " . trim($allow, ','));
             }
 
+            if (!$hasAny && $m === self::ANY) {
+                $hasAny = true;
+            }
+
             return $m;
         }, (array)$methods);
 
-        if (\in_array(self::ANY, $methods, true)) {
-            return self::ALLOWED_METHODS;
-        }
-
-        return $methods;
+        return $hasAny ? self::ALLOWED_METHODS: $methods;
     }
 
     /**
@@ -341,34 +439,18 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * @param string $path
-     * @return string
-     */
-    protected function getFirstFromPath($path)
-    {
-        $tmp = trim($path, '/'); // clear first,end '/'
-
-        // eg '/article/12'
-        if (strpos($tmp, '/')) {
-            return strstr($tmp, '/', true);
-        }
-
-        // eg '/about.html'
-        // if (strpos($tmp, '.')) {
-        //     return strstr($tmp, '.', true);
-        // }
-
-        return $tmp;
-    }
-
-    /**
-     * @param string $path
      * @param bool $ignoreLastSlash
      * @return string
      */
     protected function formatUriPath($path, $ignoreLastSlash)
     {
         // clear '//', '///' => '/'
-        $path = rawurldecode(preg_replace('#\/\/+#', '/', $path));
+        if (false !== strpos($path, '//')) {
+            $path = (string)preg_replace('#\/\/+#', '/', $path);
+        }
+
+        // decode
+        $path = rawurldecode(trim($path));
 
         // setting 'ignoreLastSlash'
         if ($path !== '/' && $ignoreLastSlash) {
@@ -385,6 +467,10 @@ abstract class AbstractRouter implements RouterInterface
      */
     protected function filterMatches(array $matches, array $conf)
     {
+        if (!$matches) {
+            return $matches;
+        }
+
         // clear all int key
         $matches = array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
 
@@ -392,11 +478,6 @@ abstract class AbstractRouter implements RouterInterface
         if (isset($conf['option']['defaults'])) {
             $matches = array_merge($conf['option']['defaults'], $matches);
         }
-
-        // decode ...
-        // foreach ($matches as $k => $v) {
-        //     $matches[$k] = urldecode($v);
-        // }
 
         return $matches;
     }

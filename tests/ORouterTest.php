@@ -103,7 +103,7 @@ class ORouterTest extends TestCase
         $ret = $router->match('/hi/tom', 'GET');
 
         $this->assertCount(3, $ret);
-
+// var_dump($ret, $router->getRegularRoutes());die;
         list($status, $path, $route) = $ret;
 
         $this->assertSame(ORouter::FOUND, $status);

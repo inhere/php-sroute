@@ -110,102 +110,6 @@ class ORouter extends AbstractRouter
         return $this;
     }
 
-    /**
-     * quick register a group restful routes for the controller class.
-     * ```php
-     * $router->rest('/users', UserController::class);
-     * ```
-     * @param string $prefix eg '/users'
-     * @param string $controllerClass
-     * @param array $map You can append or change default map list.
-     * [
-     *      'index' => null, // set value is empty to delete.
-     *      'list' => 'get', // add new route
-     * ]
-     * @param array $opts Common options
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
-    public function rest($prefix, $controllerClass, array $map = [], array $opts = [])
-    {
-        $map = array_merge([
-            'index' => ['GET'],
-            'create' => ['POST'],
-            'view' => ['GET', '{id}', ['id' => '[1-9]\d*']],
-            'update' => ['PUT', '{id}', ['id' => '[1-9]\d*']],
-            'patch' => ['PATCH', '{id}', ['id' => '[1-9]\d*']],
-            'delete' => ['DELETE', '{id}', ['id' => '[1-9]\d*']],
-        ], $map);
-        //$opts = array_merge([], $opts);
-
-        foreach ($map as $action => $conf) {
-            if (!$conf || !$action) {
-                continue;
-            }
-
-            $route = $prefix;
-
-            // '/users/{id}'
-            if (isset($conf[1]) && ($subPath = trim($conf[1]))) {
-                // allow define a abs route. '/user-other-info'. it's not prepend prefix.
-                $route = $subPath[0] === '/' ? $subPath : $prefix . '/' . $subPath;
-            }
-
-            if (isset($conf[2])) {
-                $opts['params'] = $conf[2];
-            }
-
-            $this->map($conf[0], $route, $controllerClass . '@' . $action, $opts);
-        }
-
-        return $this;
-    }
-
-    /**
-     * quick register a group universal routes for the controller class.
-     *
-     * ```php
-     * $router->rest('/users', UserController::class, [
-     *      'index' => 'get',
-     *      'create' => 'post',
-     *      'update' => 'post',
-     *      'delete' => 'delete',
-     * ]);
-     * ```
-     *
-     * @param string $prefix eg '/users'
-     * @param string $controllerClass
-     * @param array $map You can append or change default map list.
-     * [
-     *      'index' => null, // set value is empty to delete.
-     *      'list' => 'get', // add new route
-     * ]
-     * @param array $opts Common options
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
-    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = [])
-    {
-        foreach ($map as $action => $method) {
-            if (!$method || !\is_string($action)) {
-                continue;
-            }
-
-            if ($action) {
-                $route = $prefix . '/' . $action;
-            } else {
-                $route = $prefix;
-                $action = 'index';
-            }
-
-            $this->map($method, $route, $controllerClass . '@' . $action, $opts);
-        }
-
-        return $this;
-    }
-
     /*******************************************************************************
      * route match
      ******************************************************************************/
@@ -245,11 +149,16 @@ class ORouter extends AbstractRouter
             return [self::FOUND, $path, $conf];
         }
 
-        $first = $this->getFirstFromPath($path);
+        $first = null;
         $allowedMethods = [];
 
+        // eg '/article/12'
+        if ($pos = strpos($path, '/', 1)) {
+            $first = substr($path, 1, $pos - 1);
+        }
+
         // is a regular dynamic route(the first node is 1th level index key).
-        if (isset($this->regularRoutes[$first])) {
+        if ($first && isset($this->regularRoutes[$first])) {
             $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, $method);
 
             if ($result[0] === self::FOUND) {
@@ -286,7 +195,7 @@ class ORouter extends AbstractRouter
                 return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
             }
 
-            if (isset($this->regularRoutes[$first])) {
+            if ($first && isset($this->regularRoutes[$first])) {
                 $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, 'GET');
 
                 if ($result[0] === self::FOUND) {
