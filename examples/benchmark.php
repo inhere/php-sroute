@@ -73,7 +73,7 @@ function pretty_echo($msg, $style = 'green', $nl = false)
         'light_cyan' => '1;36',
     ];
 
-    if (isset($styles[$style])) {
+    if (false === strpos(PHP_OS, 'WIN') && isset($styles[$style])) {
         return sprintf("\033[%sm%s\033[0m" . ($nl ? PHP_EOL : ''), $styles[$style], $msg);
     }
 
