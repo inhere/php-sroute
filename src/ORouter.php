@@ -105,7 +105,7 @@ class ORouter extends AbstractRouter
 
         // route string have regular
         if ($first) {
-            $conf['methods'] = implode(',', $methods);
+            $conf['methods'] = implode(',', $methods) . ',';
             $this->routeCounter++;
             $this->regularRoutes[$first][$id] = $conf;
         } else {
@@ -293,9 +293,9 @@ class ORouter extends AbstractRouter
 
         foreach ($routesInfo as $id => $conf) {
             if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
-                $allowedMethods .= $conf['methods'] . ',';
+                $allowedMethods .= $conf['methods'];
 
-                if (false !== strpos($conf['methods'] . ',', $method . ',')) {
+                if (false !== strpos($conf['methods'], $method . ',')) {
                     // $conf = $this->paddingRouteData($conf, $id);
                     $data = $this->routesData[$id];
                     $this->filterMatches($matches, $data);
