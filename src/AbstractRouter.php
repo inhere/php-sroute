@@ -583,15 +583,15 @@ abstract class AbstractRouter implements RouterInterface
 
         // 分析路由字符串是否是有规律的
         $first = null;
+        $conf['regex'] = '#^' . $route . '$#';
 
         // first node is a normal string
         // e.g '/user/{id}' first: 'user'; '/a/{post}' first: 'a'
         /** @var string[] $m */
-        if (preg_match('#^/([\w-]+)/[\w-]*/?#', $original, $m)) {
+        // if (preg_match('#^/([\w-]+)/[\w-]*/?#', $original, $m)) {
+        if (preg_match('#^/([\w-]+)/#', $original, $m)) {
             $first = $m[1];
-            $conf['start'] = $m[0];
-            $conf['startLen'] = \strlen($m[0]);
-            $conf['regex'] = '#^' . substr($route, $conf['startLen']) . '$#';
+            // $conf['start'] = $m[0];
 
             // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
         } else {
@@ -603,7 +603,6 @@ abstract class AbstractRouter implements RouterInterface
                 $include = $m[0];
             }
 
-            $conf['regex'] = '#^' . $route . '$#';
             $conf['include'] = $include;
         }
 

@@ -98,20 +98,20 @@ class ORouter extends AbstractRouter
 
         $data['original'] = $route;
         $this->routesData[$id] = $data;
-        $conf = ['dataId' => $id];
+        // $conf = ['dataId' => $id];
         
         $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
-        list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
+        list($first, $conf) = $this->parseParamRoute($route, $params);
 
         // route string have regular
         if ($first) {
             $conf['methods'] = implode(',', $methods);
             $this->routeCounter++;
-            $this->regularRoutes[$first][] = $conf;
+            $this->regularRoutes[$first][$id] = $conf;
         } else {
             foreach ($methods as $method) {
                 $this->routeCounter++;
-                $this->vagueRoutes[$method][] = $conf;
+                $this->vagueRoutes[$method][$id] = $conf;
             }
         }
 
@@ -286,18 +286,13 @@ class ORouter extends AbstractRouter
     {
         $allowedMethods = '';
 
-        foreach ($routesInfo as $conf) {
-            if (0 === strpos($path, $conf['start'])) {
-                $subject = substr($path, $conf['startLen']);
-
-                if (!preg_match($conf['regex'], $subject, $matches)) {
-                    continue;
-                }
-
+        foreach ($routesInfo as $id => $conf) {
+            // 0 === strpos($path, $conf['start']))
+            if (preg_match($conf['regex'], $path, $matches)) {
                 $allowedMethods .= $conf['methods'] . ',';
 
                 if (false !== strpos($conf['methods'] . ',', $method . ',')) {
-                    $conf = $this->paddingRouteData($conf, $conf['dataId']);
+                    $conf = $this->paddingRouteData($conf, $id);
                     $conf['matches'] = $this->filterMatches($matches, $conf);
 
                     $this->cacheMatchedParamRoute($path, $method, $conf);
@@ -318,13 +313,13 @@ class ORouter extends AbstractRouter
      */
     protected function findInVagueRoutes(array $routesInfo, $path, $method)
     {
-        foreach ($routesInfo as $conf) {
+        foreach ($routesInfo as $id => $conf) {
             if ($conf['include'] && false === strpos($path, $conf['include'])) {
                 continue;
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
-                $conf = $this->paddingRouteData($conf, $conf['dataId']);
+                $conf = $this->paddingRouteData($conf, $id);
                 $conf['matches'] = $this->filterMatches($matches, $conf);
 
                 $this->cacheMatchedParamRoute($path, $method, $conf);
