@@ -246,7 +246,6 @@ class ORouter extends AbstractRouter
         }
 
         $first = $this->getFirstFromPath($path);
-        // $nodeCount = substr_count(trim($path), '/');
         $allowedMethods = [];
 
         // is a regular dynamic route(the first node is 1th level index key).
@@ -475,7 +474,7 @@ class ORouter extends AbstractRouter
     /**
      * @return array
      */
-    public function getGlobalOptions(): array
+    public function getGlobalOptions()
     {
         return $this->globalOptions;
     }
