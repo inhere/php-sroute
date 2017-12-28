@@ -494,25 +494,25 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * @param array $matches
-     * @param array|\stdClass $conf
-     * @return array
+     * @param array $data
      */
-    protected function filterMatches(array $matches, $conf)
+    protected function filterMatches(array $matches, &$data)
     {
+        if (!$matches) {
+            $data['matches'] = [];
+
+            return;
+        }
+
         // clear all int key
         $matches = array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
 
         // apply some default param value
-        if (isset($conf['option']['defaults'])) {
-            $matches = array_merge($conf['option']['defaults'], $matches);
+        if (isset($data['option']['defaults'])) {
+            $data['matches'] = array_merge($data['option']['defaults'], $matches);
+        } else {
+            $data['matches'] = $matches;
         }
-
-        // decode ...
-        // foreach ($matches as $k => $v) {
-        //     $matches[$k] = urldecode($v);
-        // }
-
-        return $matches;
     }
 
     /**
@@ -620,9 +620,9 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @param string $path
      * @param string $method
-     * @param array $conf
+     * @param array $data
      */
-    abstract protected function cacheMatchedParamRoute($path, $method, $conf);
+    abstract protected function cacheMatchedParamRoute($path, $method, $data);
 
     /**
      * handle auto route match, when config `'autoRoute' => true`

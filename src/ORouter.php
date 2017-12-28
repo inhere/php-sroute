@@ -99,7 +99,7 @@ class ORouter extends AbstractRouter
         $data['original'] = $route;
         $this->routesData[$id] = $data;
         // $conf = ['dataId' => $id];
-        
+
         $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
         list($first, $conf) = $this->parseParamRoute($route, $params);
 
@@ -260,11 +260,11 @@ class ORouter extends AbstractRouter
         if ($allowedMethods && ($list = array_unique($allowedMethods))) {
             return [self::METHOD_NOT_ALLOWED, $path, $list];
         }
-        
+
         // oo ... not found
         return [self::NOT_FOUND, $path, null];
     }
-    
+
     /**
      * @param string $path
      * @param string $method
@@ -299,9 +299,11 @@ class ORouter extends AbstractRouter
                 if (false !== strpos($conf['methods'] . ',', $method . ',')) {
                     // $conf = $this->paddingRouteData($conf, $id);
                     $data = $this->routesData[$id];
-                    $data['matches'] = $this->filterMatches($matches, $data);
+                    $this->filterMatches($matches, $data);
 
-                    $this->cacheMatchedParamRoute($path, $method, $data);
+                    if ($this->tmpCacheNumber > 0) {
+                        $this->cacheMatchedParamRoute($path, $method, $data);
+                    }
 
                     return [self::FOUND, $path, $data];
                 }
@@ -327,9 +329,11 @@ class ORouter extends AbstractRouter
             if (preg_match($conf['regex'], $path, $matches)) {
                 // $conf = $this->paddingRouteData($conf, $id);
                 $data = $this->routesData[$id];
-                $data['matches'] = $this->filterMatches($matches, $data);
+                $this->filterMatches($matches, $data);
 
-                $this->cacheMatchedParamRoute($path, $method, $data);
+                if ($this->tmpCacheNumber > 0) {
+                    $this->cacheMatchedParamRoute($path, $method, $data);
+                }
 
                 return [self::FOUND, $path, $data];
             }
@@ -341,20 +345,21 @@ class ORouter extends AbstractRouter
     /**
      * @param string $path
      * @param string $method
-     * @param array $conf
+     * @param array $data
      */
-    protected function cacheMatchedParamRoute($path, $method, $conf)
+    protected function cacheMatchedParamRoute($path, $method, $data)
     {
         $cacheNumber = (int)$this->tmpCacheNumber;
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0 && !isset($this->routeCaches[$path][$method])) {
             if ($this->cacheCounter >= $cacheNumber) {
+                $this->cacheCounter--;
                 array_shift($this->routeCaches);
             }
 
             $this->cacheCounter++;
-            $this->routeCaches[$path][$method] = $conf;
+            $this->routeCaches[$path][$method] = $data;
         }
     }
 
