@@ -154,8 +154,13 @@ class ORouter extends AbstractRouter
             return [self::FOUND, $path, $routeInfo];
         }
 
-        $first = $this->getFirstFromPath($path);
+        $first = null;
         $allowedMethods = [];
+
+        // eg '/article/12'
+        if ($pos = strpos($path, '/', 1)) {
+            $first = substr($path, 1, $pos - 1);
+        }
 
         // is a regular dynamic route(the first node is 1th level index key).
         if ($first && isset($this->regularRoutes[$first])) {
@@ -287,7 +292,7 @@ class ORouter extends AbstractRouter
         $allowedMethods = '';
 
         foreach ($routesInfo as $id => $conf) {
-            // 0 === strpos($path, $conf['start']))
+            // 0 === strpos($path, $conf['start']) &&
             if (preg_match($conf['regex'], $path, $matches)) {
                 $allowedMethods .= $conf['methods'] . ',';
 

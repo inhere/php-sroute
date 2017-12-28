@@ -469,11 +469,6 @@ abstract class AbstractRouter implements RouterInterface
         return strpos($route, '{') === false && strpos($route, '[') === false;
     }
 
-    // public function createRoute()
-    // {
-    //     $route = clone $this->basicRoute;
-    // }
-
     /**
      * @param string|null $path
      * @param bool $ignoreLastSlash
@@ -483,11 +478,11 @@ abstract class AbstractRouter implements RouterInterface
     {
         // clear '//', '///' => '/'
         if (false !== strpos($path, '//')) {
-            $path = (string)preg_replace('#\/\/+#', '/', $path);
+            $path = str_replace('//', '/', $path);
         }
 
         // decode
-        $path = rawurldecode(trim($path));
+        $path = rawurldecode($path);
 
         // setting 'ignoreLastSlash'
         if ($path !== '/' && $ignoreLastSlash) {
@@ -495,20 +490,6 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         return $path;
-    }
-
-    /**
-     * @param string $path
-     * @return string|null
-     */
-    protected function getFirstFromPath($path)
-    {
-        // eg '/article/12'
-        if ($pos = strpos($path, '/', 1)) {
-            return substr($path, 1, $pos);
-        }
-
-        return null;
     }
 
     /**
@@ -587,6 +568,7 @@ abstract class AbstractRouter implements RouterInterface
         // 分析路由字符串是否是有规律的
         $first = null;
         $conf['regex'] = '#^' . $route . '$#';
+        // $conf['regex'] = '#^(?|' . $route . ')$#';
 
         // first node is a normal string
         // e.g '/user/{id}' first: 'user'; '/a/{post}' first: 'a'
