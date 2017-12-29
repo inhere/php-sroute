@@ -414,6 +414,28 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
+     * @param string $route
+     */
+    protected function formatRoutePattern(&$route)
+    {
+        $hasPrefix = (bool)$this->currentGroupPrefix;
+
+        // always add '/' prefix.
+        if ($route = trim($route)) {
+            $route = $route{0} === '/' ? $route : '/' . $route;
+        } elseif (!$hasPrefix) {
+            $route = '/';
+        }
+
+        $route = $this->currentGroupPrefix . $route;
+
+        // setting 'ignoreLastSlash'
+        if ($route !== '/' && $this->ignoreLastSlash) {
+            $route = rtrim($route, '/');
+        }
+    }
+
+    /**
      * is Static Route
      * @param string $route
      * @return bool

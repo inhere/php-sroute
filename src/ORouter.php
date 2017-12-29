@@ -55,22 +55,9 @@ class ORouter extends AbstractRouter
             $this->initialized = true;
         }
 
-        $hasPrefix = (bool)$this->currentGroupPrefix;
         $methods = $this->validateArguments($methods, $handler);
 
-        // always add '/' prefix.
-        if ($route = trim($route)) {
-            $route = $route{0} === '/' ? $route : '/' . $route;
-        } elseif (!$hasPrefix) {
-            $route = '/';
-        }
-
-        $route = $this->currentGroupPrefix . $route;
-
-        // setting 'ignoreLastSlash'
-        if ($route !== '/' && $this->ignoreLastSlash) {
-            $route = rtrim($route, '/');
-        }
+        $this->formatRoutePattern($route);
 
         $id = $this->routeCounter;
         $data = [
