@@ -139,11 +139,12 @@ class SimpleDispatcher implements DispatcherInterface
      * @param string $path
      * @param array $info
      * @return mixed
+     * @throws \Throwable
      */
     public function dispatch($status, $path, array $info)
     {
-        $args = isset($info['matches']) ? $info['matches'] : [];
-        $method = isset($info['requestMethod']) ? $info['requestMethod'] : null;
+        $args = $info['matches'] ?? [];
+        $method = $info['requestMethod'] ?? null;
 
         // not found
         if ($status === RouterInterface::NOT_FOUND) {
@@ -324,7 +325,7 @@ class SimpleDispatcher implements DispatcherInterface
     protected function defaultNotFoundHandler()
     {
         return function ($path) {
-            $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
+            $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
             header($protocol . ' 404 Not Found');
             echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
         };
@@ -337,7 +338,7 @@ class SimpleDispatcher implements DispatcherInterface
     {
         return function ($path, $method, $methods) {
             $allow = implode(',', $methods);
-            $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
+            $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
             header($protocol . ' 405 Method Not Allowed');
 
             echo "<div style='width: 500px; margin: 5% auto;'><h1>:( Method not allowed <code style='font-weight: normal;font-size: 16px'>for $method $path</code></h1>",
@@ -414,7 +415,7 @@ class SimpleDispatcher implements DispatcherInterface
      */
     public function getOption($name, $default = null)
     {
-        return isset($this->options[$name]) ? $this->options[$name] : $default;
+        return $this->options[$name] ?? $default;
     }
 
     /**

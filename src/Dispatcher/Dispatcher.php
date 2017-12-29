@@ -26,10 +26,11 @@ class Dispatcher extends SimpleDispatcher
      * @param string $path
      * @param array $info
      * @return mixed
+     * @throws \Throwable
      */
     public function dispatch($status, $path, array $info)
     {
-        $method = isset($info['requestMethod']) ? $info['requestMethod'] : null;
+        $method = $info['requestMethod'] ?? null;
 
         // not found
         if ($status === RouterInterface::NOT_FOUND) {
@@ -62,7 +63,7 @@ class Dispatcher extends SimpleDispatcher
         }
 
         $handler = $info['handler'];
-        $args['matches'] = isset($info['matches']) ? $info['matches'] : [];
+        $args['matches'] = $info['matches'] ?? [];
 
         try {
             // trigger route exec_start event

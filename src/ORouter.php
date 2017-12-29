@@ -104,7 +104,7 @@ class ORouter extends AbstractRouter
         $this->routesData[$id] = $data;
         // $conf = ['dataId' => $id];
 
-        $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
+        $params = $this->getAvailableParams($opts['params'] ?? []);
         list($first, $conf) = $this->parseParamRoute($route, $params);
 
         // route string have regular
@@ -380,6 +380,7 @@ class ORouter extends AbstractRouter
      * route callback handler dispatch
      ******************************************************************************/
 
+
     /**
      * Runs the callback for the given request
      * @param DispatcherInterface|array $dispatcher
@@ -390,21 +391,23 @@ class ORouter extends AbstractRouter
      */
     public function dispatch($dispatcher = null, $path = null, $method = null)
     {
-        if ($dispatcher) {
-            if ($dispatcher instanceof DispatcherInterface) {
-                $this->dispatcher = $dispatcher;
-            } elseif (\is_array($dispatcher)) {
-                $this->dispatcher = new Dispatcher($dispatcher);
-            }
+        if (!$dispatcher) {
+            $dispatcher = new Dispatcher;
+        } elseif (\is_array($dispatcher)) {
+            $dispatcher = new Dispatcher($dispatcher);
         }
 
-        if (!$this->dispatcher) {
-            $this->dispatcher = new Dispatcher;
+        if (!$dispatcher instanceof DispatcherInterface) {
+            throw new \InvalidArgumentException(
+                'The first argument is must an array OR an object instanceof the DispatcherInterface'
+            );
         }
 
-        return $this->dispatcher->setMatcher(function ($p, $m) {
-            return $this->match($p, $m);
-        })->dispatch($path, $method);
+        if (!$dispatcher->getRouter()) {
+            $dispatcher->setRouter($this);
+        }
+
+        return $dispatcher->dispatchUri($path, $method);
     }
 
     /**
