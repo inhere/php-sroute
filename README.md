@@ -392,10 +392,10 @@ $route = $router->match($path, $method);
 
 ## 路由调度
 
-已内置了一个路由调度器 `Inhere\Route\Dispatcher`
+已内置了一个路由调度器 `Inhere\Route\Dispatcher\Dispatcher`
 
 ```php
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

@@ -8,6 +8,9 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Dispatcher\Dispatcher;
+use Inhere\Route\Dispatcher\DispatcherInterface;
+
 /**
  * Class ORouter - this is object version
  * @package Inhere\Route
@@ -24,9 +27,6 @@ class ORouter extends AbstractRouter
         // 'schemas' => [ 'http' ], // allowed schemas
         // 'time' => ['12'],
     ];
-
-    /** @var DispatcherInterface */
-    private $dispatcher;
 
     /*******************************************************************************
      * route collection
@@ -84,6 +84,10 @@ class ORouter extends AbstractRouter
         // it is static route
         if (self::isStaticRoute($route)) {
             foreach ($methods as $method) {
+                if ($method === 'ANY') {
+                    continue;
+                }
+
                 $this->routeCounter++;
                 $this->staticRoutes[$route][$method] = $conf;
             }
@@ -97,11 +101,15 @@ class ORouter extends AbstractRouter
 
         // route string have regular
         if ($first) {
-            $conf['methods'] = implode(',', $methods);
+            $conf['methods'] = implode(',', $methods) . ',';
             $this->routeCounter++;
             $this->regularRoutes[$first][] = $conf;
         } else {
             foreach ($methods as $method) {
+                if ($method === 'ANY') {
+                    continue;
+                }
+
                 $this->routeCounter++;
                 $this->vagueRoutes[$method][] = $conf;
             }
@@ -129,7 +137,6 @@ class ORouter extends AbstractRouter
             } elseif (\is_callable($matchAll)) {
                 return [self::FOUND, $path, [
                     'handler' => $matchAll,
-                    'option' => [],
                 ]];
             }
         }
@@ -181,7 +188,6 @@ class ORouter extends AbstractRouter
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
             return [self::FOUND, $path, [
                 'handler' => $handler,
-                'option' => [],
             ]];
         }
 
@@ -221,7 +227,22 @@ class ORouter extends AbstractRouter
             return [self::NOT_FOUND, $path, null];
         }
 
-        // collect allowed methods from: staticRoutes, vagueRoutes
+        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
+        return $this->findAllowedMethods($path, $method, $allowedMethods);
+    }
+
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
+
+    /**
+     * @param string $path
+     * @param string $method
+     * @param array $allowedMethods
+     * @return array
+     */
+    protected function findAllowedMethods($path, $method, array $allowedMethods)
+    {
         if (isset($this->staticRoutes[$path])) {
             $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
         }
@@ -246,10 +267,6 @@ class ORouter extends AbstractRouter
         return [self::NOT_FOUND, $path, null];
     }
 
-    /*******************************************************************************
-     * helper methods
-     ******************************************************************************/
-
     /**
      * @param array $routesData
      * @param string $path
@@ -262,12 +279,14 @@ class ORouter extends AbstractRouter
 
         foreach ($routesData as $conf) {
             if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
-                $allowedMethods .= $conf['methods'] . ',';
+                $allowedMethods .= $conf['methods'];
 
-                if (false !== strpos($conf['methods'] . ',', $method . ',')) {
-                    $conf['matches'] = $this->filterMatches($matches, $conf);
+                if (false !== strpos($conf['methods'], $method . ',')) {
+                    $this->filterMatches($matches, $conf);
 
-                    $this->cacheMatchedParamRoute($path, $method, $conf);
+                    if ($this->tmpCacheNumber > 0) {
+                        $this->cacheMatchedParamRoute($path, $method, $conf);
+                    }
 
                     return [self::FOUND, $path, $conf];
                 }
@@ -291,9 +310,11 @@ class ORouter extends AbstractRouter
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
-                $conf['matches'] = $this->filterMatches($matches, $conf);
+                $this->filterMatches($matches, $conf);
 
-                $this->cacheMatchedParamRoute($path, $method, $conf);
+                if ($this->tmpCacheNumber > 0) {
+                    $this->cacheMatchedParamRoute($path, $method, $conf);
+                }
 
                 return [self::FOUND, $path, $conf];
             }
@@ -336,21 +357,23 @@ class ORouter extends AbstractRouter
      */
     public function dispatch($dispatcher = null, $path = null, $method = null)
     {
-        if ($dispatcher) {
-            if ($dispatcher instanceof DispatcherInterface) {
-                $this->dispatcher = $dispatcher;
-            } elseif (\is_array($dispatcher)) {
-                $this->dispatcher = new Dispatcher($dispatcher);
-            }
+        if (!$dispatcher) {
+            $dispatcher = new Dispatcher;
+        } elseif (\is_array($dispatcher)) {
+            $dispatcher = new Dispatcher($dispatcher);
         }
 
-        if (!$this->dispatcher) {
-            $this->dispatcher = new Dispatcher;
+        if (!$dispatcher instanceof DispatcherInterface) {
+            throw new \InvalidArgumentException(
+                'The first argument is must an array OR an object instanceof the DispatcherInterface'
+            );
         }
 
-        return $this->dispatcher->setMatcher(function ($p, $m) {
-            return $this->match($p, $m);
-        })->dispatch($path, $method);
+        if (!$dispatcher->getRouter()) {
+            $dispatcher->setRouter($this);
+        }
+
+        return $dispatcher->dispatchUri($path, $method);
     }
 
     /**
@@ -359,25 +382,6 @@ class ORouter extends AbstractRouter
     public function count()
     {
         return $this->routeCounter;
-    }
-
-    /**
-     * @return DispatcherInterface
-     */
-    public function getDispatcher()
-    {
-        return $this->dispatcher;
-    }
-
-    /**
-     * @param DispatcherInterface $dispatcher
-     * @return $this
-     */
-    public function setDispatcher(DispatcherInterface $dispatcher)
-    {
-        $this->dispatcher = $dispatcher;
-
-        return $this;
     }
 
     /**

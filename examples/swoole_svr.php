@@ -4,14 +4,12 @@
  * User: inhere
  * Date: 2017/7/14
  * Time: 下午9:12
- *
  * you can test use:
  *  php examples/swoole_svr.php
- *
  * then you can access url: http://127.0.0.1:5675
  */
 
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\ORouter;
 
 require dirname(__DIR__) . '/tests/boot.php';
@@ -21,7 +19,6 @@ $router = new ORouter;
 // set config
 $router->setConfig([
     'ignoreLastSlash' => true,
-    'dynamicAction' => true,
 
     'tmpCacheNumber' => 100,
 
@@ -32,13 +29,12 @@ $router->setConfig([
 
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' =>  1,
+    'autoRoute' => 1,
     'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
-
-$router->get('/routes', function() use($router) {
+$router->get('/routes', function () use ($router) {
     var_dump(
         $router->getStaticRoutes(),
         $router->getRegularRoutes(),
@@ -53,7 +49,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (ORouter $router) use($rs){
+        $router->group($route[0], function (ORouter $router) use ($rs) {
             foreach ($rs as $r) {
                 $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
             }
@@ -81,7 +77,7 @@ $server->set([
 
 ]);
 
-$server->on('request', function($request, $response) use($dispatcher) {
+$server->on('request', function ($request, $response) use ($dispatcher) {
     /** @var  \Swoole\Http\Response $response */
     $uri = $request->server['request_uri'];
     $method = $request->server['request_method'];

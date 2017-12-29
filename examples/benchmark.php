@@ -15,84 +15,16 @@ require dirname(__DIR__) . '/tests/boot.php';
 
 global $argv;
 $n = isset($argv[1]) ? (int)$argv[1] : 1000;
+$c = isset($argv[2]) ? (int)$argv[2] : 5;
 
-echo "There are generate $n routes. and dynamic route with 50% chance\n\n";
-
-// generates a random request url
-function random_request_url()
-{
-    $characters = 'abcdefghijklmnopqrstuvwxyz';
-    $charactersLength = strlen($characters);
-    $randomString = '/';
-    $rand = random_int(5, 20);
-
-    // create random path of 5-20 characters
-    for ($i = 0; $i < $rand; $i++) {
-        $randomString .= $characters[random_int(0, $charactersLength - 1)];
-
-        if (random_int(1, 10) === 1) {
-            $randomString .= '/';
-        }
-    }
-
-    $v = random_int(1, 10);
-
-    // add dynamic route with 50% chance
-    if ($v <= 5) {
-        $randomString = rtrim($randomString, '/') . '/{name}';
-    }
-
-    return $randomString;
-}
-
-// generate a random request method
-function random_request_method()
-{
-    static $methods = ['GET', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE'];
-    $random_key = array_rand($methods);
-    return $methods[$random_key];
-}
-
-function pretty_echo($msg, $style = 'green', $nl = false)
-{
-    static $styles = [
-        'yellow' => '1;33',
-        'magenta' => '1;35',
-        'white' => '1;37',
-        'black' => '0;30',
-        'red' => '0;31',
-        'green' => '0;32',
-        'brown' => '0;33',
-        'blue' => '0;34',
-        'cyan' => '0;36',
-
-        'light_red' => '1;31',
-        'light_blue' => '1;34',
-        'light_gray' => '37',
-        'light_green' => '1;32',
-        'light_cyan' => '1;36',
-    ];
-
-    if (false === strpos(PHP_OS, 'WIN') && isset($styles[$style])) {
-        return sprintf("\033[%sm%s\033[0m" . ($nl ? PHP_EOL : ''), $styles[$style], $msg);
-    }
-
-    return $msg . ($nl ? PHP_EOL : '');
-}
-
-function pretty_match_result($ret)
-{
-    $str = json_encode($ret, JSON_PRETTY_PRINT);
-
-    return str_replace('\\', '', $str);
-}
+echo "There are generate $n routes. and dynamic route with {$c}0% chance\n\n";
 
 // prepare benchmark data
 $requests = [];
 for ($i = 0; $i < $n; $i++) {
     $requests[] = [
         'method' => random_request_method(),
-        'url' => random_request_url(),
+        'url' => random_request_url($c),
     ];
 }
 
@@ -126,16 +58,15 @@ $router->dumpCache();
  */
 
 $r = $requests[0];
-$uri = str_replace(['{', '}'], '', $r['url']);
+$uri = str_replace(['{', '}'], '1', $r['url']);
 
 $start = microtime(true);
-$ret = $router->match($uri, $r['method']);
+$ret['first'] = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeF = $end - $start;
 echo 'Match time (first route):  ',
 pretty_echo(number_format($matchTimeF, 6)),
 " s.\n - URI: {$uri}, will match: {$r['url']}\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 /**
  * match random route
@@ -143,47 +74,45 @@ pretty_echo(number_format($matchTimeF, 6)),
 
 // pick random route to match
 $r = $requests[random_int(0, $n)];
-$uri = str_replace(['{', '}'], '', $r['url']);
+$uri = str_replace(['{', '}'], '2', $r['url']);
 
 $start = microtime(true);
-$ret = $router->match($uri, $r['method']);
+$ret['random'] = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeR = $end - $start;
 echo 'Match time (random route): ',
 pretty_echo(number_format($matchTimeR, 6)),
 " s.\n - URI: {$uri}, will match: {$r['url']}\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 /**
  * match last route
  */
 $r = $requests[$n - 1];
-$uri = str_replace(['{', '}'], '', $r['url']);
+$uri = str_replace(['{', '}'], '3', $r['url']);
 
 $start = microtime(true);
-$ret = $router->match($uri, $r['method']);
+$ret['last'] = $router->match($uri, $r['method']);
 $end = microtime(true);
 $matchTimeE = $end - $start;
 echo 'Match time (last route):   ',
 pretty_echo(number_format($matchTimeE, 6)),
 " s.\n - URI: {$uri}, will match: {$r['url']}\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 /**
  * match unknown route
  */
 $start = microtime(true);
-$ret = $router->match('/55-foo-bar', 'GET');
+$ret['unknown'] = $router->match('/55-foo-bar', 'GET');
 $end = microtime(true);
 $matchTimeU = $end - $start;
 echo 'Match time (unknown route): ', pretty_echo(number_format($matchTimeU, 6)), " s\n";
-// echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 // print totals
 $totalTime = number_format($buildTime + $matchTimeF + $matchTimeR + $matchTimeU, 5);
 echo PHP_EOL . 'Total time: ' . $totalTime . ' s' . PHP_EOL;
 echo 'Memory usage: ' . round((memory_get_usage() - $startMem) / 1024) . ' KB' . PHP_EOL;
 echo 'Peak memory usage: ' . round(memory_get_peak_usage(true) / 1024) . ' KB' . PHP_EOL;
+echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 /*
 // 2017.12.3

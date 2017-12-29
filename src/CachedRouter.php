@@ -38,7 +38,7 @@ class CachedRouter extends ORouter
      * dump routes cache on matching
      * @var bool
      */
-    protected $cacheOnMatching = true;
+    protected $cacheOnMatching = false;
 
     /**
      * object constructor.
@@ -63,17 +63,6 @@ class CachedRouter extends ORouter
 
         // read route caches from cache file
         $this->loadRoutesCache();
-    }
-
-    private $indexId = 0;
-
-    /**
-     * generate index id
-     * @return int
-     */
-    protected function generateId()
-    {
-        return ++$this->indexId;
     }
 
     /**

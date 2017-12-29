@@ -450,7 +450,7 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // decode
-        $path = rawurldecode(trim($path));
+        $path = rawurldecode($path);
 
         // setting 'ignoreLastSlash'
         if ($path !== '/' && $ignoreLastSlash) {
@@ -463,12 +463,14 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @param array $matches
      * @param array $conf
-     * @return array
+     * @return bool
      */
-    protected function filterMatches(array $matches, array $conf)
+    protected function filterMatches(array $matches, array &$conf)
     {
         if (!$matches) {
-            return $matches;
+            $conf['matches'] = [];
+
+            return true;
         }
 
         // clear all int key
@@ -476,10 +478,12 @@ abstract class AbstractRouter implements RouterInterface
 
         // apply some default param value
         if (isset($conf['option']['defaults'])) {
-            $matches = array_merge($conf['option']['defaults'], $matches);
+            $conf['matches'] = array_merge($conf['option']['defaults'], $matches);
+        } else {
+            $conf['matches'] = $matches;
         }
 
-        return $matches;
+        return true;
     }
 
     /**

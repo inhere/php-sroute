@@ -2,7 +2,7 @@
 namespace Inhere\Route\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 
 /**
  * @covers Dispatcher
