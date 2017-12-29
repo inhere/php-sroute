@@ -64,15 +64,6 @@ abstract class AbstractRouter implements RouterInterface
     protected $staticRoutes = [];
 
     /**
-     * @var array
-     * [
-     *  '/user/login#GET' => int, (int: data index in the {@see $routesData})
-     *  '/user/login#PUT' => int,
-     * ]
-     */
-    protected $flatStaticRoutes = [];
-
-    /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
      * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
      * e.g '/hello/{name}' '/user/{id}'
@@ -135,28 +126,6 @@ abstract class AbstractRouter implements RouterInterface
      */
     protected $vagueRoutes = [];
 
-    /**
-     * There are last route caches
-     * @see AbstractRouter::$staticRoutes
-     * @var array[]
-     * [
-     *     '/user/login' => [
-     *          // METHOD => [...]
-     *          'GET' => [
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
-     *          'PUT' => [
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
-     *          ...
-     *      ],
-     *      ... ...
-     * ]
-     */
-    protected $routeCaches = [];
-
     /** @var array[] */
     protected $routesData = [];
 
@@ -171,23 +140,10 @@ abstract class AbstractRouter implements RouterInterface
     public $routesFile;
 
     /**
-     * Flatten static routes info {@see $flatStaticRoutes}
-     * @var bool
-     */
-    public $flattenStatic = false;
-
-    /**
      * Ignore last slash char('/'). If is True, will clear last '/'.
      * @var bool
      */
     public $ignoreLastSlash = false;
-
-    /**
-     * The param route cache number.
-     * @notice If is not daemon application, Please don't enable it.
-     * @var int
-     */
-    public $tmpCacheNumber = 0;
 
     /**
      * Match all request.
@@ -242,7 +198,6 @@ abstract class AbstractRouter implements RouterInterface
     {
         $this->setConfig($config);
 
-        // $this->basicRoute = new Route();
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
 
@@ -265,7 +220,6 @@ abstract class AbstractRouter implements RouterInterface
         static $props = [
             'routesFile' => 1,
             'ignoreLastSlash' => 1,
-            'tmpCacheNumber' => 1,
             'notAllowedAsNotFound' => 1,
             'matchAll' => 1,
             'autoRoute' => 1,
@@ -621,13 +575,6 @@ abstract class AbstractRouter implements RouterInterface
     abstract protected function findInVagueRoutes(array $routesInfo, $path, $method);
 
     /**
-     * @param string $path
-     * @param string $method
-     * @param array $data
-     */
-    abstract protected function cacheMatchedParamRoute($path, $method, $data);
-
-    /**
      * handle auto route match, when config `'autoRoute' => true`
      * @param string $path The route path
      * @internal string $cnp controller namespace. eg: 'app\\controllers'
@@ -828,11 +775,4 @@ abstract class AbstractRouter implements RouterInterface
         return $this->routesData;
     }
 
-    /**
-     * @return array
-     */
-    public function getRouteCaches()
-    {
-        return $this->routeCaches;
-    }
 }

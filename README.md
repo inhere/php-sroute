@@ -10,7 +10,7 @@
 - 支持路由组。支持路由参数定义，以及丰富的自定义路由选项(比如设定 默认值、domains、schemas等检查限制)
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
 - 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute`. 
-- 2个版本：对象版本 `ORouter`, 支持路由缓存的对象版本 `CachedRouter`
+- 4个版本：静态类版本 `SRouter`, 对象版本 `ORouter`, 支持路由缓存的版本 `CachedRouter`, 适用于常驻内存的 `DaemonRouter`
 
 内置了一个调度器：
 
@@ -251,6 +251,10 @@ $router->map(['get', 'post'], '/im/{name}[/{age}]', function(array $params) {
 
 Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
 
+## 路由配置项
+
+有一些可用的配置项，提供一些自定义设置。**这些配置都是可选的**
+
 ### 自动匹配路由
 
 支持根据请求的URI自动匹配路由(就像 yii 一样), 需配置 `autoRoute`. 
@@ -295,7 +299,9 @@ Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
 
 将会直接执行此回调后停止执行
 
-## 设置路由配置
+### 设置路由配置
+
+> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
 
 ```php
 // set config
@@ -306,8 +312,6 @@ $router->setConfig([
     'controllerSuffix' => 'Controller',
 ]);
 ```
-
-> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
 
 ## 路由匹配
 
@@ -329,6 +333,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 $route = $router->match($path, $method);
 ```
+
+### 匹配结果说明
 
 <a name="#matched-route-info"></a>
 将会返回如下格式的信息. 可以根据此信息进行 判断匹配是否成功 -> 路由调度
@@ -472,7 +478,8 @@ $router->any('/user[/{name}]', 'App\Controllers\UserController');
 ## 开始路由匹配和调度
 
 ```php
-$router->dispatch($dispatcher);
+$dispatcher->setRouter($router);
+$dispatcher->dispatchUri();
 ```
 
 ## 运行示例

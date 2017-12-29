@@ -16,7 +16,9 @@ namespace Inhere\Route;
 function createRouter(\Closure $closure, array $config = [])
 {
     $router = new ORouter($config);
+
     $closure($router);
+
     return $router;
 }
 
@@ -28,7 +30,24 @@ function createRouter(\Closure $closure, array $config = [])
 function createCachedRouter(\Closure $closure, array $config = [])
 {
     $router = new CachedRouter($config);
+
     $closure($router);
     $router->dumpCache();
+
+    return $router;
+}
+
+/**
+ * @param \Closure $closure
+ * @param array $config
+ * @return DaemonRouter
+ */
+function createDaemonRouter(\Closure $closure, array $config = [])
+{
+    $router = new DaemonRouter($config);
+
+    $closure($router);
+    $router->flattenStatics();
+
     return $router;
 }
