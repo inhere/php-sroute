@@ -392,10 +392,10 @@ $route = $router->match($path, $method);
 
 ## 路由调度
 
-已内置了一个路由调度器 `Inhere\Route\Dispatcher`
+已内置了一个路由调度器 `Inhere\Route\Dispatcher\Dispatcher`
 
 ```php
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
@@ -515,4 +515,4 @@ MIT
  
 ### `inhere/http` [github](https://github.com/inhere/php-http) [git@osc](https://git.oschina.net/inhere/php-http)
 
-http 工具库(`request` 请求 `response` 响应 `curl` curl请求库，有简洁、完整和并发请求三个版本的类)
+http message 库 PSR 7 实现

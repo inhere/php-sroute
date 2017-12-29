@@ -2,29 +2,29 @@
 /**
  * Created by PhpStorm.
  * User: inhere
- * Date: 2017/7/14
- * Time: 下午8:03
+ * Date: 2017-12-29
+ * Time: 11:10
  */
 
-namespace Inhere\Route;
+namespace Inhere\Route\Dispatcher;
+
+use Inhere\Route\ORouter;
+use Inhere\Route\RouterInterface;
 
 /**
- * Class Dispatcher
- * @package Inhere\Route
+ * Class SimpleDispatcher
+ * @package Inhere\Route\Dispatcher
  */
-class Dispatcher implements DispatcherInterface
+class SimpleDispatcher implements DispatcherInterface
 {
-    /**
-     * event handlers
-     * @var array
-     */
-    private static $events = [];
+    /** @var RouterInterface */
+    private $router;
 
     /**
      * some setting for self
      * @var array
      */
-    protected $config = [
+    protected $options = [
         // Filter the `/favicon.ico` request.
         'filterFavicon' => false,
 
@@ -38,66 +38,65 @@ class Dispatcher implements DispatcherInterface
         // enable dynamic action.
         // e.g
         // if set True;
-        //  $router->any('/demo/{act}', app\controllers\Demo::class);
-        //  you access '/demo/test' will call 'app\controllers\Demo::test()'
+        //  $router->any('/demo/{act}', App\Controllers\Demo::class);
+        //  you access '/demo/test' will call 'App\Controllers\Demo::test()'
         'dynamicAction' => false,
         // @see ORouter::$globalParams['act']
         'dynamicActionVar' => 'act',
 
         // action executor. will auto call controller's executor method to run all action.
         // e.g: 'actionExecutor' => 'run'`
-        //  $router->any('/demo/{act}', app\controllers\Demo::class);
-        //  you access `/demo/test` will call `app\controllers\Demo::run('test')`
+        //  $router->any('/demo/{act}', App\Controllers\Demo::class);
+        //  you access `/demo/test` will call `App\Controllers\Demo::run('test')`
         'actionExecutor' => '', // 'run'
-    ];
 
-    /** @var \Closure */
-    private $matcher;
+        // events
+    ];
 
     /** @var bool */
     private $initialized;
 
     /**
      * object creator.
-     * @param \Closure $matcher
-     * @param array $config
+     * @param RouterInterface $router
+     * @param array $options
      * @return self
      * @throws \LogicException
      */
-    public static function make(array $config = [], \Closure $matcher = null)
+    public static function make(array $options = [], RouterInterface $router = null)
     {
-        return new self($config, $matcher);
+        return new static($options, $router);
     }
 
     /**
      * object constructor.
-     * @param \Closure $matcher
-     * @param array $config
+     * @param RouterInterface $router
+     * @param array $options
      * @throws \LogicException
      */
-    public function __construct(array $config = [], \Closure $matcher = null)
+    public function __construct(array $options = [], RouterInterface $router = null)
     {
         $this->initialized = false;
-        $this->setConfig($config);
+        $this->initOptions($options);
 
-        if ($matcher) {
-            $this->setMatcher($matcher);
+        if ($router) {
+            $this->setRouter($router);
         }
     }
 
     /**
-     * @param array $config
+     * @param array $options
      * @throws \LogicException
      */
-    public function setConfig(array $config)
+    public function initOptions(array $options)
     {
         if ($this->initialized) {
             throw new \LogicException('Has already started to distributed routing, and configuration is not allowed!');
         }
 
-        foreach ($config as $name => $value) {
-            if (isset($this->config[$name])) {
-                $this->config[$name] = $value;
+        foreach ($options as $name => $value) {
+            if (isset($this->options[$name])) {
+                $this->options[$name] = $value;
             } else {
                 // maybe it is a event
                 $this->on($name, $value);
@@ -105,125 +104,70 @@ class Dispatcher implements DispatcherInterface
         }
     }
 
-    /*******************************************************************************
-     * route callback handler dispatch
-     ******************************************************************************/
-
     /**
-     * @see ORouter::match()
-     * @param string $path
-     * @param string $method
-     * @return array|null
-     */
-    protected function matchRoutePath($path, $method)
-    {
-        if (!$matcher = $this->matcher) {
-            throw new \RuntimeException('Must be setting the property [matcher] before call dispatch().');
-        }
-
-        if (!$this->initialized) {
-            $this->initialized = true;
-        }
-
-        return $matcher($path, $method);
-    }
-
-    /**
-     * Runs the callback for the given request
+     * Runs the callback for the given path and method.
      * @param string $path
      * @param null|string $method
-     * @param array $args
      * @return mixed
      * @throws \Throwable
      */
-    public function dispatch($path = null, $method = null, array $args = [])
+    public function dispatchUri($path = null, $method = null)
     {
-        $path = $path ?: parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $path = $path ?: $_SERVER['REQUEST_URI'];
+
+        if (strpos($path, '?')) {
+            $path =  parse_url($path, PHP_URL_PATH);
+        }
 
         // if 'filterFavicon' setting is TRUE
-        if ($path === self::FAV_ICON && $this->config['filterFavicon']) {
+        if ($path === self::FAV_ICON && $this->options['filterFavicon']) {
             return null;
         }
 
         $method = $method ?: $_SERVER['REQUEST_METHOD'];
-        list($status, $path, $route) = $this->matchRoutePath($path, $method);
 
-        // not found || method not allowed
+        list($status, $path, $info) = $this->router->match($path, $method);
+
+        $info['requestMethod'] = $method;
+
+        return $this->dispatch($status, $path, $info);
+    }
+
+    /**
+     * Dispatch route handler for the given route info.
+     * @param int $status
+     * @param string $path
+     * @param array $info
+     * @return mixed
+     */
+    public function dispatch($status, $path, array $info)
+    {
+        $args = isset($info['matches']) ? $info['matches'] : [];
+        $method = isset($info['requestMethod']) ? $info['requestMethod'] : null;
+
+        // not found
         if ($status === RouterInterface::NOT_FOUND) {
             return $this->handleNotFound($path, $method);
         }
 
+        // method not allowed
         if ($status === RouterInterface::METHOD_NOT_ALLOWED) {
-            return $this->handleNotAllowed($path, $method, $route);
+            return $this->handleNotAllowed($path, $method, $info);
         }
-
-        // trigger route found event
-        $this->fire(self::ON_FOUND, [$path, $route]);
 
         $result = null;
-        $options = [];
-
-        if (isset($route['option'])) {
-            $options = $route['option'];
-            unset($route['option']);
-        }
-
-        // fire enter event
-        // schema,domains ... metadata validate
-        if (isset($options['enter']) && false === $this->fireCallback($options['enter'], [$options, $path])) {
-            return $result;
-        }
-
-        $handler = $route['handler'];
-        $args['matches'] = isset($route['matches']) ? $route['matches'] : [];
 
         try {
-            // trigger route exec_start event
-            $this->fire(self::ON_EXEC_START, [$path, $route]);
-
-            $result = $this->callRouteHandler($path, $method, $handler, $args);
-
-            // fire leave event
-            if (isset($options['leave'])) {
-                $this->fireCallback($options['leave'], [$options, $path]);
-            }
-
-            // trigger route exec_end event
-            $this->fire(self::ON_EXEC_END, [$path, $route]);
+            $result = $this->callRouteHandler($path, $method, $info['handler'], $args);
         } catch (\Exception $e) {
-            // trigger route exec_error event
-            if (self::hasEventHandler(self::ON_EXEC_ERROR)) {
-                return $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
-            }
-
-            throw $e;
+            $this->handleException($e, $path, $info);
+            // throw new \RuntimeException($e->getMessage(), __LINE__, $e);
         } catch (\Throwable $e) {
-            if (self::hasEventHandler(self::ON_EXEC_ERROR)) {
-                // trigger route exec_error event
-                return $this->fire(self::ON_EXEC_ERROR, [$e, $path, $route]);
-            }
-
-            throw $e;
+            // throw new \RuntimeException($e->getMessage(), __LINE__, $e);
+            $this->handleException($e, $path, $info);
         }
 
         return $result;
-    }
-
-    /**
-     * @param array $options
-     * [
-     *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
-     *     'schemes' => ['https'],
-     * ]
-     */
-    protected function validateMetadata(array $options)
-    {
-        // 1. validate Schema
-
-        // 2. validate validateDomains
-        // $serverName = $_SERVER['SERVER_NAME'];
-
-        // 3. more something ...
     }
 
     /**
@@ -259,7 +203,7 @@ class Dispatcher implements DispatcherInterface
                 return $handler(...$args);
             }
 
-            // e.g `controllers\Home@index` Or only `controllers\Home`
+            // e.g `Controllers\Home@index` Or only `Controllers\Home`
             $segments = explode('@', trim($handler));
         } else {
             throw new \InvalidArgumentException('Invalid route handler');
@@ -273,24 +217,24 @@ class Dispatcher implements DispatcherInterface
             $action = $segments[1];
 
             // use dynamic action
-        } elseif ($this->config['dynamicAction'] && ($var = $this->config['dynamicActionVar'])) {
-            $action = isset($vars[$var]) ? trim($vars[$var], '/') : $this->config['defaultAction'];
+        } elseif ($this->options['dynamicAction'] && ($var = $this->options['dynamicActionVar'])) {
+            $action = isset($vars[$var]) ? trim($vars[$var], '/') : $this->options['defaultAction'];
 
             // defined default action
-        } elseif (!$action = $this->config['defaultAction']) {
+        } elseif (!$action = $this->options['defaultAction']) {
             throw new \RuntimeException("please config the route path [$path] controller action to call");
         }
 
         $action = ORouter::convertNodeStr($action);
-        $actionMethod = $action . $this->config['actionSuffix'];
+        $actionMethod = $action . $this->options['actionSuffix'];
 
         // if set the 'actionExecutor', the action handle logic by it.
-        if ($executor = $this->config['actionExecutor']) {
+        if ($executor = $this->options['actionExecutor']) {
             return $controller->$executor($actionMethod, $args);
         }
 
         // action method is not exist
-        if (!$action || !method_exists($controller, $actionMethod)) {
+        if (!method_exists($controller, $actionMethod)) {
             return $this->handleNotFound($path, $method, true);
         }
 
@@ -310,30 +254,25 @@ class Dispatcher implements DispatcherInterface
     protected function handleNotFound($path, $method, $actionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
-        if (!isset(self::$events[self::ON_NOT_FOUND])) {
-            $notFoundHandler = $this->defaultNotFoundHandler();
+        if (!$handler = $this->getOption(self::ON_NOT_FOUND)) {
+            $handler = $this->defaultNotFoundHandler();
 
-            $this->on(self::ON_NOT_FOUND, $notFoundHandler);
-        } else {
-            $notFoundHandler = self::$events[self::ON_NOT_FOUND];
-
+            $this->setOption(self::ON_NOT_FOUND, $handler);
             // is a route path. like '/site/notFound'
-            if (\is_string($notFoundHandler) && '/' === $notFoundHandler{0}) {
-                $_GET['_src_path'] = $path;
+        } else if (\is_string($handler) && '/' === $handler{0}) {
+            $_GET['_src_path'] = $path;
 
-                if ($path === $notFoundHandler) {
-                    unset(self::$events[self::ON_NOT_FOUND]);
-                    $handler = $this->defaultNotFoundHandler();
+            if ($path === $handler) {
+                $defaultHandler = $this->defaultNotFoundHandler();
 
-                    return $handler($path, $method);
-                }
-
-                return $this->dispatch($notFoundHandler, $method);
+                return $defaultHandler($path, $method);
             }
+
+            return $this->dispatchUri($handler, $method);
         }
 
         // trigger notFound event
-        return $this->fireCallback($notFoundHandler, [$path, $method, $actionNotExist]);
+        return $this->fireCallback($handler, [$path, $method, $actionNotExist]);
     }
 
     /**
@@ -346,30 +285,37 @@ class Dispatcher implements DispatcherInterface
     protected function handleNotAllowed($path, $method, array $methods)
     {
         // Run the 'NotAllowed' callback if the route was not found
-        if (!isset(self::$events[self::ON_METHOD_NOT_ALLOWED])) {
+        if (!$handler = $this->getOption(self::ON_METHOD_NOT_ALLOWED)) {
             $handler = $this->defaultNotAllowedHandler();
 
-            $this->on(self::ON_METHOD_NOT_ALLOWED, $handler);
-        } else {
-            $handler = self::$events[self::ON_METHOD_NOT_ALLOWED];
+            $this->setOption(self::ON_METHOD_NOT_ALLOWED, $handler);
 
             // is a route path. like '/site/notFound'
-            if (\is_string($handler) && '/' === $handler{0}) {
-                $_GET['_src_path'] = $path;
+        } elseif (\is_string($handler) && '/' === $handler{0}) {
+            $_GET['_src_path'] = $path;
 
-                if ($path === $handler) {
-                    unset(self::$events[self::ON_METHOD_NOT_ALLOWED]);
-                    $handler = $this->defaultNotAllowedHandler();
+            if ($path === $handler) {
+                $defaultHandler = $this->defaultNotAllowedHandler();
 
-                    return $handler($path, $method, $methods);
-                }
-
-                return $this->dispatch($handler, $method);
+                return $defaultHandler($path, $method, $methods);
             }
+
+            return $this->dispatchUri($handler, $method);
         }
 
         // trigger methodNotAllowed event
         return $this->fireCallback($handler, [$path, $method, $methods]);
+    }
+
+
+    /**
+     * @param \Exception|\Throwable $e
+     * @param string $path
+     * @param array $info
+     */
+    public function handleException($e, $path, array $info)
+    {
+        // handle ...
     }
 
     /**
@@ -400,20 +346,6 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @param null $key
-     * @param null $default
-     * @return array|mixed
-     */
-    public function getConfig($key = null, $default = null)
-    {
-        if ($key) {
-            return isset($this->config[$key]) ? $this->config[$key] : $default;
-        }
-
-        return $this->config;
-    }
-
-    /**
      * Defines callback on happen event
      * @param $event
      * @param callable $handler
@@ -421,23 +353,8 @@ class Dispatcher implements DispatcherInterface
     public function on($event, $handler)
     {
         if (self::isSupportedEvent($event)) {
-            self::$events[$event] = $handler;
+            $this->options[$event] = $handler;
         }
-    }
-
-    /**
-     * Trigger event
-     * @param $event
-     * @param array $args
-     * @return mixed
-     */
-    protected function fire($event, array $args = [])
-    {
-        if (isset(self::$events[$event]) && ($cb = self::$events[$event])) {
-            return $this->fireCallback($cb, $args);
-        }
-
-        return null;
     }
 
     /**
@@ -482,12 +399,22 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @param $event
-     * @return bool
+     * @param string $name
+     * @param $value
      */
-    public static function hasEventHandler($event)
+    public function setOption($name, $value)
     {
-        return isset(self::$events[$event]);
+        $this->options[$name] = $value;
+    }
+
+    /**
+     * @param string $name
+     * @param null $default
+     * @return mixed|null
+     */
+    public function getOption($name, $default = null)
+    {
+        return isset($this->options[$name]) ? $this->options[$name] : $default;
     }
 
     /**
@@ -506,8 +433,8 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @param $name
-     * @return array
+     * @param string $name
+     * @return bool
      */
     public static function isSupportedEvent($name)
     {
@@ -515,21 +442,37 @@ class Dispatcher implements DispatcherInterface
     }
 
     /**
-     * @return \Closure
+     * @return RouterInterface
      */
-    public function getMatcher()
+    public function getRouter()
     {
-        return $this->matcher;
+        return $this->router;
     }
 
     /**
-     * @param \Closure $matcher
-     * @return $this
+     * @param RouterInterface $router
+     * @return SimpleDispatcher
      */
-    public function setMatcher(\Closure $matcher)
+    public function setRouter(RouterInterface $router)
     {
-        $this->matcher = $matcher;
+        $this->router = $router;
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param array $options
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
     }
 }

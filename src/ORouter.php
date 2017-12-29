@@ -8,13 +8,16 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Dispatcher\Dispatcher;
+use Inhere\Route\Dispatcher\DispatcherInterface;
+
 /**
  * Class ORouter - this is object version
  * @package Inhere\Route
  */
 class ORouter extends AbstractRouter
 {
-    /** @var int  */
+    /** @var int */
     private $cacheCounter = 0;
 
     /** @var int */
@@ -26,9 +29,6 @@ class ORouter extends AbstractRouter
         // 'schemas' => [ 'http' ], // allowed schemas
         // 'time' => ['12'],
     ];
-
-    /** @var DispatcherInterface */
-    private $dispatcher;
 
     /*******************************************************************************
      * route collection
@@ -89,6 +89,10 @@ class ORouter extends AbstractRouter
             $this->routesData[$id] = $data;
 
             foreach ($methods as $method) {
+                if ($method === 'ANY') {
+                    continue;
+                }
+
                 $this->routeCounter++;
                 $this->staticRoutes[$route][$method] = $id;
             }
@@ -110,6 +114,10 @@ class ORouter extends AbstractRouter
             $this->regularRoutes[$first][$id] = $conf;
         } else {
             foreach ($methods as $method) {
+                if ($method === 'ANY') {
+                    continue;
+                }
+
                 $this->routeCounter++;
                 $this->vagueRoutes[$method][$id] = $conf;
             }
@@ -135,9 +143,13 @@ class ORouter extends AbstractRouter
             if (\is_string($matchAll) && $matchAll{0} === '/') {
                 $path = $matchAll;
             } elseif (\is_callable($matchAll)) {
-                return [self::FOUND, $path, [
-                    'handler' => $matchAll
-                ]];
+                return [
+                    self::FOUND,
+                    $path,
+                    [
+                        'handler' => $matchAll
+                    ]
+                ];
             }
         }
 
@@ -184,9 +196,13 @@ class ORouter extends AbstractRouter
 
         // handle Auto Route
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
-            return [self::FOUND, $path, [
-                'handler' => $handler,
-            ]];
+            return [
+                self::FOUND,
+                $path,
+                [
+                    'handler' => $handler,
+                ]
+            ];
         }
 
         // For HEAD requests, attempt fallback to GET
@@ -195,7 +211,7 @@ class ORouter extends AbstractRouter
                 return [self::FOUND, $path, $this->routeCaches[$path]['GET']];
             }
 
-            if ($routeInfo = $this->findInStaticRoutes($path,'GET')) {
+            if ($routeInfo = $this->findInStaticRoutes($path, 'GET')) {
                 return [self::FOUND, $path, $routeInfo];
             }
 
@@ -296,7 +312,6 @@ class ORouter extends AbstractRouter
                 $allowedMethods .= $conf['methods'];
 
                 if (false !== strpos($conf['methods'], $method . ',')) {
-                    // $conf = $this->paddingRouteData($conf, $id);
                     $data = $this->routesData[$id];
                     $this->filterMatches($matches, $data);
 
@@ -326,7 +341,6 @@ class ORouter extends AbstractRouter
             }
 
             if (preg_match($conf['regex'], $path, $matches)) {
-                // $conf = $this->paddingRouteData($conf, $id);
                 $data = $this->routesData[$id];
                 $this->filterMatches($matches, $data);
 
@@ -361,11 +375,6 @@ class ORouter extends AbstractRouter
             $this->routeCaches[$path][$method] = $data;
         }
     }
-
-    // private function paddingRouteData(array $conf, $index)
-    // {
-    //     return array_merge($conf, $this->routesData[$index]);
-    // }
 
     /*******************************************************************************
      * route callback handler dispatch
@@ -404,25 +413,6 @@ class ORouter extends AbstractRouter
     public function count()
     {
         return $this->routeCounter;
-    }
-
-    /**
-     * @return DispatcherInterface
-     */
-    public function getDispatcher()
-    {
-        return $this->dispatcher;
-    }
-
-    /**
-     * @param DispatcherInterface $dispatcher
-     * @return $this
-     */
-    public function setDispatcher(DispatcherInterface $dispatcher)
-    {
-        $this->dispatcher = $dispatcher;
-
-        return $this;
     }
 
     /**

@@ -8,6 +8,8 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Dispatcher\DispatcherInterface;
+
 /**
  * Class SRoute - this is static class version
  * @package Inhere\Route
@@ -30,7 +32,7 @@ namespace Inhere\Route;
  * @method static match($path, $method = 'GET')
  * @method static dispatch(DispatcherInterface|array $dispatcher, $path = null, $method = null)
  */
-class SRouter
+final class SRouter
 {
     /** @var ORouter */
     private static $router;
@@ -69,5 +71,6 @@ class SRouter
         self::$router = $router;
     }
 
-
+    private function __construct()
+    {}
 }

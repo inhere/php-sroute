@@ -11,7 +11,7 @@
  * then you can access url: http://127.0.0.1:5675
  */
 
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\ORouter;
 
 require dirname(__DIR__) . '/tests/boot.php';
@@ -32,13 +32,13 @@ $router->setConfig([
 
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' =>  1,
+    'autoRoute' => 1,
     'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
 
-$router->get('/routes', function() use($router) {
+$router->get('/routes', function () use ($router) {
     var_dump(
         $router->getStaticRoutes(),
         $router->getRegularRoutes(),
@@ -53,7 +53,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (ORouter $router) use($rs){
+        $router->group($route[0], function (ORouter $router) use ($rs) {
             foreach ($rs as $r) {
                 $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
             }
@@ -67,9 +67,7 @@ foreach ($routes as $route) {
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
-], function ($path, $method) use ($router) {
-    return $router->match($path, $method);
-});
+]);
 
 // on notFound, output a message.
 $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
@@ -81,7 +79,7 @@ $server->set([
 
 ]);
 
-$server->on('request', function($request, $response) use($dispatcher) {
+$server->on('request', function ($request, $response) use ($dispatcher) {
     /** @var  \Swoole\Http\Response $response */
     $uri = $request->server['request_uri'];
     $method = $request->server['request_method'];
@@ -89,7 +87,7 @@ $server->on('request', function($request, $response) use($dispatcher) {
     fwrite(STDOUT, "request $method $uri\n");
 
     ob_start();
-    $ret = $dispatcher->dispatch($uri, $method);
+    $ret = $dispatcher->dispatchUri($uri, $method);
     $content = ob_get_clean();
 
     if (!$ret) {

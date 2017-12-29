@@ -11,7 +11,7 @@
  * then you can access url: http://127.0.0.1:5670
  */
 
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\SRouter;
 
 require dirname(__DIR__) . '/tests/boot.php';

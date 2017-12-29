@@ -252,7 +252,7 @@ $router->setConfig([
 ## route dispatcher
 
 ```php
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,

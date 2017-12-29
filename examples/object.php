@@ -11,7 +11,7 @@
  * then you can access url: http://127.0.0.1:5671
  */
 
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Examples\Controllers\RestController;
 use Inhere\Route\ORouter;
 
@@ -91,9 +91,7 @@ $dispatcher = new Dispatcher([
 /*
 method 1
 
-$dispatcher->setMatcher(function ($path, $method) use($router) {
-    return $router->match($path, $method);
-});
+$dispatcher->setRouter($router);
 $dispatcher->dispatch();
  */
 

@@ -11,7 +11,7 @@
  * then you can access url: http://127.0.0.1:5673
  */
 
-use Inhere\Route\Dispatcher;
+use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\CachedRouter;
 use Inhere\Route\Examples\Controllers\RestController;
 
@@ -82,6 +82,8 @@ foreach ($routes as $route) {
     $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
 }
 
+$router->dumpCache();
+
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
 ]);
@@ -91,11 +93,12 @@ $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
     echo "the page $path not found!";
 });
 
-// $dispatcher->dispatch();
+$dispatcher->setRouter($router);
 
 // var_dump($router->getConfig(),$router);die;
 try {
-    $router->dispatch($dispatcher);
+    // $router->dispatch($dispatcher);
+    $dispatcher->dispatchUri();
 } catch (Throwable $e) {
     var_dump($e);
 }

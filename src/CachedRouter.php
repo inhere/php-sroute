@@ -38,7 +38,7 @@ class CachedRouter extends ORouter
      * dump routes cache on matching
      * @var bool
      */
-    protected $cacheOnMatching = true;
+    protected $cacheOnMatching = false;
 
     /**
      * object constructor.

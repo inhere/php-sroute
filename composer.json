@@ -1,7 +1,7 @@
 {
   "name": "inhere/sroute",
   "type": "library",
-  "description": "a very lightweight single file of the router.",
+  "description": "a very lightweight and fasted router.",
   "keywords": ["library","route","router","php-router"],
   "homepage": "https://github.com/inhere/php-srouter",
   "license": "MIT",
@@ -13,9 +13,12 @@
     }
   ],
   "require": {
-    "php": ">=5.6.0"
+    "php": ">=7.0"
   },
   "autoload": {
+    "files": [
+      "src/functions.php"
+    ],
     "psr-4": {
       "Inhere\\Route\\" : "src/"
     }

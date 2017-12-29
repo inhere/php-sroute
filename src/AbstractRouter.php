@@ -495,13 +495,14 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @param array $matches
      * @param array $data
+     * @return bool
      */
     protected function filterMatches(array $matches, &$data)
     {
         if (!$matches) {
             $data['matches'] = [];
 
-            return;
+            return true;
         }
 
         // clear all int key
@@ -513,6 +514,8 @@ abstract class AbstractRouter implements RouterInterface
         } else {
             $data['matches'] = $matches;
         }
+
+        return true;
     }
 
     /**
@@ -555,7 +558,7 @@ abstract class AbstractRouter implements RouterInterface
 
             foreach ($m[1] as $name) {
                 $key = '{' . $name . '}';
-                $regex = isset($params[$name]) ? $params[$name] : self::DEFAULT_REGEX;
+                $regex = $params[$name] ?? self::DEFAULT_REGEX;
 
                 // 将匹配结果命名 (?P<arg1>[^/]+)
                 $replacePairs[$key] = '(?P<' . $name . '>' . $regex . ')';
