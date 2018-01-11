@@ -82,6 +82,8 @@ foreach ($routes as $route) {
     $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
 }
 
+$router->completed();
+
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
 ]);
@@ -92,7 +94,6 @@ $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
 });
 
 $dispatcher->setRouter($router);
-$router->dumpCache();
 
 // var_dump($router->getConfig(),$router);die;
 try {

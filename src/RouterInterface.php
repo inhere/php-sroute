@@ -73,11 +73,9 @@ interface RouterInterface
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schemas' => ['https'],
      * ]
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
+     * @return AbstractRouter
      */
-    public function map($methods, $route, $handler, array $opts = []);
+    public function map($methods, string $route, $handler, array $opts = []): AbstractRouter;
 
     /**
      * find the matched route info for the given request uri path
@@ -90,10 +88,10 @@ interface RouterInterface
      *  [self::FOUND, $path, array () // routeData ]
      *
      */
-    public function match($path, $method = 'GET');
+    public function match(string $path, string $method = 'GET'): array;
 
     /**
      * @return array
      */
-    public static function getSupportedMethods();
+    public static function getSupportedMethods(): array;
 }

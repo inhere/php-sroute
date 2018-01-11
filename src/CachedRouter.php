@@ -66,9 +66,18 @@ class CachedRouter extends ORouter
     }
 
     /**
+     * talk to me routes collect completed.
+     */
+    public function completed()
+    {
+        // parent::completed();
+        $this->dumpRoutesCache();
+    }
+
+    /**
      * {@inheritdoc}
      */
-    public function map($method, $route, $handler, array $opts = [])
+    public function map($method, string $route, $handler, array $opts = []): AbstractRouter
     {
         // file cache exists check.
         if ($this->cacheLoaded) {
@@ -81,7 +90,7 @@ class CachedRouter extends ORouter
     /**
      * {@inheritdoc}
      */
-    public function match($path, $method = self::GET)
+    public function match(string $path, string $method = self::GET): array
     {
         // dump routes to cache file
         if ($this->cacheOnMatching) {
@@ -89,14 +98,6 @@ class CachedRouter extends ORouter
         }
 
         return parent::match($path, $method);
-    }
-
-    /**
-     * dump routes to cache file
-     */
-    public function dumpCache()
-    {
-        $this->dumpRoutesCache();
     }
 
     /*******************************************************************************
@@ -107,7 +108,7 @@ class CachedRouter extends ORouter
      * load route caches from the cache file
      * @return bool
      */
-    public function loadRoutesCache()
+    public function loadRoutesCache(): bool
     {
         if (!$this->isCacheEnable()) {
             return false;
@@ -132,16 +133,16 @@ class CachedRouter extends ORouter
 
     /**
      * dump routes to cache file
-     * @return bool|int
+     * @return int
      */
-    protected function dumpRoutesCache()
+    protected function dumpRoutesCache(): int
     {
         if (!$file = $this->cacheFile) {
-            return false;
+            return 0;
         }
 
         if ($this->isCacheEnable() && file_exists($file)) {
-            return true;
+            return 1;
         }
 
         $date = date('Y-m-d H:i:s');
@@ -175,7 +176,7 @@ EOF;
     /**
      * @return bool
      */
-    public function isCacheEnable()
+    public function isCacheEnable(): bool
     {
         return (bool)$this->cacheEnable;
     }
@@ -207,7 +208,7 @@ EOF;
     /**
      * @return bool
      */
-    public function isCacheExists()
+    public function isCacheExists(): bool
     {
         return ($file = $this->cacheFile) && file_exists($file);
     }
@@ -215,7 +216,7 @@ EOF;
     /**
      * @return bool
      */
-    public function isCacheLoaded()
+    public function isCacheLoaded(): bool
     {
         return $this->cacheLoaded;
     }

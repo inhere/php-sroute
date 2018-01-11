@@ -50,7 +50,7 @@ class ORouter extends AbstractRouter
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function map($methods, $route, $handler, array $opts = [])
+    public function map($methods, string $route, $handler, array $opts = []): AbstractRouter
     {
         if (!$this->initialized) {
             $this->initialized = true;
@@ -96,7 +96,7 @@ class ORouter extends AbstractRouter
         }
 
         $conf['original'] = $route;
-        $params = $this->getAvailableParams(isset($opts['params']) ? $opts['params'] : []);
+        $params = $this->getAvailableParams($opts['params'] ?? []);
         list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
 
         // route string have regular
@@ -128,7 +128,7 @@ class ORouter extends AbstractRouter
      * @param string $path
      * @return array
      */
-    public function match($path, $method = 'GET')
+    public function match(string $path, string $method = 'GET'): array
     {
         // if enable 'matchAll'
         if ($matchAll = $this->matchAll) {
@@ -241,7 +241,7 @@ class ORouter extends AbstractRouter
      * @param array $allowedMethods
      * @return array
      */
-    protected function findAllowedMethods($path, $method, array $allowedMethods)
+    protected function findAllowedMethods(string $path, string $method, array $allowedMethods)
     {
         if (isset($this->staticRoutes[$path])) {
             $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
@@ -273,7 +273,7 @@ class ORouter extends AbstractRouter
      * @param string $method
      * @return array
      */
-    protected function findInRegularRoutes(array $routesData, $path, $method)
+    protected function findInRegularRoutes(array $routesData, string $path, string $method): array
     {
         $allowedMethods = '';
 
@@ -302,7 +302,7 @@ class ORouter extends AbstractRouter
      * @param string $method
      * @return array
      */
-    protected function findInVagueRoutes(array $routesData, $path, $method)
+    protected function findInVagueRoutes(array $routesData, string $path, string $method): array
     {
         foreach ($routesData as $conf) {
             if ($conf['include'] && false === strpos($path, $conf['include'])) {
@@ -328,7 +328,7 @@ class ORouter extends AbstractRouter
      * @param string $method
      * @param array $conf
      */
-    protected function cacheMatchedParamRoute($path, $method, array $conf)
+    protected function cacheMatchedParamRoute(string $path, string $method, array $conf)
     {
         $cacheNumber = (int)$this->tmpCacheNumber;
 

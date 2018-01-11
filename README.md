@@ -1,7 +1,7 @@
 # php simple router
 
-[![License](https://img.shields.io/packagist/l/inhere/console.svg?style=flat-square)](LICENSE.md)
-[![Php Version](https://img.shields.io/badge/php-%3E=5.6-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
+[![License](https://img.shields.io/packagist/l/inhere/sroute.svg?style=flat-square)](LICENSE)
+[![Php Version](https://img.shields.io/badge/php-%3E=7.0-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
 
 非常轻量级的路由器。无依赖、简洁、速度快、自定义性强
@@ -19,12 +19,12 @@
 - 支持通过方法 `$router->dispatch($path, $method)` 手动调度一个路由
 - 你即使不配置任何东西, 它也能很好的工作
 
-**[EN README](./README.md)**
+**[EN README](README_en.md)**
 
 ## 项目地址
 
 - **github** https://github.com/inhere/php-srouter.git
-- **git@osc** https://gitee.com/inhere/php-srouter.git
+- **gitee** https://gitee.com/inhere/php-srouter.git
 
 ## 安装
 

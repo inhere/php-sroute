@@ -51,7 +51,7 @@ pretty_echo(number_format($buildTime, 3), 'cyan'),
 " ms, For collect and parse routes.\n\n";
 
 // dump caches
-$router->dumpCache();
+$router->completed();
 
 /**
  * match first route

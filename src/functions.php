@@ -13,7 +13,7 @@ namespace Inhere\Route;
  * @param array $config
  * @return ORouter
  */
-function createRouter(\Closure $closure, array $config = []) {
+function createRouter(\Closure $closure, array $config = []): ORouter {
     $router = new ORouter($config);
 
     $closure($router);
@@ -26,12 +26,12 @@ function createRouter(\Closure $closure, array $config = []) {
  * @param array $config
  * @return CachedRouter
  */
-function createCachedRouter(\Closure $closure, array $config = []) {
+function createCachedRouter(\Closure $closure, array $config = []): CachedRouter {
     $router = new CachedRouter($config);
 
     $closure($router);
 
-    $router->dumpCache();
+    $router->completed();
 
     return $router;
 }

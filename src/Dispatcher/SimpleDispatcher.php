@@ -111,7 +111,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @return mixed
      * @throws \Throwable
      */
-    public function dispatchUri($path = null, $method = null)
+    public function dispatchUri(string $path = null, string $method = null)
     {
         $path = $path ?: $_SERVER['REQUEST_URI'];
 
@@ -140,10 +140,10 @@ class SimpleDispatcher implements DispatcherInterface
      * @param array $info
      * @return mixed
      */
-    public function dispatch($status, $path, array $info)
+    public function dispatch(int $status, string $path, array $info)
     {
-        $args = isset($info['matches']) ? $info['matches'] : [];
-        $method = isset($info['requestMethod']) ? $info['requestMethod'] : null;
+        $args = $info['matches'] ?? [];
+        $method = $info['requestMethod'] ?? null;
 
         // not found
         if ($status === RouterInterface::NOT_FOUND) {
@@ -182,7 +182,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @return mixed
      * @throws \Throwable
      */
-    protected function callRouteHandler($path, $method, $handler, array $args = [])
+    protected function callRouteHandler(string $path, string $method, $handler, array $args = [])
     {
         $vars = $args['matches'];
         $args = array_values($args);
@@ -251,7 +251,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @return bool|mixed
      * @throws \Throwable
      */
-    protected function handleNotFound($path, $method, $actionNotExist = false)
+    protected function handleNotFound(string $path, string $method, $actionNotExist = false)
     {
         // Run the 'notFound' callback if the route was not found
         if (!$handler = $this->getOption(self::ON_NOT_FOUND)) {
@@ -282,7 +282,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @return mixed
      * @throws \Throwable
      */
-    protected function handleNotAllowed($path, $method, array $methods)
+    protected function handleNotAllowed(string $path, string $method, array $methods)
     {
         // Run the 'NotAllowed' callback if the route was not found
         if (!$handler = $this->getOption(self::ON_METHOD_NOT_ALLOWED)) {
@@ -307,13 +307,12 @@ class SimpleDispatcher implements DispatcherInterface
         return $this->fireCallback($handler, [$path, $method, $methods]);
     }
 
-
     /**
      * @param \Exception|\Throwable $e
      * @param string $path
      * @param array $info
      */
-    public function handleException($e, $path, array $info)
+    public function handleException($e, string $path, array $info)
     {
         // handle ...
     }
@@ -324,7 +323,7 @@ class SimpleDispatcher implements DispatcherInterface
     protected function defaultNotFoundHandler()
     {
         return function ($path) {
-            $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
+            $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
             header($protocol . ' 404 Not Found');
             echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
         };
@@ -337,11 +336,15 @@ class SimpleDispatcher implements DispatcherInterface
     {
         return function ($path, $method, $methods) {
             $allow = implode(',', $methods);
-            $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
+            $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
             header($protocol . ' 405 Method Not Allowed');
 
-            echo "<div style='width: 500px; margin: 5% auto;'><h1>:( Method not allowed <code style='font-weight: normal;font-size: 16px'>for $method $path</code></h1>",
-            "<p style='font-size: 20px'>Method not allowed. Must be one of: <strong>$allow</strong></p></div>";
+            echo <<<HTML
+<div style="width: 500px; margin: 5% auto;">
+<h1>:( Method not allowed <code style="font-weight: normal;font-size: 16px">for $method $path</code></h1>
+<p style="font-size: 20px">Method not allowed. Must be one of: <strong>$allow</strong></p>
+</div>
+HTML;
         };
     }
 
@@ -373,7 +376,6 @@ class SimpleDispatcher implements DispatcherInterface
         }
 
         if (\is_array($cb)) {
-            // return call_user_func($cb, $path);
             list($obj, $mhd) = $cb;
 
             return \is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
@@ -414,13 +416,13 @@ class SimpleDispatcher implements DispatcherInterface
      */
     public function getOption($name, $default = null)
     {
-        return isset($this->options[$name]) ? $this->options[$name] : $default;
+        return $this->options[$name] ?? $default;
     }
 
     /**
      * @return array
      */
-    public static function getSupportedEvents()
+    public static function getSupportedEvents(): array
     {
         return [
             self::ON_FOUND,
@@ -444,7 +446,7 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * @return RouterInterface
      */
-    public function getRouter()
+    public function getRouter(): RouterInterface
     {
         return $this->router;
     }
@@ -463,7 +465,7 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * @return array
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return $this->options;
     }

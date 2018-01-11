@@ -33,7 +33,7 @@ interface DispatcherInterface
      * @return mixed
      * @throws \Throwable
      */
-    public function dispatchUri($path = null, $method = null);
+    public function dispatchUri(string $path = null, string $method = null);
 
     /**
      * Dispatch route handler for the given route info.
@@ -42,12 +42,12 @@ interface DispatcherInterface
      * @param array $info
      * @return mixed
      */
-    public function dispatch($status, $path, array $info);
+    public function dispatch(int $status, string $path, array $info);
 
     /**
      * @return RouterInterface
      */
-    public function getRouter();
+    public function getRouter(): RouterInterface;
 
     /**
      * @param RouterInterface $router
@@ -58,5 +58,5 @@ interface DispatcherInterface
     /**
      * @return array
      */
-    public static function getSupportedEvents();
+    public static function getSupportedEvents(): array;
 }

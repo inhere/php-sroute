@@ -200,7 +200,7 @@ abstract class AbstractRouter implements RouterInterface
      * @return self
      * @throws \LogicException
      */
-    public static function make(array $config = [])
+    public static function make(array $config = []): AbstractRouter
     {
         return new static($config);
     }
@@ -251,6 +251,14 @@ abstract class AbstractRouter implements RouterInterface
         }
     }
 
+    /**
+     * talk to me routes collect completed.
+     */
+    public function completed()
+    {
+        // $this->initialized = true;
+    }
+
     /*******************************************************************************
      * route collection
      ******************************************************************************/
@@ -293,7 +301,7 @@ abstract class AbstractRouter implements RouterInterface
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function rest($prefix, $controllerClass, array $map = [], array $opts = [])
+    public function rest($prefix, $controllerClass, array $map = [], array $opts = []): AbstractRouter
     {
         $map = array_merge([
             'index' => ['GET'],
@@ -330,7 +338,6 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * quick register a group universal routes for the controller class.
-     *
      * ```php
      * $router->rest('/users', UserController::class, [
      *      'index' => 'get',
@@ -339,7 +346,6 @@ abstract class AbstractRouter implements RouterInterface
      *      'delete' => 'delete',
      * ]);
      * ```
-     *
      * @param string $prefix eg '/users'
      * @param string $controllerClass
      * @param array $map You can append or change default map list.
@@ -352,7 +358,7 @@ abstract class AbstractRouter implements RouterInterface
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = [])
+    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = []): AbstractRouter
     {
         foreach ($map as $action => $method) {
             if (!$method || !\is_string($action)) {
@@ -380,7 +386,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param \Closure $callback
      * @param array $opts
      */
-    public function group($prefix, \Closure $callback, array $opts = [])
+    public function group(string $prefix, \Closure $callback, array $opts = [])
     {
         $previousGroupPrefix = $this->currentGroupPrefix;
         $this->currentGroupPrefix = $previousGroupPrefix . '/' . trim($prefix, '/');
@@ -401,7 +407,7 @@ abstract class AbstractRouter implements RouterInterface
      * @return array
      * @throws \InvalidArgumentException
      */
-    public function validateArguments($methods, $handler)
+    public function validateArguments($methods, $handler): array
     {
         if (!$methods || !$handler) {
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
@@ -424,7 +430,7 @@ abstract class AbstractRouter implements RouterInterface
             return $m;
         }, (array)$methods);
 
-        return $hasAny ? self::ALLOWED_METHODS: $methods;
+        return $hasAny ? self::ALLOWED_METHODS : $methods;
     }
 
     /**
@@ -432,7 +438,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param string $route
      * @return bool
      */
-    public static function isStaticRoute($route)
+    public static function isStaticRoute($route): bool
     {
         return strpos($route, '{') === false && strpos($route, '[') === false;
     }
@@ -442,7 +448,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param bool $ignoreLastSlash
      * @return string
      */
-    protected function formatUriPath($path, $ignoreLastSlash)
+    protected function formatUriPath($path, $ignoreLastSlash): string
     {
         // clear '//', '///' => '/'
         if (false !== strpos($path, '//')) {
@@ -465,7 +471,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param array $conf
      * @return bool
      */
-    protected function filterMatches(array $matches, array &$conf)
+    protected function filterMatches(array $matches, array &$conf): bool
     {
         if (!$matches) {
             $conf['matches'] = [];
@@ -493,7 +499,7 @@ abstract class AbstractRouter implements RouterInterface
      * @return array
      * @throws \LogicException
      */
-    public function parseParamRoute($route, array $params, array $conf)
+    public function parseParamRoute($route, array $params, array $conf): array
     {
         $bak = $route;
         $noOptional = null;
@@ -527,7 +533,7 @@ abstract class AbstractRouter implements RouterInterface
 
             foreach ($m[1] as $name) {
                 $key = '{' . $name . '}';
-                $regex = isset($params[$name]) ? $params[$name] : self::DEFAULT_REGEX;
+                $regex = $params[$name] ?? self::DEFAULT_REGEX;
 
                 // 将匹配结果命名 (?P<arg1>[^/]+)
                 $replacePairs[$key] = '(?P<' . $name . '>' . $regex . ')';
@@ -574,7 +580,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param string $method
      * @return array
      */
-    abstract protected function findInRegularRoutes(array $routesData, $path, $method);
+    abstract protected function findInRegularRoutes(array $routesData, string $path, string $method): array;
 
     /**
      * @param array $routesData
@@ -582,14 +588,14 @@ abstract class AbstractRouter implements RouterInterface
      * @param string $method
      * @return array
      */
-    abstract protected function findInVagueRoutes(array $routesData, $path, $method);
+    abstract protected function findInVagueRoutes(array $routesData, string $path, string $method): array;
 
     /**
      * @param string $path
      * @param string $method
      * @param array $conf
      */
-    abstract protected function cacheMatchedParamRoute($path, $method, array $conf);
+    abstract protected function cacheMatchedParamRoute(string $path, string $method, array $conf);
 
     /**
      * handle auto route match, when config `'autoRoute' => true`
@@ -598,7 +604,7 @@ abstract class AbstractRouter implements RouterInterface
      * @internal string $sfx controller suffix. eg: 'Controller'
      * @return bool|callable
      */
-    public function matchAutoRoute($path)
+    public function matchAutoRoute(string $path)
     {
         if (!$cnp = trim($this->controllerNamespace)) {
             return false;
@@ -659,7 +665,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param array $tmpParams
      * @return array
      */
-    public function getAvailableParams(array $tmpParams)
+    public function getAvailableParams(array $tmpParams): array
     {
         $params = self::$globalParams;
 
@@ -675,16 +681,16 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * convert 'first-second' to 'firstSecond'
-     * @param $str
-     * @return mixed|string
+     * @param string $str
+     * @return string
      */
-    public static function convertNodeStr($str)
+    public static function convertNodeStr($str): string
     {
         $str = trim($str, '-');
 
         // convert 'first-second' to 'firstSecond'
         if (strpos($str, '-')) {
-            $str = preg_replace_callback('/-+([a-z])/', function ($c) {
+            $str = (string)preg_replace_callback('/-+([a-z])/', function ($c) {
                 return strtoupper($c[1]);
             }, trim($str, '- '));
         }
@@ -715,7 +721,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @return array
      */
-    public static function getGlobalParams()
+    public static function getGlobalParams(): array
     {
         return self::$globalParams;
     }
@@ -723,7 +729,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @return array
      */
-    public static function getSupportedMethods()
+    public static function getSupportedMethods(): array
     {
         return self::ALLOWED_METHODS;
     }
@@ -739,7 +745,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @return array
      */
-    public function getStaticRoutes()
+    public function getStaticRoutes(): array
     {
         return $this->staticRoutes;
     }
@@ -755,7 +761,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @return \array[]
      */
-    public function getRegularRoutes()
+    public function getRegularRoutes(): array
     {
         return $this->regularRoutes;
     }
@@ -763,7 +769,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @param array $vagueRoutes
      */
-    public function setVagueRoutes($vagueRoutes)
+    public function setVagueRoutes(array $vagueRoutes)
     {
         $this->vagueRoutes = $vagueRoutes;
     }
@@ -771,7 +777,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @return array
      */
-    public function getVagueRoutes()
+    public function getVagueRoutes(): array
     {
         return $this->vagueRoutes;
     }
@@ -779,7 +785,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @return array
      */
-    public function getRouteCaches()
+    public function getRouteCaches(): array
     {
         return $this->routeCaches;
     }

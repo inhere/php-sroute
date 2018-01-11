@@ -51,7 +51,7 @@ final class SRouter
      * @return ORouter
      * @throws \LogicException
      */
-    public static function getRouter()
+    public static function getRouter(): ORouter
     {
         if (!self::$router) {
             self::$router = new ORouter();
