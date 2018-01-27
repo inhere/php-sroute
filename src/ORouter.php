@@ -95,6 +95,19 @@ class ORouter extends AbstractRouter
             return $this;
         }
 
+        // collect Param Route
+        $this->collectParamRoute($route, $methods, $conf);
+
+        return $this;
+    }
+
+    /**
+     * @param string $route
+     * @param array $methods
+     * @param array $conf
+     */
+    protected function collectParamRoute(string $route, array $methods, array $conf)
+    {
         $conf['original'] = $route;
         $params = $this->getAvailableParams($opts['params'] ?? []);
         list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
@@ -114,8 +127,6 @@ class ORouter extends AbstractRouter
                 $this->vagueRoutes[$method][] = $conf;
             }
         }
-
-        return $this;
     }
 
     /*******************************************************************************
@@ -192,7 +203,7 @@ class ORouter extends AbstractRouter
         }
 
         // For HEAD requests, attempt fallback to GET
-        if ($method === self::HEAD) {
+        if ($method === 'HEAD') {
             if (isset($this->routeCaches[$path]['GET'])) {
                 return [self::FOUND, $path, $this->routeCaches[$path]['GET']];
             }
@@ -241,7 +252,7 @@ class ORouter extends AbstractRouter
      * @param array $allowedMethods
      * @return array
      */
-    protected function findAllowedMethods(string $path, string $method, array $allowedMethods)
+    protected function findAllowedMethods(string $path, string $method, array $allowedMethods): array
     {
         if (isset($this->staticRoutes[$path])) {
             $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
@@ -379,7 +390,7 @@ class ORouter extends AbstractRouter
     /**
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return $this->routeCounter;
     }
@@ -387,7 +398,7 @@ class ORouter extends AbstractRouter
     /**
      * @return array
      */
-    public function getGlobalOptions()
+    public function getGlobalOptions(): array
     {
         return $this->globalOptions;
     }

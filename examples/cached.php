@@ -23,7 +23,7 @@ $router = new CachedRouter([
 
 //    'cacheFile' => '',
     'cacheFile' => __DIR__ . '/cached/routes-cache.php',
-    'cacheEnable' => 0,
+    'cacheEnable' => 1,
 
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {

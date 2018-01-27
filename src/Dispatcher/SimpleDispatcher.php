@@ -63,7 +63,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @return self
      * @throws \LogicException
      */
-    public static function make(array $options = [], RouterInterface $router = null)
+    public static function make(array $options = [], RouterInterface $router = null): DispatcherInterface
     {
         return new static($options, $router);
     }
@@ -139,6 +139,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @param string $path
      * @param array $info
      * @return mixed
+     * @throws \Throwable
      */
     public function dispatch(int $status, string $path, array $info)
     {
@@ -320,7 +321,7 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * @return \Closure
      */
-    protected function defaultNotFoundHandler()
+    protected function defaultNotFoundHandler(): \Closure
     {
         return function ($path) {
             $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
@@ -332,7 +333,7 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * @return \Closure
      */
-    protected function defaultNotAllowedHandler()
+    protected function defaultNotAllowedHandler(): \Closure
     {
         return function ($path, $method, $methods) {
             $allow = implode(',', $methods);
@@ -353,7 +354,7 @@ HTML;
      * @param $event
      * @param callable $handler
      */
-    public function on($event, $handler)
+    public function on(string $event, $handler)
     {
         if (self::isSupportedEvent($event)) {
             $this->options[$event] = $handler;
@@ -404,7 +405,7 @@ HTML;
      * @param string $name
      * @param $value
      */
-    public function setOption($name, $value)
+    public function setOption(string $name, $value)
     {
         $this->options[$name] = $value;
     }
@@ -414,7 +415,7 @@ HTML;
      * @param null $default
      * @return mixed|null
      */
-    public function getOption($name, $default = null)
+    public function getOption(string $name, $default = null)
     {
         return $this->options[$name] ?? $default;
     }
@@ -438,15 +439,15 @@ HTML;
      * @param string $name
      * @return bool
      */
-    public static function isSupportedEvent($name)
+    public static function isSupportedEvent(string $name): bool
     {
         return \in_array($name, static::getSupportedEvents(), true);
     }
 
     /**
-     * @return RouterInterface
+     * @return RouterInterface|null
      */
-    public function getRouter(): RouterInterface
+    public function getRouter()
     {
         return $this->router;
     }
@@ -455,7 +456,7 @@ HTML;
      * @param RouterInterface $router
      * @return SimpleDispatcher
      */
-    public function setRouter(RouterInterface $router)
+    public function setRouter(RouterInterface $router): SimpleDispatcher
     {
         $this->router = $router;
 

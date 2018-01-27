@@ -2,7 +2,7 @@
 /*
  * This is routes cache file of the package `inhere/sroute`.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2017-12-29 13:59:04
+ * @date 2018-01-27 17:57:49
  * @count 40
  * @notice Please don't edit it.
  */

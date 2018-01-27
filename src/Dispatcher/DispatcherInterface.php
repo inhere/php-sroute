@@ -45,15 +45,15 @@ interface DispatcherInterface
     public function dispatch(int $status, string $path, array $info);
 
     /**
-     * @return RouterInterface
+     * @return RouterInterface|null
      */
-    public function getRouter(): RouterInterface;
+    public function getRouter();
 
     /**
      * @param RouterInterface $router
      * @return SimpleDispatcher
      */
-    public function setRouter(RouterInterface $router);
+    public function setRouter(RouterInterface $router): SimpleDispatcher;
 
     /**
      * @return array
