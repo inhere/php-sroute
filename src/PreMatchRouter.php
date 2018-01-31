@@ -10,21 +10,19 @@ namespace Inhere\Route;
 
 /**
  * Class PreMatchRouter
- *  - pre-match
- *  - un-complete
+ *  - 预匹配：适用于fpm环境，并且静态路由较多
+ *  - 收集路由前就将当前请求的 path 和 METHOD 提前设置进来。
+ *  - 搜集时，所有的静态路由在添加时会挨个匹配。 匹配成功后不再接受添加路由。
+ *  - 匹配时，若已经提前匹配成功直接返回匹配到的。
  * @package Inhere\Route
  */
 class PreMatchRouter extends ORouter
 {
-    /**
-     * @var string
-     */
-    private $curPath;
+    /** @var string */
+    private $reqPath;
 
-    /**
-     * @var string
-     */
-    private $curMethod;
+    /** @var string */
+    private $reqMethod;
 
     /** @var array */
     private $preMatched = [];
@@ -41,57 +39,46 @@ class PreMatchRouter extends ORouter
             $path = parse_url($path, PHP_URL_PATH);
         }
 
-        $this->curPath = $path;
-        $this->curMethod = $method ? strtoupper($method) : $_SERVER['REQUEST_METHOD'];
+        $this->reqPath = $this->formatUriPath($path, $this->ignoreLastSlash);
+        $this->reqMethod = $method ? strtoupper($method) : $_SERVER['REQUEST_METHOD'];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function map($methods, string $route, $handler, array $opts = []): AbstractRouter
     {
-        if (!$this->initialized) {
-            $this->initialized = true;
+        // has been matched. don't add again.
+        if ($this->preMatched) {
+            return $this;
         }
 
-        $hasPrefix = (bool)$this->currentGroupPrefix;
         $methods = $this->validateArguments($methods, $handler);
+        list($route, $conf) = $this->prepareForMap($route, $handler, $opts);
 
-        // always add '/' prefix.
-        if ($route = trim($route)) {
-            $route = $route{0} === '/' ? $route : '/' . $route;
-        } elseif (!$hasPrefix) {
-            $route = '/';
-        }
+        if (!self::isStaticRoute($route)) {
+            $this->collectParamRoute($route, $methods, $conf);
 
-        $route = $this->currentGroupPrefix . $route;
+            // it is static route
+        } else {
+            $founded = $route === $this->reqPath;
 
-        // setting 'ignoreLastSlash'
-        if ($route !== '/' && $this->ignoreLastSlash) {
-            $route = rtrim($route, '/');
-        }
-
-        $conf = [
-            'handler' => $handler,
-        ];
-
-        if ($opts = array_merge($this->currentGroupOption, $opts)) {
-            $conf['option'] = $opts;
-        }
-
-        // it is static route
-        if (self::isStaticRoute($route)) {
             foreach ($methods as $method) {
                 if ($method === 'ANY') {
                     continue;
                 }
 
-                // $this->routeCounter++;
+                // success matched
+                if ($founded && $method === $this->reqMethod) {
+                    $this->preMatched = $conf;
+
+                    return $this;
+                }
+
+                $this->routeCounter++;
                 $this->staticRoutes[$route][$method] = $conf;
             }
-
-            return $this;
         }
-
-        // collect Param Route
-        $this->collectParamRoute($route, $methods, $conf);
 
         return $this;
     }
@@ -101,8 +88,11 @@ class PreMatchRouter extends ORouter
      */
     public function match(string $path, string $method = self::GET): array
     {
-        if ($method === $this->curMethod && $path === $this->curPath) {
+        $path = $this->formatUriPath($path, $this->ignoreLastSlash);
 
+        // if this path has been pre-matched.
+        if ($method === $this->reqMethod && $path === $this->reqPath) {
+            return [self::FOUND, $path, $this->reqMethod];
         }
 
         return parent::match($path, $method);
@@ -114,5 +104,13 @@ class PreMatchRouter extends ORouter
     public function getPreMatched(): array
     {
         return $this->preMatched;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReqPath(): string
+    {
+        return $this->reqPath;
     }
 }

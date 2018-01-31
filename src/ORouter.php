@@ -18,8 +18,8 @@ use Inhere\Route\Dispatcher\DispatcherInterface;
 class ORouter extends AbstractRouter
 {
     /** @var int */
-    private $routeCounter = 0;
     private $cacheCounter = 0;
+    protected $routeCounter = 0;
 
     /** @var array global Options */
     private $globalOptions = [
@@ -52,12 +52,42 @@ class ORouter extends AbstractRouter
      */
     public function map($methods, string $route, $handler, array $opts = []): AbstractRouter
     {
+        $methods = $this->validateArguments($methods, $handler);
+        list($route, $conf) = $this->prepareForMap($route, $handler, $opts);
+
+        // it is static route
+        if (self::isStaticRoute($route)) {
+            foreach ($methods as $method) {
+                if ($method === 'ANY') {
+                    continue;
+                }
+
+                $this->routeCounter++;
+                $this->staticRoutes[$route][$method] = $conf;
+            }
+
+            return $this;
+        }
+
+        // collect param route
+        $this->collectParamRoute($route, $methods, $conf);
+
+        return $this;
+    }
+
+    /**
+     * @param string $route
+     * @param $handler
+     * @param array $opts
+     * @return array
+     */
+    protected function prepareForMap(string $route, $handler, array $opts)
+    {
         if (!$this->initialized) {
             $this->initialized = true;
         }
 
         $hasPrefix = (bool)$this->currentGroupPrefix;
-        $methods = $this->validateArguments($methods, $handler);
 
         // always add '/' prefix.
         if ($route = trim($route)) {
@@ -77,28 +107,15 @@ class ORouter extends AbstractRouter
             'handler' => $handler,
         ];
 
-        if ($opts = array_merge($this->currentGroupOption, $opts)) {
+        if ($this->currentGroupOption) {
+            $opts = array_merge($this->currentGroupOption, $opts);
+        }
+
+        if ($opts) {
             $conf['option'] = $opts;
         }
 
-        // it is static route
-        if (self::isStaticRoute($route)) {
-            foreach ($methods as $method) {
-                if ($method === 'ANY') {
-                    continue;
-                }
-
-                $this->routeCounter++;
-                $this->staticRoutes[$route][$method] = $conf;
-            }
-
-            return $this;
-        }
-
-        // collect Param Route
-        $this->collectParamRoute($route, $methods, $conf);
-
-        return $this;
+        return [$route, $conf];
     }
 
     /**
@@ -117,15 +134,17 @@ class ORouter extends AbstractRouter
             $conf['methods'] = implode(',', $methods) . ',';
             $this->routeCounter++;
             $this->regularRoutes[$first][] = $conf;
-        } else {
-            foreach ($methods as $method) {
-                if ($method === 'ANY') {
-                    continue;
-                }
 
-                $this->routeCounter++;
-                $this->vagueRoutes[$method][] = $conf;
+            return;
+        }
+
+        foreach ($methods as $method) {
+            if ($method === 'ANY') {
+                continue;
             }
+
+            $this->routeCounter++;
+            $this->vagueRoutes[$method][] = $conf;
         }
     }
 

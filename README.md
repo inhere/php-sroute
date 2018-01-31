@@ -4,15 +4,22 @@
 [![Php Version](https://img.shields.io/badge/php-%3E=7.0-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
 
-非常轻量级的路由器。无依赖、简洁、速度快、自定义性强
+非常快速且轻量的请求匹配路由器。
 
+- 无依赖、简洁、速度快、功能完善
 - 轻量级且速度快，查找速度不受路由数量的影响
-- 支持路由组。支持路由参数定义，以及丰富的自定义路由选项(比如设定 默认值、domains、schemas等检查限制)
+- 支持路由组, 支持路由参数定义，以及丰富的自定义路由选项(比如设定 默认值、domains、schemas等检查限制)
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
-- 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute`. 
-- 2个版本：对象版本 `ORouter`, 支持路由缓存的对象版本 `CachedRouter`
+- 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute` (不推荐)
 
-内置了一个调度器：
+多个版本：
+
+- `ORouter` 对象版本，也是后几个版本的基础类。(内置支持动态路由临时缓存，适合swoole等常驻内存应用使用)
+- `SRouter` 静态类版本。 `ORouter` 的简单包装，通过静态方法使用 
+- `CachedRouter` 继承自`ORouter`，支持路由缓存的对象版本 
+- `PreMatchRouter` 继承自`ORouter`，预匹配路由器。 若静态路由较多，将拥有更快的匹配速度
+
+内置调度器：
 
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取`action`名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 

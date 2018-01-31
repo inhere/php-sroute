@@ -12,13 +12,13 @@ class AbstractRouterTest extends TestCase
     public function testValidateArguments()
     {
         $stub = $this->getMockForAbstractClass(AbstractRouter::class);
-
         $ret = $stub->validateArguments('get', 'handler0');
+
         $this->assertEquals($ret, ['GET']);
 
         $this->expectException(\InvalidArgumentException::class);
-
         $stub->validateArguments(null, null);
+        $stub->validateArguments('get', null);
     }
 
     public function testStaticRouteCheck()
