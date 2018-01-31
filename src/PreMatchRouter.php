@@ -10,13 +10,13 @@ namespace Inhere\Route;
 
 /**
  * Class PreMatchRouter
- *  - 预匹配：适用于fpm环境，并且静态路由较多
+ * 预匹配：适用于fpm环境，并且静态路由较多的应用
  *  - 收集路由前就将当前请求的 path 和 METHOD 提前设置进来。
  *  - 搜集时，所有的静态路由在添加时会挨个匹配。 匹配成功后不再接受添加路由。
  *  - 匹配时，若已经提前匹配成功直接返回匹配到的。
  * @package Inhere\Route
  */
-class PreMatchRouter extends ORouter
+final class PreMatchRouter extends ORouter
 {
     /** @var string */
     private $reqPath;

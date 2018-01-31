@@ -251,14 +251,6 @@ abstract class AbstractRouter implements RouterInterface
         }
     }
 
-    /**
-     * talk to me routes collect completed.
-     */
-    public function completed()
-    {
-        // $this->initialized = true;
-    }
-
     /*******************************************************************************
      * route collection
      ******************************************************************************/
@@ -469,14 +461,12 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @param array $matches
      * @param array $conf
-     * @return bool
      */
-    protected function filterMatches(array $matches, array &$conf): bool
+    protected function filterMatches(array $matches, array &$conf)
     {
         if (!$matches) {
             $conf['matches'] = [];
-
-            return true;
+            return;
         }
 
         // clear all int key
@@ -488,22 +478,20 @@ abstract class AbstractRouter implements RouterInterface
         } else {
             $conf['matches'] = $matches;
         }
-
-        return true;
     }
 
     /**
+     * parse param route
      * @param string $route
      * @param array $params
      * @param array $conf
      * @return array
      * @throws \LogicException
      */
-    public function parseParamRoute($route, array $params, array $conf): array
+    public function parseParamRoute(string $route, array $params, array $conf): array
     {
         $bak = $route;
         $noOptional = null;
-        // $hasOptional = false;
 
         // 解析可选参数位
         if (false !== ($pos = strpos($route, '['))) {
@@ -547,29 +535,31 @@ abstract class AbstractRouter implements RouterInterface
         $first = null;
         $conf['regex'] = '#^' . $route . '$#';
 
-        // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         // first node is a normal string
+        // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
         if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
             $first = $m[1];
             $conf['start'] = $m[0];
-            // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
-        } else {
-            $include = null;
 
-            if ($noOptional) {
-                if (strpos($noOptional, '{') === false) {
-                    $include = $noOptional;
-                } else {
-                    $bak = $noOptional;
-                }
-            }
-
-            if (!$include && preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
-                $include = $m[0];
-            }
-
-            $conf['include'] = $include;
+            return [$first, $conf];
         }
+
+        // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
+        $include = null;
+
+        if ($noOptional) {
+            if (strpos($noOptional, '{') === false) {
+                $include = $noOptional;
+            } else {
+                $bak = $noOptional;
+            }
+        }
+
+        if (!$include && preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
+            $include = $m[0];
+        }
+
+        $conf['include'] = $include;
 
         return [$first, $conf];
     }

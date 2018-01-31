@@ -11,13 +11,13 @@ namespace Inhere\Route;
 /**
  * Class CachedRouter - this is object version and support cache routes.
  *
- * - 支持缓存路由信息到文件
- * - handler 将不支持设置为 \Closure (无法缓存 \Closure)
+ * - 支持缓存路由信息到文件，加快后面请求的解析速度
+ * - 注：不能将 handler 设置为 \Closure (无法缓存 \Closure)
  * - 路由选项的 选项值 同样不允许 \Closure
  *
  * @package Inhere\Route
  */
-class CachedRouter extends ORouter
+final class CachedRouter extends ORouter
 {
     /** @var bool */
     private $cacheLoaded = false;
@@ -54,11 +54,11 @@ class CachedRouter extends ORouter
         }
 
         if (isset($config['cacheEnable'])) {
-            $this->setCacheEnable($config['cacheEnable']);
+            $this->cacheEnable =(bool)$config['cacheEnable'];
         }
 
         if (isset($config['cacheOnMatching'])) {
-            $this->setCacheOnMatching($config['cacheOnMatching']);
+            $this->cacheOnMatching = (bool)$config['cacheOnMatching'];
         }
 
         // read route caches from cache file
@@ -70,7 +70,6 @@ class CachedRouter extends ORouter
      */
     public function completed()
     {
-        // parent::completed();
         $this->dumpRoutesCache();
     }
 
