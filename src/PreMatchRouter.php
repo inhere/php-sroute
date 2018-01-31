@@ -25,7 +25,7 @@ class PreMatchRouter extends ORouter
     private $reqMethod;
 
     /** @var array */
-    private $preMatched = [];
+    private $preFounded = [];
 
     /**
      * @param string|null $path
@@ -49,7 +49,7 @@ class PreMatchRouter extends ORouter
     public function map($methods, string $route, $handler, array $opts = []): AbstractRouter
     {
         // has been matched. don't add again.
-        if ($this->preMatched) {
+        if ($this->preFounded) {
             return $this;
         }
 
@@ -70,7 +70,9 @@ class PreMatchRouter extends ORouter
 
                 // success matched
                 if ($founded && $method === $this->reqMethod) {
-                    $this->preMatched = $conf;
+                    $this->preFounded = $conf;
+                    // discard other routes data.
+                    // $this->staticRoutes = $this->regularRoutes = [];
 
                     return $this;
                 }
@@ -92,7 +94,7 @@ class PreMatchRouter extends ORouter
 
         // if this path has been pre-matched.
         if ($method === $this->reqMethod && $path === $this->reqPath) {
-            return [self::FOUND, $path, $this->reqMethod];
+            return [self::FOUND, $path, $this->preFounded];
         }
 
         return parent::match($path, $method);
@@ -101,9 +103,9 @@ class PreMatchRouter extends ORouter
     /**
      * @return array
      */
-    public function getPreMatched(): array
+    public function getPreFounded(): array
     {
-        return $this->preMatched;
+        return $this->preFounded;
     }
 
     /**

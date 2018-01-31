@@ -16,9 +16,9 @@
 多个版本：
 
 - `ORouter` 对象版本，也是后几个版本的基础类。(内置支持动态路由临时缓存，适合swoole等常驻内存应用使用)
-- `SRouter` 静态类版本。 `ORouter` 的简单包装，通过静态方法使用 
-- `CachedRouter` 继承自`ORouter`，支持路由缓存的对象版本 
-- `PreMatchRouter` 继承自`ORouter`，预匹配路由器。 若静态路由较多，将拥有更快的匹配速度
+- `SRouter` 静态类版本。 `ORouter` 的简单包装，通过静态方法使用(方便小应用快速使用)
+- `CachedRouter` 继承自`ORouter`，支持路由缓存的对象版本，适合fpm使用。(有缓存将会省去每次的路由收集和解析消耗) 
+- `PreMatchRouter` 继承自`ORouter`，预匹配路由器。当应用的静态路由较多时，将拥有更快的匹配速度
 
 内置调度器：
 
