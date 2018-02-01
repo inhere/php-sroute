@@ -119,11 +119,7 @@ Macaw - first route (1000 routes) | 999 | 2.710132 | +2.703545 | 41047% slower
 
 ## 使用
 
-- `Inhere\Route\SRouter` 是静态类版本
-- `Inhere\Route\ORouter` 是对象版本
-- `Inhere\Route\CachedRouter` 是支持缓存的版本
-
-两个类的方法名和参数都是一样的
+> 各个版本的方法名和参数都是一样的
 
 首先, 导入类
 
@@ -198,7 +194,7 @@ $router->rest('/users', App\Controllers\UserController::class);
 $router->any('*', 'fallback_handler');
 ```
 
-> 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
+> 如果配置了 `'ignoreLastSlash' => true`, '/index' 等同于 '/index/'
 
 #### 注意
 
@@ -309,7 +305,7 @@ Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
 ```php
 // set config
 $router->setConfig([
-    'ignoreLastSep' => true,    
+    'ignoreLastSlash' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
     'controllerSuffix' => 'Controller',
@@ -514,14 +510,7 @@ MIT
 
 功能丰富的命令行应用，命令行工具库
 
-### `inhere/redis` [github](https://github.com/inhere/php-redis) [git@osc](https://git.oschina.net/inhere/php-redis)
-
-简单的redis操作客户端包装库
-
 ### `inhere/php-validate` [github](https://github.com/inhere/php-validate)  [git@osc](https://git.oschina.net/inhere/php-validate)
  
  一个简洁小巧且功能完善的php验证库。仅有几个文件，无依赖。
  
-### `inhere/http` [github](https://github.com/inhere/php-http) [git@osc](https://git.oschina.net/inhere/php-http)
-
-http 工具库(`request` 请求 `response` 响应 `curl` curl请求库，有简洁、完整和并发请求三个版本的类)

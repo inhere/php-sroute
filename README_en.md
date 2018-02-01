@@ -135,7 +135,7 @@ $router->group('/user', function () {
 ### use controller action
 
 ```php
-// if you config 'ignoreLastSep' => true, '/index' is equals to '/index/'
+// if you config 'ignoreLastSlash' => true, '/index' is equals to '/index/'
 $router->get('/index', 'app\controllers\Home@index');
 ```
 
@@ -209,7 +209,7 @@ Will directly execute the callback
 ```php
 // set config
 $router->setConfig([
-    'ignoreLastSep' => true,
+    'ignoreLastSlash' => true,
     
 //    'matchAll' => '/', // a route path
 //    'matchAll' => function () {
@@ -230,7 +230,7 @@ $router->setConfig([
 // there are default config.
 [
     // ignore last '/' char. If is True, will clear last '/', so '/home' equals to '/home/'
-    'ignoreLastSep' => false,
+    'ignoreLastSlash' => false,
 
     // matchAll all request.
     // 1. If is a valid URI path, will matchAll all request uri to the path.

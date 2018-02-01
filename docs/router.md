@@ -66,7 +66,7 @@ $router->group('/user', function ($router) {
 });
 ```
 
-> 如果配置了 `'ignoreLastSep' => true`, '/index' 等同于 '/index/'
+> 如果配置了 `'ignoreLastSlash' => true`, '/index' 等同于 '/index/'
 
 ### 实现原理(如何收集)
 
@@ -334,7 +334,7 @@ todo ...
 ```php
 // set config
 $router->setConfig([
-    'ignoreLastSep' => true,    
+    'ignoreLastSlash' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
     'controllerSuffix' => 'Controller',
@@ -347,7 +347,7 @@ $router->setConfig([
 // 所有的默认的配置
 
     // 是否忽略最后的 '/' 分隔符. 如果是 true,将清除最后一个 '/', 此时请求 '/home' 和 '/home/' 效果相同
-    'ignoreLastSep' = false,
+    'ignoreLastSlash' = false,
 
     // 匹配所有请求
     // 1. 如果是一个有效的URI路径,将匹配所有请求到此URI路径。
