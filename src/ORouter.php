@@ -18,7 +18,6 @@ use Inhere\Route\Dispatcher\DispatcherInterface;
 class ORouter extends AbstractRouter
 {
     /** @var int */
-    private $cacheCounter = 0;
     protected $routeCounter = 0;
 
     /** @var array global Options */
@@ -174,11 +173,6 @@ class ORouter extends AbstractRouter
         $path = $this->formatUriPath($path, $this->ignoreLastSlash);
         $method = strtoupper($method);
 
-        // find in route caches.
-        if ($this->routeCaches && isset($this->routeCaches[$path][$method])) {
-            return [self::FOUND, $path, $this->routeCaches[$path][$method]];
-        }
-
         // is a static route path
         if ($this->staticRoutes && isset($this->staticRoutes[$path][$method])) {
             $conf = $this->staticRoutes[$path][$method];
@@ -223,10 +217,6 @@ class ORouter extends AbstractRouter
 
         // For HEAD requests, attempt fallback to GET
         if ($method === 'HEAD') {
-            if (isset($this->routeCaches[$path]['GET'])) {
-                return [self::FOUND, $path, $this->routeCaches[$path]['GET']];
-            }
-
             if (isset($this->staticRoutes[$path]['GET'])) {
                 return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
             }
@@ -314,10 +304,6 @@ class ORouter extends AbstractRouter
                 if (false !== strpos($conf['methods'], $method . ',')) {
                     $this->filterMatches($matches, $conf);
 
-                    if ($this->tmpCacheNumber > 0) {
-                        $this->cacheMatchedParamRoute($path, $method, $conf);
-                    }
-
                     return [self::FOUND, $path, $conf];
                 }
             }
@@ -342,35 +328,11 @@ class ORouter extends AbstractRouter
             if (preg_match($conf['regex'], $path, $matches)) {
                 $this->filterMatches($matches, $conf);
 
-                if ($this->tmpCacheNumber > 0) {
-                    $this->cacheMatchedParamRoute($path, $method, $conf);
-                }
-
                 return [self::FOUND, $path, $conf];
             }
         }
 
         return [self::NOT_FOUND];
-    }
-
-    /**
-     * @param string $path
-     * @param string $method
-     * @param array $conf
-     */
-    protected function cacheMatchedParamRoute(string $path, string $method, array $conf)
-    {
-        $cacheNumber = (int)$this->tmpCacheNumber;
-
-        // cache last $cacheNumber routes.
-        if ($cacheNumber > 0 && !isset($this->routeCaches[$path][$method])) {
-            if ($this->cacheCounter >= $cacheNumber) {
-                array_shift($this->routeCaches);
-            }
-
-            $this->cacheCounter++;
-            $this->routeCaches[$path][$method] = $conf;
-        }
     }
 
     /*******************************************************************************

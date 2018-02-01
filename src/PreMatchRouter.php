@@ -56,30 +56,31 @@ final class PreMatchRouter extends ORouter
         $methods = $this->validateArguments($methods, $handler);
         list($route, $conf) = $this->prepareForMap($route, $handler, $opts);
 
+        // it is param route
         if (!self::isStaticRoute($route)) {
             $this->collectParamRoute($route, $methods, $conf);
 
-            // it is static route
-        } else {
-            $founded = $route === $this->reqPath;
+            return $this;
+        }
 
-            foreach ($methods as $method) {
-                if ($method === 'ANY') {
-                    continue;
-                }
+        $founded = $route === $this->reqPath;
 
-                // success matched
-                if ($founded && $method === $this->reqMethod) {
-                    $this->preFounded = $conf;
-                    // discard other routes data.
-                    // $this->staticRoutes = $this->regularRoutes = [];
-
-                    return $this;
-                }
-
-                $this->routeCounter++;
-                $this->staticRoutes[$route][$method] = $conf;
+        foreach ($methods as $method) {
+            if ($method === 'ANY') {
+                continue;
             }
+
+            // success matched
+            if ($founded && $method === $this->reqMethod) {
+                $this->preFounded = $conf;
+                // discard other routes data.
+                // $this->staticRoutes = $this->regularRoutes = [];
+
+                return $this;
+            }
+
+            $this->routeCounter++;
+            $this->staticRoutes[$route][$method] = $conf;
         }
 
         return $this;

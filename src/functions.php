@@ -15,9 +15,7 @@ namespace Inhere\Route;
  */
 function createRouter(\Closure $closure, array $config = []): ORouter
 {
-    $router = new ORouter($config);
-
-    $closure($router);
+    $closure($router = new ORouter($config));
 
     return $router;
 }
@@ -29,9 +27,7 @@ function createRouter(\Closure $closure, array $config = []): ORouter
  */
 function createCachedRouter(\Closure $closure, array $config = []): CachedRouter
 {
-    $router = new CachedRouter($config);
-
-    $closure($router);
+    $closure($router = new CachedRouter($config));
 
     $router->completed();
 
@@ -55,6 +51,20 @@ function createPreMatchRouter(
     $router->setRequest($path, $method);
 
     $closure($router);
+
+    return $router;
+}
+
+/**
+ * @param \Closure $closure
+ * @param array $config
+ * @return ServerRouter
+ */
+function createServerRouter(\Closure $closure, array $config = []): ServerRouter
+{
+    $closure($router = new ServerRouter($config));
+
+    $router->flattenStatics();
 
     return $router;
 }

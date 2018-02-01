@@ -31,10 +31,9 @@ abstract class AbstractRouter implements RouterInterface
      */
     protected static $globalParams = [
         'all' => '.*',
-        'any' => '[^/]+',   // match any except '/'
-        'num' => '[0-9]+',  // match a number
-        'int' => '\d+',     // match a number
-        'id' => '[1-9][0-9]*',  // match a ID number
+        'any' => '[^/]+',        // match any except '/'
+        'num' => '[1-9][0-9]*',  // match a number and gt 0
+        'int' => '\d+',          // match a number
         'act' => '[a-zA-Z][\w-]+', // match a action name
     ];
 
@@ -132,16 +131,18 @@ abstract class AbstractRouter implements RouterInterface
      */
     protected $vagueRoutes = [];
 
-    /**
-     * There are last route caches
-     * @see $staticRoutes
-     * @var array[]
-     */
-    protected $routeCaches = [];
-
     /*******************************************************************************
      * router config
      ******************************************************************************/
+
+    /**
+     * Match all request.
+     * 1. If is a valid URI path, will matchAll all request uri to the path.
+     * 2. If is a closure, will matchAll all request then call it
+     * eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
+     * @var mixed
+     */
+    public $matchAll;
 
     /**
      * Setting a routes file.
@@ -154,21 +155,6 @@ abstract class AbstractRouter implements RouterInterface
      * @var bool
      */
     public $ignoreLastSlash = false;
-
-    /**
-     * The param route cache number.
-     * @var int
-     */
-    public $tmpCacheNumber = 0;
-
-    /**
-     * Match all request.
-     * 1. If is a valid URI path, will matchAll all request uri to the path.
-     * 2. If is a closure, will matchAll all request then call it
-     * eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-     * @var mixed
-     */
-    public $matchAll;
 
     /**
      * @var bool NotAllowed As NotFound. If True, only two status value will be return(FOUND, NOT_FOUND).
@@ -581,13 +567,6 @@ abstract class AbstractRouter implements RouterInterface
     abstract protected function findInVagueRoutes(array $routesData, string $path, string $method): array;
 
     /**
-     * @param string $path
-     * @param string $method
-     * @param array $conf
-     */
-    abstract protected function cacheMatchedParamRoute(string $path, string $method, array $conf);
-
-    /**
      * handle auto route match, when config `'autoRoute' => true`
      * @param string $path The route path
      * @internal string $cnp controller namespace. eg: 'app\\controllers'
@@ -770,13 +749,5 @@ abstract class AbstractRouter implements RouterInterface
     public function getVagueRoutes(): array
     {
         return $this->vagueRoutes;
-    }
-
-    /**
-     * @return array
-     */
-    public function getRouteCaches(): array
-    {
-        return $this->routeCaches;
     }
 }
