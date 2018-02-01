@@ -145,12 +145,6 @@ abstract class AbstractRouter implements RouterInterface
     public $matchAll;
 
     /**
-     * Setting a routes file.
-     * @var string
-     */
-    public $routesFile;
-
-    /**
      * Ignore last slash char('/'). If is True, will clear last '/'.
      * @var bool
      */
@@ -202,11 +196,6 @@ abstract class AbstractRouter implements RouterInterface
 
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
-
-        // load routes
-        if (($file = $this->routesFile) && is_file($file)) {
-            require $file;
-        }
     }
 
     /**
@@ -220,7 +209,6 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         static $props = [
-            'routesFile' => 1,
             'ignoreLastSlash' => 1,
             'tmpCacheNumber' => 1,
             'notAllowedAsNotFound' => 1,
