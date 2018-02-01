@@ -98,8 +98,11 @@ final class ServerRouter extends ORouter
             /**
              * @var array $items eg:
              * '/user/login' => [
-             *      'GET' => 31,
-             *      'POST' => 31,
+             *      // METHOD => [...]
+             *      'GET' => [
+             *          'handler' => 'handler',
+             *          'option' => [...],
+             *      ],
              * ]
              */
             foreach ($this->staticRoutes as $path => $items) {
