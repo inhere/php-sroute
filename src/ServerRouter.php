@@ -142,10 +142,8 @@ final class ServerRouter extends ORouter
         }
 
         // is a static route path
-        if ($this->staticRoutes && isset($this->staticRoutes[$path][$method])) {
-            $conf = $this->staticRoutes[$path][$method];
-
-            return [self::FOUND, $path, $conf];
+        if ($this->staticRoutes && ($routeInfo = $this->findInStaticRoutes($path, $method))) {
+            return [self::FOUND, $path, $routeInfo];
         }
 
         $first = null;
@@ -189,8 +187,8 @@ final class ServerRouter extends ORouter
                 return [self::FOUND, $path, $this->cacheRoutes[$path]['GET']];
             }
 
-            if (isset($this->staticRoutes[$path]['GET'])) {
-                return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
+            if ($routeInfo = $this->findInStaticRoutes($path, 'GET')) {
+                return [self::FOUND, $path, $routeInfo];
             }
 
             if ($first && isset($this->regularRoutes[$first])) {
@@ -211,8 +209,8 @@ final class ServerRouter extends ORouter
         }
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
-        if ($this->staticRoutes && isset($this->staticRoutes['/*'][$method])) {
-            return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
+        if ($this->staticRoutes && ($routeInfo = $this->findInStaticRoutes('/*', $method))) {
+            return [self::FOUND, $path, $routeInfo];
         }
 
         if ($this->notAllowedAsNotFound) {
@@ -226,6 +224,28 @@ final class ServerRouter extends ORouter
     /*******************************************************************************
      * helper methods
      ******************************************************************************/
+
+    /**
+     * @param string $path
+     * @param string $method
+     * @return array|false
+     */
+    protected function findInStaticRoutes($path, $method)
+    {
+        // if flattenStatic is TRUE
+        if ($this->flattenStatic) {
+            $key = $path . '#' . $method;
+
+            if (isset($this->flatStaticRoutes[$key])) {
+                return $this->staticRoutes[$key];
+            }
+
+        } elseif (isset($this->staticRoutes[$path][$method])) {
+            return $this->staticRoutes[$path][$method];
+        }
+
+        return false;
+    }
 
     /**
      * @param array $routesData
