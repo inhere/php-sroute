@@ -109,15 +109,16 @@ final class PreMatchRouter extends ORouter
         // if enable 'matchAll'
         if ($matchAll = $this->matchAll) {
             if (\is_string($matchAll) && $matchAll{0} === '/') {
-                $path = $matchAll;
+                // $path = $matchAll;
+                $path = $this->formatUriPath($matchAll, $this->ignoreLastSlash);
             } elseif (\is_callable($matchAll)) {
                 return [self::FOUND, $path, [
                     'handler' => $matchAll,
                 ]];
             }
+        } else {
+            $path = $this->reqPath;
         }
-
-        $path = $this->formatUriPath($path, $this->ignoreLastSlash);
 
         // if this path has been pre-matched.
         if ($this->preFounded) {
@@ -128,12 +129,10 @@ final class PreMatchRouter extends ORouter
         $method = strtoupper($method);
         $allowedMethods = [];
 
-        // cut first node. eg '/article/12'
         if ($pos = strpos($path, '/', 1)) {
             $first = substr($path, 1, $pos - 1);
         }
 
-        // is a regular dynamic route(the first node is 1th level index key).
         if ($first && isset($this->regularRoutes[$first])) {
             $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, $method);
 
@@ -144,7 +143,6 @@ final class PreMatchRouter extends ORouter
             $allowedMethods = $result[1];
         }
 
-        // is a irregular dynamic route
         if (isset($this->vagueRoutes[$method])) {
             $result = $this->findInVagueRoutes($this->vagueRoutes[$method], $path, $method);
 
