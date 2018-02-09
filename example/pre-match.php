@@ -14,7 +14,7 @@
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Example\Controllers\RestController;
 
-require dirname(__DIR__) . '/tests/boot.php';
+require dirname(__DIR__) . '/test/boot.php';
 
 $router = new \Inhere\Route\PreMatchRouter();
 // pre setting request info.

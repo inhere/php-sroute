@@ -2,7 +2,7 @@
 /**
  * phpunit
  * OR
- * phpunit6.phar --bootstrap tests/boot.php tests
+ * phpunit6.phar --bootstrap test/boot.php test
  * phpunit6.phar --colors --coverage-html ./coverage/
  */
 
@@ -16,9 +16,9 @@ spl_autoload_register(function($class)
     if (0 === strpos($class,'Inhere\Route\Example\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Example\\')));
         $file = __DIR__ . "/{$path}.php";
-    } elseif(0 === strpos($class,'Inhere\Route\Tests\\')) {
-        $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Tests\\')));
-        $file = dirname(__DIR__) . "/tests/{$path}.php";
+    } elseif(0 === strpos($class,'Inhere\Route\Test\\')) {
+        $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Test\\')));
+        $file = dirname(__DIR__) . "/test/{$path}.php";
     } elseif (0 === strpos($class,'Inhere\Route\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\\')));
         $file = dirname(__DIR__) . "/src/{$path}.php";

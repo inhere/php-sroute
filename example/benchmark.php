@@ -3,7 +3,7 @@
 /**
  * Benchmark Altorouter
  *
- * Usage: php ./tests/benchmark.php <iterations>
+ * Usage: php ./test/benchmark.php <iterations>
  *
  * Options:
  *
@@ -11,7 +11,7 @@
  * The number of routes to map & match. Defaults to 1000.
  */
 
-require dirname(__DIR__) . '/tests/boot.php';
+require dirname(__DIR__) . '/test/boot.php';
 
 global $argv;
 $n = isset($argv[1]) ? (int)$argv[1] : 1000;

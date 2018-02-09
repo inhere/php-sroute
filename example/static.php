@@ -14,7 +14,7 @@
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\SRouter;
 
-require dirname(__DIR__) . '/tests/boot.php';
+require dirname(__DIR__) . '/test/boot.php';
 
 // set config
 SRouter::setConfig([

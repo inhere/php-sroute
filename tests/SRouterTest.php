@@ -1,5 +1,5 @@
 <?php
-namespace Inhere\Route\Tests;
+namespace Inhere\Route\Test;
 
 use Inhere\Route\ORouter;
 use PHPUnit\Framework\TestCase;

@@ -57,7 +57,9 @@ class RouterManager
      * @var array[]
      * [
      *  'main-site' => [
-     *      'domain' => 'domain.com'
+     *      'domain' => 'domain.com',
+     *      'driver' => 'default',
+     *      'options' => [],
      *  ],
      *  'doc-site' => [
      *      'domain' => 'docs.domain.com'
@@ -141,5 +143,13 @@ class RouterManager
     public function setConditions(array $conditions)
     {
         $this->conditions = $conditions;
+    }
+
+    /**
+     * @return array[]
+     */
+    public function getConfigs(): array
+    {
+        return $this->configs;
     }
 }
