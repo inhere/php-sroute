@@ -8,7 +8,7 @@
 
 - 无依赖、简洁、速度快、功能完善
 - 轻量级且速度快，查找速度不受路由数量的影响
-- 支持路由组, 支持路由参数定义，以及丰富的自定义路由选项(比如设定 默认值、domains、schemas等检查限制)
+- 支持路由组, 支持路由参数定义，以及丰富的自定义路由选项(比如设定 默认值/event/middleware等)
 - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
 - 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute` (不推荐)
 - 压测对比数据请看[路由测试](#ab-test)
@@ -231,9 +231,9 @@ public function map(string|array $methods, string $route, mixed $handler, array 
 
 > 其他的添加路由方法底层都是调用的 `map()` 方法，除了没有第一个参数外，其他参数都是一样的
 
-- `$methods` string|array 请求的METHOD. e.g `GET` `['GET', 'POST]`
+- `$methods` string/array 请求的METHOD. e.g `GET` `['GET', 'POST]`
 - `$route` string 定义的路由字符串 e.g `/user/login` `/article/{id}`
-- `$handler` string|object 对应路由的处理者
+- `$handler` string/object 对应路由的处理者
 - `$opts` array 选项设置，可以添加自定义的数据。匹配成功会将选项数据返回(e.g middleware, domains),自己再做进一步验证等。下面是已使用的选项
     - `params` 添加路由时设置的参数匹配信息, 若有的话 e.g `'name' => '\w+'`
     - `defaults` 有可选参数时，可以设置默认值
@@ -257,7 +257,6 @@ $router->map(['get', 'post'], '/im/{name}[/{age}]', function(array $params) {
     
     // 可添加更多自定义设置
     'middleware' => ['AuthCheck'],
-    'domains' => ['localhost'],
     ... ...
 ]);
 ```
@@ -393,8 +392,7 @@ $route = $router->match($path, $method);
             'params' => [],
             'defaults' => [],
 
-            // 'domains' => null,
-            // 'schemas' => null, // ['http','https'],
+            // 'middleware' => null, 
             // route event. custom design ...
             // 'enter' => null,
             // 'leave' => null,
