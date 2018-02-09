@@ -9,7 +9,7 @@
 namespace Inhere\Route\Test;
 
 use Inhere\Route\PreMatchRouter;
-use Inhere\Route\RouterInterface;
+use Inhere\Route\Base\RouterInterface;
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -47,11 +47,11 @@ class RouterManager
      * @var array[]
      * [
      *  'default' => 'main-site', // this is default router.
-     *
      *  'main-site' => [
      *      'driver' => 'default',
      *      'conditions' => [
-     *          'domain' => 'domain.com',
+     *          'domains' => 'abc.com',
+     *          'schemes' => ['https'],
      *      ],
      *      'options' => [
      *          // some setting for router.
@@ -61,7 +61,7 @@ class RouterManager
      *  'doc-site' => [
      *      'driver' => 'cached',
      *      'conditions' => [
-     *          'domain' => 'docs.domain.com',
+     *          'domains' => 'docs.abc.com',
      *      ],
      *      'options' => [
      *          'cacheFile' => '/path/to/routes-cache.php',
@@ -75,11 +75,28 @@ class RouterManager
     /**
      * @var array
      * [
-     *  'condition ID' => 'name',
-     *  'condition ID1' => 'main-site'
+     *  'main-site' => [
+     *      'domains' => 'abc.com',
+     *      'schemes' => ['https'],
+     *  ],
+     *  'doc-site' => [
+     *       'domains' => 'docs.abc.com',
+     *       'schemes' => ['https'],
+     *   ],
+     *  'th3-site' => [
+     *       'domains' => 'th3.abc.com',
+     *   ],
      * ]
      */
     private $conditions = [];
+
+    /**
+     * @var array
+     */
+    private $supportedConditions = [
+        'domains' => 'domain',
+        'schemes' => 'scheme',
+    ];
 
     /**
      * @var array
@@ -112,23 +129,61 @@ class RouterManager
 
     /**
      * get router by condition
-     * @param array $conditions
+     * @param array|string $condition
+     * array:
      * [
-     *  'domain' => 'domain.com'
+     *  'domain' => 'abc.com',
+     *  'scheme' => 'https',
      * ]
+     * string:
+     *  get by name. same of call getByName()
      * @return AbstractRouter|RouterInterface
      * @throws \InvalidArgumentException
      */
-    public function get($conditions = null): AbstractRouter
+    public function get($condition = null): AbstractRouter
     {
-        if (!$conditions) {
+        if (!$condition) {
             return $this->getDefault();
         }
 
-        $key = $this->genConditionID($conditions);
-        $name = $this->conditions[$key] ?? self::DEFAULT_ROUTER;
+        // alias of getByName()
+        if (\is_string($condition)) {
+            return $this->getByName($condition);
+        }
 
-        return $this->getByName($name);
+        $useName = self::DEFAULT_ROUTER;
+
+        foreach ($this->conditions as $name => $cond) {
+            if ($this->compareArray($cond, $condition)) {
+                $useName = $name;
+                break;
+            }
+        }
+
+        return $this->getByName($useName);
+    }
+
+    /**
+     * @param array $define
+     * @param array $input
+     * @return bool
+     */
+    protected function compareArray(array $define, array $input): bool
+    {
+        $match = true;
+
+        foreach ($this->supportedConditions as $def => $key) {
+            if (isset($define[$def], $input[$key])) {
+                $defValues = (array)$define[$def];
+
+                if (!\in_array($input[$key], $defValues, true)) {
+                    $match = false;
+                    break;
+                }
+            }
+        }
+
+        return $match;
     }
 
     /**
@@ -158,7 +213,7 @@ class RouterManager
             $config = $this->configs[$config];
         }
 
-        return ($this->routers[$name] = $this->createRouter($config));
+        return ($this->routers[$name] = $this->createRouter($config, $name));
     }
 
     /**
@@ -170,26 +225,22 @@ class RouterManager
     }
 
     /**
-     * @param string|array $conditions
-     * @return string
-     */
-    private function genConditionID($conditions): string
-    {
-        return \md5(\is_array($conditions) ? \json_encode($conditions) : $conditions);
-    }
-
-    /**
      * @param array $config
+     * @param string $name
      * @return AbstractRouter
      * @throws \InvalidArgumentException
      */
-    private function createRouter(array $config): AbstractRouter
+    private function createRouter(array $config, string $name = ''): AbstractRouter
     {
         $driver = $config['driver'] ?? self::DEFAULT_ROUTER;
         $options = $config['options'] ?? [];
 
         if (!$class = $this->drivers[$driver] ?? null) {
             throw new \InvalidArgumentException("The router driver name '$driver' does not exists!");
+        }
+
+        if ($name && !isset($options['name'])) {
+            $options['name'] = $name;
         }
 
         return new $class($options);
@@ -237,8 +288,7 @@ class RouterManager
 
         foreach ($configs as $name => $config) {
             if (isset($config['conditions'])) {
-                $key = $this->genConditionID($config['conditions']);
-                $this->conditions[$key] = $name;
+                $this->conditions[$name] = $config['conditions'];
             }
         }
     }

@@ -8,6 +8,8 @@
 
 namespace Inhere\Route\Test;
 
+use Inhere\Route\ORouter;
+use Inhere\Route\PreMatchRouter;
 use Inhere\Route\RouterManager;
 use PHPUnit\Framework\TestCase;
 
@@ -18,23 +20,67 @@ use PHPUnit\Framework\TestCase;
  */
 class RouterManagerTest extends TestCase
 {
+    /** @var RouterManager */
+    private $manager;
+
     protected function setUp()
     {
-        $manager = new RouterManager();
+        $configs = [
+            'default' => 'main-site',
+            'main-site' => [
+                'driver' => 'default',
+                'conditions' => [
+                    'domains' => ['abc.com', 'www.abc.com']
+                ],
+            ],
+            'doc-site' => [
+                'driver' => 'cached',
+                'options' => [
+
+                ],
+                'conditions' => [
+                    'domains' => 'doc.abc.com'
+                ],
+            ],
+            'blog-site' => [
+                'driver' => 'preMatch',
+                'options' => [
+                    'path' => '/test',
+                    'method' => 'GET',
+                ],
+                'conditions' => [
+                    'schemes' => 'http',
+                    'domains' => 'blog.abc.com'
+                ],
+            ],
+        ];
+
+        $this->manager = new RouterManager($configs);
     }
 
     public function testGet()
     {
+        $router = $this->manager->get([
+            'scheme' => 'http',
+            'domain' => 'blog.abc.com',
+        ]);
 
+        $this->assertSame('blog-site', $router->getName());
+        $this->assertInstanceOf(PreMatchRouter::class, $router);
     }
 
     public function testGetByName()
     {
+        $router = $this->manager->getByName('blog-site');
 
+        $this->assertSame('blog-site', $router->getName());
     }
 
     public function testGetDefault()
     {
+        $router = $this->manager->getDefault();
 
+        $this->assertSame('default', $router->getName());
+        $this->assertInstanceOf(ORouter::class, $router);
     }
 }

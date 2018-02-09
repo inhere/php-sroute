@@ -13,24 +13,28 @@
 - 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute` (不推荐)
 - 压测对比数据请看[路由测试](#ab-test)
 
-多个版本：
+**多个版本：**
 
 > 不同的版本有稍微的区别以适应不同的场景
 
 - `ORouter` 基础版本，也是后几个版本的基础类。
-- `SRouter` 静态类版本。 `ORouter` 的简单包装，通过静态方法使用(方便小应用快速使用)
+- `SRouter` 静态类版本。`ORouter` 的简单包装，通过静态方法使用(方便小应用快速使用)
 - `CachedRouter` 继承自`ORouter`，支持路由缓存的版本. 适合fpm使用(有缓存将会省去每次的路由收集和解析消耗) 
 - `PreMatchRouter` 继承自`ORouter`，预匹配路由器。当应用的静态路由较多时，将拥有更快的匹配速度
     - fpm 应用中，实际上我们在收集路由之前，已经知道了路由path和请求动作METHOD
 - `ServerRouter` 继承自`ORouter`，服务器路由。内置支持动态路由临时缓存. 适合swoole等常驻内存应用使用
     - 最近请求过的动态路由将会缓存为一个静态路由信息，下次相同路由将会直接匹配命中
 
-内置调度器：
+**内置调度器：**
 
 - 支持事件: `found` `notFound` `execStart` `execEnd` `execError`. 当触发事件时你可以做一些事情(比如记录日志等)
 - 支持动态获取`action`名。支持设置方法执行器(`actionExecutor`)，通过方法执行器来自定义调用真实请求方法. 
 - 支持通过方法 `$router->dispatch($path, $method)` 手动调度一个路由
 - 你即使不配置任何东西, 它也能很好的工作
+
+**路由器管理**
+
+`RouterManager` 当需要在一个项目里处理多个域名下的请求时，方便的根据不同域名配置多个路由器
 
 **[EN README](README_en.md)**
 
@@ -61,8 +65,8 @@ composer require inhere/sroute
 
 ```bash
 git clone https://github.com/inhere/php-srouter.git // github
-git clone https://gitee.com/inhere/php-srouter.git // git@osc
 ```
+
 <a name="ab-test"></a>
 ## 压测
 

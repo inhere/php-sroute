@@ -25,6 +25,11 @@ namespace Inhere\Route\Base;
 abstract class AbstractRouter implements RouterInterface
 {
     /**
+     * @var string
+     */
+    private $name = '';
+
+    /**
      * some available patterns regex
      * $router->get('/user/{id}', 'handler');
      * @var array
@@ -208,7 +213,8 @@ abstract class AbstractRouter implements RouterInterface
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
         }
 
-        static $props = [
+        $props = [
+            'name' => 1,
             'ignoreLastSlash' => 1,
             'tmpCacheNumber' => 1,
             'notAllowedAsNotFound' => 1,
@@ -267,7 +273,7 @@ abstract class AbstractRouter implements RouterInterface
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function rest($prefix, $controllerClass, array $map = [], array $opts = []): AbstractRouter
+    public function rest(string $prefix, string $controllerClass, array $map = [], array $opts = []): AbstractRouter
     {
         $map = array_merge([
             'index' => ['GET'],
@@ -324,7 +330,7 @@ abstract class AbstractRouter implements RouterInterface
      * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function ctrl($prefix, $controllerClass, array $map = [], array $opts = []): AbstractRouter
+    public function ctrl(string $prefix, string $controllerClass, array $map = [], array $opts = []): AbstractRouter
     {
         foreach ($map as $action => $method) {
             if (!$method || !\is_string($action)) {
@@ -404,7 +410,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param string $route
      * @return bool
      */
-    public static function isStaticRoute($route): bool
+    public static function isStaticRoute(string $route): bool
     {
         return strpos($route, '{') === false && strpos($route, '[') === false;
     }
@@ -414,7 +420,7 @@ abstract class AbstractRouter implements RouterInterface
      * @param bool $ignoreLastSlash
      * @return string
      */
-    protected function formatUriPath($path, $ignoreLastSlash): string
+    protected function formatUriPath(string $path, $ignoreLastSlash): string
     {
         // clear '//', '///' => '/'
         if (false !== strpos($path, '//')) {
@@ -689,6 +695,22 @@ abstract class AbstractRouter implements RouterInterface
     public static function getSupportedMethods(): array
     {
         return self::ALLOWED_METHODS;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
     }
 
     /**

@@ -57,7 +57,9 @@ final class PreMatchRouter extends ORouter
      */
     public function setRequest(string $path = null, string $method = null)
     {
-        $path = $path ?: $_SERVER['REQUEST_URI'];
+        if (!$path) {
+            $path = $_SERVER['REQUEST_URI'] ?? '';
+        }
 
         if (strpos($path, '?')) {
             $path = parse_url($path, PHP_URL_PATH);
