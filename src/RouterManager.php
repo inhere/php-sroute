@@ -8,6 +8,7 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Base\AbstractRouter;
 use Inhere\Route\Base\RouterInterface;
 
 /**
@@ -25,11 +26,15 @@ class RouterManager
 
     /**
      * @var ORouter[]
+     * [
+     *  'main-site' => Object(ORouter),
+     *  ... ...
+     * ]
      */
-    private static $routers = [];
+    private $routers = [];
 
     /**
-     * @var array
+     * @var array Available router driver
      */
     private $drivers = [
         'default' => ORouter::class,
@@ -41,35 +46,47 @@ class RouterManager
     /**
      * @var array[]
      * [
-     *  'default' => [
-     *      // some setting for router.
-     *      'name' => 'value'
+     *  'default' => 'main-site', // this is default router.
+     *
+     *  'main-site' => [
+     *      'driver' => 'default',
+     *      'conditions' => [
+     *          'domain' => 'domain.com',
+     *      ],
+     *      'options' => [
+     *          // some setting for router.
+     *          'name' => 'value'
+     *      ],
      *  ],
-     *  'cached' => [
-     *      'cacheFile' => '/path/to/routes-cache.php',
-     *      'cacheEnable' => true,
+     *  'doc-site' => [
+     *      'driver' => 'cached',
+     *      'conditions' => [
+     *          'domain' => 'docs.domain.com',
+     *      ],
+     *      'options' => [
+     *          'cacheFile' => '/path/to/routes-cache.php',
+     *          'cacheEnable' => true,
+     *      ],
      *  ],
      * ]
      */
     private $configs;
 
     /**
-     * @var array[]
+     * @var array
      * [
-     *  'main-site' => [
-     *      'domain' => 'domain.com',
-     *      'driver' => 'default',
-     *      'options' => [],
-     *  ],
-     *  'doc-site' => [
-     *      'domain' => 'docs.domain.com'
-     *  ],
+     *  'condition ID' => 'name',
+     *  'condition ID1' => 'main-site'
      * ]
      */
     private $conditions = [];
 
-    // private $onCreated = [
-    //     'cached' => 'completed'
+    /**
+     * @var array
+     */
+    // private $onCollected = [
+    //     'cached' => 'completed',
+    //     'server' => 'flattenStatics'
     // ];
 
     /**
@@ -88,20 +105,94 @@ class RouterManager
     {
         self::$_instance = $this;
 
-        $this->configs = $configs;
+        if ($configs) {
+            $this->setConfigs($configs);
+        }
     }
 
     /**
+     * get router by condition
      * @param array $conditions
-     * @return ORouter|RouterInterface
+     * [
+     *  'domain' => 'domain.com'
+     * ]
+     * @return AbstractRouter|RouterInterface
+     * @throws \InvalidArgumentException
      */
-    public function getRouter(array $conditions = []): RouterInterface
+    public function get($conditions = null): AbstractRouter
     {
-        $driver = self::DEFAULT_ROUTER;
-
         if (!$conditions) {
-
+            return $this->getDefault();
         }
+
+        $key = $this->genConditionID($conditions);
+        $name = $this->conditions[$key] ?? self::DEFAULT_ROUTER;
+
+        return $this->getByName($name);
+    }
+
+    /**
+     * @param string $name
+     * @return AbstractRouter
+     * @throws \InvalidArgumentException
+     */
+    public function getByName(string $name): AbstractRouter
+    {
+        if (!isset($this->configs[$name])) {
+            throw new \InvalidArgumentException("The named router '$name' does not exists!");
+        }
+
+        // if created
+        if (isset($this->routers[$name])) {
+            return $this->routers[$name];
+        }
+
+        // create
+        $config = $this->configs[$name];
+
+        if (\is_string($config)) {
+            if (!isset($this->configs[$config])) {
+                throw new \InvalidArgumentException("The reference config '$config' does not exists of the '$name'!");
+            }
+
+            $config = $this->configs[$config];
+        }
+
+        return ($this->routers[$name] = $this->createRouter($config));
+    }
+
+    /**
+     * @return AbstractRouter
+     */
+    public function getDefault(): AbstractRouter
+    {
+        return $this->getByName(self::DEFAULT_ROUTER);
+    }
+
+    /**
+     * @param string|array $conditions
+     * @return string
+     */
+    private function genConditionID($conditions): string
+    {
+        return \md5(\is_array($conditions) ? \json_encode($conditions) : $conditions);
+    }
+
+    /**
+     * @param array $config
+     * @return AbstractRouter
+     * @throws \InvalidArgumentException
+     */
+    private function createRouter(array $config): AbstractRouter
+    {
+        $driver = $config['driver'] ?? self::DEFAULT_ROUTER;
+        $options = $config['options'] ?? [];
+
+        if (!$class = $this->drivers[$driver] ?? null) {
+            throw new \InvalidArgumentException("The router driver name '$driver' does not exists!");
+        }
+
+        return new $class($options);
     }
 
     /**
@@ -116,9 +207,9 @@ class RouterManager
     /**
      * @return ORouter[]
      */
-    public static function getRouters(): array
+    public function getRouters(): array
     {
-        return self::$routers;
+        return $this->routers;
     }
 
     /**
@@ -130,26 +221,33 @@ class RouterManager
     }
 
     /**
-     * @return array
-     */
-    public function getConditions(): array
-    {
-        return $this->conditions;
-    }
-
-    /**
-     * @param array $conditions
-     */
-    public function setConditions(array $conditions)
-    {
-        $this->conditions = $conditions;
-    }
-
-    /**
      * @return array[]
      */
     public function getConfigs(): array
     {
         return $this->configs;
+    }
+
+    /**
+     * @param array[] $configs
+     */
+    public function setConfigs(array $configs)
+    {
+        $this->configs = $configs;
+
+        foreach ($configs as $name => $config) {
+            if (isset($config['conditions'])) {
+                $key = $this->genConditionID($config['conditions']);
+                $this->conditions[$key] = $name;
+            }
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getConditions(): array
+    {
+        return $this->conditions;
     }
 }

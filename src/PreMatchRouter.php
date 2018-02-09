@@ -40,6 +40,14 @@ final class PreMatchRouter extends ORouter
     {
         parent::__construct($config);
 
+        if (!$path) {
+            $path = $config['path'] ?? null;
+        }
+
+        if (!$method) {
+            $method = $config['method'] ?? null;
+        }
+
         $this->setRequest($path, $method);
     }
 

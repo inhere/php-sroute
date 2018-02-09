@@ -2,7 +2,7 @@
 namespace Inhere\Route\Test;
 
 use PHPUnit\Framework\TestCase;
-use Inhere\Route\AbstractRouter;
+use Inhere\Route\Base\AbstractRouter;
 
 /**
  * @covers AbstractRouter

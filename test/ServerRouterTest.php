@@ -8,7 +8,7 @@
 
 namespace Inhere\Route\Test;
 
-use Inhere\Route\RouterInterface;
+use Inhere\Route\Base\RouterInterface;
 use Inhere\Route\ServerRouter;
 use PHPUnit\Framework\TestCase;
 
