@@ -5,7 +5,7 @@
  * Date: 2017/7/14
  * Time: 下午9:12
  * you can test use:
- *  php examples/swoole_svr.php
+ *  php example/swoole_svr.php
  * then you can access url: http://127.0.0.1:5675
  */
 
@@ -30,7 +30,7 @@ $router->setConfig([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => 1,
-    'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
+    'controllerNamespace' => 'Inhere\Route\Example\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 

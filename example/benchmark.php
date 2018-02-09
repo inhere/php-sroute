@@ -116,7 +116,7 @@ echo "Match result: \n" . pretty_match_result($ret) . "\n\n";
 
 /*
 // 2017.12.3
-$ php examples/benchmark.php
+$ php example/benchmark.php
 There are generate 1000 routes. and dynamic route with 10% chance
 
 Build time (1000 routes): 0.011926 s
@@ -129,7 +129,7 @@ Memory usage: 1814 KB
 Peak memory usage: 2048 KB
 
 // 2017.12.26
-$ php examples/benchmark.php
+$ php example/benchmark.php
 There are generate 1000 routes. and dynamic route with 50% chance
 
 Build time (1000 routes): 0.017 s, For collect and parse routes.
@@ -144,7 +144,7 @@ Memory usage: 1078 KB
 Peak memory usage: 4096 KB
 
 // 2017.12.26
-$ php examples/benchmark.php
+$ php example/benchmark.php
 There are generate 1000 routes. and no dynamic route
 
 Build time (1000 routes): 0.012 s, For collect and parse routes.

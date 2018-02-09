@@ -6,14 +6,14 @@
  * Time: 下午9:12
  *
  * you can test use:
- *  php -S 127.0.0.1:5673 examples/cached.php
+ *  php -S 127.0.0.1:5673 example/cached.php
  *
  * then you can access url: http://127.0.0.1:5673
  */
 
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\CachedRouter;
-use Inhere\Route\Examples\Controllers\RestController;
+use Inhere\Route\Example\Controllers\RestController;
 
 require dirname(__DIR__) . '/tests/boot.php';
 
@@ -33,7 +33,7 @@ $router = new CachedRouter([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' =>  1,
-    'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
+    'controllerNamespace' => 'Inhere\Route\Example\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 

@@ -123,12 +123,12 @@ $dispatcher->dispatch();
 
 ## 示例
 
-示例代码在 `examples` 下。
+示例代码在 `example` 下。
 
 - SRouter
 
-你可以通过 `php -S 127.0.0.1:5670 -t examples/static` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
+你可以通过 `php -S 127.0.0.1:5670 -t example/static` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
 
 - ORouter
 
-你可以通过 `php -S 127.0.0.1:5671 -t examples/object` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5671
+你可以通过 `php -S 127.0.0.1:5671 -t example/object` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5671

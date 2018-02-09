@@ -6,18 +6,19 @@
  * Time: 下午9:12
  *
  * you can test use:
- *  php -S 127.0.0.1:5671 examples/object.php
+ *  php -S 127.0.0.1:5672 example/pre-match.php
  *
- * then you can access url: http://127.0.0.1:5671
+ * then you can access url: http://127.0.0.1:5672
  */
 
 use Inhere\Route\Dispatcher\Dispatcher;
-use Inhere\Route\Examples\Controllers\RestController;
-use Inhere\Route\ORouter;
+use Inhere\Route\Example\Controllers\RestController;
 
 require dirname(__DIR__) . '/tests/boot.php';
 
-$router = new ORouter;
+$router = new \Inhere\Route\PreMatchRouter();
+// pre setting request info.
+$router->setRequest();
 
 // set config
 $router->setConfig([
@@ -32,7 +33,7 @@ $router->setConfig([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => 1,
-    'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
+    'controllerNamespace' => 'Inhere\Route\Example\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
@@ -55,7 +56,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (ORouter $router) use($rs){
+        $router->group($route[0], function (\Inhere\Route\RouterInterface $router) use($rs){
             foreach ($rs as $r) {
                 $router->map($r[0], $r[1], $r[2], $r[3] ?? []);
             }

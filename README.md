@@ -486,11 +486,11 @@ $router->dispatch($dispatcher);
 
 ## 运行示例
 
-示例代码在 `examples` 下。
+示例代码在 `example` 下。
 
 - 对象版本
 
-你可以通过 `php -S 127.0.0.1:5670 examples/object.php` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5671
+你可以通过 `php -S 127.0.0.1:5670 example/object.php` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5671
 
 ## 测试 
 
@@ -501,7 +501,7 @@ phpunit
 - simple benchmark
 
 ```bash
-php examples/benchmark.php
+php example/benchmark.php
 ```
 
 ## License 

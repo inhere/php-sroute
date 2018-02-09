@@ -8,6 +8,8 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Base\AbstractRouter;
+
 /**
  * Class PreMatchRouter
  * 预匹配：适用于fpm环境，并且静态路由较多的应用

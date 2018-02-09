@@ -95,7 +95,7 @@ array (
   ),
   '/home' => array (
     'GET' => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@index',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@index',
       'option' => array (
       ),
     ),
@@ -184,7 +184,7 @@ $router->get('/hello/{name}', function($name='NO') {
       'regex' => '#^/home/(?P<act>[a-zA-Z][\\w-]+)$#',
       'start' => '/home/',
       'original' => '/home/{act}',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
       'option' => array (
       ),
       'methods' => 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,SEARCH,CONNECT,TRACE',
@@ -216,7 +216,7 @@ array (
       'regex' => '#^/about(?:\\.html)?$#',
       'include' => '/about',
       'original' => '/about[.html]',
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@about',
       'option' => array (
       ),
     ),

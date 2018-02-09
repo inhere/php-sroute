@@ -176,7 +176,7 @@ Support automatic matching like yii routed to the controller, need config `autoR
 
 ```php 
     'autoRoute' => 1, // enanbled
-    'controllerNamespace' => 'examples\\controllers', // The controller class in the namespace
+    'controllerNamespace' => 'Example\\controllers', // The controller class in the namespace
     'controllerSuffix' => 'Controller', // The controller class suffix
 ```
 
@@ -219,7 +219,7 @@ $router->setConfig([
     // enable autoRoute, work like yii framework
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => 1,
-    'controllerNamespace' => 'examples\\controllers',
+    'controllerNamespace' => 'Example\\controllers',
     'controllerSuffix' => 'Controller',
 ]);
 ```
@@ -280,11 +280,11 @@ $dispatcher->on('notFound', function ($uri) {
 $router->dispatch($dispatcher);
 ```
 
-## examples
+## example
 
-please the `examples` folder's codes.
+please the `example` folder's codes.
 
-you can run a test server by `php -S 127.0.0.1:5670 -t examples/static`, now please access http://127.0.0.1:5670
+you can run a test server by `php -S 127.0.0.1:5670 -t example/static`, now please access http://127.0.0.1:5670
 
 ## License 
 

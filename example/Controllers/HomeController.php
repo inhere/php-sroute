@@ -6,11 +6,11 @@
  * Time: 上午12:14
  */
 
-namespace Inhere\Route\Examples\Controllers;
+namespace Inhere\Route\Example\Controllers;
 
 /**
  * Class HomeController
- * @package Inhere\Route\examples\controllers
+ * @package Inhere\Route\example\controllers
  */
 class HomeController
 {

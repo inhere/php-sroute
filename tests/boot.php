@@ -13,8 +13,8 @@ spl_autoload_register(function($class)
 {
     $file = null;
 
-    if (0 === strpos($class,'Inhere\Route\Examples\\')) {
-        $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Examples\\')));
+    if (0 === strpos($class,'Inhere\Route\Example\\')) {
+        $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Example\\')));
         $file = __DIR__ . "/{$path}.php";
     } elseif(0 === strpos($class,'Inhere\Route\Tests\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Tests\\')));

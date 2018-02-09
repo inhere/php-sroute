@@ -6,7 +6,7 @@
  * Time: 上午12:00
  *
  * you can test use:
- *  php -S 127.0.0.1:5670 examples/static.php
+ *  php -S 127.0.0.1:5670 example/static.php
  *
  * then you can access url: http://127.0.0.1:5670
  */
@@ -28,7 +28,7 @@ SRouter::setConfig([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' =>  1,
-    'controllerNamespace' => 'Inhere\Route\Examples\Controllers',
+    'controllerNamespace' => 'Inhere\Route\Example\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 

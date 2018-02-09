@@ -7,7 +7,7 @@
  *
  */
 
-use Inhere\Route\Examples\Controllers\HomeController;
+use Inhere\Route\Example\Controllers\HomeController;
 
 function handler0() {
     echo 'hello, welcome';

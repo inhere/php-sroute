@@ -16,10 +16,10 @@ return array (
   ),
   '/rest' => array (
     'GET' => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@index',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@index',
     ),
     'POST' => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@create',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@create',
     ),
   ),
   '/*' => array (
@@ -52,7 +52,7 @@ return array (
   ),
   '/home' => array (
     'GET' => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@index',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@index',
     ),
   ),
   '/post' => array (
@@ -91,7 +91,7 @@ return array (
 'regularRoutes' => array (
   'rest' => array (
     0 => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@view',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@view',
       'option' => array (
         'params' => array (
           'id' => '[1-9]\\d*',
@@ -103,7 +103,7 @@ return array (
       'methods' => 'GET,',
     ),
     1 => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@update',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@update',
       'option' => array (
         'params' => array (
           'id' => '[1-9]\\d*',
@@ -115,7 +115,7 @@ return array (
       'methods' => 'PUT,',
     ),
     2 => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@patch',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@patch',
       'option' => array (
         'params' => array (
           'id' => '[1-9]\\d*',
@@ -127,7 +127,7 @@ return array (
       'methods' => 'PATCH,',
     ),
     3 => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\RestController@delete',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@delete',
       'option' => array (
         'params' => array (
           'id' => '[1-9]\\d*',
@@ -217,7 +217,7 @@ return array (
   ),
   'home' => array (
     0 => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
       'original' => '/home/{act}',
       'regex' => '#^/home/(?P<act>[a-zA-Z][\\w-]+)$#',
       'start' => '/home/',
@@ -240,7 +240,7 @@ return array (
       'include' => NULL,
     ),
     1 => array (
-      'handler' => 'Inhere\\Route\\Examples\\Controllers\\HomeController@about',
+      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@about',
       'original' => '/about[.html]',
       'regex' => '#^/about(?:\\.html)?$#',
       'include' => '/about',

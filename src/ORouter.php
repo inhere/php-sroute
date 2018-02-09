@@ -8,6 +8,7 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Base\AbstractRouter;
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Dispatcher\DispatcherInterface;
 

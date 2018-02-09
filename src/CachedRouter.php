@@ -8,6 +8,8 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Base\AbstractRouter;
+
 /**
  * Class CachedRouter - this is object version and support cache routes.
  *
@@ -35,12 +37,6 @@ final class CachedRouter extends ORouter
     protected $cacheEnable = true;
 
     /**
-     * dump routes cache on matching
-     * @var bool
-     */
-    protected $cacheOnMatching = false;
-
-    /**
      * object constructor.
      * @param array $config
      * @throws \LogicException
@@ -55,10 +51,6 @@ final class CachedRouter extends ORouter
 
         if (isset($config['cacheEnable'])) {
             $this->cacheEnable =(bool)$config['cacheEnable'];
-        }
-
-        if (isset($config['cacheOnMatching'])) {
-            $this->cacheOnMatching = (bool)$config['cacheOnMatching'];
         }
 
         // read route caches from cache file
@@ -86,19 +78,6 @@ final class CachedRouter extends ORouter
         return parent::map($method, $route, $handler, $opts);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function match(string $path, string $method = self::GET): array
-    {
-        // dump routes to cache file
-        if ($this->cacheOnMatching) {
-            $this->dumpRoutesCache();
-        }
-
-        return parent::match($path, $method);
-    }
-
     /*******************************************************************************
      * helper methods
      ******************************************************************************/
@@ -115,7 +94,7 @@ final class CachedRouter extends ORouter
 
         $file = $this->cacheFile;
 
-        if (!$file || !file_exists($file)) {
+        if (!$file || !\file_exists($file)) {
             return false;
         }
 
@@ -140,16 +119,16 @@ final class CachedRouter extends ORouter
             return 0;
         }
 
-        if ($this->isCacheEnable() && file_exists($file)) {
+        if ($this->isCacheEnable() && \file_exists($file)) {
             return 1;
         }
 
-        $date = date('Y-m-d H:i:s');
+        $date = \date('Y-m-d H:i:s');
         $class = static::class;
         $count = $this->count();
-        $staticRoutes = var_export($this->getStaticRoutes(), true);
-        $regularRoutes = var_export($this->getRegularRoutes(), true);
-        $vagueRoutes = var_export($this->getVagueRoutes(), true);
+        $staticRoutes = \var_export($this->getStaticRoutes(), true);
+        $regularRoutes = \var_export($this->getRegularRoutes(), true);
+        $vagueRoutes = \var_export($this->getVagueRoutes(), true);
 
         $code = <<<EOF
 <?php
@@ -169,7 +148,7 @@ return array (
 'vagueRoutes' => $vagueRoutes,
 );
 EOF;
-        return file_put_contents($file, preg_replace('/=>\s+\n\s+array \(/', '=> array (', $code));
+        return \file_put_contents($file, \preg_replace('/=>\s+\n\s+array \(/', '=> array (', $code));
     }
 
     /**
@@ -209,7 +188,7 @@ EOF;
      */
     public function isCacheExists(): bool
     {
-        return ($file = $this->cacheFile) && file_exists($file);
+        return ($file = $this->cacheFile) && \file_exists($file);
     }
 
     /**
@@ -219,21 +198,4 @@ EOF;
     {
         return $this->cacheLoaded;
     }
-
-    /**
-     * @param bool $cacheOnMatching
-     */
-    public function setCacheOnMatching($cacheOnMatching)
-    {
-        $this->cacheOnMatching = (bool)$cacheOnMatching;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCacheOnMatching(): bool
-    {
-        return $this->cacheOnMatching;
-    }
-
 }

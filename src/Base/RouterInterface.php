@@ -6,11 +6,11 @@
  * Time: 下午10:43
  */
 
-namespace Inhere\Route;
+namespace Inhere\Route\Base;
 
 /**
  * Interface RouterInterface
- * @package Inhere\Route
+ * @package Inhere\Route\Base
  */
 interface RouterInterface
 {

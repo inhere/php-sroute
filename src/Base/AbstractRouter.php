@@ -6,11 +6,11 @@
  * Time: 下午11:37
  */
 
-namespace Inhere\Route;
+namespace Inhere\Route\Base;
 
 /**
  * Class AbstractRouter
- * @package Inhere\Route
+ * @package Inhere\Route\Base
  * @method get(string $route, mixed $handler, array $opts = [])
  * @method post(string $route, mixed $handler, array $opts = [])
  * @method put(string $route, mixed $handler, array $opts = [])
