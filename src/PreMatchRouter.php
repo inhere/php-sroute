@@ -118,14 +118,14 @@ final class PreMatchRouter extends ORouter
         }
 
         $path = $this->formatUriPath($path, $this->ignoreLastSlash);
-        $method = strtoupper($method);
 
         // if this path has been pre-matched.
-        if ($method === $this->reqMethod && $path === $this->reqPath) {
+        if ($this->preFounded) {
             return [self::FOUND, $path, $this->preFounded];
         }
 
         $first = null;
+        $method = strtoupper($method);
         $allowedMethods = [];
 
         // cut first node. eg '/article/12'
