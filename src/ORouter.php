@@ -90,7 +90,7 @@ class ORouter extends AbstractRouter
         $hasPrefix = (bool)$this->currentGroupPrefix;
 
         // always add '/' prefix.
-        if ($route = trim($route)) {
+        if ($route = \trim($route)) {
             $route = $route{0} === '/' ? $route : '/' . $route;
         } elseif (!$hasPrefix) {
             $route = '/';
@@ -100,7 +100,7 @@ class ORouter extends AbstractRouter
 
         // setting 'ignoreLastSlash'
         if ($route !== '/' && $this->ignoreLastSlash) {
-            $route = rtrim($route, '/');
+            $route = \rtrim($route, '/');
         }
 
         $conf = [
@@ -108,7 +108,7 @@ class ORouter extends AbstractRouter
         ];
 
         if ($this->currentGroupOption) {
-            $opts = array_merge($this->currentGroupOption, $opts);
+            $opts = \array_merge($this->currentGroupOption, $opts);
         }
 
         if ($opts) {
@@ -131,7 +131,7 @@ class ORouter extends AbstractRouter
 
         // route string have regular
         if ($first) {
-            $conf['methods'] = implode(',', $methods) . ',';
+            $conf['methods'] = \implode(',', $methods) . ',';
             $this->routeCounter++;
             $this->regularRoutes[$first][] = $conf;
 
@@ -172,7 +172,7 @@ class ORouter extends AbstractRouter
         }
 
         $path = $this->formatUriPath($path, $this->ignoreLastSlash);
-        $method = strtoupper($method);
+        $method = \strtoupper($method);
 
         // is a static route path
         if ($this->staticRoutes && isset($this->staticRoutes[$path][$method])) {
@@ -185,8 +185,8 @@ class ORouter extends AbstractRouter
         $allowedMethods = [];
 
         // eg '/article/12'
-        if ($pos = strpos($path, '/', 1)) {
-            $first = substr($path, 1, $pos - 1);
+        if ($pos = \strpos($path, '/', 1)) {
+            $first = \substr($path, 1, $pos - 1);
         }
 
         // is a regular dynamic route(the first node is 1th level index key).
@@ -265,7 +265,7 @@ class ORouter extends AbstractRouter
     protected function findAllowedMethods(string $path, string $method, array $allowedMethods): array
     {
         if (isset($this->staticRoutes[$path])) {
-            $allowedMethods = array_merge($allowedMethods, array_keys($this->staticRoutes[$path]));
+            $allowedMethods = \array_merge($allowedMethods, \array_keys($this->staticRoutes[$path]));
         }
 
         foreach ($this->vagueRoutes as $m => $routes) {
@@ -280,7 +280,7 @@ class ORouter extends AbstractRouter
             }
         }
 
-        if ($allowedMethods && ($list = array_unique($allowedMethods))) {
+        if ($allowedMethods && ($list = \array_unique($allowedMethods))) {
             return [self::METHOD_NOT_ALLOWED, $path, $list];
         }
 
@@ -299,10 +299,10 @@ class ORouter extends AbstractRouter
         $allowedMethods = '';
 
         foreach ($routesData as $conf) {
-            if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
+            if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
                 $allowedMethods .= $conf['methods'];
 
-                if (false !== strpos($conf['methods'], $method . ',')) {
+                if (false !== \strpos($conf['methods'], $method . ',')) {
                     $this->filterMatches($matches, $conf);
 
                     return [self::FOUND, $path, $conf];
@@ -310,7 +310,7 @@ class ORouter extends AbstractRouter
             }
         }
 
-        return [self::NOT_FOUND, explode(',', trim($allowedMethods, ','))];
+        return [self::NOT_FOUND, \explode(',', \trim($allowedMethods, ','))];
     }
 
     /**
@@ -322,11 +322,11 @@ class ORouter extends AbstractRouter
     protected function findInVagueRoutes(array $routesData, string $path, string $method): array
     {
         foreach ($routesData as $conf) {
-            if ($conf['include'] && false === strpos($path, $conf['include'])) {
+            if ($conf['include'] && false === \strpos($path, $conf['include'])) {
                 continue;
             }
 
-            if (preg_match($conf['regex'], $path, $matches)) {
+            if (\preg_match($conf['regex'], $path, $matches)) {
                 $this->filterMatches($matches, $conf);
 
                 return [self::FOUND, $path, $conf];

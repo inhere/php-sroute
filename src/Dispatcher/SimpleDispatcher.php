@@ -116,7 +116,7 @@ class SimpleDispatcher implements DispatcherInterface
         $path = $path ?: $_SERVER['REQUEST_URI'];
 
         if (strpos($path, '?')) {
-            $path =  parse_url($path, PHP_URL_PATH);
+            $path =  \parse_url($path, PHP_URL_PATH);
         }
 
         // if 'filterFavicon' setting is TRUE
@@ -186,7 +186,7 @@ class SimpleDispatcher implements DispatcherInterface
     protected function callRouteHandler(string $path, string $method, $handler, array $args = [])
     {
         $vars = $args['matches'];
-        $args = array_values($args);
+        $args = \array_values($args);
 
         // is a \Closure or a callable object
         if (\is_object($handler)) {
@@ -200,12 +200,12 @@ class SimpleDispatcher implements DispatcherInterface
             $segments = $handler;
         } elseif (\is_string($handler)) {
             // is function
-            if (strpos($handler, '@') === false && \function_exists($handler)) {
+            if (\strpos($handler, '@') === false && \function_exists($handler)) {
                 return $handler(...$args);
             }
 
             // e.g `Controllers\Home@index` Or only `Controllers\Home`
-            $segments = explode('@', trim($handler));
+            $segments = \explode('@', \trim($handler));
         } else {
             throw new \InvalidArgumentException('Invalid route handler');
         }
@@ -219,7 +219,7 @@ class SimpleDispatcher implements DispatcherInterface
 
             // use dynamic action
         } elseif ($this->options['dynamicAction'] && ($var = $this->options['dynamicActionVar'])) {
-            $action = isset($vars[$var]) ? trim($vars[$var], '/') : $this->options['defaultAction'];
+            $action = isset($vars[$var]) ? \trim($vars[$var], '/') : $this->options['defaultAction'];
 
             // defined default action
         } elseif (!$action = $this->options['defaultAction']) {
@@ -388,13 +388,13 @@ HTML;
             }
 
             // a class name
-            if (class_exists($cb)) {
+            if (\class_exists($cb)) {
                 $cb = new $cb;
             }
         }
 
         // a \Closure or Object implement '__invoke'
-        if (\is_object($cb) && method_exists($cb, '__invoke')) {
+        if (\is_object($cb) && \method_exists($cb, '__invoke')) {
             return $cb(...$args);
         }
 

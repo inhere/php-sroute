@@ -62,7 +62,7 @@ final class PreMatchRouter extends ORouter
         }
 
         if (strpos($path, '?')) {
-            $path = parse_url($path, PHP_URL_PATH);
+            $path = \parse_url($path, PHP_URL_PATH);
         }
 
         $this->reqPath = $this->formatUriPath($path, $this->ignoreLastSlash);
@@ -138,11 +138,11 @@ final class PreMatchRouter extends ORouter
         }
 
         $first = null;
-        $method = strtoupper($method);
+        $method = \strtoupper($method);
         $allowedMethods = [];
 
-        if ($pos = strpos($path, '/', 1)) {
-            $first = substr($path, 1, $pos - 1);
+        if ($pos = \strpos($path, '/', 1)) {
+            $first = \substr($path, 1, $pos - 1);
         }
 
         if ($first && isset($this->regularRoutes[$first])) {

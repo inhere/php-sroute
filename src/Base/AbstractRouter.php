@@ -245,7 +245,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function __call($method, array $args)
     {
-        if (\in_array(strtoupper($method), self::ALLOWED_METHODS, true)) {
+        if (\in_array(\strtoupper($method), self::ALLOWED_METHODS, true)) {
             if (\count($args) < 2) {
                 throw new \InvalidArgumentException("The method [$method] parameters is missing.");
             }
@@ -275,7 +275,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function rest(string $prefix, string $controllerClass, array $map = [], array $opts = []): AbstractRouter
     {
-        $map = array_merge([
+        $map = \array_merge([
             'index' => ['GET'],
             'create' => ['POST'],
             'view' => ['GET', '{id}', ['id' => '[1-9]\d*']],
@@ -388,10 +388,10 @@ abstract class AbstractRouter implements RouterInterface
         $allow = self::ALLOWED_METHODS_STR . ',';
         $hasAny = false;
 
-        $methods = array_map(function ($m) use ($allow, &$hasAny) {
-            $m = strtoupper(trim($m));
+        $methods = \array_map(function ($m) use ($allow, &$hasAny) {
+            $m = \strtoupper(trim($m));
 
-            if (!$m || false === strpos($allow, $m . ',')) {
+            if (!$m || false === \strpos($allow, $m . ',')) {
                 throw new \InvalidArgumentException("The method [$m] is not supported, Allow: " . trim($allow, ','));
             }
 
@@ -412,7 +412,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public static function isStaticRoute(string $route): bool
     {
-        return strpos($route, '{') === false && strpos($route, '[') === false;
+        return \strpos($route, '{') === false && \strpos($route, '[') === false;
     }
 
     /**
@@ -423,16 +423,16 @@ abstract class AbstractRouter implements RouterInterface
     protected function formatUriPath(string $path, $ignoreLastSlash): string
     {
         // clear '//', '///' => '/'
-        if (false !== strpos($path, '//')) {
-            $path = (string)preg_replace('#\/\/+#', '/', $path);
+        if (false !== \strpos($path, '//')) {
+            $path = (string)\preg_replace('#\/\/+#', '/', $path);
         }
 
         // decode
-        $path = rawurldecode($path);
+        $path = \rawurldecode($path);
 
         // setting 'ignoreLastSlash'
         if ($path !== '/' && $ignoreLastSlash) {
-            $path = rtrim($path, '/');
+            $path = \rtrim($path, '/');
         }
 
         return $path;
@@ -450,11 +450,11 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // clear all int key
-        $matches = array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
+        $matches = \array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
 
         // apply some default param value
         if (isset($conf['option']['defaults'])) {
-            $conf['matches'] = array_merge($conf['option']['defaults'], $matches);
+            $conf['matches'] = \array_merge($conf['option']['defaults'], $matches);
         } else {
             $conf['matches'] = $matches;
         }
@@ -474,28 +474,28 @@ abstract class AbstractRouter implements RouterInterface
         $noOptional = null;
 
         // 解析可选参数位
-        if (false !== ($pos = strpos($route, '['))) {
+        if (false !== ($pos = \strpos($route, '['))) {
             // $hasOptional = true;
-            $noOptional = substr($route, 0, $pos);
-            $withoutClosingOptionals = rtrim($route, ']');
+            $noOptional = \substr($route, 0, $pos);
+            $withoutClosingOptionals = \rtrim($route, ']');
             $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
 
-            if ($optionalNum !== substr_count($withoutClosingOptionals, '[')) {
+            if ($optionalNum !== \substr_count($withoutClosingOptionals, '[')) {
                 throw new \LogicException('Optional segments can only occur at the end of a route');
             }
 
             // '/hello[/{name}]' -> '/hello(?:/{name})?'
-            $route = str_replace(['[', ']'], ['(?:', ')?'], $route);
+            $route = \str_replace(['[', ']'], ['(?:', ')?'], $route);
         }
 
         // quote '.','/' to '\.','\/'
-        if (false !== strpos($route, '.')) {
+        if (false !== \strpos($route, '.')) {
             // $route = preg_quote($route, '/');
-            $route = str_replace('.', '\.', $route);
+            $route = \str_replace('.', '\.', $route);
         }
 
         // 解析参数，替换为对应的 正则
-        if (preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
+        if (\preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
             /** @var array[] $m */
             $replacePairs = [];
 
@@ -508,7 +508,7 @@ abstract class AbstractRouter implements RouterInterface
                 // $replacePairs[$key] = '(' . $regex . ')';
             }
 
-            $route = strtr($route, $replacePairs);
+            $route = \strtr($route, $replacePairs);
         }
 
         // 分析路由字符串是否是有规律的
@@ -517,7 +517,7 @@ abstract class AbstractRouter implements RouterInterface
 
         // first node is a normal string
         // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        if (preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
+        if (\preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
             $first = $m[1];
             $conf['start'] = $m[0];
 
@@ -528,14 +528,14 @@ abstract class AbstractRouter implements RouterInterface
         $include = null;
 
         if ($noOptional) {
-            if (strpos($noOptional, '{') === false) {
+            if (\strpos($noOptional, '{') === false) {
                 $include = $noOptional;
             } else {
                 $bak = $noOptional;
             }
         }
 
-        if (!$include && preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
+        if (!$include && \preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
             $include = $m[0];
         }
 
@@ -569,22 +569,22 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function matchAutoRoute(string $path)
     {
-        if (!$cnp = trim($this->controllerNamespace)) {
+        if (!$cnp = \trim($this->controllerNamespace)) {
             return false;
         }
 
-        $sfx = trim($this->controllerSuffix);
-        $tmp = trim($path, '/- ');
+        $sfx = \trim($this->controllerSuffix);
+        $tmp = \trim($path, '/- ');
 
         // one node. eg: 'home'
-        if (!strpos($tmp, '/')) {
+        if (!\strpos($tmp, '/')) {
             $tmp = self::convertNodeStr($tmp);
-            $class = "$cnp\\" . ucfirst($tmp) . $sfx;
+            $class = "$cnp\\" . \ucfirst($tmp) . $sfx;
 
-            return class_exists($class) ? $class : false;
+            return \class_exists($class) ? $class : false;
         }
 
-        $ary = array_map([self::class, 'convertNodeStr'], explode('/', $tmp));
+        $ary = \array_map([self::class, 'convertNodeStr'], \explode('/', $tmp));
         $cnt = \count($ary);
 
         // two nodes. eg: 'home/test' 'admin/user'
@@ -592,16 +592,16 @@ abstract class AbstractRouter implements RouterInterface
             list($n1, $n2) = $ary;
 
             // last node is an controller class name. eg: 'admin/user'
-            $class = "$cnp\\$n1\\" . ucfirst($n2) . $sfx;
+            $class = "$cnp\\$n1\\" . \ucfirst($n2) . $sfx;
 
-            if (class_exists($class)) {
+            if (\class_exists($class)) {
                 return $class;
             }
 
             // first node is an controller class name, second node is a action name,
-            $class = "$cnp\\" . ucfirst($n1) . $sfx;
+            $class = "$cnp\\" . \ucfirst($n1) . $sfx;
 
-            return class_exists($class) ? "$class@$n2" : false;
+            return \class_exists($class) ? "$class@$n2" : false;
         }
 
         // max allow 5 nodes
@@ -610,18 +610,18 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // last node is an controller class name
-        $n2 = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n2) . $sfx);
+        $n2 = \array_pop($ary);
+        $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n2) . $sfx);
 
-        if (class_exists($class)) {
+        if (\class_exists($class)) {
             return $class;
         }
 
         // last second is an controller class name, last node is a action name,
-        $n1 = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n1) . $sfx);
+        $n1 = \array_pop($ary);
+        $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n1) . $sfx);
 
-        return class_exists($class) ? "$class@$n2" : false;
+        return \class_exists($class) ? "$class@$n2" : false;
     }
 
     /**
@@ -649,13 +649,13 @@ abstract class AbstractRouter implements RouterInterface
      */
     public static function convertNodeStr($str): string
     {
-        $str = trim($str, '-');
+        $str = \trim($str, '-');
 
         // convert 'first-second' to 'firstSecond'
-        if (strpos($str, '-')) {
-            $str = (string)preg_replace_callback('/-+([a-z])/', function ($c) {
-                return strtoupper($c[1]);
-            }, trim($str, '- '));
+        if (\strpos($str, '-')) {
+            $str = (string)\preg_replace_callback('/-+([a-z])/', function ($c) {
+                return \strtoupper($c[1]);
+            }, \trim($str, '- '));
         }
 
         return $str;
@@ -677,7 +677,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function addGlobalParam($name, $pattern)
     {
-        $name = trim($name, '{} ');
+        $name = \trim($name, '{} ');
         self::$globalParams[$name] = $pattern;
     }
 
