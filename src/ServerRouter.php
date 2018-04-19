@@ -8,6 +8,8 @@
 
 namespace Inhere\Route;
 
+use Inhere\Route\Helper\RouteHelper;
+
 /**
  * Class ServerRouter
  *
@@ -136,7 +138,7 @@ final class ServerRouter extends ORouter
             }
         }
 
-        $path = $this->formatUriPath($path, $this->ignoreLastSlash);
+        $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
 
         // find in route caches.

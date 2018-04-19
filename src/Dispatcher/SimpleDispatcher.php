@@ -8,6 +8,7 @@
 
 namespace Inhere\Route\Dispatcher;
 
+use Inhere\Route\Helper\RouteHelper;
 use Inhere\Route\ORouter;
 use Inhere\Route\Base\RouterInterface;
 
@@ -227,7 +228,7 @@ class SimpleDispatcher implements DispatcherInterface
             throw new \RuntimeException("please config the route path [$path] controller action to call");
         }
 
-        $action = ORouter::convertNodeStr($action);
+        $action = RouteHelper::str2Camel($action);
         $actionMethod = $action . $this->options['actionSuffix'];
 
         // if set the 'actionExecutor', the action handle logic by it.

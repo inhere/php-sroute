@@ -8,6 +8,8 @@
 
 namespace Inhere\Route\Base;
 
+use Inhere\Route\Helper\RouteHelper;
+
 /**
  * Class AbstractRouter
  * @package Inhere\Route\Base
@@ -416,29 +418,6 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * @param string $path
-     * @param bool $ignoreLastSlash
-     * @return string
-     */
-    protected function formatUriPath(string $path, $ignoreLastSlash): string
-    {
-        // clear '//', '///' => '/'
-        if (false !== \strpos($path, '//')) {
-            $path = (string)\preg_replace('#\/\/+#', '/', $path);
-        }
-
-        // decode
-        $path = \rawurldecode($path);
-
-        // setting 'ignoreLastSlash'
-        if ($path !== '/' && $ignoreLastSlash) {
-            $path = \rtrim($path, '/');
-        }
-
-        return $path;
-    }
-
-    /**
      * @param array $matches
      * @param array $conf
      */
@@ -578,13 +557,13 @@ abstract class AbstractRouter implements RouterInterface
 
         // one node. eg: 'home'
         if (!\strpos($tmp, '/')) {
-            $tmp = self::convertNodeStr($tmp);
+            $tmp = RouteHelper::str2Camel($tmp);
             $class = "$cnp\\" . \ucfirst($tmp) . $sfx;
 
             return \class_exists($class) ? $class : false;
         }
 
-        $ary = \array_map([self::class, 'convertNodeStr'], \explode('/', $tmp));
+        $ary = \array_map(RouteHelper::class . '::str2Camel', \explode('/', $tmp));
         $cnt = \count($ary);
 
         // two nodes. eg: 'home/test' 'admin/user'
@@ -640,25 +619,6 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         return $params;
-    }
-
-    /**
-     * convert 'first-second' to 'firstSecond'
-     * @param string $str
-     * @return string
-     */
-    public static function convertNodeStr($str): string
-    {
-        $str = \trim($str, '-');
-
-        // convert 'first-second' to 'firstSecond'
-        if (\strpos($str, '-')) {
-            $str = (string)\preg_replace_callback('/-+([a-z])/', function ($c) {
-                return \strtoupper($c[1]);
-            }, \trim($str, '- '));
-        }
-
-        return $str;
     }
 
     /**

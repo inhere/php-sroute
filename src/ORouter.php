@@ -11,6 +11,7 @@ namespace Inhere\Route;
 use Inhere\Route\Base\AbstractRouter;
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Dispatcher\DispatcherInterface;
+use Inhere\Route\Helper\RouteHelper;
 
 /**
  * Class ORouter - this is object version
@@ -172,7 +173,7 @@ class ORouter extends AbstractRouter
             }
         }
 
-        $path = $this->formatUriPath($path, $this->ignoreLastSlash);
+        $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
 
         // is a static route path

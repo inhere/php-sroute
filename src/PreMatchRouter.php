@@ -9,6 +9,7 @@
 namespace Inhere\Route;
 
 use Inhere\Route\Base\AbstractRouter;
+use Inhere\Route\Helper\RouteHelper;
 
 /**
  * Class PreMatchRouter
@@ -65,7 +66,7 @@ final class PreMatchRouter extends ORouter
             $path = \parse_url($path, PHP_URL_PATH);
         }
 
-        $this->reqPath = $this->formatUriPath($path, $this->ignoreLastSlash);
+        $this->reqPath = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
         $this->reqMethod = $method ? \strtoupper($method) : $_SERVER['REQUEST_METHOD'];
     }
 
@@ -121,7 +122,7 @@ final class PreMatchRouter extends ORouter
         if ($matchAll = $this->matchAll) {
             if (\is_string($matchAll) && $matchAll{0} === '/') {
                 // $path = $matchAll;
-                $path = $this->formatUriPath($matchAll, $this->ignoreLastSlash);
+                $path = RouteHelper::formatUriPath($matchAll, $this->ignoreLastSlash);
             } elseif (\is_callable($matchAll)) {
                 return [self::FOUND, $path, [
                     'handler' => $matchAll,
