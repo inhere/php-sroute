@@ -9,7 +9,6 @@
 namespace Inhere\Route\Dispatcher;
 
 use Inhere\Route\Helper\RouteHelper;
-use Inhere\Route\ORouter;
 use Inhere\Route\Base\RouterInterface;
 
 /**
@@ -164,7 +163,7 @@ class SimpleDispatcher implements DispatcherInterface
         } catch (\Throwable $e) {
             // trigger route exec_error event
             if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
-                return $this->fireCallback($cb, [$e, $path, $info]);
+                return RouteHelper::call($cb, [$e, $path, $info]);
             }
 
             throw $e;
@@ -275,7 +274,7 @@ class SimpleDispatcher implements DispatcherInterface
         }
 
         // trigger notFound event
-        return $this->fireCallback($handler, [$path, $method, $actionNotExist]);
+        return RouteHelper::call($handler, [$path, $method, $actionNotExist]);
     }
 
     /**
@@ -306,7 +305,7 @@ class SimpleDispatcher implements DispatcherInterface
         }
 
         // trigger methodNotAllowed event
-        return $this->fireCallback($handler, [$path, $method, $methods]);
+        return RouteHelper::call($handler, [$path, $method, $methods]);
     }
 
     /**
@@ -351,47 +350,6 @@ HTML;
         if (self::isSupportedEvent($event)) {
             $this->options[$event] = $handler;
         }
-    }
-
-    /**
-     * @param callable|mixed $cb
-     * string - func name, class name
-     * array - [class, method]
-     * object - Closure, Object
-     *
-     * @param array $args
-     * @return mixed
-     * @throws \InvalidArgumentException
-     */
-    protected function fireCallback($cb, array $args = [])
-    {
-        if (!$cb) {
-            return true;
-        }
-
-        if (\is_array($cb)) {
-            list($obj, $mhd) = $cb;
-
-            return \is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
-        }
-
-        if (\is_string($cb)) {
-            if (\function_exists($cb)) {
-                return $cb(...$args);
-            }
-
-            // a class name
-            if (\class_exists($cb)) {
-                $cb = new $cb;
-            }
-        }
-
-        // a \Closure or Object implement '__invoke'
-        if (\is_object($cb) && \method_exists($cb, '__invoke')) {
-            return $cb(...$args);
-        }
-
-        throw new \InvalidArgumentException('the callback handler is not callable!');
     }
 
     /**

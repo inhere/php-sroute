@@ -9,6 +9,7 @@
 namespace Inhere\Route\Dispatcher;
 
 use Inhere\Route\Base\RouterInterface;
+use Inhere\Route\Helper\RouteHelper;
 
 /**
  * Class Dispatcher
@@ -59,7 +60,7 @@ class Dispatcher extends SimpleDispatcher
         // schema,domains ... metadata validate
         if (
             isset($options['enter']) &&
-            false === $this->fireCallback($options['enter'], [$options, $path])
+            false === RouteHelper::call($options['enter'], [$options, $path])
         ) {
             return $result;
         }
@@ -75,7 +76,7 @@ class Dispatcher extends SimpleDispatcher
 
             // fire leave event
             if (isset($options['leave'])) {
-                $this->fireCallback($options['leave'], [$options, $path]);
+                RouteHelper::call($options['leave'], [$options, $path]);
             }
 
             // trigger route exec_end event
@@ -83,7 +84,7 @@ class Dispatcher extends SimpleDispatcher
         } catch (\Throwable $e) {
             // trigger route exec_error event
             if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
-                return $this->fireCallback($cb, [$e, $path, $info]);
+                return RouteHelper::call($cb, [$e, $path, $info]);
             }
 
             throw $e;
@@ -122,6 +123,6 @@ class Dispatcher extends SimpleDispatcher
             return false;
         }
 
-        return $this->fireCallback($cb, $args);
+        return RouteHelper::call($cb, $args);
     }
 }

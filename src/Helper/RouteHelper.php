@@ -53,4 +53,45 @@ class RouteHelper
 
         return $str;
     }
+
+    /**
+     * @param callable|mixed $cb
+     * string - func name, class name
+     * array - [class, method]
+     * object - Closure, Object
+     *
+     * @param array $args
+     * @return mixed
+     * @throws \InvalidArgumentException
+     */
+    public static function call($cb, array $args = [])
+    {
+        if (!$cb) {
+            return true;
+        }
+
+        if (\is_array($cb)) {
+            list($obj, $mhd) = $cb;
+
+            return \is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
+        }
+
+        if (\is_string($cb)) {
+            if (\function_exists($cb)) {
+                return $cb(...$args);
+            }
+
+            // a class name
+            if (\class_exists($cb)) {
+                $cb = new $cb;
+            }
+        }
+
+        // a \Closure or Object implement '__invoke'
+        if (\is_object($cb) && \method_exists($cb, '__invoke')) {
+            return $cb(...$args);
+        }
+
+        throw new \InvalidArgumentException('the callback handler is not callable!');
+    }
 }
