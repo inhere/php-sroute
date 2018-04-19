@@ -77,11 +77,11 @@ class ORouter extends AbstractRouter
 
     /**
      * @param string $route
-     * @param $handler
+     * @param mixed $handler
      * @param array $opts
      * @return array
      */
-    protected function prepareForMap(string $route, $handler, array $opts)
+    protected function prepareForMap(string $route, $handler, array $opts): array
     {
         if (!$this->initialized) {
             $this->initialized = true;
@@ -122,6 +122,7 @@ class ORouter extends AbstractRouter
      * @param string $route
      * @param array $methods
      * @param array $conf
+     * @throws \LogicException
      */
     protected function collectParamRoute(string $route, array $methods, array $conf)
     {
@@ -310,7 +311,10 @@ class ORouter extends AbstractRouter
             }
         }
 
-        return [self::NOT_FOUND, \explode(',', \trim($allowedMethods, ','))];
+        return [
+            self::NOT_FOUND,
+            $allowedMethods ? \explode(',', \trim($allowedMethods, ',')) : []
+        ];
     }
 
     /**
@@ -389,7 +393,7 @@ class ORouter extends AbstractRouter
      * @param array $globalOptions
      * @return $this
      */
-    public function setGlobalOptions(array $globalOptions)
+    public function setGlobalOptions(array $globalOptions): self
     {
         $this->globalOptions = $globalOptions;
 

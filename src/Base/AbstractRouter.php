@@ -385,14 +385,14 @@ abstract class AbstractRouter implements RouterInterface
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
-        $allow = self::ALLOWED_METHODS_STR . ',';
         $hasAny = false;
+        $methods = \array_map(function ($m) use (&$hasAny) {
+            $m = \strtoupper(\trim($m));
 
-        $methods = \array_map(function ($m) use ($allow, &$hasAny) {
-            $m = \strtoupper(trim($m));
-
-            if (!$m || false === \strpos($allow, $m . ',')) {
-                throw new \InvalidArgumentException("The method [$m] is not supported, Allow: " . trim($allow, ','));
+            if (!$m || false === \strpos(self::ALLOWED_METHODS_STR . ',', $m . ',')) {
+                throw new \InvalidArgumentException(
+                    "The method [$m] is not supported, Allow: " . self::ALLOWED_METHODS_STR
+                );
             }
 
             if (!$hasAny && $m === self::ANY) {

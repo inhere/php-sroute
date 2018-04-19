@@ -109,7 +109,7 @@ class RouterManager
     /**
      * @return RouterManager
      */
-    public static function instance()
+    public static function instance(): RouterManager
     {
         return self::$_instance;
     }
@@ -132,8 +132,8 @@ class RouterManager
      * @param array|string $condition
      * array:
      * [
-     *  'domain' => 'abc.com',
-     *  'scheme' => 'https',
+     *   'domain' => 'abc.com',
+     *   'scheme' => 'https',
      * ]
      * string:
      *  get by name. same of call getByName()
@@ -218,6 +218,7 @@ class RouterManager
 
     /**
      * @return AbstractRouter
+     * @throws \InvalidArgumentException
      */
     public function getDefault(): AbstractRouter
     {

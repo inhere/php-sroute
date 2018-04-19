@@ -116,6 +116,11 @@ $routes = [
         '/user/login',
         'default_handler'
     ],
+    [
+        ['post'],
+        '/admin/manage/getInfo[/id/{int}]',
+        'default_handler'
+    ],
     /*
     match: /blog /saying
     */

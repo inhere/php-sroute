@@ -20,6 +20,9 @@ class SimpleDispatcher implements DispatcherInterface
     /** @var RouterInterface */
     private $router;
 
+    /** @var bool */
+    private $initialized;
+
     /**
      * some setting for self
      * @var array
@@ -52,9 +55,6 @@ class SimpleDispatcher implements DispatcherInterface
 
         // events
     ];
-
-    /** @var bool */
-    private $initialized;
 
     /**
      * object creator.
@@ -115,7 +115,7 @@ class SimpleDispatcher implements DispatcherInterface
     {
         $path = $path ?: $_SERVER['REQUEST_URI'];
 
-        if (strpos($path, '?')) {
+        if (\strpos($path, '?')) {
             $path =  \parse_url($path, PHP_URL_PATH);
         }
 
@@ -127,7 +127,6 @@ class SimpleDispatcher implements DispatcherInterface
         $method = $method ?: $_SERVER['REQUEST_METHOD'];
 
         list($status, $path, $info) = $this->router->match($path, $method);
-
         $info['requestMethod'] = $method;
 
         return $this->dispatch($status, $path, $info);
@@ -153,6 +152,7 @@ class SimpleDispatcher implements DispatcherInterface
 
         // method not allowed
         if ($status === RouterInterface::METHOD_NOT_ALLOWED) {
+            unset($info['requestMethod']);
             return $this->handleNotAllowed($path, $method, $info);
         }
 
@@ -160,12 +160,13 @@ class SimpleDispatcher implements DispatcherInterface
 
         try {
             $result = $this->callRouteHandler($path, $method, $info['handler'], $args);
-        } catch (\Exception $e) {
-            $this->handleException($e, $path, $info);
-            // throw new \RuntimeException($e->getMessage(), __LINE__, $e);
         } catch (\Throwable $e) {
-            // throw new \RuntimeException($e->getMessage(), __LINE__, $e);
-            $this->handleException($e, $path, $info);
+            // trigger route exec_error event
+            if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
+                return $this->fireCallback($cb, [$e, $path, $info]);
+            }
+
+            throw $e;
         }
 
         return $result;
@@ -175,7 +176,7 @@ class SimpleDispatcher implements DispatcherInterface
      * execute the matched Route Handler
      * @param string $path The route path
      * @param string $method The request method
-     * @param callable $handler The route path handler
+     * @param callable|mixed $handler The route path handler
      * @param array $args Matched param from path
      * [
      *  'matches' => []
@@ -235,7 +236,7 @@ class SimpleDispatcher implements DispatcherInterface
         }
 
         // action method is not exist
-        if (!method_exists($controller, $actionMethod)) {
+        if (!\method_exists($controller, $actionMethod)) {
             return $this->handleNotFound($path, $method, true);
         }
 
@@ -288,7 +289,6 @@ class SimpleDispatcher implements DispatcherInterface
         // Run the 'NotAllowed' callback if the route was not found
         if (!$handler = $this->getOption(self::ON_METHOD_NOT_ALLOWED)) {
             $handler = $this->defaultNotAllowedHandler();
-
             $this->setOption(self::ON_METHOD_NOT_ALLOWED, $handler);
 
             // is a route path. like '/site/notFound'
@@ -309,24 +309,14 @@ class SimpleDispatcher implements DispatcherInterface
     }
 
     /**
-     * @param \Exception|\Throwable $e
-     * @param string $path
-     * @param array $info
-     */
-    public function handleException($e, string $path, array $info)
-    {
-        // handle ...
-    }
-
-    /**
      * @return \Closure
      */
     protected function defaultNotFoundHandler(): \Closure
     {
         return function ($path) {
             $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
-            header($protocol . ' 404 Not Found');
-            echo "<h1 style='width: 60%; margin: 5% auto;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
+            \header($protocol . ' 404 Not Found');
+            echo "<h1 style='width: 80%; margin: 5% auto; text-align: center;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
         };
     }
 
@@ -336,14 +326,15 @@ class SimpleDispatcher implements DispatcherInterface
     protected function defaultNotAllowedHandler(): \Closure
     {
         return function ($path, $method, $methods) {
-            $allow = implode(',', $methods);
+            $allow = \implode(',', $methods);
             $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
-            header($protocol . ' 405 Method Not Allowed');
+            \header($protocol . ' 405 Method Not Allowed');
 
             echo <<<HTML
-<div style="width: 500px; margin: 5% auto;">
-<h1>:( Method not allowed <code style="font-weight: normal;font-size: 16px">for $method $path</code></h1>
-<p style="font-size: 20px">Method not allowed. Must be one of: <strong>$allow</strong></p>
+<div style="min-width: 500px;margin: 5% auto;width: 80%;text-align: center;">
+<h1>:( Method not allowed </h1>
+<p style="font-size: 20px">Method not allowed for <strong>$method</strong> <code style="color: #d94141;font-size:  smaller;">$path</code></p>
+<p>The request method must be one of <strong>$allow</strong></p>
 </div>
 HTML;
         };
@@ -362,13 +353,14 @@ HTML;
     }
 
     /**
-     * @param callable $cb
+     * @param callable|mixed $cb
      * string - func name, class name
      * array - [class, method]
      * object - Closure, Object
      *
      * @param array $args
      * @return mixed
+     * @throws \InvalidArgumentException
      */
     protected function fireCallback($cb, array $args = [])
     {

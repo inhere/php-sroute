@@ -58,15 +58,15 @@ final class PreMatchRouter extends ORouter
     public function setRequest(string $path = null, string $method = null)
     {
         if (!$path) {
-            $path = $_SERVER['REQUEST_URI'] ?? '';
+            $path = (string)($_SERVER['REQUEST_URI'] ?? '');
         }
 
-        if (strpos($path, '?')) {
+        if (\strpos($path, '?')) {
             $path = \parse_url($path, PHP_URL_PATH);
         }
 
         $this->reqPath = $this->formatUriPath($path, $this->ignoreLastSlash);
-        $this->reqMethod = $method ? strtoupper($method) : $_SERVER['REQUEST_METHOD'];
+        $this->reqMethod = $method ? \strtoupper($method) : $_SERVER['REQUEST_METHOD'];
     }
 
     /**
@@ -102,7 +102,6 @@ final class PreMatchRouter extends ORouter
                 $this->routeCounter++;
                 // discard other routes data.
                 // $this->staticRoutes = $this->regularRoutes = [];
-
                 return $this;
             }
 

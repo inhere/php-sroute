@@ -19,7 +19,7 @@
     "psr-4": {
       "Inhere\\Route\\" : "src/"
     },
-    "files": ["src/functions.php"]
+    "files": ["src/Helper/functions.php"]
   },
   "suggest": {
     "inhere/simple-print-tool": "Very lightweight data printing tools"

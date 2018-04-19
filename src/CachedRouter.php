@@ -28,7 +28,7 @@ final class CachedRouter extends ORouter
      * The routes cache file.
      * @var string
      */
-    protected $cacheFile;
+    protected $cacheFile = '';
 
     /**
      * Enable routes cache
@@ -170,7 +170,7 @@ EOF;
     /**
      * @return string
      */
-    public function getCacheFile()
+    public function getCacheFile(): string
     {
         return $this->cacheFile;
     }

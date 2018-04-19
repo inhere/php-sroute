@@ -40,6 +40,7 @@ class Dispatcher extends SimpleDispatcher
 
         // method not allowed
         if ($status === RouterInterface::METHOD_NOT_ALLOWED) {
+            unset($info['requestMethod']);
             return $this->handleNotAllowed($path, $method, $info);
         }
 
@@ -79,13 +80,6 @@ class Dispatcher extends SimpleDispatcher
 
             // trigger route exec_end event
             $this->fire(self::ON_EXEC_END, [$path, $info]);
-        } catch (\Exception $e) {
-            // trigger route exec_error event
-            if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
-                return $this->fireCallback($cb, [$e, $path, $info]);
-            }
-
-            throw $e;
         } catch (\Throwable $e) {
             // trigger route exec_error event
             if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
@@ -120,6 +114,7 @@ class Dispatcher extends SimpleDispatcher
      * @param $event
      * @param array $args
      * @return mixed
+     * @throws \InvalidArgumentException
      */
     protected function fire($event, array $args = [])
     {

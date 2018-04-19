@@ -69,9 +69,9 @@ foreach ($routes as $route) {
 
 $router->rest('/rest', RestController::class);
 
-$router->any('*', function () {
-    echo "This is fallback handler\n";
-});
+// $router->any('*', function () {
+//     echo "This is fallback handler\n";
+// });
 
 // var_dump($router);die;
 

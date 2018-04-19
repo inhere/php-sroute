@@ -137,7 +137,7 @@ final class ServerRouter extends ORouter
         }
 
         $path = $this->formatUriPath($path, $this->ignoreLastSlash);
-        $method = strtoupper($method);
+        $method = \strtoupper($method);
 
         // find in route caches.
         if ($this->cacheRoutes && isset($this->cacheRoutes[$path][$method])) {
@@ -153,8 +153,8 @@ final class ServerRouter extends ORouter
         $allowedMethods = [];
 
         // eg '/article/12'
-        if ($pos = strpos($path, '/', 1)) {
-            $first = substr($path, 1, $pos - 1);
+        if ($pos = \strpos($path, '/', 1)) {
+            $first = \substr($path, 1, $pos - 1);
         }
 
         // is a regular dynamic route(the first node is 1th level index key).
@@ -261,10 +261,10 @@ final class ServerRouter extends ORouter
         $allowedMethods = '';
 
         foreach ($routesData as $conf) {
-            if (0 === strpos($path, $conf['start']) && preg_match($conf['regex'], $path, $matches)) {
+            if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
                 $allowedMethods .= $conf['methods'];
 
-                if (false !== strpos($conf['methods'], $method . ',')) {
+                if (false !== \strpos($conf['methods'], $method . ',')) {
                     $this->filterMatches($matches, $conf);
 
                     if ($this->tmpCacheNumber > 0) {
@@ -276,7 +276,10 @@ final class ServerRouter extends ORouter
             }
         }
 
-        return [self::NOT_FOUND, explode(',', trim($allowedMethods, ','))];
+        return [
+            self::NOT_FOUND,
+            $allowedMethods ? \explode(',', \trim($allowedMethods, ',')) : []
+        ];
     }
 
     /**
@@ -288,11 +291,11 @@ final class ServerRouter extends ORouter
     protected function findInVagueRoutes(array $routesData, string $path, string $method): array
     {
         foreach ($routesData as $conf) {
-            if ($conf['include'] && false === strpos($path, $conf['include'])) {
+            if ($conf['include'] && false === \strpos($path, $conf['include'])) {
                 continue;
             }
 
-            if (preg_match($conf['regex'], $path, $matches)) {
+            if (\preg_match($conf['regex'], $path, $matches)) {
                 $this->filterMatches($matches, $conf);
 
                 if ($this->tmpCacheNumber > 0) {
@@ -318,7 +321,7 @@ final class ServerRouter extends ORouter
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0 && !isset($this->cacheRoutes[$path][$method])) {
             if ($this->cacheCounter >= $cacheNumber) {
-                array_shift($this->cacheRoutes);
+                \array_shift($this->cacheRoutes);
             }
 
             $this->cacheCounter++;
