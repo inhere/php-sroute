@@ -17,8 +17,6 @@ class ORouterTest extends TestCase
 
         $r->get('/test1[/optional]', 'handler');
 
-        $r->get('/{name}', 'handler2');
-
         $r->get('/hi/{name}', 'handler3', [
             'params' => [
                 'name' => '\w+',
@@ -54,7 +52,6 @@ class ORouterTest extends TestCase
         $this->assertSame(ORouter::FOUND, $status);
         $this->assertSame('/', $path);
         $this->assertSame('handler0', $route['handler']);
-
     }
 
     public function testOptionalParamRoute()
@@ -87,29 +84,52 @@ class ORouterTest extends TestCase
     {
         $router = $this->createRouter();
 
-        // route: /{name}
-        $ret = $router->match('/tom', 'GET');
+        // route: /hi/{name}
+        $ret = $router->match('/hi/3456', 'GET');
 
         $this->assertCount(3, $ret);
 
         list($status, $path, $route) = $ret;
 
         $this->assertSame(ORouter::FOUND, $status);
-        $this->assertSame('/tom', $path);
-        $this->assertSame('/{name}', $route['original']);
-        $this->assertSame('handler2', $route['handler']);
+        $this->assertSame('/hi/3456', $path);
+        $this->assertSame('/hi/{name}', $route['original']);
+        $this->assertSame('handler3', $route['handler']);
 
         // route: /hi/{name}
         $ret = $router->match('/hi/tom', 'GET');
 
         $this->assertCount(3, $ret);
-// var_dump($ret, $router->getRegularRoutes());die;
+        // var_dump($ret, $router->getRegularRoutes());die;
         list($status, $path, $route) = $ret;
 
         $this->assertSame(ORouter::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('/hi/{name}', $route['original']);
         $this->assertSame('handler3', $route['handler']);
+    }
+
+    public function testNotFound()
+    {
+        $router = $this->createRouter();
+
+        $ret = $router->match('/not-exist', 'GET');
+
+        $this->assertCount(3, $ret);
+
+        list($status, $path, ) = $ret;
+
+        $this->assertSame(ORouter::NOT_FOUND, $status);
+        $this->assertSame('/not-exist', $path);
+
+        $ret = $router->match('/hi', 'GET');
+
+        $this->assertCount(3, $ret);
+
+        list($status, $path, ) = $ret;
+
+        $this->assertSame(ORouter::NOT_FOUND, $status);
+        $this->assertSame('/hi', $path);
     }
 
     public function testMethods()
