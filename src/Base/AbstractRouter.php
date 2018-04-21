@@ -420,12 +420,13 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * @param array $matches
      * @param array $conf
+     * @return array
      */
-    protected function filterMatches(array $matches, array &$conf)
+    protected function filterMatches(array $matches, array $conf): array
     {
         if (!$matches) {
             $conf['matches'] = [];
-            return;
+            return $conf;
         }
 
         // clear all int key
@@ -437,6 +438,8 @@ abstract class AbstractRouter implements RouterInterface
         } else {
             $conf['matches'] = $matches;
         }
+
+        return $conf;
     }
 
     /**

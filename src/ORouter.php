@@ -305,7 +305,7 @@ class ORouter extends AbstractRouter
                 $allowedMethods .= $conf['methods'];
 
                 if (false !== \strpos($conf['methods'], $method . ',')) {
-                    $this->filterMatches($matches, $conf);
+                    $conf = $this->filterMatches($matches, $conf);
 
                     return [self::FOUND, $path, $conf];
                 }
@@ -332,7 +332,7 @@ class ORouter extends AbstractRouter
             }
 
             if (\preg_match($conf['regex'], $path, $matches)) {
-                $this->filterMatches($matches, $conf);
+                $conf = $this->filterMatches($matches, $conf);
 
                 return [self::FOUND, $path, $conf];
             }
