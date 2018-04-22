@@ -141,14 +141,14 @@ final class ServerRouter extends ORouter
         $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
 
-        // find in route caches.
-        if ($this->cacheRoutes && isset($this->cacheRoutes[$path][$method])) {
-            return [self::FOUND, $path, $this->cacheRoutes[$path][$method]];
-        }
-
         // is a static route path
         if ($this->staticRoutes && ($routeInfo = $this->findInStaticRoutes($path, $method))) {
             return [self::FOUND, $path, $routeInfo];
+        }
+
+        // find in route caches.
+        if ($this->cacheRoutes && isset($this->cacheRoutes[$path][$method])) {
+            return [self::FOUND, $path, $this->cacheRoutes[$path][$method]];
         }
 
         $first = null;
@@ -244,7 +244,6 @@ final class ServerRouter extends ORouter
             if (isset($this->flatStaticRoutes[$key])) {
                 return $this->staticRoutes[$key];
             }
-
         } elseif (isset($this->staticRoutes[$path][$method])) {
             return $this->staticRoutes[$path][$method];
         }
@@ -280,7 +279,7 @@ final class ServerRouter extends ORouter
 
         return [
             self::NOT_FOUND,
-            $allowedMethods ? \explode(',', \trim($allowedMethods, ',')) : []
+            $allowedMethods ? \explode(',', \rtrim($allowedMethods, ',')) : []
         ];
     }
 

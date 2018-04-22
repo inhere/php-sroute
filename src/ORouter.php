@@ -314,7 +314,7 @@ class ORouter extends AbstractRouter
 
         return [
             self::NOT_FOUND,
-            $allowedMethods ? \explode(',', \trim($allowedMethods, ',')) : []
+            $allowedMethods ? \explode(',', \rtrim($allowedMethods, ',')) : []
         ];
     }
 
