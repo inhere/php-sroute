@@ -452,12 +452,13 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function parseParamRoute(string $route, array $params, array $conf): array
     {
-        $bak = $route;
+        $backup = $route;
         $noOptional = null;
+        $argPos = \strpos($backup, '{');
 
         // Parse the optional parameters
-        if (false !== ($pos = \strpos($route, '['))) {
-            $noOptional = \substr($route, 0, $pos);
+        if (false !== ($optPos = \strpos($route, '['))) {
+            $noOptional = \substr($route, 0, $optPos);
             $withoutClosingOptionals = \rtrim($route, ']');
             $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
 
@@ -467,7 +468,17 @@ abstract class AbstractRouter implements RouterInterface
 
             // '/hello[/{name}]' -> '/hello(?:/{name})?'
             $route = \str_replace(['[', ']'], ['(?:', ')?'], $route);
+
+            if ($argPos === false) {
+                $floorPos = $optPos;
+            } else {
+                $floorPos = $argPos >= $optPos ? $optPos : $argPos;
+            }
+        } else {
+            $floorPos = (int)$argPos;
         }
+
+        $start = \substr($backup, 0, $floorPos);
 
         // quote '.','/' to '\.','\/'
         if (false !== \strpos($route, '.')) {
@@ -476,53 +487,37 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // 解析参数，替换为对应的 正则
-        if (\preg_match_all('#\{([a-zA-Z_][a-zA-Z0-9_-]*)\}#', $route, $m)) {
+        if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $route, $m)) {
             /** @var array[] $m */
-            $replacePairs = [];
+            $pairs = [];
 
             foreach ($m[1] as $name) {
                 $key = '{' . $name . '}';
                 $regex = $params[$name] ?? self::DEFAULT_REGEX;
 
-                // 将匹配结果命名 (?P<arg1>[^/]+)
-                $replacePairs[$key] = '(?P<' . $name . '>' . $regex . ')';
-                // $replacePairs[$key] = '(' . $regex . ')';
+                // Name the match (?P<arg1>[^/]+)
+                $pairs[$key] = '(?P<' . $name . '>' . $regex . ')';
+                // $pairs[$key] = '(' . $regex . ')';
             }
 
-            $route = \strtr($route, $replacePairs);
+            $route = \strtr($route, $pairs);
         }
 
-        // Analyze whether the route string is regular
-        $first = null;
+        // regular: Analyze whether the route string is regular
         $conf['regex'] = '#^' . $route . '$#';
 
         // first node is a normal string
         // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        if (\preg_match('#^/([\w-]+)/[\w-]*/?#', $bak, $m)) {
-            $first = $m[1];
-            $conf['start'] = $m[0];
+        if (\preg_match('#^/([\w-]+)/[\w-]*/?#', $backup, $m)) {
+            $conf['start'] = $start;
 
-            return [$first, $conf];
+            return [$m[1], $conf];
         }
 
-        // first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
-        $include = null;
+        // vague: first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
+        $conf['include'] = $start === '/' ? null : $start;
 
-        if ($noOptional) {
-            if (\strpos($noOptional, '{') === false) {
-                $include = $noOptional;
-            } else {
-                $bak = $noOptional;
-            }
-        }
-
-        if (!$include && \preg_match('#/([\w-]+)/?[\w-]*#', $bak, $m)) {
-            $include = $m[0];
-        }
-
-        $conf['include'] = $include;
-
-        return [$first, $conf];
+        return [null, $conf];
     }
 
     /**
