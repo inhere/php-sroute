@@ -455,9 +455,8 @@ abstract class AbstractRouter implements RouterInterface
         $bak = $route;
         $noOptional = null;
 
-        // 解析可选参数位
+        // Parse the optional parameters
         if (false !== ($pos = \strpos($route, '['))) {
-            // $hasOptional = true;
             $noOptional = \substr($route, 0, $pos);
             $withoutClosingOptionals = \rtrim($route, ']');
             $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
@@ -493,7 +492,7 @@ abstract class AbstractRouter implements RouterInterface
             $route = \strtr($route, $replacePairs);
         }
 
-        // 分析路由字符串是否是有规律的
+        // Analyze whether the route string is regular
         $first = null;
         $conf['regex'] = '#^' . $route . '$#';
 

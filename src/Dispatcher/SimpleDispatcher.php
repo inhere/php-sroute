@@ -53,7 +53,8 @@ class SimpleDispatcher implements DispatcherInterface
         //  you access `/demo/test` will call `App\Controllers\Demo::run('test')`
         'actionExecutor' => '', // 'run'
 
-        // events
+        // events: please @see DispatcherInterface::ON_*
+        // 'event name'  => callback
     ];
 
     /**
@@ -110,6 +111,8 @@ class SimpleDispatcher implements DispatcherInterface
      * @param null|string $method
      * @return mixed
      * @throws \Throwable
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
      */
     public function dispatchUri(string $path = null, string $method = null)
     {
@@ -138,6 +141,8 @@ class SimpleDispatcher implements DispatcherInterface
      * @param string $path
      * @param array $info
      * @return mixed
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
      * @throws \Throwable
      */
     public function dispatch(int $status, string $path, array $info)
@@ -182,6 +187,8 @@ class SimpleDispatcher implements DispatcherInterface
      *  'matches' => []
      * ]
      * @return mixed
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
      * @throws \Throwable
      */
     protected function callRouteHandler(string $path, string $method, $handler, array $args = [])
@@ -208,7 +215,7 @@ class SimpleDispatcher implements DispatcherInterface
             // e.g `Controllers\Home@index` Or only `Controllers\Home`
             $segments = \explode('@', \trim($handler));
         } else {
-            throw new \InvalidArgumentException('Invalid route handler');
+            throw new \InvalidArgumentException("Invalid route handler for route '$path'");
         }
 
         // Instantiation controller
@@ -251,6 +258,7 @@ class SimpleDispatcher implements DispatcherInterface
      *  True: The `$path` is matched success, but action not exist on route parser
      *  False: The `$path` is matched fail
      * @return bool|mixed
+     * @throws \InvalidArgumentException
      * @throws \Throwable
      */
     protected function handleNotFound(string $path, string $method, $actionNotExist = false)
@@ -282,6 +290,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @param string $method
      * @param array $methods The allowed methods
      * @return mixed
+     * @throws \InvalidArgumentException
      * @throws \Throwable
      */
     protected function handleNotAllowed(string $path, string $method, array $methods)

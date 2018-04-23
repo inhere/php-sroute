@@ -351,6 +351,7 @@ class ORouter extends AbstractRouter
      * @param null|string $path
      * @param null|string $method
      * @return mixed
+     * @throws \LogicException
      * @throws \Throwable
      */
     public function dispatch($dispatcher = null, $path = null, $method = null)
