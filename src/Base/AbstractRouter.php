@@ -116,8 +116,8 @@ abstract class AbstractRouter implements RouterInterface
      *     // 使用 HTTP METHOD 作为 key进行分组
      *     'GET' => [
      *          [
-     *              // 必定包含的字符串
-     *              'include' => '/profile',
+     *              // 开始的字符串
+     *              'start' => '/profile',
      *              'regex' => '/(\w+)/profile',
      *              'handler' => 'handler',
      *              'option' => [...],
@@ -126,7 +126,7 @@ abstract class AbstractRouter implements RouterInterface
      *     ],
      *     'POST' => [
      *          [
-     *              'include' => null,
+     *              'start' => null,
      *              'regex' => '/(\w+)/(\w+)',
      *              'handler' => 'handler',
      *              'option' => [...],
@@ -456,6 +456,12 @@ abstract class AbstractRouter implements RouterInterface
         $noOptional = null;
         $argPos = \strpos($backup, '{');
 
+        // quote '.','/' to '\.','\/'
+        if (false !== \strpos($route, '.')) {
+            // $route = preg_quote($route, '/');
+            $route = \str_replace('.', '\.', $route);
+        }
+
         // Parse the optional parameters
         if (false !== ($optPos = \strpos($route, '['))) {
             $noOptional = \substr($route, 0, $optPos);
@@ -469,8 +475,18 @@ abstract class AbstractRouter implements RouterInterface
             // '/hello[/{name}]' -> '/hello(?:/{name})?'
             $route = \str_replace(['[', ']'], ['(?:', ')?'], $route);
 
+            // no params
             if ($argPos === false) {
-                $floorPos = $optPos;
+                $first = null;
+                $conf['start'] = $noOptional;
+                $conf['regex'] = '#^' . $route . '$#';
+
+                // eg '/article/12'
+                if ($pos = \strpos($noOptional, '/', 1)) {
+                    $first = \substr($noOptional, 1, $pos - 1);
+                }
+
+                return [$first, $conf];
             } else {
                 $floorPos = $argPos >= $optPos ? $optPos : $argPos;
             }
@@ -480,12 +496,6 @@ abstract class AbstractRouter implements RouterInterface
 
         $start = \substr($backup, 0, $floorPos);
 
-        // quote '.','/' to '\.','\/'
-        if (false !== \strpos($route, '.')) {
-            // $route = preg_quote($route, '/');
-            $route = \str_replace('.', '\.', $route);
-        }
-
         // 解析参数，替换为对应的 正则
         if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $route, $m)) {
             /** @var array[] $m */
@@ -493,7 +503,7 @@ abstract class AbstractRouter implements RouterInterface
 
             foreach ($m[1] as $name) {
                 $key = '{' . $name . '}';
-                $regex = $params[$name] ?? self::DEFAULT_REGEX;
+                $regex = $params[$key] ?? self::DEFAULT_REGEX;
 
                 // Name the match (?P<arg1>[^/]+)
                 $pairs[$key] = '(?P<' . $name . '>' . $regex . ')';
@@ -515,7 +525,7 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // vague: first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
-        $conf['include'] = $start === '/' ? null : $start;
+        $conf['start'] = $start === '/' ? null : $start;
 
         return [null, $conf];
     }
@@ -606,12 +616,15 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function getAvailableParams(array $tmpParams): array
     {
-        $params = self::$globalParams;
+        $params = [];
+
+        foreach (self::$globalParams as $key => $value) {
+            $params['{' . $key . '}'] = $value;
+        }
 
         if ($tmpParams) {
             foreach ($tmpParams as $name => $pattern) {
-                $key = trim($name, '{}');
-                $params[$key] = $pattern;
+                $params['{' . $key . '}'] = $pattern;
             }
         }
 
