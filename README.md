@@ -17,13 +17,14 @@
 
 > 不同的版本有稍微的区别以适应不同的场景
 
-- `ORouter` 通用版本，也是后几个版本的基础类。
+- `ORouter` 通用版本，也是后几个版本的基础类，适用于所有的情况。
 - `SRouter` 静态类版本。`ORouter` 的简单包装，通过静态方法使用(方便小应用快速使用)
-- `CachedRouter` 继承自`ORouter`，支持路由缓存的版本. 适合fpm使用(有缓存将会省去每次的路由收集和解析消耗) 
-- `PreMatchRouter` 继承自`ORouter`，预匹配路由器。当应用的静态路由较多时，将拥有更快的匹配速度
-    - fpm 应用中，实际上我们在收集路由之前，已经知道了路由path和请求动作METHOD
-- `ServerRouter` 继承自`ORouter`，服务器路由。内置支持动态路由临时缓存. 适合swoole等常驻内存应用使用
-    - 最近请求过的动态路由将会缓存为一个静态路由信息，下次相同路由将会直接匹配命中
+- `CachedRouter` 继承自`ORouter`，支持路由缓存的版本，可以 **缓存路由信息到文件**
+  - 适合php-fpm 环境使用(有缓存将会省去每次的路由收集和解析消耗) 
+- `PreMatchRouter` 继承自`ORouter`，预匹配路由器。**当应用的静态路由较多时，将拥有更快的匹配速度**
+  - 适合php-fpm 环境，php-fpm 情形下，实际上我们在收集路由之前，已经知道了路由path和请求动作METHOD
+- `ServerRouter` 继承自`ORouter`，服务器路由。内置支持**动态路由临时缓存**. 适合 `swoole` 等**常驻内存应用**使用
+  - 最近请求过的动态路由将会缓存为一个静态路由信息，下次相同路由将会直接匹配命中
 
 **内置调度器：**
 
@@ -180,9 +181,13 @@ $router->any('/home', function() {
 $router->any('/404', function() {
     echo "Sorry,This page not found.";
 });
+```
 
+### 使用路由组
+
+```php
 // 路由组
-$router->group('/user', function () {
+$router->group('/user', function ($router) {
     $router->get('/', function () {
         echo 'hello. you access: /user/';
     });
@@ -190,15 +195,24 @@ $router->group('/user', function () {
         echo 'hello. you access: /user/index';
     });
 });
+```
 
+### 使用控制器
+
+```php
 // 使用 控制器
 $router->get('/', App\Controllers\HomeController::class);
 $router->get('/index', 'App\Controllers\HomeController@index');
 
 // 使用 rest() 可以快速将一个控制器类注册成一组 RESTful 路由
 $router->rest('/users', App\Controllers\UserController::class);
+```
 
-// 可以注册一个备用路由处理。 当没匹配到时，就会使用它
+### 备用路由处理
+
+可以注册一个备用路由处理。当没匹配到时，就会使用它
+
+```php
 $router->any('*', 'fallback_handler');
 ```
 

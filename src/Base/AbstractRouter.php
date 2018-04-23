@@ -508,7 +508,7 @@ abstract class AbstractRouter implements RouterInterface
 
         // first node is a normal string
         // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        if (\preg_match('#^/([\w-]+)/[\w-]*/?#', $backup, $m)) {
+        if (\preg_match('#^/([\w-]+)/#', $backup, $m)) {
             $conf['start'] = $start;
 
             return [$m[1], $conf];
