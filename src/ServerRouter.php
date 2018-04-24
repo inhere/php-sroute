@@ -33,19 +33,14 @@ final class ServerRouter extends ORouter
      * There are last route caches. like static routes
      * @var array[]
      * [
-     *     '/user/login' => [
-     *          // METHOD => INFO [...]
-     *          'GET' => [
-     *              'handler' => 'handler0',
-     *              'option' => [...],
-     *          ],
-     *          'PUT' => [
-     *              'handler' => 'handler1',
-     *              'option' => [...],
-     *          ],
-     *          ...
-     *      ],
-     *      ... ...
+     *  '/user/login#GET' => [
+     *      'handler' => 'handler0',
+     *      'option' => [...],
+     *  ],
+     *  '/user/login#PUT' => [
+     *      'handler' => 'handler1',
+     *      'option' => [...],
+     *  ],
      * ]
      */
     protected $cacheRoutes = [];
@@ -146,9 +141,11 @@ final class ServerRouter extends ORouter
             return [self::FOUND, $path, $routeInfo];
         }
 
+        $cacheKey = $path . '#' . $method;
+
         // find in route caches.
-        if ($this->cacheRoutes && isset($this->cacheRoutes[$path][$method])) {
-            return [self::FOUND, $path, $this->cacheRoutes[$path][$method]];
+        if ($this->cacheRoutes && isset($this->cacheRoutes[$cacheKey])) {
+            return [self::FOUND, $path, $this->cacheRoutes[$cacheKey]];
         }
 
         $first = null;
@@ -188,8 +185,10 @@ final class ServerRouter extends ORouter
 
         // For HEAD requests, attempt fallback to GET
         if ($method === 'HEAD') {
-            if (isset($this->cacheRoutes[$path]['GET'])) {
-                return [self::FOUND, $path, $this->cacheRoutes[$path]['GET']];
+            $cacheKey = $path . '#GET';
+
+            if (isset($this->cacheRoutes[$cacheKey])) {
+                return [self::FOUND, $path, $this->cacheRoutes[$cacheKey]];
             }
 
             if ($routeInfo = $this->findInStaticRoutes($path, 'GET')) {
@@ -318,15 +317,16 @@ final class ServerRouter extends ORouter
     protected function cacheMatchedParamRoute(string $path, string $method, array $conf)
     {
         $cacheNumber = (int)$this->tmpCacheNumber;
+        $cacheKey = $path . '#' . $method;
 
         // cache last $cacheNumber routes.
-        if ($cacheNumber > 0 && !isset($this->cacheRoutes[$path][$method])) {
+        if ($cacheNumber > 0 && !isset($this->cacheRoutes[$cacheKey])) {
             if ($this->cacheCounter >= $cacheNumber) {
                 \array_shift($this->cacheRoutes);
             }
 
             $this->cacheCounter++;
-            $this->cacheRoutes[$path][$method] = $conf;
+            $this->cacheRoutes[$cacheKey] = $conf;
         }
     }
 

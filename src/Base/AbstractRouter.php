@@ -406,41 +406,6 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * is Static Route
-     * @param string $route
-     * @return bool
-     */
-    public static function isStaticRoute(string $route): bool
-    {
-        return \strpos($route, '{') === false && \strpos($route, '[') === false;
-    }
-
-    /**
-     * @param array $matches
-     * @param array $conf
-     * @return array
-     */
-    protected function filterMatches(array $matches, array $conf): array
-    {
-        if (!$matches) {
-            $conf['matches'] = [];
-            return $conf;
-        }
-
-        // clear all int key
-        $matches = \array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
-
-        // apply some default param value
-        if (isset($conf['option']['defaults'])) {
-            $conf['matches'] = \array_merge($conf['option']['defaults'], $matches);
-        } else {
-            $conf['matches'] = $matches;
-        }
-
-        return $conf;
-    }
-
-    /**
      * parse param route
      * @param string $route
      * @param array $params
@@ -524,6 +489,31 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
+     * @param array $matches
+     * @param array $conf
+     * @return array
+     */
+    protected function filterMatches(array $matches, array $conf): array
+    {
+        if (!$matches) {
+            $conf['matches'] = [];
+            return $conf;
+        }
+
+        // clear all int key
+        $matches = \array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
+
+        // apply some default param value
+        if (isset($conf['option']['defaults'])) {
+            $conf['matches'] = \array_merge($conf['option']['defaults'], $matches);
+        } else {
+            $conf['matches'] = $matches;
+        }
+
+        return $conf;
+    }
+
+    /**
      * @param array $routesData
      * @param string $path
      * @param string $method
@@ -553,6 +543,16 @@ abstract class AbstractRouter implements RouterInterface
         $sfx = \trim($this->controllerSuffix);
 
         return RouteHelper::parseAutoRoute($path, $cnp, $sfx);
+    }
+
+    /**
+     * is Static Route
+     * @param string $route
+     * @return bool
+     */
+    public static function isStaticRoute(string $route): bool
+    {
+        return \strpos($route, '{') === false && \strpos($route, '[') === false;
     }
 
     /**
