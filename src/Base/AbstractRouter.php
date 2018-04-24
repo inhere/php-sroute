@@ -26,9 +26,7 @@ use Inhere\Route\Helper\RouteHelper;
  */
 abstract class AbstractRouter implements RouterInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string The router name */
     private $name = '';
 
     /**
@@ -487,13 +485,14 @@ abstract class AbstractRouter implements RouterInterface
                 }
 
                 return [$first, $conf];
-            } else {
-                $floorPos = $argPos >= $optPos ? $optPos : $argPos;
             }
+
+            $floorPos = $argPos >= $optPos ? $optPos : $argPos;
         } else {
             $floorPos = (int)$argPos;
         }
 
+        $first = null;
         $start = \substr($backup, 0, $floorPos);
 
         // 解析参数，替换为对应的 正则
@@ -513,21 +512,15 @@ abstract class AbstractRouter implements RouterInterface
             $route = \strtr($route, $pairs);
         }
 
-        // regular: Analyze whether the route string is regular
         $conf['regex'] = '#^' . $route . '$#';
-
-        // first node is a normal string
-        // e.g '/user/{id}' first: 'user', '/a/{post}' first: 'a'
-        if (\preg_match('#^/([\w-]+)/#', $backup, $m)) {
-            $conf['start'] = $start;
-
-            return [$m[1], $conf];
-        }
-
-        // vague: first node contain regex param '/hello[/{name}]' '/{some}/{some2}/xyz'
         $conf['start'] = $start === '/' ? null : $start;
 
-        return [null, $conf];
+        // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
+        if ($pos = \strpos($start, '/', 1)) {
+            $first = \substr($start, 1, $pos - 1);
+        }
+
+        return [$first, $conf];
     }
 
     /**
@@ -549,8 +542,6 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * handle auto route match, when config `'autoRoute' => true`
      * @param string $path The route path
-     * @internal string $cnp controller namespace. eg: 'app\\controllers'
-     * @internal string $sfx controller suffix. eg: 'Controller'
      * @return bool|callable
      */
     public function matchAutoRoute(string $path)
@@ -560,54 +551,8 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         $sfx = \trim($this->controllerSuffix);
-        $tmp = \trim($path, '/- ');
 
-        // one node. eg: 'home'
-        if (!\strpos($tmp, '/')) {
-            $tmp = RouteHelper::str2Camel($tmp);
-            $class = "$cnp\\" . \ucfirst($tmp) . $sfx;
-
-            return \class_exists($class) ? $class : false;
-        }
-
-        $ary = \array_map(RouteHelper::class . '::str2Camel', \explode('/', $tmp));
-        $cnt = \count($ary);
-
-        // two nodes. eg: 'home/test' 'admin/user'
-        if ($cnt === 2) {
-            list($n1, $n2) = $ary;
-
-            // last node is an controller class name. eg: 'admin/user'
-            $class = "$cnp\\$n1\\" . \ucfirst($n2) . $sfx;
-
-            if (\class_exists($class)) {
-                return $class;
-            }
-
-            // first node is an controller class name, second node is a action name,
-            $class = "$cnp\\" . \ucfirst($n1) . $sfx;
-
-            return \class_exists($class) ? "$class@$n2" : false;
-        }
-
-        // max allow 5 nodes
-        if ($cnt > 5) {
-            return false;
-        }
-
-        // last node is an controller class name
-        $n2 = \array_pop($ary);
-        $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n2) . $sfx);
-
-        if (\class_exists($class)) {
-            return $class;
-        }
-
-        // last second is an controller class name, last node is a action name,
-        $n1 = \array_pop($ary);
-        $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n1) . $sfx);
-
-        return \class_exists($class) ? "$class@$n2" : false;
+        return RouteHelper::parseAutoRoute($path, $cnp, $sfx);
     }
 
     /**
@@ -624,7 +569,7 @@ abstract class AbstractRouter implements RouterInterface
 
         if ($tmpParams) {
             foreach ($tmpParams as $name => $pattern) {
-                $params['{' . $key . '}'] = $pattern;
+                $params['{' . $name . '}'] = $pattern;
             }
         }
 
