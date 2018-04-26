@@ -415,8 +415,8 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function parseParamRoute(string $route, array $params, array $conf): array
     {
+        $first = $noOptional = null;
         $backup = $route;
-        $noOptional = null;
         $argPos = \strpos($backup, '{');
 
         // quote '.','/' to '\.','\/'
@@ -440,7 +440,6 @@ abstract class AbstractRouter implements RouterInterface
 
             // no params
             if ($argPos === false) {
-                $first = null;
                 $conf['start'] = $noOptional;
                 $conf['regex'] = '#^' . $route . '$#';
 
@@ -457,7 +456,6 @@ abstract class AbstractRouter implements RouterInterface
             $floorPos = (int)$argPos;
         }
 
-        $first = null;
         $start = \substr($backup, 0, $floorPos);
 
         // 解析参数，替换为对应的 正则
@@ -466,15 +464,15 @@ abstract class AbstractRouter implements RouterInterface
             $pairs = [];
 
             foreach ($m[1] as $name) {
-                $key = '{' . $name . '}';
-                $regex = $params[$key] ?? self::DEFAULT_REGEX;
+                $regex = $params[$name] ?? self::DEFAULT_REGEX;
 
                 // Name the match (?P<arg1>[^/]+)
-                $pairs[$key] = '(?P<' . $name . '>' . $regex . ')';
-                // $pairs[$key] = '(' . $regex . ')';
+                // $pairs[$key] = '(?P<' . $name . '>' . $regex . ')';
+                $pairs['{' . $name . '}'] = '(' . $regex . ')';
             }
 
             $route = \strtr($route, $pairs);
+            $conf['matches'] = $m[1];
         }
 
         $conf['regex'] = '#^' . $route . '$#';
@@ -490,24 +488,33 @@ abstract class AbstractRouter implements RouterInterface
 
     /**
      * @param array $matches
-     * @param array $conf
+     * @param array[] $conf
      * @return array
      */
-    protected function filterMatches(array $matches, array $conf): array
+    protected function mergeMatches(array $matches, array $conf): array
     {
-        if (!$matches) {
-            $conf['matches'] = [];
+        if (!$matches || !isset($conf['matches'])) {
+            $conf['matches'] = $conf['option']['defaults'] ?? [];
+
             return $conf;
         }
 
-        // clear all int key
-        $matches = \array_filter($matches, '\is_string', ARRAY_FILTER_USE_KEY);
+        // first is full match.
+        \array_shift($matches);
+
+        $newMatches = [];
+
+        foreach ($conf['matches'] as $k => $name) {
+            if (isset($matches[$k])) {
+                $newMatches[$name] = $matches[$k];
+            }
+        }
 
         // apply some default param value
         if (isset($conf['option']['defaults'])) {
-            $conf['matches'] = \array_merge($conf['option']['defaults'], $matches);
+            $conf['matches'] = \array_merge($conf['option']['defaults'], $newMatches);
         } else {
-            $conf['matches'] = $matches;
+            $conf['matches'] = $newMatches;
         }
 
         return $conf;
@@ -561,16 +568,10 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function getAvailableParams(array $tmpParams): array
     {
-        $params = [];
-
-        foreach (self::$globalParams as $key => $value) {
-            $params['{' . $key . '}'] = $value;
-        }
+        $params = self::$globalParams;
 
         if ($tmpParams) {
-            foreach ($tmpParams as $name => $pattern) {
-                $params['{' . $name . '}'] = $pattern;
-            }
+            $params = \array_merge($params, $tmpParams);
         }
 
         return $params;

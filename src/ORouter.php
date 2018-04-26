@@ -71,7 +71,7 @@ class ORouter extends AbstractRouter
         }
 
         // collect param route
-        $this->collectParamRoute($route, $methods, $conf);
+        $this->collectParamRoute($route, $methods, $conf, $opts['params'] ?? []);
 
         return $this;
     }
@@ -125,10 +125,10 @@ class ORouter extends AbstractRouter
      * @param array $conf
      * @throws \LogicException
      */
-    protected function collectParamRoute(string $route, array $methods, array $conf)
+    protected function collectParamRoute(string $route, array $methods, array $conf, array $params)
     {
         $conf['original'] = $route;
-        $params = $this->getAvailableParams($opts['params'] ?? []);
+        $params = $this->getAvailableParams($params);
         list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
 
         // route string have regular
@@ -305,7 +305,7 @@ class ORouter extends AbstractRouter
                 $allowedMethods .= $conf['methods'];
 
                 if (false !== \strpos($conf['methods'], $method . ',')) {
-                    $conf = $this->filterMatches($matches, $conf);
+                    $conf = $this->mergeMatches($matches, $conf);
 
                     return [self::FOUND, $path, $conf];
                 }
@@ -332,7 +332,7 @@ class ORouter extends AbstractRouter
             }
 
             if (\preg_match($conf['regex'], $path, $matches)) {
-                $conf = $this->filterMatches($matches, $conf);
+                $conf = $this->mergeMatches($matches, $conf);
 
                 return [self::FOUND, $path, $conf];
             }

@@ -17,6 +17,16 @@ class ORouterTest extends TestCase
 
         $r->get('/test1[/optional]', 'handler');
 
+        $r->get('/my[/{name}[/{age}]]', 'handler2', [
+            'params' => [
+                'age' => '\d+'
+            ],
+            'defaults' => [
+                'name' => 'God',
+                'age' => 25,
+            ]
+        ]);
+
         $r->get('/hi/{name}', 'handler3', [
             'params' => [
                 'name' => '\w+',
@@ -37,6 +47,54 @@ class ORouterTest extends TestCase
         $this->assertCount(2, $router->getStaticRoutes());
     }
 
+    public function testComplexRoute()
+    {
+        $router = $this->createRouter();
+
+        // route: '/my[/{name}[/{age}]]'
+
+        $ret = $router->match('/my', 'GET');
+
+        list($status, $path, $route) = $ret;
+
+        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame('/my', $path);
+        $this->assertSame('handler2', $route['handler']);
+        $this->assertArrayHasKey('matches', $route);
+        $this->assertArrayHasKey('name', $route['matches']);
+        $this->assertSame('God', $route['matches']['name']);
+
+        $ret = $router->match('/my/tom', 'GET');
+
+        list($status, $path, $route) = $ret;
+
+        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame('/my/tom', $path);
+        $this->assertSame('handler2', $route['handler']);
+        $this->assertArrayHasKey('matches', $route);
+        $this->assertArrayHasKey('name', $route['matches']);
+        $this->assertSame('tom', $route['matches']['name']);
+        $this->assertArrayHasKey('age', $route['matches']);
+        $this->assertSame(25, $route['matches']['age']);
+
+        $ret = $router->match('/my/tom/45', 'GET');
+
+        list($status, $path, $route) = $ret;
+
+        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame('/my/tom/45', $path);
+        $this->assertSame('handler2', $route['handler']);
+        $this->assertArrayHasKey('matches', $route);
+        $this->assertArrayHasKey('name', $route['matches']);
+        $this->assertSame('tom', $route['matches']['name']);
+        $this->assertArrayHasKey('age', $route['matches']);
+        $this->assertSame(45, (int)$route['matches']['age']);
+
+        $ret = $router->match('/my/tom/not-match', 'GET');
+        $this->assertSame(ORouter::NOT_FOUND, $ret[0]);
+
+
+    }
 
     public function testStaticRoute()
     {
@@ -107,6 +165,9 @@ class ORouterTest extends TestCase
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('/hi/{name}', $route['original']);
         $this->assertSame('handler3', $route['handler']);
+        $this->assertArrayHasKey('matches', $route);
+        $this->assertArrayHasKey('name', $route['matches']);
+        $this->assertSame('tom', $route['matches']['name']);
     }
 
     public function testNotFound()

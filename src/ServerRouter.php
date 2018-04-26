@@ -265,7 +265,7 @@ final class ServerRouter extends ORouter
                 $allowedMethods .= $conf['methods'];
 
                 if (false !== \strpos($conf['methods'], $method . ',')) {
-                    $conf = $this->filterMatches($matches, $conf);
+                    $conf = $this->mergeMatches($matches, $conf);
 
                     if ($this->tmpCacheNumber > 0) {
                         $this->cacheMatchedParamRoute($path, $method, $conf);
@@ -296,7 +296,7 @@ final class ServerRouter extends ORouter
             }
 
             if (\preg_match($conf['regex'], $path, $matches)) {
-                $conf = $this->filterMatches($matches, $conf);
+                $conf = $this->mergeMatches($matches, $conf);
 
                 if ($this->tmpCacheNumber > 0) {
                     $this->cacheMatchedParamRoute($path, $method, $conf);
