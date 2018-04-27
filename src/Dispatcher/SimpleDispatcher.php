@@ -258,6 +258,7 @@ class SimpleDispatcher implements DispatcherInterface
      *  True: The `$path` is matched success, but action not exist on route parser
      *  False: The `$path` is matched fail
      * @return bool|mixed
+     * @throws \RuntimeException
      * @throws \InvalidArgumentException
      * @throws \Throwable
      */
@@ -290,6 +291,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @param string $method
      * @param array $methods The allowed methods
      * @return mixed
+     * @throws \RuntimeException
      * @throws \InvalidArgumentException
      * @throws \Throwable
      */

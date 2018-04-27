@@ -109,7 +109,7 @@ abstract class AbstractRouter implements RouterInterface
      * vague Routes - have dynamic arguments,but the first node is exists regex.
      * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
      * e.g '/{name}/profile' '/{some}/{some2}'
-     * @var array
+     * @var array[]
      * [
      *     // 使用 HTTP METHOD 作为 key进行分组
      *     'GET' => [
@@ -465,9 +465,6 @@ abstract class AbstractRouter implements RouterInterface
 
             foreach ($m[1] as $name) {
                 $regex = $params[$name] ?? self::DEFAULT_REGEX;
-
-                // Name the match (?P<arg1>[^/]+)
-                // $pairs[$key] = '(?P<' . $name . '>' . $regex . ')';
                 $pairs['{' . $name . '}'] = '(' . $regex . ')';
             }
 
@@ -521,20 +518,19 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * @param array $routesData
+     * @param string $first
      * @param string $path
      * @param string $method
      * @return array
      */
-    abstract protected function findInRegularRoutes(array $routesData, string $path, string $method): array;
+    abstract protected function findInRegularRoutes(string $first, string $path, string $method): array;
 
     /**
-     * @param array $routesData
      * @param string $path
      * @param string $method
-     * @return array
+     * @return array|false
      */
-    abstract protected function findInVagueRoutes(array $routesData, string $path, string $method): array;
+    abstract protected function findInVagueRoutes(string $path, string $method);
 
     /**
      * handle auto route match, when config `'autoRoute' => true`

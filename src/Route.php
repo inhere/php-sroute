@@ -14,5 +14,23 @@ namespace Inhere\Route;
  */
 class Route
 {
+    /**
+     * @var string route pattern
+     */
+    public $pattern;
 
+    /**
+     * @var mixed route handler
+     */
+    public $handler;
+
+    /**
+     * @var string[] map where parameter name => regular expression pattern (or symbol name)
+     */
+    public $params;
+
+    /**
+     * @var array
+     */
+    public $options = [];
 }

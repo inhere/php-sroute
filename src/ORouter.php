@@ -194,7 +194,7 @@ class ORouter extends AbstractRouter
 
         // is a regular dynamic route(the first node is 1th level index key).
         if ($first && isset($this->regularRoutes[$first])) {
-            $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, $method);
+            $result = $this->findInRegularRoutes($first, $path, $method);
 
             if ($result[0] === self::FOUND) {
                 return $result;
@@ -204,12 +204,8 @@ class ORouter extends AbstractRouter
         }
 
         // is a irregular dynamic route
-        if (isset($this->vagueRoutes[$method])) {
-            $result = $this->findInVagueRoutes($this->vagueRoutes[$method], $path, $method);
-
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
+        if ($result = $this->findInVagueRoutes($path, $method)) {
+            return $result;
         }
 
         // handle Auto Route
@@ -226,19 +222,15 @@ class ORouter extends AbstractRouter
             }
 
             if ($first && isset($this->regularRoutes[$first])) {
-                $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, 'GET');
+                $result = $this->findInRegularRoutes($first, $path, 'GET');
 
                 if ($result[0] === self::FOUND) {
                     return $result;
                 }
             }
 
-            if (isset($this->vagueRoutes['GET'])) {
-                $result = $this->findInVagueRoutes($this->vagueRoutes['GET'], $path, 'GET');
-
-                if ($result[0] === self::FOUND) {
-                    return $result;
-                }
+            if ($result = $this->findInVagueRoutes($path, 'GET')) {
+                return $result;
             }
         }
 
@@ -276,9 +268,7 @@ class ORouter extends AbstractRouter
                 continue;
             }
 
-            $result = $this->findInVagueRoutes($this->vagueRoutes['GET'], $path, $m);
-
-            if ($result[0] === self::FOUND) {
+            if ($this->findInVagueRoutes($path, $m)) {
                 $allowedMethods[] = $method;
             }
         }
@@ -292,16 +282,18 @@ class ORouter extends AbstractRouter
     }
 
     /**
-     * @param array $routesData
+     * @param string $first
      * @param string $path
      * @param string $method
      * @return array
      */
-    protected function findInRegularRoutes(array $routesData, string $path, string $method): array
+    protected function findInRegularRoutes(string $first, string $path, string $method): array
     {
         $allowedMethods = '';
+        /** @var array $routesInfo */
+        $routesInfo = $this->regularRoutes[$first];
 
-        foreach ($routesData as $conf) {
+        foreach ($routesInfo as $conf) {
             if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
                 $allowedMethods .= $conf['methods'];
 
@@ -320,14 +312,20 @@ class ORouter extends AbstractRouter
     }
 
     /**
-     * @param array $routesData
      * @param string $path
      * @param string $method
-     * @return array
+     * @return array|false
      */
-    protected function findInVagueRoutes(array $routesData, string $path, string $method): array
+    protected function findInVagueRoutes(string $path, string $method)
     {
-        foreach ($routesData as $conf) {
+        if (!isset($this->vagueRoutes[$method])) {
+            return false;
+        }
+
+        /** @var array $routeList */
+        $routeList = $this->vagueRoutes[$method];
+
+        foreach ($routeList as $conf) {
             if ($conf['start'] && 0 !== \strpos($path, $conf['start'])) {
                 continue;
             }
@@ -339,7 +337,7 @@ class ORouter extends AbstractRouter
             }
         }
 
-        return [self::NOT_FOUND];
+        return false;
     }
 
     /*******************************************************************************

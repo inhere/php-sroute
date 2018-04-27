@@ -85,7 +85,7 @@ final class PreMatchRouter extends ORouter
 
         // it is param route
         if (!self::isStaticRoute($route)) {
-            $this->collectParamRoute($route, $methods, $conf);
+            $this->collectParamRoute($route, $methods, $conf, $opts['params'] ?? []);
 
             return $this;
         }
@@ -146,7 +146,7 @@ final class PreMatchRouter extends ORouter
         }
 
         if ($first && isset($this->regularRoutes[$first])) {
-            $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, $method);
+            $result = $this->findInRegularRoutes($first, $path, $method);
 
             if ($result[0] === self::FOUND) {
                 return $result;
@@ -155,12 +155,8 @@ final class PreMatchRouter extends ORouter
             $allowedMethods = $result[1];
         }
 
-        if (isset($this->vagueRoutes[$method])) {
-            $result = $this->findInVagueRoutes($this->vagueRoutes[$method], $path, $method);
-
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
+        if ($result = $this->findInVagueRoutes($path, $method)) {
+            return $result;
         }
 
         // For HEAD requests, attempt fallback to GET
@@ -170,19 +166,15 @@ final class PreMatchRouter extends ORouter
             }
 
             if ($first && isset($this->regularRoutes[$first])) {
-                $result = $this->findInRegularRoutes($this->regularRoutes[$first], $path, 'GET');
+                $result = $this->findInRegularRoutes($first, $path, 'GET');
 
                 if ($result[0] === self::FOUND) {
                     return $result;
                 }
             }
 
-            if (isset($this->vagueRoutes['GET'])) {
-                $result = $this->findInVagueRoutes($this->vagueRoutes['GET'], $path, 'GET');
-
-                if ($result[0] === self::FOUND) {
-                    return $result;
-                }
+            if ($result = $this->findInVagueRoutes($path, 'GET')) {
+                return $result;
             }
         }
 
