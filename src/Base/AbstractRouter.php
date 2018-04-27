@@ -427,7 +427,6 @@ abstract class AbstractRouter implements RouterInterface
 
         // Parse the optional parameters
         if (false !== ($optPos = \strpos($route, '['))) {
-            $noOptional = \substr($route, 0, $optPos);
             $withoutClosingOptionals = \rtrim($route, ']');
             $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
 
@@ -440,6 +439,7 @@ abstract class AbstractRouter implements RouterInterface
 
             // no params
             if ($argPos === false) {
+                $noOptional = \substr($route, 0, $optPos);
                 $conf['start'] = $noOptional;
                 $conf['regex'] = '#^' . $route . '$#';
 

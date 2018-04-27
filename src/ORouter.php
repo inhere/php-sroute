@@ -123,6 +123,7 @@ class ORouter extends AbstractRouter
      * @param string $route
      * @param array $methods
      * @param array $conf
+     * @param array $params
      * @throws \LogicException
      */
     protected function collectParamRoute(string $route, array $methods, array $conf, array $params)

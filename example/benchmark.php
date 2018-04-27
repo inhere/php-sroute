@@ -37,6 +37,11 @@ $router = new \Inhere\Route\CachedRouter([
     // 'notAllowedAsNotFound' => 1,
 ]);
 
+$requests[2] = [
+    'method' => 'GET',
+    'url' => '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a'
+];
+
 /**
  * collect routes
  */

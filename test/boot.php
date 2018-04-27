@@ -93,7 +93,7 @@ function pretty_echo($msg, $style = 'green', $nl = false)
 
 function pretty_match_result($ret)
 {
-    $str = json_encode($ret, JSON_PRETTY_PRINT);
+    $str = json_encode($ret, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES);
 
     return str_replace('\\', '', $str);
 }

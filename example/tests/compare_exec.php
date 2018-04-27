@@ -2,26 +2,25 @@
 
 $times = isset($argv[1]) ? (int)$argv[1] : 1000;
 
-$str = '/50be3774f6/arg1/arg2/arg3/arg4/arg5/arg6/arg7/arg8/arg9/850726135a';
+$str = '/50be3774f6/{arg1}/arg2/arg3/{int}/arg5/arg6/{arg7}/arg8/arg9[/850726135a]';
 
-$sample1 = function ($str) {
-    $first = null;
-    if ($pos = \strpos($str, '/', 1)) {
-        $first = \substr($str, 1, $pos - 1);
-    }
+$sample1 = function () {
+    $path = '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a';
 
-    return $first;
+    preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $path, $m);
+
+    return $m;
 };
 
-$sample2 = function ($str) {
-    preg_match('#^/([\w-]+)/#', $str, $m);
+$sample2 = function () {
+    $path = '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a';
 
-    return $m[1];
+    preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $path, $m, PREG_SET_ORDER);
+
+    return $m;
 };
 
-compare_speed($sample1, $sample2, $times, [
-    $str
-]);
+compare_speed($sample1, $sample2, $times);
 
 function compare_speed(callable $sample1, callable $sample2, int $times = 1000, array $args = [])
 {
