@@ -70,8 +70,10 @@ class ORouter extends AbstractRouter
             return $this;
         }
 
+        $conf['original'] = $route;
+
         // collect param route
-        $this->collectParamRoute($route, $methods, $conf, $opts['params'] ?? []);
+        $this->collectParamRoute($methods, $conf, $opts['params'] ?? []);
 
         return $this;
     }
@@ -120,17 +122,14 @@ class ORouter extends AbstractRouter
     }
 
     /**
-     * @param string $route
      * @param array $methods
      * @param array $conf
      * @param array $params
      * @throws \LogicException
      */
-    protected function collectParamRoute(string $route, array $methods, array $conf, array $params)
+    protected function collectParamRoute(array $methods, array $conf, array $params)
     {
-        $conf['original'] = $route;
-        $params = $this->getAvailableParams($params);
-        list($first, $conf) = $this->parseParamRoute($route, $params, $conf);
+        list($first, $conf) = $this->parseParamRoute($conf, $this->getAvailableParams($params));
 
         // route string have regular
         if ($first) {

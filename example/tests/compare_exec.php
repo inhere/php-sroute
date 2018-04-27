@@ -1,33 +1,96 @@
 <?php
 
+const ALLOWED_METHODS_STR = 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD';
+const ALLOWED_METHODS = [
+    'ANY',
+    'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD',
+    // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'CONNECT', 'TRACE',
+];
+
 $times = isset($argv[1]) ? (int)$argv[1] : 1000;
 
-$str = '/50be3774f6/{arg1}/arg2/arg3/{int}/arg5/arg6/{arg7}/arg8/arg9[/850726135a]';
+// $str = 'get';
+$str = ['get', 'post'];
 
-$sample1 = function ($path) {
-    $first = null;
+$sample1 = function ($methods) {
+    $hasAny = false;
+    $methods = \array_map(function ($m) use (&$hasAny) {
+        $m = \strtoupper(\trim($m));
 
-    // eg '/article/12'
-    if ($pos = \strpos($path, '/', 1)) {
-        $first = \substr($path, 1, $pos - 1);
-    }
+        if (!$m || false === \strpos(ALLOWED_METHODS_STR . ',', $m . ',')) {
+            throw new \InvalidArgumentException(
+                "The method [$m] is not supported, Allow: " . ALLOWED_METHODS_STR
+            );
+        }
 
-    return $first;
+        if (!$hasAny && $m === 'ANY') {
+            $hasAny = true;
+        }
+
+        return $m;
+    }, (array)$methods);
+
+    return $hasAny ? ALLOWED_METHODS : $methods;
 };
 
-$sample2 = function ($path) {
-    $first = null;
-    $path = ltrim($path, '/');
+$sample2 = function ($methods) {
+    if (is_string($methods)) {
+        $method = strtoupper($methods);
 
-    // eg '/article/12'
-    if ($pos = \strpos($path, '/')) {
-        $first = \substr($path, 0, $pos);
+        if ($method === 'ANY') {
+            return ALLOWED_METHODS;
+        }
+
+        if (false === \strpos(ALLOWED_METHODS_STR . ',', $method . ',')) {
+            throw new \InvalidArgumentException(
+                "The method [$method] is not supported, Allow: " . ALLOWED_METHODS_STR
+            );
+        }
+
+        return [$method];
     }
 
-    return $first;
+    $upperMethods = [];
+
+    foreach ((array)$methods as $method) {
+        $method = strtoupper($method);
+
+        if ($method === 'ANY') {
+            return ALLOWED_METHODS;
+        }
+
+        if (false === \strpos(ALLOWED_METHODS_STR . ',', $method . ',')) {
+            throw new \InvalidArgumentException(
+                "The method [$method] is not supported, Allow: " . ALLOWED_METHODS_STR
+            );
+        }
+
+        $upperMethods[] = $method;
+    }
+
+    return $upperMethods;
 };
 
-compare_speed($sample1, $sample2, $times, [$str]);
+// $sample2 = function ($route, $params) {
+//     $route = (string)preg_replace_callback('#\{[a-zA-Z_][\w-]*\}#', function ($m) use ($params) {
+//         //var_dump($m, $params);die;
+//         $name = substr($m[0], 1, -1);
+//         return '(' . ($params[$name] ?? '[^/]+') . ')';
+//     }, $route);
+//
+//     return $route;
+// };
+
+compare_speed($sample1, $sample2, $times, [
+    $str,
+    [
+        'all' => '.*',
+        'any' => '[^/]+',        // match any except '/'
+        'num' => '[1-9][0-9]*',  // match a number and gt 0
+        'int' => '\d+',          // match a number
+        'act' => '[a-zA-Z][\w-]+', // match a action name
+    ]
+]);
 
 function compare_speed(callable $sample1, callable $sample2, int $times = 1000, array $args = [])
 {

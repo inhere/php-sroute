@@ -385,39 +385,55 @@ abstract class AbstractRouter implements RouterInterface
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
-        $hasAny = false;
-        $methods = \array_map(function ($m) use (&$hasAny) {
-            $m = \strtoupper(\trim($m));
+        if (\is_string($methods)) {
+            $method = \strtoupper($methods);
 
-            if (!$m || false === \strpos(self::ALLOWED_METHODS_STR . ',', $m . ',')) {
+            if ($method === 'ANY') {
+                return self::ALLOWED_METHODS;
+            }
+
+            if (false === \strpos(self::ALLOWED_METHODS_STR . ',', $method . ',')) {
                 throw new \InvalidArgumentException(
-                    "The method [$m] is not supported, Allow: " . self::ALLOWED_METHODS_STR
+                    "The method [$method] is not supported, Allow: " . self::ALLOWED_METHODS_STR
                 );
             }
 
-            if (!$hasAny && $m === self::ANY) {
-                $hasAny = true;
+            return [$method];
+        }
+
+        $upperMethods = [];
+
+        foreach ((array)$methods as $method) {
+            $method = \strtoupper($method);
+
+            if ($method === 'ANY') {
+                return self::ALLOWED_METHODS;
             }
 
-            return $m;
-        }, (array)$methods);
+            if (false === \strpos(self::ALLOWED_METHODS_STR . ',', $method . ',')) {
+                throw new \InvalidArgumentException(
+                    "The method [$method] is not supported, Allow: " . self::ALLOWED_METHODS_STR
+                );
+            }
 
-        return $hasAny ? self::ALLOWED_METHODS : $methods;
+            $upperMethods[] = $method;
+        }
+
+        return $upperMethods;
     }
 
     /**
      * parse param route
-     * @param string $route
      * @param array $params
      * @param array $conf
      * @return array
      * @throws \LogicException
      */
-    public function parseParamRoute(string $route, array $params, array $conf): array
+    public function parseParamRoute(array $conf, array $params = []): array
     {
-        $first = $noOptional = null;
-        $backup = $route;
-        $argPos = \strpos($backup, '{');
+        $first = null;
+        $backup = $route = $conf['original'];
+        $argPos = \strpos($route, '{');
 
         // quote '.','/' to '\.','\/'
         if (false !== \strpos($route, '.')) {
@@ -458,7 +474,7 @@ abstract class AbstractRouter implements RouterInterface
 
         $start = \substr($backup, 0, $floorPos);
 
-        // 解析参数，替换为对应的 正则
+        // Parse the parameters and replace them with the corresponding regular
         if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $route, $m)) {
             /** @var array[] $m */
             $pairs = [];
