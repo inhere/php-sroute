@@ -361,7 +361,7 @@ abstract class AbstractRouter implements RouterInterface
     public function group(string $prefix, \Closure $callback, array $opts = [])
     {
         $previousGroupPrefix = $this->currentGroupPrefix;
-        $this->currentGroupPrefix = $previousGroupPrefix . '/' . trim($prefix, '/');
+        $this->currentGroupPrefix = $previousGroupPrefix . '/' . \trim($prefix, '/');
 
         $previousGroupOption = $this->currentGroupOption;
         $this->currentGroupOption = $opts;
