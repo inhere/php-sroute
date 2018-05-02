@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class PreMatchRouterTest
  * @package Inhere\Route\Test
+ * @covers \Inhere\Route\PreMatchRouter
  */
 class PreMatchRouterTest extends TestCase
 {

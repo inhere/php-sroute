@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class ServerRouterTest
  * @package Inhere\Route\Test
+ * @covers \Inhere\Route\ServerRouter
  */
 class ServerRouterTest extends TestCase
 {

@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 use Inhere\Route\Dispatcher\Dispatcher;
 
 /**
- * @covers Dispatcher
+ * @covers \Inhere\Route\Dispatcher\Dispatcher
  */
 class DispatcherTest extends TestCase
 {

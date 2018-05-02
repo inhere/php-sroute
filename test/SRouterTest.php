@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Inhere\Route\SRouter;
 
 /**
- * @covers SRouter
+ * @covers \Inhere\Route\SRouter
  */
 class SRouterTest extends TestCase
 {

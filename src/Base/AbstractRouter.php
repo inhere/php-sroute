@@ -311,7 +311,7 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * quick register a group universal routes for the controller class.
      * ```php
-     * $router->rest('/users', UserController::class, [
+     * $router->ctrl('/users', UserController::class, [
      *      'index' => 'get',
      *      'create' => 'post',
      *      'update' => 'post',

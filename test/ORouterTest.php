@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 use Inhere\Route\ORouter;
 
 /**
- * @covers ORouter
+ * @covers \Inhere\Route\ORouter
  */
 class ORouterTest extends TestCase
 {

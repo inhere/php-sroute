@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 use Inhere\Route\Base\AbstractRouter;
 
 /**
- * @covers AbstractRouter
+ * @covers \Inhere\Route\Base\AbstractRouter
  */
 class AbstractRouterTest extends TestCase
 {
