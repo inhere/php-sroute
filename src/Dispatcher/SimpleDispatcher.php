@@ -193,7 +193,7 @@ class SimpleDispatcher implements DispatcherInterface
      */
     protected function callRouteHandler(string $path, string $method, $handler, array $args = [])
     {
-        $vars = $args;
+        $vars = $args['matches'] ?? $args;
         $args = \array_values($args);
 
         // is a \Closure or a callable object
