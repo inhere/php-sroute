@@ -116,7 +116,7 @@ class SimpleDispatcher implements DispatcherInterface
      */
     public function dispatchUri(string $path = null, string $method = null)
     {
-        $path = $path ?: $_SERVER['REQUEST_URI'];
+        $path = (string)($path ?: $_SERVER['REQUEST_URI']);
 
         if (\strpos($path, '?')) {
             $path =  \parse_url($path, PHP_URL_PATH);
@@ -127,7 +127,7 @@ class SimpleDispatcher implements DispatcherInterface
             return null;
         }
 
-        $method = $method ?: $_SERVER['REQUEST_METHOD'];
+        $method = (string)($method ?: $_SERVER['REQUEST_METHOD']);
 
         list($status, $path, $info) = $this->router->match($path, $method);
         $info['requestMethod'] = $method;

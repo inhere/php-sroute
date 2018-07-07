@@ -42,11 +42,11 @@ final class PreMatchRouter extends ORouter
         parent::__construct($config);
 
         if (!$path) {
-            $path = $config['path'] ?? null;
+            $path = $config['path'] ?? '';
         }
 
         if (!$method) {
-            $method = $config['method'] ?? null;
+            $method = $config['method'] ?? '';
         }
 
         $this->setRequest($path, $method);
@@ -63,7 +63,7 @@ final class PreMatchRouter extends ORouter
         }
 
         if (\strpos($path, '?')) {
-            $path = \parse_url($path, PHP_URL_PATH);
+            $path = \parse_url($path, \PHP_URL_PATH);
         }
 
         $this->reqPath = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
@@ -85,7 +85,7 @@ final class PreMatchRouter extends ORouter
 
         // it is param route
         if (!self::isStaticRoute($route)) {
-            $this->collectParamRoute($route, $methods, $conf, $opts['params'] ?? []);
+            $this->collectParamRoute($methods, $conf, $opts['params'] ?? []);
 
             return $this;
         }

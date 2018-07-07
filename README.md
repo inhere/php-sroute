@@ -327,7 +327,16 @@ $routeInfo = $router->match($path, $method);
 use Inhere\Route\Dispatcher\Dispatcher;
 
 $dispatcher = new Dispatcher([
+    // default action method name
+    'defaultAction' => 'index',
+
+    'actionPrefix' => '',
+
+    'actionSuffix' => 'Action',
+
     'dynamicAction' => true,
+    // @see ORouter::$globalParams['act']
+    'dynamicActionVar' => 'act',
 ]);
 ```
 
@@ -362,16 +371,23 @@ $router->get('/about', 'App\Controllers\HomeController@about');
 
 ### 动态匹配控制器方法
 
-动态匹配控制器方法, 需配置 `'dynamicAction' => true`
+动态匹配控制器方法, 需配置 
 
-> NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时无法限定请求方法 `REQUEST_METHOD`
+```php
+'dynamicAction' => true,  // 启用
+// action 方法名匹配参数名称，符合条件的才会当做action名称
+// @see ORouter::$globalParams['act'] 匹配 '[a-zA-Z][\w-]+'
+'dynamicActionVar' => 'act',
+```
+
+> NOTICE: 使用动态匹配控制器方法, 应当使用 `any()` 添加路由. 即此时不能限定请求方法 `REQUEST_METHOD`
 
 ```php
 // 访问 '/home/test' 将会执行 'App\Controllers\HomeController::test()'
-$router->any('/home/{any}', App\Controllers\HomeController::class);
+$router->any('/home/{act}', App\Controllers\HomeController::class);
 
 // 可匹配 '/home', '/home/test' 等
-$router->any('/home[/{name}]', App\Controllers\HomeController::class);
+$router->any('/home[/{act}]', App\Controllers\HomeController::class);
 ```
 
 > NOTICE: 上面两个的区别是 第一个无法匹配 `/home`
