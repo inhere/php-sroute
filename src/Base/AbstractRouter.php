@@ -156,9 +156,10 @@ abstract class AbstractRouter implements RouterInterface
     public $ignoreLastSlash = false;
 
     /**
-     * @var bool NotAllowed As NotFound. If True, only two status value will be return(FOUND, NOT_FOUND).
+     * don't handle method not allowed. If True, only two status value will be return(FOUND, NOT_FOUND).
+     * @var bool
      */
-    public $notAllowedAsNotFound = false;
+    public $notAllowedAsNotFound = true;
 
     /**
      * Auto route match @like yii framework
@@ -437,7 +438,6 @@ abstract class AbstractRouter implements RouterInterface
 
         // quote '.','/' to '\.','\/'
         if (false !== \strpos($route, '.')) {
-            // $route = preg_quote($route, '/');
             $route = \str_replace('.', '\.', $route);
         }
 
@@ -532,21 +532,6 @@ abstract class AbstractRouter implements RouterInterface
 
         return $conf;
     }
-
-    /**
-     * @param string $first
-     * @param string $path
-     * @param string $method
-     * @return array
-     */
-    abstract protected function findInRegularRoutes(string $first, string $path, string $method): array;
-
-    /**
-     * @param string $path
-     * @param string $method
-     * @return array|false
-     */
-    abstract protected function findInVagueRoutes(string $path, string $method);
 
     /**
      * handle auto route match, when config `'autoRoute' => true`

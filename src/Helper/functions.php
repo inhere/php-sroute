@@ -63,7 +63,5 @@ function createServerRouter(\Closure $closure, array $config = []): ServerRouter
 {
     $closure($router = new ServerRouter($config));
 
-    $router->flattenStatics();
-
     return $router;
 }

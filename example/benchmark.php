@@ -52,7 +52,7 @@ foreach ($requests as $r) {
 $end = microtime(true);
 $buildTime = $end - $start;
 echo "Build time ($n routes): ",
-pretty_echo(number_format($buildTime, 3), 'cyan'),
+pretty_echo(number_format($buildTime * 1000, 3), 'cyan'),
 " ms, For collect and parse routes.\n\n";
 
 // dump caches
@@ -72,6 +72,14 @@ $matchTimeF = $end - $start;
 echo 'Match time (first route):  ',
 pretty_echo(number_format($matchTimeF, 6)),
 " s.\n - URI: {$uri}, will match: {$r['url']}\n";
+
+// try again
+$start = microtime(true);
+$router->match($uri, $r['method']);
+$end = microtime(true);
+$matchTimeF = $end - $start;
+echo 'Match time (first route, second):  ',
+pretty_echo(number_format($matchTimeF, 6)), PHP_EOL;
 
 /**
  * match random route

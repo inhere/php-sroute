@@ -137,25 +137,11 @@ final class PreMatchRouter extends ORouter
             return [self::FOUND, $path, $this->preFounded];
         }
 
-        $first = null;
         $method = \strtoupper($method);
-        $allowedMethods = [];
 
-        if ($pos = \strpos($path, '/', 1)) {
-            $first = \substr($path, 1, $pos - 1);
-        }
-
-        if ($first && isset($this->regularRoutes[$first])) {
-            $result = $this->findInRegularRoutes($first, $path, $method);
-
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
-
-            $allowedMethods = $result[1];
-        }
-
-        if ($result = $this->findInVagueRoutes($path, $method)) {
+        // is a dynamic route, match by regexp
+        $result = $this->doMatch($path, $method);
+        if ($result[0] === self::FOUND) {
             return $result;
         }
 
@@ -165,15 +151,8 @@ final class PreMatchRouter extends ORouter
                 return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
             }
 
-            if ($first && isset($this->regularRoutes[$first])) {
-                $result = $this->findInRegularRoutes($first, $path, 'GET');
-
-                if ($result[0] === self::FOUND) {
-                    return $result;
-                }
-            }
-
-            if ($result = $this->findInVagueRoutes($path, 'GET')) {
+            $result = $this->doMatch($path, 'GET');
+            if ($result[0] === self::FOUND) {
                 return $result;
             }
         }
@@ -188,7 +167,7 @@ final class PreMatchRouter extends ORouter
         }
 
         // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
-        return $this->findAllowedMethods($path, $method, $allowedMethods);
+        return $this->findAllowedMethods($path, $method);
     }
 
     /**

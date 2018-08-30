@@ -9,9 +9,9 @@ use Inhere\Route\ORouter;
  */
 class ORouterTest extends TestCase
 {
-    private function createRouter()
+    private function createRouter(array $config = [])
     {
-        $r = new ORouter();
+        $r = new ORouter($config);
         $r->get('/', 'handler0');
         $r->get('/test', 'handler1');
 
@@ -193,7 +193,9 @@ class ORouterTest extends TestCase
 
     public function testMethods()
     {
-        $router = $this->createRouter();
+        $router = $this->createRouter([
+            'notAllowedAsNotFound' => false,
+        ]);
 
         // route: /hi/{name}
         $ret = $router->match('/hi/tom', 'post');

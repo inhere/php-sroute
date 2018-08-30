@@ -64,7 +64,8 @@ class ORouter extends AbstractRouter
                 }
 
                 $this->routeCounter++;
-                $this->staticRoutes[$route][$method] = $conf;
+                // $this->staticRoutes[$route][$method] = $conf;
+                $this->staticRoutes[$method . ' ' . $route] = $conf;
             }
 
             return $this;
@@ -133,9 +134,15 @@ class ORouter extends AbstractRouter
 
         // route string have regular
         if ($first) {
-            $conf['methods'] = \implode(',', $methods) . ',';
-            $this->routeCounter++;
-            $this->regularRoutes[$first][] = $conf;
+            // $conf['methods'] = \implode(',', $methods) . ',';
+            foreach ($methods as $method) {
+                if ($method === 'ANY') {
+                    continue;
+                }
+
+                $this->routeCounter++;
+                $this->regularRoutes[$method . ' ' . $first][] = $conf;
+            }
 
             return;
         }
@@ -175,35 +182,16 @@ class ORouter extends AbstractRouter
 
         $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
+        $sKey = $method . ' ' . $path;
 
         // is a static route path
-        if ($this->staticRoutes && isset($this->staticRoutes[$path][$method])) {
-            $conf = $this->staticRoutes[$path][$method];
-
-            return [self::FOUND, $path, $conf];
+        if (isset($this->staticRoutes[$sKey])) {
+            return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        $first = null;
-        $allowedMethods = [];
-
-        // eg '/article/12'
-        if ($pos = \strpos($path, '/', 1)) {
-            $first = \substr($path, 1, $pos - 1);
-        }
-
-        // is a regular dynamic route(the first node is 1th level index key).
-        if ($first && isset($this->regularRoutes[$first])) {
-            $result = $this->findInRegularRoutes($first, $path, $method);
-
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
-
-            $allowedMethods = $result[1];
-        }
-
-        // is a irregular dynamic route
-        if ($result = $this->findInVagueRoutes($path, $method)) {
+        // is a dynamic route, match by regexp
+        $result = $this->doMatch($path, $method);
+        if ($result[0] === self::FOUND) {
             return $result;
         }
 
@@ -216,26 +204,21 @@ class ORouter extends AbstractRouter
 
         // For HEAD requests, attempt fallback to GET
         if ($method === 'HEAD') {
-            if (isset($this->staticRoutes[$path]['GET'])) {
-                return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
+            $sKey = 'GET ' . $path;
+            if (isset($this->staticRoutes[$sKey])) {
+                return [self::FOUND, $path, $this->staticRoutes[$sKey]];
             }
 
-            if ($first && isset($this->regularRoutes[$first])) {
-                $result = $this->findInRegularRoutes($first, $path, 'GET');
-
-                if ($result[0] === self::FOUND) {
-                    return $result;
-                }
-            }
-
-            if ($result = $this->findInVagueRoutes($path, 'GET')) {
+            $result = $this->doMatch($path, 'GET');
+            if ($result[0] === self::FOUND) {
                 return $result;
             }
         }
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
-        if ($this->staticRoutes && isset($this->staticRoutes['/*'][$method])) {
-            return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
+        $sKey = $method . ' /*';
+        if ($this->staticRoutes && isset($this->staticRoutes[$sKey])) {
+            return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
         if ($this->notAllowedAsNotFound) {
@@ -243,7 +226,7 @@ class ORouter extends AbstractRouter
         }
 
         // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
-        return $this->findAllowedMethods($path, $method, $allowedMethods);
+        return $this->findAllowedMethods($path, $method);
     }
 
     /*******************************************************************************
@@ -251,24 +234,79 @@ class ORouter extends AbstractRouter
      ******************************************************************************/
 
     /**
+     * is a dynamic route, match by regexp
      * @param string $path
      * @param string $method
-     * @param array $allowedMethods
      * @return array
      */
-    protected function findAllowedMethods(string $path, string $method, array $allowedMethods): array
+    protected function doMatch(string $path, string $method): array
     {
-        if (isset($this->staticRoutes[$path])) {
-            $allowedMethods = \array_merge($allowedMethods, \array_keys($this->staticRoutes[$path]));
+        $fKey = $first = null;
+
+        if ($pos = \strpos($path, '/', 1)) {
+            $first = \substr($path, 1, $pos - 1);
+            $fKey = $method . ' ' . $first;
         }
 
-        foreach ($this->vagueRoutes as $m => $routes) {
+        // is a regular dynamic route(the first node is 1th level index key).
+        if ($fKey && isset($this->regularRoutes[$fKey])) {
+            /** @var array $routesInfo */
+            $routesInfo = $this->regularRoutes[$fKey];
+
+            foreach ($routesInfo as $conf) {
+                // if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
+                if (\preg_match($conf['regex'], $path, $matches)) {
+                    $conf = $this->mergeMatches($matches, $conf);
+
+                    return [self::FOUND, $path, $conf];
+                }
+            }
+        }
+
+        // is a irregular dynamic route
+        if (isset($this->vagueRoutes[$method])) {
+            /** @var array $routeList */
+            $routeList = $this->vagueRoutes[$method];
+
+            foreach ($routeList as $conf) {
+                if ($conf['start'] && 0 !== \strpos($path, $conf['start'])) {
+                    continue;
+                }
+
+                if (\preg_match($conf['regex'], $path, $matches)) {
+                    $conf = $this->mergeMatches($matches, $conf);
+
+                    return [self::FOUND, $path, $conf];
+                }
+            }
+        }
+
+        return [self::NOT_FOUND];
+    }
+
+    /**
+     * @param string $path
+     * @param string $method
+     * @return array
+     */
+    protected function findAllowedMethods(string $path, string $method): array
+    {
+        $allowedMethods = [];
+
+        foreach (self::ALLOWED_METHODS as $m) {
             if ($method === $m) {
                 continue;
             }
 
-            if ($this->findInVagueRoutes($path, $m)) {
-                $allowedMethods[] = $method;
+            $sKey = $m . ' ' . $path;
+
+            if (isset($this->staticRoutes[$sKey])) {
+                $allowedMethods[] = $m;
+            }
+
+            $result = $this->doMatch($path, $m);
+            if ($result[0] === self::FOUND) {
+                $allowedMethods[] = $m;
             }
         }
 
@@ -278,65 +316,6 @@ class ORouter extends AbstractRouter
 
         // oo ... not found
         return [self::NOT_FOUND, $path, null];
-    }
-
-    /**
-     * @param string $first
-     * @param string $path
-     * @param string $method
-     * @return array
-     */
-    protected function findInRegularRoutes(string $first, string $path, string $method): array
-    {
-        $allowedMethods = '';
-        /** @var array $routesInfo */
-        $routesInfo = $this->regularRoutes[$first];
-
-        foreach ($routesInfo as $conf) {
-            if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
-                $allowedMethods .= $conf['methods'];
-
-                if (false !== \strpos($conf['methods'], $method . ',')) {
-                    $conf = $this->mergeMatches($matches, $conf);
-
-                    return [self::FOUND, $path, $conf];
-                }
-            }
-        }
-
-        return [
-            self::NOT_FOUND,
-            $allowedMethods ? \explode(',', \rtrim($allowedMethods, ',')) : []
-        ];
-    }
-
-    /**
-     * @param string $path
-     * @param string $method
-     * @return array|false
-     */
-    protected function findInVagueRoutes(string $path, string $method)
-    {
-        if (!isset($this->vagueRoutes[$method])) {
-            return false;
-        }
-
-        /** @var array $routeList */
-        $routeList = $this->vagueRoutes[$method];
-
-        foreach ($routeList as $conf) {
-            if ($conf['start'] && 0 !== \strpos($path, $conf['start'])) {
-                continue;
-            }
-
-            if (\preg_match($conf['regex'], $path, $matches)) {
-                $conf = $this->mergeMatches($matches, $conf);
-
-                return [self::FOUND, $path, $conf];
-            }
-        }
-
-        return false;
     }
 
     /*******************************************************************************

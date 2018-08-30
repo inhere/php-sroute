@@ -80,34 +80,6 @@ final class ServerRouter extends ORouter
         if (isset($config['tmpCacheNumber'])) {
             $this->tmpCacheNumber = (int)$config['tmpCacheNumber'];
         }
-
-        if (isset($config['flattenStatic'])) {
-            $this->flattenStatic = (bool)$config['flattenStatic'];
-        }
-    }
-
-    /**
-     * convert staticRoutes to $flatStaticRoutes
-     */
-    public function flattenStatics()
-    {
-        if ($this->flattenStatic) {
-            /**
-             * @var array $items eg:
-             * '/user/login' => [
-             *      // METHOD => [...]
-             *      'GET' => [
-             *          'handler' => 'handler',
-             *          'option' => [...],
-             *      ],
-             * ]
-             */
-            foreach ($this->staticRoutes as $path => $items) {
-                foreach ($items as $method => $conf) {
-                    $this->flatStaticRoutes[$path . '#' . $method] = $conf;
-                }
-            }
-        }
     }
 
     /*******************************************************************************
@@ -135,40 +107,25 @@ final class ServerRouter extends ORouter
 
         $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
+        $sKey = $method . ' ' . $path;
 
         // is a static route path
-        if ($this->staticRoutes && ($routeInfo = $this->findInStaticRoutes($path, $method))) {
-            return [self::FOUND, $path, $routeInfo];
+        if (isset($this->staticRoutes[$sKey])) {
+            return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
-
-        $cacheKey = $path . '#' . $method;
 
         // find in route caches.
-        if ($this->cacheRoutes && isset($this->cacheRoutes[$cacheKey])) {
-            return [self::FOUND, $path, $this->cacheRoutes[$cacheKey]];
+        if ($this->cacheRoutes && isset($this->cacheRoutes[$sKey])) {
+            return [self::FOUND, $path, $this->cacheRoutes[$sKey]];
         }
 
-        $first = null;
-        $allowedMethods = [];
-
-        // eg '/article/12'
-        if ($pos = \strpos($path, '/', 1)) {
-            $first = \substr($path, 1, $pos - 1);
-        }
-
-        // is a regular dynamic route(the first node is 1th level index key).
-        if ($first && isset($this->regularRoutes[$first])) {
-            $result = $this->findInRegularRoutes($first, $path, $method);
-
-            if ($result[0] === self::FOUND) {
-                return $result;
+        // is a dynamic route, match by regexp
+        $result = $this->doMatch($path, $method);
+        if ($result[0] === self::FOUND) {
+            if ($this->tmpCacheNumber > 0) {
+                $this->cacheMatchedParamRoute($path, $method, $result[2]);
             }
 
-            $allowedMethods = $result[1];
-        }
-
-        // is a irregular dynamic route
-        if ($result = $this->findInVagueRoutes($path, $method)) {
             return $result;
         }
 
@@ -181,32 +138,26 @@ final class ServerRouter extends ORouter
 
         // For HEAD requests, attempt fallback to GET
         if ($method === 'HEAD') {
-            $cacheKey = $path . '#GET';
+            $sKey = 'GET ' . $path;
 
-            if (isset($this->cacheRoutes[$cacheKey])) {
-                return [self::FOUND, $path, $this->cacheRoutes[$cacheKey]];
+            if (isset($this->staticRoutes[$sKey])) {
+                return [self::FOUND, $path, $this->staticRoutes[$sKey]];
             }
 
-            if ($routeInfo = $this->findInStaticRoutes($path, 'GET')) {
-                return [self::FOUND, $path, $routeInfo];
+            if ($this->cacheRoutes && isset($this->cacheRoutes[$sKey])) {
+                return [self::FOUND, $path, $this->cacheRoutes[$sKey]];
             }
 
-            if ($first && isset($this->regularRoutes[$first])) {
-                $result = $this->findInRegularRoutes($first, $path, 'GET');
-
-                if ($result[0] === self::FOUND) {
-                    return $result;
-                }
-            }
-
-            if ($result = $this->findInVagueRoutes($path, 'GET')) {
+            $result = $this->doMatch($path, 'GET');
+            if ($result[0] === self::FOUND) {
                 return $result;
             }
         }
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
-        if ($this->staticRoutes && ($routeInfo = $this->findInStaticRoutes('/*', $method))) {
-            return [self::FOUND, $path, $routeInfo];
+        $sKey = $method . ' /*';
+        if ($this->staticRoutes && isset($this->staticRoutes[$sKey])) {
+            return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
         if ($this->notAllowedAsNotFound) {
@@ -214,7 +165,7 @@ final class ServerRouter extends ORouter
         }
 
         // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
-        return $this->findAllowedMethods($path, $method, $allowedMethods);
+        return $this->findAllowedMethods($path, $method);
     }
 
     /*******************************************************************************
@@ -224,100 +175,12 @@ final class ServerRouter extends ORouter
     /**
      * @param string $path
      * @param string $method
-     * @return array|false
-     */
-    protected function findInStaticRoutes(string $path, string $method)
-    {
-        // if flattenStatic is TRUE
-        if ($this->flatStaticRoutes) {
-            $key = $path . '#' . $method;
-
-            if (isset($this->flatStaticRoutes[$key])) {
-                return $this->flatStaticRoutes[$key];
-            }
-        } elseif (isset($this->staticRoutes[$path][$method])) {
-            return $this->staticRoutes[$path][$method];
-        }
-
-        return false;
-    }
-
-    /**
-     * @param string $first
-     * @param string $path
-     * @param string $method
-     * @return array
-     */
-    protected function findInRegularRoutes(string $first, string $path, string $method): array
-    {
-        $allowedMethods = '';
-        /** @var array $routesInfo */
-        $routesInfo = $this->regularRoutes[$first];
-
-        foreach ($routesInfo as $conf) {
-            if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
-                $allowedMethods .= $conf['methods'];
-
-                if (false !== \strpos($conf['methods'], $method . ',')) {
-                    $conf = $this->mergeMatches($matches, $conf);
-
-                    if ($this->tmpCacheNumber > 0) {
-                        $this->cacheMatchedParamRoute($path, $method, $conf);
-                    }
-
-                    return [self::FOUND, $path, $conf];
-                }
-            }
-        }
-
-        return [
-            self::NOT_FOUND,
-            $allowedMethods ? \explode(',', \rtrim($allowedMethods, ',')) : []
-        ];
-    }
-
-    /**
-     * @param string $path
-     * @param string $method
-     * @return array|false
-     */
-    protected function findInVagueRoutes(string $path, string $method)
-    {
-        if (!isset($this->vagueRoutes[$method])) {
-            return false;
-        }
-
-        /** @var array $routeList */
-        $routeList = $this->vagueRoutes[$method];
-
-        foreach ($routeList as $conf) {
-            if ($conf['start'] && 0 !== \strpos($path, $conf['start'])) {
-                continue;
-            }
-
-            if (\preg_match($conf['regex'], $path, $matches)) {
-                $conf = $this->mergeMatches($matches, $conf);
-
-                if ($this->tmpCacheNumber > 0) {
-                    $this->cacheMatchedParamRoute($path, $method, $conf);
-                }
-
-                return [self::FOUND, $path, $conf];
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * @param string $path
-     * @param string $method
      * @param array $conf
      */
     protected function cacheMatchedParamRoute(string $path, string $method, array $conf)
     {
+        $cacheKey = $method . ' ' . $path;
         $cacheNumber = (int)$this->tmpCacheNumber;
-        $cacheKey = $path . '#' . $method;
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0 && !isset($this->cacheRoutes[$cacheKey])) {
