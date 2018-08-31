@@ -59,10 +59,6 @@ class ORouter extends AbstractRouter
         // it is static route
         if (self::isStaticRoute($route)) {
             foreach ($methods as $method) {
-                if ($method === 'ANY') {
-                    continue;
-                }
-
                 $this->routeCounter++;
                 // $this->staticRoutes[$route][$method] = $conf;
                 $this->staticRoutes[$method . ' ' . $route] = $conf;
@@ -134,26 +130,15 @@ class ORouter extends AbstractRouter
 
         // route string have regular
         if ($first) {
-            // $conf['methods'] = \implode(',', $methods) . ',';
             foreach ($methods as $method) {
-                if ($method === 'ANY') {
-                    continue;
-                }
-
                 $this->routeCounter++;
                 $this->regularRoutes[$method . ' ' . $first][] = $conf;
             }
-
-            return;
-        }
-
-        foreach ($methods as $method) {
-            if ($method === 'ANY') {
-                continue;
+        } else {
+            foreach ($methods as $method) {
+                $this->routeCounter++;
+                $this->vagueRoutes[$method][] = $conf;
             }
-
-            $this->routeCounter++;
-            $this->vagueRoutes[$method][] = $conf;
         }
     }
 
@@ -249,14 +234,16 @@ class ORouter extends AbstractRouter
         }
 
         // is a regular dynamic route(the first node is 1th level index key).
-        if ($fKey && isset($this->regularRoutes[$fKey])) {
-            /** @var array $routesInfo */
-            $routesInfo = $this->regularRoutes[$fKey];
+        if ($fKey && $routeList = $this->regularRoutes[$fKey]?? false) {
+            foreach ($routeList as $conf) {
+                if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
+                // if (\preg_match($conf['regex'], $path, $matches)) {
+                //     $conf = $this->mergeMatches($matches, $conf);
 
-            foreach ($routesInfo as $conf) {
-                // if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
-                if (\preg_match($conf['regex'], $path, $matches)) {
-                    $conf = $this->mergeMatches($matches, $conf);
+                    // collect param values. first is full match.
+                    unset($matches[0]);
+                    // if (isset($conf['']))
+                    $conf['matches'] = $matches;
 
                     return [self::FOUND, $path, $conf];
                 }
@@ -264,17 +251,15 @@ class ORouter extends AbstractRouter
         }
 
         // is a irregular dynamic route
-        if (isset($this->vagueRoutes[$method])) {
-            /** @var array $routeList */
-            $routeList = $this->vagueRoutes[$method];
-
+        if ($routeList = $this->vagueRoutes[$method] ?? false) {
             foreach ($routeList as $conf) {
                 if ($conf['start'] && 0 !== \strpos($path, $conf['start'])) {
                     continue;
                 }
 
                 if (\preg_match($conf['regex'], $path, $matches)) {
-                    $conf = $this->mergeMatches($matches, $conf);
+                    unset($matches[0]);
+                    $conf['matches'] = $matches;
 
                     return [self::FOUND, $path, $conf];
                 }

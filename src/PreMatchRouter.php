@@ -93,10 +93,6 @@ final class PreMatchRouter extends ORouter
         $founded = $route === $this->reqPath;
 
         foreach ($methods as $method) {
-            if ($method === 'ANY') {
-                continue;
-            }
-
             // success matched
             if ($founded && $method === $this->reqMethod) {
                 $this->preFounded = $conf;

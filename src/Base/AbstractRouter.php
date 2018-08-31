@@ -13,16 +13,6 @@ use Inhere\Route\Helper\RouteHelper;
 /**
  * Class AbstractRouter
  * @package Inhere\Route\Base
- * @method get(string $route, mixed $handler, array $opts = [])
- * @method post(string $route, mixed $handler, array $opts = [])
- * @method put(string $route, mixed $handler, array $opts = [])
- * @method delete(string $route, mixed $handler, array $opts = [])
- * @method options(string $route, mixed $handler, array $opts = [])
- * @method head(string $route, mixed $handler, array $opts = [])
- * @method search(string $route, mixed $handler, array $opts = [])
- * @method connect(string $route, mixed $handler, array $opts = [])
- * @method trace(string $route, mixed $handler, array $opts = [])
- * @method any(string $route, mixed $handler, array $opts = [])
  */
 abstract class AbstractRouter implements RouterInterface
 {
@@ -237,24 +227,91 @@ abstract class AbstractRouter implements RouterInterface
      ******************************************************************************/
 
     /**
-     * Defines a route callback and method
-     * @param string $method
-     * @param array $args
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
+     * register a route, allow GET request method.
+     * @param string $path
+     * @param $handler
+     * @param array $opts
      */
-    public function __call($method, array $args)
+    public function get(string $path, $handler, array $opts = [])
     {
-        if (\in_array(\strtoupper($method), self::ALLOWED_METHODS, true)) {
-            if (\count($args) < 2) {
-                throw new \InvalidArgumentException("The method [$method] parameters is missing.");
-            }
+        $this->map('GET', $path, $handler, $opts);
+        // $this->map(['GET', 'HEAD'], $path, $handler, $opts);
+    }
 
-            return $this->map($method, ...$args);
-        }
+    /**
+     * register a route, allow POST request method.
+     * @param string $path
+     * @param $handler
+     * @param array $opts
+     */
+    public function post(string $path, $handler, array $opts = [])
+    {
+        $this->map('POST', $path, $handler, $opts);
+    }
 
-        throw new \InvalidArgumentException("The method [$method] not exists in the class.");
+    /**
+     * register a route, allow PUT request method.
+     * {@inheritdoc}
+     */
+    public function put(string $path, $handler, array $opts = [])
+    {
+        $this->map('PUT', $path, $handler, $opts);
+    }
+
+    /**
+     * register a route, allow PATCH request method.
+     * {@inheritdoc}
+     */
+    public function patch(string $path, $handler, array $opts = [])
+    {
+        $this->map('PATCH', $path, $handler, $opts);
+    }
+
+    /**
+     * register a route, allow DELETE request method.
+     * {@inheritdoc}
+     */
+    public function delete(string $path, $handler, array $opts = [])
+    {
+        $this->map('DELETE', $path, $handler, $opts);
+    }
+
+    /**
+     * register a route, allow HEAD request method.
+     * {@inheritdoc}
+     */
+    public function head(string $path, $handler, array $opts = [])
+    {
+        $this->map('HEAD', $path, $handler, $opts);
+    }
+
+    /**
+     * register a route, allow OPTIONS request method.
+     * {@inheritdoc}
+     */
+    public function options(string $path, $handler, array $opts = [])
+    {
+        $this->map('OPTIONS', $path, $handler, $opts);
+    }
+
+    /**
+     * register a route, allow CONNECT request method.
+     * {@inheritdoc}
+     */
+    public function connect(string $path, $handler, array $opts = [])
+    {
+        $this->map('CONNECT', $path, $handler, $opts);
+    }
+
+    /**
+     * register a route, allow any request METHOD.
+     * @param string $path
+     * @param $handler
+     * @param array $opts
+     */
+    public function any(string $path, $handler, array $opts = [])
+    {
+        $this->map(self::ALLOWED_METHODS, $path, $handler, $opts);
     }
 
     /**
@@ -310,48 +367,6 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * quick register a group universal routes for the controller class.
-     * ```php
-     * $router->ctrl('/users', UserController::class, [
-     *      'index' => 'get',
-     *      'create' => 'post',
-     *      'update' => 'post',
-     *      'delete' => 'delete',
-     * ]);
-     * ```
-     * @param string $prefix eg '/users'
-     * @param string $controllerClass
-     * @param array $map You can append or change default map list.
-     * [
-     *      'index' => null, // set value is empty to delete.
-     *      'list' => 'get', // add new route
-     * ]
-     * @param array $opts Common options
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
-    public function ctrl(string $prefix, string $controllerClass, array $map = [], array $opts = []): AbstractRouter
-    {
-        foreach ($map as $action => $method) {
-            if (!$method || !\is_string($action)) {
-                continue;
-            }
-
-            if ($action) {
-                $route = $prefix . '/' . $action;
-            } else {
-                $route = $prefix;
-                $action = 'index';
-            }
-
-            $this->map($method, $route, $controllerClass . '@' . $action, $opts);
-        }
-
-        return $this;
-    }
-
-    /**
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
      * @ref package 'nikic/fast-route'
@@ -393,9 +408,9 @@ abstract class AbstractRouter implements RouterInterface
                 return self::ALLOWED_METHODS;
             }
 
-            if (false === \strpos(self::ALLOWED_METHODS_STR . ',', $method . ',')) {
+            if (false === \strpos(self::ALLOWED_METHODS_STR, ',' . $method . ',')) {
                 throw new \InvalidArgumentException(
-                    "The method [$method] is not supported, Allow: " . self::ALLOWED_METHODS_STR
+                    "The method [$method] is not supported, Allow: " . \trim(self::ALLOWED_METHODS_STR, ',')
                 );
             }
 
@@ -411,9 +426,9 @@ abstract class AbstractRouter implements RouterInterface
                 return self::ALLOWED_METHODS;
             }
 
-            if (false === \strpos(self::ALLOWED_METHODS_STR . ',', $method . ',')) {
+            if (false === \strpos(self::ALLOWED_METHODS_STR, ',' . $method . ',')) {
                 throw new \InvalidArgumentException(
-                    "The method [$method] is not supported, Allow: " . self::ALLOWED_METHODS_STR
+                    "The method [$method] is not supported, Allow: " . \trim(self::ALLOWED_METHODS_STR, ',')
                 );
             }
 
@@ -474,6 +489,11 @@ abstract class AbstractRouter implements RouterInterface
 
         $start = \substr($backup, 0, $floorPos);
 
+        // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
+        if ($pos = \strpos($start, '/', 1)) {
+            $first = \substr($start, 1, $pos - 1);
+        }
+
         // Parse the parameters and replace them with the corresponding regular
         if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $route, $m)) {
             /** @var array[] $m */
@@ -481,20 +501,16 @@ abstract class AbstractRouter implements RouterInterface
 
             foreach ($m[1] as $name) {
                 $regex = $params[$name] ?? self::DEFAULT_REGEX;
-                $pairs['{' . $name . '}'] = '(' . $regex . ')';
+                // $pairs['{' . $name . '}'] = '(' . $regex . ')';
+                $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
             }
 
             $route = \strtr($route, $pairs);
-            $conf['matches'] = $m[1];
+            // $conf['matches'] = $m[1];
         }
 
         $conf['regex'] = '#^' . $route . '$#';
         $conf['start'] = $start === '/' ? null : $start;
-
-        // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
-        if ($pos = \strpos($start, '/', 1)) {
-            $first = \substr($start, 1, $pos - 1);
-        }
 
         return [$first, $conf];
     }
@@ -506,15 +522,12 @@ abstract class AbstractRouter implements RouterInterface
      */
     protected function mergeMatches(array $matches, array $conf): array
     {
-        if (!$matches || !isset($conf['matches'])) {
-            $conf['matches'] = $conf['option']['defaults'] ?? [];
-
-            return $conf;
-        }
+        $route = [
+            'handler' => $conf['handler'],
+        ];
 
         // first is full match.
         \array_shift($matches);
-
         $newMatches = [];
 
         foreach ($conf['matches'] as $k => $name) {
@@ -523,14 +536,8 @@ abstract class AbstractRouter implements RouterInterface
             }
         }
 
-        // apply some default param value
-        if (isset($conf['option']['defaults'])) {
-            $conf['matches'] = \array_merge($conf['option']['defaults'], $newMatches);
-        } else {
-            $conf['matches'] = $newMatches;
-        }
-
-        return $conf;
+        $conf['matches'] = $newMatches;
+        return $route;
     }
 
     /**

@@ -23,8 +23,6 @@ interface RouterInterface
     const DEFAULT_REGEX = '[^/]+';
 
     /** supported method list */
-    const ANY = 'ANY';
-
     const GET = 'GET';
     const POST = 'POST';
     const PUT = 'PUT';
@@ -45,14 +43,13 @@ interface RouterInterface
 
     /** supported methods list */
     const ALLOWED_METHODS = [
-        'ANY',
-        'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD',
-        // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'CONNECT', 'TRACE',
+        'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'CONNECT'
+        // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'TRACE',
     ];
 
-    // ,COPY,PURGE,LINK,UNLINK,LOCK,UNLOCK,VIEW,SEARCH,CONNECT,TRACE';
+    // ,COPY,PURGE,LINK,UNLINK,LOCK,UNLOCK,VIEW,SEARCH,TRACE';
     /** supported methods string */
-    const ALLOWED_METHODS_STR = 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD';
+    const ALLOWED_METHODS_STR = ',GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,CONNECT,';
 
     /** the matched result index key */
     const INDEX_STATUS = 0;
@@ -64,7 +61,7 @@ interface RouterInterface
      * e.g
      *  string: 'get'
      *  array: ['get','post']
-     * @param string $route The route path string. is allow empty string. eg: '/user/login'
+     * @param string $path The route path string. is allow empty string. eg: '/user/login'
      * @param callable|string $handler
      * @param array $opts some option data
      * [
@@ -75,7 +72,7 @@ interface RouterInterface
      * ]
      * @return AbstractRouter
      */
-    public function map($methods, string $route, $handler, array $opts = []): AbstractRouter;
+    public function map($methods, string $path, $handler, array $opts = []): AbstractRouter;
 
     /**
      * find the matched route info for the given request uri path

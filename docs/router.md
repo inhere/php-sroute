@@ -187,7 +187,7 @@ $router->get('/hello/{name}', function($name='NO') {
       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
       'option' => array (
       ),
-      'methods' => 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,SEARCH,CONNECT,TRACE',
+      'methods' => 'GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,SEARCH,CONNECT,TRACE',
     ),
   ),
 )
