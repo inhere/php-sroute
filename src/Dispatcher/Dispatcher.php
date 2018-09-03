@@ -58,20 +58,16 @@ class Dispatcher extends SimpleDispatcher
 
         // fire enter event
         // schema,domains ... metadata validate
-        if (
-            isset($options['enter']) &&
-            false === RouteHelper::call($options['enter'], [$options, $path])
-        ) {
+        if (isset($options['enter']) && false === RouteHelper::call($options['enter'], [$options, $path])) {
             return $result;
         }
 
         $handler = $info['handler'];
-        $args['matches'] = $info['matches'] ?? [];
+        $args = $info['matches'] ?? [];
 
         try {
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $info]);
-
             $result = $this->callRouteHandler($path, $method, $handler, $args);
 
             // fire leave event

@@ -206,7 +206,7 @@ class ORouter extends AbstractRouter
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        if ($this->notAllowedAsNotFound) {
+        if ($this->handleMethodNotAllowed) {
             return [self::NOT_FOUND, $path, null];
         }
 
@@ -238,14 +238,9 @@ class ORouter extends AbstractRouter
             foreach ($routeList as $conf) {
                 if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
                 // if (\preg_match($conf['regex'], $path, $matches)) {
-                //     $conf = $this->mergeMatches($matches, $conf);
+                    $info = $this->mergeMatches($matches, $conf);
 
-                    // collect param values. first is full match.
-                    unset($matches[0]);
-                    // if (isset($conf['']))
-                    $conf['matches'] = $matches;
-
-                    return [self::FOUND, $path, $conf];
+                    return [self::FOUND, $path, $info];
                 }
             }
         }
@@ -258,10 +253,9 @@ class ORouter extends AbstractRouter
                 }
 
                 if (\preg_match($conf['regex'], $path, $matches)) {
-                    unset($matches[0]);
-                    $conf['matches'] = $matches;
+                    $info = $this->mergeMatches($matches, $conf);
 
-                    return [self::FOUND, $path, $conf];
+                    return [self::FOUND, $path, $info];
                 }
             }
         }

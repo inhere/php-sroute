@@ -184,7 +184,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @param callable|mixed $handler The route path handler
      * @param array $args Matched param from path
      * [
-     *  'matches' => []
+     *  'name' => value
      * ]
      * @return mixed
      * @throws \RuntimeException
@@ -193,12 +193,9 @@ class SimpleDispatcher implements DispatcherInterface
      */
     protected function callRouteHandler(string $path, string $method, $handler, array $args = [])
     {
-        $vars = $args['matches'] ?? $args;
-        $args = \array_values($args);
-
         // is a \Closure or a callable object
         if (\is_object($handler)) {
-            return $handler(...$args);
+            return $handler($args);
         }
 
         //// $handler is string
@@ -209,7 +206,7 @@ class SimpleDispatcher implements DispatcherInterface
         } elseif (\is_string($handler)) {
             // is function
             if (\strpos($handler, '@') === false && \function_exists($handler)) {
-                return $handler(...$args);
+                return $handler($args);
             }
 
             // e.g `Controllers\Home@index` Or only `Controllers\Home`
@@ -227,7 +224,7 @@ class SimpleDispatcher implements DispatcherInterface
 
             // use dynamic action
         } elseif ($this->options['dynamicAction'] && ($var = $this->options['dynamicActionVar'])) {
-            $action = isset($vars[$var]) ? \trim($vars[$var], '/') : $this->options['defaultAction'];
+            $action = isset($args[$var]) ? \trim($args[$var], '/') : $this->options['defaultAction'];
 
             // defined default action
         } elseif (!$action = $this->options['defaultAction']) {
@@ -248,7 +245,7 @@ class SimpleDispatcher implements DispatcherInterface
         }
 
         // call controller's action method
-        return $controller->$actionMethod(...$args);
+        return $controller->$actionMethod($args);
     }
 
     /**

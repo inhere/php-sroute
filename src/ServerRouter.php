@@ -160,7 +160,7 @@ final class ServerRouter extends ORouter
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        if ($this->notAllowedAsNotFound) {
+        if ($this->handleMethodNotAllowed) {
             return [self::NOT_FOUND, $path, null];
         }
 

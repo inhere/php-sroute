@@ -10,6 +10,9 @@ use Inhere\Route\Dispatcher\Dispatcher;
  */
 class DispatcherTest extends TestCase
 {
+    /**
+     * @throws \Throwable
+     */
     public function testDispatcher()
     {
         $handler = function(array $args = []) {

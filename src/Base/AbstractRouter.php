@@ -146,10 +146,10 @@ abstract class AbstractRouter implements RouterInterface
     public $ignoreLastSlash = false;
 
     /**
-     * don't handle method not allowed. If True, only two status value will be return(FOUND, NOT_FOUND).
+     * whether handle method not allowed. If True, will find allowed methods.
      * @var bool
      */
-    public $notAllowedAsNotFound = true;
+    public $handleMethodNotAllowed = false;
 
     /**
      * Auto route match @like yii framework
@@ -501,12 +501,12 @@ abstract class AbstractRouter implements RouterInterface
 
             foreach ($m[1] as $name) {
                 $regex = $params[$name] ?? self::DEFAULT_REGEX;
-                // $pairs['{' . $name . '}'] = '(' . $regex . ')';
-                $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
+                $pairs['{' . $name . '}'] = '(' . $regex . ')';
+                // $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
             }
 
             $route = \strtr($route, $pairs);
-            // $conf['matches'] = $m[1];
+            $conf['matches'] = $m[1];
         }
 
         $conf['regex'] = '#^' . $route . '$#';
@@ -523,20 +523,31 @@ abstract class AbstractRouter implements RouterInterface
     protected function mergeMatches(array $matches, array $conf): array
     {
         $route = [
-            'handler' => $conf['handler'],
+            'handler' =>  $conf['handler'],
+            'original' => $conf['original'],
         ];
+
+        if (!$matches || !isset($conf['matches'])) {
+            $route['matches'] = $conf['option']['defaults'] ?? [];
+            return $conf;
+        }
 
         // first is full match.
         \array_shift($matches);
         $newMatches = [];
-
         foreach ($conf['matches'] as $k => $name) {
             if (isset($matches[$k])) {
                 $newMatches[$name] = $matches[$k];
             }
         }
 
-        $conf['matches'] = $newMatches;
+        // apply some default param value
+        if (isset($conf['option']['defaults'])) {
+            $route['matches'] = \array_merge($conf['option']['defaults'], $newMatches);
+        } else {
+            $route['matches'] = $newMatches;
+        }
+
         return $route;
     }
 

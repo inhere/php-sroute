@@ -158,7 +158,7 @@ final class PreMatchRouter extends ORouter
             return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
         }
 
-        if ($this->notAllowedAsNotFound) {
+        if ($this->handleMethodNotAllowed) {
             return [self::NOT_FOUND, $path, null];
         }
 
