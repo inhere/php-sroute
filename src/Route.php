@@ -8,8 +8,6 @@
 
 namespace Inhere\Route;
 
-use Traversable;
-
 /**
  * Class Route
  * @package Inhere\Route
@@ -36,7 +34,7 @@ final class Route implements \IteratorAggregate
      * [param name => regular expression path (or symbol name)]
      * @var string[]
      */
-    private $binds;
+    private $bindVars;
 
     /**
      * dynamic route param values, only use for route cache
@@ -46,6 +44,7 @@ final class Route implements \IteratorAggregate
     private $params;
 
     /**
+     * some custom route options data.
      * @var array
      */
     private $options;
@@ -59,9 +58,10 @@ final class Route implements \IteratorAggregate
     // -- match condition. it is parsed from route path string.
 
     /**
-     * @var array '{id}' => ['id']
+     * path var names.
+     * @var array '/users/{id}' => ['id']
      */
-    private $pathVars;
+    private $pathVars = [];
 
     /**
      * @var string eg. '#^/users/(\d+)$#'
@@ -100,7 +100,7 @@ final class Route implements \IteratorAggregate
     {
         $this->path = $path;
         $this->method = $method;
-        $this->binds = $paramBinds;
+        $this->bindVars = $paramBinds;
         $this->handler = $handler;
         $this->options = $options;
     }
@@ -190,7 +190,8 @@ final class Route implements \IteratorAggregate
 
     /**
      * @param string $path
-     * @return array returns match result. [ok, params]
+     * @return array returns match result.
+     * [is ok?, route params values]
      */
     public function match(string $path): array
     {
@@ -204,12 +205,12 @@ final class Route implements \IteratorAggregate
             return [false, ];
         }
 
+        $params = [];
+
         // no params. eg only use optional. '/about[.html]'
         if (\count($this->pathVars) === 0) {
-            return [true, null];
+            return [true, $params];
         }
-
-        $params = [];
 
         // first is full match.
         \array_shift($matches);
@@ -217,7 +218,38 @@ final class Route implements \IteratorAggregate
             $params[$this->pathVars[$index]] = $value;
         }
 
+        // if has default values
+        if (isset($this->options['defaults'])) {
+            $params = \array_merge($this->options['defaults'], $params);
+        }
+
         return [true, $params];
+    }
+
+    /**
+     * param array $params matched path params values.
+     * @return array
+     */
+    public function info(): array
+    {
+        return [
+            'params' => [],
+            'handler' => $this->handler,
+            'chains' => $this->chains,
+            'options' => $this->options,
+        ];
+    }
+
+    /**
+     * @param array $params
+     * @return Route
+     */
+    public function copyWithParams(array $params): self
+    {
+        $route = clone $this;
+        $route->params = $params;
+
+        return $route;
     }
 
     /*******************************************************************************
@@ -239,14 +271,77 @@ final class Route implements \IteratorAggregate
     }
 
     /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'path' => $this->path,
+            'method' => $this->method,
+            'handler' => $this->handler,
+            'binds' => $this->bindVars,
+            'params' => $this->params,
+            'options' => $this->options,
+            //
+            'pathVars' => $this->pathVars,
+            'pathStart' => $this->pathStart,
+            'pathRegex' => $this->pathRegex,
+            //
+            'chains' => $this->chains,
+        ];
+    }
+
+    /**
      * @param string $name
      * @param string $path
      * @return $this
      */
-    public function bind(string $name, string $path): self
+    public function bindVar(string $name, string $path): self
     {
-        $this->binds[$name] = $path;
+        $this->bindVars[$name] = $path;
         return $this;
+    }
+
+    /**
+     * @param array $bindVars
+     * @return Route
+     */
+    public function setBindVars(array $bindVars): Route
+    {
+        $this->bindVars = $bindVars;
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     * @param $value
+     * @return $this
+     */
+    public function addOption(string $name, $value)
+    {
+        $this->options[$name] = $value;
+        return $this;
+    }
+
+    /**
+     * @param array $options
+     * @return Route
+     */
+    public function setOptions(array $options): Route
+    {
+        $this->options = $options;
+        return $this;
+    }
+
+    /**
+     * Retrieve an external iterator
+     * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
+     * @return \Traversable An instance of an object implementing <b>Iterator</b> or <b>Traversable</b>
+     * @since 5.0.0
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->toArray());
     }
 
     /**
@@ -284,9 +379,9 @@ final class Route implements \IteratorAggregate
     /**
      * @return string[]
      */
-    public function getBinds(): array
+    public function getBindVars(): array
     {
-        return $this->binds;
+        return $this->bindVars;
     }
 
     /**
@@ -320,38 +415,4 @@ final class Route implements \IteratorAggregate
     {
         return $this->pathStart;
     }
-
-    /**
-     * @return array
-     */
-    public function toArray(): array
-    {
-        return [
-            'path' => $this->path,
-            'method' => $this->method,
-            'handler' => $this->handler,
-            'binds' => $this->binds,
-            'params' => $this->params,
-            'options' => $this->options,
-            //
-            'pathVars' => $this->pathVars,
-            'pathStart' => $this->pathStart,
-            'pathRegex' => $this->pathRegex,
-            //
-            'chains' => $this->chains,
-        ];
-    }
-
-    /**
-     * Retrieve an external iterator
-     * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
-     * @return Traversable An instance of an object implementing <b>Iterator</b> or
-     * <b>Traversable</b>
-     * @since 5.0.0
-     */
-    public function getIterator()
-    {
-        return new \ArrayIterator($this->toArray());
-    }
-
 }

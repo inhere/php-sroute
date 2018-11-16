@@ -256,30 +256,6 @@ $router->any('*', 'fallback_handler');
 - 大于等于两节的默认先认为最后一节是控制器类名，进行查找
 - 若失败，再尝试将倒数第二节认为是控制器名，最后一节是action名
 
-### 匹配所有
-
-配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
-
-可允许配置 `matchAll` 的值为 
-
-- 路由path
-
-```php
-    'matchAll' => '/about', // a route path
-```
-
-将会直接执行此路由后停止执行
-
-- 回调
-
-```php 
-    'matchAll' => function () {
-        echo '系统维护中 :)';
-    },
-```
-
-将会直接执行此回调后停止执行
-
 ## 设置路由配置
 
 ```php

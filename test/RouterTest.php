@@ -1,8 +1,9 @@
 <?php
+
 namespace Inhere\Route\Test;
 
-use PHPUnit\Framework\TestCase;
 use Inhere\Route\Router;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Inhere\Route\Router
@@ -18,19 +19,16 @@ class RouterTest extends TestCase
         $r->get('/test1[/optional]', 'handler');
 
         $r->get('/my[/{name}[/{age}]]', 'handler2', [
-            'params' => [
-                'age' => '\d+'
-            ],
+            'age' => '\d+'
+        ])->setOptions([
             'defaults' => [
                 'name' => 'God',
                 'age' => 25,
             ]
         ]);
 
-        $r->get('/hi/{name}', 'handler3', [
-            'params' => [
-                'name' => '\w+',
-            ]
+        $r->get('/hi/{name}', 'handler3')->setBindVars([
+            'name' => '\w+',
         ]);
 
         $r->post('/hi/{name}', 'handler4');
@@ -55,40 +53,40 @@ class RouterTest extends TestCase
 
         $ret = $router->match('/my', 'GET');
 
-        list($status, $path, $route) = $ret;
+        list($status, $path, $info) = $ret;
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my', $path);
-        $this->assertSame('handler2', $route['handler']);
-        $this->assertArrayHasKey('matches', $route);
-        $this->assertArrayHasKey('name', $route['matches']);
-        $this->assertSame('God', $route['matches']['name']);
+        $this->assertSame('handler2', $info['handler']);
+        $this->assertArrayHasKey('matches', $info);
+        $this->assertArrayHasKey('name', $info['matches']);
+        $this->assertSame('God', $info['matches']['name']);
 
         $ret = $router->match('/my/tom', 'GET');
 
-        list($status, $path, $route) = $ret;
+        list($status, $path, $info) = $ret;
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my/tom', $path);
-        $this->assertSame('handler2', $route['handler']);
-        $this->assertArrayHasKey('matches', $route);
-        $this->assertArrayHasKey('name', $route['matches']);
-        $this->assertSame('tom', $route['matches']['name']);
-        $this->assertArrayHasKey('age', $route['matches']);
-        $this->assertSame(25, $route['matches']['age']);
+        $this->assertSame('handler2', $info['handler']);
+        $this->assertArrayHasKey('matches', $info);
+        $this->assertArrayHasKey('name', $info['matches']);
+        $this->assertSame('tom', $info['matches']['name']);
+        $this->assertArrayHasKey('age', $info['matches']);
+        $this->assertSame(25, $info['matches']['age']);
 
         $ret = $router->match('/my/tom/45', 'GET');
 
-        list($status, $path, $route) = $ret;
+        list($status, $path, $info) = $ret;
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my/tom/45', $path);
-        $this->assertSame('handler2', $route['handler']);
-        $this->assertArrayHasKey('matches', $route);
-        $this->assertArrayHasKey('name', $route['matches']);
-        $this->assertSame('tom', $route['matches']['name']);
-        $this->assertArrayHasKey('age', $route['matches']);
-        $this->assertSame(45, (int)$route['matches']['age']);
+        $this->assertSame('handler2', $info['handler']);
+        $this->assertArrayHasKey('matches', $info);
+        $this->assertArrayHasKey('name', $info['matches']);
+        $this->assertSame('tom', $info['matches']['name']);
+        $this->assertArrayHasKey('age', $info['matches']);
+        $this->assertSame(45, (int)$info['matches']['age']);
 
         $ret = $router->match('/my/tom/not-match', 'GET');
         $this->assertSame(Router::NOT_FOUND, $ret[0]);
@@ -176,7 +174,7 @@ class RouterTest extends TestCase
 
         $this->assertCount(3, $ret);
 
-        list($status, $path, ) = $ret;
+        list($status, $path,) = $ret;
 
         $this->assertSame(Router::NOT_FOUND, $status);
         $this->assertSame('/not-exist', $path);
@@ -185,7 +183,7 @@ class RouterTest extends TestCase
 
         $this->assertCount(3, $ret);
 
-        list($status, $path, ) = $ret;
+        list($status, $path,) = $ret;
 
         $this->assertSame(Router::NOT_FOUND, $status);
         $this->assertSame('/hi', $path);

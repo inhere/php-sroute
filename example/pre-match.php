@@ -25,11 +25,6 @@ $router->config([
     // 'ignoreLastSlash' => true,
     // 'tmpCacheNumber' => 100,
 
-    // 'matchAll' => '/', // a route path
-    // 'matchAll' => function () { // a callback
-    //     echo 'System Maintaining ... ...';
-    // },
-
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => 1,

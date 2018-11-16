@@ -79,7 +79,7 @@ class Router extends AbstractRouter
         }
 
         // parse param route
-        $first = $route->parseParam($this->getAvailableParams($route->getBinds()));
+        $first = $route->parseParam($this->getAvailableParams($route->getBindVars()));
 
         // route string have regular
         if ($first) {
@@ -89,23 +89,6 @@ class Router extends AbstractRouter
         }
 
         return $route;
-    }
-
-    /**
-     * @param array $methods
-     * @param string $path
-     * @param callable|string $handler
-     * @param array $binds
-     * @param array $opts
-     * @return AbstractRouter
-     */
-    public function map(array $methods, string $path, $handler, array $binds = [], array $opts = []): AbstractRouter
-    {
-        foreach ($methods as $method) {
-            $this->add($method, $path, $handler, $binds, $opts);
-        }
-
-        return $this;
     }
 
     /**
@@ -151,22 +134,16 @@ class Router extends AbstractRouter
      * find the matched route info for the given request uri path
      * @param string $method
      * @param string $path
-     * @return array
+     * @return array returns array.
+     * [
+     *  match status, // found, not found, method not allowed
+     *  formatted path,
+     *  (Route object) OR (methods list)
+     * ]
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        // if enable 'matchAll'
-        if ($matchAll = $this->matchAll) {
-            if (\is_string($matchAll) && $matchAll{0} === '/') {
-                $path = $matchAll;
-            } elseif (\is_callable($matchAll)) {
-                return [self::FOUND, $path, [
-                    'handler' => $matchAll,
-                ]];
-            }
-        }
-
-        $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
+        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
         $sKey = $method . ' ' . $path;
 
@@ -176,16 +153,14 @@ class Router extends AbstractRouter
         }
 
         // is a dynamic route, match by regexp
-        $result = $this->doMatch($path, $method);
+        $result = $this->matchDynamicRoute($path, $method);
         if ($result[0] === self::FOUND) {
             return $result;
         }
 
-        // handle Auto Route
+        // handle Auto Route. always return new Route object.
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
-            return [self::FOUND, $path, [
-                'handler' => $handler,
-            ]];
+            return [self::FOUND, $path, Route::create($method, $path, $handler)];
         }
 
         // For HEAD requests, attempt fallback to GET
@@ -195,7 +170,7 @@ class Router extends AbstractRouter
                 return [self::FOUND, $path, $this->staticRoutes[$sKey]];
             }
 
-            $result = $this->doMatch($path, 'GET');
+            $result = $this->matchDynamicRoute($path, 'GET');
             if ($result[0] === self::FOUND) {
                 return $result;
             }
@@ -204,10 +179,11 @@ class Router extends AbstractRouter
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
         $sKey = $method . ' /*';
         if ($this->staticRoutes && isset($this->staticRoutes[$sKey])) {
-            return [self::FOUND, $path, $this->staticRoutes[$sKey]];
+            $info = $this->staticRoutes[$sKey]->info();
+            return [self::FOUND, $path, $info];
         }
 
-        if ($this->handleMethodNotAllowed) {
+        if (!$this->handleMethodNotAllowed) {
             return [self::NOT_FOUND, $path, null];
         }
 
@@ -224,10 +200,15 @@ class Router extends AbstractRouter
      * @param string $path
      * @param string $method
      * @return array
+     * [
+     *  status,
+     *  path,
+     *  Route
+     * ]
      */
-    protected function doMatch(string $path, string $method): array
+    protected function matchDynamicRoute(string $path, string $method): array
     {
-        $fKey = $first = null;
+        $fKey = $first = '';
 
         if ($pos = \strpos($path, '/', 1)) {
             $first = \substr($path, 1, $pos - 1);
@@ -236,27 +217,21 @@ class Router extends AbstractRouter
 
         // is a regular dynamic route(the first node is 1th level index key).
         if ($fKey && $routeList = $this->regularRoutes[$fKey] ?? false) {
-            foreach ($routeList as $conf) {
-                if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
-                    // if (\preg_match($conf['regex'], $path, $matches)) {
-                    $info = $this->mergeMatches($matches, $conf);
-
-                    return [self::FOUND, $path, $info];
+            /** @var Route $route */
+            foreach ($routeList as $route) {
+                $result = $route->match($path);
+                if ($result[0]) {
+                    return [self::FOUND, $path, $route->copyWithParams($result[1])];
                 }
             }
         }
 
         // is a irregular dynamic route
         if ($routeList = $this->vagueRoutes[$method] ?? false) {
-            foreach ($routeList as $conf) {
-                if ($conf['start'] && 0 !== \strpos($path, $conf['start'])) {
-                    continue;
-                }
-
-                if (\preg_match($conf['regex'], $path, $matches)) {
-                    $info = $this->mergeMatches($matches, $conf);
-
-                    return [self::FOUND, $path, $info];
+            foreach ($routeList as $route) {
+                $result = $route->match($path);
+                if ($result[0]) {
+                    return [self::FOUND, $path, $route->copyWithParams($result[1])];
                 }
             }
         }
@@ -279,12 +254,11 @@ class Router extends AbstractRouter
             }
 
             $sKey = $m . ' ' . $path;
-
             if (isset($this->staticRoutes[$sKey])) {
                 $allowedMethods[] = $m;
             }
 
-            $result = $this->doMatch($path, $m);
+            $result = $this->matchDynamicRoute($path, $m);
             if ($result[0] === self::FOUND) {
                 $allowedMethods[] = $m;
             }

@@ -1,9 +1,10 @@
 <?php
+
 namespace Inhere\Route\Test;
 
 use Inhere\Route\Router;
-use PHPUnit\Framework\TestCase;
 use Inhere\Route\SRouter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Inhere\Route\SRouter
@@ -17,9 +18,7 @@ class SRouterTest extends TestCase
         SRouter::get('/test', 'handler1');
         SRouter::get('/{name}', 'handler2');
         SRouter::get('/hi/{name}', 'handler3', [
-            'params' => [
-                'name' => '\w+',
-            ]
+            'name' => '\w+',
         ]);
     }
 

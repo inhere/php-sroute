@@ -9,7 +9,7 @@
 namespace Inhere\Route\Dispatcher;
 
 use Inhere\Route\Helper\RouteHelper;
-use Inhere\Route\Base\RouterInterface;
+use Inhere\Route\RouterInterface;
 
 /**
  * Class SimpleDispatcher

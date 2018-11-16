@@ -180,41 +180,12 @@ Support automatic matching like yii routed to the controller, need config `autoR
     'controllerSuffix' => 'Controller', // The controller class suffix
 ```
 
-### match all requests
-
-you can config 'matchAll', All requests for matchAlling。 (eg. web site maintenance)
-
-you can config 'matchAll' as
-
-- route path
-
-```php
-    'matchAll' => '/about', // a route path
-```
-
-Will be executed directly the route.
-
-- callback
-
-```php 
-    'matchAll' => function () {
-        echo 'System Maintaining ... ...';
-    },
-```
-
-Will directly execute the callback
-
 ### setting config
 
 ```php
 // set config
 $router->config([
     'ignoreLastSlash' => true,
-    
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
-//        echo 'System Maintaining ... ...';
-//    },
     
     // enable autoRoute, work like yii framework
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
@@ -231,11 +202,6 @@ $router->config([
 [
     // ignore last '/' char. If is True, will clear last '/', so '/home' equals to '/home/'
     'ignoreLastSlash' => false,
-
-    // matchAll all request.
-    // 1. If is a valid URI path, will matchAll all request uri to the path.
-    // 2. If is a closure, will matchAll all request then call it
-    'matchAll' => '', // eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
 
     // auto route match @like yii framework
     // If is True, will auto find the handler controller file.

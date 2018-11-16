@@ -45,18 +45,12 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * static Routes - no dynamic argument match
      * 整个路由 path 都是静态字符串 e.g. '/user/login'
-     * @var array[]
+     * @var Route[]
      * [
      *     '/user/login' => [
-     *          // METHOD => [...]
-     *          'GET' => [
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
-     *          'PUT' => [
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
+     *          // METHOD => Route object,
+     *          'GET' => Route,
+     *          'PUT' => Route,
      *          ...
      *      ],
      *      ... ...
@@ -68,7 +62,7 @@ abstract class AbstractRouter implements RouterInterface
      * regular Routes - have dynamic arguments, but the first node is normal string.
      * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
      * e.g '/hello/{name}' '/user/{id}'
-     * @var array[]
+     * @var Route[]
      * [
      *     // 使用完整的第一节作为key进行分组
      *     'edit' => [
@@ -76,13 +70,7 @@ abstract class AbstractRouter implements RouterInterface
      *          ...
      *      ],
      *     'blog' => [
-     *        [
-     *              'start' => '/blog/post-',
-     *              'regex' => '/blog/post-(\w+)',
-     *              'methods' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *        ],
+     *        Route, // '/blog/post-{id}'
      *        ...
      *     ],
      *     ... ...
@@ -94,26 +82,15 @@ abstract class AbstractRouter implements RouterInterface
      * vague Routes - have dynamic arguments,but the first node is exists regex.
      * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
      * e.g '/{name}/profile' '/{some}/{some2}'
-     * @var array[]
+     * @var Route[]
      * [
      *     // 使用 HTTP METHOD 作为 key进行分组
      *     'GET' => [
-     *          [
-     *              // 开始的字符串
-     *              'start' => '/profile',
-     *              'regex' => '/(\w+)/profile',
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
+     *          Route, // '/{name}/profile'
      *          ...
      *     ],
      *     'POST' => [
-     *          [
-     *              'start' => null,
-     *              'regex' => '/(\w+)/(\w+)',
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
+     *          Route, // '/{some}/{some2}'
      *          ...
      *     ],
      *      ... ...
@@ -130,15 +107,6 @@ abstract class AbstractRouter implements RouterInterface
     /*******************************************************************************
      * router config
      ******************************************************************************/
-
-    /**
-     * Match all request.
-     * 1. If is a valid URI path, will matchAll all request uri to the path.
-     * 2. If is a closure, will matchAll all request then call it
-     * eg: '/site/maintenance' or `function () { echo 'System Maintaining ... ...'; }`
-     * @var mixed
-     */
-    public $matchAll;
 
     /**
      * Ignore last slash char('/'). If is True, will clear last '/'.
@@ -211,8 +179,7 @@ abstract class AbstractRouter implements RouterInterface
             'chains' => 1,
             'ignoreLastSlash' => 1,
             'tmpCacheNumber' => 1,
-            'notAllowedAsNotFound' => 1,
-            'matchAll' => 1,
+            'handleMethodNotAllowed' => 1,
             'autoRoute' => 1,
             'controllerNamespace' => 1,
             'controllerSuffix' => 1,
@@ -235,11 +202,12 @@ abstract class AbstractRouter implements RouterInterface
      * @param $handler
      * @param array $binds path var bind.
      * @param array $opts
+     * @return Route
      */
-    public function get(string $path, $handler, array $binds = [], array $opts = [])
+    public function get(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('GET', $path, $handler, $binds, $opts);
-        // $this->map(['GET', 'HEAD'], $path, $handler, $binds, $opts);
+        return $this->add('GET', $path, $handler, $binds, $opts);
+        // return $this->map(['GET', 'HEAD'], $path, $handler, $binds, $opts);
     }
 
     /**
@@ -248,64 +216,65 @@ abstract class AbstractRouter implements RouterInterface
      * @param $handler
      * @param array $binds path var bind.
      * @param array $opts
+     * @return Route
      */
-    public function post(string $path, $handler, array $binds = [], array $opts = [])
+    public function post(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('POST', $path, $handler, $binds, $opts);
+        return $this->add('POST', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow PUT request method.
      * {@inheritdoc}
      */
-    public function put(string $path, $handler, array $binds = [], array $opts = [])
+    public function put(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('PUT', $path, $handler, $binds, $opts);
+        return $this->add('PUT', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow PATCH request method.
      * {@inheritdoc}
      */
-    public function patch(string $path, $handler, array $binds = [], array $opts = [])
+    public function patch(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('PATCH', $path, $handler, $binds, $opts);
+        return $this->add('PATCH', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow DELETE request method.
      * {@inheritdoc}
      */
-    public function delete(string $path, $handler, array $binds = [], array $opts = [])
+    public function delete(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('DELETE', $path, $handler, $binds, $opts);
+        return $this->add('DELETE', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow HEAD request method.
      * {@inheritdoc}
      */
-    public function head(string $path, $handler, array $binds = [], array $opts = [])
+    public function head(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('HEAD', $path, $handler, $binds, $opts);
+        return $this->add('HEAD', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow OPTIONS request method.
      * {@inheritdoc}
      */
-    public function options(string $path, $handler, array $binds = [], array $opts = [])
+    public function options(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('OPTIONS', $path, $handler, $binds, $opts);
+        return $this->add('OPTIONS', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow CONNECT request method.
      * {@inheritdoc}
      */
-    public function connect(string $path, $handler, array $binds = [], array $opts = [])
+    public function connect(string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $this->add('CONNECT', $path, $handler, $binds, $opts);
+        return $this->add('CONNECT', $path, $handler, $binds, $opts);
     }
 
     /**
@@ -315,6 +284,20 @@ abstract class AbstractRouter implements RouterInterface
     public function any(string $path, $handler, array $binds = [], array $opts = [])
     {
         $this->map(self::METHODS_ARRAY, $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * @param array $methods
+     * @param string $path
+     * @param callable|string $handler
+     * @param array $binds
+     * @param array $opts
+     */
+    public function map(array $methods, string $path, $handler, array $binds = [], array $opts = [])
+    {
+        foreach ($methods as $method) {
+            $this->add($method, $path, $handler, $binds, $opts);
+        }
     }
 
     /**
@@ -343,119 +326,6 @@ abstract class AbstractRouter implements RouterInterface
         $this->currentGroupPrefix = $previousGroupPrefix;
         $this->currentGroupOption = $previousGroupOption;
         $this->currentGroupChains = $previousGroupChains;
-    }
-
-    /**
-     * parse param route
-     * @param array $params
-     * @param array $conf
-     * @return array
-     * @throws \LogicException
-     */
-    public function parseParamRoute(array $conf, array $params = []): array
-    {
-        $first = '';
-        $backup = $path = $conf['original'];
-        $argPos = \strpos($path, '{');
-
-        // quote '.','/' to '\.','\/'
-        if (false !== \strpos($path, '.')) {
-            $path = \str_replace('.', '\.', $path);
-        }
-
-        // Parse the optional parameters
-        if (false !== ($optPos = \strpos($path, '['))) {
-            $withoutClosingOptionals = \rtrim($path, ']');
-            $optionalNum = \strlen($path) - \strlen($withoutClosingOptionals);
-
-            if ($optionalNum !== \substr_count($withoutClosingOptionals, '[')) {
-                throw new \LogicException('Optional segments can only occur at the end of a route');
-            }
-
-            // '/hello[/{name}]' -> '/hello(?:/{name})?'
-            $path = \str_replace(['[', ']'], ['(?:', ')?'], $path);
-
-            // no params
-            if ($argPos === false) {
-                $noOptional = \substr($path, 0, $optPos);
-                $conf['start'] = $noOptional;
-                $conf['regex'] = '#^' . $path . '$#';
-
-                // eg '/article/12'
-                if ($pos = \strpos($noOptional, '/', 1)) {
-                    $first = \substr($noOptional, 1, $pos - 1);
-                }
-
-                return [$first, $conf];
-            }
-
-            $floorPos = $argPos >= $optPos ? $optPos : $argPos;
-        } else {
-            $floorPos = (int)$argPos;
-        }
-
-        $start = \substr($backup, 0, $floorPos);
-
-        // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
-        if ($pos = \strpos($start, '/', 1)) {
-            $first = \substr($start, 1, $pos - 1);
-        }
-
-        // Parse the parameters and replace them with the corresponding regular
-        if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $path, $m)) {
-            /** @var array[] $m */
-            $pairs = [];
-
-            foreach ($m[1] as $name) {
-                $regex = $params[$name] ?? self::DEFAULT_REGEX;
-                $pairs['{' . $name . '}'] = '(' . $regex . ')';
-                // $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
-            }
-
-            $path = \strtr($path, $pairs);
-            $conf['matches'] = $m[1];
-        }
-
-        $conf['regex'] = '#^' . $path . '$#';
-        $conf['start'] = $start === '/' ? null : $start;
-
-        return [$first, $conf];
-    }
-
-    /**
-     * @param array $matches
-     * @param array[] $conf
-     * @return array
-     */
-    protected function mergeMatches(array $matches, array $conf): array
-    {
-        $route = [
-            'handler' =>  $conf['handler'],
-            'original' => $conf['original'],
-        ];
-
-        if (!$matches || !isset($conf['matches'])) {
-            $route['matches'] = $conf['option']['defaults'] ?? [];
-            return $conf;
-        }
-
-        // first is full match.
-        \array_shift($matches);
-        $newMatches = [];
-        foreach ($conf['matches'] as $k => $name) {
-            if (isset($matches[$k])) {
-                $newMatches[$name] = $matches[$k];
-            }
-        }
-
-        // apply some default param value
-        if (isset($conf['option']['defaults'])) {
-            $route['matches'] = \array_merge($conf['option']['defaults'], $newMatches);
-        } else {
-            $route['matches'] = $newMatches;
-        }
-
-        return $route;
     }
 
     /**

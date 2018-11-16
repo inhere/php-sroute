@@ -77,9 +77,8 @@ interface RouterInterface
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schemas' => ['https'],
      * ]
-     * @return AbstractRouter
      */
-    public function map(array $methods, string $path, $handler, array $binds = [], array $opts = []): AbstractRouter;
+    public function map(array $methods, string $path, $handler, array $binds = [], array $opts = []);
 
     /**
      * find the matched route info for the given request uri path

@@ -19,12 +19,6 @@ require dirname(__DIR__) . '/test/boot.php';
 // set config
 SRouter::config([
     'ignoreLastSlash' => true,
-
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
-//        echo 'System Maintaining ... ...';
-//    },
-
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' =>  1,

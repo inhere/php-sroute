@@ -65,7 +65,7 @@ final class PreMatchRouter extends Router
             $path = \parse_url($path, \PHP_URL_PATH);
         }
 
-        $this->reqPath = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
+        $this->reqPath = RouteHelper::formatPath($path, $this->ignoreLastSlash);
         $this->reqMethod = $method ? \strtoupper($method) : $_SERVER['REQUEST_METHOD'];
     }
 
@@ -91,80 +91,19 @@ final class PreMatchRouter extends Router
             return $route;
         }
 
-        // it is static route
-        if (self::isStaticRoute($path)) {
-            $this->staticRoutes[$method . ' ' . $path] = $route;
-
-            return $route;
-        }
-
-        // parse param route
-        $first = $route->parseParam($this->getAvailableParams($route->getBinds()));
-
-        // route string have regular
-        if ($first) {
-            $this->regularRoutes[$method . ' ' . $first][] = $route;
-        } else {
-            $this->vagueRoutes[$method][] = $route;
-        }
-
-        return $route;
+        return parent::addRoute($route);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function match(string $path, string $method = self::GET): array
+    public function match(string $path, string $method = 'GET'): array
     {
-        // if enable 'matchAll'
-        if ($matchAll = $this->matchAll) {
-            if (\is_string($matchAll) && $matchAll{0} === '/') {
-                // $path = $matchAll;
-                $path = RouteHelper::formatUriPath($matchAll, $this->ignoreLastSlash);
-            } elseif (\is_callable($matchAll)) {
-                return [self::FOUND, $path, [
-                    'handler' => $matchAll,
-                ]];
-            }
-        } else {
-            $path = $this->reqPath;
-        }
-
         // if this path has been pre-matched.
         if ($this->preFounded) {
             return [self::FOUND, $path, $this->preFounded];
         }
 
-        $method = \strtoupper($method);
-
-        // is a dynamic route, match by regexp
-        $result = $this->doMatch($path, $method);
-        if ($result[0] === self::FOUND) {
-            return $result;
-        }
-
-        // For HEAD requests, attempt fallback to GET
-        if ($method === 'HEAD') {
-            if (isset($this->staticRoutes[$path]['GET'])) {
-                return [self::FOUND, $path, $this->staticRoutes[$path]['GET']];
-            }
-
-            $result = $this->doMatch($path, 'GET');
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
-        }
-
-        // If nothing else matches, try fallback routes. $router->any('*', 'handler');
-        if ($this->staticRoutes && isset($this->staticRoutes['/*'][$method])) {
-            return [self::FOUND, $path, $this->staticRoutes['/*'][$method]];
-        }
-
-        if ($this->handleMethodNotAllowed) {
-            return [self::NOT_FOUND, $path, null];
-        }
-
-        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
         return $this->findAllowedMethods($path, $method);
     }
 

@@ -349,11 +349,6 @@ $router->config([
     // 是否忽略最后的 '/' 分隔符. 如果是 true,将清除最后一个 '/', 此时请求 '/home' 和 '/home/' 效果相同
     'ignoreLastSlash' = false,
 
-    // 匹配所有请求
-    // 1. 如果是一个有效的URI路径,将匹配所有请求到此URI路径。
-    // 2. 如果是一个可用回调,将匹配所有请求然后调用它
-    'matchAll' => '', // 例如: '/site/maintenance' 或者 `function () { echo 'System Maintaining ... ...'; }`
-
     // 是否启用, 自动匹配路由到控制器就像 yii 一样. 
     'autoRoute' => false,
     // 默认控制器名称空间
@@ -385,26 +380,3 @@ $router->config([
 - 大于等于两节的默认先认为最后一节是控制器类名，进行查找
 - 若失败，再尝试将倒数第二节认为是控制器名，最后一节是action名
 
-### 匹配所有
-
-配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
-
-可允许配置 `matchAll` 的值为 
-
-- 路由path
-
-```php
-    'matchAll' => '/about', // a route path
-```
-
-将会直接执行此路由后停止执行
-
-- 回调
-
-```php 
-    'matchAll' => function () {
-        echo '系统维护中 :)';
-    },
-```
-
-将会直接执行此回调后停止执行

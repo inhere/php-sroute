@@ -87,25 +87,11 @@ final class ServerRouter extends Router
      ******************************************************************************/
 
     /**
-     * find the matched route info for the given request uri path
-     * @param string $method
-     * @param string $path
-     * @return array
+     * {@inheritdoc}
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        // if enable 'matchAll'
-        if ($matchAll = $this->matchAll) {
-            if (\is_string($matchAll) && $matchAll{0} === '/') {
-                $path = $matchAll;
-            } elseif (\is_callable($matchAll)) {
-                return [self::FOUND, $path, [
-                    'handler' => $matchAll,
-                ]];
-            }
-        }
-
-        $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
+        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
         $sKey = $method . ' ' . $path;
 
@@ -120,12 +106,9 @@ final class ServerRouter extends Router
         }
 
         // is a dynamic route, match by regexp
-        $result = $this->doMatch($path, $method);
+        $result = $this->matchDynamicRoute($path, $method);
         if ($result[0] === self::FOUND) {
-            if ($this->tmpCacheNumber > 0) {
-                $this->cacheMatchedParamRoute($path, $method, $result[2]);
-            }
-
+            $this->cacheMatchedParamRoute($path, $method, $result[2]);
             return $result;
         }
 
@@ -148,7 +131,7 @@ final class ServerRouter extends Router
                 return [self::FOUND, $path, $this->cacheRoutes[$sKey]];
             }
 
-            $result = $this->doMatch($path, 'GET');
+            $result = $this->matchDynamicRoute($path, 'GET');
             if ($result[0] === self::FOUND) {
                 return $result;
             }

@@ -66,14 +66,14 @@ final class CachedRouter extends Router
     /**
      * {@inheritdoc}
      */
-    public function map($method, string $route, $handler, array $opts = []): AbstractRouter
+    public function addRoute(Route $route): Route
     {
         // file cache exists check.
         if ($this->cacheLoaded) {
-            return $this;
+            return $route;
         }
 
-        return parent::map($method, $route, $handler, $opts);
+        return parent::addRoute($route);
     }
 
     /*******************************************************************************
