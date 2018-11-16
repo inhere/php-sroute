@@ -208,7 +208,7 @@ abstract class AbstractRouter implements RouterInterface
             'name' => 1,
             'ignoreLastSlash' => 1,
             'tmpCacheNumber' => 1,
-            'notAllowedAsNotFound' => 1,
+            'handleMethodNotAllowed' => 1,
             'matchAll' => 1,
             'autoRoute' => 1,
             'controllerNamespace' => 1,
