@@ -194,7 +194,7 @@ class ORouterTest extends TestCase
     public function testMethods()
     {
         $router = $this->createRouter([
-            'notAllowedAsNotFound' => false,
+            'handleMethodNotAllowed' => true,
         ]);
 
         // route: /hi/{name}
