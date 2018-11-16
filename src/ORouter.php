@@ -206,7 +206,7 @@ class ORouter extends AbstractRouter
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        if ($this->handleMethodNotAllowed) {
+        if (!$this->handleMethodNotAllowed) {
             return [self::NOT_FOUND, $path, null];
         }
 
