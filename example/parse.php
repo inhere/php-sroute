@@ -13,7 +13,7 @@
 
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Example\Controllers\RestController;
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
 require dirname(__DIR__) . '/test/boot.php';
 
@@ -23,7 +23,7 @@ function default_handler(array $args = []) {
     var_dump($args);
 }
 
-$router = new ORouter;
+$router = new Router;
 
 $router->get('/', 'default_handler');
 

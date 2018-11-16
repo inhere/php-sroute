@@ -8,7 +8,7 @@
 
 require dirname(__DIR__) . '/simple-loader.php';
 
-$router = new \Inhere\Route\ORouter();
+$router = new \Inhere\Route\Router();
 
 $router->get('/', function() {
     echo 'hello, welcome';

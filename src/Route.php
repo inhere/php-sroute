@@ -8,56 +8,350 @@
 
 namespace Inhere\Route;
 
+use Traversable;
+
 /**
  * Class Route
  * @package Inhere\Route
  */
-class Route
+final class Route implements \IteratorAggregate
 {
     /**
-     * @var string route pattern
+     * @var string
      */
-    public $pattern;
+    private $method;
+
+    /**
+     * @var string route pattern path. eg "/users/{id}" "/user/login"
+     */
+    private $path;
 
     /**
      * @var mixed route handler
      */
-    public $handler;
+    private $handler;
 
     /**
-     * @var string[] map where parameter name => regular expression pattern (or symbol name)
+     * map where parameter binds.
+     * [param name => regular expression path (or symbol name)]
+     * @var string[]
      */
-    public $params;
+    private $binds;
+
+    /**
+     * dynamic route param values, only use for route cache
+     * [param name => value]
+     * @var string[]
+     */
+    private $params;
 
     /**
      * @var array
      */
-    public $options = [];
+    private $options;
 
     /**
-     * @param string $pattern
+     * middleware chains
+     * @var array
+     */
+    public $chains = [];
+
+    // -- match condition. it is parsed from route path string.
+
+    /**
+     * @var array '{id}' => ['id']
+     */
+    private $pathVars;
+
+    /**
+     * @var string eg. '#^/users/(\d+)$#'
+     */
+    private $pathRegex = '';
+
+    /**
+     * '/users/{id}' -> '/users/'
+     * '/blog/post-{id}' -> '/blog/post-'
+     * @var string
+     */
+    private $pathStart = '';
+
+    /**
+     * @param string $method
+     * @param string $path
      * @param $handler
-     * @param array $params
+     * @param array $paramBinds
      * @param array $options
      * @return Route
      */
-    public static function create(string $pattern, $handler, array $params, array $options = []): Route
+    public static function create(string $method, string $path, $handler, array $paramBinds = [], array $options = []): Route
     {
-        return new self($pattern, $handler, $params, $options);
+        return new self($method, $path, $handler, $paramBinds, $options);
     }
 
     /**
      * Route constructor.
-     * @param string $pattern
-     * @param $handler
-     * @param array $params
+     * @param string $method
+     * @param string $path
+     * @param mixed $handler
+     * @param array $paramBinds
      * @param array $options
      */
-    public function __construct(string $pattern, $handler, array $params, array $options = [])
+    public function __construct(string $method, string $path, $handler, array $paramBinds = [], array $options = [])
     {
-        $this->pattern = $pattern;
+        $this->path = $path;
+        $this->method = $method;
+        $this->binds = $paramBinds;
         $this->handler = $handler;
-        $this->params = $params;
         $this->options = $options;
     }
+
+    /*******************************************************************************
+     * parse route path
+     ******************************************************************************/
+
+    /**
+     * parse route path string. fetch route params
+     * @param array $bindParams
+     * @return string returns the first node string.
+     */
+    public function parseParam(array $bindParams): string
+    {
+        $first = '';
+        $backup = $path = $this->path;
+        $argPos = \strpos($path, '{');
+
+        // quote '.','/' to '\.','\/'
+        if (false !== \strpos($path, '.')) {
+            $path = \str_replace('.', '\.', $path);
+        }
+
+        // Parse the optional parameters
+        if (false !== ($optPos = \strpos($path, '['))) {
+            $withoutClosingOptionals = \rtrim($path, ']');
+            $optionalNum = \strlen($path) - \strlen($withoutClosingOptionals);
+
+            if ($optionalNum !== \substr_count($withoutClosingOptionals, '[')) {
+                throw new \LogicException('Optional segments can only occur at the end of a route');
+            }
+
+            // '/hello[/{name}]' -> '/hello(?:/{name})?'
+            $path = \str_replace(['[', ']'], ['(?:', ')?'], $path);
+
+            // no params
+            if ($argPos === false) {
+                $noOptional = \substr($path, 0, $optPos);
+                $this->pathStart = $noOptional;
+                $this->pathRegex = '#^' . $path . '$#';
+
+                // eg '/article/12'
+                if ($pos = \strpos($noOptional, '/', 1)) {
+                    $first = \substr($noOptional, 1, $pos - 1);
+                }
+
+                return $first;
+            }
+
+            $floorPos = $argPos >= $optPos ? $optPos : $argPos;
+        } else {
+            $floorPos = (int)$argPos;
+        }
+
+        $start = \substr($backup, 0, $floorPos);
+
+        // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
+        if ($pos = \strpos($start, '/', 1)) {
+            $first = \substr($start, 1, $pos - 1);
+        }
+
+        // Parse the parameters and replace them with the corresponding regular
+        if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $path, $m)) {
+            /** @var array[] $m */
+            $pairs = [];
+
+            foreach ($m[1] as $name) {
+                $regex = $bindParams[$name] ?? RouterInterface::DEFAULT_REGEX;
+                $pairs['{' . $name . '}'] = '(' . $regex . ')';
+                // $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
+            }
+
+            $path = \strtr($path, $pairs);
+            $this->pathVars = $m[1];
+        }
+
+        $this->pathRegex = '#^' . $path . '$#';
+        $this->pathStart = $start === '/' ? '' : $start;
+
+        return $first;
+    }
+
+    /*******************************************************************************
+     * route match
+     ******************************************************************************/
+
+    /**
+     * @param string $path
+     * @return array returns match result. [ok, params]
+     */
+    public function match(string $path): array
+    {
+        // check start string
+        if ($this->pathStart !== '' && \strpos($path, $this->pathStart) !== 0) {
+            return [false, ];
+        }
+
+        // regex match
+        if (!\preg_match($this->pathRegex, $path, $matches)) {
+            return [false, ];
+        }
+
+        // no params. eg only use optional. '/about[.html]'
+        if (\count($this->pathVars) === 0) {
+            return [true, null];
+        }
+
+        $params = [];
+
+        // first is full match.
+        \array_shift($matches);
+        foreach ($matches as $index => $value) {
+            $params[$this->pathVars[$index]] = $value;
+        }
+
+        return [true, $params];
+    }
+
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
+
+    /**
+     * push middleware for the route
+     * @param array ...$middleware
+     * @return Route
+     */
+    public function push(...$middleware): self
+    {
+        foreach ($middleware as $handler) {
+            $this->chains[] = $handler;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     * @param string $path
+     * @return $this
+     */
+    public function bind(string $name, string $path): self
+    {
+        $this->binds[$name] = $path;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath(): string
+    {
+        return $this->path;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHandler()
+    {
+        return $this->handler;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getParams(): array
+    {
+        return $this->params;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getBinds(): array
+    {
+        return $this->binds;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPathVars(): array
+    {
+        return $this->pathVars;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPathRegex(): string
+    {
+        return $this->pathRegex;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPathStart(): string
+    {
+        return $this->pathStart;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'path' => $this->path,
+            'method' => $this->method,
+            'handler' => $this->handler,
+            'binds' => $this->binds,
+            'params' => $this->params,
+            'options' => $this->options,
+            //
+            'pathVars' => $this->pathVars,
+            'pathStart' => $this->pathStart,
+            'pathRegex' => $this->pathRegex,
+            //
+            'chains' => $this->chains,
+        ];
+    }
+
+    /**
+     * Retrieve an external iterator
+     * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
+     * @return Traversable An instance of an object implementing <b>Iterator</b> or
+     * <b>Traversable</b>
+     * @since 5.0.0
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->toArray());
+    }
+
 }

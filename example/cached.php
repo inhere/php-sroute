@@ -50,7 +50,7 @@ function dump_routes() {
 }
 
 $router->get('/routes', 'dump_routes');
-$router->rest('/rest', RestController::class);
+// $router->rest('/rest', RestController::class);
 
 $router->any('*', 'main_handler');
 

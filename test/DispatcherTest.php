@@ -1,7 +1,7 @@
 <?php
 namespace Inhere\Route\Test;
 
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
 use Inhere\Route\Dispatcher\Dispatcher;
 
@@ -19,7 +19,7 @@ class DispatcherTest extends TestCase
             return \sprintf('hello, welcome. args: %s', \json_encode($args));
         };
 
-        $router = new ORouter();
+        $router = new Router();
         $router->get('/', $handler);
         $router->get('/user/info[/{int}]', $handler);
         $router->get('/my[/{name}[/{age}]]', $handler, [

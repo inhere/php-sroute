@@ -2,16 +2,16 @@
 namespace Inhere\Route\Test;
 
 use PHPUnit\Framework\TestCase;
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
 /**
- * @covers \Inhere\Route\ORouter
+ * @covers \Inhere\Route\Router
  */
-class ORouterTest extends TestCase
+class RouterTest extends TestCase
 {
     private function createRouter(array $config = [])
     {
-        $r = new ORouter($config);
+        $r = new Router($config);
         $r->get('/', 'handler0');
         $r->get('/test', 'handler1');
 
@@ -57,7 +57,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my', $path);
         $this->assertSame('handler2', $route['handler']);
         $this->assertArrayHasKey('matches', $route);
@@ -68,7 +68,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my/tom', $path);
         $this->assertSame('handler2', $route['handler']);
         $this->assertArrayHasKey('matches', $route);
@@ -81,7 +81,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my/tom/45', $path);
         $this->assertSame('handler2', $route['handler']);
         $this->assertArrayHasKey('matches', $route);
@@ -91,7 +91,7 @@ class ORouterTest extends TestCase
         $this->assertSame(45, (int)$route['matches']['age']);
 
         $ret = $router->match('/my/tom/not-match', 'GET');
-        $this->assertSame(ORouter::NOT_FOUND, $ret[0]);
+        $this->assertSame(Router::NOT_FOUND, $ret[0]);
     }
 
     public function testStaticRoute()
@@ -105,7 +105,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/', $path);
         $this->assertSame('handler0', $route['handler']);
     }
@@ -121,7 +121,7 @@ class ORouterTest extends TestCase
 
         list($status, , $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('handler', $route['handler']);
 
         // route: '/test1[/optional]'
@@ -131,7 +131,7 @@ class ORouterTest extends TestCase
 
         list($status, , $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('handler', $route['handler']);
 
     }
@@ -147,7 +147,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/hi/3456', $path);
         $this->assertSame('/hi/{name}', $route['original']);
         $this->assertSame('handler3', $route['handler']);
@@ -159,7 +159,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('/hi/{name}', $route['original']);
         $this->assertSame('handler3', $route['handler']);
@@ -178,7 +178,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, ) = $ret;
 
-        $this->assertSame(ORouter::NOT_FOUND, $status);
+        $this->assertSame(Router::NOT_FOUND, $status);
         $this->assertSame('/not-exist', $path);
 
         $ret = $router->match('/hi', 'GET');
@@ -187,7 +187,7 @@ class ORouterTest extends TestCase
 
         list($status, $path, ) = $ret;
 
-        $this->assertSame(ORouter::NOT_FOUND, $status);
+        $this->assertSame(Router::NOT_FOUND, $status);
         $this->assertSame('/hi', $path);
     }
 
@@ -203,7 +203,7 @@ class ORouterTest extends TestCase
         $this->assertCount(3, $ret);
 
         list($status, , $route) = $ret;
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertArrayHasKey('name', $route['matches']);
         $this->assertSame('handler4', $route['handler']);
 
@@ -212,7 +212,7 @@ class ORouterTest extends TestCase
 
         list($status, , $route) = $ret;
         $this->assertCount(3, $ret);
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertArrayHasKey('name', $route['matches']);
         $this->assertSame('handler5', $route['handler']);
 
@@ -221,7 +221,7 @@ class ORouterTest extends TestCase
 
         list($status, , $methods) = $ret;
         $this->assertCount(3, $ret);
-        $this->assertSame(ORouter::METHOD_NOT_ALLOWED, $status);
+        $this->assertSame(Router::METHOD_NOT_ALLOWED, $status);
         $this->assertCount(3, $methods);
     }
 }

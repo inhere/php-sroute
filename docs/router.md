@@ -5,16 +5,16 @@
 > 匹配速度快，查找匹配速度基本上不受路由数量和路由的复杂度的影响
 
 - `Inhere\Route\SRouter` 是静态类版本. 
-- `Inhere\Route\ORouter` 是对象版本
+- `Inhere\Route\Router` 是对象版本
 
 压测： [benchmark](./benchmark.md)
 
 ## 路由收集
 
 ```php
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
-$router = new ORouter();
+$router = new Router();
 
 // 匹配 GET 请求. 处理器是个闭包 Closure
 $router->get('/', function() {
@@ -56,7 +56,7 @@ $router->any('/home', function() {
 
 // 路由组
 $router->group('/user', function ($router) {
-    /** @var \Inhere\Route\ORouter $router */
+    /** @var \Inhere\Route\Router $router */
     $router->get('/', function () {
         echo 'hello. you access: /user/';
     });
@@ -333,7 +333,7 @@ todo ...
 
 ```php
 // set config
-$router->setConfig([
+$router->config([
     'ignoreLastSlash' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
@@ -363,7 +363,7 @@ $router->setConfig([
 
 ```
 
-> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
+> NOTICE: 必须在添加路由之前调用 `$router->config()` 
 
 ### 自动匹配路由
 

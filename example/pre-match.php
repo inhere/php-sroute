@@ -21,7 +21,7 @@ $router = new \Inhere\Route\PreMatchRouter();
 $router->setRequest();
 
 // set config
-$router->setConfig([
+$router->config([
     // 'ignoreLastSlash' => true,
     // 'tmpCacheNumber' => 100,
 
@@ -68,7 +68,7 @@ foreach ($routes as $route) {
     $router->map($route[0], $route[1], $route[2], $route[3] ?? []);
 }
 
-$router->rest('/rest', RestController::class);
+// $router->rest('/rest', RestController::class);
 
 $router->any('*', function () {
     echo "This is fallback handler\n";

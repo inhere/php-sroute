@@ -10,14 +10,14 @@
  */
 
 use Inhere\Route\Dispatcher\Dispatcher;
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
 require dirname(__DIR__) . '/test/boot.php';
 
-$router = new ORouter;
+$router = new Router;
 
 // set config
-$router->setConfig([
+$router->config([
     'ignoreLastSlash' => true,
 
     'tmpCacheNumber' => 100,
@@ -49,7 +49,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (ORouter $router) use ($rs) {
+        $router->group($route[0], function (Router $router) use ($rs) {
             foreach ($rs as $r) {
                 $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
             }

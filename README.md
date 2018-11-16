@@ -18,13 +18,13 @@
 
 > 不同的版本有稍微的区别以适应不同的场景
 
-- `ORouter` 通用版本，也是后几个版本的基础类，适用于所有的情况。
-- `SRouter` 静态类版本。`ORouter` 的简单包装，通过静态方法使用(方便小应用快速使用)
-- `CachedRouter` 继承自`ORouter`，支持路由缓存的版本，可以 **缓存路由信息到文件**
+- `Router` 通用版本，也是后几个版本的基础类，适用于所有的情况。
+- `SRouter` 静态类版本。`Router` 的简单包装，通过静态方法使用(方便小应用快速使用)
+- `CachedRouter` 继承自`Router`，支持路由缓存的版本，可以 **缓存路由信息到文件**
   - 适合php-fpm 环境使用(有缓存将会省去每次的路由收集和解析消耗) 
-- `PreMatchRouter` 继承自`ORouter`，预匹配路由器。**当应用的静态路由较多时，将拥有更快的匹配速度**
+- `PreMatchRouter` 继承自`Router`，预匹配路由器。**当应用的静态路由较多时，将拥有更快的匹配速度**
   - 适合php-fpm 环境，php-fpm 情形下，实际上我们在收集路由之前，已经知道了路由path和请求动作METHOD
-- `ServerRouter` 继承自`ORouter`，服务器路由。内置支持**动态路由临时缓存**. 适合 `swoole` 等**常驻内存应用**使用
+- `ServerRouter` 继承自`Router`，服务器路由。内置支持**动态路由临时缓存**. 适合 `swoole` 等**常驻内存应用**使用
   - 最近请求过的动态路由将会缓存为一个静态路由信息，下次相同路由将会直接匹配命中
 
 **内置调度器：**
@@ -89,10 +89,10 @@ git clone https://github.com/inhere/php-srouter.git // github
 
 Test Name | Results | Time(ms) | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
-inhere/sroute(ORouter) - unknown route (1000 routes) | 987 | 0.010222 | +0.000000 | baseline
+inhere/sroute(Router) - unknown route (1000 routes) | 987 | 0.010222 | +0.000000 | baseline
 inhere/sroute(SRouter) - unknown route (1000 routes) | 984 | 0.012239 | +0.002017 | 20% slower
 inhere/sroute(SRouter) - last route (1000 routes) | 999 | 0.024386 | +0.014820 | 155% slower
-inhere/sroute(ORouter) - last route (1000 routes) | 975 | 0.024554 | +0.014989 | 157% slower
+inhere/sroute(Router) - last route (1000 routes) | 975 | 0.024554 | +0.014989 | 157% slower
 Symfony Cached - last route (1000 routes) | 997 | 0.029091 | +0.019525 | 204% slower
 Symfony Cached - unknown route (1000 routes) | 985 | 0.037226 | +0.027661 | 289% slower
 FastRoute - unknown route (1000 routes) | 988 | 0.089904 | +0.080338 | 840% slower
@@ -119,7 +119,7 @@ Pux PHP - first route(1000) | 997 | 0.006587 | +0.000000 | baseline
 FastRoute - first route(1000) | 999 | 0.008751 | +0.002165 | 33% slower
 phroute/phroute - first route (1000 routes) | 999 | 0.021902 | +0.015315 | 233% slower
 Symfony Dumped - first route | 997 | 0.022254 | +0.015667 | 238% slower
-ORouter - first route(1000) | 993 | 0.025026 | +0.018440 | 280% slower
+Router - first route(1000) | 993 | 0.025026 | +0.018440 | 280% slower
 SRouter - first route(1000) | 997 | 0.025553 | +0.018967 | 288% slower
 noodlehaus/dispatch - first route (1000 routes) | 989 | 0.030126 | +0.023540 | 357% slower
 AltoRouter - first route (1000 routes) | 994 | 0.041488 | +0.034902 | 530% slower
@@ -134,9 +134,9 @@ Macaw - first route (1000 routes) | 999 | 2.710132 | +2.703545 | 41047% slower
 首先, 导入类
 
 ```php
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
-$router = new ORouter();
+$router = new Router();
 ```
 
 ## 添加路由
@@ -284,7 +284,7 @@ $router->any('*', 'fallback_handler');
 
 ```php
 // set config
-$router->setConfig([
+$router->config([
     'ignoreLastSlash' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
@@ -292,7 +292,7 @@ $router->setConfig([
 ]);
 ```
 
-> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
+> NOTICE: 必须在添加路由之前调用 `$router->config()` 
 
 ## 路由匹配
 
@@ -335,7 +335,7 @@ $dispatcher = new Dispatcher([
     'actionSuffix' => 'Action',
 
     'dynamicAction' => true,
-    // @see ORouter::$globalParams['act']
+    // @see Router::$globalParams['act']
     'dynamicActionVar' => 'act',
 ]);
 ```
@@ -376,7 +376,7 @@ $router->get('/about', 'App\Controllers\HomeController@about');
 ```php
 'dynamicAction' => true,  // 启用
 // action 方法名匹配参数名称，符合条件的才会当做action名称
-// @see ORouter::$globalParams['act'] 匹配 '[a-zA-Z][\w-]+'
+// @see Router::$globalParams['act'] 匹配 '[a-zA-Z][\w-]+'
 'dynamicActionVar' => 'act',
 ```
 

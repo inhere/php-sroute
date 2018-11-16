@@ -1,7 +1,7 @@
 <?php
 namespace Inhere\Route\Test;
 
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
 use Inhere\Route\SRouter;
 
@@ -44,7 +44,7 @@ class SRouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/', $path);
         $this->assertSame('handler0', $route['handler']);
     }
@@ -60,7 +60,7 @@ class SRouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/tom', $path);
         $this->assertSame('handler2', $route['handler']);
 
@@ -71,7 +71,7 @@ class SRouterTest extends TestCase
 
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(ORouter::FOUND, $status);
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('/hi/{name}', $route['original']);
         $this->assertSame('handler3', $route['handler']);

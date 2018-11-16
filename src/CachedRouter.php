@@ -8,8 +8,6 @@
 
 namespace Inhere\Route;
 
-use Inhere\Route\Base\AbstractRouter;
-
 /**
  * Class CachedRouter - this is object version and support cache routes.
  *
@@ -19,7 +17,7 @@ use Inhere\Route\Base\AbstractRouter;
  *
  * @package Inhere\Route
  */
-final class CachedRouter extends ORouter
+final class CachedRouter extends Router
 {
     /** @var bool */
     private $cacheLoaded = false;

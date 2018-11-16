@@ -17,7 +17,7 @@ use Inhere\Route\SRouter;
 require dirname(__DIR__) . '/test/boot.php';
 
 // set config
-SRouter::setConfig([
+SRouter::config([
     'ignoreLastSlash' => true,
 
 //    'matchAll' => '/', // a route path

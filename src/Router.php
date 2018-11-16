@@ -8,16 +8,15 @@
 
 namespace Inhere\Route;
 
-use Inhere\Route\Base\AbstractRouter;
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Dispatcher\DispatcherInterface;
 use Inhere\Route\Helper\RouteHelper;
 
 /**
- * Class ORouter - this is object version
+ * Class Router - this is object version
  * @package Inhere\Route
  */
-class ORouter extends AbstractRouter
+class Router extends AbstractRouter
 {
     /** @var int */
     protected $routeCounter = 0;
@@ -34,54 +33,88 @@ class ORouter extends AbstractRouter
      ******************************************************************************/
 
     /**
-     * @param string|array $methods The match request method(s).
-     * e.g
-     *  string: 'get'
-     *  array: ['get','post']
-     * @param string $route The route path string. is allow empty string. eg: '/user/login'
-     * @param callable|string $handler
-     * @param array $opts some option data
-     * [
-     *     'params' => [ 'id' => '[0-9]+', ],
-     *     'defaults' => [ 'id' => 10, ],
-     *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
-     *     'schemas' => ['https'],
-     * ]
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
+     * @param string $method
+     * @param string $path
+     * @param $handler
+     * @param array $binds
+     * @param array $opts
+     * @return Route
      */
-    public function map($methods, string $route, $handler, array $opts = []): AbstractRouter
+    public function add(string $method, string $path, $handler, array $binds = [], array $opts = []): Route
     {
-        $methods = $this->validateArguments($methods, $handler);
-        list($route, $conf) = $this->prepareForMap($route, $handler, $opts);
-
-        // it is static route
-        if (self::isStaticRoute($route)) {
-            foreach ($methods as $method) {
-                $this->routeCounter++;
-                // $this->staticRoutes[$route][$method] = $conf;
-                $this->staticRoutes[$method . ' ' . $route] = $conf;
-            }
-
-            return $this;
+        if (!$method || !$handler) {
+            throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
-        $conf['original'] = $route;
+        if (false === \strpos(self::METHODS_STRING, ',' . $method . ',')) {
+            throw new \InvalidArgumentException(
+                "The method [$method] is not supported, Allow: " . \trim(self::METHODS_STRING, ',')
+            );
+        }
 
-        // collect param route
-        $this->collectParamRoute($methods, $conf, $opts['params'] ?? []);
+        list($path, $opts) = $this->prepareForAdd($path, $opts);
+
+        // create Route
+        $route = Route::create($method, $path, $handler, $binds, $opts);
+
+        return $this->addRoute($route);
+    }
+
+    /**
+     * @param Route $route
+     * @return Route
+     */
+    public function addRoute(Route $route): Route
+    {
+        $this->routeCounter++;
+
+        $path = $route->getPath();
+        $method = $route->getMethod();
+
+        // it is static route
+        if (self::isStaticRoute($path)) {
+            $this->staticRoutes[$method . ' ' . $path] = $route;
+
+            return $route;
+        }
+
+        // parse param route
+        $first = $route->parseParam($this->getAvailableParams($route->getBinds()));
+
+        // route string have regular
+        if ($first) {
+            $this->regularRoutes[$method . ' ' . $first][] = $route;
+        } else {
+            $this->vagueRoutes[$method][] = $route;
+        }
+
+        return $route;
+    }
+
+    /**
+     * @param array $methods
+     * @param string $path
+     * @param callable|string $handler
+     * @param array $binds
+     * @param array $opts
+     * @return AbstractRouter
+     */
+    public function map(array $methods, string $path, $handler, array $binds = [], array $opts = []): AbstractRouter
+    {
+        foreach ($methods as $method) {
+            $this->add($method, $path, $handler, $binds, $opts);
+        }
 
         return $this;
     }
 
     /**
-     * @param string $route
-     * @param mixed $handler
+     * prepare for add
+     * @param string $path
      * @param array $opts
      * @return array
      */
-    protected function prepareForMap(string $route, $handler, array $opts): array
+    protected function prepareForAdd(string $path, array $opts): array
     {
         if (!$this->initialized) {
             $this->initialized = true;
@@ -90,56 +123,24 @@ class ORouter extends AbstractRouter
         $hasPrefix = (bool)$this->currentGroupPrefix;
 
         // always add '/' prefix.
-        if ($route = \trim($route)) {
-            $route = $route{0} === '/' ? $route : '/' . $route;
+        if ($path = \trim($path)) {
+            $path = \strpos($path, '/') === 0 ? $path : '/' . $path;
         } elseif (!$hasPrefix) {
-            $route = '/';
+            $path = '/';
         }
 
-        $route = $this->currentGroupPrefix . $route;
+        $path = $this->currentGroupPrefix . $path;
 
         // setting 'ignoreLastSlash'
-        if ($route !== '/' && $this->ignoreLastSlash) {
-            $route = \rtrim($route, '/');
+        if ($path !== '/' && $this->ignoreLastSlash) {
+            $path = \rtrim($path, '/');
         }
-
-        $conf = [
-            'handler' => $handler,
-        ];
 
         if ($this->currentGroupOption) {
             $opts = \array_merge($this->currentGroupOption, $opts);
         }
 
-        if ($opts) {
-            $conf['option'] = $opts;
-        }
-
-        return [$route, $conf];
-    }
-
-    /**
-     * @param array $methods
-     * @param array $conf
-     * @param array $params
-     * @throws \LogicException
-     */
-    protected function collectParamRoute(array $methods, array $conf, array $params)
-    {
-        list($first, $conf) = $this->parseParamRoute($conf, $this->getAvailableParams($params));
-
-        // route string have regular
-        if ($first) {
-            foreach ($methods as $method) {
-                $this->routeCounter++;
-                $this->regularRoutes[$method . ' ' . $first][] = $conf;
-            }
-        } else {
-            foreach ($methods as $method) {
-                $this->routeCounter++;
-                $this->vagueRoutes[$method][] = $conf;
-            }
-        }
+        return [$path, $opts];
     }
 
     /*******************************************************************************
@@ -234,10 +235,10 @@ class ORouter extends AbstractRouter
         }
 
         // is a regular dynamic route(the first node is 1th level index key).
-        if ($fKey && $routeList = $this->regularRoutes[$fKey]?? false) {
+        if ($fKey && $routeList = $this->regularRoutes[$fKey] ?? false) {
             foreach ($routeList as $conf) {
                 if (0 === \strpos($path, $conf['start']) && \preg_match($conf['regex'], $path, $matches)) {
-                // if (\preg_match($conf['regex'], $path, $matches)) {
+                    // if (\preg_match($conf['regex'], $path, $matches)) {
                     $info = $this->mergeMatches($matches, $conf);
 
                     return [self::FOUND, $path, $info];
@@ -272,7 +273,7 @@ class ORouter extends AbstractRouter
     {
         $allowedMethods = [];
 
-        foreach (self::ALLOWED_METHODS as $m) {
+        foreach (self::METHODS_ARRAY as $m) {
             if ($method === $m) {
                 continue;
             }

@@ -25,20 +25,20 @@ use Inhere\Route\Dispatcher\DispatcherInterface;
  * @method static any(string $route, mixed $handler, array $opts = [])
  * @method static map(string|array $methods, string $route, mixed $handler, array $opts = [])
  * @method static group(string $prefix, \Closure $callback, array $opts = [])
- * @method static setConfig(array $config)
+ * @method static config(array $config)
  * @method static match($path, $method = 'GET')
  * @method static dispatch(DispatcherInterface|array $dispatcher, $path = null, $method = null)
  */
 final class SRouter
 {
-    /** @var ORouter */
+    /** @var Router */
     private static $router;
 
     /**
      * Defines a route callback and method
      * @param string $method
      * @param array $args
-     * @return ORouter|mixed
+     * @return Router|mixed
      * @throws \InvalidArgumentException
      * @throws \LogicException
      */
@@ -48,22 +48,22 @@ final class SRouter
     }
 
     /**
-     * @return ORouter
+     * @return Router
      * @throws \LogicException
      */
-    public static function getRouter(): ORouter
+    public static function getRouter(): Router
     {
         if (!self::$router) {
-            self::$router = new ORouter();
+            self::$router = new Router();
         }
 
         return self::$router;
     }
 
     /**
-     * @param ORouter $router
+     * @param Router $router
      */
-    public static function setRouter(ORouter $router)
+    public static function setRouter(Router $router)
     {
         self::$router = $router;
     }

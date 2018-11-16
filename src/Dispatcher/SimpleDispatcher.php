@@ -44,7 +44,7 @@ class SimpleDispatcher implements DispatcherInterface
         //  $router->any('/demo/{act}', App\Controllers\Demo::class);
         //  you access '/demo/test' will call 'App\Controllers\Demo::test()'
         'dynamicAction' => false,
-        // @see ORouter::$globalParams['act']
+        // @see Router::$globalParams['act']
         'dynamicActionVar' => 'act',
 
         // action executor. will auto call controller's executor method to run all action.

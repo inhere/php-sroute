@@ -8,7 +8,6 @@
 
 namespace Inhere\Route;
 
-use Inhere\Route\Base\AbstractRouter;
 use Inhere\Route\Helper\RouteHelper;
 
 /**
@@ -19,7 +18,7 @@ use Inhere\Route\Helper\RouteHelper;
  *  - 匹配时，若已经提前匹配成功直接返回匹配到的。
  * @package Inhere\Route
  */
-final class PreMatchRouter extends ORouter
+final class PreMatchRouter extends Router
 {
     /** @var string */
     private $reqPath;
@@ -71,42 +70,45 @@ final class PreMatchRouter extends ORouter
     }
 
     /**
-     * {@inheritdoc}
+     * @param Route $route
+     * @return Route
      */
-    public function map($methods, string $route, $handler, array $opts = []): AbstractRouter
+    public function addRoute(Route $route): Route
     {
         // has been matched. don't add again.
         if ($this->preFounded) {
-            return $this;
+            return $route;
         }
 
-        $methods = $this->validateArguments($methods, $handler);
-        list($route, $conf) = $this->prepareForMap($route, $handler, $opts);
+        $path = $route->getPath();
+        $method = $route->getMethod();
 
-        // it is param route
-        if (!self::isStaticRoute($route)) {
-            $this->collectParamRoute($methods, $conf, $opts['params'] ?? []);
+        $this->routeCounter++;
 
-            return $this;
+        // success match
+        if ($path === $this->reqPath && $method === $this->reqMethod) {
+            $this->preFounded = $route;
+            return $route;
         }
 
-        $founded = $route === $this->reqPath;
+        // it is static route
+        if (self::isStaticRoute($path)) {
+            $this->staticRoutes[$method . ' ' . $path] = $route;
 
-        foreach ($methods as $method) {
-            // success matched
-            if ($founded && $method === $this->reqMethod) {
-                $this->preFounded = $conf;
-                $this->routeCounter++;
-                // discard other routes data.
-                // $this->staticRoutes = $this->regularRoutes = [];
-                return $this;
-            }
-
-            $this->routeCounter++;
-            $this->staticRoutes[$route][$method] = $conf;
+            return $route;
         }
 
-        return $this;
+        // parse param route
+        $first = $route->parseParam($this->getAvailableParams($route->getBinds()));
+
+        // route string have regular
+        if ($first) {
+            $this->regularRoutes[$method . ' ' . $first][] = $route;
+        } else {
+            $this->vagueRoutes[$method][] = $route;
+        }
+
+        return $route;
     }
 
     /**

@@ -6,13 +6,13 @@
  * Time: 下午11:37
  */
 
-namespace Inhere\Route\Base;
+namespace Inhere\Route;
 
 use Inhere\Route\Helper\RouteHelper;
 
 /**
  * Class AbstractRouter
- * @package Inhere\Route\Base
+ * @package Inhere\Route
  */
 abstract class AbstractRouter implements RouterInterface
 {
@@ -40,6 +40,7 @@ abstract class AbstractRouter implements RouterInterface
 
     /** @var array */
     protected $currentGroupOption;
+    protected $currentGroupChains;
 
     /**
      * static Routes - no dynamic argument match
@@ -70,14 +71,8 @@ abstract class AbstractRouter implements RouterInterface
      * @var array[]
      * [
      *     // 使用完整的第一节作为key进行分组
-     *     'add' => [
-     *          [
-     *              'start' => '/add/',
-     *              'regex' => '/add/(\w+)',
-     *              'methods' => 'GET',
-     *              'handler' => 'handler',
-     *              'option' => [...],
-     *          ],
+     *     'edit' => [
+     *          Route, // '/edit/{id}'
      *          ...
      *      ],
      *     'blog' => [
@@ -125,6 +120,12 @@ abstract class AbstractRouter implements RouterInterface
      * ]
      */
     protected $vagueRoutes = [];
+
+    /**
+     * middleware chains
+     * @var array
+     */
+    protected $chains = [];
 
     /*******************************************************************************
      * router config
@@ -176,7 +177,7 @@ abstract class AbstractRouter implements RouterInterface
      * @return self
      * @throws \LogicException
      */
-    public static function make(array $config = []): AbstractRouter
+    public static function create(array $config = []): AbstractRouter
     {
         return new static($config);
     }
@@ -188,17 +189,18 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function __construct(array $config = [])
     {
-        $this->setConfig($config);
+        $this->config($config);
 
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
     }
 
     /**
+     * config the router
      * @param array $config
      * @throws \LogicException
      */
-    public function setConfig(array $config)
+    public function config(array $config)
     {
         if ($this->initialized) {
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
@@ -206,6 +208,7 @@ abstract class AbstractRouter implements RouterInterface
 
         $props = [
             'name' => 1,
+            'chains' => 1,
             'ignoreLastSlash' => 1,
             'tmpCacheNumber' => 1,
             'notAllowedAsNotFound' => 1,
@@ -230,212 +233,116 @@ abstract class AbstractRouter implements RouterInterface
      * register a route, allow GET request method.
      * @param string $path
      * @param $handler
+     * @param array $binds path var bind.
      * @param array $opts
      */
-    public function get(string $path, $handler, array $opts = [])
+    public function get(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('GET', $path, $handler, $opts);
-        // $this->map(['GET', 'HEAD'], $path, $handler, $opts);
+        $this->add('GET', $path, $handler, $binds, $opts);
+        // $this->map(['GET', 'HEAD'], $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow POST request method.
      * @param string $path
      * @param $handler
+     * @param array $binds path var bind.
      * @param array $opts
      */
-    public function post(string $path, $handler, array $opts = [])
+    public function post(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('POST', $path, $handler, $opts);
+        $this->add('POST', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow PUT request method.
      * {@inheritdoc}
      */
-    public function put(string $path, $handler, array $opts = [])
+    public function put(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('PUT', $path, $handler, $opts);
+        $this->add('PUT', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow PATCH request method.
      * {@inheritdoc}
      */
-    public function patch(string $path, $handler, array $opts = [])
+    public function patch(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('PATCH', $path, $handler, $opts);
+        $this->add('PATCH', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow DELETE request method.
      * {@inheritdoc}
      */
-    public function delete(string $path, $handler, array $opts = [])
+    public function delete(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('DELETE', $path, $handler, $opts);
+        $this->add('DELETE', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow HEAD request method.
      * {@inheritdoc}
      */
-    public function head(string $path, $handler, array $opts = [])
+    public function head(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('HEAD', $path, $handler, $opts);
+        $this->add('HEAD', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow OPTIONS request method.
      * {@inheritdoc}
      */
-    public function options(string $path, $handler, array $opts = [])
+    public function options(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('OPTIONS', $path, $handler, $opts);
+        $this->add('OPTIONS', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow CONNECT request method.
      * {@inheritdoc}
      */
-    public function connect(string $path, $handler, array $opts = [])
+    public function connect(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map('CONNECT', $path, $handler, $opts);
+        $this->add('CONNECT', $path, $handler, $binds, $opts);
     }
 
     /**
      * register a route, allow any request METHOD.
-     * @param string $path
-     * @param $handler
-     * @param array $opts
+     * {@inheritdoc}
      */
-    public function any(string $path, $handler, array $opts = [])
+    public function any(string $path, $handler, array $binds = [], array $opts = [])
     {
-        $this->map(self::ALLOWED_METHODS, $path, $handler, $opts);
-    }
-
-    /**
-     * quick register a group restful routes for the controller class.
-     * ```php
-     * $router->rest('/users', UserController::class);
-     * ```
-     * @param string $prefix eg '/users'
-     * @param string $controllerClass
-     * @param array $map You can append or change default map list.
-     * [
-     *      'index' => null, // set value is empty to delete.
-     *      'list' => 'get', // add new route
-     * ]
-     * @param array $opts Common options
-     * @return static
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     */
-    public function rest(string $prefix, string $controllerClass, array $map = [], array $opts = []): AbstractRouter
-    {
-        $map = \array_merge([
-            'index' => ['GET'],
-            'create' => ['POST'],
-            'view' => ['GET', '{id}', ['id' => '[1-9]\d*']],
-            'update' => ['PUT', '{id}', ['id' => '[1-9]\d*']],
-            'patch' => ['PATCH', '{id}', ['id' => '[1-9]\d*']],
-            'delete' => ['DELETE', '{id}', ['id' => '[1-9]\d*']],
-        ], $map);
-        //$opts = array_merge([], $opts);
-
-        foreach ($map as $action => $conf) {
-            if (!$conf || !$action) {
-                continue;
-            }
-
-            $route = $prefix;
-
-            // '/users/{id}'
-            if (isset($conf[1]) && ($subPath = trim($conf[1]))) {
-                // allow define a abs route. '/user-other-info'. it's not prepend prefix.
-                $route = $subPath[0] === '/' ? $subPath : $prefix . '/' . $subPath;
-            }
-
-            if (isset($conf[2])) {
-                $opts['params'] = $conf[2];
-            }
-
-            $this->map($conf[0], $route, $controllerClass . '@' . $action, $opts);
-        }
-
-        return $this;
+        $this->map(self::METHODS_ARRAY, $path, $handler, $binds, $opts);
     }
 
     /**
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
-     * @ref package 'nikic/fast-route'
      * @param string $prefix
      * @param \Closure $callback
+     * @param array $middleware
      * @param array $opts
      */
-    public function group(string $prefix, \Closure $callback, array $opts = [])
+    public function group(string $prefix, \Closure $callback, array $middleware = [], array $opts = [])
     {
+        // backups
         $previousGroupPrefix = $this->currentGroupPrefix;
+        $previousGroupOption = $this->currentGroupOption;
+        $previousGroupChains = $this->currentGroupChains;
+
+        $this->currentGroupOption = $opts;
+        $this->currentGroupChains = $middleware;
         $this->currentGroupPrefix = $previousGroupPrefix . '/' . \trim($prefix, '/');
 
-        $previousGroupOption = $this->currentGroupOption;
-        $this->currentGroupOption = $opts;
-
+        // run callback.
         $callback($this);
 
+        // reverts
         $this->currentGroupPrefix = $previousGroupPrefix;
         $this->currentGroupOption = $previousGroupOption;
-    }
-
-    /**
-     * validate and format arguments
-     * @param string|array $methods
-     * @param mixed $handler
-     * @return array
-     * @throws \InvalidArgumentException
-     */
-    public function validateArguments($methods, $handler): array
-    {
-        if (!$methods || !$handler) {
-            throw new \InvalidArgumentException('The method and route handler is not allow empty.');
-        }
-
-        if (\is_string($methods)) {
-            $method = \strtoupper($methods);
-
-            if ($method === 'ANY') {
-                return self::ALLOWED_METHODS;
-            }
-
-            if (false === \strpos(self::ALLOWED_METHODS_STR, ',' . $method . ',')) {
-                throw new \InvalidArgumentException(
-                    "The method [$method] is not supported, Allow: " . \trim(self::ALLOWED_METHODS_STR, ',')
-                );
-            }
-
-            return [$method];
-        }
-
-        $upperMethods = [];
-
-        foreach ((array)$methods as $method) {
-            $method = \strtoupper($method);
-
-            if ($method === 'ANY') {
-                return self::ALLOWED_METHODS;
-            }
-
-            if (false === \strpos(self::ALLOWED_METHODS_STR, ',' . $method . ',')) {
-                throw new \InvalidArgumentException(
-                    "The method [$method] is not supported, Allow: " . \trim(self::ALLOWED_METHODS_STR, ',')
-                );
-            }
-
-            $upperMethods[] = $method;
-        }
-
-        return $upperMethods;
+        $this->currentGroupChains = $previousGroupChains;
     }
 
     /**
@@ -447,32 +354,32 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function parseParamRoute(array $conf, array $params = []): array
     {
-        $first = null;
-        $backup = $route = $conf['original'];
-        $argPos = \strpos($route, '{');
+        $first = '';
+        $backup = $path = $conf['original'];
+        $argPos = \strpos($path, '{');
 
         // quote '.','/' to '\.','\/'
-        if (false !== \strpos($route, '.')) {
-            $route = \str_replace('.', '\.', $route);
+        if (false !== \strpos($path, '.')) {
+            $path = \str_replace('.', '\.', $path);
         }
 
         // Parse the optional parameters
-        if (false !== ($optPos = \strpos($route, '['))) {
-            $withoutClosingOptionals = \rtrim($route, ']');
-            $optionalNum = \strlen($route) - \strlen($withoutClosingOptionals);
+        if (false !== ($optPos = \strpos($path, '['))) {
+            $withoutClosingOptionals = \rtrim($path, ']');
+            $optionalNum = \strlen($path) - \strlen($withoutClosingOptionals);
 
             if ($optionalNum !== \substr_count($withoutClosingOptionals, '[')) {
                 throw new \LogicException('Optional segments can only occur at the end of a route');
             }
 
             // '/hello[/{name}]' -> '/hello(?:/{name})?'
-            $route = \str_replace(['[', ']'], ['(?:', ')?'], $route);
+            $path = \str_replace(['[', ']'], ['(?:', ')?'], $path);
 
             // no params
             if ($argPos === false) {
-                $noOptional = \substr($route, 0, $optPos);
+                $noOptional = \substr($path, 0, $optPos);
                 $conf['start'] = $noOptional;
-                $conf['regex'] = '#^' . $route . '$#';
+                $conf['regex'] = '#^' . $path . '$#';
 
                 // eg '/article/12'
                 if ($pos = \strpos($noOptional, '/', 1)) {
@@ -495,7 +402,7 @@ abstract class AbstractRouter implements RouterInterface
         }
 
         // Parse the parameters and replace them with the corresponding regular
-        if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $route, $m)) {
+        if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $path, $m)) {
             /** @var array[] $m */
             $pairs = [];
 
@@ -505,11 +412,11 @@ abstract class AbstractRouter implements RouterInterface
                 // $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
             }
 
-            $route = \strtr($route, $pairs);
+            $path = \strtr($path, $pairs);
             $conf['matches'] = $m[1];
         }
 
-        $conf['regex'] = '#^' . $route . '$#';
+        $conf['regex'] = '#^' . $path . '$#';
         $conf['start'] = $start === '/' ? null : $start;
 
         return [$first, $conf];
@@ -565,6 +472,20 @@ abstract class AbstractRouter implements RouterInterface
         $sfx = \trim($this->controllerSuffix);
 
         return RouteHelper::parseAutoRoute($path, $cnp, $sfx);
+    }
+
+    /**
+     * push middleware(s) for the route
+     * @param array ...$middleware
+     * @return self
+     */
+    public function use(...$middleware): AbstractRouter
+    {
+        foreach ($middleware as $handler) {
+            $this->chains[] = $handler;
+        }
+
+        return $this;
     }
 
     /**
@@ -625,7 +546,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public static function getSupportedMethods(): array
     {
-        return self::ALLOWED_METHODS;
+        return self::METHODS_ARRAY;
     }
 
     /**

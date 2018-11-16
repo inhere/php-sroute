@@ -18,7 +18,7 @@ use Inhere\Route\Helper\RouteHelper;
  *
  * @package Inhere\Route
  */
-final class ServerRouter extends ORouter
+final class ServerRouter extends Router
 {
     /** @var int */
     private $cacheCounter = 0;

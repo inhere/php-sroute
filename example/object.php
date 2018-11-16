@@ -13,14 +13,14 @@
 
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Example\Controllers\RestController;
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
 require dirname(__DIR__) . '/test/boot.php';
 
-$router = new ORouter;
+$router = new Router;
 
 // set config
-$router->setConfig([
+$router->config([
     // 'ignoreLastSlash' => true,
     // 'tmpCacheNumber' => 100,
 
@@ -55,7 +55,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (ORouter $router) use($rs){
+        $router->group($route[0], function (Router $router) use($rs){
             foreach ($rs as $r) {
                 $router->map($r[0], $r[1], $r[2], $r[3] ?? []);
             }
@@ -67,7 +67,7 @@ foreach ($routes as $route) {
     $router->map($route[0], $route[1], $route[2], $route[3] ?? []);
 }
 
-$router->rest('/rest', RestController::class);
+// $router->rest('/rest', RestController::class);
 
 // $router->any('*', function () {
 //     echo "This is fallback handler\n";
