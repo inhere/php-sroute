@@ -52,7 +52,7 @@ foreach ($routes as $route) {
         $rs = $route[1];
         $router->group($route[0], function (\Inhere\Route\RouterInterface $router) use ($rs) {
             foreach ($rs as $r) {
-                $router->map($r[0], $r[1], $r[2], $r[3] ?? []);
+                $router->add($r[0], $r[1], $r[2], $r[3] ?? []);
             }
         });
 

@@ -371,21 +371,6 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * @param array $tmpParams
-     * @return array
-     */
-    public function getAvailableParams(array $tmpParams): array
-    {
-        $params = self::$globalParams;
-
-        if ($tmpParams) {
-            $params = \array_merge($params, $tmpParams);
-        }
-
-        return $params;
-    }
-
-    /**
      * @param array $params
      */
     public function addGlobalParams(array $params)

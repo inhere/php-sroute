@@ -47,7 +47,7 @@ $requests[2] = [
  */
 $start = microtime(true);
 foreach ($requests as $r) {
-    $router->map($r['method'], $r['url'], 'handler_func');
+    $router->add($r['method'], $r['url'], 'handler_func');
 }
 $end = microtime(true);
 $buildTime = $end - $start;
