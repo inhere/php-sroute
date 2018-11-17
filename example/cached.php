@@ -11,9 +11,8 @@
  * then you can access url: http://127.0.0.1:5673
  */
 
-use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\CachedRouter;
-use Inhere\Route\Example\Controllers\RestController;
+use Inhere\Route\Dispatcher\Dispatcher;
 
 require dirname(__DIR__) . '/test/boot.php';
 
@@ -27,12 +26,13 @@ $router = new CachedRouter([
 
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' =>  1,
+    'autoRoute' => 1,
     'controllerNamespace' => 'Inhere\Route\Example\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
-function dump_routes() {
+function dump_routes()
+{
     global $router;
     $count = $router->count();
     echo "<h1>All Routes($count).</h1><h2>StaticRoutes:</h2><pre><code>\n";
@@ -56,7 +56,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (CachedRouter $router) use($rs){
+        $router->group($route[0], function (CachedRouter $router) use ($rs) {
             foreach ($rs as $r) {
                 // cannot cache the \Closure
                 if (is_object($r[2])) {

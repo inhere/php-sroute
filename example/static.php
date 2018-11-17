@@ -21,7 +21,7 @@ SRouter::config([
     'ignoreLastSlash' => true,
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' =>  1,
+    'autoRoute' => 1,
     'controllerNamespace' => 'Inhere\Route\Example\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
@@ -33,7 +33,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        SRouter::group($route[0], function () use($rs){
+        SRouter::group($route[0], function () use ($rs) {
             foreach ($rs as $r) {
                 SRouter::map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
             }

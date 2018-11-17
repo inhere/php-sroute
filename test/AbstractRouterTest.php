@@ -1,8 +1,9 @@
 <?php
+
 namespace Inhere\Route\Test;
 
-use PHPUnit\Framework\TestCase;
 use Inhere\Route\AbstractRouter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Inhere\Route\AbstractRouter

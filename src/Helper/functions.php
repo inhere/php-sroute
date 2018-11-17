@@ -46,7 +46,8 @@ function createPreMatchRouter(
     string $path = null,
     string $method = null,
     array $config = []
-): PreMatchRouter {
+): PreMatchRouter
+{
     $router = new PreMatchRouter($config, $path, $method);
 
     $closure($router);

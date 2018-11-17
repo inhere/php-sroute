@@ -8,8 +8,8 @@
 
 namespace Inhere\Route\Test;
 
-use Inhere\Route\Router;
 use Inhere\Route\PreMatchRouter;
+use Inhere\Route\Router;
 use Inhere\Route\RouterManager;
 use PHPUnit\Framework\TestCase;
 

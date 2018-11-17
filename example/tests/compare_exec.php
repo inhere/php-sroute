@@ -122,8 +122,8 @@ function compare_speed(callable $sample1, callable $sample2, int $times = 1000, 
 
     // average
     $decimal = 3;
-    $average1 = round($total1/$times, $decimal);
-    $average2 = round($total2/$times, $decimal);
+    $average1 = round($total1 / $times, $decimal);
+    $average2 = round($total2 / $times, $decimal);
 
     $result1 = $sample1(...$args);
     $result2 = $sample2(...$args);

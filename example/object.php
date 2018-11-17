@@ -12,7 +12,6 @@
  */
 
 use Inhere\Route\Dispatcher\Dispatcher;
-use Inhere\Route\Example\Controllers\RestController;
 use Inhere\Route\Router;
 
 require dirname(__DIR__) . '/test/boot.php';
@@ -31,7 +30,7 @@ $router->config([
     'controllerSuffix' => 'Controller',
 ]);
 
-$router->get('/routes', function() {
+$router->get('/routes', function () {
     global $router;
 
     echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
@@ -50,7 +49,7 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (Router $router) use($rs){
+        $router->group($route[0], function (Router $router) use ($rs) {
             foreach ($rs as $r) {
                 $router->map($r[0], $r[1], $r[2], $r[3] ?? []);
             }

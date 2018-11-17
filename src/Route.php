@@ -15,14 +15,14 @@ namespace Inhere\Route;
 final class Route implements \IteratorAggregate
 {
     /**
-     * @var string
-     */
-    private $method;
-
-    /**
      * @var string route pattern path. eg "/users/{id}" "/user/login"
      */
     private $path;
+
+    /**
+     * @var string allowed request method.
+     */
+    private $method;
 
     /**
      * @var mixed route handler
@@ -41,19 +41,7 @@ final class Route implements \IteratorAggregate
      * [param name => value]
      * @var string[]
      */
-    private $params;
-
-    /**
-     * some custom route options data.
-     * @var array
-     */
-    private $options;
-
-    /**
-     * middleware chains
-     * @var array
-     */
-    public $chains = [];
+    private $params = [];
 
     // -- match condition. it is parsed from route path string.
 
@@ -74,6 +62,20 @@ final class Route implements \IteratorAggregate
      * @var string
      */
     private $pathStart = '';
+
+    // -- extra properties
+
+    /**
+     * middleware chains
+     * @var array
+     */
+    public $chains = [];
+
+    /**
+     * some custom route options data.
+     * @var array
+     */
+    private $options;
 
     /**
      * @param string $method
@@ -99,7 +101,7 @@ final class Route implements \IteratorAggregate
     public function __construct(string $method, string $path, $handler, array $paramBinds = [], array $options = [])
     {
         $this->path = $path;
-        $this->method = $method;
+        $this->method = \strtoupper($method);
         $this->bindVars = $paramBinds;
         $this->handler = $handler;
         $this->options = $options;
@@ -197,12 +199,12 @@ final class Route implements \IteratorAggregate
     {
         // check start string
         if ($this->pathStart !== '' && \strpos($path, $this->pathStart) !== 0) {
-            return [false, ];
+            return [false,];
         }
 
         // regex match
         if (!\preg_match($this->pathRegex, $path, $matches)) {
-            return [false, ];
+            return [false,];
         }
 
         $params = [];
@@ -292,17 +294,6 @@ final class Route implements \IteratorAggregate
     }
 
     /**
-     * @param string $name
-     * @param string $path
-     * @return $this
-     */
-    public function bindVar(string $name, string $path): self
-    {
-        $this->bindVars[$name] = $path;
-        return $this;
-    }
-
-    /**
      * @param array $bindVars
      * @return Route
      */
@@ -366,6 +357,16 @@ final class Route implements \IteratorAggregate
     public function getParams(): array
     {
         return $this->params;
+    }
+
+    /**
+     * @param string $name
+     * @param null|mixed $default
+     * @return string|mixed
+     */
+    public function getParam(string $name, $default = null)
+    {
+        return $this->params[$name] ?? $default;
     }
 
     /**

@@ -1,8 +1,9 @@
 <?php
+
 namespace Inhere\Route\Test;
 
-use PHPUnit\Framework\TestCase;
 use Inhere\Route\Route;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Inhere\Route\Route
@@ -35,44 +36,44 @@ class RouteTest extends TestCase
 
         $path = '/path/to/some/{name}';
         $stub = Route::create('GET', $path, 'my_handler');
-        $first =  $stub->parseParam([]);
+        $first = $stub->parseParam([]);
         $this->assertEquals('path', $first);
         $this->assertEquals('/path/to/some/', $stub->getPathStart());
 
         $path = '/hi/{name}';
         $stub = Route::create('GET', $path, 'my_handler');
-        $first =  $stub->parseParam([]);
+        $first = $stub->parseParam([]);
         $this->assertEquals('hi', $first);
         $this->assertEquals('/hi/', $stub->getPathStart());
 
         $path = '/hi[/{name}]';
         $stub = Route::create('GET', $path, 'my_handler');
-        $first =  $stub->parseParam([]);
+        $first = $stub->parseParam([]);
         $this->assertEquals('', $first);
         $this->assertEquals('/hi', $stub->getPathStart());
 
         $path = '/hi[/tom]';
         $stub = Route::create('GET', $path, 'my_handler');
-        $first =  $stub->parseParam([]);
+        $first = $stub->parseParam([]);
         $this->assertEquals('', $first);
         $this->assertEquals('/hi', $stub->getPathStart());
 
         $path = '/hi/[tom]';
         $stub = Route::create('GET', $path, 'my_handler');
-        $first =  $stub->parseParam([]);
+        $first = $stub->parseParam([]);
         $this->assertEquals('hi', $first);
         $this->assertEquals('/hi/', $stub->getPathStart());
 
         $path = '/{category}';
         $stub = Route::create('GET', $path, 'my_handler');
-        $first =  $stub->parseParam([]);
+        $first = $stub->parseParam([]);
         $this->assertEquals('', $first);
         $this->assertNull($stub->getPathStart());
         $this->assertEquals('', $stub->getPathStart());
 
         $path = '/blog-{category}';
         $stub = Route::create('GET', $path, 'my_handler');
-        $first =  $stub->parseParam([]);
+        $first = $stub->parseParam([]);
         $this->assertEquals('', $first);
         $this->assertEquals('/blog-', $stub->getPathStart());
 

@@ -11,13 +11,12 @@
  * then you can access url: http://127.0.0.1:5675
  */
 
-use Inhere\Route\Dispatcher\Dispatcher;
-use Inhere\Route\Example\Controllers\RestController;
 use Inhere\Route\Router;
 
 require dirname(__DIR__) . '/test/boot.php';
 
-function default_handler(array $args = []) {
+function default_handler(array $args = [])
+{
     echo 'hello, welcome. you request URI: ' . $_SERVER['REQUEST_URI'];
 
     var_dump($args);

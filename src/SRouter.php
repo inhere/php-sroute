@@ -23,11 +23,11 @@ use Inhere\Route\Dispatcher\DispatcherInterface;
  * @method static connect(string $route, mixed $handler, array $opts = [])
  * @method static trace(string $route, mixed $handler, array $opts = [])
  * @method static any(string $route, mixed $handler, array $opts = [])
- * @method static map(string|array $methods, string $route, mixed $handler, array $opts = [])
+ * @method static map(string | array $methods, string $route, mixed $handler, array $opts = [])
  * @method static group(string $prefix, \Closure $callback, array $opts = [])
  * @method static config(array $config)
  * @method static match($path, $method = 'GET')
- * @method static dispatch(DispatcherInterface|array $dispatcher, $path = null, $method = null)
+ * @method static dispatch(DispatcherInterface | array $dispatcher, $path = null, $method = null)
  */
 final class SRouter
 {
@@ -69,5 +69,6 @@ final class SRouter
     }
 
     private function __construct()
-    {}
+    {
+    }
 }

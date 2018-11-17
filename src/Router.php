@@ -18,9 +18,6 @@ use Inhere\Route\Helper\RouteHelper;
  */
 class Router extends AbstractRouter
 {
-    /** @var int */
-    protected $routeCounter = 0;
-
     /** @var array global Options */
     private $globalOptions = [
         // 'domains' => [ 'localhost' ], // allowed domains
@@ -99,10 +96,6 @@ class Router extends AbstractRouter
      */
     protected function prepareForAdd(string $path, array $opts): array
     {
-        if (!$this->initialized) {
-            $this->initialized = true;
-        }
-
         $hasPrefix = (bool)$this->currentGroupPrefix;
 
         // always add '/' prefix.
@@ -209,7 +202,6 @@ class Router extends AbstractRouter
     protected function matchDynamicRoute(string $path, string $method): array
     {
         $fKey = $first = '';
-
         if ($pos = \strpos($path, '/', 1)) {
             $first = \substr($path, 1, $pos - 1);
             $fKey = $method . ' ' . $first;
@@ -236,7 +228,7 @@ class Router extends AbstractRouter
             }
         }
 
-        return [self::NOT_FOUND];
+        return [self::NOT_FOUND, $path, null];
     }
 
     /**

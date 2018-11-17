@@ -1,9 +1,10 @@
 <?php
+
 namespace Inhere\Route\Test;
 
+use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
-use Inhere\Route\Dispatcher\Dispatcher;
 
 /**
  * @covers \Inhere\Route\Dispatcher\Dispatcher
@@ -15,7 +16,7 @@ class DispatcherTest extends TestCase
      */
     public function testDispatcher()
     {
-        $handler = function(array $args = []) {
+        $handler = function (array $args = []) {
             return \sprintf('hello, welcome. args: %s', \json_encode($args));
         };
 

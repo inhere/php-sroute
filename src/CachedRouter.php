@@ -48,7 +48,7 @@ final class CachedRouter extends Router
         }
 
         if (isset($config['cacheEnable'])) {
-            $this->cacheEnable =(bool)$config['cacheEnable'];
+            $this->cacheEnable = (bool)$config['cacheEnable'];
         }
 
         // read route caches from cache file

@@ -8,8 +8,8 @@
 
 namespace Inhere\Route\Dispatcher;
 
-use Inhere\Route\RouterInterface;
 use Inhere\Route\Helper\RouteHelper;
+use Inhere\Route\RouterInterface;
 
 /**
  * Class Dispatcher

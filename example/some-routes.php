@@ -9,27 +9,33 @@
 
 use Inhere\Route\Example\Controllers\HomeController;
 
-function handler0() {
+function handler0()
+{
     echo 'hello, welcome';
 }
 
-function main_handler() {
+function main_handler()
+{
     echo 'hello, welcome. METHOD: ' . $_SERVER['REQUEST_METHOD'] . '. you request URI: ' . $_SERVER['REQUEST_URI'];
 }
 
-function post_handler() {
+function post_handler()
+{
     echo 'hello, welcome. only allow POST';
 }
 
-function multi_method_handler() {
+function multi_method_handler()
+{
     echo 'hello, welcome. only allow POST,DELETE';
 }
 
-function default_handler() {
+function default_handler()
+{
     echo 'hello, welcome. you request URI: ' . $_SERVER['REQUEST_URI'];
 }
 
-function my_handler(array $args) {
+function my_handler(array $args)
+{
     echo "hello, my name: {$args['name']}, my age: {$args['age']}";
 }
 

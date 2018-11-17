@@ -31,6 +31,11 @@ class RouteHelper
             $path = (string)\preg_replace('#\/\/+#', '/', $path);
         }
 
+        // must be start withs '/'
+        if (\strpos($path, '/') !== 0) {
+            $path = '/' . $path;
+        }
+
         // decode
         $path = \rawurldecode($path);
 

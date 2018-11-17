@@ -10,13 +10,13 @@ require dirname(__DIR__) . '/simple-loader.php';
 
 $router = new \Inhere\Route\Router();
 
-$router->get('/', function() {
+$router->get('/', function () {
     echo 'hello, welcome';
 });
 
 $router->get('/test', 'test_handler');
 
-$router->get('/routes', function() use($router) {
+$router->get('/routes', function () use ($router) {
     var_dump(
         $router->getStaticRoutes()
     );

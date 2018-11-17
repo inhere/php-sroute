@@ -1,25 +1,27 @@
 <?php
 /**
- * phpunit
+ * run test:
+ *  phpunit
  * OR
- * phpunit6.phar --bootstrap test/boot.php test
- * phpunit6.phar --colors --coverage-html ./coverage/
+ *  phpunit --bootstrap test/boot.php test
+ *  phpunit --colors --coverage-html ./coverage/
+ * test filter:
+ *  phpunit --filter '\\RouterTest::testAdd' --debug
  */
 
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
-spl_autoload_register(function($class)
-{
+spl_autoload_register(function ($class) {
     $file = null;
 
-    if (0 === strpos($class,'Inhere\Route\Example\\')) {
+    if (0 === strpos($class, 'Inhere\Route\Example\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Example\\')));
         $file = __DIR__ . "/{$path}.php";
-    } elseif(0 === strpos($class,'Inhere\Route\Test\\')) {
+    } elseif (0 === strpos($class, 'Inhere\Route\Test\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Test\\')));
         $file = dirname(__DIR__) . "/test/{$path}.php";
-    } elseif (0 === strpos($class,'Inhere\Route\\')) {
+    } elseif (0 === strpos($class, 'Inhere\Route\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\\')));
         $file = dirname(__DIR__) . "/src/{$path}.php";
     }
@@ -93,7 +95,7 @@ function pretty_echo($msg, $style = 'green', $nl = false)
 
 function pretty_match_result($ret)
 {
-    $str = json_encode($ret, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES);
+    $str = json_encode($ret, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
     return str_replace('\\', '', $str);
 }

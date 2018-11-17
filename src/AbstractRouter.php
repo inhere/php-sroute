@@ -32,14 +32,16 @@ abstract class AbstractRouter implements RouterInterface
         'act' => '[a-zA-Z][\w-]+', // match a action name
     ];
 
-    /** @var bool */
-    protected $initialized = false;
+    /** @var int */
+    protected $routeCounter = 0;
+
+    // -- Group info
 
     /** @var string */
     protected $currentGroupPrefix;
-
     /** @var array */
     protected $currentGroupOption;
+    /** @var array */
     protected $currentGroupChains;
 
     /**
@@ -170,7 +172,7 @@ abstract class AbstractRouter implements RouterInterface
      */
     public function config(array $config)
     {
-        if ($this->initialized) {
+        if ($this->routeCounter > 0) {
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
         }
 
