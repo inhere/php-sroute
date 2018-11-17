@@ -2,6 +2,7 @@
 
 namespace Inhere\Route\Test;
 
+use Inhere\Route\Route;
 use Inhere\Route\Router;
 use Inhere\Route\SRouter;
 use PHPUnit\Framework\TestCase;
@@ -36,43 +37,33 @@ class SRouterTest extends TestCase
     {
         $this->registerRoutes();
 
-        // 1
-        $ret = SRouter::match('/', 'GET');
-
-        $this->assertCount(3, $ret);
-
-        list($status, $path, $route) = $ret;
+        /** @var Route $route */
+        list($status, $path, $route) = SRouter::match('/', 'GET');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/', $path);
-        $this->assertSame('handler0', $route['handler']);
+        $this->assertSame('handler0', $route->getHandler());
     }
 
     public function testParamRoute()
     {
         $this->registerRoutes();
 
+        /** @var Route $route */
+
         // route: /{name}
-        $ret = SRouter::match('/tom', 'GET');
-
-        $this->assertCount(3, $ret);
-
-        list($status, $path, $route) = $ret;
+        list($status, $path, $route) = SRouter::match('/tom', 'GET');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/tom', $path);
-        $this->assertSame('handler2', $route['handler']);
+        $this->assertSame('handler2', $route->getHandler());
 
         // route: /hi/{name}
-        $ret = SRouter::match('/hi/tom', 'GET');
-
-        $this->assertCount(3, $ret);
-
-        list($status, $path, $route) = $ret;
+        list($status, $path, $route) = SRouter::match('/hi/tom', 'GET');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
-        $this->assertSame('/hi/{name}', $route['original']);
-        $this->assertSame('handler3', $route['handler']);
+        $this->assertSame('/hi/{name}', $route->getPath());
+        $this->assertSame('handler3', $route->getHandler());
     }
 }

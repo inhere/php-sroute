@@ -107,22 +107,19 @@ final class ServerRouter extends Router
 
         // is a dynamic route, match by regexp
         $result = $this->matchDynamicRoute($path, $method);
-        if ($result[0] === self::FOUND) {
+        if ($result[0] === self::FOUND) { // will cache param route.
             $this->cacheMatchedParamRoute($path, $method, $result[2]);
             return $result;
         }
 
         // handle Auto Route
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
-            return [self::FOUND, $path, [
-                'handler' => $handler,
-            ]];
+            return [self::FOUND, $path, Route::create($method, $path, $handler)];
         }
 
         // For HEAD requests, attempt fallback to GET
         if ($method === 'HEAD') {
             $sKey = 'GET ' . $path;
-
             if (isset($this->staticRoutes[$sKey])) {
                 return [self::FOUND, $path, $this->staticRoutes[$sKey]];
             }
@@ -143,12 +140,12 @@ final class ServerRouter extends Router
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
+        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
         if ($this->handleMethodNotAllowed) {
-            return [self::NOT_FOUND, $path, null];
+            return $this->findAllowedMethods($path, $method);
         }
 
-        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
-        return $this->findAllowedMethods($path, $method);
+        return [self::NOT_FOUND, $path, null];
     }
 
     /*******************************************************************************
@@ -158,9 +155,9 @@ final class ServerRouter extends Router
     /**
      * @param string $path
      * @param string $method
-     * @param array $conf
+     * @param Route $route
      */
-    protected function cacheMatchedParamRoute(string $path, string $method, array $conf)
+    protected function cacheMatchedParamRoute(string $path, string $method, Route $route)
     {
         $cacheKey = $method . ' ' . $path;
         $cacheNumber = (int)$this->tmpCacheNumber;
@@ -172,7 +169,7 @@ final class ServerRouter extends Router
             }
 
             $this->cacheCounter++;
-            $this->cacheRoutes[$cacheKey] = $conf;
+            $this->cacheRoutes[$cacheKey] = $route;
         }
     }
 

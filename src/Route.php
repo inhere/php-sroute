@@ -116,7 +116,7 @@ final class Route implements \IteratorAggregate
      * @param array $bindParams
      * @return string returns the first node string.
      */
-    public function parseParam(array $bindParams): string
+    public function parseParam(array $bindParams = []): string
     {
         $first = '';
         $backup = $path = $this->path;
@@ -163,6 +163,10 @@ final class Route implements \IteratorAggregate
         // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
         if ($pos = \strpos($start, '/', 1)) {
             $first = \substr($start, 1, $pos - 1);
+        }
+
+        if ($bindVars = $this->getBindVars()) { // merge current route vars
+            $bindParams = \array_merge($bindParams, $bindVars);
         }
 
         // Parse the parameters and replace them with the corresponding regular

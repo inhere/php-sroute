@@ -24,9 +24,8 @@ class DispatcherTest extends TestCase
         $router->get('/', $handler);
         $router->get('/user/info[/{int}]', $handler);
         $router->get('/my[/{name}[/{age}]]', $handler, [
-            'params' => [
-                'age' => '\d+'
-            ],
+            'age' => '\d+'
+        ])->setOptions([
             'defaults' => [
                 'name' => 'God',
                 'age' => 25,

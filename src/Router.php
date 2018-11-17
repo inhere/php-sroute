@@ -76,7 +76,7 @@ class Router extends AbstractRouter
         }
 
         // parse param route
-        $first = $route->parseParam($this->getAvailableParams($route->getBindVars()));
+        $first = $route->parseParam(self::$globalParams);
 
         // route string have regular
         if ($first) {
@@ -171,17 +171,16 @@ class Router extends AbstractRouter
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
         $sKey = $method . ' /*';
-        if ($this->staticRoutes && isset($this->staticRoutes[$sKey])) {
-            $info = $this->staticRoutes[$sKey]->info();
-            return [self::FOUND, $path, $info];
-        }
-
-        if (!$this->handleMethodNotAllowed) {
-            return [self::NOT_FOUND, $path, null];
+        if (isset($this->staticRoutes[$sKey])) {
+            return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
         // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
-        return $this->findAllowedMethods($path, $method);
+        if ($this->handleMethodNotAllowed) {
+            return $this->findAllowedMethods($path, $method);
+        }
+
+        return [self::NOT_FOUND, $path, null];
     }
 
     /*******************************************************************************
@@ -196,7 +195,7 @@ class Router extends AbstractRouter
      * [
      *  status,
      *  path,
-     *  Route
+     *  Route(object) -> it's a raw Route clone.
      * ]
      */
     protected function matchDynamicRoute(string $path, string $method): array

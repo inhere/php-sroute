@@ -9,6 +9,7 @@
 namespace Inhere\Route\Dispatcher;
 
 use Inhere\Route\Helper\RouteHelper;
+use Inhere\Route\Route;
 use Inhere\Route\RouterInterface;
 
 /**
@@ -129,27 +130,19 @@ class SimpleDispatcher implements DispatcherInterface
 
         $method = (string)($method ?: $_SERVER['REQUEST_METHOD']);
 
-        list($status, $path, $info) = $this->router->match($path, $method);
-        $info['requestMethod'] = $method;
+        /** @var Route $route */
+        list($status, $path, $route) = $this->router->match($path, $method);
 
-        return $this->dispatch($status, $path, $info);
+        return $this->dispatch($status, $path, $method, $route);
     }
 
     /**
      * Dispatch route handler for the given route info.
-     * @param int $status
-     * @param string $path
-     * @param array $info
-     * @return mixed
-     * @throws \RuntimeException
-     * @throws \InvalidArgumentException
+     * {@inheritdoc}
      * @throws \Throwable
      */
-    public function dispatch(int $status, string $path, array $info)
+    public function dispatch(int $status, string $path, string $method, $route)
     {
-        $args = $info['matches'] ?? [];
-        $method = $info['requestMethod'] ?? null;
-
         // not found
         if ($status === RouterInterface::NOT_FOUND) {
             return $this->handleNotFound($path, $method);
@@ -157,18 +150,17 @@ class SimpleDispatcher implements DispatcherInterface
 
         // method not allowed
         if ($status === RouterInterface::METHOD_NOT_ALLOWED) {
-            unset($info['requestMethod']);
-            return $this->handleNotAllowed($path, $method, $info);
+            return $this->handleNotAllowed($path, $method, $route);
         }
 
         $result = null;
 
         try {
-            $result = $this->callRouteHandler($path, $method, $info['handler'], $args);
+            $result = $this->callRouteHandler($path, $method, $route->getHandler(), $route->getParams());
         } catch (\Throwable $e) {
             // trigger route exec_error event
             if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
-                return RouteHelper::call($cb, [$e, $path, $info]);
+                return RouteHelper::call($cb, [$e, $path, $route]);
             }
 
             throw $e;

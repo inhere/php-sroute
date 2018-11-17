@@ -26,8 +26,8 @@ final class PreMatchRouter extends Router
     /** @var string */
     private $reqMethod;
 
-    /** @var array */
-    private $preFounded = [];
+    /** @var Route */
+    private $preFounded;
 
     /**
      * object constructor.
@@ -108,9 +108,9 @@ final class PreMatchRouter extends Router
     }
 
     /**
-     * @return array
+     * @return Route|null
      */
-    public function getPreFounded(): array
+    public function getPreFounded()
     {
         return $this->preFounded;
     }
