@@ -46,13 +46,8 @@ foreach ($routes as $route) {
 }
 
 SRouter::get('routes', function () {
-    echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
-    print_r(SRouter::getStaticRoutes());
-    echo "<h2>RegularRoutes:</h2>\n";
-    print_r(SRouter::getRegularRoutes());
-    echo "<h2>VagueRoutes:</h2>\n";
-    print_r(SRouter::getVagueRoutes());
-    echo '</pre>';
+    $string = SRouter::getRouter()->__toString();
+    echo "<pre><code>{$string}</code></pre>";
 });
 
 $dispatcher = new Dispatcher([

@@ -10,6 +10,27 @@ use PHPUnit\Framework\TestCase;
  */
 class RouteTest extends TestCase
 {
+    public function testCreateFromArray()
+    {
+        $route = Route::createFromArray([
+            'path' => '/kfhxlkeugug/{name}',
+            'method' => 'GET',
+            'handler' => 'handler_func',
+            'bindVars' => [],
+            'params' => [],
+            'pathVars' => [ 'name', ],
+            'pathRegex' => '#^/kfhxlkeugug/([^/]+)$#',
+            'pathStart' => '/kfhxlkeugug/',
+            'chains' => [],
+            'options' => [],
+        ]);
+
+        $this->assertEquals('GET', $route->getMethod());
+        $this->assertEquals(['name'], $route->getPathVars());
+        $this->assertEquals('/kfhxlkeugug/', $route->getPathStart());
+        $this->assertEquals('#^/kfhxlkeugug/([^/]+)$#', $route->getPathRegex());
+    }
+
     public function testParseParam()
     {
         // 抽象方法才需要配置

@@ -91,6 +91,23 @@ final class Route implements \IteratorAggregate
     }
 
     /**
+     * @param array $config
+     * @return Route
+     */
+    public static function createFromArray(array $config): self
+    {
+        $route = new self('GET', '/', '');
+
+        foreach ($config as $property => $value) {
+            if (\property_exists($route, $property)) {
+                $route->$property = $value;
+            }
+        }
+
+        return $route;
+    }
+
+    /**
      * Route constructor.
      * @param string $method
      * @param string $path
@@ -295,6 +312,17 @@ final class Route implements \IteratorAggregate
             //
             'chains' => $this->chains,
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function toString(): string
+    {
+        return \sprintf(
+            '%-7s %-25s --> %s (%d middleware)',
+            $this->method, $this->path, \var_export($this->handler, true), \count($this->chains)
+        );
     }
 
     /**

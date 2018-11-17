@@ -323,4 +323,33 @@ class Router extends AbstractRouter
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        $strings = ['Routes number: ' . $this->count()];
+        $strings[] = 'Static Routes:';
+        /** @var Route $route */
+        foreach ($this->staticRoutes as $route) {
+            $strings[] = $route->toString();
+        }
+
+        $strings[] = "\nRegular Routes:";
+        foreach ($this->regularRoutes as $routes) {
+            foreach ($routes as $route) {
+                $strings[] = $route->toString();
+            }
+        }
+
+        $strings[] = "\nVague Routes:";
+        foreach ($this->vagueRoutes as $routes) {
+            foreach ($routes as $route) {
+                $strings[] = $route->toString();
+            }
+        }
+
+        return \implode("\n", $strings);
+    }
 }

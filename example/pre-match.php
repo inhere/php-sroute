@@ -33,14 +33,7 @@ $router->config([
 
 $router->get('/routes', function () {
     global $router;
-
-    echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
-    print_r($router->getStaticRoutes());
-    echo "<h2>RegularRoutes:</h2>\n";
-    print_r($router->getRegularRoutes());
-    echo "<h2>VagueRoutes:</h2>\n";
-    print_r($router->getVagueRoutes());
-    echo '</pre>';
+    echo "<pre><code>{$router->__toString()}</code></pre>";
 });
 
 /** @var array $routes */

@@ -34,14 +34,7 @@ $router = new CachedRouter([
 function dump_routes()
 {
     global $router;
-    $count = $router->count();
-    echo "<h1>All Routes($count).</h1><h2>StaticRoutes:</h2><pre><code>\n";
-    print_r($router->getStaticRoutes());
-    echo "</code></pre><h2>RegularRoutes:</h2><pre><code>\n";
-    print_r($router->getRegularRoutes());
-    echo "</code></pre><h2>VagueRoutes:</h2>\n<pre><code>";
-    print_r($router->getVagueRoutes());
-    echo '</code></pre>';
+    echo "<pre><code>{$router->__toString()}</code></pre>";
 }
 
 $router->get('/routes', 'dump_routes');

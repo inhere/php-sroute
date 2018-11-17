@@ -32,9 +32,7 @@ $startMem = memory_get_usage();
 $router = new \Inhere\Route\CachedRouter([
     'cacheFile' => __DIR__ . '/cached/bench-routes-cache.php',
     'cacheEnable' => 0,
-    'cacheOnMatching' => 0,
     // 'tmpCacheNumber' => 100,
-    // 'notAllowedAsNotFound' => 1,
 ]);
 
 $requests[2] = [
