@@ -13,14 +13,14 @@
 
 use Inhere\Route\CachedRouter;
 use Inhere\Route\Dispatcher\Dispatcher;
+use Inhere\Route\RouterInterface;
 
 require dirname(__DIR__) . '/test/boot.php';
 
 $router = new CachedRouter([
     // 'ignoreLastSlash' => true,
-    // 'tmpCacheNumber' => 100,
 
-//    'cacheFile' => '',
+    // 'cacheFile' => '',
     'cacheFile' => __DIR__ . '/cached/routes-cache.php',
     'cacheEnable' => 1,
 
@@ -38,24 +38,21 @@ function dump_routes()
 }
 
 $router->get('/routes', 'dump_routes');
-// $router->rest('/rest', RestController::class);
-
 $router->any('*', 'main_handler');
 
 /** @var array $routes */
 $routes = require __DIR__ . '/some-routes.php';
-
 foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        $router->group($route[0], function (CachedRouter $router) use ($rs) {
+        $router->group($route[0], function (RouterInterface $router) use ($rs) {
             foreach ($rs as $r) {
                 // cannot cache the \Closure
                 if (is_object($r[2])) {
                     continue;
                 }
-                $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
+                $router->map($r[0], $r[1], $r[2], $r[3] ?? [], $r[4] ?? []);
             }
         });
 
@@ -67,9 +64,8 @@ foreach ($routes as $route) {
         continue;
     }
 
-    $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
+    $router->map($route[0], $route[1], $route[2], $route[3] ?? [], $route[4] ?? []);
 }
-
 $router->completed();
 
 $dispatcher = new Dispatcher([

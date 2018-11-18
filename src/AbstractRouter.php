@@ -83,7 +83,6 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * vague Routes - have dynamic arguments,but the first node is exists regex.
      * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
-     * e.g '/{name}/profile' '/{some}/{some2}'
      * @var Route[][]
      * [
      *     // 使用 HTTP METHOD 作为 key进行分组
@@ -289,15 +288,15 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * @param array $methods
+     * @param array|string $methods
      * @param string $path
      * @param callable|string $handler
      * @param array $binds
      * @param array $opts
      */
-    public function map(array $methods, string $path, $handler, array $binds = [], array $opts = [])
+    public function map($methods, string $path, $handler, array $binds = [], array $opts = [])
     {
-        foreach ($methods as $method) {
+        foreach ((array)$methods as $method) {
             $this->add($method, $path, $handler, $binds, $opts);
         }
     }

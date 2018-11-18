@@ -8,6 +8,7 @@
  */
 
 use Inhere\Route\Example\Controllers\HomeController;
+use Inhere\Route\RouterInterface;
 
 function handler0()
 {
@@ -123,7 +124,7 @@ $routes = [
         'default_handler'
     ],
     [
-        ['post'],
+        ['get', 'post'],
         '/admin/manage/getInfo[/id/{int}]',
         'default_handler'
     ],
@@ -135,9 +136,7 @@ $routes = [
         '/{name}',
         'default_handler',
         [
-            'params' => [
-                'name' => 'blog|saying'
-            ]
+            'name' => 'blog|saying'
         ]
     ],
     // optional param
@@ -158,7 +157,7 @@ $routes = [
     ],
     [
         'GET',
-        '/blog[index]',
+        '/blog[/index]',
         'default_handler'
     ],
     /*
@@ -172,9 +171,9 @@ $routes = [
         '/my[/{name}[/{age}]]',
         'my_handler',
         [
-            'params' => [
-                'age' => '\d+'
-            ],
+            'age' => '\d+'
+        ],
+        [
             'defaults' => [
                 'name' => 'God',
                 'age' => 25,
@@ -190,16 +189,11 @@ $routes = [
         'GET',
         '/hello[/{name}]',
         function ($args) {
-            $n = isset($args['name']) ? $args['name'] : 'NO';
+            $n = $args['name'] ?? 'NO';
             echo "hello, {$n}"; // 'john'
         },
         [
-            'params' => [
-                'name' => '\w+'
-            ],
-            'defaults' => [
-                'name' => 'default val'
-            ]
+            'name' => '\w+'
         ]
     ],
     // can match '/home/test', but not match '/home'
@@ -237,4 +231,24 @@ $routes = [
 
 ];
 
-return $routes;
+// has router instance
+if (isset($hasRouter) && $hasRouter) {
+    foreach ($routes as $route) {
+        // group
+        if (is_array($route[1])) {
+            $rs = $route[1];
+            $router->group($route[0], function (RouterInterface $router) use ($rs) {
+                foreach ($rs as $r) {
+                    $router->map($r[0], $r[1], $r[2], $r[3] ?? [], $r[4] ?? []);
+                }
+            });
+
+            continue;
+        }
+
+        $router->map($route[0], $route[1], $route[2], $route[3] ?? [], $route[4] ?? []);
+    }
+} else {
+    return $routes;
+}
+

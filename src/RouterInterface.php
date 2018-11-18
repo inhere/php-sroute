@@ -67,7 +67,7 @@ interface RouterInterface
     public function add(string $method, string $path, $handler, array $binds = [], array $opts = []): Route;
 
     /**
-     * @param array $methods The match request method(s). e.g ['get','post']
+     * @param array|string $methods The match request method(s). e.g ['get','post']
      * @param string $path The route path string. is allow empty string. eg: '/user/login'
      * @param callable|string $handler
      * @param array $binds route path var bind. eg. [ 'id' => '[0-9]+', ]
@@ -78,7 +78,7 @@ interface RouterInterface
      *     'schemas' => ['https'],
      * ]
      */
-    public function map(array $methods, string $path, $handler, array $binds = [], array $opts = []);
+    public function map($methods, string $path, $handler, array $binds = [], array $opts = []);
 
     /**
      * find the matched route info for the given request uri path

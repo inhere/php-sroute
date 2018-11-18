@@ -35,14 +35,14 @@ foreach ($routes as $route) {
         $rs = $route[1];
         SRouter::group($route[0], function () use ($rs) {
             foreach ($rs as $r) {
-                SRouter::map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
+                SRouter::map($r[0], $r[1], $r[2], $r[3] ?? [], $r[4] ?? []);
             }
         });
 
         continue;
     }
 
-    SRouter::map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
+    SRouter::map($route[0], $route[1], $route[2], $route[3] ?? [], $route[4] ?? []);
 }
 
 SRouter::get('routes', function () {

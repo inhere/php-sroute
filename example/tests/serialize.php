@@ -6,7 +6,7 @@
  * Time: 下午10:19
  */
 
-require dirname(__DIR__) . '/simple-loader.php';
+require dirname(__DIR__, 2) . '/test/boot.php';
 
 $router = new \Inhere\Route\Router();
 
@@ -28,6 +28,7 @@ $router->get('/{name}', 'default_handler', [
     ]
 ]);
 
+// PHP Fatal error:  Uncaught Exception: Serialization of 'Closure' is not allowed
 $encoded = serialize($router->getStaticRoutes());
 
 var_dump($encoded);

@@ -43,6 +43,13 @@ class Router extends AbstractRouter
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
+        $method = \strtoupper($method);
+
+        if ($method === 'ANY') {
+            $this->any($path, $handler, $binds, $opts);
+            return Route::createFromArray([]);
+        }
+
         if (false === \strpos(self::METHODS_STRING, ',' . $method . ',')) {
             throw new \InvalidArgumentException(
                 "The method [$method] is not supported, Allow: " . \trim(self::METHODS_STRING, ',')
@@ -96,15 +103,8 @@ class Router extends AbstractRouter
      */
     protected function prepareForAdd(string $path, array $opts): array
     {
-        $hasPrefix = (bool)$this->currentGroupPrefix;
-
         // always add '/' prefix.
-        if ($path = \trim($path)) {
-            $path = \strpos($path, '/') === 0 ? $path : '/' . $path;
-        } elseif (!$hasPrefix) {
-            $path = '/';
-        }
-
+        $path = \strpos($path, '/') === 0 ? $path : '/' . $path;
         $path = $this->currentGroupPrefix . $path;
 
         // setting 'ignoreLastSlash'
@@ -327,26 +327,35 @@ class Router extends AbstractRouter
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
-        $strings = ['Routes number: ' . $this->count()];
-        $strings[] = 'Static Routes:';
+        return $this->toString();
+    }
+
+    /**
+     * @return string
+     */
+    public function toString(): string
+    {
+        $indent = '  ';
+        $strings = ['#Routes Number: ' . $this->count()];
+        $strings[] = "\n#Static Routes:";
         /** @var Route $route */
         foreach ($this->staticRoutes as $route) {
-            $strings[] = $route->toString();
+            $strings[] = $indent . $route->toString();
         }
 
-        $strings[] = "\nRegular Routes:";
+        $strings[] = "\n# Regular Routes:";
         foreach ($this->regularRoutes as $routes) {
             foreach ($routes as $route) {
-                $strings[] = $route->toString();
+                $strings[] = $indent . $route->toString();
             }
         }
 
-        $strings[] = "\nVague Routes:";
+        $strings[] = "\n# Vague Routes:";
         foreach ($this->vagueRoutes as $routes) {
             foreach ($routes as $route) {
-                $strings[] = $route->toString();
+                $strings[] = $indent . $route->toString();
             }
         }
 

@@ -18,7 +18,7 @@ class RouteTest extends TestCase
             'handler' => 'handler_func',
             'bindVars' => [],
             'params' => [],
-            'pathVars' => [ 'name', ],
+            'pathVars' => ['name',],
             'pathRegex' => '#^/kfhxlkeugug/([^/]+)$#',
             'pathStart' => '/kfhxlkeugug/',
             'chains' => [],

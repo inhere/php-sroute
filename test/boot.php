@@ -12,15 +12,17 @@
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
+require dirname(__DIR__) . '/src/Helper/functions.php';
+
 spl_autoload_register(function ($class) {
     $file = null;
 
     if (0 === strpos($class, 'Inhere\Route\Example\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Example\\')));
-        $file = __DIR__ . "/{$path}.php";
+        $file = dirname(__DIR__) . "/example/{$path}.php";
     } elseif (0 === strpos($class, 'Inhere\Route\Test\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\Test\\')));
-        $file = dirname(__DIR__) . "/test/{$path}.php";
+        $file = __DIR__ . "/{$path}.php";
     } elseif (0 === strpos($class, 'Inhere\Route\\')) {
         $path = str_replace('\\', '/', substr($class, strlen('Inhere\Route\\')));
         $file = dirname(__DIR__) . "/src/{$path}.php";

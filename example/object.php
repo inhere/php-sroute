@@ -35,24 +35,8 @@ $router->get('/routes', function () {
     echo "<pre><code>{$router->__toString()}</code></pre>";
 });
 
-/** @var array $routes */
-$routes = require __DIR__ . '/some-routes.php';
-
-foreach ($routes as $route) {
-    // group
-    if (is_array($route[1])) {
-        $rs = $route[1];
-        $router->group($route[0], function (Router $router) use ($rs) {
-            foreach ($rs as $r) {
-                $router->map($r[0], $r[1], $r[2], $r[3] ?? []);
-            }
-        });
-
-        continue;
-    }
-
-    $router->map($route[0], $route[1], $route[2], $route[3] ?? []);
-}
+$hasRouter = true;
+require __DIR__ . '/some-routes.php';
 
 // $router->rest('/rest', RestController::class);
 

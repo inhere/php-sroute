@@ -319,9 +319,19 @@ final class Route implements \IteratorAggregate
      */
     public function toString(): string
     {
+        $handlerName = 'unknown';
+
+        if (\is_object($this->handler)) {
+            $handlerName = \get_class($this->handler);
+        } elseif (\is_array($this->handler)) {
+            $handlerName = 'array callback';
+        } elseif (\is_string($this->handler)) {
+            $handlerName = $this->handler;
+        }
+
         return \sprintf(
             '%-7s %-25s --> %s (%d middleware)',
-            $this->method, $this->path, \var_export($this->handler, true), \count($this->chains)
+            $this->method, $this->path, $handlerName, \count($this->chains)
         );
     }
 

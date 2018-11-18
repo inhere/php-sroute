@@ -27,7 +27,7 @@ class ServerRouterTest extends TestCase
         $r->get('/test1[/optional]', 'handler');
         $r->get('/{name}', 'handler2');
         $r->get('/hi/{name}', 'handler3', [
-                'name' => '\w+',
+            'name' => '\w+',
         ]);
         $r->post('/hi/{name}', 'handler4');
         $r->put('/hi/{name}', 'handler5');

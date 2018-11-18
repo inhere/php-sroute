@@ -169,5 +169,16 @@ Total time: 0.012515 s
 Memory usage: 1014 KB
 Peak memory usage: 2048 KB
 
+// 2018.11.17
+There are generate 1000 routes. and dynamic route with 50% chance
+
+Build time (1000 routes): 5.885 ms, For collect and parse routes.
+
+Match time (first route):  0.000593 s.
+Match time (first route, second):  0.000015
+Match time (random route): 0.000042 s.
+Match time (last route):   0.000006 s.
+Match time (unknown route): 0.000008 s
+
  */
 

@@ -10,11 +10,10 @@
  */
 
 use Inhere\Route\Dispatcher\Dispatcher;
-use Inhere\Route\Router;
 
 require dirname(__DIR__) . '/test/boot.php';
 
-$router = new Router;
+$router = new \Inhere\Route\ServerRouter();
 
 // set config
 $router->config([
@@ -30,31 +29,12 @@ $router->config([
 ]);
 
 $router->get('/routes', function () use ($router) {
-    var_dump(
-        $router->getStaticRoutes(),
-        $router->getRegularRoutes(),
-        $router->getVagueRoutes()
-    );
+    return $router->toString();
 });
 
 /** @var array $routes */
+$hasRouter = true;
 $routes = require __DIR__ . '/some-routes.php';
-
-foreach ($routes as $route) {
-    // group
-    if (is_array($route[1])) {
-        $rs = $route[1];
-        $router->group($route[0], function (Router $router) use ($rs) {
-            foreach ($rs as $r) {
-                $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
-            }
-        });
-
-        continue;
-    }
-
-    $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
-}
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
