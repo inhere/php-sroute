@@ -80,52 +80,51 @@ git clone https://github.com/inhere/php-srouter.git // github
 
 详细的测试代码请看仓库 https://github.com/ulue/php-router-benchmark
 
-- 压测日期 **2017.12.3**
+- 压测日期 **2018.11.19**
 - An example route: `/9b37eef21e/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/bda37e9f9b`
-
-压测结果
 
 ## Worst-case matching
 
-Test Name | Results | Time(ms) | + Interval | Change
---------- | ------- | ---- | ---------- | ------
-inhere/sroute(Router) - unknown route (1000 routes) | 987 | 0.010222 | +0.000000 | baseline
-inhere/sroute(SRouter) - unknown route (1000 routes) | 984 | 0.012239 | +0.002017 | 20% slower
-inhere/sroute(SRouter) - last route (1000 routes) | 999 | 0.024386 | +0.014820 | 155% slower
-inhere/sroute(Router) - last route (1000 routes) | 975 | 0.024554 | +0.014989 | 157% slower
-Symfony Cached - last route (1000 routes) | 997 | 0.029091 | +0.019525 | 204% slower
-Symfony Cached - unknown route (1000 routes) | 985 | 0.037226 | +0.027661 | 289% slower
-FastRoute - unknown route (1000 routes) | 988 | 0.089904 | +0.080338 | 840% slower
-FastRoute(cached) - unknown route (1000 routes) | 988 | 0.091358 | +0.081792 | 855% slower
-FastRoute(cached) - last route (1000 routes) | 999 | 0.092567 | +0.083001 | 868% slower
-FastRoute - last route (1000 routes) | 999 | 0.113668 | +0.104103 | 1088% slower
-phroute/phroute - unknown route (1000 routes) | 987 | 0.168871 | +0.159305 | 1665% slower
-phroute/phroute - last route (1000 routes) | 999 | 0.169914 | +0.160348 | 1676% slower
-Pux PHP - unknown route (1000 routes) | 981 | 0.866280 | +0.856714 | 8956% slower
-Pux PHP - last route (1000 routes) | 999 | 0.941322 | +0.931757 | 9741% slower
-AltoRouter - unknown route (1000 routes) | 982 | 2.245384 | +2.235819 | 23373% slower
-AltoRouter - last route (1000 routes) | 979 | 2.281995 | +2.272429 | 23756% slower
-Symfony - unknown route (1000 routes) | 984 | 2.488247 | +2.478681 | 25912% slower
-Symfony - last route (1000 routes) | 999 | 2.540170 | +2.530605 | 26455% slower
-Macaw - unknown route (1000 routes) | 982 | 2.617635 | +2.608069 | 27265% slower
-Macaw - last route (1000 routes) | 999 | 2.700128 | +2.690562 | 28127% slower
+This benchmark matches the last route and unknown route. It generates a randomly prefixed and suffixed route in an attempt to thwart any optimization. 1,000 routes each with 9 arguments.
 
+This benchmark consists of 14 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
+
+Test Name | Results | Time(ms) | + Interval | Change
+------------------ | ------- | ------- | ---------- | -----------
+**inhere/sroute(Router)** - unknown route(1000 routes)  | 990 | 0.002031 | +0.000871 | 75% slower
+inhere/sroute(SRouter) - unknown route(1000 routes)     | 994 | 0.002895 | +0.001736 | 150% slower
+**inhere/sroute(Router)** - last route(1000 routes)     | 997 | 0.005300 | +0.004141 | 357% slower
+inhere/sroute(SRouter) - last route(1000 routes)        | 997 | 0.006467 | +0.005308 | 458% slower
+symfony/routing(cached) - unknown route(1000 routes)    | 976 | 0.012777 | +0.011618 | 1002% slower
+symfony/routing(cached) - last route(1000 routes)       | 996 | 0.013608 | +0.012449 | 1074% slower
+mindplay/timber - last route(1000 routes)               | 998 | 0.017211 | +0.016052 | 1385% slower
+FastRoute - unknown route(1000 routes)                  | 991 | 0.039429 | +0.038270 | 3302% slower
+FastRoute(cached) - unknown route(1000 routes)          | 990 | 0.040800 | +0.039641 | 3420% slower
+FastRoute(cached) - last route(1000 routes)             | 999 | 0.045065 | +0.043906 | 3788% slower
+FastRoute - last route(1000 routes)                     | 999 | 0.064694 | +0.063535 | 5481% slower
+Pux PHP - unknown route(1000 routes)                    | 978 | 0.316016 | +0.314857 | 27163% slower
+symfony/routing - unknown route(1000 routes)            | 992 | 0.359482 | +0.358323 | 30912% slower
+symfony/routing - last route(1000 routes)               | 999 | 0.418813 | +0.417654 | 36031% slower
+Pux PHP - last route(1000 routes)                       | 999 | 0.440489 | +0.439330 | 37901% slower
+Macaw - unknown route(1000 routes)                      | 991 | 1.687441 | +1.686282 | 145475% slower
+Macaw - last route(1000 routes)                         | 999 | 1.786542 | +1.785383 | 154024% slower
 
 ## First route matching
 
-Test Name | Results | Time(ms) | + Interval | Change
+This benchmark tests how quickly each router can match the first route. 1,000 routes each with 9 arguments.
+
+This benchmark consists of 7 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
+
+Test Name | Results | Time | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
-Pux PHP - first route(1000) | 997 | 0.006587 | +0.000000 | baseline
-FastRoute - first route(1000) | 999 | 0.008751 | +0.002165 | 33% slower
-phroute/phroute - first route (1000 routes) | 999 | 0.021902 | +0.015315 | 233% slower
-Symfony Dumped - first route | 997 | 0.022254 | +0.015667 | 238% slower
-Router - first route(1000) | 993 | 0.025026 | +0.018440 | 280% slower
-SRouter - first route(1000) | 997 | 0.025553 | +0.018967 | 288% slower
-noodlehaus/dispatch - first route (1000 routes) | 989 | 0.030126 | +0.023540 | 357% slower
-AltoRouter - first route (1000 routes) | 994 | 0.041488 | +0.034902 | 530% slower
-Symfony - first route | 991 | 0.047335 | +0.040748 | 619% slower
-FastRoute(cached) - first route(1000) | 999 | 0.092703 | +0.086117 | 1307% slower
-Macaw - first route (1000 routes) | 999 | 2.710132 | +2.703545 | 41047% slower
+nikic/fast-route - first route(1000)                    | 998 | 0.002929 | +0.001571 | 116% slower
+corneltek/pux(php) - first route(1000)                  | 996 | 0.002971 | +0.001613 | 119% slower
+inhere/sroute(Router) - first(1000)                     | 979 | 0.006202 | +0.004844 | 357% slower
+inhere/sroute(SRouter) - first(1000)                    | 999 | 0.006627 | +0.005269 | 388% slower
+symfony/routing(cached) - first route(1000)             | 985 | 0.006858 | +0.005501 | 405% slower
+symfony/routing - first route(1000)                     | 995 | 0.023105 | +0.021747 | 1601% slower
+nikic/fast-route(cached) - first route(1000)            | 999 | 0.041133 | +0.039775 | 2929% slower
+Macaw - first route (1000 routes)                       | 999 | 1.782017 | +1.780659 | 131128% slower
 
 ## 使用
 

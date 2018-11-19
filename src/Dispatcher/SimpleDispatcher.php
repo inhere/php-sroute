@@ -120,7 +120,7 @@ class SimpleDispatcher implements DispatcherInterface
         $path = (string)($path ?: $_SERVER['REQUEST_URI']);
 
         if (\strpos($path, '?')) {
-            $path = \parse_url($path, PHP_URL_PATH);
+            $path = \parse_url($path, \PHP_URL_PATH);
         }
 
         // if 'filterFavicon' setting is TRUE

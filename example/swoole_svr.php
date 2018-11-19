@@ -60,7 +60,7 @@ $server->on('request', function ($request, $response) use ($dispatcher) {
     fwrite(STDOUT, "request $method $uri\n");
 
     ob_start();
-    $ret = $dispatcher->dispatch($uri, $method);
+    $ret = $dispatcher->dispatchUri($uri, $method);
     $content = ob_get_clean();
 
     if (!$ret) {
