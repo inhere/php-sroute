@@ -150,18 +150,14 @@ $router->get('/', function() {
 $router->get('/test/{name}', function($params) {
     echo $params['name']; // 'john'
 }, [
-    'params' => [
-        'name' => '\w+', // 添加参数匹配限制。若不添加对应的限制，将会自动设置为匹配除了'/'外的任何字符
-    ]
+      'name' => '\w+', // 添加参数匹配限制。若不添加对应的限制，将会自动设置为匹配除了'/'外的任何字符
 ]);
 
 // 可选参数支持。匹配  'hello' 'hello/john'
 $router->get('/hello[/{name}]', function() {
     echo $params['name'] ?? 'No input'; // 'john'
 }, [
-    'params' => [
-        'name' => '\w+', // 添加参数匹配限制
-    ]
+     'name' => '\w+', // 添加参数匹配限制
 ]);
 
 // 匹配 POST 请求

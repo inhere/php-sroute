@@ -3,7 +3,7 @@
 ## 添加路由方法
 
 ```php
-public function map(string|array $methods, string $route, mixed $handler, array $opts = [])
+public function map(string|array $methods, string $path, mixed $handler, array $opts = [])
 ```
 
 添加路由方法
@@ -11,10 +11,10 @@ public function map(string|array $methods, string $route, mixed $handler, array 
 > 其他的添加路由方法底层都是调用的 `map()` 方法，除了没有第一个参数外，其他参数都是一样的
 
 - `$methods` string/array 请求的METHOD. e.g `GET` `['GET', 'POST]`
-- `$route` string 定义的路由字符串 e.g `/user/login` `/article/{id}`
+- `$path` string 定义的路由字符串 e.g `/user/login` `/article/{id}`
 - `$handler` string/object 对应路由的处理者
+- `$binds` array 路由参数匹配限制 eg `[ 'name' => '\w+' ]`
 - `$opts` array 选项设置，可以添加自定义的数据。匹配成功会将选项数据返回(e.g middleware, domains),自己再做进一步验证等。下面是已使用的选项
-    - `params` 添加路由时设置的参数匹配信息, 若有的话 e.g `'name' => '\w+'`
     - `defaults` 有可选参数时，可以设置默认值
 
 一个较为完整的示例：
@@ -24,15 +24,13 @@ public function map(string|array $methods, string $route, mixed $handler, array 
 ```php
 $router->map(['get', 'post'], '/im/{name}[/{age}]', function(array $params) {
     var_dump($params);
-}, [
-    // 设置参数匹配
-    'params' => [
-        'name' => '\w+',
-        'age' => '\d+',
-    ],
-    'defaults' => [
-        'age' => 20, // 给可选参数 age 添加一个默认值
-    ]
+}, [ // 设置参数匹配
+     'name' => '\w+',
+     'age' => '\d+',
+ ],[
+     'defaults' => [
+         'age' => 20, // 给可选参数 age 添加一个默认值
+     ]
     
     // 可添加更多自定义设置
     'middleware' => ['AuthCheck'],
@@ -45,7 +43,7 @@ Now, 访问 `/im/john/18` 或者 `/im/john` 查看效果
 ## 路由匹配
 
 ```php 
-array public function match($path, $method)
+array public function match(string $path, string $method)
 ```
 
 - `$path` string 请求的URI path
@@ -71,7 +69,7 @@ $route = $router->match($path, $method);
 - 第一个 匹配结果状态. 只有三个 `FOUND`, `NOT_FOUND`, `METHOD_NOT_ALLOWED`
 - 第二个 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
 - 第三个 根据状态有所不同： 
-  - `FOUND` 路由信息 `array`
+  - `FOUND` 路由信息对象 `Route`
   - `NOT_FOUND` 为空 `null`
   - `METHOD_NOT_ALLOWED` 返回的是允许的 METHODs `array`
 - 结构信息如下:
@@ -85,39 +83,9 @@ $route = $router->match($path, $method);
     // 格式化后的 $path 的返回(会去除多余的空白,'/'等字符)
     'URI PATH', 
     
+    // 第三个元素
     // NOT_FOUND 匹配失败时为 null, 
-    // METHOD_NOT_ALLOWED 返回的是允许的 METHODs
-    // FOUND 时为下面的路由信息
-    [
-        // (可能存在)配置的请求 METHOD。 自动匹配时无此key
-        'method' => 'GET', 
-        
-        // (必定存在)此路由的 handler callback
-        'handler' => 'handler', 
-        
-        // (可能存在)此路由的 原始path。 仅动态路由有
-        'original' => '/hi/{name}', 
-        
-        // (可能存在) 有参数匹配的路由匹配成功后，会将参数值放入这里
-        'matches' => ['name' => value ],
-        
-        // 此路由的自定义选项信息. 可能为空
-        // - params - 来自添加路由时设置的参数匹配信息, 若有的话
-        // - defaults - 有可选参数时，可以设置默认值
-        // 还可以自定义追加此路由的选项：如下经供参考
-        // - domains 允许访问路由的域名
-        // - schemas 允许访问路由的schema
-        // - enter 进入路由的事件回调
-        // ... ...
-        'option' => [
-            'params' => [],
-            'defaults' => [],
-
-            // 'middleware' => null, 
-            // route event. custom design ...
-            // 'enter' => null,
-            // 'leave' => null,
-        ], 
-    ],
+    // METHOD_NOT_ALLOWED 返回的array, 是允许的 METHODs 
+    // FOUND 时为匹配的路由信息对象，object(Route)
 ]
 ```
