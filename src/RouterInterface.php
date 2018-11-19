@@ -6,11 +6,11 @@
  * Time: 下午10:43
  */
 
-namespace Inhere\Route\Base;
+namespace Inhere\Route;
 
 /**
  * Interface RouterInterface
- * @package Inhere\Route\Base
+ * @package Inhere\Route
  */
 interface RouterInterface
 {
@@ -41,15 +41,15 @@ interface RouterInterface
     const CONNECT = 'CONNECT';
     const TRACE = 'TRACE';
 
-    /** supported methods list */
-    const ALLOWED_METHODS = [
+    /** supported methods name list */
+    const METHODS_ARRAY = [
         'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'CONNECT'
         // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'TRACE',
     ];
 
     // ,COPY,PURGE,LINK,UNLINK,LOCK,UNLOCK,VIEW,SEARCH,TRACE';
-    /** supported methods string */
-    const ALLOWED_METHODS_STR = ',GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,CONNECT,';
+    /** supported methods name string */
+    const METHODS_STRING = ',GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,CONNECT,';
 
     /** the matched result index key */
     const INDEX_STATUS = 0;
@@ -57,22 +57,28 @@ interface RouterInterface
     const INDEX_INFO = 2;
 
     /**
-     * @param string|array $methods The match request method(s).
-     * e.g
-     *  string: 'get'
-     *  array: ['get','post']
+     * @param string $method
+     * @param string $path
+     * @param $handler
+     * @param array $binds route path var bind. eg. [ 'id' => '[0-9]+', ]
+     * @param array $opts
+     * @return Route
+     */
+    public function add(string $method, string $path, $handler, array $binds = [], array $opts = []): Route;
+
+    /**
+     * @param array|string $methods The match request method(s). e.g ['get','post']
      * @param string $path The route path string. is allow empty string. eg: '/user/login'
      * @param callable|string $handler
+     * @param array $binds route path var bind. eg. [ 'id' => '[0-9]+', ]
      * @param array $opts some option data
      * [
-     *     'params' => [ 'id' => '[0-9]+', ],
      *     'defaults' => [ 'id' => 10, ],
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schemas' => ['https'],
      * ]
-     * @return AbstractRouter
      */
-    public function map($methods, string $path, $handler, array $opts = []): AbstractRouter;
+    public function map($methods, string $path, $handler, array $binds = [], array $opts = []);
 
     /**
      * find the matched route info for the given request uri path
@@ -81,7 +87,7 @@ interface RouterInterface
      * @return array
      *
      *  [self::NOT_FOUND, $path, null]
-     *  [self::METHOD_NOT_ALLOWED, $path, ['GET', 'OTHER_ALLOWED_METHODS']]
+     *  [self::METHOD_NOT_ALLOWED, $path, ['GET', 'OTHER_METHODS_ARRAY']]
      *  [self::FOUND, $path, array () // routeData ]
      *
      */

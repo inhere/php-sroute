@@ -15,11 +15,12 @@ namespace Inhere\Route\Helper;
 class RouteHelper
 {
     /**
+     * format URI path
      * @param string $path
      * @param bool $ignoreLastSlash
      * @return string
      */
-    public static function formatUriPath(string $path, bool $ignoreLastSlash = true): string
+    public static function formatPath(string $path, bool $ignoreLastSlash = true): string
     {
         if ($path === '/') {
             return '/';
@@ -28,6 +29,11 @@ class RouteHelper
         // clear '//', '///' => '/'
         if (false !== \strpos($path, '//')) {
             $path = (string)\preg_replace('#\/\/+#', '/', $path);
+        }
+
+        // must be start withs '/'
+        if (\strpos($path, '/') !== 0) {
+            $path = '/' . $path;
         }
 
         // decode

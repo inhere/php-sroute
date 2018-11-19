@@ -8,9 +8,6 @@
 
 namespace Inhere\Route;
 
-use Inhere\Route\Base\AbstractRouter;
-use Inhere\Route\Base\RouterInterface;
-
 /**
  * Class RouterManager
  * @package Inhere\Route
@@ -25,9 +22,9 @@ class RouterManager
     private static $_instance;
 
     /**
-     * @var ORouter[]
+     * @var Router[]
      * [
-     *  'main-site' => Object(ORouter),
+     *  'main-site' => Object(Router),
      *  ... ...
      * ]
      */
@@ -37,7 +34,7 @@ class RouterManager
      * @var array Available router driver
      */
     private $drivers = [
-        'default' => ORouter::class,
+        'default' => Router::class,
         'cached' => CachedRouter::class,
         'preMatch' => PreMatchRouter::class,
         'server' => ServerRouter::class,
@@ -123,9 +120,11 @@ class RouterManager
         self::$_instance = $this;
 
         if ($configs) {
-            $this->setConfigs($configs);
+            $this->configs($configs);
         }
     }
+
+    // match by $_SERVER info.
 
     /**
      * get router by condition
@@ -257,7 +256,7 @@ class RouterManager
     }
 
     /**
-     * @return ORouter[]
+     * @return Router[]
      */
     public function getRouters(): array
     {
@@ -283,7 +282,7 @@ class RouterManager
     /**
      * @param array[] $configs
      */
-    public function setConfigs(array $configs)
+    public function configs(array $configs)
     {
         $this->configs = $configs;
 

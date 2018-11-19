@@ -9,7 +9,8 @@
 namespace Inhere\Route\Test;
 
 use Inhere\Route\PreMatchRouter;
-use Inhere\Route\Base\RouterInterface;
+use Inhere\Route\Route;
+use Inhere\Route\RouterInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -44,16 +45,16 @@ class PreMatchRouterTest extends TestCase
         $m = 'GET';
         $router = $this->createRouter($p, $m);
 
-        $this->assertSame(2, $router->count());
-        $this->assertTrue(\count($router->getPreFounded()) > 0);
+        $this->assertInstanceOf(Route::class, $router->getPreFounded());
 
         $ret = $router->match($p);
         $this->assertCount(3, $ret);
 
+        /** @var Route $route */
         list($status, $path, $route) = $ret;
 
         $this->assertSame(RouterInterface::FOUND, $status);
         $this->assertSame($p, $path);
-        $this->assertSame('handler1', $route['handler']);
+        $this->assertSame('handler1', $route->getHandler());
     }
 }

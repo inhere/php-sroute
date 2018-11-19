@@ -8,7 +8,7 @@
 
 namespace Inhere\Route\Test;
 
-use Inhere\Route\Base\RouterInterface;
+use Inhere\Route\Route;
 use Inhere\Route\ServerRouter;
 use PHPUnit\Framework\TestCase;
 
@@ -27,9 +27,7 @@ class ServerRouterTest extends TestCase
         $r->get('/test1[/optional]', 'handler');
         $r->get('/{name}', 'handler2');
         $r->get('/hi/{name}', 'handler3', [
-            'params' => [
-                'name' => '\w+',
-            ]
+            'name' => '\w+',
         ]);
         $r->post('/hi/{name}', 'handler4');
         $r->put('/hi/{name}', 'handler5');
@@ -49,11 +47,12 @@ class ServerRouterTest extends TestCase
         $this->assertCount(3, $ret);
         $this->assertCount(1, $router->getCacheRoutes());
 
+        /** @var Route $route */
         list($status, $path, $route) = $ret;
 
-        $this->assertSame(RouterInterface::FOUND, $status);
+        $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
-        $this->assertSame('handler3', $route['handler']);
+        $this->assertSame('handler3', $route->getHandler());
     }
 
 }

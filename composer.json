@@ -1,8 +1,13 @@
 {
   "name": "inhere/sroute",
   "type": "library",
-  "description": "a very lightweight and fasted router.",
-  "keywords": ["library","route","router","php-router"],
+  "description": "a very lightweight and fasted request router.",
+  "keywords": [
+    "library",
+    "route",
+    "router",
+    "php-router"
+  ],
   "homepage": "https://github.com/inhere/php-srouter",
   "license": "MIT",
   "authors": [
@@ -13,13 +18,15 @@
     }
   ],
   "require": {
-    "php": ">=7.0"
+    "php": ">7.0"
   },
   "autoload": {
     "psr-4": {
-      "Inhere\\Route\\" : "src/"
+      "Inhere\\Route\\": "src/"
     },
-    "files": ["src/Helper/functions.php"]
+    "files": [
+      "src/Helper/functions.php"
+    ]
   },
   "suggest": {
     "inhere/simple-print-tool": "Very lightweight data printing tools"

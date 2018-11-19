@@ -8,7 +8,8 @@
 
 namespace Inhere\Route\Dispatcher;
 
-use Inhere\Route\Base\RouterInterface;
+use Inhere\Route\Route;
+use Inhere\Route\RouterInterface;
 
 /**
  * Interface DispatcherInterface
@@ -39,10 +40,11 @@ interface DispatcherInterface
      * Dispatch route handler for the given route info.
      * @param int $status
      * @param string $path
-     * @param array $info
+     * @param string $method
+     * @param Route|array|null $route matched route info
      * @return mixed
      */
-    public function dispatch(int $status, string $path, array $info);
+    public function dispatch(int $status, string $path, string $method, $route);
 
     /**
      * @return RouterInterface|null

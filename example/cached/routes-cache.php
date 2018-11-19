@@ -2,281 +2,837 @@
 /*
  * This is routes cache file of the package `inhere/sroute`.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2018-01-27 17:57:49
- * @count 40
+ * @date 2018-11-19 01:12:54
+ * @count 44
  * @notice Please don't edit it.
  */
 return array (
 // static routes
 'staticRoutes' => array (
-  '/routes' => array (
-    'GET' => array (
-      'handler' => 'dump_routes',
+  'GET /routes' => array(
+     'path' => '/routes',
+     'method' => 'GET',
+     'handler' => 'dump_routes',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
-  '/rest' => array (
-    'GET' => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@index',
+  'GET /*' => array(
+     'path' => '/*',
+     'method' => 'GET',
+     'handler' => 'main_handler',
+     'bindVars' => array (
     ),
-    'POST' => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@create',
+     'params' => array (
     ),
-  ),
-  '/*' => array (
-    'GET' => array (
-      'handler' => 'main_handler',
+     'pathVars' => array (
     ),
-    'POST' => array (
-      'handler' => 'main_handler',
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
     ),
-    'PUT' => array (
-      'handler' => 'main_handler',
-    ),
-    'PATCH' => array (
-      'handler' => 'main_handler',
-    ),
-    'DELETE' => array (
-      'handler' => 'main_handler',
-    ),
-    'OPTIONS' => array (
-      'handler' => 'main_handler',
-    ),
-    'HEAD' => array (
-      'handler' => 'main_handler',
+     'options' => array (
     ),
   ),
-  '/' => array (
-    'GET' => array (
-      'handler' => 'handler0',
+  'POST /*' => array(
+     'path' => '/*',
+     'method' => 'POST',
+     'handler' => 'main_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
-  '/home' => array (
-    'GET' => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@index',
+  'PUT /*' => array(
+     'path' => '/*',
+     'method' => 'PUT',
+     'handler' => 'main_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
-  '/post' => array (
-    'POST' => array (
-      'handler' => 'post_handler',
+  'PATCH /*' => array(
+     'path' => '/*',
+     'method' => 'PATCH',
+     'handler' => 'main_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
-  '/put' => array (
-    'PUT' => array (
-      'handler' => 'main_handler',
+  'DELETE /*' => array(
+     'path' => '/*',
+     'method' => 'DELETE',
+     'handler' => 'main_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
-  '/del' => array (
-    'DELETE' => array (
-      'handler' => 'main_handler',
+  'OPTIONS /*' => array(
+     'path' => '/*',
+     'method' => 'OPTIONS',
+     'handler' => 'main_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
-  '/pd' => array (
-    'POST' => array (
-      'handler' => 'multi_method_handler',
+  'HEAD /*' => array(
+     'path' => '/*',
+     'method' => 'HEAD',
+     'handler' => 'main_handler',
+     'bindVars' => array (
     ),
-    'DELETE' => array (
-      'handler' => 'multi_method_handler',
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
-  '/user/login' => array (
-    'GET' => array (
-      'handler' => 'default_handler',
+  'CONNECT /*' => array(
+     'path' => '/*',
+     'method' => 'CONNECT',
+     'handler' => 'main_handler',
+     'bindVars' => array (
     ),
-    'POST' => array (
-      'handler' => 'default_handler',
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'GET /' => array(
+     'path' => '/',
+     'method' => 'GET',
+     'handler' => 'handler0',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'GET /home' => array(
+     'path' => '/home',
+     'method' => 'GET',
+     'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@index',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'POST /post' => array(
+     'path' => '/post',
+     'method' => 'POST',
+     'handler' => 'post_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'PUT /put' => array(
+     'path' => '/put',
+     'method' => 'PUT',
+     'handler' => 'main_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'DELETE /del' => array(
+     'path' => '/del',
+     'method' => 'DELETE',
+     'handler' => 'main_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'POST /pd' => array(
+     'path' => '/pd',
+     'method' => 'POST',
+     'handler' => 'multi_method_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'DELETE /pd' => array(
+     'path' => '/pd',
+     'method' => 'DELETE',
+     'handler' => 'multi_method_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'GET /user/login' => array(
+     'path' => '/user/login',
+     'method' => 'GET',
+     'handler' => 'default_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
+    ),
+  ),
+  'POST /user/login' => array(
+     'path' => '/user/login',
+     'method' => 'POST',
+     'handler' => 'default_handler',
+     'bindVars' => array (
+    ),
+     'params' => array (
+    ),
+     'pathVars' => array (
+    ),
+     'pathRegex' => '',
+     'pathStart' => '',
+     'chains' => array (
+    ),
+     'options' => array (
     ),
   ),
 ),
 // regular routes
 'regularRoutes' => array (
-  'rest' => array (
-    0 => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@view',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
+  'GET 50be3774f6' => array (
+    0 => array(
+       'path' => '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a',
+       'method' => 'GET',
+       'handler' => 'handler0',
+       'bindVars' => array (
       ),
-      'original' => '/rest/{id}',
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
-      'methods' => 'GET,',
-    ),
-    1 => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@update',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
+       'params' => array (
       ),
-      'original' => '/rest/{id}',
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
-      'methods' => 'PUT,',
-    ),
-    2 => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@patch',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
+       'pathVars' => array (
+        0 => 'arg1',
+        1 => 'arg2',
+        2 => 'arg3',
+        3 => 'arg4',
+        4 => 'arg5',
+        5 => 'arg6',
+        6 => 'arg7',
+        7 => 'arg8',
+        8 => 'arg9',
       ),
-      'original' => '/rest/{id}',
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
-      'methods' => 'PATCH,',
-    ),
-    3 => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\RestController@delete',
-      'option' => array (
-        'params' => array (
-          'id' => '[1-9]\\d*',
-        ),
+       'pathRegex' => '#^/50be3774f6/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/850726135a$#',
+       'pathStart' => '/50be3774f6/',
+       'chains' => array (
       ),
-      'original' => '/rest/{id}',
-      'regex' => '#^/rest/(?P<id>[1-9]\\d*)$#',
-      'start' => '/rest/',
-      'methods' => 'DELETE,',
+       'options' => array (
+      ),
     ),
   ),
-  '50be3774f6' => array (
-    0 => array (
-      'handler' => 'handler0',
-      'original' => '/50be3774f6/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/850726135a',
-      'regex' => '#^/50be3774f6/(?P<arg1>[^/]+)/(?P<arg2>[^/]+)/(?P<arg3>[^/]+)/(?P<arg4>[^/]+)/(?P<arg5>[^/]+)/(?P<arg6>[^/]+)/(?P<arg7>[^/]+)/(?P<arg8>[^/]+)/(?P<arg9>[^/]+)/850726135a$#',
-      'start' => '/50be3774f6/',
-      'methods' => 'GET,',
+  'GET user' => array (
+    0 => array(
+       'path' => '/user/{id}/followers',
+       'method' => 'GET',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'id',
+      ),
+       'pathRegex' => '#^/user/([^/]+)/followers$#',
+       'pathStart' => '/user/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'path' => '/user/detail/{id}',
+       'method' => 'GET',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'id',
+      ),
+       'pathRegex' => '#^/user/detail/([^/]+)$#',
+       'pathStart' => '/user/detail/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'path' => '/user/{id}',
+       'method' => 'GET',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'id',
+      ),
+       'pathRegex' => '#^/user/([^/]+)$#',
+       'pathStart' => '/user/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'path' => '/user/{some}',
+       'method' => 'GET',
+       'handler' => 'default_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'some',
+      ),
+       'pathRegex' => '#^/user/([^/]+)$#',
+       'pathStart' => '/user/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
   ),
-  'user' => array (
-    0 => array (
-      'handler' => 'main_handler',
-      'original' => '/user/{id}/followers',
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)/followers$#',
-      'start' => '/user/',
-      'methods' => 'GET,',
+  'PUT user' => array (
+    0 => array(
+       'path' => '/user/detail/{id}',
+       'method' => 'PUT',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'id',
+      ),
+       'pathRegex' => '#^/user/detail/([^/]+)$#',
+       'pathStart' => '/user/detail/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
-    1 => array (
-      'handler' => 'main_handler',
-      'original' => '/user/detail/{id}',
-      'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/detail/',
-      'methods' => 'GET,',
-    ),
-    2 => array (
-      'handler' => 'main_handler',
-      'original' => '/user/detail/{id}',
-      'regex' => '#^/user/detail/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/detail/',
-      'methods' => 'PUT,',
-    ),
-    3 => array (
-      'handler' => 'main_handler',
-      'original' => '/user/{id}',
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
-      'methods' => 'GET,',
-    ),
-    4 => array (
-      'handler' => 'main_handler',
-      'original' => '/user/{id}',
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
-      'methods' => 'POST,',
-    ),
-    5 => array (
-      'handler' => 'main_handler',
-      'original' => '/user/{id}',
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
-      'methods' => 'PUT,',
-    ),
-    6 => array (
-      'handler' => 'main_handler',
-      'original' => '/user/{id}',
-      'regex' => '#^/user/(?P<id>[1-9][0-9]*)$#',
-      'start' => '/user/',
-      'methods' => 'DELETE,',
-    ),
-    7 => array (
-      'handler' => 'default_handler',
-      'original' => '/user/{some}',
-      'regex' => '#^/user/(?P<some>[^/]+)$#',
-      'start' => '/user/',
-      'methods' => 'GET,',
+    1 => array(
+       'path' => '/user/{id}',
+       'method' => 'PUT',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'id',
+      ),
+       'pathRegex' => '#^/user/([^/]+)$#',
+       'pathStart' => '/user/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
   ),
-  'del' => array (
-    0 => array (
-      'handler' => 'main_handler',
-      'original' => '/del/{uid}',
-      'regex' => '#^/del/(?P<uid>[^/]+)$#',
-      'start' => '/del/',
-      'methods' => 'DELETE,',
+  'POST user' => array (
+    0 => array(
+       'path' => '/user/{id}',
+       'method' => 'POST',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'id',
+      ),
+       'pathRegex' => '#^/user/([^/]+)$#',
+       'pathStart' => '/user/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
   ),
-  'home' => array (
-    0 => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
-      'original' => '/home/{act}',
-      'regex' => '#^/home/(?P<act>[a-zA-Z][\\w-]+)$#',
-      'start' => '/home/',
-      'methods' => 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,',
+  'DELETE user' => array (
+    0 => array(
+       'path' => '/user/{id}',
+       'method' => 'DELETE',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'id',
+      ),
+       'pathRegex' => '#^/user/([^/]+)$#',
+       'pathStart' => '/user/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE del' => array (
+    0 => array(
+       'path' => '/del/{uid}',
+       'method' => 'DELETE',
+       'handler' => 'main_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'uid',
+      ),
+       'pathRegex' => '#^/del/([^/]+)$#',
+       'pathStart' => '/del/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET admin' => array (
+    0 => array(
+       'path' => '/admin/manage/getInfo[/id/{int}]',
+       'method' => 'GET',
+       'handler' => 'default_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'int',
+      ),
+       'pathRegex' => '#^/admin/manage/getInfo(?:/id/(\\d+))?$#',
+       'pathStart' => '/admin/manage/getInfo',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST admin' => array (
+    0 => array(
+       'path' => '/admin/manage/getInfo[/id/{int}]',
+       'method' => 'POST',
+       'handler' => 'default_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'int',
+      ),
+       'pathRegex' => '#^/admin/manage/getInfo(?:/id/(\\d+))?$#',
+       'pathStart' => '/admin/manage/getInfo',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'GET',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'POST',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'PUT',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'PATCH',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'DELETE',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'OPTIONS home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'OPTIONS',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'HEAD home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'HEAD',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'CONNECT home' => array (
+    0 => array(
+       'path' => '/home/{act}',
+       'method' => 'CONNECT',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'act',
+      ),
+       'pathRegex' => '#^/home/([a-zA-Z][\\w-]+)$#',
+       'pathStart' => '/home/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
   ),
 ),
 // vague routes
 'vagueRoutes' => array (
   'GET' => array (
-    0 => array (
-      'handler' => 'default_handler',
-      'option' => array (
-        'params' => array (
-          'name' => 'blog|saying',
-        ),
+    0 => array(
+       'path' => '/{name}',
+       'method' => 'GET',
+       'handler' => 'default_handler',
+       'bindVars' => array (
+        'name' => 'blog|saying',
       ),
-      'original' => '/{name}',
-      'regex' => '#^/(?P<name>blog|saying)$#',
-      'start' => NULL,
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/(blog|saying)$#',
+       'pathStart' => '',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
-    1 => array (
-      'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@about',
-      'original' => '/about[.html]',
-      'regex' => '#^/about(?:\\.html)?$#',
-      'start' => '/about',
+    1 => array(
+       'path' => '/about[.html]',
+       'method' => 'GET',
+       'handler' => 'Inhere\\Route\\Example\\Controllers\\HomeController@about',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+      ),
+       'pathRegex' => '#^/about(?:\\.html)?$#',
+       'pathStart' => '/about',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
-    2 => array (
-      'handler' => 'default_handler',
-      'original' => '/test[/optional]',
-      'regex' => '#^/test(?:/optional)?$#',
-      'start' => '/test',
+    2 => array(
+       'path' => '/test[/optional]',
+       'method' => 'GET',
+       'handler' => 'default_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+      ),
+       'pathRegex' => '#^/test(?:/optional)?$#',
+       'pathStart' => '/test',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
-    3 => array (
-      'handler' => 'default_handler',
-      'original' => '/blog-{post}',
-      'regex' => '#^/blog-(?P<post>[^/]+)$#',
-      'start' => '/blog-',
+    3 => array(
+       'path' => '/blog-{post}',
+       'method' => 'GET',
+       'handler' => 'default_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'post',
+      ),
+       'pathRegex' => '#^/blog-([^/]+)$#',
+       'pathStart' => '/blog-',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
-    4 => array (
-      'handler' => 'default_handler',
-      'original' => '/blog[index]',
-      'regex' => '#^/blog(?:index)?$#',
-      'start' => '/blog',
+    4 => array(
+       'path' => '/blog[/index]',
+       'method' => 'GET',
+       'handler' => 'default_handler',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+      ),
+       'pathRegex' => '#^/blog(?:/index)?$#',
+       'pathStart' => '/blog',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
     ),
-    5 => array (
-      'handler' => 'my_handler',
-      'option' => array (
-        'params' => array (
-          'age' => '\\d+',
-        ),
+    5 => array(
+       'path' => '/my[/{name}[/{age}]]',
+       'method' => 'GET',
+       'handler' => 'my_handler',
+       'bindVars' => array (
+        'age' => '\\d+',
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+        1 => 'age',
+      ),
+       'pathRegex' => '#^/my(?:/([^/]+)(?:/(\\d+))?)?$#',
+       'pathStart' => '/my',
+       'chains' => array (
+      ),
+       'options' => array (
         'defaults' => array (
           'name' => 'God',
           'age' => 25,
         ),
       ),
-      'original' => '/my[/{name}[/{age}]]',
-      'regex' => '#^/my(?:/(?P<name>[^/]+)(?:/(?P<age>\\d+))?)?$#',
-      'start' => '/my',
     ),
   ),
 ),

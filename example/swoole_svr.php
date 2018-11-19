@@ -10,22 +10,16 @@
  */
 
 use Inhere\Route\Dispatcher\Dispatcher;
-use Inhere\Route\ORouter;
 
 require dirname(__DIR__) . '/test/boot.php';
 
-$router = new ORouter;
+$router = new \Inhere\Route\ServerRouter();
 
 // set config
-$router->setConfig([
+$router->config([
     'ignoreLastSlash' => true,
 
     'tmpCacheNumber' => 100,
-
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
-//        echo 'System Maintaining ... ...';
-//    },
 
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
@@ -35,31 +29,12 @@ $router->setConfig([
 ]);
 
 $router->get('/routes', function () use ($router) {
-    var_dump(
-        $router->getStaticRoutes(),
-        $router->getRegularRoutes(),
-        $router->getVagueRoutes()
-    );
+    return $router->toString();
 });
 
 /** @var array $routes */
+$hasRouter = true;
 $routes = require __DIR__ . '/some-routes.php';
-
-foreach ($routes as $route) {
-    // group
-    if (is_array($route[1])) {
-        $rs = $route[1];
-        $router->group($route[0], function (ORouter $router) use ($rs) {
-            foreach ($rs as $r) {
-                $router->map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
-            }
-        });
-
-        continue;
-    }
-
-    $router->map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
-}
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
@@ -85,7 +60,7 @@ $server->on('request', function ($request, $response) use ($dispatcher) {
     fwrite(STDOUT, "request $method $uri\n");
 
     ob_start();
-    $ret = $dispatcher->dispatch($uri, $method);
+    $ret = $dispatcher->dispatchUri($uri, $method);
     $content = ob_get_clean();
 
     if (!$ret) {

@@ -32,9 +32,7 @@ $startMem = memory_get_usage();
 $router = new \Inhere\Route\CachedRouter([
     'cacheFile' => __DIR__ . '/cached/bench-routes-cache.php',
     'cacheEnable' => 0,
-    'cacheOnMatching' => 0,
     // 'tmpCacheNumber' => 100,
-    // 'notAllowedAsNotFound' => 1,
 ]);
 
 $requests[2] = [
@@ -47,7 +45,7 @@ $requests[2] = [
  */
 $start = microtime(true);
 foreach ($requests as $r) {
-    $router->map($r['method'], $r['url'], 'handler_func');
+    $router->add($r['method'], $r['url'], 'handler_func');
 }
 $end = microtime(true);
 $buildTime = $end - $start;
@@ -170,6 +168,17 @@ Match time (unknown route): 0.000019 s
 Total time: 0.012515 s
 Memory usage: 1014 KB
 Peak memory usage: 2048 KB
+
+// 2018.11.17
+There are generate 1000 routes. and dynamic route with 50% chance
+
+Build time (1000 routes): 5.885 ms, For collect and parse routes.
+
+Match time (first route):  0.000593 s.
+Match time (first route, second):  0.000015
+Match time (random route): 0.000042 s.
+Match time (last route):   0.000006 s.
+Match time (unknown route): 0.000008 s
 
  */
 

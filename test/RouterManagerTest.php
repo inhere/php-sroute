@@ -8,8 +8,8 @@
 
 namespace Inhere\Route\Test;
 
-use Inhere\Route\ORouter;
 use Inhere\Route\PreMatchRouter;
+use Inhere\Route\Router;
 use Inhere\Route\RouterManager;
 use PHPUnit\Framework\TestCase;
 
@@ -81,6 +81,6 @@ class RouterManagerTest extends TestCase
         $router = $this->manager->getDefault();
 
         $this->assertSame('default', $router->getName());
-        $this->assertInstanceOf(ORouter::class, $router);
+        $this->assertInstanceOf(Router::class, $router);
     }
 }

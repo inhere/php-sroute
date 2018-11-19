@@ -18,7 +18,7 @@ use Inhere\Route\Helper\RouteHelper;
  *
  * @package Inhere\Route
  */
-final class ServerRouter extends ORouter
+final class ServerRouter extends Router
 {
     /** @var int */
     private $cacheCounter = 0;
@@ -87,25 +87,11 @@ final class ServerRouter extends ORouter
      ******************************************************************************/
 
     /**
-     * find the matched route info for the given request uri path
-     * @param string $method
-     * @param string $path
-     * @return array
+     * {@inheritdoc}
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        // if enable 'matchAll'
-        if ($matchAll = $this->matchAll) {
-            if (\is_string($matchAll) && $matchAll{0} === '/') {
-                $path = $matchAll;
-            } elseif (\is_callable($matchAll)) {
-                return [self::FOUND, $path, [
-                    'handler' => $matchAll,
-                ]];
-            }
-        }
-
-        $path = RouteHelper::formatUriPath($path, $this->ignoreLastSlash);
+        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
         $sKey = $method . ' ' . $path;
 
@@ -120,26 +106,20 @@ final class ServerRouter extends ORouter
         }
 
         // is a dynamic route, match by regexp
-        $result = $this->doMatch($path, $method);
-        if ($result[0] === self::FOUND) {
-            if ($this->tmpCacheNumber > 0) {
-                $this->cacheMatchedParamRoute($path, $method, $result[2]);
-            }
-
+        $result = $this->matchDynamicRoute($path, $method);
+        if ($result[0] === self::FOUND) { // will cache param route.
+            $this->cacheMatchedParamRoute($path, $method, $result[2]);
             return $result;
         }
 
         // handle Auto Route
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
-            return [self::FOUND, $path, [
-                'handler' => $handler,
-            ]];
+            return [self::FOUND, $path, Route::create($method, $path, $handler)];
         }
 
         // For HEAD requests, attempt fallback to GET
         if ($method === 'HEAD') {
             $sKey = 'GET ' . $path;
-
             if (isset($this->staticRoutes[$sKey])) {
                 return [self::FOUND, $path, $this->staticRoutes[$sKey]];
             }
@@ -148,7 +128,7 @@ final class ServerRouter extends ORouter
                 return [self::FOUND, $path, $this->cacheRoutes[$sKey]];
             }
 
-            $result = $this->doMatch($path, 'GET');
+            $result = $this->matchDynamicRoute($path, 'GET');
             if ($result[0] === self::FOUND) {
                 return $result;
             }
@@ -160,12 +140,12 @@ final class ServerRouter extends ORouter
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
+        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
         if ($this->handleMethodNotAllowed) {
-            return [self::NOT_FOUND, $path, null];
+            return $this->findAllowedMethods($path, $method);
         }
 
-        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
-        return $this->findAllowedMethods($path, $method);
+        return [self::NOT_FOUND, $path, null];
     }
 
     /*******************************************************************************
@@ -175,9 +155,9 @@ final class ServerRouter extends ORouter
     /**
      * @param string $path
      * @param string $method
-     * @param array $conf
+     * @param Route $route
      */
-    protected function cacheMatchedParamRoute(string $path, string $method, array $conf)
+    protected function cacheMatchedParamRoute(string $path, string $method, Route $route)
     {
         $cacheKey = $method . ' ' . $path;
         $cacheNumber = (int)$this->tmpCacheNumber;
@@ -189,7 +169,7 @@ final class ServerRouter extends ORouter
             }
 
             $this->cacheCounter++;
-            $this->cacheRoutes[$cacheKey] = $conf;
+            $this->cacheRoutes[$cacheKey] = $route;
         }
     }
 

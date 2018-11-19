@@ -11,11 +11,11 @@ namespace Inhere\Route;
 /**
  * @param \Closure $closure
  * @param array $config
- * @return ORouter
+ * @return Router
  */
-function createRouter(\Closure $closure, array $config = []): ORouter
+function createRouter(\Closure $closure, array $config = []): Router
 {
-    $closure($router = new ORouter($config));
+    $closure($router = new Router($config));
 
     return $router;
 }
@@ -46,7 +46,8 @@ function createPreMatchRouter(
     string $path = null,
     string $method = null,
     array $config = []
-): PreMatchRouter {
+): PreMatchRouter
+{
     $router = new PreMatchRouter($config, $path, $method);
 
     $closure($router);

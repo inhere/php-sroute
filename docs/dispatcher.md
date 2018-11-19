@@ -102,7 +102,7 @@ $dispatcher->setMatcher(function ($path, $method) {
 });
 ```
 
-- 使用 `ORouter`
+- 使用 `Router`
 
 ```php
 $dispatcher->setMatcher(function ($path, $method) use ($router) {
@@ -129,6 +129,6 @@ $dispatcher->dispatch();
 
 你可以通过 `php -S 127.0.0.1:5670 -t example/static` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5670
 
-- ORouter
+- Router
 
 你可以通过 `php -S 127.0.0.1:5671 -t example/object` 来运行一个测试服务器, 现在你可以访问 http://127.0.0.1:5671

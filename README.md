@@ -18,13 +18,13 @@
 
 > 不同的版本有稍微的区别以适应不同的场景
 
-- `ORouter` 通用版本，也是后几个版本的基础类，适用于所有的情况。
-- `SRouter` 静态类版本。`ORouter` 的简单包装，通过静态方法使用(方便小应用快速使用)
-- `CachedRouter` 继承自`ORouter`，支持路由缓存的版本，可以 **缓存路由信息到文件**
+- `Router` 通用版本，也是后几个版本的基础类，适用于所有的情况。
+- `SRouter` 静态类版本。`Router` 的简单包装，通过静态方法使用(方便小应用快速使用)
+- `CachedRouter` 继承自`Router`，支持路由缓存的版本，可以 **缓存路由信息到文件**
   - 适合php-fpm 环境使用(有缓存将会省去每次的路由收集和解析消耗) 
-- `PreMatchRouter` 继承自`ORouter`，预匹配路由器。**当应用的静态路由较多时，将拥有更快的匹配速度**
+- `PreMatchRouter` 继承自`Router`，预匹配路由器。**当应用的静态路由较多时，将拥有更快的匹配速度**
   - 适合php-fpm 环境，php-fpm 情形下，实际上我们在收集路由之前，已经知道了路由path和请求动作METHOD
-- `ServerRouter` 继承自`ORouter`，服务器路由。内置支持**动态路由临时缓存**. 适合 `swoole` 等**常驻内存应用**使用
+- `ServerRouter` 继承自`Router`，服务器路由。内置支持**动态路由临时缓存**. 适合 `swoole` 等**常驻内存应用**使用
   - 最近请求过的动态路由将会缓存为一个静态路由信息，下次相同路由将会直接匹配命中
 
 **内置调度器：**
@@ -80,52 +80,51 @@ git clone https://github.com/inhere/php-srouter.git // github
 
 详细的测试代码请看仓库 https://github.com/ulue/php-router-benchmark
 
-- 压测日期 **2017.12.3**
+- 压测日期 **2018.11.19**
 - An example route: `/9b37eef21e/{arg1}/{arg2}/{arg3}/{arg4}/{arg5}/{arg6}/{arg7}/{arg8}/{arg9}/bda37e9f9b`
-
-压测结果
 
 ## Worst-case matching
 
-Test Name | Results | Time(ms) | + Interval | Change
---------- | ------- | ---- | ---------- | ------
-inhere/sroute(ORouter) - unknown route (1000 routes) | 987 | 0.010222 | +0.000000 | baseline
-inhere/sroute(SRouter) - unknown route (1000 routes) | 984 | 0.012239 | +0.002017 | 20% slower
-inhere/sroute(SRouter) - last route (1000 routes) | 999 | 0.024386 | +0.014820 | 155% slower
-inhere/sroute(ORouter) - last route (1000 routes) | 975 | 0.024554 | +0.014989 | 157% slower
-Symfony Cached - last route (1000 routes) | 997 | 0.029091 | +0.019525 | 204% slower
-Symfony Cached - unknown route (1000 routes) | 985 | 0.037226 | +0.027661 | 289% slower
-FastRoute - unknown route (1000 routes) | 988 | 0.089904 | +0.080338 | 840% slower
-FastRoute(cached) - unknown route (1000 routes) | 988 | 0.091358 | +0.081792 | 855% slower
-FastRoute(cached) - last route (1000 routes) | 999 | 0.092567 | +0.083001 | 868% slower
-FastRoute - last route (1000 routes) | 999 | 0.113668 | +0.104103 | 1088% slower
-phroute/phroute - unknown route (1000 routes) | 987 | 0.168871 | +0.159305 | 1665% slower
-phroute/phroute - last route (1000 routes) | 999 | 0.169914 | +0.160348 | 1676% slower
-Pux PHP - unknown route (1000 routes) | 981 | 0.866280 | +0.856714 | 8956% slower
-Pux PHP - last route (1000 routes) | 999 | 0.941322 | +0.931757 | 9741% slower
-AltoRouter - unknown route (1000 routes) | 982 | 2.245384 | +2.235819 | 23373% slower
-AltoRouter - last route (1000 routes) | 979 | 2.281995 | +2.272429 | 23756% slower
-Symfony - unknown route (1000 routes) | 984 | 2.488247 | +2.478681 | 25912% slower
-Symfony - last route (1000 routes) | 999 | 2.540170 | +2.530605 | 26455% slower
-Macaw - unknown route (1000 routes) | 982 | 2.617635 | +2.608069 | 27265% slower
-Macaw - last route (1000 routes) | 999 | 2.700128 | +2.690562 | 28127% slower
+This benchmark matches the last route and unknown route. It generates a randomly prefixed and suffixed route in an attempt to thwart any optimization. 1,000 routes each with 9 arguments.
 
+This benchmark consists of 14 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
+
+Test Name | Results | Time(ms) | + Interval | Change
+------------------ | ------- | ------- | ---------- | -----------
+**inhere/sroute(Router)** - unknown route(1000 routes)  | 990 | 0.002031 | +0.000871 | 75% slower
+inhere/sroute(SRouter) - unknown route(1000 routes)     | 994 | 0.002895 | +0.001736 | 150% slower
+**inhere/sroute(Router)** - last route(1000 routes)     | 997 | 0.005300 | +0.004141 | 357% slower
+inhere/sroute(SRouter) - last route(1000 routes)        | 997 | 0.006467 | +0.005308 | 458% slower
+symfony/routing(cached) - unknown route(1000 routes)    | 976 | 0.012777 | +0.011618 | 1002% slower
+symfony/routing(cached) - last route(1000 routes)       | 996 | 0.013608 | +0.012449 | 1074% slower
+mindplay/timber - last route(1000 routes)               | 998 | 0.017211 | +0.016052 | 1385% slower
+FastRoute - unknown route(1000 routes)                  | 991 | 0.039429 | +0.038270 | 3302% slower
+FastRoute(cached) - unknown route(1000 routes)          | 990 | 0.040800 | +0.039641 | 3420% slower
+FastRoute(cached) - last route(1000 routes)             | 999 | 0.045065 | +0.043906 | 3788% slower
+FastRoute - last route(1000 routes)                     | 999 | 0.064694 | +0.063535 | 5481% slower
+Pux PHP - unknown route(1000 routes)                    | 978 | 0.316016 | +0.314857 | 27163% slower
+symfony/routing - unknown route(1000 routes)            | 992 | 0.359482 | +0.358323 | 30912% slower
+symfony/routing - last route(1000 routes)               | 999 | 0.418813 | +0.417654 | 36031% slower
+Pux PHP - last route(1000 routes)                       | 999 | 0.440489 | +0.439330 | 37901% slower
+Macaw - unknown route(1000 routes)                      | 991 | 1.687441 | +1.686282 | 145475% slower
+Macaw - last route(1000 routes)                         | 999 | 1.786542 | +1.785383 | 154024% slower
 
 ## First route matching
 
-Test Name | Results | Time(ms) | + Interval | Change
+This benchmark tests how quickly each router can match the first route. 1,000 routes each with 9 arguments.
+
+This benchmark consists of 7 tests. Each test is executed 1,000 times, the results pruned, and then averaged. Values that fall outside of 3 standard deviations of the mean are discarded.
+
+Test Name | Results | Time | + Interval | Change
 --------- | ------- | ---- | ---------- | ------
-Pux PHP - first route(1000) | 997 | 0.006587 | +0.000000 | baseline
-FastRoute - first route(1000) | 999 | 0.008751 | +0.002165 | 33% slower
-phroute/phroute - first route (1000 routes) | 999 | 0.021902 | +0.015315 | 233% slower
-Symfony Dumped - first route | 997 | 0.022254 | +0.015667 | 238% slower
-ORouter - first route(1000) | 993 | 0.025026 | +0.018440 | 280% slower
-SRouter - first route(1000) | 997 | 0.025553 | +0.018967 | 288% slower
-noodlehaus/dispatch - first route (1000 routes) | 989 | 0.030126 | +0.023540 | 357% slower
-AltoRouter - first route (1000 routes) | 994 | 0.041488 | +0.034902 | 530% slower
-Symfony - first route | 991 | 0.047335 | +0.040748 | 619% slower
-FastRoute(cached) - first route(1000) | 999 | 0.092703 | +0.086117 | 1307% slower
-Macaw - first route (1000 routes) | 999 | 2.710132 | +2.703545 | 41047% slower
+nikic/fast-route - first route(1000)                    | 998 | 0.002929 | +0.001571 | 116% slower
+corneltek/pux(php) - first route(1000)                  | 996 | 0.002971 | +0.001613 | 119% slower
+inhere/sroute(Router) - first(1000)                     | 979 | 0.006202 | +0.004844 | 357% slower
+inhere/sroute(SRouter) - first(1000)                    | 999 | 0.006627 | +0.005269 | 388% slower
+symfony/routing(cached) - first route(1000)             | 985 | 0.006858 | +0.005501 | 405% slower
+symfony/routing - first route(1000)                     | 995 | 0.023105 | +0.021747 | 1601% slower
+nikic/fast-route(cached) - first route(1000)            | 999 | 0.041133 | +0.039775 | 2929% slower
+Macaw - first route (1000 routes)                       | 999 | 1.782017 | +1.780659 | 131128% slower
 
 ## 使用
 
@@ -134,9 +133,9 @@ Macaw - first route (1000 routes) | 999 | 2.710132 | +2.703545 | 41047% slower
 首先, 导入类
 
 ```php
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
-$router = new ORouter();
+$router = new Router();
 ```
 
 ## 添加路由
@@ -256,35 +255,11 @@ $router->any('*', 'fallback_handler');
 - 大于等于两节的默认先认为最后一节是控制器类名，进行查找
 - 若失败，再尝试将倒数第二节认为是控制器名，最后一节是action名
 
-### 匹配所有
-
-配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
-
-可允许配置 `matchAll` 的值为 
-
-- 路由path
-
-```php
-    'matchAll' => '/about', // a route path
-```
-
-将会直接执行此路由后停止执行
-
-- 回调
-
-```php 
-    'matchAll' => function () {
-        echo '系统维护中 :)';
-    },
-```
-
-将会直接执行此回调后停止执行
-
 ## 设置路由配置
 
 ```php
 // set config
-$router->setConfig([
+$router->config([
     'ignoreLastSlash' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
@@ -292,7 +267,7 @@ $router->setConfig([
 ]);
 ```
 
-> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
+> NOTICE: 必须在添加路由之前调用 `$router->config()` 
 
 ## 路由匹配
 
@@ -335,7 +310,7 @@ $dispatcher = new Dispatcher([
     'actionSuffix' => 'Action',
 
     'dynamicAction' => true,
-    // @see ORouter::$globalParams['act']
+    // @see Router::$globalParams['act']
     'dynamicActionVar' => 'act',
 ]);
 ```
@@ -376,7 +351,7 @@ $router->get('/about', 'App\Controllers\HomeController@about');
 ```php
 'dynamicAction' => true,  // 启用
 // action 方法名匹配参数名称，符合条件的才会当做action名称
-// @see ORouter::$globalParams['act'] 匹配 '[a-zA-Z][\w-]+'
+// @see Router::$globalParams['act'] 匹配 '[a-zA-Z][\w-]+'
 'dynamicActionVar' => 'act',
 ```
 

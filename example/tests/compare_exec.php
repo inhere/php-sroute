@@ -1,7 +1,7 @@
 <?php
 
-const ALLOWED_METHODS_STR = 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD';
-const ALLOWED_METHODS = [
+const METHODS_STRING = 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD';
+const METHODS_ARRAY = [
     'ANY',
     'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD',
     // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'CONNECT', 'TRACE',
@@ -17,9 +17,9 @@ $sample1 = function ($methods) {
     $methods = \array_map(function ($m) use (&$hasAny) {
         $m = \strtoupper(\trim($m));
 
-        if (!$m || false === \strpos(ALLOWED_METHODS_STR . ',', $m . ',')) {
+        if (!$m || false === \strpos(METHODS_STRING . ',', $m . ',')) {
             throw new \InvalidArgumentException(
-                "The method [$m] is not supported, Allow: " . ALLOWED_METHODS_STR
+                "The method [$m] is not supported, Allow: " . METHODS_STRING
             );
         }
 
@@ -30,7 +30,7 @@ $sample1 = function ($methods) {
         return $m;
     }, (array)$methods);
 
-    return $hasAny ? ALLOWED_METHODS : $methods;
+    return $hasAny ? METHODS_ARRAY : $methods;
 };
 
 $sample2 = function ($methods) {
@@ -38,12 +38,12 @@ $sample2 = function ($methods) {
         $method = strtoupper($methods);
 
         if ($method === 'ANY') {
-            return ALLOWED_METHODS;
+            return METHODS_ARRAY;
         }
 
-        if (false === \strpos(ALLOWED_METHODS_STR . ',', $method . ',')) {
+        if (false === \strpos(METHODS_STRING . ',', $method . ',')) {
             throw new \InvalidArgumentException(
-                "The method [$method] is not supported, Allow: " . ALLOWED_METHODS_STR
+                "The method [$method] is not supported, Allow: " . METHODS_STRING
             );
         }
 
@@ -56,12 +56,12 @@ $sample2 = function ($methods) {
         $method = strtoupper($method);
 
         if ($method === 'ANY') {
-            return ALLOWED_METHODS;
+            return METHODS_ARRAY;
         }
 
-        if (false === \strpos(ALLOWED_METHODS_STR . ',', $method . ',')) {
+        if (false === \strpos(METHODS_STRING . ',', $method . ',')) {
             throw new \InvalidArgumentException(
-                "The method [$method] is not supported, Allow: " . ALLOWED_METHODS_STR
+                "The method [$method] is not supported, Allow: " . METHODS_STRING
             );
         }
 
@@ -122,8 +122,8 @@ function compare_speed(callable $sample1, callable $sample2, int $times = 1000, 
 
     // average
     $decimal = 3;
-    $average1 = round($total1/$times, $decimal);
-    $average2 = round($total2/$times, $decimal);
+    $average1 = round($total1 / $times, $decimal);
+    $average2 = round($total2 / $times, $decimal);
 
     $result1 = $sample1(...$args);
     $result2 = $sample2(...$args);

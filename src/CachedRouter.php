@@ -8,8 +8,6 @@
 
 namespace Inhere\Route;
 
-use Inhere\Route\Base\AbstractRouter;
-
 /**
  * Class CachedRouter - this is object version and support cache routes.
  *
@@ -19,10 +17,12 @@ use Inhere\Route\Base\AbstractRouter;
  *
  * @package Inhere\Route
  */
-final class CachedRouter extends ORouter
+final class CachedRouter extends Router
 {
     /** @var bool */
     private $cacheLoaded = false;
+
+    // cacheType: array, serialize
 
     /**
      * The routes cache file.
@@ -50,7 +50,7 @@ final class CachedRouter extends ORouter
         }
 
         if (isset($config['cacheEnable'])) {
-            $this->cacheEnable =(bool)$config['cacheEnable'];
+            $this->cacheEnable = (bool)$config['cacheEnable'];
         }
 
         // read route caches from cache file
@@ -68,14 +68,27 @@ final class CachedRouter extends ORouter
     /**
      * {@inheritdoc}
      */
-    public function map($method, string $route, $handler, array $opts = []): AbstractRouter
+    public function add(string $method, string $path, $handler, array $binds = [], array $opts = []): Route
     {
         // file cache exists check.
         if ($this->cacheLoaded) {
-            return $this;
+            return Route::createFromArray([]);
         }
 
-        return parent::map($method, $route, $handler, $opts);
+        return parent::add($method, $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addRoute(Route $route): Route
+    {
+        // file cache exists check.
+        if ($this->cacheLoaded) {
+            return $route;
+        }
+
+        return parent::addRoute($route);
     }
 
     /*******************************************************************************
@@ -93,17 +106,33 @@ final class CachedRouter extends ORouter
         }
 
         $file = $this->cacheFile;
-
         if (!$file || !\file_exists($file)) {
             return false;
         }
 
         // load routes
-        $map = include $file;
+        $map = require $file;
+        $staticRoutes = $regularRoutes = $vagueRoutes = [];
 
-        $this->setStaticRoutes($map['staticRoutes']);
-        $this->setRegularRoutes($map['regularRoutes']);
-        $this->setVagueRoutes($map['vagueRoutes']);
+        foreach ($map['staticRoutes'] as $key => $info) {
+            $staticRoutes[$key] = Route::createFromArray($info);
+        }
+
+        foreach ($map['regularRoutes'] as $key => $routes) {
+            foreach ($routes as $info) {
+                $regularRoutes[$key][] = Route::createFromArray($info);
+            }
+        }
+
+        foreach ($map['vagueRoutes'] as $key => $routes) {
+            foreach ($routes as $info) {
+                $vagueRoutes[$key][] = Route::createFromArray($info);
+            }
+        }
+
+        $this->setStaticRoutes($staticRoutes);
+        $this->setRegularRoutes($regularRoutes);
+        $this->setVagueRoutes($vagueRoutes);
         $this->cacheLoaded = true;
 
         return true;
@@ -126,9 +155,10 @@ final class CachedRouter extends ORouter
         $date = \date('Y-m-d H:i:s');
         $class = static::class;
         $count = $this->count();
-        $staticRoutes = \var_export($this->getStaticRoutes(), true);
-        $regularRoutes = \var_export($this->getRegularRoutes(), true);
-        $vagueRoutes = \var_export($this->getVagueRoutes(), true);
+
+        $staticRoutes = \var_export($this->staticRoutes, true);
+        $regularRoutes = \var_export($this->regularRoutes, true);
+        $vagueRoutes = \var_export($this->vagueRoutes, true);
 
         $code = <<<EOF
 <?php
@@ -146,9 +176,13 @@ return array (
 'regularRoutes' => $regularRoutes,
 // vague routes
 'vagueRoutes' => $vagueRoutes,
-);
+);\n
 EOF;
-        return \file_put_contents($file, \preg_replace('/=>\s+\n\s+array \(/', '=> array (', $code));
+        return \file_put_contents($file, \preg_replace(
+            ['/\s+\n\s+Inhere\\\\Route\\\\Route::__set_state\(/', '/\)\),/', '/=>\s+\n\s+array \(/'],
+            [' ', '),', '=> array ('],
+            $code
+        ));
     }
 
     /**

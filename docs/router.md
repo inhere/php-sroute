@@ -5,16 +5,16 @@
 > 匹配速度快，查找匹配速度基本上不受路由数量和路由的复杂度的影响
 
 - `Inhere\Route\SRouter` 是静态类版本. 
-- `Inhere\Route\ORouter` 是对象版本
+- `Inhere\Route\Router` 是对象版本
 
 压测： [benchmark](./benchmark.md)
 
 ## 路由收集
 
 ```php
-use Inhere\Route\ORouter;
+use Inhere\Route\Router;
 
-$router = new ORouter();
+$router = new Router();
 
 // 匹配 GET 请求. 处理器是个闭包 Closure
 $router->get('/', function() {
@@ -56,7 +56,7 @@ $router->any('/home', function() {
 
 // 路由组
 $router->group('/user', function ($router) {
-    /** @var \Inhere\Route\ORouter $router */
+    /** @var \Inhere\Route\Router $router */
     $router->get('/', function () {
         echo 'hello. you access: /user/';
     });
@@ -333,7 +333,7 @@ todo ...
 
 ```php
 // set config
-$router->setConfig([
+$router->config([
     'ignoreLastSlash' => true,    
     'autoRoute' => 1,
     'controllerNamespace' => 'app\\controllers',
@@ -349,11 +349,6 @@ $router->setConfig([
     // 是否忽略最后的 '/' 分隔符. 如果是 true,将清除最后一个 '/', 此时请求 '/home' 和 '/home/' 效果相同
     'ignoreLastSlash' = false,
 
-    // 匹配所有请求
-    // 1. 如果是一个有效的URI路径,将匹配所有请求到此URI路径。
-    // 2. 如果是一个可用回调,将匹配所有请求然后调用它
-    'matchAll' => '', // 例如: '/site/maintenance' 或者 `function () { echo 'System Maintaining ... ...'; }`
-
     // 是否启用, 自动匹配路由到控制器就像 yii 一样. 
     'autoRoute' => false,
     // 默认控制器名称空间
@@ -363,7 +358,7 @@ $router->setConfig([
 
 ```
 
-> NOTICE: 必须在添加路由之前调用 `$router->setConfig()` 
+> NOTICE: 必须在添加路由之前调用 `$router->config()` 
 
 ### 自动匹配路由
 
@@ -385,26 +380,3 @@ $router->setConfig([
 - 大于等于两节的默认先认为最后一节是控制器类名，进行查找
 - 若失败，再尝试将倒数第二节认为是控制器名，最后一节是action名
 
-### 匹配所有
-
-配置 `matchAll` 可用于拦截所有请求。 （例如网站维护时）
-
-可允许配置 `matchAll` 的值为 
-
-- 路由path
-
-```php
-    'matchAll' => '/about', // a route path
-```
-
-将会直接执行此路由后停止执行
-
-- 回调
-
-```php 
-    'matchAll' => function () {
-        echo '系统维护中 :)';
-    },
-```
-
-将会直接执行此回调后停止执行

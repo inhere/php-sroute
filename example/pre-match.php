@@ -12,7 +12,6 @@
  */
 
 use Inhere\Route\Dispatcher\Dispatcher;
-use Inhere\Route\Example\Controllers\RestController;
 
 require dirname(__DIR__) . '/test/boot.php';
 
@@ -21,14 +20,9 @@ $router = new \Inhere\Route\PreMatchRouter();
 $router->setRequest();
 
 // set config
-$router->setConfig([
+$router->config([
     // 'ignoreLastSlash' => true,
     // 'tmpCacheNumber' => 100,
-
-    // 'matchAll' => '/', // a route path
-    // 'matchAll' => function () { // a callback
-    //     echo 'System Maintaining ... ...';
-    // },
 
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
@@ -37,38 +31,15 @@ $router->setConfig([
     'controllerSuffix' => 'Controller',
 ]);
 
-$router->get('/routes', function() {
+$router->get('/routes', function () {
     global $router;
-
-    echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
-    print_r($router->getStaticRoutes());
-    echo "<h2>RegularRoutes:</h2>\n";
-    print_r($router->getRegularRoutes());
-    echo "<h2>VagueRoutes:</h2>\n";
-    print_r($router->getVagueRoutes());
-    echo '</pre>';
+    echo "<pre><code>{$router->toString()}</code></pre>";
 });
 
-/** @var array $routes */
-$routes = require __DIR__ . '/some-routes.php';
+$hasRouter = true;
+require __DIR__ . '/some-routes.php';
 
-foreach ($routes as $route) {
-    // group
-    if (is_array($route[1])) {
-        $rs = $route[1];
-        $router->group($route[0], function (\Inhere\Route\RouterInterface $router) use($rs){
-            foreach ($rs as $r) {
-                $router->map($r[0], $r[1], $r[2], $r[3] ?? []);
-            }
-        });
-
-        continue;
-    }
-
-    $router->map($route[0], $route[1], $route[2], $route[3] ?? []);
-}
-
-$router->rest('/rest', RestController::class);
+// $router->rest('/rest', RestController::class);
 
 $router->any('*', function () {
     echo "This is fallback handler\n";

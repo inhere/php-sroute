@@ -17,17 +17,11 @@ use Inhere\Route\SRouter;
 require dirname(__DIR__) . '/test/boot.php';
 
 // set config
-SRouter::setConfig([
+SRouter::config([
     'ignoreLastSlash' => true,
-
-//    'matchAll' => '/', // a route path
-//    'matchAll' => function () {
-//        echo 'System Maintaining ... ...';
-//    },
-
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
-    'autoRoute' =>  1,
+    'autoRoute' => 1,
     'controllerNamespace' => 'Inhere\Route\Example\Controllers',
     'controllerSuffix' => 'Controller',
 ]);
@@ -39,26 +33,21 @@ foreach ($routes as $route) {
     // group
     if (is_array($route[1])) {
         $rs = $route[1];
-        SRouter::group($route[0], function () use($rs){
+        SRouter::group($route[0], function () use ($rs) {
             foreach ($rs as $r) {
-                SRouter::map($r[0], $r[1], $r[2], isset($r[3]) ? $r[3] : []);
+                SRouter::map($r[0], $r[1], $r[2], $r[3] ?? [], $r[4] ?? []);
             }
         });
 
         continue;
     }
 
-    SRouter::map($route[0], $route[1], $route[2], isset($route[3]) ? $route[3] : []);
+    SRouter::map($route[0], $route[1], $route[2], $route[3] ?? [], $route[4] ?? []);
 }
 
 SRouter::get('routes', function () {
-    echo "<h1>All Routes.</h1><pre><h2>StaticRoutes:</h2>\n";
-    print_r(SRouter::getStaticRoutes());
-    echo "<h2>RegularRoutes:</h2>\n";
-    print_r(SRouter::getRegularRoutes());
-    echo "<h2>VagueRoutes:</h2>\n";
-    print_r(SRouter::getVagueRoutes());
-    echo '</pre>';
+    $string = SRouter::getRouter()->__toString();
+    echo "<pre><code>{$string}</code></pre>";
 });
 
 $dispatcher = new Dispatcher([
