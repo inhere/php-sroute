@@ -269,7 +269,7 @@ class SimpleDispatcher implements DispatcherInterface
 
             $this->setOption(self::ON_NOT_FOUND, $handler);
             // is a route path. like '/site/notFound'
-        } else if (\is_string($handler) && '/' === $handler{0}) {
+        } else if (\is_string($handler) && \strpos($handler, '/') === 0) {
             $_GET['_src_path'] = $path;
 
             if ($path === $handler) {
@@ -421,9 +421,17 @@ HTML;
     }
 
     /**
-     * @return RouterInterface|null
+     * @return bool
      */
-    public function getRouter()
+    public function hasRouter(): bool
+    {
+        return $this->router !== null;
+    }
+
+    /**
+     * @return RouterInterface
+     */
+    public function getRouter(): RouterInterface
     {
         return $this->router;
     }

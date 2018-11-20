@@ -99,8 +99,8 @@ abstract class AbstractRouter implements RouterInterface, \Countable
     protected $vagueRoutes = [];
 
     /**
-     * middleware chains
-     * @var array
+     * middleware handler chains
+     * @var callable[]
      */
     private $chains = [];
 

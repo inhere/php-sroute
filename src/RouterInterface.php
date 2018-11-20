@@ -96,5 +96,10 @@ interface RouterInterface
     /**
      * @return array
      */
+    public function getChains(): array;
+
+    /**
+     * @return array
+     */
     public static function getSupportedMethods(): array;
 }

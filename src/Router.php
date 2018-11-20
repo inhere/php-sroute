@@ -290,7 +290,7 @@ class Router extends AbstractRouter
             );
         }
 
-        if (!$dispatcher->getRouter()) {
+        if (!$dispatcher->hasRouter()) {
             $dispatcher->setRouter($this);
         }
 

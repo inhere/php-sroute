@@ -66,10 +66,10 @@ final class Route implements \IteratorAggregate
     // -- extra properties
 
     /**
-     * middleware chains
-     * @var array
+     * middleware handler chains
+     * @var callable[]
      */
-    public $chains = [];
+    private $chains = [];
 
     /**
      * some custom route options data.

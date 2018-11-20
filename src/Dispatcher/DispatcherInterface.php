@@ -54,9 +54,14 @@ interface DispatcherInterface
     public function on(string $event, $handler);
 
     /**
-     * @return RouterInterface|null
+     * @return RouterInterface
      */
-    public function getRouter();
+    public function getRouter(): RouterInterface;
+
+    /**
+     * @return bool
+     */
+    public function hasRouter(): bool;
 
     /**
      * @param RouterInterface $router

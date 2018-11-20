@@ -114,6 +114,6 @@ class RouteTest extends TestCase
         $route->middleware('func1', 'func2');
         $route->push('func3');
 
-        $this->assertEquals(['func1', 'func2', 'func3'], $route->chains);
+        $this->assertEquals(['func1', 'func2', 'func3'], $route->getChains());
     }
 }
