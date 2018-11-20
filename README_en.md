@@ -4,7 +4,7 @@
 [![Php Version](https://img.shields.io/badge/php-%3E=7.0-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
 
-a very lightweight and fast speed router.
+A very lightweight and fast speed router.
 
 - Lightweight and fast speed, the search speed is not affected by the routing number
 - supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
@@ -16,14 +16,14 @@ a very lightweight and fast speed router.
 
 ## [中文README](./README.md)更详细
 
-## project
+## Project
 
 - **github** https://github.com/inhere/php-srouter.git
 - **git@osc** https://git.oschina.net/inhere/php-srouter.git
 
-## install
+## Install
 
-- by composer
+- by `composer.json`
 
 ```json
 {
@@ -33,11 +33,10 @@ a very lightweight and fast speed router.
 }
 ```
 
-- fetch code
+- by `composer require`
 
 ```bash
-git clone https://github.com/inhere/php-srouter.git // github
-git clone https://git.oschina.net/inhere/php-srouter.git // git@osc
+composer require inhere/sroute
 ```
 
 ## Benchmark
@@ -138,14 +137,14 @@ $router->group('/user', function () {
 });
 ```
 
-### use controller action
+### Use controller action
 
 ```php
 // if you config 'ignoreLastSlash' => true, '/index' is equals to '/index/'
 $router->get('/index', 'app\controllers\Home@index');
 ```
 
-### dynamic action
+### Dynamic action
 
 match dynamic action, config `'dynamicAction' => true`
 
@@ -159,7 +158,7 @@ $router->any('/home/{name}', app\controllers\Home::class);
 $router->any('/home[/{name}]', app\controllers\Home::class);
 ```
 
-### use action executor
+### Use action executor
 
 if you config `'actionExecutor' => 'run'`
 
@@ -221,7 +220,7 @@ $router->config([
 
 > NOTICE: you must call `$router->config()` on before the add route.
 
-## route dispatcher
+## Route dispatcher
 
 ```php
 use Inhere\Route\Dispatcher;
@@ -231,7 +230,7 @@ $dispatcher = new Dispatcher([
 ]);
 ```
 
-## events 
+### Events 
 
 ```php
 $dispatcher->on(Dispatcher::ON_FOUND, function ($uri, $route) use ($app) {
@@ -246,7 +245,7 @@ $dispatcher->on('notFound', function ($uri) {
 });
 ```
 
-## begin dispatch
+### begin dispatch
 
 ```php
 $router->dispatch($dispatcher);

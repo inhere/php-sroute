@@ -19,7 +19,7 @@ interface DispatcherInterface
 {
     const FAV_ICON = '/favicon.ico';
 
-    // events
+    // some route events
     const ON_FOUND = 'found';
     const ON_NOT_FOUND = 'notFound';
     const ON_METHOD_NOT_ALLOWED = 'methodNotAllowed';
@@ -47,15 +47,21 @@ interface DispatcherInterface
     public function dispatch(int $status, string $path, string $method, $route);
 
     /**
+     * Defines callback on happen event.
+     * @param string $event please see class constants ON_*
+     * @param callable $handler
+     */
+    public function on(string $event, $handler);
+
+    /**
      * @return RouterInterface|null
      */
     public function getRouter();
 
     /**
      * @param RouterInterface $router
-     * @return SimpleDispatcher
      */
-    public function setRouter(RouterInterface $router): SimpleDispatcher;
+    public function setRouter(RouterInterface $router);
 
     /**
      * @return array

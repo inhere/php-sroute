@@ -21,6 +21,7 @@ class DispatcherTest extends TestCase
         };
 
         $router = new Router();
+        $router->handleMethodNotAllowed = true;
         $router->get('/', $handler);
         $router->get('/user/info[/{int}]', $handler);
         $router->get('/my[/{name}[/{age}]]', $handler, [
@@ -33,7 +34,26 @@ class DispatcherTest extends TestCase
         ]);
 
         $d = new Dispatcher();
+
+        // add events
+        $d->on(Dispatcher::ON_NOT_FOUND, function () {
+            return 'TEST: page not found';
+        });
+        $d->on(Dispatcher::ON_METHOD_NOT_ALLOWED, function ($path, $m, $ms) {
+            return \sprintf(
+                'TEST: %s %s is not allowed, allowed methods: %s',
+                $m, $path, \implode(',', $ms)
+            );
+        });
         $d->setRouter($router);
+
+        // not found
+        $ret = $d->dispatchUri('/not-exist', 'get');
+        $this->assertSame('TEST: page not found', $ret);
+
+        // not allowed
+        $ret = $d->dispatchUri('/', 'post');
+        $this->assertSame('TEST: POST / is not allowed, allowed methods: GET', $ret);
 
         $ret = $d->dispatchUri('/', 'get');
         $this->assertStringStartsWith('hello', $ret);

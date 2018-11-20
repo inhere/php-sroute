@@ -104,4 +104,16 @@ class RouteTest extends TestCase
         $this->assertEquals('/blog-', $route->getPathStart());
         $this->assertEquals('#^/blog-(\w+)$#', $route->getPathRegex());
     }
+
+    /**
+     * @covers Route::middleware
+     */
+    public function testAddMiddleware()
+    {
+        $route = Route::createFromArray(['path' => '/middle', 'handler' => 'handler0']);
+        $route->middleware('func1', 'func2');
+        $route->push('func3');
+
+        $this->assertEquals(['func1', 'func2', 'func3'], $route->chains);
+    }
 }

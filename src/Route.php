@@ -94,7 +94,7 @@ final class Route implements \IteratorAggregate
      * @param array $config
      * @return Route
      */
-    public static function createFromArray(array $config): self
+    public static function createFromArray(array $config = []): self
     {
         $route = new self('GET', '/', '');
 
@@ -213,8 +213,11 @@ final class Route implements \IteratorAggregate
 
     /**
      * @param string $path
-     * @return array returns match result.
-     * [is ok?, route params values]
+     * @return array returns match result. has two elements.
+     * [
+     *  match ok?,
+     *  route params values
+     * ]
      */
     public function match(string $path): array
     {
@@ -228,12 +231,12 @@ final class Route implements \IteratorAggregate
             return [false,];
         }
 
-        $params = [];
-
-        // no params. eg only use optional. '/about[.html]'
+        // no params. eg: only use optional. '/about[.html]'
         if (\count($this->pathVars) === 0) {
-            return [true, $params];
+            return [true, []];
         }
+
+        $params = [];
 
         // first is full match.
         \array_shift($matches);
@@ -249,19 +252,9 @@ final class Route implements \IteratorAggregate
         return [true, $params];
     }
 
-    /**
-     * param array $params matched path params values.
-     * @return array
-     */
-    public function info(): array
-    {
-        return [
-            'params' => [],
-            'handler' => $this->handler,
-            'chains' => $this->chains,
-            'options' => $this->options,
-        ];
-    }
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
 
     /**
      * @param array $params
@@ -275,22 +268,44 @@ final class Route implements \IteratorAggregate
         return $route;
     }
 
-    /*******************************************************************************
-     * helper methods
-     ******************************************************************************/
-
     /**
      * push middleware for the route
      * @param array ...$middleware
      * @return Route
      */
-    public function push(...$middleware): self
+    public function middleware(...$middleware): self
     {
         foreach ($middleware as $handler) {
             $this->chains[] = $handler;
         }
 
         return $this;
+    }
+
+    /**
+     * alias of the method: middleware()
+     * @param mixed ...$middleware
+     * @return Route
+     */
+    public function push(...$middleware): self
+    {
+        return $this->middleware(...$middleware);
+    }
+
+    /**
+     * param array $params matched path params values.
+     * @return array
+     */
+    public function info(): array
+    {
+        return [
+            'path' => $this->path,
+            'method' => $this->method,
+            'handler' => $this->handler,
+            'options' => $this->options,
+            'params' => $this->params,
+            'chains' => $this->chains,
+        ];
     }
 
     /**
@@ -335,15 +350,9 @@ final class Route implements \IteratorAggregate
         );
     }
 
-    /**
-     * @param array $bindVars
-     * @return Route
-     */
-    public function setBindVars(array $bindVars): Route
-    {
-        $this->bindVars = $bindVars;
-        return $this;
-    }
+    /*******************************************************************************
+     * getter methods
+     ******************************************************************************/
 
     /**
      * @param string $name
@@ -457,5 +466,13 @@ final class Route implements \IteratorAggregate
     public function getPathStart(): string
     {
         return $this->pathStart;
+    }
+
+    /**
+     * @return array
+     */
+    public function getChains(): array
+    {
+        return $this->chains;
     }
 }

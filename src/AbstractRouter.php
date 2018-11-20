@@ -14,7 +14,7 @@ use Inhere\Route\Helper\RouteHelper;
  * Class AbstractRouter
  * @package Inhere\Route
  */
-abstract class AbstractRouter implements RouterInterface
+abstract class AbstractRouter implements RouterInterface, \Countable
 {
     /** @var string The router name */
     private $name = '';
@@ -63,7 +63,6 @@ abstract class AbstractRouter implements RouterInterface
     /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
      * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
-     * e.g '/hello/{name}' '/user/{id}'
      * @var Route[][]
      * [
      *     // 使用完整的第一节作为key进行分组
@@ -103,7 +102,7 @@ abstract class AbstractRouter implements RouterInterface
      * middleware chains
      * @var array
      */
-    protected $chains = [];
+    private $chains = [];
 
     /*******************************************************************************
      * router config
@@ -346,11 +345,21 @@ abstract class AbstractRouter implements RouterInterface
     }
 
     /**
-     * push middleware(s) for the route
+     * alias of the method: middleware()
      * @param array ...$middleware
      * @return self
      */
     public function use(...$middleware): AbstractRouter
+    {
+        return $this->middleware(...$middleware);
+    }
+
+    /**
+     * push middleware(s) for the route
+     * @param mixed ...$middleware
+     * @return AbstractRouter
+     */
+    public function middleware(...$middleware): AbstractRouter
     {
         foreach ($middleware as $handler) {
             $this->chains[] = $handler;
@@ -467,5 +476,13 @@ abstract class AbstractRouter implements RouterInterface
     public function getVagueRoutes(): array
     {
         return $this->vagueRoutes;
+    }
+
+    /**
+     * @return array
+     */
+    public function getChains(): array
+    {
+        return $this->chains;
     }
 }

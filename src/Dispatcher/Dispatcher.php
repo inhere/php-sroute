@@ -13,6 +13,7 @@ use Inhere\Route\RouterInterface;
 
 /**
  * Class Dispatcher
+ * 相比 SimpleDispatcher
  * @package Inhere\Route\Dispatcher
  */
 class Dispatcher extends SimpleDispatcher
@@ -57,7 +58,7 @@ class Dispatcher extends SimpleDispatcher
         try {
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $route]);
-            $result = $this->callRouteHandler($path, $method, $handler, $args);
+            $result = $this->callHandler($path, $method, $handler, $args);
 
             // fire leave event
             if (isset($options['leave'])) {
@@ -65,7 +66,7 @@ class Dispatcher extends SimpleDispatcher
             }
 
             // trigger route exec_end event
-            $this->fire(self::ON_EXEC_END, [$path, $route]);
+            $this->fire(self::ON_EXEC_END, [$path, $route, $result]);
         } catch (\Throwable $e) {
             // trigger route exec_error event
             if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
@@ -93,21 +94,5 @@ class Dispatcher extends SimpleDispatcher
         // $serverName = $_SERVER['SERVER_NAME'];
 
         // 3. more something ...
-    }
-
-    /**
-     * Trigger event
-     * @param $event
-     * @param array $args
-     * @return mixed
-     * @throws \InvalidArgumentException
-     */
-    protected function fire($event, array $args = [])
-    {
-        if (!$cb = $this->getOption($event)) {
-            return false;
-        }
-
-        return RouteHelper::call($cb, $args);
     }
 }

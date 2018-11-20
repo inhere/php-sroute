@@ -199,9 +199,6 @@ $router->group('/user', function ($router) {
 // 使用 控制器
 $router->get('/', App\Controllers\HomeController::class);
 $router->get('/index', 'App\Controllers\HomeController@index');
-
-// 使用 rest() 可以快速将一个控制器类注册成一组 RESTful 路由
-$router->rest('/users', App\Controllers\UserController::class);
 ```
 
 ### 备用路由处理

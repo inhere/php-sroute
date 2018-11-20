@@ -131,7 +131,7 @@ class Router extends AbstractRouter
      * [
      *  match status, // found, not found, method not allowed
      *  formatted path,
-     *  (Route object) OR (methods list)
+     *  (Route object) OR (allowed methods list)
      * ]
      */
     public function match(string $path, string $method = 'GET'): array

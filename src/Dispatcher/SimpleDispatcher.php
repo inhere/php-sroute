@@ -56,6 +56,7 @@ class SimpleDispatcher implements DispatcherInterface
 
         // events: please @see DispatcherInterface::ON_*
         // 'event name'  => callback
+        // SimpleDispatcher::ON_FOUND => function(){ ... },
     ];
 
     /**
@@ -65,7 +66,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @return self
      * @throws \LogicException
      */
-    public static function make(array $options = [], RouterInterface $router = null): DispatcherInterface
+    public static function create(array $options = [], RouterInterface $router = null): DispatcherInterface
     {
         return new static($options, $router);
     }
@@ -129,6 +130,7 @@ class SimpleDispatcher implements DispatcherInterface
         }
 
         $method = (string)($method ?: $_SERVER['REQUEST_METHOD']);
+        $method = \strtoupper($method);
 
         /** @var Route $route */
         list($status, $path, $route) = $this->router->match($path, $method);
@@ -148,15 +150,23 @@ class SimpleDispatcher implements DispatcherInterface
             return $this->handleNotFound($path, $method);
         }
 
-        // method not allowed
+        // method not allowed. $route is methods array.
         if ($status === RouterInterface::METHOD_NOT_ALLOWED) {
             return $this->handleNotAllowed($path, $method, $route);
         }
 
+        // trigger route found event
+        $this->fire(self::ON_FOUND, [$path, $route]);
         $result = null;
 
         try {
-            $result = $this->callRouteHandler($path, $method, $route->getHandler(), $route->getParams());
+            // trigger route exec_start event
+            $this->fire(self::ON_EXEC_START, [$path, $route]);
+
+            $result = $this->callHandler($path, $method, $route->getHandler(), $route->getParams());
+
+            // trigger route exec_end event
+            $this->fire(self::ON_EXEC_END, [$path, $route, $result]);
         } catch (\Throwable $e) {
             // trigger route exec_error event
             if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
@@ -183,7 +193,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @throws \InvalidArgumentException
      * @throws \Throwable
      */
-    protected function callRouteHandler(string $path, string $method, $handler, array $args = [])
+    protected function callHandler(string $path, string $method, $handler, array $args = [])
     {
         // is a \Closure or a callable object
         if (\is_object($handler)) {
@@ -264,7 +274,6 @@ class SimpleDispatcher implements DispatcherInterface
 
             if ($path === $handler) {
                 $defaultHandler = $this->defaultNotFoundHandler();
-
                 return $defaultHandler($path, $method);
             }
 
@@ -292,7 +301,7 @@ class SimpleDispatcher implements DispatcherInterface
             $this->setOption(self::ON_METHOD_NOT_ALLOWED, $handler);
 
             // is a route path. like '/site/notFound'
-        } elseif (\is_string($handler) && '/' === $handler{0}) {
+        } elseif (\is_string($handler) && \strpos($handler, '/') === 0) {
             $_GET['_src_path'] = $path;
 
             if ($path === $handler) {
@@ -353,6 +362,22 @@ HTML;
     }
 
     /**
+     * Trigger event
+     * @param string $event
+     * @param array $args
+     * @return mixed
+     * @throws \InvalidArgumentException
+     */
+    protected function fire(string $event, array $args = [])
+    {
+        if (!$cb = $this->getOption($event)) {
+            return null;
+        }
+
+        return RouteHelper::call($cb, $args);
+    }
+
+    /**
      * @param string $name
      * @param $value
      */
@@ -405,13 +430,10 @@ HTML;
 
     /**
      * @param RouterInterface $router
-     * @return SimpleDispatcher
      */
-    public function setRouter(RouterInterface $router): SimpleDispatcher
+    public function setRouter(RouterInterface $router)
     {
         $this->router = $router;
-
-        return $this;
     }
 
     /**
@@ -427,6 +449,6 @@ HTML;
      */
     public function setOptions(array $options)
     {
-        $this->options = $options;
+        $this->options = \array_merge($this->options, $options);
     }
 }
