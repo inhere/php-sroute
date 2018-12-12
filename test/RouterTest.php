@@ -37,6 +37,32 @@ class RouterTest extends TestCase
         $this->assertSame(['func0', 'func1'], $r->getChains());
     }
 
+    public function testAddRoute()
+    {
+        $router = Router::create();
+
+        $r1 = Route::create('GET', '/path1', 'handler0');
+        $r1->setName('r1');
+        $router->addRoute($r1);
+
+        $r2 = Route::create('GET', '/path2', 'handler2');
+        $r2->namedTo('r2', $router, true);
+
+        $router->add('get', '/path3', 'handler3')->namedTo('r3', $router);
+
+        $this->assertEmpty($router->getRoute('not-exist'));
+        $this->assertEquals($r1, $router->getRoute('r1'));
+        $this->assertEquals($r2, $router->getRoute('r2'));
+
+        $r3 = $router->getRoute('r3');
+        $this->assertEquals([
+            'path' => '/path3',
+            'method' => 'GET',
+            'handlerName' => 'handler3',
+        ], $r3->info());
+
+    }
+
     public function testStaticRoute()
     {
         /** @var Router $router */

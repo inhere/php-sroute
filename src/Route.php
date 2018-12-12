@@ -15,6 +15,11 @@ namespace Inhere\Route;
 final class Route implements \IteratorAggregate
 {
     /**
+     * @var string Route name
+     */
+    private $name = '';
+
+    /**
      * @var string route pattern path. eg "/users/{id}" "/user/login"
      */
     private $path;
@@ -117,11 +122,39 @@ final class Route implements \IteratorAggregate
      */
     public function __construct(string $method, string $path, $handler, array $paramBinds = [], array $options = [])
     {
-        $this->path = $path;
+        $this->path = \trim($path);
         $this->method = \strtoupper($method);
         $this->bindVars = $paramBinds;
         $this->handler = $handler;
         $this->options = $options;
+    }
+
+    /**
+     * register route to the router
+     * @param Router $router
+     */
+    public function attachTo(Router $router)
+    {
+        $router->addRoute($this);
+    }
+
+    /**
+     * name the route and bind name to router.
+     * @param string $name
+     * @param Router $router
+     * @param bool $register
+     */
+    public function namedTo(string $name, Router $router, bool $register = false)
+    {
+        $this->setName($name);
+
+        if ($this->name) {
+            if ($register) {
+                $router->addRoute($this);
+            } else {
+                $router->nameRoute($this->name, $this);
+            }
+        }
     }
 
     /*******************************************************************************
@@ -293,7 +326,7 @@ final class Route implements \IteratorAggregate
     }
 
     /**
-     * param array $params matched path params values.
+     * get basic info data
      * @return array
      */
     public function info(): array
@@ -301,14 +334,12 @@ final class Route implements \IteratorAggregate
         return [
             'path' => $this->path,
             'method' => $this->method,
-            'handler' => $this->handler,
-            'options' => $this->options,
-            'params' => $this->params,
-            'chains' => $this->chains,
+            'handlerName' => $this->getHandlerName(),
         ];
     }
 
     /**
+     * get all info data
      * @return array
      */
     public function toArray(): array
@@ -334,32 +365,39 @@ final class Route implements \IteratorAggregate
      */
     public function toString(): string
     {
-        $handlerName = 'unknown';
-
-        if (\is_object($this->handler)) {
-            $handlerName = \get_class($this->handler);
-        } elseif (\is_array($this->handler)) {
-            $handlerName = 'array callback';
-        } elseif (\is_string($this->handler)) {
-            $handlerName = $this->handler;
-        }
-
         return \sprintf(
             '%-7s %-25s --> %s (%d middleware)',
-            $this->method, $this->path, $handlerName, \count($this->chains)
+            $this->method, $this->path, $this->getHandlerName(), \count($this->chains)
         );
     }
 
-    /*******************************************************************************
-     * getter methods
-     ******************************************************************************/
+    /**
+     * @param string $name
+     * @return Route
+     */
+    public function setName(string $name): self
+    {
+        if ($name = \trim($name)) {
+            $this->name = $name;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string $path
+     */
+    public function setPath(string $path)
+    {
+        $this->path = \trim($path);
+    }
 
     /**
      * @param string $name
      * @param $value
-     * @return $this
+     * @return Route
      */
-    public function addOption(string $name, $value)
+    public function addOption(string $name, $value): self
     {
         $this->options[$name] = $value;
         return $this;
@@ -369,11 +407,15 @@ final class Route implements \IteratorAggregate
      * @param array $options
      * @return Route
      */
-    public function setOptions(array $options): Route
+    public function setOptions(array $options): self
     {
         $this->options = $options;
         return $this;
     }
+
+    /*******************************************************************************
+     * getter methods
+     ******************************************************************************/
 
     /**
      * Retrieve an external iterator
@@ -474,5 +516,31 @@ final class Route implements \IteratorAggregate
     public function getChains(): array
     {
         return $this->chains;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHandlerName(): string
+    {
+        $handlerName = 'unknown';
+
+        if (\is_object($this->handler)) {
+            $handlerName = \get_class($this->handler);
+        } elseif (\is_array($this->handler)) {
+            $handlerName = '[array callback]';
+        } elseif (\is_string($this->handler)) {
+            $handlerName = $this->handler;
+        }
+
+        return $handlerName;
     }
 }

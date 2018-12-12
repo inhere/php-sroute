@@ -14,7 +14,7 @@ use Inhere\Route\Helper\RouteHelper;
  * Class AbstractRouter
  * @package Inhere\Route
  */
-abstract class AbstractRouter implements RouterInterface, \Countable
+abstract class AbstractRouter implements RouterInterface
 {
     /** @var string The router name */
     private $name = '';
@@ -49,16 +49,17 @@ abstract class AbstractRouter implements RouterInterface, \Countable
      * 整个路由 path 都是静态字符串 e.g. '/user/login'
      * @var Route[]
      * [
-     *     '/user/login' => [
-     *          // METHOD => Route object,
-     *          'GET' => Route,
-     *          'PUT' => Route,
-     *          ...
-     *      ],
-     *      ... ...
+     *     'GET /user/login' =>  Route,
+     *     'POST /user/login' =>  Route,
      * ]
      */
     protected $staticRoutes = [];
+
+    /**
+     * name routes. use for find a route by name.
+     * @var array [name => Route]
+     */
+    protected $namedRoutes = [];
 
     /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
@@ -68,13 +69,10 @@ abstract class AbstractRouter implements RouterInterface, \Countable
      *     // 使用完整的第一节作为key进行分组
      *     'edit' => [
      *          Route, // '/edit/{id}'
-     *          ...
      *      ],
      *     'blog' => [
      *        Route, // '/blog/post-{id}'
-     *        ...
      *     ],
-     *     ... ...
      * ]
      */
     protected $regularRoutes = [];
@@ -93,7 +91,6 @@ abstract class AbstractRouter implements RouterInterface, \Countable
      *          Route, // '/{some}/{some2}'
      *          ...
      *     ],
-     *      ... ...
      * ]
      */
     protected $vagueRoutes = [];
@@ -140,17 +137,6 @@ abstract class AbstractRouter implements RouterInterface, \Countable
     public $controllerSuffix = 'Controller';
 
     /**
-     * object creator.
-     * @param array $config
-     * @return self
-     * @throws \LogicException
-     */
-    public static function create(array $config = []): AbstractRouter
-    {
-        return new static($config);
-    }
-
-    /**
      * object constructor.
      * @param array $config
      * @throws \LogicException
@@ -158,7 +144,6 @@ abstract class AbstractRouter implements RouterInterface, \Countable
     public function __construct(array $config = [])
     {
         $this->config($config);
-
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
     }
@@ -409,7 +394,7 @@ abstract class AbstractRouter implements RouterInterface, \Countable
     /**
      * @return array
      */
-    public static function getSupportedMethods(): array
+    public static function getAllowedMethods(): array
     {
         return self::METHODS_ARRAY;
     }
@@ -431,14 +416,6 @@ abstract class AbstractRouter implements RouterInterface, \Countable
     }
 
     /**
-     * @param array $staticRoutes
-     */
-    public function setStaticRoutes(array $staticRoutes)
-    {
-        $this->staticRoutes = $staticRoutes;
-    }
-
-    /**
      * @return array
      */
     public function getStaticRoutes(): array
@@ -447,27 +424,11 @@ abstract class AbstractRouter implements RouterInterface, \Countable
     }
 
     /**
-     * @param \array[] $regularRoutes
-     */
-    public function setRegularRoutes(array $regularRoutes)
-    {
-        $this->regularRoutes = $regularRoutes;
-    }
-
-    /**
      * @return \array[]
      */
     public function getRegularRoutes(): array
     {
         return $this->regularRoutes;
-    }
-
-    /**
-     * @param array $vagueRoutes
-     */
-    public function setVagueRoutes(array $vagueRoutes)
-    {
-        $this->vagueRoutes = $vagueRoutes;
     }
 
     /**

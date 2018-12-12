@@ -112,27 +112,31 @@ final class CachedRouter extends Router
 
         // load routes
         $map = require $file;
+        $this->routeCounter = 0;
         $staticRoutes = $regularRoutes = $vagueRoutes = [];
 
         foreach ($map['staticRoutes'] as $key => $info) {
+            $this->routeCounter++;
             $staticRoutes[$key] = Route::createFromArray($info);
         }
 
         foreach ($map['regularRoutes'] as $key => $routes) {
             foreach ($routes as $info) {
+                $this->routeCounter++;
                 $regularRoutes[$key][] = Route::createFromArray($info);
             }
         }
 
         foreach ($map['vagueRoutes'] as $key => $routes) {
             foreach ($routes as $info) {
+                $this->routeCounter++;
                 $vagueRoutes[$key][] = Route::createFromArray($info);
             }
         }
 
-        $this->setStaticRoutes($staticRoutes);
-        $this->setRegularRoutes($regularRoutes);
-        $this->setVagueRoutes($vagueRoutes);
+        $this->staticRoutes = $staticRoutes;
+        $this->regularRoutes = $regularRoutes;
+        $this->vagueRoutes = $vagueRoutes;
         $this->cacheLoaded = true;
 
         return true;

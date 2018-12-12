@@ -12,7 +12,7 @@ namespace Inhere\Route;
  * Interface RouterInterface
  * @package Inhere\Route
  */
-interface RouterInterface
+interface RouterInterface extends \IteratorAggregate, \Countable
 {
     /** match result status list */
     const FOUND = 1;
@@ -67,6 +67,13 @@ interface RouterInterface
     public function add(string $method, string $path, $handler, array $binds = [], array $opts = []): Route;
 
     /**
+     * add a Route to the router
+     * @param Route $route
+     * @return Route
+     */
+    public function addRoute(Route $route): Route;
+
+    /**
      * @param array|string $methods The match request method(s). e.g ['get','post']
      * @param string $path The route path string. is allow empty string. eg: '/user/login'
      * @param callable|string $handler
@@ -101,5 +108,5 @@ interface RouterInterface
     /**
      * @return array
      */
-    public static function getSupportedMethods(): array;
+    public static function getAllowedMethods(): array;
 }

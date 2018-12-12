@@ -25,6 +25,17 @@ class Router extends AbstractRouter
         // 'time' => ['12'],
     ];
 
+    /**
+     * object creator.
+     * @param array $config
+     * @return self
+     * @throws \LogicException
+     */
+    public static function create(array $config = []): Router
+    {
+        return new static($config);
+    }
+
     /*******************************************************************************
      * route collection
      ******************************************************************************/
@@ -56,8 +67,6 @@ class Router extends AbstractRouter
             );
         }
 
-        list($path, $opts) = $this->prepareForAdd($path, $opts);
-
         // create Route
         $route = Route::create($method, $path, $handler, $binds, $opts);
 
@@ -70,15 +79,21 @@ class Router extends AbstractRouter
      */
     public function addRoute(Route $route): Route
     {
-        $this->routeCounter++;
+        $this->prepareForAdd($route);
 
         $path = $route->getPath();
         $method = $route->getMethod();
 
+        $this->routeCounter++;
+
+        // has route name.
+        if ($name = $route->getName()) {
+            $this->namedRoutes[$name] = $route;
+        }
+
         // it is static route
         if (self::isStaticRoute($path)) {
             $this->staticRoutes[$method . ' ' . $path] = $route;
-
             return $route;
         }
 
@@ -97,12 +112,13 @@ class Router extends AbstractRouter
 
     /**
      * prepare for add
-     * @param string $path
-     * @param array $opts
-     * @return array
+     * @param Route $route
+     * @return void
      */
-    protected function prepareForAdd(string $path, array $opts): array
+    protected function prepareForAdd(Route $route)
     {
+        $path = $route->getPath();
+
         // always add '/' prefix.
         $path = \strpos($path, '/') === 0 ? $path : '/' . $path;
         $path = $this->currentGroupPrefix . $path;
@@ -112,11 +128,11 @@ class Router extends AbstractRouter
             $path = \rtrim($path, '/');
         }
 
-        if ($this->currentGroupOption) {
-            $opts = \array_merge($this->currentGroupOption, $opts);
-        }
+        $route->setPath($path);
 
-        return [$path, $opts];
+        if ($groupOpts = $this->currentGroupOption) {
+            $route->setOptions(\array_merge($groupOpts, $route->getOptions()));
+        }
     }
 
     /*******************************************************************************
@@ -182,10 +198,6 @@ class Router extends AbstractRouter
 
         return [self::NOT_FOUND, $path, null];
     }
-
-    /*******************************************************************************
-     * helper methods
-     ******************************************************************************/
 
     /**
      * is a dynamic route, match by regexp
@@ -297,6 +309,31 @@ class Router extends AbstractRouter
         return $dispatcher->dispatchUri($path, $method);
     }
 
+    /*******************************************************************************
+     * helper methods
+     ******************************************************************************/
+
+    /**
+     * @param string $name
+     * @param Route $route
+     */
+    public function nameRoute(string $name, Route $route)
+    {
+        if ($name = \trim($name)) {
+            $this->namedRoutes[$name] = $route;
+        }
+    }
+
+    /**
+     * get a name route by given name.
+     * @param string $name
+     * @return Route|null
+     */
+    public function getRoute(string $name)
+    {
+        return $this->namedRoutes[$name] ?? null;
+    }
+
     /**
      * @return int
      */
@@ -322,6 +359,55 @@ class Router extends AbstractRouter
         $this->globalOptions = $globalOptions;
 
         return $this;
+    }
+
+    /**
+     * @param \Closure $func
+     */
+    public function each(\Closure $func)
+    {
+        /** @var Route $route */
+        foreach ($this->staticRoutes as $route) {
+            $func($route);
+        }
+
+        foreach ($this->regularRoutes as $routes) {
+            foreach ($routes as $route) {
+                $func($route);
+            }
+        }
+
+        foreach ($this->vagueRoutes as $routes) {
+            foreach ($routes as $route) {
+                $func($route);
+            }
+        }
+    }
+
+    /**
+     * get all routes
+     * @return array
+     */
+    public function getRoutes(): array
+    {
+        $routes = [];
+        $this->each(function (Route $route) use (&$routes) {
+            $routes[] = $route;
+        });
+
+        return $routes;
+    }
+
+    /**
+     * Retrieve an external iterator
+     * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
+     * @return \Traversable An instance of an object implementing <b>Iterator</b> or
+     * <b>Traversable</b>
+     * @since 5.0.0
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->getRoutes());
     }
 
     /**
@@ -361,4 +447,5 @@ class Router extends AbstractRouter
 
         return \implode("\n", $strings);
     }
+
 }
