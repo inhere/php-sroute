@@ -106,9 +106,9 @@ class RouteTest extends TestCase
     }
 
     /**
-     * @covers Route::middleware
+     * @covers Route::middleware()
      */
-    public function testAddMiddleware()
+    public function testMiddleware()
     {
         $route = Route::createFromArray(['path' => '/middle', 'handler' => 'handler0']);
         $route->middleware('func1', 'func2');

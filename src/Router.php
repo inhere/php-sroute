@@ -13,17 +13,80 @@ use Inhere\Route\Dispatcher\DispatcherInterface;
 use Inhere\Route\Helper\RouteHelper;
 
 /**
- * Class Router - this is object version
+ * Class Router - This is object version
  * @package Inhere\Route
  */
-class Router extends AbstractRouter
+class Router implements RouterInterface
 {
-    /** @var array global Options */
-    private $globalOptions = [
-        // 'domains' => [ 'localhost' ], // allowed domains
-        // 'schemas' => [ 'http' ], // allowed schemas
-        // 'time' => ['12'],
-    ];
+    use RouterConfigTrait;
+
+    /** @var int */
+    protected $routeCounter = 0;
+
+    /** @var callable[] Router middleware handler chains */
+    private $chains = [];
+
+    // -- Group info
+
+    /** @var string */
+    protected $currentGroupPrefix;
+    /** @var array */
+    protected $currentGroupOption = [];
+    /** @var array */
+    protected $currentGroupChains = [];
+
+    // -- Routes data
+
+    /**
+     * name routes. use for find a route by name.
+     * @var array [name => Route]
+     */
+    protected $namedRoutes = [];
+
+    /**
+     * static Routes - no dynamic argument match
+     * 整个路由 path 都是静态字符串 e.g. '/user/login'
+     * @var Route[]
+     * [
+     *     'GET /user/login' =>  Route,
+     *     'POST /user/login' =>  Route,
+     * ]
+     */
+    protected $staticRoutes = [];
+
+    /**
+     * regular Routes - have dynamic arguments, but the first node is normal string.
+     * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
+     * @var Route[][]
+     * [
+     *     // 使用完整的第一节作为key进行分组
+     *     'edit' => [
+     *          Route, // '/edit/{id}'
+     *      ],
+     *     'blog' => [
+     *        Route, // '/blog/post-{id}'
+     *     ],
+     * ]
+     */
+    protected $regularRoutes = [];
+
+    /**
+     * vague Routes - have dynamic arguments,but the first node is exists regex.
+     * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
+     * @var Route[][]
+     * [
+     *     // 使用 HTTP METHOD 作为 key进行分组
+     *     'GET' => [
+     *          Route, // '/{name}/profile'
+     *          ...
+     *     ],
+     *     'POST' => [
+     *          Route, // '/{some}/{some2}'
+     *          ...
+     *     ],
+     * ]
+     */
+    protected $vagueRoutes = [];
 
     /**
      * object creator.
@@ -36,9 +99,145 @@ class Router extends AbstractRouter
         return new static($config);
     }
 
+    /**
+     * object constructor.
+     * @param array $config
+     * @throws \LogicException
+     */
+    public function __construct(array $config = [])
+    {
+        $this->config($config);
+        $this->currentGroupPrefix = '';
+        $this->currentGroupOption = [];
+    }
+
     /*******************************************************************************
-     * route collection
+     * router middleware
      ******************************************************************************/
+
+    /**
+     * alias of the method: middleware()
+     * @param array ...$middleware
+     * @return self
+     */
+    public function use(...$middleware): Router
+    {
+        return $this->middleware(...$middleware);
+    }
+
+    /**
+     * push middleware(s) for the route
+     * @param mixed ...$middleware
+     * @return Router
+     */
+    public function middleware(...$middleware): Router
+    {
+        foreach ($middleware as $handler) {
+            $this->chains[] = $handler;
+        }
+
+        return $this;
+    }
+
+    /*******************************************************************************
+     * route register
+     ******************************************************************************/
+
+    /**
+     * register a route, allow GET request method.
+     * {@inheritdoc}
+     */
+    public function get(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('GET', $path, $handler, $binds, $opts);
+        // return $this->map(['GET', 'HEAD'], $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow POST request method.
+     * {@inheritdoc}
+     */
+    public function post(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('POST', $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow PUT request method.
+     * {@inheritdoc}
+     */
+    public function put(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('PUT', $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow PATCH request method.
+     * {@inheritdoc}
+     */
+    public function patch(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('PATCH', $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow DELETE request method.
+     * {@inheritdoc}
+     */
+    public function delete(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('DELETE', $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow HEAD request method.
+     * {@inheritdoc}
+     */
+    public function head(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('HEAD', $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow OPTIONS request method.
+     * {@inheritdoc}
+     */
+    public function options(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('OPTIONS', $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow CONNECT request method.
+     * {@inheritdoc}
+     */
+    public function connect(string $path, $handler, array $binds = [], array $opts = []): Route
+    {
+        return $this->add('CONNECT', $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * register a route, allow any request METHOD.
+     * {@inheritdoc}
+     */
+    public function any(string $path, $handler, array $binds = [], array $opts = [])
+    {
+        $this->map(self::METHODS_ARRAY, $path, $handler, $binds, $opts);
+    }
+
+    /**
+     * @param array|string $methods
+     * @param string $path
+     * @param callable|string $handler
+     * @param array $binds
+     * @param array $opts
+     */
+    public function map($methods, string $path, $handler, array $binds = [], array $opts = [])
+    {
+        foreach ((array)$methods as $method) {
+            $this->add($method, $path, $handler, $binds, $opts);
+        }
+    }
 
     /**
      * @param string $method
@@ -79,7 +278,7 @@ class Router extends AbstractRouter
      */
     public function addRoute(Route $route): Route
     {
-        $this->prepareForAdd($route);
+        $this->appendGroupInfo($route);
 
         $path = $route->getPath();
         $method = $route->getMethod();
@@ -92,16 +291,14 @@ class Router extends AbstractRouter
         }
 
         // it is static route
-        if (self::isStaticRoute($path)) {
+        if (RouteHelper::isStaticRoute($path)) {
             $this->staticRoutes[$method . ' ' . $path] = $route;
             return $route;
         }
 
         // parse param route
-        $first = $route->parseParam(self::$globalParams);
-
-        // route string have regular
-        if ($first) {
+        // if the first node is static string.
+        if ($first = $route->parseParam(self::$globalParams)) {
             $this->regularRoutes[$method . ' ' . $first][] = $route;
         } else {
             $this->vagueRoutes[$method][] = $route;
@@ -111,11 +308,39 @@ class Router extends AbstractRouter
     }
 
     /**
+     * Create a route group with a common prefix.
+     * All routes created in the passed callback will have the given group prefix prepended.
+     * @param string $prefix
+     * @param \Closure $callback
+     * @param array $middleware
+     * @param array $opts
+     */
+    public function group(string $prefix, \Closure $callback, array $middleware = [], array $opts = [])
+    {
+        // backups
+        $previousGroupPrefix = $this->currentGroupPrefix;
+        $previousGroupOption = $this->currentGroupOption;
+        $previousGroupChains = $this->currentGroupChains;
+
+        $this->currentGroupOption = $opts;
+        $this->currentGroupChains = $middleware;
+        $this->currentGroupPrefix = $previousGroupPrefix . '/' . \trim($prefix, '/');
+
+        // run callback.
+        $callback($this);
+
+        // reverts
+        $this->currentGroupPrefix = $previousGroupPrefix;
+        $this->currentGroupOption = $previousGroupOption;
+        $this->currentGroupChains = $previousGroupChains;
+    }
+
+    /**
      * prepare for add
      * @param Route $route
      * @return void
      */
-    protected function prepareForAdd(Route $route)
+    protected function appendGroupInfo(Route $route)
     {
         $path = $route->getPath();
 
@@ -130,8 +355,13 @@ class Router extends AbstractRouter
 
         $route->setPath($path);
 
-        if ($groupOpts = $this->currentGroupOption) {
-            $route->setOptions(\array_merge($groupOpts, $route->getOptions()));
+        if ($grpOptions = $this->currentGroupOption) {
+            $route->setOptions(\array_merge($grpOptions, $route->getOptions()));
+        }
+
+        if ($grpChains = $this->currentGroupChains) {
+            // prepend group middleware at before.
+            $route->setChains(\array_merge($grpChains, $route->getChains()));
         }
     }
 
@@ -243,6 +473,22 @@ class Router extends AbstractRouter
     }
 
     /**
+     * handle auto route match, when config `'autoRoute' => true`
+     * @param string $path The route path
+     * @return bool|callable
+     */
+    public function matchAutoRoute(string $path)
+    {
+        if (!$cnp = \trim($this->controllerNamespace)) {
+            return false;
+        }
+
+        $sfx = \trim($this->controllerSuffix);
+
+        return RouteHelper::parseAutoRoute($path, $cnp, $sfx);
+    }
+
+    /**
      * @param string $path
      * @param string $method
      * @return array
@@ -343,25 +589,6 @@ class Router extends AbstractRouter
     }
 
     /**
-     * @return array
-     */
-    public function getGlobalOptions(): array
-    {
-        return $this->globalOptions;
-    }
-
-    /**
-     * @param array $globalOptions
-     * @return $this
-     */
-    public function setGlobalOptions(array $globalOptions): self
-    {
-        $this->globalOptions = $globalOptions;
-
-        return $this;
-    }
-
-    /**
      * @param \Closure $func
      */
     public function each(\Closure $func)
@@ -396,6 +623,14 @@ class Router extends AbstractRouter
         });
 
         return $routes;
+    }
+
+    /**
+     * @return array
+     */
+    public function getChains(): array
+    {
+        return $this->chains;
     }
 
     /**
@@ -447,5 +682,4 @@ class Router extends AbstractRouter
 
         return \implode("\n", $strings);
     }
-
 }

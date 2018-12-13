@@ -20,9 +20,6 @@ use Inhere\Route\Helper\RouteHelper;
  */
 final class ServerRouter extends Router
 {
-    /** @var int */
-    private $cacheCounter = 0;
-
     /**
      * The param route cache number.
      * @var int
@@ -31,42 +28,14 @@ final class ServerRouter extends Router
 
     /**
      * There are last route caches. like static routes
-     * @var array[]
+     * @see $staticRoutes
+     * @var Route[]
      * [
-     *  '/user/login#GET' => [
-     *      'handler' => 'handler0',
-     *      'option' => [...],
-     *  ],
-     *  '/user/login#PUT' => [
-     *      'handler' => 'handler1',
-     *      'option' => [...],
-     *  ],
+     *  'GET /user/login' => Route,
+     *  'PUT /user/login' => Route,
      * ]
      */
-    protected $cacheRoutes = [];
-
-    /**
-     * Flatten static routes info {@see $flatStaticRoutes}
-     * @var bool
-     */
-    protected $flattenStatic = true;
-
-    /**
-     * flatten static routes
-     * @see AbstractRouter::$staticRoutes
-     * @var array
-     * [
-     *  '/user/login#GET' => [
-     *      'handler' => 'handler0',
-     *      'option' => [...],
-     *  ],
-     *  '/user/login#PUT' => [
-     *      'handler' => 'handler1',
-     *      'option' => [...],
-     *  ],
-     * ]
-     */
-    protected $flatStaticRoutes = [];
+    private $cacheRoutes = [];
 
     /**
      * object constructor.
@@ -164,11 +133,10 @@ final class ServerRouter extends Router
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0 && !isset($this->cacheRoutes[$cacheKey])) {
-            if ($this->cacheCounter >= $cacheNumber) {
+            if ($this->getCacheCount() >= $cacheNumber) {
                 \array_shift($this->cacheRoutes);
             }
 
-            $this->cacheCounter++;
             $this->cacheRoutes[$cacheKey] = $route;
         }
     }
@@ -184,8 +152,8 @@ final class ServerRouter extends Router
     /**
      * @return int
      */
-    public function getCacheCounter(): int
+    public function getCacheCount(): int
     {
-        return $this->cacheCounter;
+        return count($this->cacheRoutes);
     }
 }

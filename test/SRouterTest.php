@@ -12,7 +12,6 @@ use PHPUnit\Framework\TestCase;
  */
 class SRouterTest extends TestCase
 {
-
     private function registerRoutes()
     {
         SRouter::get('/', 'handler0');
@@ -21,16 +20,6 @@ class SRouterTest extends TestCase
         SRouter::get('/hi/{name}', 'handler3', [
             'name' => '\w+',
         ]);
-    }
-
-    public function testAddRoutes()
-    {
-        $this->registerRoutes();
-
-        $this->assertSame(4, SRouter::getRouter()->count());
-        $this->assertCount(2, SRouter::getRouter()->getStaticRoutes());
-        $this->assertCount(1, SRouter::getRouter()->getRegularRoutes());
-        $this->assertCount(1, SRouter::getRouter()->getVagueRoutes());
     }
 
     public function testStaticRoute()

@@ -136,10 +136,10 @@ class RouterManager
      * ]
      * string:
      *  get by name. same of call getByName()
-     * @return AbstractRouter|RouterInterface
+     * @return Router |RouterInterface
      * @throws \InvalidArgumentException
      */
-    public function get($condition = null): AbstractRouter
+    public function get($condition = null): Router
     {
         if (!$condition) {
             return $this->getDefault();
@@ -187,10 +187,10 @@ class RouterManager
 
     /**
      * @param string $name
-     * @return AbstractRouter
+     * @return Router
      * @throws \InvalidArgumentException
      */
-    public function getByName(string $name): AbstractRouter
+    public function getByName(string $name): Router
     {
         if (!isset($this->configs[$name])) {
             throw new \InvalidArgumentException("The named router '$name' does not exists!");
@@ -216,10 +216,10 @@ class RouterManager
     }
 
     /**
-     * @return AbstractRouter
+     * @return Router
      * @throws \InvalidArgumentException
      */
-    public function getDefault(): AbstractRouter
+    public function getDefault(): Router
     {
         return $this->getByName(self::DEFAULT_ROUTER);
     }
@@ -227,10 +227,10 @@ class RouterManager
     /**
      * @param array $config
      * @param string $name
-     * @return AbstractRouter
+     * @return Router
      * @throws \InvalidArgumentException
      */
-    private function createRouter(array $config, string $name = ''): AbstractRouter
+    private function createRouter(array $config, string $name = ''): Router
     {
         $driver = $config['driver'] ?? self::DEFAULT_ROUTER;
         $options = $config['options'] ?? [];

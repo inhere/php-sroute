@@ -15,53 +15,56 @@ namespace Inhere\Route;
 interface RouterInterface extends \IteratorAggregate, \Countable
 {
     /** match result status list */
-    const FOUND = 1;
-    const NOT_FOUND = 2;
-    const METHOD_NOT_ALLOWED = 3;
+    public const FOUND = 1;
+    public const NOT_FOUND = 2;
+    public const METHOD_NOT_ALLOWED = 3;
 
-    const FAV_ICON = '/favicon.ico';
-    const DEFAULT_REGEX = '[^/]+';
+    public const FAV_ICON = '/favicon.ico';
+    public const DEFAULT_REGEX = '[^/]+';
 
     /** supported method list */
-    const GET = 'GET';
-    const POST = 'POST';
-    const PUT = 'PUT';
-    const PATCH = 'PATCH';
-    const DELETE = 'DELETE';
-    const OPTIONS = 'OPTIONS';
-    const HEAD = 'HEAD';
+    public const GET = 'GET';
+    public const POST = 'POST';
+    public const PUT = 'PUT';
+    public const PATCH = 'PATCH';
+    public const DELETE = 'DELETE';
+    public const OPTIONS = 'OPTIONS';
+    public const HEAD = 'HEAD';
 
-    const COPY = 'COPY';
-    const PURGE = 'PURGE';
-    const LINK = 'LINK';
-    const UNLINK = 'UNLINK';
-    const LOCK = 'LOCK';
-    const UNLOCK = 'UNLOCK';
-    const SEARCH = 'SEARCH';
-    const CONNECT = 'CONNECT';
-    const TRACE = 'TRACE';
+    public const COPY = 'COPY';
+    public const PURGE = 'PURGE';
+    public const LINK = 'LINK';
+    public const UNLINK = 'UNLINK';
+    public const LOCK = 'LOCK';
+    public const UNLOCK = 'UNLOCK';
+    public const SEARCH = 'SEARCH';
+    public const CONNECT = 'CONNECT';
+    public const TRACE = 'TRACE';
 
     /** supported methods name list */
-    const METHODS_ARRAY = [
+    public const METHODS_ARRAY = [
         'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'CONNECT'
         // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'TRACE',
     ];
 
     // ,COPY,PURGE,LINK,UNLINK,LOCK,UNLOCK,VIEW,SEARCH,TRACE';
     /** supported methods name string */
-    const METHODS_STRING = ',GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,CONNECT,';
+    public const METHODS_STRING = ',GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD,CONNECT,';
 
     /** the matched result index key */
-    const INDEX_STATUS = 0;
-    const INDEX_PATH = 1;
-    const INDEX_INFO = 2;
+    public const INDEX_STATUS = 0;
+    public const INDEX_PATH = 1;
+    public const INDEX_INFO = 2;
 
     /**
-     * @param string $method
-     * @param string $path
-     * @param $handler
-     * @param array $binds route path var bind. eg. [ 'id' => '[0-9]+', ]
-     * @param array $opts
+     * add a route to the router.
+     * @param string $method Request method name. eg 'GET'
+     * @param string $path The route path. eg '/users'
+     * @param mixed $handler The route handler. allow: string, array, object
+     * @param array $binds The route path var bind. eg. [ 'id' => '[0-9]+', ]
+     * @param array $opts Extra options
+     * - name: string
+     * - ... more
      * @return Route
      */
     public function add(string $method, string $path, $handler, array $binds = [], array $opts = []): Route;
@@ -104,9 +107,4 @@ interface RouterInterface extends \IteratorAggregate, \Countable
      * @return array
      */
     public function getChains(): array;
-
-    /**
-     * @return array
-     */
-    public static function getAllowedMethods(): array;
 }

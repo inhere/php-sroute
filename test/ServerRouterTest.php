@@ -19,40 +19,33 @@ use PHPUnit\Framework\TestCase;
  */
 class ServerRouterTest extends TestCase
 {
-    private function createRouter()
+    public function testRouteCache()
     {
-        $r = new ServerRouter();
-        $r->get('/', 'handler0');
-        $r->get('/test', 'handler1');
-        $r->get('/test1[/optional]', 'handler');
-        $r->get('/{name}', 'handler2');
-        $r->get('/hi/{name}', 'handler3', [
+        $router = new ServerRouter();
+        $router->get('/test1[/optional]', 'handler');
+        $router->get('/{name}', 'handler2');
+        $router->get('/hi/{name}', 'handler3', [
             'name' => '\w+',
         ]);
-        $r->post('/hi/{name}', 'handler4');
-        $r->put('/hi/{name}', 'handler5');
-
-        return $r;
-    }
-
-    public function testRouteCacheExists()
-    {
-        $router = $this->createRouter();
+        $router->post('/hi/{name}', 'handler4');
+        $router->put('/hi/{name}', 'handler5');
 
         $this->assertTrue(4 < $router->count());
-        $this->assertCount(2, $router->getStaticRoutes());
-
-        $ret = $router->match('/hi/tom');
-
-        $this->assertCount(3, $ret);
-        $this->assertCount(1, $router->getCacheRoutes());
 
         /** @var Route $route */
-        list($status, $path, $route) = $ret;
+        list($status, $path, $route) = $router->match('/hi/tom');
 
         $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('handler3', $route->getHandler());
+
+        $this->assertEquals(1, $router->getCacheCount());
+
+        $cachedRoutes = $router->getCacheRoutes();
+        $this->assertCount(1, $cachedRoutes);
+
+        $cached = \array_shift($cachedRoutes);
+        $this->assertEquals($route, $cached);
     }
 
 }

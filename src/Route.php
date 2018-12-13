@@ -127,6 +127,10 @@ final class Route implements \IteratorAggregate
         $this->bindVars = $paramBinds;
         $this->handler = $handler;
         $this->options = $options;
+
+        if (isset($options['name'])) {
+            $this->setName($options['name']);
+        }
     }
 
     /**
@@ -146,13 +150,12 @@ final class Route implements \IteratorAggregate
      */
     public function namedTo(string $name, Router $router, bool $register = false)
     {
-        $this->setName($name);
-
-        if ($this->name) {
+        // not empty
+        if ($name = $this->setName($name)->name) {
             if ($register) {
                 $router->addRoute($this);
             } else {
-                $router->nameRoute($this->name, $this);
+                $router->nameRoute($name, $this);
             }
         }
     }
@@ -302,7 +305,7 @@ final class Route implements \IteratorAggregate
     }
 
     /**
-     * push middleware for the route
+     * push middleware(s) to the route
      * @param array ...$middleware
      * @return Route
      */
@@ -317,12 +320,22 @@ final class Route implements \IteratorAggregate
 
     /**
      * alias of the method: middleware()
+     * @see middleware()
      * @param mixed ...$middleware
      * @return Route
      */
     public function push(...$middleware): self
     {
         return $this->middleware(...$middleware);
+    }
+
+    /**
+     * replace set chains.
+     * @param callable[] $chains
+     */
+    public function setChains(array $chains): void
+    {
+        $this->chains = $chains;
     }
 
     /**

@@ -15,6 +15,16 @@ namespace Inhere\Route\Helper;
 class RouteHelper
 {
     /**
+     * is Static Route
+     * @param string $route
+     * @return bool
+     */
+    public static function isStaticRoute(string $route): bool
+    {
+        return \strpos($route, '{') === false && \strpos($route, '[') === false;
+    }
+
+    /**
      * format URI path
      * @param string $path
      * @param bool $ignoreLastSlash

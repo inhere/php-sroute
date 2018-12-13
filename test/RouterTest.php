@@ -29,12 +29,7 @@ class RouterTest extends TestCase
         $r->put('/hi/{name}', 'handler5');
 
         $this->assertSame(7, $r->count());
-        $this->assertCount(2, $r->getStaticRoutes());
-        $this->assertCount(3, $r->getRegularRoutes());
-        $this->assertCount(1, $r->getVagueRoutes());
 
-        $r->use('func0', 'func1');
-        $this->assertSame(['func0', 'func1'], $r->getChains());
     }
 
     public function testAddRoute()
@@ -48,18 +43,23 @@ class RouterTest extends TestCase
         $r2 = Route::create('GET', '/path2', 'handler2');
         $r2->namedTo('r2', $router, true);
 
-        $router->add('get', '/path3', 'handler3')->namedTo('r3', $router);
+        $r3 = $router->add('get', '/path3', 'handler3');
+        $r3->namedTo('r3', $router);
+
+        $r4 = $router->add('get', '/path3', 'handler3', [], ['name' => 'r4']);
 
         $this->assertEmpty($router->getRoute('not-exist'));
         $this->assertEquals($r1, $router->getRoute('r1'));
         $this->assertEquals($r2, $router->getRoute('r2'));
+        $this->assertEquals($r4, $router->getRoute('r4'));
 
-        $r3 = $router->getRoute('r3');
+        $ret = $router->getRoute('r3');
+        $this->assertEquals($r3, $ret);
         $this->assertEquals([
             'path' => '/path3',
             'method' => 'GET',
             'handlerName' => 'handler3',
-        ], $r3->info());
+        ], $ret->info());
 
     }
 
@@ -272,5 +272,27 @@ class RouterTest extends TestCase
         $this->assertSame(Router::METHOD_NOT_ALLOWED, $status);
         $this->assertCount(3, $methods);
         $this->assertEquals(['GET', 'POST', 'PUT'], $methods);
+    }
+
+    public function testMiddleware()
+    {
+        $router = Router::create();
+        $router->use('func0', 'func1');
+
+        // global middleware
+        $this->assertSame(['func0', 'func1'], $router->getChains());
+
+        $router->group('/grp', function (Router $r) use (&$r1) {
+            $r1 = $r
+                ->get('/path', 'h0')
+                ->push('func2');
+        }, ['func3', 'func4']);
+
+        /** @var Route $route */
+        list($status, , $route) = $router->match('/grp/path', 'get');
+
+        $this->assertSame(Router::FOUND, $status);
+        $this->assertSame($r1, $route);
+        $this->assertSame(['func3', 'func4', 'func2'], $route->getChains());
     }
 }
