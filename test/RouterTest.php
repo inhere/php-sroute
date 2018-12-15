@@ -6,9 +6,6 @@ use Inhere\Route\Route;
 use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Inhere\Route\Router
- */
 class RouterTest extends TestCase
 {
     public function testRouter()

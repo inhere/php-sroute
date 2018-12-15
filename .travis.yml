@@ -13,8 +13,7 @@ before_script:
   - composer require php-coveralls/php-coveralls:^2.1.0
 
 script:
-  #  - phpunit --coverage-clover build/logs/clover.xml
   - phpunit --coverage-clover clover.xml
 
 after_success:
-  - vendor/bin/php-coveralls --coverage_clover=clover.xml -v
+  - vendor/bin/php-coveralls --coverage_clover=clover.xml --json_path=coveralls-upload.json -v

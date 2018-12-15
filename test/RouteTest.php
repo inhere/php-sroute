@@ -5,9 +5,6 @@ namespace Inhere\Route\Test;
 use Inhere\Route\Route;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Inhere\Route\Route
- */
 class RouteTest extends TestCase
 {
     public function testCreateFromArray()

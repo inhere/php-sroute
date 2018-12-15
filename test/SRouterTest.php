@@ -8,7 +8,8 @@ use Inhere\Route\SRouter;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Inhere\Route\SRouter
+ * Class SRouterTest
+ * @package Inhere\Route\Test
  */
 class SRouterTest extends TestCase
 {
