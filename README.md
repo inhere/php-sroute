@@ -4,16 +4,17 @@
 [![Php Version](https://img.shields.io/badge/php-%3E=7.0-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
 [![Build Status](https://travis-ci.org/inhere/php-srouter.svg?branch=master)](https://travis-ci.org/inhere/php-srouter)
+[![Coverage Status](https://coveralls.io/repos/github/inhere/php-srouter/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-srouter?branch=master)
 
 非常快速且轻量的请求匹配路由器。
 
-- 无依赖、简洁、速度快、功能完善
-- 轻量级且速度快，查找速度不受路由数量的影响
-- 支持路由组, 支持路由参数定义，以及丰富的自定义路由选项
-- 支持给指定的路由命名，可根据名称拿到注册的路由对象
-- 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
-- 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute` (不推荐)
-- 压测对比数据请看[路由测试](#ab-test)
+  - 无依赖、简洁、速度快、功能完善
+  - 轻量级且速度快，查找速度不受路由数量的影响
+  - 支持路由组, 支持路由参数定义，以及丰富的自定义路由选项
+  - 支持给指定的路由命名，可根据名称拿到注册的路由对象
+  - 支持请求方法: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS` ...
+  - 支持自动匹配路由到控制器就像 Yii 一样, 请参看配置项 `autoRoute` (不推荐)
+  - 压测对比数据请看[路由测试](#ab-test)
 
 **多个版本：**
 
