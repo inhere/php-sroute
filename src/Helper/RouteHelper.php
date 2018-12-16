@@ -53,20 +53,6 @@ class RouteHelper
     }
 
     /**
-     * @param string $path
-     * @return string
-     */
-    public static function findFirstNode(string $path): string
-    {
-        // eg '/article/12' -> 'article'
-        if ($pos = \strpos($path, '/', 1)) {
-            return \substr($path, 1, $pos - 1);
-        }
-
-        return '';
-    }
-
-    /**
      * @param string $str
      * @return string
      */

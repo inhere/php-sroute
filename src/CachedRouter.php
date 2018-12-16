@@ -46,11 +46,11 @@ final class CachedRouter extends Router
         parent::__construct($config);
 
         if (isset($config['cacheFile'])) {
-            $this->cacheFile = $config['cacheFile'];
+            $this->setCacheFile($config['cacheFile']);
         }
 
         if (isset($config['cacheEnable'])) {
-            $this->cacheEnable = (bool)$config['cacheEnable'];
+            $this->setCacheEnable($config['cacheEnable']);
         }
 
         // read route caches from cache file
@@ -218,7 +218,7 @@ EOF;
      */
     public function setCacheFile(string $cacheFile)
     {
-        $this->cacheFile = $cacheFile;
+        $this->cacheFile = \trim($cacheFile);
     }
 
     /**

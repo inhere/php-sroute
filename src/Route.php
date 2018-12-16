@@ -136,10 +136,12 @@ final class Route implements \IteratorAggregate
     /**
      * register route to the router
      * @param Router $router
+     * @return Route
      */
-    public function attachTo(Router $router)
+    public function attachTo(Router $router): self
     {
         $router->addRoute($this);
+        return $this;
     }
 
     /**
