@@ -23,6 +23,7 @@ class ServerRouterTest extends TestCase
         $router = new ServerRouter([
             'tmpCacheNumber' => 10,
         ]);
+        $router->get('/path', 'handler0');
         $router->get('/test1[/optional]', 'handler');
         $router->get('/{name}', 'handler2');
         $router->get('/hi/{name}', 'handler3', [
@@ -35,7 +36,6 @@ class ServerRouterTest extends TestCase
 
         /** @var Route $route */
         list($status, $path, $route) = $router->match('/hi/tom');
-
         $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('handler3', $route->getHandler());
@@ -51,10 +51,24 @@ class ServerRouterTest extends TestCase
         // repeat request
         /** @var Route $route */
         list($status, $path, $route) = $router->match('/hi/tom');
-
         $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('handler3', $route->getHandler());
+
+        // match use HEAD
+        list($status, ,) = $router->match('/path', 'HEAD');
+        $this->assertSame(ServerRouter::FOUND, $status);
+
+        // match not exist
+        list($status, $path,) = $router->match('/not/exist', 'GET');
+        $this->assertSame(ServerRouter::NOT_FOUND, $status);
+        $this->assertSame('/not/exist', $path);
+
+        // add fallback route.
+        $router->any('/*', 'fb_handler');
+        list($status, $path,) = $router->match('/not/exist', 'GET');
+        $this->assertSame(ServerRouter::FOUND, $status);
+        $this->assertSame('/not/exist', $path);
     }
 
 }

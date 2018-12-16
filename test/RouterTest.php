@@ -64,8 +64,11 @@ class RouterTest extends TestCase
         $this->expectExceptionMessage('The method and route handler is not allow empty.');
         $r->add('GET', '', '');
 
-        $this->expectExceptionMessageRegExp('The method [INVALID] is not supported');
-        $r->add('invalid', '/path', '/handler');
+        try {
+            $r->add('invalid', '/path', '/handler');
+        } catch (\Throwable $e) {
+            $this->assertContains('The method [INVALID] is not supported', $e->getMessage());
+        }
     }
 
     public function testAddRoute()
@@ -101,10 +104,6 @@ class RouterTest extends TestCase
             'method' => 'GET',
             'handlerName' => 'handler3',
         ], $ret->info());
-
-        /** @var Route $route */
-        list($status, $path, $route) = $router->match('/', 'GET');
-
     }
 
     public function testStaticRoute()
@@ -117,10 +116,13 @@ class RouterTest extends TestCase
 
         /** @var Route $route */
         list($status, $path, $route) = $router->match('/', 'GET');
-
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/', $path);
         $this->assertSame('handler0', $route->getHandler());
+
+        // match use HEAD
+        list($status, ,) = $router->match('/', 'HEAD');
+        $this->assertSame(Router::FOUND, $status);
 
         list($status, $path, $route) = $router->match('about', 'GET');
         $this->assertSame(Router::FOUND, $status);
@@ -128,14 +130,18 @@ class RouterTest extends TestCase
         $this->assertSame('handler1', $route->getHandler());
 
         list($status, $path, $route) = $router->match('/some//to/path', 'post');
-
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/some/to/path', $path);
         $this->assertSame('handler2', $route->getHandler());
 
         list($status, $path,) = $router->match('not-exist', 'GET');
-
         $this->assertSame(Router::NOT_FOUND, $status);
+        $this->assertSame('/not-exist', $path);
+
+        // add fallback route.
+        $router->any('/*', 'fb_handler');
+        list($status, $path,) = $router->match('not-exist', 'GET');
+        $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/not-exist', $path);
     }
 
