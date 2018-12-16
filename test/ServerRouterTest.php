@@ -20,7 +20,9 @@ class ServerRouterTest extends TestCase
 {
     public function testRouteCache()
     {
-        $router = new ServerRouter();
+        $router = new ServerRouter([
+            'tmpCacheNumber' => 10,
+        ]);
         $router->get('/test1[/optional]', 'handler');
         $router->get('/{name}', 'handler2');
         $router->get('/hi/{name}', 'handler3', [
@@ -45,6 +47,14 @@ class ServerRouterTest extends TestCase
 
         $cached = \array_shift($cachedRoutes);
         $this->assertEquals($route, $cached);
+
+        // repeat request
+        /** @var Route $route */
+        list($status, $path, $route) = $router->match('/hi/tom');
+
+        $this->assertSame(ServerRouter::FOUND, $status);
+        $this->assertSame('/hi/tom', $path);
+        $this->assertSame('handler3', $route->getHandler());
     }
 
 }

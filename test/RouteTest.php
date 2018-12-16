@@ -21,11 +21,14 @@ class RouteTest extends TestCase
             'chains' => [],
             'options' => [],
         ]);
+        $route->addOption('n1', 'v1');
 
         $this->assertEquals('GET', $route->getMethod());
         $this->assertEquals(['name'], $route->getPathVars());
         $this->assertEquals('/kfhxlkeugug/', $route->getPathStart());
         $this->assertEquals('#^/kfhxlkeugug/([^/]+)$#', $route->getPathRegex());
+        $this->assertArrayHasKey('name', $route->toArray());
+        $this->assertArrayHasKey('n1', $route->getOptions());
     }
 
     public function testParseParam()
@@ -100,6 +103,11 @@ class RouteTest extends TestCase
         $this->assertEquals('', $first);
         $this->assertEquals('/blog-', $route->getPathStart());
         $this->assertEquals('#^/blog-(\w+)$#', $route->getPathRegex());
+
+        $route = Route::create('GET', '/some/[to/]path', 'my_handler');
+        $this->expectException(\LogicException::class);
+        $this->expectExceptionMessage('Optional segments can only occur at the end of a route');
+        $route->parseParam();
     }
 
     public function testMiddleware()

@@ -358,6 +358,7 @@ final class Route implements \IteratorAggregate
     public function toArray(): array
     {
         return [
+            'name' => $this->name,
             'path' => $this->path,
             'method' => $this->method,
             'handler' => $this->handler,
@@ -371,6 +372,14 @@ final class Route implements \IteratorAggregate
             //
             'chains' => $this->chains,
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->toString();
     }
 
     /**

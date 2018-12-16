@@ -8,25 +8,63 @@ use PHPUnit\Framework\TestCase;
 
 class RouterTest extends TestCase
 {
-    public function testRouter()
+    public function testConfig()
+    {
+        $router = Router::create();
+        $router->setName('my-router');
+
+        $this->assertSame('my-router', $router->getName());
+
+        $router->addGlobalParams([
+            'myArg' => '\w{5}'
+        ]);
+        $this->assertArrayHasKey('myArg', $router->getGlobalParams());
+
+        $router->setGlobalOptions(['opt1' => 'val1']);
+        $this->assertArrayHasKey('opt1', $router->getGlobalOptions());
+    }
+
+    public function testAddRoutes()
     {
         $r = new Router([]);
-        $r->get('/', 'handler0');
-        $r->get('/test', 'handler1');
-        $r->get('/test1[/optional]', 'handler');
-        $r->get('/my[/{name}[/{age}]]', 'handler2', [
-            'age' => '\d+'
-        ]);
 
+        $r->get('/', 'handler0');
         $r->get('/hi/{name}', 'handler3', [
             'name' => '\w+',
         ]);
 
-        $r->post('/hi/{name}', 'handler4');
-        $r->put('/hi/{name}', 'handler5');
+        $r1 = $r->get('/my[/{name}[/{age}]]', 'handler2', [
+            'age' => '\d+'
+        ]);
 
-        $this->assertSame(7, $r->count());
+        $this->assertTrue($r->count() > 1);
+        $this->assertNotEmpty($r->getRoutes());
+        $this->assertContains('name', $r1->getPathVars());
+        $this->assertContains('age', $r1->getPathVars());
+        $this->assertArrayHasKey('age', $r1->getBindVars());
+        $this->assertContains('GET     /my[/{name}[/{age}]]', (string)$r1);
 
+        foreach (Router::METHODS_ARRAY as $method) {
+            $r->$method("/$method", "handle_$method");
+        }
+        $string = $r->toString();
+        foreach (Router::METHODS_ARRAY as $method) {
+            $s = \sprintf('%-7s %-25s --> %s', $method, "/$method", "handle_$method");
+            $this->assertContains($s, $string);
+        }
+
+        $r->any('/any', 'handler_any');
+        $string = $r->toString();
+        foreach (Router::METHODS_ARRAY as $method) {
+            $s = \sprintf('%-7s %-25s --> %s', $method, '/any', 'handler_any');
+            $this->assertContains($s, $string);
+        }
+
+        $this->expectExceptionMessage('The method and route handler is not allow empty.');
+        $r->add('GET', '', '');
+
+        $this->expectExceptionMessageRegExp('The method [INVALID] is not supported');
+        $r->add('invalid', '/path', '/handler');
     }
 
     public function testAddRoute()
@@ -280,10 +318,8 @@ class RouterTest extends TestCase
         $this->assertSame(['func0', 'func1'], $router->getChains());
 
         $router->group('/grp', function (Router $r) use (&$r1) {
-            $r1 = $r
-                ->get('/path', 'h0')
-                ->push('func2');
-        }, ['func3', 'func4']);
+            $r1 = $r->get('/path', 'h0')->push('func2');
+        }, ['func3', 'func4'], ['n1' => 'v1']);
 
         /** @var Route $route */
         list($status, , $route) = $router->match('/grp/path', 'get');
@@ -291,5 +327,6 @@ class RouterTest extends TestCase
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame($r1, $route);
         $this->assertSame(['func3', 'func4', 'func2'], $route->getChains());
+        $this->assertArrayHasKey('n1', $route->getOptions());
     }
 }

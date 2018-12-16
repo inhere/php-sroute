@@ -23,6 +23,18 @@ class SRouterTest extends TestCase
         ]);
     }
 
+    public function testBasic()
+    {
+        $router = Router::create(['name' => 'myRouter']);
+        SRouter::setRouter($router);
+
+        $r = SRouter::getRouter();
+        $this->assertSame($router->getName(), $r->getName());
+
+        $this->expectExceptionMessage('call invalid method: notExist');
+        SRouter::notExist();
+    }
+
     public function testStaticRoute()
     {
         $this->registerRoutes();

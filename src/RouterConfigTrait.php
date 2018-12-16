@@ -140,7 +140,7 @@ trait RouterConfigTrait
     /**
      * @return array
      */
-    public static function getGlobalParams(): array
+    public function getGlobalParams(): array
     {
         return self::$globalParams;
     }

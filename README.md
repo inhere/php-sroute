@@ -1,7 +1,7 @@
 # php simple router
 
 [![License](https://img.shields.io/packagist/l/inhere/sroute.svg?style=flat-square)](LICENSE)
-[![Php Version](https://img.shields.io/badge/php-%3E=7.0-brightgreen.svg?maxAge=2592000)](https://packagist.org/packages/inhere/sroute)
+[![PHP Version](https://img.shields.io/packagist/php-v/inhere/sroute.svg?colorB=green)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
 [![Build Status](https://travis-ci.org/inhere/php-srouter.svg?branch=master)](https://travis-ci.org/inhere/php-srouter)
 [![Coverage Status](https://coveralls.io/repos/github/inhere/php-srouter/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-srouter?branch=master)
