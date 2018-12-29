@@ -522,7 +522,7 @@ class Router implements RouterInterface
     }
 
     /*******************************************************************************
-     * route callback handler dispatch
+     * route dispatch
      ******************************************************************************/
 
     /**
@@ -558,6 +558,20 @@ class Router implements RouterInterface
     /*******************************************************************************
      * helper methods
      ******************************************************************************/
+
+    /**
+     * @param string $name Route name
+     * @param array $pathVars
+     * @return string
+     */
+    public function createUri(string $name, array $pathVars = []): string
+    {
+        if ($route = $this->getRoute($name)) {
+            return $route->toUri($pathVars);
+        }
+
+        return '';
+    }
 
     /**
      * @param string $name

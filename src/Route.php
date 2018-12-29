@@ -341,6 +341,20 @@ final class Route implements \IteratorAggregate
     }
 
     /**
+     * build uri string.
+     * @param array $pathVars
+     * @return string
+     */
+    public function toUri(array $pathVars = []): string
+    {
+        if ($pathVars) {
+            return \strtr($this->path, $pathVars);
+        }
+
+        return $this->path;
+    }
+
+    /**
      * get basic info data
      * @return array
      */
