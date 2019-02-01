@@ -74,7 +74,7 @@ final class SRouter
     /**
      * @param RouterInterface $router
      */
-    public static function setRouter(RouterInterface $router)
+    public static function setRouter(RouterInterface $router): void
     {
         self::$router = $router;
     }

@@ -6,10 +6,11 @@ use Inhere\Route\Route;
 use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
 use function Inhere\Route\createRouter;
+use Inhere\Route\Example\Controllers\DemoController;
 
 class RouterTest extends TestCase
 {
-    public function testConfig()
+    public function testConfig(): void
     {
         $router = Router::create();
         $router->setName('my-router');
@@ -25,7 +26,7 @@ class RouterTest extends TestCase
         $this->assertArrayHasKey('opt1', $router->getGlobalOptions());
     }
 
-    public function testAddRoutes()
+    public function testAddRoutes(): void
     {
         $r = new Router([]);
 
@@ -48,7 +49,7 @@ class RouterTest extends TestCase
         foreach (Router::METHODS_ARRAY as $method) {
             $r->$method("/$method", "handle_$method");
         }
-        $string = $r->toString();
+        $string = (string)$r;
         foreach (Router::METHODS_ARRAY as $method) {
             $s = \sprintf('%-7s %-25s --> %s', $method, "/$method", "handle_$method");
             $this->assertContains($s, $string);
@@ -64,6 +65,9 @@ class RouterTest extends TestCase
         $this->expectExceptionMessage('The method and route handler is not allow empty.');
         $r->add('GET', '', '');
 
+        $this->expectException(\InvalidArgumentException::class);
+        $r->add('invalid', '/path', '/handler');
+
         try {
             $r->add('invalid', '/path', '/handler');
         } catch (\Throwable $e) {
@@ -71,7 +75,7 @@ class RouterTest extends TestCase
         }
     }
 
-    public function testAddRoute()
+    public function testAddRoute(): void
     {
         $router = createRouter(function () {
             //
@@ -100,13 +104,13 @@ class RouterTest extends TestCase
         $ret = $router->getRoute('r3');
         $this->assertEquals($r3, $ret);
         $this->assertEquals([
-            'path' => '/path3',
-            'method' => 'GET',
+            'path'        => '/path3',
+            'method'      => 'GET',
             'handlerName' => 'handler3',
         ], $ret->info());
     }
 
-    public function testStaticRoute()
+    public function testStaticRoute(): void
     {
         /** @var Router $router */
         $router = Router::create();
@@ -115,37 +119,37 @@ class RouterTest extends TestCase
         $router->post('/some/to/path', 'handler2');
 
         /** @var Route $route */
-        list($status, $path, $route) = $router->match('/', 'GET');
+        [$status, $path, $route] = $router->match('/');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/', $path);
         $this->assertSame('handler0', $route->getHandler());
 
         // match use HEAD
-        list($status, ,) = $router->match('/', 'HEAD');
+        [$status, ,] = $router->match('/', 'HEAD');
         $this->assertSame(Router::FOUND, $status);
 
-        list($status, $path, $route) = $router->match('about', 'GET');
+        [$status, $path, $route] = $router->match('about');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/about', $path);
         $this->assertSame('handler1', $route->getHandler());
 
-        list($status, $path, $route) = $router->match('/some//to/path', 'post');
+        [$status, $path, $route] = $router->match('/some//to/path', 'post');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/some/to/path', $path);
         $this->assertSame('handler2', $route->getHandler());
 
-        list($status, $path,) = $router->match('not-exist', 'GET');
+        [$status, $path,] = $router->match('not-exist');
         $this->assertSame(Router::NOT_FOUND, $status);
         $this->assertSame('/not-exist', $path);
 
         // add fallback route.
         $router->any('/*', 'fb_handler');
-        list($status, $path,) = $router->match('not-exist', 'GET');
+        [$status, $path,] = $router->match('not-exist');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/not-exist', $path);
     }
 
-    public function testOptionalParamRoute()
+    public function testOptionalParamRoute(): void
     {
         /** @var Router $router */
         $router = Router::create();
@@ -155,31 +159,31 @@ class RouterTest extends TestCase
         /** @var Route $route */
 
         // route: '/about'
-        list($status, , $route) = $router->match('/about', 'GET');
+        [$status, , $route] = $router->match('/about');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('handler0', $route->getHandler());
 
         // route: '/about.html'
-        list($status, , $route) = $router->match('/about.html', 'GET');
+        [$status, , $route] = $router->match('/about.html');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('handler0', $route->getHandler());
 
         // route: '/test1'
-        list($status, , $route) = $router->match('/test1', 'GET');
+        [$status, , $route] = $router->match('/test1');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('handler1', $route->getHandler());
 
         // route: '/test1/optional'
-        list($status, , $route) = $router->match('/test1/optional', 'GET');
+        [$status, , $route] = $router->match('/test1/optional');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('handler1', $route->getHandler());
 
         // route: '/test1/other'
-        list($status, ,) = $router->match('/test1/other', 'GET');
+        [$status, ,] = $router->match('/test1/other');
         $this->assertSame(Router::NOT_FOUND, $status);
     }
 
-    public function testParamRoute()
+    public function testParamRoute(): void
     {
         $router = Router::create();
         /** @var Route $route */
@@ -190,7 +194,7 @@ class RouterTest extends TestCase
         $this->assertEquals('#^/hi/(\w+)$#', $route->getPathRegex());
 
         // int param
-        list($status, $path, $route) = $router->match('/hi/3456', 'GET');
+        [$status, $path, $route] = $router->match('/hi/3456');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/hi/3456', $path);
@@ -199,7 +203,7 @@ class RouterTest extends TestCase
         $this->assertSame('3456', $route->getParam('name'));
 
         // string param
-        list($status, $path, $route) = $router->match('/hi/tom', 'GET');
+        [$status, $path, $route] = $router->match('/hi/tom');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
@@ -209,13 +213,14 @@ class RouterTest extends TestCase
         $this->assertSame('tom', $route->getParam('name'));
 
         // invalid
-        list($status, ,) = $router->match('/hi/dont-match', 'GET');
+        [$status, ,] = $router->match('/hi/dont-match');
         $this->assertSame(Router::NOT_FOUND, $status);
     }
 
-    public function testComplexRoute()
+    public function testComplexRoute(): void
     {
         $router = Router::create();
+        // handleMethodNotAllowed
         $router->handleMethodNotAllowed = true;
 
         /** @var Route $route */
@@ -224,7 +229,7 @@ class RouterTest extends TestCase
         ])->setOptions([
             'defaults' => [
                 'name' => 'God',
-                'age' => 25,
+                'age'  => 25,
             ]
         ]);
 
@@ -233,7 +238,7 @@ class RouterTest extends TestCase
         $this->assertContains('name', $route->getPathVars());
 
         // access '/my'
-        list($status, $path, $route) = $router->match('/my', 'GET');
+        [$status, $path, $route] = $router->match('/my');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my', $path);
@@ -245,7 +250,7 @@ class RouterTest extends TestCase
         $this->assertSame(25, $route->getParam('age'));
 
         // access '/my/tom'
-        list($status, $path, $route) = $router->match('/my/tom', 'GET');
+        [$status, $path, $route] = $router->match('/my/tom');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my/tom', $path);
@@ -254,7 +259,7 @@ class RouterTest extends TestCase
         $this->assertSame(25, $route->getParam('age'));
 
         // access '/my/tom/45'
-        list($status, $path, $route) = $router->match('/my/tom/45', 'GET');
+        [$status, $path, $route] = $router->match('/my/tom/45');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/my/tom/45', $path);
@@ -272,27 +277,54 @@ class RouterTest extends TestCase
         $this->assertEquals(['GET'], $ret[2]);
 
         // not found
-        $ret = $router->match('/my/tom/not-match', 'GET');
+        $ret = $router->match('/my/tom/not-match');
         $this->assertSame(Router::NOT_FOUND, $ret[0]);
     }
 
-    public function testNotFound()
+    public function testMatchAutoRoute(): void
+    {
+        $router = Router::create([
+            // enable autoRoute
+            // you can access '/demo' '/admin/user/info', Don't need to configure any route
+            'autoRoute'           => true,
+            'controllerNamespace' => 'Inhere\Route\Example\Controllers',
+            'controllerSuffix'    => 'Controller',
+        ]);
+
+        /** @var Route $route */
+
+        [$status, $path, $route] = $router->match('///demo');
+        $this->assertSame(Router::FOUND, $status);
+        $this->assertSame('/demo', $path);
+        $this->assertSame(DemoController::class, $route->getHandler());
+
+        [$status, $path, $route] = $router->match('/admin/user/info');
+        $this->assertSame(Router::FOUND, $status);
+        $this->assertSame('/admin/user/info', $path);
+        $this->assertSame('Inhere\Route\Example\Controllers\admin\UserController@info', $route->getHandler());
+
+        [$status, $path,] = $router->match('/not-exist');
+        $this->assertSame(Router::NOT_FOUND, $status);
+        $this->assertSame('/not-exist', $path);
+    }
+
+    public function testNotFound(): void
     {
         $router = Router::create();
         $router->get('/hi/{name}', 'handler3', [
             'name' => '\w+',
         ]);
 
-        list($status, $path,) = $router->match('/not-exist', 'GET');
+        [$status, $path,] = $router->match('/not-exist');
         $this->assertSame(Router::NOT_FOUND, $status);
         $this->assertSame('/not-exist', $path);
 
-        list($status, $path,) = $router->match('/hi', 'GET');
+        [$status, $path,] = $router->match('/hi');
         $this->assertSame(Router::NOT_FOUND, $status);
         $this->assertSame('/hi', $path);
     }
 
-    public function testRequestMethods()
+    public function testRequestMethods(): void
     {
         $router = Router::create([
             'handleMethodNotAllowed' => true,
@@ -305,33 +337,33 @@ class RouterTest extends TestCase
         /** @var Route $route */
 
         // GET
-        list($status, , $route) = $router->match('/hi/tom', 'get');
+        [$status, , $route] = $router->match('/hi/tom', 'get');
         $this->assertSame(Router::FOUND, $status);
         $this->assertArrayHasKey('name', $route->getParams());
         $this->assertSame('handler3', $route->getHandler());
 
         // POST
-        list($status, , $route) = $router->match('/hi/tom', 'post');
+        [$status, , $route] = $router->match('/hi/tom', 'post');
         $this->assertSame(Router::FOUND, $status);
         $this->assertArrayHasKey('name', $route->getParams());
         $this->assertSame('handler4', $route->getHandler());
         $this->assertEquals('tom', $route->getParam('name'));
 
         // PUT
-        list($status, , $route) = $router->match('/hi/john', 'put');
+        [$status, , $route] = $router->match('/hi/john', 'put');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('handler4', $route->getHandler());
         $this->assertArrayHasKey('name', $route->getParams());
         $this->assertEquals('john', $route->getParam('name'));
 
         // DELETE
-        list($status, , $methods) = $router->match('/hi/tom', 'delete');
+        [$status, , $methods] = $router->match('/hi/tom', 'delete');
         $this->assertSame(Router::METHOD_NOT_ALLOWED, $status);
         $this->assertCount(3, $methods);
         $this->assertEquals(['GET', 'POST', 'PUT'], $methods);
     }
 
-    public function testMiddleware()
+    public function testMiddleware(): void
     {
         $router = Router::create();
         $router->use('func0', 'func1');
@@ -344,7 +376,7 @@ class RouterTest extends TestCase
         }, ['func3', 'func4'], ['n1' => 'v1']);
 
         /** @var Route $route */
-        list($status, , $route) = $router->match('/grp/path', 'get');
+        [$status, , $route] = $router->match('/grp/path', 'get');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame($r1, $route);

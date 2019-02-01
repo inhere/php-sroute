@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PreMatchRouterTest extends TestCase
 {
-    private function createRouter($p, $m)
+    private function createRouter($p, $m): PreMatchRouter
     {
         $r = new PreMatchRouter([], $p, $m);
 
@@ -39,7 +39,7 @@ class PreMatchRouterTest extends TestCase
         return $r;
     }
 
-    public function testRouteCacheExists()
+    public function testRouteCacheExists(): void
     {
         $p = '/test';
         $m = 'GET';
@@ -51,7 +51,7 @@ class PreMatchRouterTest extends TestCase
         $this->assertCount(3, $ret);
 
         /** @var Route $route */
-        list($status, $path, $route) = $ret;
+        [$status, $path, $route] = $ret;
 
         $this->assertSame(RouterInterface::FOUND, $status);
         $this->assertSame($p, $path);

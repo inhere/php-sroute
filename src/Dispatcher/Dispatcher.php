@@ -86,7 +86,7 @@ class Dispatcher extends SimpleDispatcher
      *     'schemes' => ['https'],
      * ]
      */
-    protected function validateMetadata(array $options)
+    protected function validateMetadata(array $options): void
     {
         // 1. validate Schema
 

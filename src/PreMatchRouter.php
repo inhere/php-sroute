@@ -55,7 +55,7 @@ final class PreMatchRouter extends Router
      * @param string|null $path
      * @param string|null $method
      */
-    public function setRequest(string $path = null, string $method = null)
+    public function setRequest(string $path = null, string $method = null): void
     {
         if (!$path) {
             $path = (string)($_SERVER['REQUEST_URI'] ?? '');
@@ -110,7 +110,7 @@ final class PreMatchRouter extends Router
     /**
      * @return Route|null
      */
-    public function getPreFounded()
+    public function getPreFounded(): ?Route
     {
         return $this->preFounded;
     }

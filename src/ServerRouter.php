@@ -126,7 +126,7 @@ final class ServerRouter extends Router
      * @param string $method
      * @param Route $route
      */
-    protected function cacheMatchedParamRoute(string $path, string $method, Route $route)
+    protected function cacheMatchedParamRoute(string $path, string $method, Route $route): void
     {
         $cacheKey = $method . ' ' . $path;
         $cacheNumber = (int)$this->tmpCacheNumber;

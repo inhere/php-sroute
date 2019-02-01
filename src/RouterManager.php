@@ -14,7 +14,7 @@ namespace Inhere\Route;
  */
 class RouterManager
 {
-    const DEFAULT_ROUTER = 'default';
+    public const DEFAULT_ROUTER = 'default';
 
     /**
      * @var self
@@ -250,7 +250,7 @@ class RouterManager
      * @param string $name
      * @param string $class
      */
-    public function setDriver(string $name, string $class)
+    public function setDriver(string $name, string $class): void
     {
         $this->drivers[$name] = $class;
     }
@@ -282,7 +282,7 @@ class RouterManager
     /**
      * @param array[] $configs
      */
-    public function configs(array $configs)
+    public function configs(array $configs): void
     {
         $this->configs = $configs;
 

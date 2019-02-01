@@ -15,35 +15,42 @@ namespace Inhere\Route;
 interface RouterInterface extends \IteratorAggregate, \Countable
 {
     /** match result status list */
-    public const FOUND = 1;
-    public const NOT_FOUND = 2;
+    public const FOUND              = 1;
+    public const NOT_FOUND          = 2;
     public const METHOD_NOT_ALLOWED = 3;
 
-    public const FAV_ICON = '/favicon.ico';
+    public const FAV_ICON      = '/favicon.ico';
     public const DEFAULT_REGEX = '[^/]+';
 
     /** supported method list */
-    public const GET = 'GET';
-    public const POST = 'POST';
-    public const PUT = 'PUT';
-    public const PATCH = 'PATCH';
-    public const DELETE = 'DELETE';
+    public const GET     = 'GET';
+    public const POST    = 'POST';
+    public const PUT     = 'PUT';
+    public const PATCH   = 'PATCH';
+    public const DELETE  = 'DELETE';
     public const OPTIONS = 'OPTIONS';
-    public const HEAD = 'HEAD';
+    public const HEAD    = 'HEAD';
 
-    public const COPY = 'COPY';
-    public const PURGE = 'PURGE';
-    public const LINK = 'LINK';
-    public const UNLINK = 'UNLINK';
-    public const LOCK = 'LOCK';
-    public const UNLOCK = 'UNLOCK';
-    public const SEARCH = 'SEARCH';
+    public const COPY    = 'COPY';
+    public const PURGE   = 'PURGE';
+    public const LINK    = 'LINK';
+    public const UNLINK  = 'UNLINK';
+    public const LOCK    = 'LOCK';
+    public const UNLOCK  = 'UNLOCK';
+    public const SEARCH  = 'SEARCH';
     public const CONNECT = 'CONNECT';
-    public const TRACE = 'TRACE';
+    public const TRACE   = 'TRACE';
 
     /** supported methods name list */
     public const METHODS_ARRAY = [
-        'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD', 'CONNECT'
+        'GET',
+        'POST',
+        'PUT',
+        'PATCH',
+        'DELETE',
+        'OPTIONS',
+        'HEAD',
+        'CONNECT'
         // 'COPY', 'PURGE', 'LINK', 'UNLINK', 'LOCK', 'UNLOCK', 'VIEW', 'SEARCH', 'TRACE',
     ];
 
@@ -53,21 +60,21 @@ interface RouterInterface extends \IteratorAggregate, \Countable
 
     /** the matched result index key */
     public const INDEX_STATUS = 0;
-    public const INDEX_PATH = 1;
-    public const INDEX_INFO = 2;
+    public const INDEX_PATH   = 1;
+    public const INDEX_INFO   = 2;
 
     /**
      * add a route to the router.
      * @param string $method Request method name. eg 'GET'
      * @param string $path The route path. eg '/users'
-     * @param mixed $handler The route handler. allow: string, array, object
-     * @param array $binds The route path var bind. eg. [ 'id' => '[0-9]+', ]
-     * @param array $opts Extra options
+     * @param mixed  $handler The route handler. allow: string, array, object
+     * @param array  $pathParams The route path var bind. eg. [ 'id' => '[0-9]+', ]
+     * @param array  $opts Extra options
      * - name: string
      * - ... more
      * @return Route
      */
-    public function add(string $method, string $path, $handler, array $binds = [], array $opts = []): Route;
+    public function add(string $method, string $path, $handler, array $pathParams = [], array $opts = []): Route;
 
     /**
      * add a Route to the router
@@ -77,18 +84,18 @@ interface RouterInterface extends \IteratorAggregate, \Countable
     public function addRoute(Route $route): Route;
 
     /**
-     * @param array|string $methods The match request method(s). e.g ['get','post']
-     * @param string $path The route path string. is allow empty string. eg: '/user/login'
+     * @param array|string    $methods The match request method(s). e.g ['get','post']
+     * @param string          $path The route path string. is allow empty string. eg: '/user/login'
      * @param callable|string $handler
-     * @param array $binds route path var bind. eg. [ 'id' => '[0-9]+', ]
-     * @param array $opts some option data
+     * @param array           $pathParams route path var bind. eg. [ 'id' => '[0-9]+', ]
+     * @param array           $opts some option data
      * [
      *     'defaults' => [ 'id' => 10, ],
      *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
      *     'schemas' => ['https'],
      * ]
      */
-    public function map($methods, string $path, $handler, array $binds = [], array $opts = []);
+    public function map($methods, string $path, $handler, array $pathParams = [], array $opts = []);
 
     /**
      * find the matched route info for the given request uri path

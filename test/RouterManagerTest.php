@@ -58,7 +58,7 @@ class RouterManagerTest extends TestCase
         $this->manager = new RouterManager($configs);
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $router = $this->manager->get([
             'scheme' => 'http',
@@ -69,18 +69,17 @@ class RouterManagerTest extends TestCase
         $this->assertInstanceOf(PreMatchRouter::class, $router);
     }
 
-    public function testGetByName()
+    public function testGetByName(): void
     {
         $router = $this->manager->getByName('blog-site');
 
         $this->assertSame('blog-site', $router->getName());
     }
 
-    public function testGetDefault()
+    public function testGetDefault(): void
     {
         $router = $this->manager->getDefault();
 
         $this->assertSame('default', $router->getName());
-        $this->assertInstanceOf(Router::class, $router);
     }
 }

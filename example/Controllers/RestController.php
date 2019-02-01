@@ -14,32 +14,32 @@ namespace Inhere\Route\Example\Controllers;
  */
 class RestController
 {
-    public function indexAction()
+    public function indexAction(): void
     {
         echo __METHOD__ . PHP_EOL;
     }
 
-    public function viewAction()
+    public function viewAction(): void
     {
         echo __METHOD__ . PHP_EOL;
     }
 
-    public function createAction()
+    public function createAction(): void
     {
         echo __METHOD__ . PHP_EOL;
     }
 
-    public function updateAction()
+    public function updateAction(): void
     {
         echo __METHOD__ . PHP_EOL;
     }
 
-    public function patchAction()
+    public function patchAction(): void
     {
         echo __METHOD__ . PHP_EOL;
     }
 
-    public function deleteAction()
+    public function deleteAction(): void
     {
         echo __METHOD__ . PHP_EOL;
     }

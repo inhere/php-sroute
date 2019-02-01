@@ -77,7 +77,7 @@ trait RouterConfigTrait
      * @param array $config
      * @throws \LogicException
      */
-    public function config(array $config)
+    public function config(array $config): void
     {
         if ($this->routeCounter > 0) {
             throw new \LogicException('Routing has been added, and configuration is not allowed!');
@@ -112,7 +112,7 @@ trait RouterConfigTrait
     /**
      * @param string $name
      */
-    public function setName(string $name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -120,7 +120,7 @@ trait RouterConfigTrait
     /**
      * @param array $params
      */
-    public function addGlobalParams(array $params)
+    public function addGlobalParams(array $params): void
     {
         foreach ($params as $name => $pattern) {
             $this->addGlobalParam($name, $pattern);
@@ -131,7 +131,7 @@ trait RouterConfigTrait
      * @param string $name
      * @param string $pattern
      */
-    public function addGlobalParam(string $name, string $pattern)
+    public function addGlobalParam(string $name, string $pattern): void
     {
         $name = \trim($name, '{} ');
         self::$globalParams[$name] = $pattern;

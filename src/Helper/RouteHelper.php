@@ -94,7 +94,7 @@ class RouteHelper
 
         // two nodes. eg: 'home/test' 'admin/user'
         if ($cnt === 2) {
-            list($n1, $n2) = $ary;
+            [$n1, $n2] = $ary;
 
             // last node is an controller class name. eg: 'admin/user'
             $class = "$cnp\\$n1\\" . \ucfirst($n2) . $sfx;
@@ -146,7 +146,7 @@ class RouteHelper
         }
 
         if (\is_array($cb)) {
-            list($obj, $mhd) = $cb;
+            [$obj, $mhd] = $cb;
 
             return \is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
         }

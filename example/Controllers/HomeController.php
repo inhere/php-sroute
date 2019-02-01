@@ -14,17 +14,17 @@ namespace Inhere\Route\Example\Controllers;
  */
 class HomeController
 {
-    public function indexAction()
+    public function indexAction(): void
     {
         echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
-    public function testAction()
+    public function testAction(): void
     {
         echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
-    public function aboutAction()
+    public function aboutAction(): void
     {
         echo 'hello, this is about page';
     }

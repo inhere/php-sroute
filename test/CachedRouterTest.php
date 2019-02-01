@@ -19,7 +19,7 @@ use function Inhere\Route\createCachedRouter;
  */
 class CachedRouterTest extends TestCase
 {
-    public function testCacheRouter()
+    public function testCacheRouter(): void
     {
         $cacheFile = __DIR__ . '/routes-cache.php';
 
@@ -41,7 +41,7 @@ class CachedRouterTest extends TestCase
         $this->assertTrue($router->isCacheExists());
 
         /** @var Route $route */
-        list($sts, , $route) = $router->match('/path0');
+        [$sts, , $route] = $router->match('/path0');
 
         $this->assertSame(CachedRouter::FOUND, $sts);
         $this->assertSame('/path0', $route->getPath());
@@ -53,7 +53,7 @@ class CachedRouterTest extends TestCase
         $this->assertTrue($router->isCacheLoaded());
 
         /** @var Route $route */
-        list($sts, , $route) = $router->match('/path0');
+        [$sts, , $route] = $router->match('/path0');
 
         $this->assertSame(CachedRouter::FOUND, $sts);
         $this->assertSame('/path0', $route->getPath());

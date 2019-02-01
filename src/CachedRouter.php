@@ -60,7 +60,7 @@ final class CachedRouter extends Router
     /**
      * talk to me routes collect completed.
      */
-    public function completed()
+    public function completed(): void
     {
         $this->dumpRoutesCache();
     }
@@ -72,7 +72,7 @@ final class CachedRouter extends Router
     {
         // file cache exists check.
         if ($this->cacheLoaded) {
-            return Route::createFromArray([]);
+            return Route::createFromArray();
         }
 
         return parent::add($method, $path, $handler, $binds, $opts);
@@ -200,7 +200,7 @@ EOF;
     /**
      * @param bool $cacheEnable
      */
-    public function setCacheEnable($cacheEnable)
+    public function setCacheEnable($cacheEnable): void
     {
         $this->cacheEnable = (bool)$cacheEnable;
     }
@@ -216,7 +216,7 @@ EOF;
     /**
      * @param string $cacheFile
      */
-    public function setCacheFile(string $cacheFile)
+    public function setCacheFile(string $cacheFile): void
     {
         $this->cacheFile = \trim($cacheFile);
     }

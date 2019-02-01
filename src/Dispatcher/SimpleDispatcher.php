@@ -91,7 +91,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @param array $options
      * @throws \LogicException
      */
-    public function initOptions(array $options)
+    public function initOptions(array $options): void
     {
         if ($this->initialized) {
             throw new \LogicException('Has already started to distributed routing, and configuration is not allowed!');
@@ -133,7 +133,7 @@ class SimpleDispatcher implements DispatcherInterface
         $method = \strtoupper($method);
 
         /** @var Route $route */
-        list($status, $path, $route) = $this->router->match($path, $method);
+        [$status, $path, $route] = $this->router->match($path, $method);
 
         return $this->dispatch($status, $path, $method, $route);
     }
@@ -381,7 +381,7 @@ HTML;
      * @param string $name
      * @param $value
      */
-    public function setOption(string $name, $value)
+    public function setOption(string $name, $value): void
     {
         $this->options[$name] = $value;
     }
@@ -455,7 +455,7 @@ HTML;
     /**
      * @param array $options
      */
-    public function setOptions(array $options)
+    public function setOptions(array $options): void
     {
         $this->options = \array_merge($this->options, $options);
     }

@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ServerRouterTest extends TestCase
 {
-    public function testRouteCache()
+    public function testRouteCache(): void
     {
         $router = new ServerRouter([
             'tmpCacheNumber' => 10,
@@ -35,7 +35,7 @@ class ServerRouterTest extends TestCase
         $this->assertTrue(4 < $router->count());
 
         /** @var Route $route */
-        list($status, $path, $route) = $router->match('/hi/tom');
+        [$status, $path, $route] = $router->match('/hi/tom');
         $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('handler3', $route->getHandler());
@@ -50,23 +50,23 @@ class ServerRouterTest extends TestCase
 
         // repeat request
         /** @var Route $route */
-        list($status, $path, $route) = $router->match('/hi/tom');
+        [$status, $path, $route] = $router->match('/hi/tom');
         $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/hi/tom', $path);
         $this->assertSame('handler3', $route->getHandler());
 
         // match use HEAD
-        list($status, ,) = $router->match('/path', 'HEAD');
+        [$status, ,] = $router->match('/path', 'HEAD');
         $this->assertSame(ServerRouter::FOUND, $status);
 
         // match not exist
-        list($status, $path,) = $router->match('/not/exist', 'GET');
+        [$status, $path,] = $router->match('/not/exist');
         $this->assertSame(ServerRouter::NOT_FOUND, $status);
         $this->assertSame('/not/exist', $path);
 
         // add fallback route.
         $router->any('/*', 'fb_handler');
-        list($status, $path,) = $router->match('/not/exist', 'GET');
+        [$status, $path,] = $router->match('/not/exist');
         $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/not/exist', $path);
     }

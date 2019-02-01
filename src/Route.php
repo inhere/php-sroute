@@ -85,14 +85,19 @@ final class Route implements \IteratorAggregate
     /**
      * @param string $method
      * @param string $path
-     * @param $handler
-     * @param array $paramBinds
-     * @param array $options
+     * @param mixed  $handler
+     * @param array  $pathParams
+     * @param array  $options
      * @return Route
      */
-    public static function create(string $method, string $path, $handler, array $paramBinds = [], array $options = []): Route
-    {
-        return new self($method, $path, $handler, $paramBinds, $options);
+    public static function create(
+        string $method,
+        string $path,
+        $handler,
+        array $pathParams = [],
+        array $options = []
+    ): Route {
+        return new self($method, $path, $handler, $pathParams, $options);
     }
 
     /**
@@ -116,17 +121,17 @@ final class Route implements \IteratorAggregate
      * Route constructor.
      * @param string $method
      * @param string $path
-     * @param mixed $handler
-     * @param array $paramBinds
-     * @param array $options
+     * @param mixed  $handler
+     * @param array  $pathParams
+     * @param array  $options
      */
-    public function __construct(string $method, string $path, $handler, array $paramBinds = [], array $options = [])
+    public function __construct(string $method, string $path, $handler, array $pathParams = [], array $options = [])
     {
-        $this->path = \trim($path);
-        $this->method = \strtoupper($method);
-        $this->bindVars = $paramBinds;
-        $this->handler = $handler;
-        $this->options = $options;
+        $this->path     = \trim($path);
+        $this->method   = \strtoupper($method);
+        $this->bindVars = $pathParams;
+        $this->handler  = $handler;
+        $this->options  = $options;
 
         if (isset($options['name'])) {
             $this->setName($options['name']);
@@ -148,9 +153,9 @@ final class Route implements \IteratorAggregate
      * name the route and bind name to router.
      * @param string $name
      * @param Router $router
-     * @param bool $register
+     * @param bool   $register
      */
-    public function namedTo(string $name, Router $router, bool $register = false)
+    public function namedTo(string $name, Router $router, bool $register = false): void
     {
         // not empty
         if ($name = $this->setName($name)->name) {
@@ -173,7 +178,7 @@ final class Route implements \IteratorAggregate
      */
     public function parseParam(array $bindParams = []): string
     {
-        $first = '';
+        $first  = '';
         $backup = $path = $this->path;
         $argPos = \strpos($path, '{');
 
@@ -185,7 +190,7 @@ final class Route implements \IteratorAggregate
         // Parse the optional parameters
         if (false !== ($optPos = \strpos($path, '['))) {
             $withoutClosingOptionals = \rtrim($path, ']');
-            $optionalNum = \strlen($path) - \strlen($withoutClosingOptionals);
+            $optionalNum             = \strlen($path) - \strlen($withoutClosingOptionals);
 
             if ($optionalNum !== \substr_count($withoutClosingOptionals, '[')) {
                 throw new \LogicException('Optional segments can only occur at the end of a route');
@@ -196,7 +201,7 @@ final class Route implements \IteratorAggregate
 
             // no params
             if ($argPos === false) {
-                $noOptional = \substr($path, 0, $optPos);
+                $noOptional      = \substr($path, 0, $optPos);
                 $this->pathStart = $noOptional;
                 $this->pathRegex = '#^' . $path . '$#';
 
@@ -230,12 +235,12 @@ final class Route implements \IteratorAggregate
             $pairs = [];
 
             foreach ($m[1] as $name) {
-                $regex = $bindParams[$name] ?? RouterInterface::DEFAULT_REGEX;
+                $regex                    = $bindParams[$name] ?? RouterInterface::DEFAULT_REGEX;
                 $pairs['{' . $name . '}'] = '(' . $regex . ')';
                 // $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
             }
 
-            $path = \strtr($path, $pairs);
+            $path           = \strtr($path, $pairs);
             $this->pathVars = $m[1];
         }
 
@@ -300,7 +305,7 @@ final class Route implements \IteratorAggregate
      */
     public function copyWithParams(array $params): self
     {
-        $route = clone $this;
+        $route         = clone $this;
         $route->params = $params;
 
         return $route;
@@ -361,8 +366,8 @@ final class Route implements \IteratorAggregate
     public function info(): array
     {
         return [
-            'path' => $this->path,
-            'method' => $this->method,
+            'path'        => $this->path,
+            'method'      => $this->method,
             'handlerName' => $this->getHandlerName(),
         ];
     }
@@ -374,19 +379,19 @@ final class Route implements \IteratorAggregate
     public function toArray(): array
     {
         return [
-            'name' => $this->name,
-            'path' => $this->path,
-            'method' => $this->method,
-            'handler' => $this->handler,
-            'binds' => $this->bindVars,
-            'params' => $this->params,
-            'options' => $this->options,
+            'name'      => $this->name,
+            'path'      => $this->path,
+            'method'    => $this->method,
+            'handler'   => $this->handler,
+            'binds'     => $this->bindVars,
+            'params'    => $this->params,
+            'options'   => $this->options,
             //
-            'pathVars' => $this->pathVars,
+            'pathVars'  => $this->pathVars,
             'pathStart' => $this->pathStart,
             'pathRegex' => $this->pathRegex,
             //
-            'chains' => $this->chains,
+            'chains'    => $this->chains,
         ];
     }
 
@@ -425,14 +430,14 @@ final class Route implements \IteratorAggregate
     /**
      * @param string $path
      */
-    public function setPath(string $path)
+    public function setPath(string $path): void
     {
         $this->path = \trim($path);
     }
 
     /**
      * @param string $name
-     * @param $value
+     * @param        $value
      * @return Route
      */
     public function addOption(string $name, $value): self
@@ -461,7 +466,7 @@ final class Route implements \IteratorAggregate
      * @return \Traversable An instance of an object implementing <b>Iterator</b> or <b>Traversable</b>
      * @since 5.0.0
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->toArray());
     }
@@ -491,7 +496,7 @@ final class Route implements \IteratorAggregate
     }
 
     /**
-     * @param string $name
+     * @param string     $name
      * @param null|mixed $default
      * @return string|mixed
      */

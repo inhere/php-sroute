@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class RouteTest extends TestCase
 {
-    public function testCreateFromArray()
+    public function testCreateFromArray(): void
     {
         $route = Route::createFromArray([
             'path' => '/kfhxlkeugug/{name}',
@@ -31,7 +31,7 @@ class RouteTest extends TestCase
         $this->assertArrayHasKey('n1', $route->getOptions());
     }
 
-    public function testParseParam()
+    public function testParseParam(): void
     {
         // 抽象方法才需要配置
         // $stub->expects($this->any())
@@ -49,19 +49,19 @@ class RouteTest extends TestCase
 
         $path = '/path/to/{name}';
         $route = Route::create('GET', $path, 'my_handler');
-        $first = $route->parseParam([]);
+        $first = $route->parseParam();
         $this->assertEquals('path', $first);
         $this->assertEquals('/path/to/', $route->getPathStart());
 
         $path = '/path/to/some/{name}';
         $route = Route::create('GET', $path, 'my_handler');
-        $first = $route->parseParam([]);
+        $first = $route->parseParam();
         $this->assertEquals('path', $first);
         $this->assertEquals('/path/to/some/', $route->getPathStart());
 
         $path = '/hi/{name}';
         $route = Route::create('GET', $path, 'my_handler');
-        $first = $route->parseParam([]);
+        $first = $route->parseParam();
         $this->assertEquals('hi', $first);
         $this->assertEquals(['name'], $route->getPathVars());
         $this->assertEquals('/hi/', $route->getPathStart());
@@ -69,7 +69,7 @@ class RouteTest extends TestCase
 
         $path = '/hi[/{name}]';
         $route = Route::create('GET', $path, 'my_handler');
-        $first = $route->parseParam([]);
+        $first = $route->parseParam();
         $this->assertEquals('', $first);
         $this->assertEquals(['name'], $route->getPathVars());
         $this->assertEquals('/hi', $route->getPathStart());
@@ -77,7 +77,7 @@ class RouteTest extends TestCase
 
         $path = '/hi[/tom]';
         $route = Route::create('GET', $path, 'my_handler');
-        $first = $route->parseParam([]);
+        $first = $route->parseParam();
         $this->assertEquals('', $first);
         $this->assertEquals([], $route->getPathVars());
         $this->assertEquals('/hi', $route->getPathStart());
@@ -85,7 +85,7 @@ class RouteTest extends TestCase
 
         $path = '/hi/[tom]';
         $route = Route::create('GET', $path, 'my_handler');
-        $first = $route->parseParam([]);
+        $first = $route->parseParam();
         $this->assertEquals('hi', $first);
         $this->assertEquals('/hi/', $route->getPathStart());
         $this->assertEquals('#^/hi/(?:tom)?$#', $route->getPathRegex());
@@ -110,7 +110,7 @@ class RouteTest extends TestCase
         $route->parseParam();
     }
 
-    public function testMiddleware()
+    public function testMiddleware(): void
     {
         $route = Route::createFromArray(['path' => '/middle', 'handler' => 'handler0']);
         $route->middleware('func1', 'func2');

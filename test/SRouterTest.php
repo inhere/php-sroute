@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class SRouterTest extends TestCase
 {
-    private function registerRoutes()
+    private function registerRoutes(): void
     {
         SRouter::get('/', 'handler0');
         SRouter::get('/test', 'handler1');
@@ -23,7 +23,7 @@ class SRouterTest extends TestCase
         ]);
     }
 
-    public function testBasic()
+    public function testBasic(): void
     {
         $router = Router::create(['name' => 'myRouter']);
         SRouter::setRouter($router);
@@ -35,33 +35,33 @@ class SRouterTest extends TestCase
         SRouter::notExist();
     }
 
-    public function testStaticRoute()
+    public function testStaticRoute(): void
     {
         $this->registerRoutes();
 
         /** @var Route $route */
-        list($status, $path, $route) = SRouter::match('/', 'GET');
+        [$status, $path, $route] = SRouter::match('/');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/', $path);
         $this->assertSame('handler0', $route->getHandler());
     }
 
-    public function testParamRoute()
+    public function testParamRoute(): void
     {
         $this->registerRoutes();
 
         /** @var Route $route */
 
         // route: /{name}
-        list($status, $path, $route) = SRouter::match('/tom', 'GET');
+        [$status, $path, $route] = SRouter::match('/tom');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/tom', $path);
         $this->assertSame('handler2', $route->getHandler());
 
         // route: /hi/{name}
-        list($status, $path, $route) = SRouter::match('/hi/tom', 'GET');
+        [$status, $path, $route] = SRouter::match('/hi/tom');
 
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/hi/tom', $path);

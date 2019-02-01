@@ -14,7 +14,7 @@ class DispatcherTest extends TestCase
     /**
      * @throws \Throwable
      */
-    public function testDispatcher()
+    public function testDispatcher(): void
     {
         $handler = function (array $args = []) {
             return \sprintf('hello, welcome. args: %s', \json_encode($args));

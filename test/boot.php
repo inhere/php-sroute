@@ -5,6 +5,8 @@
  * OR
  *  phpunit --bootstrap test/boot.php test
  *  phpunit --colors --coverage-html ./coverage/
+ * // output coverage without xdebug
+ *  phpdbg -dauto_globals_jit=Off -qrr /usr/local/bin/phpunit --coverage-text
  * test filter:
  *  phpunit --filter '\\RouterTest::testAdd' --debug
  */

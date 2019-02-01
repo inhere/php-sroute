@@ -34,7 +34,7 @@ class Psr15Dispatcher extends SimpleDispatcher
         $method = $request->getMethod();
 
         /** @var Route $route */
-        list($status, $path, $route) = $this->getRouter()->match($path, $method);
+        [$status, $path, $route] = $this->getRouter()->match($path, $method);
 
         $chains = $this->getRouter()->getChains();
 

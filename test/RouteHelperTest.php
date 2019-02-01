@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RouteHelperTest extends TestCase
 {
-    public function testIsStaticRoute()
+    public function testIsStaticRoute(): void
     {
         $ret = RouteHelper::isStaticRoute('/abc');
         $this->assertTrue($ret);
