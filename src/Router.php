@@ -257,7 +257,7 @@ class Router implements RouterInterface
 
         if ($method === 'ANY') {
             $this->any($path, $handler, $binds, $opts);
-            return Route::createFromArray([]);
+            return Route::createFromArray();
         }
 
         if (false === \strpos(self::METHODS_STRING, ',' . $method . ',')) {

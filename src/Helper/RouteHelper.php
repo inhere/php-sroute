@@ -27,7 +27,7 @@ class RouteHelper
     /**
      * format URI path
      * @param string $path
-     * @param bool $ignoreLastSlash
+     * @param bool   $ignoreLastSlash
      * @return string
      */
     public static function formatPath(string $path, bool $ignoreLastSlash = true): string
@@ -38,7 +38,7 @@ class RouteHelper
 
         // clear '//', '///' => '/'
         if (false !== \strpos($path, '//')) {
-            $path = (string)\preg_replace('#\/\/+#', '/', $path);
+            $path = \preg_replace('#\/\/+#', '/', $path);
         }
 
         // must be start withs '/'
@@ -62,7 +62,7 @@ class RouteHelper
 
         // convert 'first-second' to 'firstSecond'
         if (\strpos($str, '-')) {
-            $str = (string)\preg_replace_callback('/-+([a-z])/', function ($c) {
+            $str = \preg_replace_callback('/-+([a-z])/', function ($c) {
                 return \strtoupper($c[1]);
             }, \trim($str, '- '));
         }
@@ -83,7 +83,7 @@ class RouteHelper
 
         // one node. eg: 'home'
         if (!\strpos($tmp, '/')) {
-            $tmp = self::str2Camel($tmp);
+            $tmp   = self::str2Camel($tmp);
             $class = "$cnp\\" . \ucfirst($tmp) . $sfx;
 
             return \class_exists($class) ? $class : false;
@@ -115,7 +115,7 @@ class RouteHelper
         }
 
         // last node is an controller class name
-        $n2 = \array_pop($ary);
+        $n2    = \array_pop($ary);
         $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n2) . $sfx);
 
         if (\class_exists($class)) {
@@ -123,7 +123,7 @@ class RouteHelper
         }
 
         // last second is an controller class name, last node is a action name,
-        $n1 = \array_pop($ary);
+        $n1    = \array_pop($ary);
         $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n1) . $sfx);
 
         return \class_exists($class) ? "$class@$n2" : false;
@@ -135,7 +135,7 @@ class RouteHelper
      * array - [class, method]
      * object - Closure, Object
      *
-     * @param array $args
+     * @param array          $args
      * @return mixed
      * @throws \InvalidArgumentException
      */
