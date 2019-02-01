@@ -7,7 +7,7 @@
  *
  */
 
-use Inhere\Route\Example\Controllers\HomeController;
+use Inhere\RouteTest\controllers\HomeController;
 use Inhere\Route\RouterInterface;
 
 function handler0()

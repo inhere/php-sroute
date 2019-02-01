@@ -226,11 +226,11 @@ class Router implements RouterInterface
     }
 
     /**
-     * @param array|string $methods
-     * @param string $path
+     * @param array|string    $methods
+     * @param string          $path
      * @param callable|string $handler
-     * @param array $pathParams
-     * @param array $opts
+     * @param array           $pathParams
+     * @param array           $opts
      */
     public function map($methods, string $path, $handler, array $pathParams = [], array $opts = [])
     {
@@ -242,9 +242,9 @@ class Router implements RouterInterface
     /**
      * @param string $method
      * @param string $path
-     * @param $handler
-     * @param array $pathParams
-     * @param array $opts
+     * @param        $handler
+     * @param array  $pathParams
+     * @param array  $opts
      * @return Route
      */
     public function add(string $method, string $path, $handler, array $pathParams = [], array $opts = []): Route
@@ -280,7 +280,7 @@ class Router implements RouterInterface
     {
         $this->appendGroupInfo($route);
 
-        $path = $route->getPath();
+        $path   = $route->getPath();
         $method = $route->getMethod();
 
         $this->routeCounter++;
@@ -310,10 +310,10 @@ class Router implements RouterInterface
     /**
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
-     * @param string $prefix
+     * @param string   $prefix
      * @param \Closure $callback
-     * @param array $middleware
-     * @param array $opts
+     * @param array    $middleware
+     * @param array    $opts
      */
     public function group(string $prefix, \Closure $callback, array $middleware = [], array $opts = []): void
     {
@@ -382,9 +382,9 @@ class Router implements RouterInterface
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
+        $path   = RouteHelper::formatPath($path, $this->ignoreLastSlash);
         $method = \strtoupper($method);
-        $sKey = $method . ' ' . $path;
+        $sKey   = $method . ' ' . $path;
 
         // is a static route path
         if (isset($this->staticRoutes[$sKey])) {
@@ -445,7 +445,7 @@ class Router implements RouterInterface
         $fKey = $first = '';
         if ($pos = \strpos($path, '/', 1)) {
             $first = \substr($path, 1, $pos - 1);
-            $fKey = $method . ' ' . $first;
+            $fKey  = $method . ' ' . $first;
         }
 
         // is a regular dynamic route(the first node is 1th level index key).
@@ -528,8 +528,8 @@ class Router implements RouterInterface
     /**
      * Runs the callback for the given request
      * @param DispatcherInterface|array $dispatcher
-     * @param null|string $path
-     * @param null|string $method
+     * @param null|string               $path
+     * @param null|string               $method
      * @return mixed
      * @throws \LogicException
      * @throws \Throwable
@@ -561,7 +561,7 @@ class Router implements RouterInterface
 
     /**
      * @param string $name Route name
-     * @param array $pathVars
+     * @param array  $pathVars
      * @return string
      */
     public function createUri(string $name, array $pathVars = []): string
@@ -575,7 +575,7 @@ class Router implements RouterInterface
 
     /**
      * @param string $name
-     * @param Route $route
+     * @param Route  $route
      */
     public function nameRoute(string $name, Route $route): void
     {
@@ -654,7 +654,7 @@ class Router implements RouterInterface
      * <b>Traversable</b>
      * @since 5.0.0
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->getRoutes());
     }
@@ -672,8 +672,8 @@ class Router implements RouterInterface
      */
     public function toString(): string
     {
-        $indent = '  ';
-        $strings = ['#Routes Number: ' . $this->count()];
+        $indent    = '  ';
+        $strings   = ['#Routes Number: ' . $this->count()];
         $strings[] = "\n#Static Routes:";
         /** @var Route $route */
         foreach ($this->staticRoutes as $route) {

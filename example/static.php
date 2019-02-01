@@ -22,7 +22,7 @@ SRouter::config([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => 1,
-    'controllerNamespace' => 'Inhere\Route\Example\Controllers',
+    'controllerNamespace' => 'Inhere\RouteTest\controllers',
     'controllerSuffix' => 'Controller',
 ]);
 

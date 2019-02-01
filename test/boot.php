@@ -18,7 +18,6 @@ require dirname(__DIR__) . '/src/Helper/functions.php';
 
 $libDir = dirname(__DIR__);
 $npMap  = [
-    'Inhere\Route\Example\\' => $libDir . '/example/',
     'Inhere\RouteTest\\'     => $libDir . '/test/',
     'Inhere\Route\\'         => $libDir . '/src/',
 ];

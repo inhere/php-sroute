@@ -5,7 +5,7 @@
  * Date: 2017/7/14
  * Time: 下午9:12
  * you can test use:
- *  php example/swoole_svr.php
+ *  php example/swoole-server.php
  * then you can access url: http://127.0.0.1:5675
  */
 
@@ -24,7 +24,7 @@ $router->config([
     // enable autoRoute
     // you can access '/demo' '/admin/user/info', Don't need to configure any route
     'autoRoute' => 1,
-    'controllerNamespace' => 'Inhere\Route\Example\Controllers',
+    'controllerNamespace' => 'Inhere\RouteTest\controllers',
     'controllerSuffix' => 'Controller',
 ]);
 
@@ -38,9 +38,8 @@ $routes = require __DIR__ . '/some-routes.php';
 
 $dispatcher = new Dispatcher([
     'dynamicAction' => true,
-], function ($path, $method) use ($router) {
-    return $router->match($path, $method);
-});
+]);
+$dispatcher->setRouter($router);
 
 // on notFound, output a message.
 $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
@@ -49,7 +48,7 @@ $dispatcher->on(Dispatcher::ON_NOT_FOUND, function ($path) {
 
 $server = new \Swoole\Http\Server('127.0.0.1', '5675', SWOOLE_BASE);
 $server->set([
-
+    //
 ]);
 
 $server->on('request', function ($request, $response) use ($dispatcher) {
@@ -57,7 +56,7 @@ $server->on('request', function ($request, $response) use ($dispatcher) {
     $uri = $request->server['request_uri'];
     $method = $request->server['request_method'];
 
-    fwrite(STDOUT, "request $method $uri\n");
+    // fwrite(STDOUT, "request $method $uri\n");
 
     ob_start();
     $ret = $dispatcher->dispatchUri($uri, $method);

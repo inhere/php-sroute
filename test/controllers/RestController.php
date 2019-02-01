@@ -6,11 +6,11 @@
  * Time: 14:58
  */
 
-namespace Inhere\Route\Example\Controllers;
+namespace Inhere\RouteTest\controllers;
 
 /**
  * Class RestController
- * @package Inhere\Route\Example\Controllers
+ * @package Inhere\RouteTest\controllers
  */
 class RestController
 {

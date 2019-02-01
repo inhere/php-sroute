@@ -6,11 +6,11 @@
  * Time: 上午12:14
  */
 
-namespace Inhere\Route\Example\Controllers;
+namespace Inhere\RouteTest\controllers;
 
 /**
  * Class DemoController
- * @package Inhere\Route\Example\Controllers
+ * @package Inhere\RouteTest\controllers
  */
 class DemoController
 {

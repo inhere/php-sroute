@@ -6,7 +6,7 @@
  * Time: 上午12:14
  */
 
-namespace Inhere\Route\Example\Controllers;
+namespace Inhere\RouteTest\controllers;
 
 /**
  * Class HomeController

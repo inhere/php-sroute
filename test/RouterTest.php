@@ -6,7 +6,7 @@ use Inhere\Route\Route;
 use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
 use function Inhere\Route\createRouter;
-use Inhere\Route\Example\Controllers\DemoController;
+use Inhere\RouteTest\controllers\DemoController;
 
 class RouterTest extends TestCase
 {
@@ -287,7 +287,7 @@ class RouterTest extends TestCase
             // enable autoRoute
             // you can access '/demo' '/admin/user/info', Don't need to configure any route
             'autoRoute'           => true,
-            'controllerNamespace' => 'Inhere\Route\Example\Controllers',
+            'controllerNamespace' => 'Inhere\RouteTest\controllers',
             'controllerSuffix'    => 'Controller',
         ]);
 
@@ -301,7 +301,7 @@ class RouterTest extends TestCase
         [$status, $path, $route] = $router->match('/admin/user/info');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/admin/user/info', $path);
-        $this->assertSame('Inhere\Route\Example\Controllers\admin\UserController@info', $route->getHandler());
+        $this->assertSame('Inhere\RouteTest\controllers\admin\UserController@info', $route->getHandler());
 
         [$status, $path,] = $router->match('/not-exist');
         $this->assertSame(Router::NOT_FOUND, $status);
