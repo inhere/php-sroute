@@ -6,7 +6,7 @@
  * Time: 00:10
  */
 
-namespace Inhere\Route\Test;
+namespace Inhere\RouteTest;
 
 use Inhere\Route\CachedRouter;
 use Inhere\Route\Route;
@@ -15,7 +15,7 @@ use function Inhere\Route\createCachedRouter;
 
 /**
  * Class CachedRouterTest
- * @package Inhere\Route\Test
+ * @package Inhere\RouteTest
  */
 class CachedRouterTest extends TestCase
 {

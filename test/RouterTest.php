@@ -1,6 +1,6 @@
 <?php
 
-namespace Inhere\Route\Test;
+namespace Inhere\RouteTest;
 
 use Inhere\Route\Route;
 use Inhere\Route\Router;

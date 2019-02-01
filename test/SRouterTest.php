@@ -1,6 +1,6 @@
 <?php
 
-namespace Inhere\Route\Test;
+namespace Inhere\RouteTest;
 
 use Inhere\Route\Route;
 use Inhere\Route\Router;
@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class SRouterTest
- * @package Inhere\Route\Test
+ * @package Inhere\RouteTest
  */
 class SRouterTest extends TestCase
 {

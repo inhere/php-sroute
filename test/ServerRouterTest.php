@@ -6,7 +6,7 @@
  * Time: 12:59
  */
 
-namespace Inhere\Route\Test;
+namespace Inhere\RouteTest;
 
 use Inhere\Route\Route;
 use Inhere\Route\ServerRouter;
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class ServerRouterTest
- * @package Inhere\Route\Test
+ * @package Inhere\RouteTest
  */
 class ServerRouterTest extends TestCase
 {

@@ -6,7 +6,7 @@
  * Time: 12:00
  */
 
-namespace Inhere\Route\Test;
+namespace Inhere\RouteTest;
 
 use Inhere\Route\PreMatchRouter;
 use Inhere\Route\Router;
@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class RouterManagerTest
- * @package Inhere\Route\Test
+ * @package Inhere\RouteTest
  * @covers \Inhere\Route\RouterManager
  */
 class RouterManagerTest extends TestCase

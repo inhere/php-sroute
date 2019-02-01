@@ -28,6 +28,11 @@
       "src/Helper/functions.php"
     ]
   },
+  "autoload-dev":  {
+    "psr-4": {
+      "Inhere\\RouteTest\\": "src/"
+    }
+  },
   "suggest": {
     "inhere/simple-print-tool": "Very lightweight data printing tools"
   }

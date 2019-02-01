@@ -6,14 +6,14 @@
  * Time: 23:53
  */
 
-namespace Inhere\Route\Test;
+namespace Inhere\RouteTest;
 
 use Inhere\Route\Helper\RouteHelper;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class RouteHelperTest
- * @package Inhere\Route\Test
+ * @package Inhere\RouteTest
  */
 class RouteHelperTest extends TestCase
 {
