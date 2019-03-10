@@ -35,6 +35,12 @@ trait RouterConfigTrait
      ******************************************************************************/
 
     /**
+     * Can define an default route path
+     * @var string
+     */
+    // public $defaultRoute = '';
+
+    /**
      * Ignore last slash char('/'). If is True, will clear last '/'.
      * @var bool
      */
@@ -84,14 +90,15 @@ trait RouterConfigTrait
         }
 
         $props = [
-            'name' => 1,
-            'chains' => 1,
-            'ignoreLastSlash' => 1,
-            'tmpCacheNumber' => 1,
+            'name'                   => 1,
+            'chains'                 => 1,
+            // 'defaultRoute'           => 1,
+            'ignoreLastSlash'        => 1,
+            'tmpCacheNumber'         => 1,
             'handleMethodNotAllowed' => 1,
-            'autoRoute' => 1,
-            'controllerNamespace' => 1,
-            'controllerSuffix' => 1,
+            'autoRoute'              => 1,
+            'controllerNamespace'    => 1,
+            'controllerSuffix'       => 1,
         ];
 
         foreach ($config as $name => $value) {

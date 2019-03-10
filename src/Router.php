@@ -26,6 +26,9 @@ class Router implements RouterInterface
     /** @var callable[] Router middleware handler chains */
     private $chains = [];
 
+    /** @var Route */
+    private $basicRoute;
+
     // -- Group info
 
     /** @var string */
@@ -107,6 +110,8 @@ class Router implements RouterInterface
     public function __construct(array $config = [])
     {
         $this->config($config);
+        $this->basicRoute = new Route('GET', '/', null);
+
         $this->currentGroupPrefix = '';
         $this->currentGroupOption = [];
     }
@@ -253,11 +258,11 @@ class Router implements RouterInterface
             throw new \InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
+        $route  = $this->cloneRoute();
         $method = \strtoupper($method);
-
         if ($method === 'ANY') {
             $this->any($path, $handler, $pathParams, $opts);
-            return Route::createFromArray();
+            return $route; // Only use for return type
         }
 
         if (false === \strpos(self::METHODS_STRING, ',' . $method . ',')) {
@@ -266,8 +271,8 @@ class Router implements RouterInterface
             );
         }
 
-        // create Route
-        $route = Route::create($method, $path, $handler, $pathParams, $opts);
+        // Initialize Route
+        $route->initialize($method, $path, $handler, $pathParams, $opts);
 
         return $this->addRoute($route);
     }
@@ -278,27 +283,29 @@ class Router implements RouterInterface
      */
     public function addRoute(Route $route): Route
     {
+        $this->routeCounter++;
         $this->appendGroupInfo($route);
 
         $path   = $route->getPath();
         $method = $route->getMethod();
 
-        $this->routeCounter++;
-
-        // has route name.
+        // Has route name.
         if ($name = $route->getName()) {
             $this->namedRoutes[$name] = $route;
         }
 
-        // it is static route
-        if (RouteHelper::isStaticRoute($path)) {
+        // It is static route
+        $argPos = \strpos($path, '{');
+        $optPos = \strpos($path, '[');
+        if ($argPos === false && $optPos === false) {
             $this->staticRoutes[$method . ' ' . $path] = $route;
             return $route;
         }
 
-        // parse param route
-        // if the first node is static string.
-        if ($first = $route->parseParam(self::$globalParams)) {
+        // Parse param route
+        // - If the first node is static string.
+        $globalParams = self::$globalParams;
+        if ($first = $route->quickParseParams($argPos, $optPos, $globalParams)) {
             $this->regularRoutes[$method . ' ' . $first][] = $route;
         } else {
             $this->vagueRoutes[$method][] = $route;
@@ -386,12 +393,12 @@ class Router implements RouterInterface
         $method = \strtoupper($method);
         $sKey   = $method . ' ' . $path;
 
-        // is a static route path
+        // It is a static route path
         if (isset($this->staticRoutes[$sKey])) {
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        // is a dynamic route, match by regexp
+        // It is a dynamic route, match by regexp
         $result = $this->matchDynamicRoute($path, $method);
         if ($result[0] === self::FOUND) {
             return $result;
@@ -421,7 +428,7 @@ class Router implements RouterInterface
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
+        // Collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
         if ($this->handleMethodNotAllowed) {
             return $this->findAllowedMethods($path, $method);
         }
@@ -448,21 +455,27 @@ class Router implements RouterInterface
             $fKey  = $method . ' ' . $first;
         }
 
-        // is a regular dynamic route(the first node is 1th level index key).
+        // It is a regular dynamic route(the first node is 1th level index key).
         if ($fKey && $routeList = $this->regularRoutes[$fKey] ?? false) {
             /** @var Route $route */
             foreach ($routeList as $route) {
-                $result = $route->match($path);
+                // Check path start string
+                $pathStart = $route->getPathStart();
+                if (\strpos($path, $pathStart) !== 0) {
+                    continue;
+                }
+
+                $result = $route->matchRegex($path);
                 if ($result[0]) {
                     return [self::FOUND, $path, $route->copyWithParams($result[1])];
                 }
             }
         }
 
-        // is a irregular dynamic route
+        // It is a irregular dynamic route
         if ($routeList = $this->vagueRoutes[$method] ?? false) {
             foreach ($routeList as $route) {
-                $result = $route->match($path);
+                $result = $route->matchRegex($path);
                 if ($result[0]) {
                     return [self::FOUND, $path, $route->copyWithParams($result[1])];
                 }
@@ -495,8 +508,7 @@ class Router implements RouterInterface
      */
     protected function findAllowedMethods(string $path, string $method): array
     {
-        $allowedMethods = [];
-
+        $methods = [];
         foreach (self::METHODS_ARRAY as $m) {
             if ($method === $m) {
                 continue;
@@ -504,20 +516,19 @@ class Router implements RouterInterface
 
             $sKey = $m . ' ' . $path;
             if (isset($this->staticRoutes[$sKey])) {
-                $allowedMethods[] = $m;
+                $methods[$m] = 1;
+                continue;
             }
 
             $result = $this->matchDynamicRoute($path, $m);
             if ($result[0] === self::FOUND) {
-                $allowedMethods[] = $m;
+                $methods[$m] = 1;
             }
         }
 
-        if ($allowedMethods && ($list = \array_unique($allowedMethods))) {
-            return [self::METHOD_NOT_ALLOWED, $path, $list];
+        if ($methods) {
+            return [self::METHOD_NOT_ALLOWED, $path, \array_keys($methods)];
         }
-
-        // oo ... not found
         return [self::NOT_FOUND, $path, null];
     }
 
@@ -645,6 +656,11 @@ class Router implements RouterInterface
     public function getChains(): array
     {
         return $this->chains;
+    }
+
+    protected function cloneRoute(): Route
+    {
+        return clone $this->basicRoute;
     }
 
     /**

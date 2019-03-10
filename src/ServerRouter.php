@@ -154,6 +154,6 @@ final class ServerRouter extends Router
      */
     public function getCacheCount(): int
     {
-        return count($this->cacheRoutes);
+        return \count($this->cacheRoutes);
     }
 }

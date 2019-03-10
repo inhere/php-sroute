@@ -96,7 +96,8 @@ final class Route implements \IteratorAggregate
         $handler,
         array $pathParams = [],
         array $options = []
-    ): Route {
+    ): Route
+    {
         return new self($method, $path, $handler, $pathParams, $options);
     }
 
@@ -127,6 +128,15 @@ final class Route implements \IteratorAggregate
      */
     public function __construct(string $method, string $path, $handler, array $pathParams = [], array $options = [])
     {
+        $this->initialize($method, $path, $handler, $pathParams, $options);
+    }
+
+    public function initialize(string $method,
+        string $path,
+        $handler,
+        array $pathParams = [],
+        array $options = []): self
+    {
         $this->path     = \trim($path);
         $this->method   = \strtoupper($method);
         $this->bindVars = $pathParams;
@@ -136,6 +146,8 @@ final class Route implements \IteratorAggregate
         if (isset($options['name'])) {
             $this->setName($options['name']);
         }
+
+        return $this;
     }
 
     /**
@@ -178,9 +190,22 @@ final class Route implements \IteratorAggregate
      */
     public function parseParam(array $bindParams = []): string
     {
+        $argPos = \strpos($this->path, '{');
+        $optPos = \strpos($this->path, '[');
+
+        return $this->quickParseParams($argPos, $optPos, $bindParams);
+    }
+
+    /**
+     * @param int|false $argPos
+     * @param int|false $optPos
+     * @param array     $bindParams
+     * @return string
+     */
+    public function quickParseParams($argPos, $optPos, array $bindParams = []): string
+    {
         $first  = '';
         $backup = $path = $this->path;
-        $argPos = \strpos($path, '{');
 
         // quote '.','/' to '\.','\/'
         if (false !== \strpos($path, '.')) {
@@ -188,11 +213,11 @@ final class Route implements \IteratorAggregate
         }
 
         // Parse the optional parameters
-        if (false !== ($optPos = \strpos($path, '['))) {
-            $withoutClosingOptionals = \rtrim($path, ']');
-            $optionalNum             = \strlen($path) - \strlen($withoutClosingOptionals);
+        if (false !== $optPos) {
+            $noClosingOptionals = \rtrim($path, ']');
+            $optionalNum        = \strlen($path) - \strlen($noClosingOptionals);
 
-            if ($optionalNum !== \substr_count($withoutClosingOptionals, '[')) {
+            if ($optionalNum !== \substr_count($noClosingOptionals, '[')) {
                 throw new \LogicException('Optional segments can only occur at the end of a route');
             }
 
@@ -209,13 +234,12 @@ final class Route implements \IteratorAggregate
                 if ($pos = \strpos($noOptional, '/', 1)) {
                     $first = \substr($noOptional, 1, $pos - 1);
                 }
-
                 return $first;
             }
 
             $floorPos = $argPos >= $optPos ? $optPos : $argPos;
         } else {
-            $floorPos = (int)$argPos;
+            $floorPos = $argPos;
         }
 
         $start = \substr($backup, 0, $floorPos);
@@ -233,11 +257,10 @@ final class Route implements \IteratorAggregate
         if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $path, $m)) {
             /** @var array[] $m */
             $pairs = [];
-
             foreach ($m[1] as $name) {
-                $regex                    = $bindParams[$name] ?? RouterInterface::DEFAULT_REGEX;
-                $pairs['{' . $name . '}'] = '(' . $regex . ')';
+                $regex = $bindParams[$name] ?? RouterInterface::DEFAULT_REGEX;
                 // $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
+                $pairs['{' . $name . '}'] = '(' . $regex . ')';
             }
 
             $path           = \strtr($path, $pairs);
@@ -269,25 +292,38 @@ final class Route implements \IteratorAggregate
             return [false,];
         }
 
-        // regex match
+        return $this->matchRegex($path);
+    }
+
+    /**
+     * @param string $path
+     * @return array
+     * [
+     *  match ok?,
+     *  route params values
+     * ]
+     */
+    public function matchRegex(string $path): array
+    {
+        // If don't match
         if (!\preg_match($this->pathRegex, $path, $matches)) {
             return [false,];
         }
 
-        // no params. eg: only use optional. '/about[.html]'
+        // No params. eg: only use optional. '/about[.html]'
         if (\count($this->pathVars) === 0) {
             return [true, []];
         }
 
         $params = [];
 
-        // first is full match.
+        // First is full match.
         \array_shift($matches);
         foreach ($matches as $index => $value) {
             $params[$this->pathVars[$index]] = $value;
         }
 
-        // if has default values
+        // If has default values
         if (isset($this->options['defaults'])) {
             $params = \array_merge($this->options['defaults'], $params);
         }
