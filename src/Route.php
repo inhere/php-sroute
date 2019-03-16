@@ -223,7 +223,7 @@ final class Route implements \IteratorAggregate
 
             // '/hello[/{name}]' -> '/hello(?:/{name})?'
             $path = \str_replace(['[', ']'], ['(?:', ')?'], $path);
-            // no params
+            // No params
             if ($argPos === false) {
                 $noOptional      = \substr($path, 0, $optPos);
                 $this->pathStart = $noOptional;
@@ -251,18 +251,13 @@ final class Route implements \IteratorAggregate
         }
 
         // Parse the parameters and replace them with the corresponding regular
-        if (\preg_match_all('#\{([a-zA-Z_][\w-]*)\}#', $path, $m)) {
-            /** @var array[] $m */
-            $pairs = [];
-            foreach ($m[1] as $name) {
-                $regex = $bindParams[$name] ?? RouterInterface::DEFAULT_REGEX;
-                // $pairs['{' . $name . '}'] = \sprintf('(?P<%s>%s)', $name, $regex);
-                $pairs['{' . $name . '}'] = '(' . $regex . ')';
-            }
+        $path = \preg_replace_callback('#\{([a-zA-Z_][\w-]*)\}#', function ($m) use ($bindParams)
+        {
+            $this->pathVars[] = $m[1];
 
-            $path           = \strtr($path, $pairs);
-            $this->pathVars = $m[1];
-        }
+            $regex = $bindParams[$m[1]] ?? Router::DEFAULT_REGEX;
+            return '(' . $regex . ')';
+        }, $path);
 
         $this->pathRegex = '#^' . $path . '$#';
         $this->pathStart = $start === '/' ? '' : $start;
@@ -284,7 +279,7 @@ final class Route implements \IteratorAggregate
      */
     public function match(string $path): array
     {
-        // check start string
+        // Check start string
         if ($this->pathStart !== '' && \strpos($path, $this->pathStart) !== 0) {
             return [false,];
         }

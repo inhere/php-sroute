@@ -2,16 +2,16 @@
 /*
  * This is routes cache file of the package `inhere/sroute`.
  * It is auto generate by Inhere\Route\CachedRouter.
- * @date 2019-03-17 02:39:05
+ * @date 2019-03-17 03:36:02
  * @count 1000
  * @notice Please don't edit it.
  */
 return array (
 // static routes
 'staticRoutes' => array (
-  'GET /nyqwpzowxey' => array(
+  'GET /h/akjnpgrn' => array(
      'name' => '',
-     'path' => '/nyqwpzowxey',
+     'path' => '/h/akjnpgrn',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -27,10 +27,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /zupq/bujo/b/bnxon/' => array(
+  'PUT /qm/mnkkaosj/f/oyfciidad/' => array(
      'name' => '',
-     'path' => '/zupq/bujo/b/bnxon/',
-     'method' => 'DELETE',
+     'path' => '/qm/mnkkaosj/f/oyfciidad/',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -45,10 +45,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /zbdohf/svx/lv' => array(
+  'POST /i/hk/dikhdhtaccbethew' => array(
      'name' => '',
-     'path' => '/zbdohf/svx/lv',
-     'method' => 'DELETE',
+     'path' => '/i/hk/dikhdhtaccbethew',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -63,10 +63,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /lmxxqqmsbth' => array(
+  'PUT /p/lfezeldnk' => array(
      'name' => '',
-     'path' => '/lmxxqqmsbth',
-     'method' => 'GET',
+     'path' => '/p/lfezeldnk',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -81,10 +81,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /tlezllo' => array(
+  'POST /qj/gjiqcq/jj/' => array(
      'name' => '',
-     'path' => '/tlezllo',
-     'method' => 'PATCH',
+     'path' => '/qj/gjiqcq/jj/',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -99,10 +99,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /b/ionxwy/suuxy/ugmy' => array(
+  'PUT /ea/qsk/dtu' => array(
      'name' => '',
-     'path' => '/b/ionxwy/suuxy/ugmy',
-     'method' => 'POST',
+     'path' => '/ea/qsk/dtu',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -117,10 +117,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /v2/kaypncvhhwxaxviaod' => array(
+  'GET /qxvrbtprga' => array(
      'name' => '',
-     'path' => '/v2/kaypncvhhwxaxviaod',
-     'method' => 'PATCH',
+     'path' => '/qxvrbtprga',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -135,9 +135,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /vucfmtlsx' => array(
+  'DELETE /hz/ccbnpuxahzraiwh/rn/' => array(
      'name' => '',
-     'path' => '/vucfmtlsx',
+     'path' => '/hz/ccbnpuxahzraiwh/rn/',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -153,10 +153,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /qwr/legx' => array(
+  'GET /bhmilprlw' => array(
      'name' => '',
-     'path' => '/qwr/legx',
-     'method' => 'POST',
+     'path' => '/bhmilprlw',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -171,10 +171,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /skgatrmwfsrknlmv' => array(
+  'DELETE /tdqfbxyy/jnqjxcoxhnhc/' => array(
      'name' => '',
-     'path' => '/skgatrmwfsrknlmv',
-     'method' => 'PUT',
+     'path' => '/tdqfbxyy/jnqjxcoxhnhc/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -189,9 +189,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /jbjcdpmw' => array(
+  'PATCH /yeu/trbfg' => array(
      'name' => '',
-     'path' => '/jbjcdpmw',
+     'path' => '/yeu/trbfg',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -207,10 +207,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /wtdrtjk' => array(
+  'GET /dogykdvls' => array(
      'name' => '',
-     'path' => '/wtdrtjk',
-     'method' => 'PUT',
+     'path' => '/dogykdvls',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -225,10 +225,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /zsafvz/lyh' => array(
+  'POST /goods/wvhfzwtbwdwbhwg' => array(
      'name' => '',
-     'path' => '/zsafvz/lyh',
-     'method' => 'PATCH',
+     'path' => '/goods/wvhfzwtbwdwbhwg',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -243,10 +243,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /h/cpsdc/jgb' => array(
+  'GET /user/vblohh' => array(
      'name' => '',
-     'path' => '/h/cpsdc/jgb',
-     'method' => 'POST',
+     'path' => '/user/vblohh',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -261,9 +261,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /nhiikfbzjfomk/zuxbyo' => array(
+  'DELETE /g/nsfeyzcrmzniqok' => array(
      'name' => '',
-     'path' => '/nhiikfbzjfomk/zuxbyo',
+     'path' => '/g/nsfeyzcrmzniqok',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -279,10 +279,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /api/fsbnjulnpkadcwsrnm' => array(
+  'GET /dbilirn/m/' => array(
      'name' => '',
-     'path' => '/api/fsbnjulnpkadcwsrnm',
-     'method' => 'PATCH',
+     'path' => '/dbilirn/m/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -297,9 +297,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /goods/ecyrtqokuxgz' => array(
+  'GET /vvjsxj/gj' => array(
      'name' => '',
-     'path' => '/goods/ecyrtqokuxgz',
+     'path' => '/vvjsxj/gj',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -315,9 +315,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /gpoz/t/modvthqzy' => array(
+  'DELETE /user/yanntcpigcuqthy' => array(
      'name' => '',
-     'path' => '/gpoz/t/modvthqzy',
+     'path' => '/user/yanntcpigcuqthy',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -333,10 +333,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /rpclbcakyqla/yl/czcaih' => array(
+  'GET /eq/hraam/' => array(
      'name' => '',
-     'path' => '/rpclbcakyqla/yl/czcaih',
-     'method' => 'PUT',
+     'path' => '/eq/hraam/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -351,10 +351,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/tydrkm' => array(
+  'DELETE /ugsstkmj' => array(
      'name' => '',
-     'path' => '/api/tydrkm',
-     'method' => 'GET',
+     'path' => '/ugsstkmj',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -369,10 +369,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /ugc/jhizqdae/zbcsyzp/a' => array(
+  'DELETE /aighibehu/c/tms' => array(
      'name' => '',
-     'path' => '/ugc/jhizqdae/zbcsyzp/a',
-     'method' => 'POST',
+     'path' => '/aighibehu/c/tms',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -387,9 +387,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/dxhbyiiegtqd' => array(
+  'GET /qgccl/neg/zfb/jmknhw' => array(
      'name' => '',
-     'path' => '/user/dxhbyiiegtqd',
+     'path' => '/qgccl/neg/zfb/jmknhw',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -405,10 +405,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /tq/rpfj/huy/uzgbl/jc' => array(
+  'POST /goods/dvbjygazdmsmlry' => array(
      'name' => '',
-     'path' => '/tq/rpfj/huy/uzgbl/jc',
-     'method' => 'PUT',
+     'path' => '/goods/dvbjygazdmsmlry',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -423,10 +423,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /rcmnvqkrfgsllcuy' => array(
+  'GET /qnskmrpmfkq' => array(
      'name' => '',
-     'path' => '/rcmnvqkrfgsllcuy',
-     'method' => 'POST',
+     'path' => '/qnskmrpmfkq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -441,10 +441,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /outnm/hiwg/jy/yq/' => array(
+  'DELETE /fqozwgghmypmrztj' => array(
      'name' => '',
-     'path' => '/outnm/hiwg/jy/yq/',
-     'method' => 'PUT',
+     'path' => '/fqozwgghmypmrztj',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -459,10 +459,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /kww/ai/acyxns' => array(
+  'GET /aljdbj/jildsmw/auks' => array(
      'name' => '',
-     'path' => '/kww/ai/acyxns',
-     'method' => 'PUT',
+     'path' => '/aljdbj/jildsmw/auks',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -477,9 +477,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /mtow/hkeo/p/wwwgok/ueypz' => array(
+  'POST /rc/fratzt/pn/opdb/sd/' => array(
      'name' => '',
-     'path' => '/mtow/hkeo/p/wwwgok/ueypz',
+     'path' => '/rc/fratzt/pn/opdb/sd/',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -495,9 +495,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /paetiez/j' => array(
+  'POST /fdqtzimyhqtpfi/znvp/a/k' => array(
      'name' => '',
-     'path' => '/paetiez/j',
+     'path' => '/fdqtzimyhqtpfi/znvp/a/k',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -513,28 +513,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /iipinjwkr' => array(
+  'PUT /lzyqbdb/oivfbb' => array(
      'name' => '',
-     'path' => '/iipinjwkr',
+     'path' => '/lzyqbdb/oivfbb',
      'method' => 'PUT',
-     'handler' => 'handler_func',
-     'bindVars' => array (
-    ),
-     'params' => array (
-    ),
-     'pathVars' => array (
-    ),
-     'pathRegex' => '',
-     'pathStart' => '',
-     'chains' => array (
-    ),
-     'options' => array (
-    ),
-  ),
-  'PATCH /vpjxdbo' => array(
-     'name' => '',
-     'path' => '/vpjxdbo',
-     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -549,9 +531,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /pzozaiw/lko' => array(
+  'PATCH /tjnwyuidrw/epiqjx/pij' => array(
      'name' => '',
-     'path' => '/pzozaiw/lko',
+     'path' => '/tjnwyuidrw/epiqjx/pij',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -567,10 +549,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /dbutih/tx/hfxbr' => array(
+  'GET /user/koqwcgyfucfq' => array(
      'name' => '',
-     'path' => '/dbutih/tx/hfxbr',
-     'method' => 'DELETE',
+     'path' => '/user/koqwcgyfucfq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -585,9 +567,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /user/cpqsblkdazlsyzh' => array(
+  'POST /y/kubale/' => array(
      'name' => '',
-     'path' => '/user/cpqsblkdazlsyzh',
+     'path' => '/y/kubale/',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -603,10 +585,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/ifxkatgwjfkz' => array(
+  'PUT /zbuyrkvhuybvvurwitw' => array(
      'name' => '',
-     'path' => '/api/ifxkatgwjfkz',
-     'method' => 'GET',
+     'path' => '/zbuyrkvhuybvvurwitw',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -621,9 +603,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /v2/ampahcqeyqqojyzyqx' => array(
+  'PATCH /api/bhpusfjhpuag' => array(
      'name' => '',
-     'path' => '/v2/ampahcqeyqqojyzyqx',
+     'path' => '/api/bhpusfjhpuag',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -639,9 +621,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /gsdjp/omagc/aij/l/liahqz' => array(
+  'GET /user/nsnsyakwxfikuee' => array(
      'name' => '',
-     'path' => '/gsdjp/omagc/aij/l/liahqz',
+     'path' => '/user/nsnsyakwxfikuee',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -657,10 +639,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /goods/ilddzp' => array(
+  'PATCH /v2/eulqauqocyrfmmx' => array(
      'name' => '',
-     'path' => '/goods/ilddzp',
-     'method' => 'GET',
+     'path' => '/v2/eulqauqocyrfmmx',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -675,9 +657,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /wr/pi/o/wdqs/jz/' => array(
+  'PATCH /qmlwpeg' => array(
      'name' => '',
-     'path' => '/wr/pi/o/wdqs/jz/',
+     'path' => '/qmlwpeg',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -693,10 +675,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /vv/eyy/jwy' => array(
+  'PUT /jvsyg/nr/fxj/guduixx' => array(
      'name' => '',
-     'path' => '/vv/eyy/jwy',
-     'method' => 'PATCH',
+     'path' => '/jvsyg/nr/fxj/guduixx',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -711,9 +693,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /gbirs/kbujcu' => array(
+  'POST /e/ifxbkyrts/vghwqwkuqm' => array(
      'name' => '',
-     'path' => '/gbirs/kbujcu',
+     'path' => '/e/ifxbkyrts/vghwqwkuqm',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -729,10 +711,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /w/pu/qd' => array(
+  'PATCH /mxkrsynthu' => array(
      'name' => '',
-     'path' => '/w/pu/qd',
-     'method' => 'PUT',
+     'path' => '/mxkrsynthu',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -747,10 +729,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /qanhqbcjn' => array(
+  'GET /ik/hyqjb/dljm' => array(
      'name' => '',
-     'path' => '/qanhqbcjn',
-     'method' => 'POST',
+     'path' => '/ik/hyqjb/dljm',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -765,10 +747,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /api/flfagfaqqhwdnyo' => array(
+  'GET /my/sbyegp/eaw' => array(
      'name' => '',
-     'path' => '/api/flfagfaqqhwdnyo',
-     'method' => 'PUT',
+     'path' => '/my/sbyegp/eaw',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -783,10 +765,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /g/cs/zjhazxk' => array(
+  'POST /zgi/uwzh' => array(
      'name' => '',
-     'path' => '/g/cs/zjhazxk',
-     'method' => 'PUT',
+     'path' => '/zgi/uwzh',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -801,10 +783,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /v2/ceksgubekvqitvu' => array(
+  'DELETE /cj/l/t/xjct' => array(
      'name' => '',
-     'path' => '/v2/ceksgubekvqitvu',
-     'method' => 'PATCH',
+     'path' => '/cj/l/t/xjct',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -819,10 +801,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /goods/auovyr' => array(
+  'DELETE /ec/gbrg/lwqlp/du/jch/i/' => array(
      'name' => '',
-     'path' => '/goods/auovyr',
-     'method' => 'PATCH',
+     'path' => '/ec/gbrg/lwqlp/du/jch/i/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -837,10 +819,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /nukpwthqfqot/cs' => array(
+  'PUT /ikekc/dk/ycpqc/rpsnvrua' => array(
      'name' => '',
-     'path' => '/nukpwthqfqot/cs',
-     'method' => 'GET',
+     'path' => '/ikekc/dk/ycpqc/rpsnvrua',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -855,10 +837,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /krkjtfeqjegci' => array(
+  'DELETE /lsqhrqj/ktwqg/e' => array(
      'name' => '',
-     'path' => '/krkjtfeqjegci',
-     'method' => 'GET',
+     'path' => '/lsqhrqj/ktwqg/e',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -873,9 +855,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /uokxosrt/slldmyoejlb' => array(
+  'GET /goods/augmqstkrnxpsxjkvb' => array(
      'name' => '',
-     'path' => '/uokxosrt/slldmyoejlb',
+     'path' => '/goods/augmqstkrnxpsxjkvb',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -891,10 +873,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /jogfejlx' => array(
+  'POST /krokzzizl' => array(
      'name' => '',
-     'path' => '/jogfejlx',
-     'method' => 'PUT',
+     'path' => '/krokzzizl',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -909,10 +891,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /uh/spdm/sf/fjrd/d/ckx/c' => array(
+  'GET /api/ygpjan' => array(
      'name' => '',
-     'path' => '/uh/spdm/sf/fjrd/d/ckx/c',
-     'method' => 'DELETE',
+     'path' => '/api/ygpjan',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -927,10 +909,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /poyhpuqh/eehc/fsnv/' => array(
+  'POST /wpnrlq/jmffnlk/xhpk/ggv' => array(
      'name' => '',
-     'path' => '/poyhpuqh/eehc/fsnv/',
-     'method' => 'GET',
+     'path' => '/wpnrlq/jmffnlk/xhpk/ggv',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -945,9 +927,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/cfunrflgugpqxfk' => array(
+  'GET /wqqivdv/' => array(
      'name' => '',
-     'path' => '/v2/cfunrflgugpqxfk',
+     'path' => '/wqqivdv/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -963,10 +945,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/kisdjgswywacxlm' => array(
+  'DELETE /v2/djjevmlptjwklbv' => array(
      'name' => '',
-     'path' => '/api/kisdjgswywacxlm',
-     'method' => 'GET',
+     'path' => '/v2/djjevmlptjwklbv',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -981,10 +963,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /owudwnk/m/g/y' => array(
+  'POST /api/tkdgtdtgbqyicak' => array(
      'name' => '',
-     'path' => '/owudwnk/m/g/y',
-     'method' => 'PATCH',
+     'path' => '/api/tkdgtdtgbqyicak',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -999,10 +981,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /cxq/o/zof' => array(
+  'POST /b/baz/w/iim' => array(
      'name' => '',
-     'path' => '/cxq/o/zof',
-     'method' => 'PUT',
+     'path' => '/b/baz/w/iim',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1017,9 +999,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ev/juhntg' => array(
+  'GET /fre/iat/ulu/mjaev' => array(
      'name' => '',
-     'path' => '/ev/juhntg',
+     'path' => '/fre/iat/ulu/mjaev',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1035,9 +1017,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /pjsgs/zg' => array(
+  'PUT /edvo/dynqnnh/dpnwkw' => array(
      'name' => '',
-     'path' => '/pjsgs/zg',
+     'path' => '/edvo/dynqnnh/dpnwkw',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1053,9 +1035,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /bbv/fxlkg/mi' => array(
+  'GET /v/cpy/ls/hrprf' => array(
      'name' => '',
-     'path' => '/bbv/fxlkg/mi',
+     'path' => '/v/cpy/ls/hrprf',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1071,9 +1053,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /s/vdphokr/nzan/zv' => array(
+  'DELETE /goods/bakvga' => array(
      'name' => '',
-     'path' => '/s/vdphokr/nzan/zv',
+     'path' => '/goods/bakvga',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1089,10 +1071,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /ylksc' => array(
+  'GET /lsefkvozx/gljcbioeemk' => array(
      'name' => '',
-     'path' => '/ylksc',
-     'method' => 'DELETE',
+     'path' => '/lsefkvozx/gljcbioeemk',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1107,10 +1089,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/mnrrptgldippchx' => array(
+  'GET /giwqnmfxihb/' => array(
      'name' => '',
-     'path' => '/api/mnrrptgldippchx',
-     'method' => 'DELETE',
+     'path' => '/giwqnmfxihb/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1125,9 +1107,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/xfqprvpodbfirlambr' => array(
+  'GET /sgdnlozjhho/rq/' => array(
      'name' => '',
-     'path' => '/v2/xfqprvpodbfirlambr',
+     'path' => '/sgdnlozjhho/rq/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1143,10 +1125,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /cdbmtv/riy' => array(
+  'GET /smizgtam' => array(
      'name' => '',
-     'path' => '/cdbmtv/riy',
-     'method' => 'PUT',
+     'path' => '/smizgtam',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1161,10 +1143,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /jdfzbksmmxfywisry' => array(
+  'POST /qdgjr' => array(
      'name' => '',
-     'path' => '/jdfzbksmmxfywisry',
-     'method' => 'PUT',
+     'path' => '/qdgjr',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1179,9 +1161,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /kic/byrdu' => array(
+  'POST /aiaienfnp/d/rqlgsd' => array(
      'name' => '',
-     'path' => '/kic/byrdu',
+     'path' => '/aiaienfnp/d/rqlgsd',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1197,10 +1179,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /vyyzdub/ucbbddpci' => array(
+  'DELETE /v2/hodaykhuqscg' => array(
      'name' => '',
-     'path' => '/vyyzdub/ucbbddpci',
-     'method' => 'PATCH',
+     'path' => '/v2/hodaykhuqscg',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1215,10 +1197,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /gwo/dujztndmkxe/ko/uvc' => array(
+  'DELETE /xadpq' => array(
      'name' => '',
-     'path' => '/gwo/dujztndmkxe/ko/uvc',
-     'method' => 'PATCH',
+     'path' => '/xadpq',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1233,10 +1215,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/pnhivylkcihskza' => array(
+  'GET /uoqbc' => array(
      'name' => '',
-     'path' => '/goods/pnhivylkcihskza',
-     'method' => 'DELETE',
+     'path' => '/uoqbc',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1251,10 +1233,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /khwgkvoulus' => array(
+  'PATCH /api/qpsvpcicgzbiarg' => array(
      'name' => '',
-     'path' => '/khwgkvoulus',
-     'method' => 'PUT',
+     'path' => '/api/qpsvpcicgzbiarg',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1269,10 +1251,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /v2/tvskzo' => array(
+  'PATCH /mcbdp' => array(
      'name' => '',
-     'path' => '/v2/tvskzo',
-     'method' => 'PUT',
+     'path' => '/mcbdp',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1287,10 +1269,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /v2/cfndedrtiaydhkmnpt' => array(
+  'DELETE /uucse/' => array(
      'name' => '',
-     'path' => '/v2/cfndedrtiaydhkmnpt',
-     'method' => 'PATCH',
+     'path' => '/uucse/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1305,10 +1287,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /xgsomrzdf/pj/' => array(
+  'GET /sqfdrmpb/ohvqyo' => array(
      'name' => '',
-     'path' => '/xgsomrzdf/pj/',
-     'method' => 'PATCH',
+     'path' => '/sqfdrmpb/ohvqyo',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1323,10 +1305,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /tt/pkkwptmdnvquqd' => array(
+  'GET /dzafkazfhx' => array(
      'name' => '',
-     'path' => '/tt/pkkwptmdnvquqd',
-     'method' => 'POST',
+     'path' => '/dzafkazfhx',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1341,10 +1323,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/pdhgqzdoebaa' => array(
+  'POST /stx/bphtk' => array(
      'name' => '',
-     'path' => '/api/pdhgqzdoebaa',
-     'method' => 'DELETE',
+     'path' => '/stx/bphtk',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1359,10 +1341,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/znpfof' => array(
+  'POST /jsmjgyjquxiyvl/lp' => array(
      'name' => '',
-     'path' => '/api/znpfof',
-     'method' => 'GET',
+     'path' => '/jsmjgyjquxiyvl/lp',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1377,10 +1359,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /u/ng/cirldneifkq' => array(
+  'GET /user/zpjaxcuwpqhi' => array(
      'name' => '',
-     'path' => '/u/ng/cirldneifkq',
-     'method' => 'PATCH',
+     'path' => '/user/zpjaxcuwpqhi',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1395,10 +1377,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ixjqh' => array(
+  'PATCH /v2/swobnj' => array(
      'name' => '',
-     'path' => '/ixjqh',
-     'method' => 'GET',
+     'path' => '/v2/swobnj',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1413,10 +1395,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /goods/rckhknmvyqtafew' => array(
+  'POST /mjplivkj' => array(
      'name' => '',
-     'path' => '/goods/rckhknmvyqtafew',
-     'method' => 'PATCH',
+     'path' => '/mjplivkj',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1431,10 +1413,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /eyebtkpwh' => array(
+  'DELETE /otx/ll' => array(
      'name' => '',
-     'path' => '/eyebtkpwh',
-     'method' => 'POST',
+     'path' => '/otx/ll',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1449,9 +1431,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/hwphzvzlwfnv' => array(
+  'GET /goods/ljgvmxztjsrogni' => array(
      'name' => '',
-     'path' => '/api/hwphzvzlwfnv',
+     'path' => '/goods/ljgvmxztjsrogni',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1467,10 +1449,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /uobeggmemqzxfgadz/' => array(
+  'PUT /ccbbp' => array(
      'name' => '',
-     'path' => '/uobeggmemqzxfgadz/',
-     'method' => 'POST',
+     'path' => '/ccbbp',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1485,9 +1467,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/rxiomjaehoapxcp' => array(
+  'GET /user/fpduszgwvtkl' => array(
      'name' => '',
-     'path' => '/v2/rxiomjaehoapxcp',
+     'path' => '/user/fpduszgwvtkl',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1503,10 +1485,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /wol/wycmmmgidax' => array(
+  'DELETE /kb/amjvvn/cv/rxcgkmt' => array(
      'name' => '',
-     'path' => '/wol/wycmmmgidax',
-     'method' => 'POST',
+     'path' => '/kb/amjvvn/cv/rxcgkmt',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1521,10 +1503,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /ygflylt' => array(
+  'GET /vchoy/hmityjttuth/m' => array(
      'name' => '',
-     'path' => '/ygflylt',
-     'method' => 'PUT',
+     'path' => '/vchoy/hmityjttuth/m',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1539,10 +1521,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /user/xxlmku' => array(
+  'PATCH /zhqsqdygnvomzhyhtgww' => array(
      'name' => '',
-     'path' => '/user/xxlmku',
-     'method' => 'POST',
+     'path' => '/zhqsqdygnvomzhyhtgww',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1557,9 +1539,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /por/b/ylx/ieo' => array(
+  'POST /otqwz/fsqvsts/f' => array(
      'name' => '',
-     'path' => '/por/b/ylx/ieo',
+     'path' => '/otqwz/fsqvsts/f',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1575,9 +1557,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ihrrevmkw' => array(
+  'GET /yq/uhrlc' => array(
      'name' => '',
-     'path' => '/ihrrevmkw',
+     'path' => '/yq/uhrlc',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1593,9 +1575,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /gegnbnrdsyyajqkn' => array(
+  'POST /loln/hboxfokqlrjpmwz/w' => array(
      'name' => '',
-     'path' => '/gegnbnrdsyyajqkn',
+     'path' => '/loln/hboxfokqlrjpmwz/w',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1611,10 +1593,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /n/vrr/cvksckpun' => array(
+  'DELETE /oejea/cay' => array(
      'name' => '',
-     'path' => '/n/vrr/cvksckpun',
-     'method' => 'GET',
+     'path' => '/oejea/cay',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1629,9 +1611,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /hgn/ilqs' => array(
+  'GET /tyaih/rnjcwxia' => array(
      'name' => '',
-     'path' => '/hgn/ilqs',
+     'path' => '/tyaih/rnjcwxia',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1647,10 +1629,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /cfyonjhttpr' => array(
+  'PUT /user/sjuskk' => array(
      'name' => '',
-     'path' => '/cfyonjhttpr',
-     'method' => 'POST',
+     'path' => '/user/sjuskk',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1665,10 +1647,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /q/hcvpkkxjkwuf' => array(
+  'PUT /knodhaturp' => array(
      'name' => '',
-     'path' => '/q/hcvpkkxjkwuf',
-     'method' => 'GET',
+     'path' => '/knodhaturp',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1683,9 +1665,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /shhuq/mbgrox/zx' => array(
+  'GET /fv/qvnbblw/' => array(
      'name' => '',
-     'path' => '/shhuq/mbgrox/zx',
+     'path' => '/fv/qvnbblw/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1701,10 +1683,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /fevfhoo/rjw' => array(
+  'PATCH /api/pfttrhshavuxnwjhlh' => array(
      'name' => '',
-     'path' => '/fevfhoo/rjw',
-     'method' => 'GET',
+     'path' => '/api/pfttrhshavuxnwjhlh',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1719,10 +1701,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /gync/hdrwckzfxjdxt' => array(
+  'POST /api/gbuukv' => array(
      'name' => '',
-     'path' => '/gync/hdrwckzfxjdxt',
-     'method' => 'PATCH',
+     'path' => '/api/gbuukv',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1737,10 +1719,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/nxwetiuyklxa' => array(
+  'PATCH /efdzykvzn' => array(
      'name' => '',
-     'path' => '/api/nxwetiuyklxa',
-     'method' => 'DELETE',
+     'path' => '/efdzykvzn',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1755,9 +1737,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /xocdvf/ewdu/iyvtome' => array(
+  'GET /cbsvhdikmxjoy' => array(
      'name' => '',
-     'path' => '/xocdvf/ewdu/iyvtome',
+     'path' => '/cbsvhdikmxjoy',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1773,10 +1755,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /qqvfgbsasmz' => array(
+  'POST /goods/obluhxpghgmgexjnbi' => array(
      'name' => '',
-     'path' => '/qqvfgbsasmz',
-     'method' => 'DELETE',
+     'path' => '/goods/obluhxpghgmgexjnbi',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1791,10 +1773,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /wr/rhvibtsmelacc/z/dg/fx' => array(
+  'GET /ghyoefd' => array(
      'name' => '',
-     'path' => '/wr/rhvibtsmelacc/z/dg/fx',
-     'method' => 'DELETE',
+     'path' => '/ghyoefd',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1809,10 +1791,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /goods/khhmrcsowgpushmwqp' => array(
+  'PATCH /fz/p/vtnvhzhfklhibf' => array(
      'name' => '',
-     'path' => '/goods/khhmrcsowgpushmwqp',
-     'method' => 'POST',
+     'path' => '/fz/p/vtnvhzhfklhibf',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1827,10 +1809,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /goods/inudajxudowwkpk' => array(
+  'POST /t/o/e/ypn/uau' => array(
      'name' => '',
-     'path' => '/goods/inudajxudowwkpk',
-     'method' => 'PATCH',
+     'path' => '/t/o/e/ypn/uau',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1845,10 +1827,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /aw/qhaf/a/j/' => array(
+  'GET /zfsqtol/igmgjndy/nfn/th' => array(
      'name' => '',
-     'path' => '/aw/qhaf/a/j/',
-     'method' => 'PUT',
+     'path' => '/zfsqtol/igmgjndy/nfn/th',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1863,10 +1845,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /abzwn/l/n/jge' => array(
+  'POST /hij/ex/sanbqumjz' => array(
      'name' => '',
-     'path' => '/abzwn/l/n/jge',
-     'method' => 'PUT',
+     'path' => '/hij/ex/sanbqumjz',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1881,10 +1863,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /muwkbbehx/kxso' => array(
+  'PUT /ktoyxkb' => array(
      'name' => '',
-     'path' => '/muwkbbehx/kxso',
-     'method' => 'GET',
+     'path' => '/ktoyxkb',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1899,10 +1881,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /eapijwh/nqcb/lq/' => array(
+  'DELETE /zxne/ytaj/t' => array(
      'name' => '',
-     'path' => '/eapijwh/nqcb/lq/',
-     'method' => 'PATCH',
+     'path' => '/zxne/ytaj/t',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1917,10 +1899,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /xondcemxxltt/x/vapk/pdl/' => array(
+  'GET /xhq/goze/ttyv/jms/' => array(
      'name' => '',
-     'path' => '/xondcemxxltt/x/vapk/pdl/',
-     'method' => 'PATCH',
+     'path' => '/xhq/goze/ttyv/jms/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1935,9 +1917,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /user/quslpemmmibg' => array(
+  'POST /fcbkoocki/' => array(
      'name' => '',
-     'path' => '/user/quslpemmmibg',
+     'path' => '/fcbkoocki/',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -1953,10 +1935,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ofikgveuxqti/d' => array(
+  'DELETE /goods/arfmwjwowsdecis' => array(
      'name' => '',
-     'path' => '/ofikgveuxqti/d',
-     'method' => 'GET',
+     'path' => '/goods/arfmwjwowsdecis',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1971,10 +1953,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/izxfccvhcqodjsnoax' => array(
+  'GET /k/bfdta/mubtvo/qp/' => array(
      'name' => '',
-     'path' => '/goods/izxfccvhcqodjsnoax',
-     'method' => 'DELETE',
+     'path' => '/k/bfdta/mubtvo/qp/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -1989,9 +1971,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /mrkjf/me/inaydrovyuwc' => array(
+  'GET /goods/nkysxi' => array(
      'name' => '',
-     'path' => '/mrkjf/me/inaydrovyuwc',
+     'path' => '/goods/nkysxi',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2007,9 +1989,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/wkkuztzgfqlwuepqcy' => array(
+  'GET /davqp' => array(
      'name' => '',
-     'path' => '/v2/wkkuztzgfqlwuepqcy',
+     'path' => '/davqp',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2025,10 +2007,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /c/fyarhtqiyaxftitgoj/' => array(
+  'POST /tihtcogsnh/jk/mr/' => array(
      'name' => '',
-     'path' => '/c/fyarhtqiyaxftitgoj/',
-     'method' => 'GET',
+     'path' => '/tihtcogsnh/jk/mr/',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2043,9 +2025,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /qofy/ksi/t' => array(
+  'DELETE /api/myclae' => array(
      'name' => '',
-     'path' => '/qofy/ksi/t',
+     'path' => '/api/myclae',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2061,9 +2043,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ryr/xq' => array(
+  'GET /vku/izomjl/at' => array(
      'name' => '',
-     'path' => '/ryr/xq',
+     'path' => '/vku/izomjl/at',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2079,10 +2061,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /goods/ahtnpwxamkqnzkiytl' => array(
+  'GET /doblrqg/forprowbaohxl' => array(
      'name' => '',
-     'path' => '/goods/ahtnpwxamkqnzkiytl',
-     'method' => 'POST',
+     'path' => '/doblrqg/forprowbaohxl',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2097,9 +2079,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /oeug/w/qw/' => array(
+  'POST /kbve/fansycmxro' => array(
      'name' => '',
-     'path' => '/oeug/w/qw/',
+     'path' => '/kbve/fansycmxro',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2115,10 +2097,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /n/lnhongh' => array(
+  'PUT /v2/nstkpgshfjwkuhngib' => array(
      'name' => '',
-     'path' => '/n/lnhongh',
-     'method' => 'PATCH',
+     'path' => '/v2/nstkpgshfjwkuhngib',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2133,10 +2115,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /cy/vbabtffpbp/o/' => array(
+  'DELETE /lxvzjrkgi/' => array(
      'name' => '',
-     'path' => '/cy/vbabtffpbp/o/',
-     'method' => 'POST',
+     'path' => '/lxvzjrkgi/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2151,10 +2133,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /vkmwx/alohoxvyhdon' => array(
+  'POST /goods/iltvyo' => array(
      'name' => '',
-     'path' => '/vkmwx/alohoxvyhdon',
-     'method' => 'PATCH',
+     'path' => '/goods/iltvyo',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2169,10 +2151,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/sqfwxdifqzqiyng' => array(
+  'DELETE /v2/zdrlnouduygynnv' => array(
      'name' => '',
-     'path' => '/user/sqfwxdifqzqiyng',
-     'method' => 'GET',
+     'path' => '/v2/zdrlnouduygynnv',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2187,10 +2169,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /exwtdj/tp/uhder' => array(
+  'POST /qakijdmizeaqdf' => array(
      'name' => '',
-     'path' => '/exwtdj/tp/uhder',
-     'method' => 'GET',
+     'path' => '/qakijdmizeaqdf',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2205,10 +2187,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /hpbbaryfwdxgwr/jrfzp/j' => array(
+  'PATCH /hosghaiotwfmken/stz/c/' => array(
      'name' => '',
-     'path' => '/hpbbaryfwdxgwr/jrfzp/j',
-     'method' => 'DELETE',
+     'path' => '/hosghaiotwfmken/stz/c/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2223,9 +2205,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/ouaogjkhjbzplkmmnl' => array(
+  'GET /bihgp' => array(
      'name' => '',
-     'path' => '/v2/ouaogjkhjbzplkmmnl',
+     'path' => '/bihgp',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2241,9 +2223,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jlp/xt' => array(
+  'GET /user/eivahqvpihww' => array(
      'name' => '',
-     'path' => '/jlp/xt',
+     'path' => '/user/eivahqvpihww',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2259,10 +2241,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /endayitov/zon/nxalptf/d' => array(
+  'PUT /enw/gl/k/otwaecwbhmc' => array(
      'name' => '',
-     'path' => '/endayitov/zon/nxalptf/d',
-     'method' => 'GET',
+     'path' => '/enw/gl/k/otwaecwbhmc',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2277,10 +2259,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /d/phsxcukr' => array(
+  'DELETE /oql/ybp/dc/i' => array(
      'name' => '',
-     'path' => '/d/phsxcukr',
-     'method' => 'PUT',
+     'path' => '/oql/ybp/dc/i',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2295,9 +2277,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /v2/eftdzgjhynvestqqgq' => array(
+  'DELETE /lizzk/j/nclys/nqw/ibc' => array(
      'name' => '',
-     'path' => '/v2/eftdzgjhynvestqqgq',
+     'path' => '/lizzk/j/nclys/nqw/ibc',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2313,10 +2295,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /mjsys/gs' => array(
+  'DELETE /xianps/yqtyp' => array(
      'name' => '',
-     'path' => '/mjsys/gs',
-     'method' => 'POST',
+     'path' => '/xianps/yqtyp',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2331,10 +2313,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /gkh/hd/egs/irvjkv' => array(
+  'GET /goods/ulqmldnkaggqxyr' => array(
      'name' => '',
-     'path' => '/gkh/hd/egs/irvjkv',
-     'method' => 'PUT',
+     'path' => '/goods/ulqmldnkaggqxyr',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2349,9 +2331,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /vr/wwx' => array(
+  'GET /api/dxvryikvcwnazah' => array(
      'name' => '',
-     'path' => '/vr/wwx',
+     'path' => '/api/dxvryikvcwnazah',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2367,9 +2349,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /d/qfq/gpszucrbjh/jsnngc' => array(
+  'PUT /tnqvdnqjtvrf/mswe/' => array(
      'name' => '',
-     'path' => '/d/qfq/gpszucrbjh/jsnngc',
+     'path' => '/tnqvdnqjtvrf/mswe/',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2385,10 +2367,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /v2/sretva' => array(
+  'PATCH /hrzbgaogcc' => array(
      'name' => '',
-     'path' => '/v2/sretva',
-     'method' => 'PUT',
+     'path' => '/hrzbgaogcc',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2403,9 +2385,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /zzycclonjafwsvnv/lam' => array(
+  'PUT /goods/iuyxmduqgspk' => array(
      'name' => '',
-     'path' => '/zzycclonjafwsvnv/lam',
+     'path' => '/goods/iuyxmduqgspk',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2421,10 +2403,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/ghfgraprtqzddayrfz' => array(
+  'POST /rqcl/bmwg' => array(
      'name' => '',
-     'path' => '/user/ghfgraprtqzddayrfz',
-     'method' => 'GET',
+     'path' => '/rqcl/bmwg',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2439,10 +2421,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /qdowvklmpjzrknrcfq/o' => array(
+  'PATCH /yk/xqlmajvry' => array(
      'name' => '',
-     'path' => '/qdowvklmpjzrknrcfq/o',
-     'method' => 'GET',
+     'path' => '/yk/xqlmajvry',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2457,10 +2439,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/otgica' => array(
+  'PUT /xaq/b/utvm' => array(
      'name' => '',
-     'path' => '/api/otgica',
-     'method' => 'GET',
+     'path' => '/xaq/b/utvm',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2475,10 +2457,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/oprvsrvaridbayt' => array(
+  'PUT /tqwlppkyjgu' => array(
      'name' => '',
-     'path' => '/api/oprvsrvaridbayt',
-     'method' => 'GET',
+     'path' => '/tqwlppkyjgu',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2493,10 +2475,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /fepbcslb' => array(
+  'PUT /oopdl/' => array(
      'name' => '',
-     'path' => '/fepbcslb',
-     'method' => 'GET',
+     'path' => '/oopdl/',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2511,10 +2493,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ed/ah/vfamnivmdk/noq/mbx/' => array(
+  'POST /sjs/wimcyp/' => array(
      'name' => '',
-     'path' => '/ed/ah/vfamnivmdk/noq/mbx/',
-     'method' => 'GET',
+     'path' => '/sjs/wimcyp/',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2529,9 +2511,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/lnfczlmifmji' => array(
+  'PATCH /u/vqq/qeaavjfrh/' => array(
      'name' => '',
-     'path' => '/user/lnfczlmifmji',
+     'path' => '/u/vqq/qeaavjfrh/',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2547,10 +2529,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /ycyx/vmiq' => array(
+  'POST /api/eurnnmvxgdny' => array(
      'name' => '',
-     'path' => '/ycyx/vmiq',
-     'method' => 'DELETE',
+     'path' => '/api/eurnnmvxgdny',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2565,10 +2547,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /sdujoe/kztvuu/zre/n/y' => array(
+  'GET /zz/sfyn/gxvdk/mxgdwi/' => array(
      'name' => '',
-     'path' => '/sdujoe/kztvuu/zre/n/y',
-     'method' => 'PUT',
+     'path' => '/zz/sfyn/gxvdk/mxgdwi/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2583,10 +2565,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /gpj/auknwag/jvrupzy' => array(
+  'DELETE /dmnagbvx/' => array(
      'name' => '',
-     'path' => '/gpj/auknwag/jvrupzy',
-     'method' => 'POST',
+     'path' => '/dmnagbvx/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2601,10 +2583,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /uvtlealurp' => array(
+  'PUT /vfegazr/jzak' => array(
      'name' => '',
-     'path' => '/uvtlealurp',
-     'method' => 'DELETE',
+     'path' => '/vfegazr/jzak',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2619,10 +2601,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /eewe/t' => array(
+  'DELETE /numslh/iaq/rjqilelvw/h' => array(
      'name' => '',
-     'path' => '/eewe/t',
-     'method' => 'PATCH',
+     'path' => '/numslh/iaq/rjqilelvw/h',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2637,10 +2619,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /jqrjjowrd/defuwsoe/ydb/' => array(
+  'DELETE /user/vrxgxkfwjfcbddbbph' => array(
      'name' => '',
-     'path' => '/jqrjjowrd/defuwsoe/ydb/',
-     'method' => 'POST',
+     'path' => '/user/vrxgxkfwjfcbddbbph',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2655,10 +2637,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /dl/qgbucaioj/l/fcssobos' => array(
+  'PATCH /mpbht/wwnrfyoc/jyw/g/' => array(
      'name' => '',
-     'path' => '/dl/qgbucaioj/l/fcssobos',
-     'method' => 'GET',
+     'path' => '/mpbht/wwnrfyoc/jyw/g/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2673,10 +2655,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /vrouh/fjzs/clc/ynlxni/tw' => array(
+  'PATCH /mbvc/rd/oqqeqzezrw' => array(
      'name' => '',
-     'path' => '/vrouh/fjzs/clc/ynlxni/tw',
-     'method' => 'POST',
+     'path' => '/mbvc/rd/oqqeqzezrw',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2691,10 +2673,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /ap/rnxvtp/' => array(
+  'DELETE /ljladkw/nc/l' => array(
      'name' => '',
-     'path' => '/ap/rnxvtp/',
-     'method' => 'PUT',
+     'path' => '/ljladkw/nc/l',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2709,10 +2691,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /r/weuuivgrtryygfafng' => array(
+  'GET /yg/iptyfmwwoi/eg' => array(
      'name' => '',
-     'path' => '/r/weuuivgrtryygfafng',
-     'method' => 'DELETE',
+     'path' => '/yg/iptyfmwwoi/eg',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2727,10 +2709,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/cjeroqwivtlojia' => array(
+  'POST /sdy/q/zovzakolr/pd/mz' => array(
      'name' => '',
-     'path' => '/v2/cjeroqwivtlojia',
-     'method' => 'GET',
+     'path' => '/sdy/q/zovzakolr/pd/mz',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2745,9 +2727,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /o/kxwpxrzas/avlk/rrwjhx/' => array(
+  'DELETE /ofns/wby/o/t' => array(
      'name' => '',
-     'path' => '/o/kxwpxrzas/avlk/rrwjhx/',
+     'path' => '/ofns/wby/o/t',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2763,9 +2745,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ri/go/cxtdz' => array(
+  'GET /gl/hzgf/i/rp/hr/' => array(
      'name' => '',
-     'path' => '/ri/go/cxtdz',
+     'path' => '/gl/hzgf/i/rp/hr/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2781,9 +2763,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/ybcmbujmqonhvjn' => array(
+  'GET /ocrqtdbz/bmecjli/ipbbn' => array(
      'name' => '',
-     'path' => '/api/ybcmbujmqonhvjn',
+     'path' => '/ocrqtdbz/bmecjli/ipbbn',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2799,9 +2781,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /api/saqndpxahmqvfbnmwc' => array(
+  'POST /goods/sjmpmp' => array(
      'name' => '',
-     'path' => '/api/saqndpxahmqvfbnmwc',
+     'path' => '/goods/sjmpmp',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2817,10 +2799,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /wlexhldfsdb/y/p' => array(
+  'GET /bfp/xmduw/b' => array(
      'name' => '',
-     'path' => '/wlexhldfsdb/y/p',
-     'method' => 'PUT',
+     'path' => '/bfp/xmduw/b',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2835,9 +2817,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jwkutduxogbel' => array(
+  'GET /p/gqhctjtvyfzrcb/r' => array(
      'name' => '',
-     'path' => '/jwkutduxogbel',
+     'path' => '/p/gqhctjtvyfzrcb/r',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2853,10 +2835,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /stugeqpf/xobnnzcl' => array(
+  'DELETE /api/atwrrftybiyfqaw' => array(
      'name' => '',
-     'path' => '/stugeqpf/xobnnzcl',
-     'method' => 'PATCH',
+     'path' => '/api/atwrrftybiyfqaw',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2871,10 +2853,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /svuam' => array(
+  'PUT /goods/pbifjkhikrwh' => array(
      'name' => '',
-     'path' => '/svuam',
-     'method' => 'DELETE',
+     'path' => '/goods/pbifjkhikrwh',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2889,10 +2871,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /tl/bktcsb' => array(
+  'GET /rhdj/eeh' => array(
      'name' => '',
-     'path' => '/tl/bktcsb',
-     'method' => 'DELETE',
+     'path' => '/rhdj/eeh',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2907,10 +2889,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /wdeg/pz/p/f' => array(
+  'GET /ttuw/cno/jtq' => array(
      'name' => '',
-     'path' => '/wdeg/pz/p/f',
-     'method' => 'PATCH',
+     'path' => '/ttuw/cno/jtq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2925,10 +2907,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /hu/synjbirmgxckgqu/' => array(
+  'PATCH /sng/r/kmcdpx' => array(
      'name' => '',
-     'path' => '/hu/synjbirmgxckgqu/',
-     'method' => 'POST',
+     'path' => '/sng/r/kmcdpx',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2943,10 +2925,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /hauyug/mlitvvt' => array(
+  'PATCH /mrrxs' => array(
      'name' => '',
-     'path' => '/hauyug/mlitvvt',
-     'method' => 'POST',
+     'path' => '/mrrxs',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2961,10 +2943,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /ov/hu/fi/tebdaa/wyzc/' => array(
+  'PATCH /goods/gwlxupxlcbsrbsd' => array(
      'name' => '',
-     'path' => '/ov/hu/fi/tebdaa/wyzc/',
-     'method' => 'DELETE',
+     'path' => '/goods/gwlxupxlcbsrbsd',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -2979,9 +2961,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /rxdefqy/jljwaschrgci/w' => array(
+  'GET /s/roc/ingd/rgb' => array(
      'name' => '',
-     'path' => '/rxdefqy/jljwaschrgci/w',
+     'path' => '/s/roc/ingd/rgb',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -2997,10 +2979,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /gl/ditw/bqypwni' => array(
+  'POST /zquie/smlszyeqycj' => array(
      'name' => '',
-     'path' => '/gl/ditw/bqypwni',
-     'method' => 'PUT',
+     'path' => '/zquie/smlszyeqycj',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3015,10 +2997,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /ltynfv/ecxsz/' => array(
+  'GET /goods/fzjuajgsyljcwho' => array(
      'name' => '',
-     'path' => '/ltynfv/ecxsz/',
-     'method' => 'POST',
+     'path' => '/goods/fzjuajgsyljcwho',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3033,9 +3015,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /ejhqv' => array(
+  'POST /goods/nzyshycafcsk' => array(
      'name' => '',
-     'path' => '/ejhqv',
+     'path' => '/goods/nzyshycafcsk',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3051,10 +3033,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /nrucwjcpfrmeeowhv' => array(
+  'GET /wpk/oevns' => array(
      'name' => '',
-     'path' => '/nrucwjcpfrmeeowhv',
-     'method' => 'POST',
+     'path' => '/wpk/oevns',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3069,10 +3051,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/uveqsp' => array(
+  'POST /kvovzkralitge/l/u/v/' => array(
      'name' => '',
-     'path' => '/v2/uveqsp',
-     'method' => 'GET',
+     'path' => '/kvovzkralitge/l/u/v/',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3087,10 +3069,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/onhjozdvaydrynl' => array(
+  'POST /p/qjyw/kuqri' => array(
      'name' => '',
-     'path' => '/api/onhjozdvaydrynl',
-     'method' => 'DELETE',
+     'path' => '/p/qjyw/kuqri',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3105,10 +3087,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /a/jdiy' => array(
+  'PATCH /kakiklpklau/jiskxqxyc' => array(
      'name' => '',
-     'path' => '/a/jdiy',
-     'method' => 'GET',
+     'path' => '/kakiklpklau/jiskxqxyc',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3123,10 +3105,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /jtmxedum/ipdbt/gdyxefp' => array(
+  'GET /api/bfnmufhfsnhlxny' => array(
      'name' => '',
-     'path' => '/jtmxedum/ipdbt/gdyxefp',
-     'method' => 'PATCH',
+     'path' => '/api/bfnmufhfsnhlxny',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3141,10 +3123,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /user/oywxynwuhxcyhssdhq' => array(
+  'GET /tbyqrganxwm/vljojjmbb' => array(
      'name' => '',
-     'path' => '/user/oywxynwuhxcyhssdhq',
-     'method' => 'PUT',
+     'path' => '/tbyqrganxwm/vljojjmbb',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3159,10 +3141,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /qjn/bh' => array(
+  'GET /uaxp/rpqc' => array(
      'name' => '',
-     'path' => '/qjn/bh',
-     'method' => 'PUT',
+     'path' => '/uaxp/rpqc',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3177,10 +3159,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /user/tuhkar' => array(
+  'GET /olrdzxrfxeh' => array(
      'name' => '',
-     'path' => '/user/tuhkar',
-     'method' => 'DELETE',
+     'path' => '/olrdzxrfxeh',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3195,10 +3177,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /fz/gk/hyzj/hlpmcqefzetv' => array(
+  'PATCH /c/cmo/r' => array(
      'name' => '',
-     'path' => '/fz/gk/hyzj/hlpmcqefzetv',
-     'method' => 'POST',
+     'path' => '/c/cmo/r',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3213,10 +3195,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /iv/tsx' => array(
+  'POST /tarzgesyadhly' => array(
      'name' => '',
-     'path' => '/iv/tsx',
-     'method' => 'DELETE',
+     'path' => '/tarzgesyadhly',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3231,9 +3213,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /dfjtwoti' => array(
+  'GET /yimaf/el' => array(
      'name' => '',
-     'path' => '/dfjtwoti',
+     'path' => '/yimaf/el',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3249,10 +3231,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /fjtmbw/a' => array(
+  'DELETE /agi/fg' => array(
      'name' => '',
-     'path' => '/fjtmbw/a',
-     'method' => 'PUT',
+     'path' => '/agi/fg',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3267,9 +3249,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /user/gssoct' => array(
+  'PUT /w/maflacgzfpna/l' => array(
      'name' => '',
-     'path' => '/user/gssoct',
+     'path' => '/w/maflacgzfpna/l',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3285,9 +3267,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /zegw/iylco' => array(
+  'PUT /f/z/f/xdmde/lliezvi/xrwwj' => array(
      'name' => '',
-     'path' => '/zegw/iylco',
+     'path' => '/f/z/f/xdmde/lliezvi/xrwwj',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3303,9 +3285,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /vvwyiqkjeyd/' => array(
+  'GET /dcdpwooil' => array(
      'name' => '',
-     'path' => '/vvwyiqkjeyd/',
+     'path' => '/dcdpwooil',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3321,10 +3303,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /slgkrzulpmx' => array(
+  'PUT /v2/oepoibzzgchcxiz' => array(
      'name' => '',
-     'path' => '/slgkrzulpmx',
-     'method' => 'GET',
+     'path' => '/v2/oepoibzzgchcxiz',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3339,10 +3321,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /xbdyawy/eqswqxj/aslwr/' => array(
+  'PUT /dmxhjouywdk' => array(
      'name' => '',
-     'path' => '/xbdyawy/eqswqxj/aslwr/',
-     'method' => 'DELETE',
+     'path' => '/dmxhjouywdk',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3357,10 +3339,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ryhjfr/f' => array(
+  'POST /om/x/tnrre/arrwf/u' => array(
      'name' => '',
-     'path' => '/ryhjfr/f',
-     'method' => 'GET',
+     'path' => '/om/x/tnrre/arrwf/u',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3375,10 +3357,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/fhrbnaqojqtc' => array(
+  'DELETE /lodyb/siggaa' => array(
      'name' => '',
-     'path' => '/user/fhrbnaqojqtc',
-     'method' => 'PATCH',
+     'path' => '/lodyb/siggaa',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3393,9 +3375,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /sbiavn/pddl/' => array(
+  'PATCH /biysqzjte/xdgqdbwr' => array(
      'name' => '',
-     'path' => '/sbiavn/pddl/',
+     'path' => '/biysqzjte/xdgqdbwr',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3411,10 +3393,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /zaegbzx' => array(
+  'GET /api/fvtaxntjabbc' => array(
      'name' => '',
-     'path' => '/zaegbzx',
-     'method' => 'POST',
+     'path' => '/api/fvtaxntjabbc',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3429,10 +3411,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /api/zuoainwnwsnnuhv' => array(
+  'DELETE /b/uw/fu' => array(
      'name' => '',
-     'path' => '/api/zuoainwnwsnnuhv',
-     'method' => 'POST',
+     'path' => '/b/uw/fu',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3447,10 +3429,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /srgegeacla' => array(
+  'GET /user/gcwjtqtyqljordqipc' => array(
      'name' => '',
-     'path' => '/srgegeacla',
-     'method' => 'PATCH',
+     'path' => '/user/gcwjtqtyqljordqipc',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3465,10 +3447,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /pmufmpl' => array(
+  'GET /e/popmanhoj' => array(
      'name' => '',
-     'path' => '/pmufmpl',
-     'method' => 'POST',
+     'path' => '/e/popmanhoj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3483,10 +3465,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /v2/aotomszysnxnnbl' => array(
+  'PUT /v2/cuexstrpygurzaj' => array(
      'name' => '',
-     'path' => '/v2/aotomszysnxnnbl',
-     'method' => 'POST',
+     'path' => '/v2/cuexstrpygurzaj',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3501,10 +3483,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /mq/thw/b/kqris/' => array(
+  'PATCH /lnprkjm' => array(
      'name' => '',
-     'path' => '/mq/thw/b/kqris/',
-     'method' => 'PUT',
+     'path' => '/lnprkjm',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3519,10 +3501,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /dzaupdwjkehk/mf' => array(
+  'POST /dl/bzxq/forbg/mjwbqe' => array(
      'name' => '',
-     'path' => '/dzaupdwjkehk/mf',
-     'method' => 'DELETE',
+     'path' => '/dl/bzxq/forbg/mjwbqe',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3537,9 +3519,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /fkobrwohnfki/fu' => array(
+  'POST /ztwz/yfb/dge/wlv' => array(
      'name' => '',
-     'path' => '/fkobrwohnfki/fu',
+     'path' => '/ztwz/yfb/dge/wlv',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3555,10 +3537,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /yr/ld/jjpa/p' => array(
+  'PUT /hziqw/bymy' => array(
      'name' => '',
-     'path' => '/yr/ld/jjpa/p',
-     'method' => 'DELETE',
+     'path' => '/hziqw/bymy',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3573,10 +3555,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /ehrcrgghaxc/pvj/q/s/x' => array(
+  'GET /kcc/cfj/ql' => array(
      'name' => '',
-     'path' => '/ehrcrgghaxc/pvj/q/s/x',
-     'method' => 'PATCH',
+     'path' => '/kcc/cfj/ql',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3591,10 +3573,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /vuxyss/vgiokch' => array(
+  'GET /v2/pnhbigyuqbkxmhm' => array(
      'name' => '',
-     'path' => '/vuxyss/vgiokch',
-     'method' => 'DELETE',
+     'path' => '/v2/pnhbigyuqbkxmhm',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3609,10 +3591,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /hxmpyvsmycifq/sg/j/xwgl' => array(
+  'PUT /izeidmfnmlgrbdhgrtnk' => array(
      'name' => '',
-     'path' => '/hxmpyvsmycifq/sg/j/xwgl',
-     'method' => 'DELETE',
+     'path' => '/izeidmfnmlgrbdhgrtnk',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3627,10 +3609,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /qkrsuwsl/rhk/bgu/id' => array(
+  'PUT /shcif/ab/s/z/nswuczigoh' => array(
      'name' => '',
-     'path' => '/qkrsuwsl/rhk/bgu/id',
-     'method' => 'GET',
+     'path' => '/shcif/ab/s/z/nswuczigoh',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3645,10 +3627,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /pkpvbjkkh' => array(
+  'GET /fzazkobuj' => array(
      'name' => '',
-     'path' => '/pkpvbjkkh',
-     'method' => 'PUT',
+     'path' => '/fzazkobuj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3663,10 +3645,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /fldrpha/n' => array(
+  'DELETE /fklwd' => array(
      'name' => '',
-     'path' => '/fldrpha/n',
-     'method' => 'PUT',
+     'path' => '/fklwd',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3681,9 +3663,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /rcvramywwx/t' => array(
+  'PUT /xr/t/rn/bfyszexyxhgkwl' => array(
      'name' => '',
-     'path' => '/rcvramywwx/t',
+     'path' => '/xr/t/rn/bfyszexyxhgkwl',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3699,10 +3681,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /abgcb' => array(
+  'GET /qlbjpcrooyw' => array(
      'name' => '',
-     'path' => '/abgcb',
-     'method' => 'POST',
+     'path' => '/qlbjpcrooyw',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3717,9 +3699,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jamjxvytnvlo/j/d/zgibxq' => array(
+  'GET /dkhbrtwehy/s/' => array(
      'name' => '',
-     'path' => '/jamjxvytnvlo/j/d/zgibxq',
+     'path' => '/dkhbrtwehy/s/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3735,9 +3717,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /xkzzkku' => array(
+  'POST /vkqsoouhlcgyuyzrn' => array(
      'name' => '',
-     'path' => '/xkzzkku',
+     'path' => '/vkqsoouhlcgyuyzrn',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3753,9 +3735,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/pkwddhfmjagpauadnk' => array(
+  'GET /zeipmwemmz/eveb/zw' => array(
      'name' => '',
-     'path' => '/v2/pkwddhfmjagpauadnk',
+     'path' => '/zeipmwemmz/eveb/zw',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3771,10 +3753,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /kmm/sy/rjqqfdgx' => array(
+  'GET /ycyytqaty/xmqg' => array(
      'name' => '',
-     'path' => '/kmm/sy/rjqqfdgx',
-     'method' => 'PUT',
+     'path' => '/ycyytqaty/xmqg',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3789,10 +3771,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /mbmfuej' => array(
+  'PATCH /user/jbxhvakysalb' => array(
      'name' => '',
-     'path' => '/mbmfuej',
-     'method' => 'PUT',
+     'path' => '/user/jbxhvakysalb',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3807,10 +3789,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /toq/dy/x/a/vxo' => array(
+  'PATCH /kzyjrdnlw/hht/fpsijgj' => array(
      'name' => '',
-     'path' => '/toq/dy/x/a/vxo',
-     'method' => 'POST',
+     'path' => '/kzyjrdnlw/hht/fpsijgj',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3825,10 +3807,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /gjceq/sjjdx' => array(
+  'GET /thpghmpvmpj/gue/oeefgm' => array(
      'name' => '',
-     'path' => '/gjceq/sjjdx',
-     'method' => 'POST',
+     'path' => '/thpghmpvmpj/gue/oeefgm',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3843,10 +3825,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /dsokzuulexabltwczxkq' => array(
+  'PUT /ugikc' => array(
      'name' => '',
-     'path' => '/dsokzuulexabltwczxkq',
-     'method' => 'PATCH',
+     'path' => '/ugikc',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3861,10 +3843,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/edunnepouokrnfi' => array(
+  'DELETE /spukc' => array(
      'name' => '',
-     'path' => '/user/edunnepouokrnfi',
-     'method' => 'GET',
+     'path' => '/spukc',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3879,10 +3861,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /user/pdhzjuctunig' => array(
+  'POST /ymil/k/pmhce/j/gmde/wc' => array(
      'name' => '',
-     'path' => '/user/pdhzjuctunig',
-     'method' => 'PUT',
+     'path' => '/ymil/k/pmhce/j/gmde/wc',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3897,10 +3879,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ju/hw/nin' => array(
+  'PATCH /et/ugxznzd' => array(
      'name' => '',
-     'path' => '/ju/hw/nin',
-     'method' => 'GET',
+     'path' => '/et/ugxznzd',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3915,10 +3897,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /deizahu/' => array(
+  'DELETE /k/zacee/yp' => array(
      'name' => '',
-     'path' => '/deizahu/',
-     'method' => 'PATCH',
+     'path' => '/k/zacee/yp',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3933,10 +3915,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /cuj/nvjgcmkibjm/' => array(
+  'POST /k/mw/pv' => array(
      'name' => '',
-     'path' => '/cuj/nvjgcmkibjm/',
-     'method' => 'PATCH',
+     'path' => '/k/mw/pv',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3951,10 +3933,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /eeyyqj/suybqmd' => array(
+  'GET /cezcbys' => array(
      'name' => '',
-     'path' => '/eeyyqj/suybqmd',
-     'method' => 'PATCH',
+     'path' => '/cezcbys',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -3969,9 +3951,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /pqzon/' => array(
+  'PATCH /user/tnseoepgynwsctwsya' => array(
      'name' => '',
-     'path' => '/pqzon/',
+     'path' => '/user/tnseoepgynwsctwsya',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -3987,10 +3969,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /nsverh/om/' => array(
+  'GET /api/rcmqsdfyrrkqcdhjal' => array(
      'name' => '',
-     'path' => '/nsverh/om/',
-     'method' => 'PUT',
+     'path' => '/api/rcmqsdfyrrkqcdhjal',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4005,10 +3987,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /l/dvzba/up' => array(
+  'PATCH /h/kfqs' => array(
      'name' => '',
-     'path' => '/l/dvzba/up',
-     'method' => 'GET',
+     'path' => '/h/kfqs',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4023,9 +4005,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /goods/jogfwrrawytgahn' => array(
+  'GET /user/patjob' => array(
      'name' => '',
-     'path' => '/goods/jogfwrrawytgahn',
+     'path' => '/user/patjob',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4041,10 +4023,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /qdt/su' => array(
+  'GET /lpbodyc' => array(
      'name' => '',
-     'path' => '/qdt/su',
-     'method' => 'PATCH',
+     'path' => '/lpbodyc',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4059,10 +4041,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /rcpkxzjdf/dwnp' => array(
+  'PATCH /nrhz/qzyfuxoj/g' => array(
      'name' => '',
-     'path' => '/rcpkxzjdf/dwnp',
-     'method' => 'POST',
+     'path' => '/nrhz/qzyfuxoj/g',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4077,28 +4059,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /tbjevxcfox' => array(
+  'DELETE /jhianp/fgonfma/yds' => array(
      'name' => '',
-     'path' => '/tbjevxcfox',
+     'path' => '/jhianp/fgonfma/yds',
      'method' => 'DELETE',
-     'handler' => 'handler_func',
-     'bindVars' => array (
-    ),
-     'params' => array (
-    ),
-     'pathVars' => array (
-    ),
-     'pathRegex' => '',
-     'pathStart' => '',
-     'chains' => array (
-    ),
-     'options' => array (
-    ),
-  ),
-  'GET /rewrkhlmp/ei' => array(
-     'name' => '',
-     'path' => '/rewrkhlmp/ei',
-     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4113,10 +4077,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jpyurttky/' => array(
+  'PUT /v2/dgjovn' => array(
      'name' => '',
-     'path' => '/jpyurttky/',
-     'method' => 'GET',
+     'path' => '/v2/dgjovn',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4131,10 +4095,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /shj/jj/bta' => array(
+  'PATCH /yj/leblysnumosx' => array(
      'name' => '',
-     'path' => '/shj/jj/bta',
-     'method' => 'POST',
+     'path' => '/yj/leblysnumosx',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4149,10 +4113,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /v2/dxbzrbpwybdbqys' => array(
+  'GET /mvzkpfevwqnyiswv/bxw/' => array(
      'name' => '',
-     'path' => '/v2/dxbzrbpwybdbqys',
-     'method' => 'DELETE',
+     'path' => '/mvzkpfevwqnyiswv/bxw/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4167,10 +4131,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /qjyxbxltfdbogb' => array(
+  'PATCH /drunk/' => array(
      'name' => '',
-     'path' => '/qjyxbxltfdbogb',
-     'method' => 'GET',
+     'path' => '/drunk/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4185,10 +4149,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/mlvjesdwowax' => array(
+  'DELETE /jclzq/mz/y/' => array(
      'name' => '',
-     'path' => '/user/mlvjesdwowax',
-     'method' => 'GET',
+     'path' => '/jclzq/mz/y/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4203,9 +4167,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /llgybfgnyhm/' => array(
+  'GET /user/ehgshp' => array(
      'name' => '',
-     'path' => '/llgybfgnyhm/',
+     'path' => '/user/ehgshp',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4221,10 +4185,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /rmji/pezp/crtqwxpu/u' => array(
+  'POST /mckx/trsseeb/qvmiasrw' => array(
      'name' => '',
-     'path' => '/rmji/pezp/crtqwxpu/u',
-     'method' => 'DELETE',
+     'path' => '/mckx/trsseeb/qvmiasrw',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4239,10 +4203,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /user/nxkjcn' => array(
+  'PATCH /csjqbembvvlbfsjy' => array(
      'name' => '',
-     'path' => '/user/nxkjcn',
-     'method' => 'PUT',
+     'path' => '/csjqbembvvlbfsjy',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4257,10 +4221,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /di/dpuam/txytinh/dfxctj' => array(
+  'POST /zaiitrwgy/' => array(
      'name' => '',
-     'path' => '/di/dpuam/txytinh/dfxctj',
-     'method' => 'GET',
+     'path' => '/zaiitrwgy/',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4275,10 +4239,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /skyfgxochdsf/qnxjtjk' => array(
+  'PATCH /jsfstufn/' => array(
      'name' => '',
-     'path' => '/skyfgxochdsf/qnxjtjk',
-     'method' => 'GET',
+     'path' => '/jsfstufn/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4293,9 +4257,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /blbyj' => array(
+  'DELETE /ffndbm/oaavz/dsxdmn/fy' => array(
      'name' => '',
-     'path' => '/blbyj',
+     'path' => '/ffndbm/oaavz/dsxdmn/fy',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4311,10 +4275,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/ctkumsoolwosvlq' => array(
+  'PUT /api/pjrssykihlzyros' => array(
      'name' => '',
-     'path' => '/goods/ctkumsoolwosvlq',
-     'method' => 'DELETE',
+     'path' => '/api/pjrssykihlzyros',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4329,10 +4293,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /iccky' => array(
+  'GET /gepktd/edonyqvrzb/' => array(
      'name' => '',
-     'path' => '/iccky',
-     'method' => 'PUT',
+     'path' => '/gepktd/edonyqvrzb/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4347,10 +4311,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /ntnigevszvifjodcz' => array(
+  'PATCH /x/vgxmhb' => array(
      'name' => '',
-     'path' => '/ntnigevszvifjodcz',
-     'method' => 'PUT',
+     'path' => '/x/vgxmhb',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4365,10 +4329,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /v2/zutlucxwwymrqoe' => array(
+  'PUT /goods/nenuzfxmfnisbbogxl' => array(
      'name' => '',
-     'path' => '/v2/zutlucxwwymrqoe',
-     'method' => 'DELETE',
+     'path' => '/goods/nenuzfxmfnisbbogxl',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4383,10 +4347,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /e/uzgtuzmzf' => array(
+  'POST /goods/omwloh' => array(
      'name' => '',
-     'path' => '/e/uzgtuzmzf',
-     'method' => 'GET',
+     'path' => '/goods/omwloh',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4401,10 +4365,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/ltasznthxhqixuw' => array(
+  'PUT /user/desrxkhmfoxmgmvphu' => array(
      'name' => '',
-     'path' => '/api/ltasznthxhqixuw',
-     'method' => 'DELETE',
+     'path' => '/user/desrxkhmfoxmgmvphu',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4419,10 +4383,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/zfgvcscjcrvb' => array(
+  'PUT /user/yjhmisiwxheegwk' => array(
      'name' => '',
-     'path' => '/user/zfgvcscjcrvb',
-     'method' => 'PATCH',
+     'path' => '/user/yjhmisiwxheegwk',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4437,10 +4401,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /kbvuugxs' => array(
+  'DELETE /srwnke/ntsso' => array(
      'name' => '',
-     'path' => '/kbvuugxs',
-     'method' => 'PATCH',
+     'path' => '/srwnke/ntsso',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4455,10 +4419,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /kfgs/c' => array(
+  'DELETE /cjcs/znckp' => array(
      'name' => '',
-     'path' => '/kfgs/c',
-     'method' => 'GET',
+     'path' => '/cjcs/znckp',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4473,10 +4437,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/elfpkxnnzfmovsyfjs' => array(
+  'PUT /edd/yztacid/' => array(
      'name' => '',
-     'path' => '/v2/elfpkxnnzfmovsyfjs',
-     'method' => 'GET',
+     'path' => '/edd/yztacid/',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4491,10 +4455,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /imlbh/' => array(
+  'PATCH /v2/pfmzoihkjwytmtf' => array(
      'name' => '',
-     'path' => '/imlbh/',
-     'method' => 'DELETE',
+     'path' => '/v2/pfmzoihkjwytmtf',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4509,10 +4473,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /bggmf/' => array(
+  'PATCH /v2/etmtzr' => array(
      'name' => '',
-     'path' => '/bggmf/',
-     'method' => 'POST',
+     'path' => '/v2/etmtzr',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4527,9 +4491,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /w/x/pswpdbhfv' => array(
+  'GET /goods/ogdxsexfeydpfcv' => array(
      'name' => '',
-     'path' => '/w/x/pswpdbhfv',
+     'path' => '/goods/ogdxsexfeydpfcv',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4545,10 +4509,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /ms/sfejxb/uugjvg' => array(
+  'PUT /llaqvjocsp/hjuw' => array(
      'name' => '',
-     'path' => '/ms/sfejxb/uugjvg',
-     'method' => 'PATCH',
+     'path' => '/llaqvjocsp/hjuw',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4563,10 +4527,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/sehpykosujafltnvbm' => array(
+  'GET /p/zokffwu' => array(
      'name' => '',
-     'path' => '/api/sehpykosujafltnvbm',
-     'method' => 'DELETE',
+     'path' => '/p/zokffwu',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4581,10 +4545,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /aftmyregleg' => array(
+  'DELETE /uu/eahuwvnp/z' => array(
      'name' => '',
-     'path' => '/aftmyregleg',
-     'method' => 'POST',
+     'path' => '/uu/eahuwvnp/z',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4599,9 +4563,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /csvkznh/lfx' => array(
+  'GET /hihlqwhnj/uhsac' => array(
      'name' => '',
-     'path' => '/csvkznh/lfx',
+     'path' => '/hihlqwhnj/uhsac',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4617,10 +4581,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /mqytrax/kzgqrp' => array(
+  'PUT /ctjp/hlcnguqzgnoa' => array(
      'name' => '',
-     'path' => '/mqytrax/kzgqrp',
-     'method' => 'POST',
+     'path' => '/ctjp/hlcnguqzgnoa',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4635,10 +4599,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /nnruzx/ljpmspygl/zvgby' => array(
+  'PUT /rcjrdbxokx' => array(
      'name' => '',
-     'path' => '/nnruzx/ljpmspygl/zvgby',
-     'method' => 'PATCH',
+     'path' => '/rcjrdbxokx',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4653,10 +4617,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/fhdqgrowqophaswxeo' => array(
+  'DELETE /brw/zwoxbdfnkzstboxg/' => array(
      'name' => '',
-     'path' => '/user/fhdqgrowqophaswxeo',
-     'method' => 'GET',
+     'path' => '/brw/zwoxbdfnkzstboxg/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4671,10 +4635,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /guhz/eagilbfsjrfs/q' => array(
+  'PUT /yveskgwdu' => array(
      'name' => '',
-     'path' => '/guhz/eagilbfsjrfs/q',
-     'method' => 'GET',
+     'path' => '/yveskgwdu',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4689,9 +4653,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /qf/cidmul/ioo/dh/ma/kl/' => array(
+  'GET /qt/hshaoea' => array(
      'name' => '',
-     'path' => '/qf/cidmul/ioo/dh/ma/kl/',
+     'path' => '/qt/hshaoea',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4707,10 +4671,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /tsovspzi' => array(
+  'GET /jtzomdxoh' => array(
      'name' => '',
-     'path' => '/tsovspzi',
-     'method' => 'POST',
+     'path' => '/jtzomdxoh',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4725,10 +4689,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /zu/gslndiu/fch/ok/kcv/' => array(
+  'GET /orhlrfy' => array(
      'name' => '',
-     'path' => '/zu/gslndiu/fch/ok/kcv/',
-     'method' => 'DELETE',
+     'path' => '/orhlrfy',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4743,10 +4707,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /emacdzbtmqvkmehgfzng' => array(
+  'GET /b/t/lpmba/myz/' => array(
      'name' => '',
-     'path' => '/emacdzbtmqvkmehgfzng',
-     'method' => 'POST',
+     'path' => '/b/t/lpmba/myz/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4761,10 +4725,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /lvoosrvwnldcc/c' => array(
+  'PATCH /jr/higwlnjo' => array(
      'name' => '',
-     'path' => '/lvoosrvwnldcc/c',
-     'method' => 'GET',
+     'path' => '/jr/higwlnjo',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4779,10 +4743,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /bvtf/lyjwruyeyqpvwbd/' => array(
+  'POST /mzzwacrbmdpps' => array(
      'name' => '',
-     'path' => '/bvtf/lyjwruyeyqpvwbd/',
-     'method' => 'GET',
+     'path' => '/mzzwacrbmdpps',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4797,9 +4761,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /v2/ksodes' => array(
+  'PUT /uyoonssudh/pmg' => array(
      'name' => '',
-     'path' => '/v2/ksodes',
+     'path' => '/uyoonssudh/pmg',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4815,10 +4779,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /api/kjqoow' => array(
+  'GET /cs/pspaic/aulfwro/grzkl' => array(
      'name' => '',
-     'path' => '/api/kjqoow',
-     'method' => 'PATCH',
+     'path' => '/cs/pspaic/aulfwro/grzkl',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4833,10 +4797,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /t/udf/p/mskxf' => array(
+  'DELETE /initweoe/kpx/dor/lht' => array(
      'name' => '',
-     'path' => '/t/udf/p/mskxf',
-     'method' => 'PATCH',
+     'path' => '/initweoe/kpx/dor/lht',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4851,9 +4815,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /uglnro/y/yocslibzk/w' => array(
+  'GET /kajgxeiyv/p/iwbosm/' => array(
      'name' => '',
-     'path' => '/uglnro/y/yocslibzk/w',
+     'path' => '/kajgxeiyv/p/iwbosm/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4869,10 +4833,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /zrqxzmfsgb' => array(
+  'DELETE /gmjdqdmn' => array(
      'name' => '',
-     'path' => '/zrqxzmfsgb',
-     'method' => 'PATCH',
+     'path' => '/gmjdqdmn',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4887,10 +4851,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /vxmizlzmwucqwz' => array(
+  'GET /goods/vyfzohtiexmq' => array(
      'name' => '',
-     'path' => '/vxmizlzmwucqwz',
-     'method' => 'PUT',
+     'path' => '/goods/vyfzohtiexmq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4905,10 +4869,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/xasedeflovnekal' => array(
+  'POST /oolbmex/e' => array(
      'name' => '',
-     'path' => '/v2/xasedeflovnekal',
-     'method' => 'GET',
+     'path' => '/oolbmex/e',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4923,10 +4887,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /goods/remqwtpmhopy' => array(
+  'GET /lkjd/sd/rynkh/fj/ahk/bix' => array(
      'name' => '',
-     'path' => '/goods/remqwtpmhopy',
-     'method' => 'PATCH',
+     'path' => '/lkjd/sd/rynkh/fj/ahk/bix',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4941,9 +4905,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /qcvydw/wepl/qw/vr' => array(
+  'PATCH /yrt/cq/gzgzcn' => array(
      'name' => '',
-     'path' => '/qcvydw/wepl/qw/vr',
+     'path' => '/yrt/cq/gzgzcn',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -4959,10 +4923,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /w/lkbzeynsvbtqtcqfx/p' => array(
+  'PUT /ohunzib' => array(
      'name' => '',
-     'path' => '/w/lkbzeynsvbtqtcqfx/p',
-     'method' => 'DELETE',
+     'path' => '/ohunzib',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4977,10 +4941,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /goods/kcvqhfvjljdm' => array(
+  'GET /rnevuk/fxq' => array(
      'name' => '',
-     'path' => '/goods/kcvqhfvjljdm',
-     'method' => 'PATCH',
+     'path' => '/rnevuk/fxq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -4995,9 +4959,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /hbe/n/lzzqsn/ehhb' => array(
+  'GET /tksmgqh' => array(
      'name' => '',
-     'path' => '/hbe/n/lzzqsn/ehhb',
+     'path' => '/tksmgqh',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5013,10 +4977,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jgimwuzetnp/jz/zbxy' => array(
+  'DELETE /veytgylrkjt' => array(
      'name' => '',
-     'path' => '/jgimwuzetnp/jz/zbxy',
-     'method' => 'GET',
+     'path' => '/veytgylrkjt',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5031,10 +4995,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /bsbbwgget' => array(
+  'PATCH /user/ojiudhvuqmbanvwkek' => array(
      'name' => '',
-     'path' => '/bsbbwgget',
-     'method' => 'GET',
+     'path' => '/user/ojiudhvuqmbanvwkek',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5049,10 +5013,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /gpk/vquzmzvjnjf/urd/' => array(
+  'POST /goods/iybxsb' => array(
      'name' => '',
-     'path' => '/gpk/vquzmzvjnjf/urd/',
-     'method' => 'DELETE',
+     'path' => '/goods/iybxsb',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5067,10 +5031,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /c/pmzivrtpeetdk' => array(
+  'DELETE /v/obkgpvyq/gq/sgf/dh/agv/l' => array(
      'name' => '',
-     'path' => '/c/pmzivrtpeetdk',
-     'method' => 'GET',
+     'path' => '/v/obkgpvyq/gq/sgf/dh/agv/l',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5085,10 +5049,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /pkjevgghpidr/k/z' => array(
+  'GET /api/yefwyt' => array(
      'name' => '',
-     'path' => '/pkjevgghpidr/k/z',
-     'method' => 'POST',
+     'path' => '/api/yefwyt',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5103,10 +5067,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /jbx/jpxwccyd/jymna/' => array(
+  'DELETE /ufpimae' => array(
      'name' => '',
-     'path' => '/jbx/jpxwccyd/jymna/',
-     'method' => 'PATCH',
+     'path' => '/ufpimae',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5121,10 +5085,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /az/otdsdwudjk/rgytb' => array(
+  'GET /user/tqelbx' => array(
      'name' => '',
-     'path' => '/az/otdsdwudjk/rgytb',
-     'method' => 'PATCH',
+     'path' => '/user/tqelbx',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5139,10 +5103,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /opjwvtnzzf/w' => array(
+  'PUT /api/cufxor' => array(
      'name' => '',
-     'path' => '/opjwvtnzzf/w',
-     'method' => 'DELETE',
+     'path' => '/api/cufxor',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5157,10 +5121,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /fyr/vp/' => array(
+  'GET /twinzaoshipuljvjevj' => array(
      'name' => '',
-     'path' => '/fyr/vp/',
-     'method' => 'POST',
+     'path' => '/twinzaoshipuljvjevj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5175,10 +5139,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /goods/rxvwqz' => array(
+  'GET /uavauvleht' => array(
      'name' => '',
-     'path' => '/goods/rxvwqz',
-     'method' => 'PUT',
+     'path' => '/uavauvleht',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5193,10 +5157,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /refgrxvj/ajw/ilkay/p' => array(
+  'PATCH /v/dch/idl/ln/esbe' => array(
      'name' => '',
-     'path' => '/refgrxvj/ajw/ilkay/p',
-     'method' => 'GET',
+     'path' => '/v/dch/idl/ln/esbe',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5211,10 +5175,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /moevxxs/wp/w/' => array(
+  'PUT /xlvbi/ps/j/jc/zhk' => array(
      'name' => '',
-     'path' => '/moevxxs/wp/w/',
-     'method' => 'DELETE',
+     'path' => '/xlvbi/ps/j/jc/zhk',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5229,9 +5193,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /api/yihtadejewnk' => array(
+  'PUT /wwacyspapmp' => array(
      'name' => '',
-     'path' => '/api/yihtadejewnk',
+     'path' => '/wwacyspapmp',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5247,10 +5211,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/azwnxmwcswufqyy' => array(
+  'DELETE /ohifjlubnfaqgr/glintd' => array(
      'name' => '',
-     'path' => '/v2/azwnxmwcswufqyy',
-     'method' => 'GET',
+     'path' => '/ohifjlubnfaqgr/glintd',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5265,10 +5229,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /bgokxkncwc/zhilvjdbqq' => array(
+  'PUT /v/g/mklddjl/tf' => array(
      'name' => '',
-     'path' => '/bgokxkncwc/zhilvjdbqq',
-     'method' => 'POST',
+     'path' => '/v/g/mklddjl/tf',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5283,9 +5247,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /re/vctiwnfvmwxzmotp/o' => array(
+  'DELETE /cnuawxaf/okodv/s' => array(
      'name' => '',
-     'path' => '/re/vctiwnfvmwxzmotp/o',
+     'path' => '/cnuawxaf/okodv/s',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5301,9 +5265,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /xztqgba/ad' => array(
+  'GET /ev/nnynql/cnllw/vktyqzc' => array(
      'name' => '',
-     'path' => '/xztqgba/ad',
+     'path' => '/ev/nnynql/cnllw/vktyqzc',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5319,10 +5283,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /bvjnjjewlv/dxdig/uk' => array(
+  'GET /ljdntlgbr' => array(
      'name' => '',
-     'path' => '/bvjnjjewlv/dxdig/uk',
-     'method' => 'POST',
+     'path' => '/ljdntlgbr',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5337,10 +5301,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/wvqzkllidygmmyt' => array(
+  'POST /kveethxc/njzd/xggx' => array(
      'name' => '',
-     'path' => '/user/wvqzkllidygmmyt',
-     'method' => 'PATCH',
+     'path' => '/kveethxc/njzd/xggx',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5355,10 +5319,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /jzu/qluhwuzixmm' => array(
+  'PUT /vt/txkidnptrs/my' => array(
      'name' => '',
-     'path' => '/jzu/qluhwuzixmm',
-     'method' => 'DELETE',
+     'path' => '/vt/txkidnptrs/my',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5373,9 +5337,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /ko/oyzfi' => array(
+  'POST /c/jllwqswklupj/jqtkb/p/e' => array(
      'name' => '',
-     'path' => '/ko/oyzfi',
+     'path' => '/c/jllwqswklupj/jqtkb/p/e',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5391,9 +5355,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /hxgsft/c/dhdlfs/jzcn' => array(
+  'GET /t/xaxsdlse/m' => array(
      'name' => '',
-     'path' => '/hxgsft/c/dhdlfs/jzcn',
+     'path' => '/t/xaxsdlse/m',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5409,10 +5373,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/pcgyrw' => array(
+  'PUT /djl/sbrtukev/fgfqjwpe' => array(
      'name' => '',
-     'path' => '/api/pcgyrw',
-     'method' => 'DELETE',
+     'path' => '/djl/sbrtukev/fgfqjwpe',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5427,10 +5391,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /nwfdxy/e' => array(
+  'POST /smgocb/tzxvp' => array(
      'name' => '',
-     'path' => '/nwfdxy/e',
-     'method' => 'GET',
+     'path' => '/smgocb/tzxvp',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5445,10 +5409,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ugocqhsjuf/jxse' => array(
+  'DELETE /v2/txgmnxngeptuyvwwno' => array(
      'name' => '',
-     'path' => '/ugocqhsjuf/jxse',
-     'method' => 'GET',
+     'path' => '/v2/txgmnxngeptuyvwwno',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5463,10 +5427,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /mach/d' => array(
+  'PATCH /ktlspeycsksiljcwaey' => array(
      'name' => '',
-     'path' => '/mach/d',
-     'method' => 'DELETE',
+     'path' => '/ktlspeycsksiljcwaey',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5481,10 +5445,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /brqtkzp' => array(
+  'PATCH /feqcaaxhejw' => array(
      'name' => '',
-     'path' => '/brqtkzp',
-     'method' => 'DELETE',
+     'path' => '/feqcaaxhejw',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5499,10 +5463,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /enz/rpsyvea/rivybo/d' => array(
+  'POST /xdyfjeft/g/lf' => array(
      'name' => '',
-     'path' => '/enz/rpsyvea/rivybo/d',
-     'method' => 'PUT',
+     'path' => '/xdyfjeft/g/lf',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5517,10 +5481,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /rgwt/jozna' => array(
+  'DELETE /api/fvjixk' => array(
      'name' => '',
-     'path' => '/rgwt/jozna',
-     'method' => 'PUT',
+     'path' => '/api/fvjixk',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5535,10 +5499,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /goods/jczctz' => array(
+  'GET /h/lit/uylpzto' => array(
      'name' => '',
-     'path' => '/goods/jczctz',
-     'method' => 'PUT',
+     'path' => '/h/lit/uylpzto',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5553,9 +5517,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /hxjrezxib/llejcudncbz/' => array(
+  'GET /itbesk/leax' => array(
      'name' => '',
-     'path' => '/hxjrezxib/llejcudncbz/',
+     'path' => '/itbesk/leax',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5571,10 +5535,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /eihbqqzh/evj/ovnin' => array(
+  'DELETE /yheprqnczk/tdg/' => array(
      'name' => '',
-     'path' => '/eihbqqzh/evj/ovnin',
-     'method' => 'PUT',
+     'path' => '/yheprqnczk/tdg/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5589,10 +5553,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /eulosapy/qcsga' => array(
+  'PATCH /msyhnto/' => array(
      'name' => '',
-     'path' => '/eulosapy/qcsga',
-     'method' => 'GET',
+     'path' => '/msyhnto/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5607,10 +5571,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /api/klkapruonmfdollanv' => array(
+  'GET /xdejnla' => array(
      'name' => '',
-     'path' => '/api/klkapruonmfdollanv',
-     'method' => 'PUT',
+     'path' => '/xdejnla',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5625,9 +5589,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /api/ldhaakvwcsshnosjqh' => array(
+  'PATCH /tqmzchvmklwb/k' => array(
      'name' => '',
-     'path' => '/api/ldhaakvwcsshnosjqh',
+     'path' => '/tqmzchvmklwb/k',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5643,10 +5607,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /ifzufmbfhhvlpig/n/l' => array(
+  'GET /cogdmvjmt/h/nvvwqy' => array(
      'name' => '',
-     'path' => '/ifzufmbfhhvlpig/n/l',
-     'method' => 'PUT',
+     'path' => '/cogdmvjmt/h/nvvwqy',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5661,10 +5625,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /api/tsugjrqbcpyg' => array(
+  'POST /user/rabwjzmxcwvftyvdul' => array(
      'name' => '',
-     'path' => '/api/tsugjrqbcpyg',
-     'method' => 'PUT',
+     'path' => '/user/rabwjzmxcwvftyvdul',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5679,10 +5643,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /lrlqn/icy' => array(
+  'GET /ysfjzff' => array(
      'name' => '',
-     'path' => '/lrlqn/icy',
-     'method' => 'PUT',
+     'path' => '/ysfjzff',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5697,10 +5661,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /njlb/z/ssl/nvd/om' => array(
+  'PATCH /xmf/wh/idd/l/ejmvvgdlojj' => array(
      'name' => '',
-     'path' => '/njlb/z/ssl/nvd/om',
-     'method' => 'GET',
+     'path' => '/xmf/wh/idd/l/ejmvvgdlojj',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5715,9 +5679,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jwlmt' => array(
+  'GET /hplxhstclfzyvn/wb/mjm' => array(
      'name' => '',
-     'path' => '/jwlmt',
+     'path' => '/hplxhstclfzyvn/wb/mjm',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5733,9 +5697,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /dvvwkirws/g' => array(
+  'GET /qc/noo/kxyolv' => array(
      'name' => '',
-     'path' => '/dvvwkirws/g',
+     'path' => '/qc/noo/kxyolv',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5751,10 +5715,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /v/euwzcz' => array(
+  'DELETE /v2/upraviusoxrpqsb' => array(
      'name' => '',
-     'path' => '/v/euwzcz',
-     'method' => 'PATCH',
+     'path' => '/v2/upraviusoxrpqsb',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5769,10 +5733,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /g/gdikchoz' => array(
+  'GET /qhlrjnuc/' => array(
      'name' => '',
-     'path' => '/g/gdikchoz',
-     'method' => 'PUT',
+     'path' => '/qhlrjnuc/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5787,10 +5751,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /jznwghzw' => array(
+  'POST /tkmawhwgxv/l/f/ndqo/y' => array(
      'name' => '',
-     'path' => '/jznwghzw',
-     'method' => 'PUT',
+     'path' => '/tkmawhwgxv/l/f/ndqo/y',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5805,9 +5769,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/zwuahboxhics' => array(
+  'GET /goods/vbnats' => array(
      'name' => '',
-     'path' => '/api/zwuahboxhics',
+     'path' => '/goods/vbnats',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -5823,10 +5787,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /d/ua/yeyrjjne/diwtg' => array(
+  'POST /wo/in/xfd/zfco/xic/cqjhr' => array(
      'name' => '',
-     'path' => '/d/ua/yeyrjjne/diwtg',
-     'method' => 'PATCH',
+     'path' => '/wo/in/xfd/zfco/xic/cqjhr',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5841,10 +5805,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /wbyvrmnue/jbwl/ngwnne' => array(
+  'PUT /api/cacwyr' => array(
      'name' => '',
-     'path' => '/wbyvrmnue/jbwl/ngwnne',
-     'method' => 'DELETE',
+     'path' => '/api/cacwyr',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5859,10 +5823,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/zswgof' => array(
+  'DELETE /s/wndawyqymw' => array(
      'name' => '',
-     'path' => '/user/zswgof',
-     'method' => 'PATCH',
+     'path' => '/s/wndawyqymw',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5877,10 +5841,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /pqkxyfytzs' => array(
+  'POST /twtp/jke' => array(
      'name' => '',
-     'path' => '/pqkxyfytzs',
-     'method' => 'GET',
+     'path' => '/twtp/jke',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5895,10 +5859,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/ekeveeyobblrhsnsxr' => array(
+  'PUT /dhcmz/gzloukyq/w/btihxa' => array(
      'name' => '',
-     'path' => '/user/ekeveeyobblrhsnsxr',
-     'method' => 'GET',
+     'path' => '/dhcmz/gzloukyq/w/btihxa',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5913,10 +5877,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /yv/yewxh/tuz/vs/pte/y' => array(
+  'GET /axdf/osdgcoj' => array(
      'name' => '',
-     'path' => '/yv/yewxh/tuz/vs/pte/y',
-     'method' => 'PATCH',
+     'path' => '/axdf/osdgcoj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5931,10 +5895,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/lnovbt' => array(
+  'GET /z/rqlmjkct/' => array(
      'name' => '',
-     'path' => '/api/lnovbt',
-     'method' => 'DELETE',
+     'path' => '/z/rqlmjkct/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5949,10 +5913,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /goods/yiahymythvqemgs' => array(
+  'DELETE /fz/qfpi/y/lnx/ocieov' => array(
      'name' => '',
-     'path' => '/goods/yiahymythvqemgs',
-     'method' => 'PUT',
+     'path' => '/fz/qfpi/y/lnx/ocieov',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5967,10 +5931,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /zpatwzio' => array(
+  'PUT /unmghaiabjiofhgklx/c/w' => array(
      'name' => '',
-     'path' => '/zpatwzio',
-     'method' => 'POST',
+     'path' => '/unmghaiabjiofhgklx/c/w',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -5985,10 +5949,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/tjanykssbloovvj' => array(
+  'PATCH /rpagiy/ehqr' => array(
      'name' => '',
-     'path' => '/goods/tjanykssbloovvj',
-     'method' => 'DELETE',
+     'path' => '/rpagiy/ehqr',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6003,10 +5967,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /lgnqsguzuecgfvow/dja' => array(
+  'GET /v2/mmgwfwmxwgbcrsq' => array(
      'name' => '',
-     'path' => '/lgnqsguzuecgfvow/dja',
-     'method' => 'POST',
+     'path' => '/v2/mmgwfwmxwgbcrsq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6021,10 +5985,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /vo/gtzan' => array(
+  'POST /tdlgfnjou' => array(
      'name' => '',
-     'path' => '/vo/gtzan',
-     'method' => 'PATCH',
+     'path' => '/tdlgfnjou',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6039,10 +6003,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /v2/hpwkkgqnqlcy' => array(
+  'GET /nwgzub/x' => array(
      'name' => '',
-     'path' => '/v2/hpwkkgqnqlcy',
-     'method' => 'PUT',
+     'path' => '/nwgzub/x',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6057,9 +6021,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /cod/mksg' => array(
+  'POST /goods/lmpiihzracbs' => array(
      'name' => '',
-     'path' => '/cod/mksg',
+     'path' => '/goods/lmpiihzracbs',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6075,10 +6039,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /zbnbdtpxibdvf/gblo' => array(
+  'PATCH /bbpqqqoir' => array(
      'name' => '',
-     'path' => '/zbnbdtpxibdvf/gblo',
-     'method' => 'POST',
+     'path' => '/bbpqqqoir',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6093,10 +6057,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /oqljpsywp/j/ijh' => array(
+  'GET /xiuioanvo/cesb' => array(
      'name' => '',
-     'path' => '/oqljpsywp/j/ijh',
-     'method' => 'DELETE',
+     'path' => '/xiuioanvo/cesb',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6111,10 +6075,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /jdgz/k' => array(
+  'GET /api/zwzuvksjdhjfikt' => array(
      'name' => '',
-     'path' => '/jdgz/k',
-     'method' => 'DELETE',
+     'path' => '/api/zwzuvksjdhjfikt',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6129,9 +6093,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /mhbwanmn/gcksp/' => array(
+  'PUT /ter/dhsa/llcayss' => array(
      'name' => '',
-     'path' => '/mhbwanmn/gcksp/',
+     'path' => '/ter/dhsa/llcayss',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6147,9 +6111,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jxpgdhdxixw/' => array(
+  'GET /user/twowxy' => array(
      'name' => '',
-     'path' => '/jxpgdhdxixw/',
+     'path' => '/user/twowxy',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6165,10 +6129,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /user/dcimxj' => array(
+  'GET /rxxb/b/vjjmin' => array(
      'name' => '',
-     'path' => '/user/dcimxj',
-     'method' => 'DELETE',
+     'path' => '/rxxb/b/vjjmin',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6183,10 +6147,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /api/uytyzkwcvlgf' => array(
+  'DELETE /qinxtmpkecrp/j/t' => array(
      'name' => '',
-     'path' => '/api/uytyzkwcvlgf',
-     'method' => 'PATCH',
+     'path' => '/qinxtmpkecrp/j/t',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6201,10 +6165,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /bfaus/aqaxp/' => array(
+  'POST /v/uancplqhio' => array(
      'name' => '',
-     'path' => '/bfaus/aqaxp/',
-     'method' => 'GET',
+     'path' => '/v/uancplqhio',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6219,10 +6183,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /gxbeutw' => array(
+  'DELETE /e/n/qrxfybzrfbk' => array(
      'name' => '',
-     'path' => '/gxbeutw',
-     'method' => 'PATCH',
+     'path' => '/e/n/qrxfybzrfbk',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6237,9 +6201,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ns/pehoa' => array(
+  'GET /lpbyauwero/lwe' => array(
      'name' => '',
-     'path' => '/ns/pehoa',
+     'path' => '/lpbyauwero/lwe',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6255,10 +6219,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /axzflniep/eyqvkaulap' => array(
+  'DELETE /api/zbhrkk' => array(
      'name' => '',
-     'path' => '/axzflniep/eyqvkaulap',
-     'method' => 'GET',
+     'path' => '/api/zbhrkk',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6273,9 +6237,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /yhoqlmmz/' => array(
+  'PUT /h/jzvfwsmxelhmob/azoi' => array(
      'name' => '',
-     'path' => '/yhoqlmmz/',
+     'path' => '/h/jzvfwsmxelhmob/azoi',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6291,10 +6255,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /whdqhplx' => array(
+  'DELETE /v2/jbjhbs' => array(
      'name' => '',
-     'path' => '/whdqhplx',
-     'method' => 'POST',
+     'path' => '/v2/jbjhbs',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6309,10 +6273,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /qjpkf/fxitat' => array(
+  'POST /atyxd/eanyt' => array(
      'name' => '',
-     'path' => '/qjpkf/fxitat',
-     'method' => 'DELETE',
+     'path' => '/atyxd/eanyt',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6327,10 +6291,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /iauajryj' => array(
+  'POST /nixyjr/gqnhsqhrep' => array(
      'name' => '',
-     'path' => '/iauajryj',
-     'method' => 'GET',
+     'path' => '/nixyjr/gqnhsqhrep',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6345,10 +6309,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /tcclwufablcqxxeh' => array(
+  'POST /v2/wbnfkm' => array(
      'name' => '',
-     'path' => '/tcclwufablcqxxeh',
-     'method' => 'GET',
+     'path' => '/v2/wbnfkm',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6363,10 +6327,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /fkcosxgs/rdceigw/s' => array(
+  'DELETE /jzjaxrqh/' => array(
      'name' => '',
-     'path' => '/fkcosxgs/rdceigw/s',
-     'method' => 'GET',
+     'path' => '/jzjaxrqh/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6381,10 +6345,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /xlnlbkk' => array(
+  'POST /cb/oprxoes' => array(
      'name' => '',
-     'path' => '/xlnlbkk',
-     'method' => 'DELETE',
+     'path' => '/cb/oprxoes',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6399,10 +6363,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /goods/zssbpg' => array(
+  'PUT /user/joiqbi' => array(
      'name' => '',
-     'path' => '/goods/zssbpg',
-     'method' => 'GET',
+     'path' => '/user/joiqbi',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6417,10 +6381,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /wknbtai/lqhv/dj/stin' => array(
+  'GET /jcr/tagvxzn' => array(
      'name' => '',
-     'path' => '/wknbtai/lqhv/dj/stin',
-     'method' => 'PUT',
+     'path' => '/jcr/tagvxzn',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6435,10 +6399,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /apggivhgewkmklcx' => array(
+  'GET /bcqaocs/n/' => array(
      'name' => '',
-     'path' => '/apggivhgewkmklcx',
-     'method' => 'POST',
+     'path' => '/bcqaocs/n/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6453,9 +6417,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /c/ikbwxxccbsel' => array(
+  'GET /vpluonodjbmuti/sde/' => array(
      'name' => '',
-     'path' => '/c/ikbwxxccbsel',
+     'path' => '/vpluonodjbmuti/sde/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6471,10 +6435,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /rv/vghicqc' => array(
+  'PUT /goods/sdtzweyrhhec' => array(
      'name' => '',
-     'path' => '/rv/vghicqc',
-     'method' => 'DELETE',
+     'path' => '/goods/sdtzweyrhhec',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6489,10 +6453,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /goods/vkbdnsnchtspziu' => array(
+  'PATCH /glaaavrztmmozqz/fzji' => array(
      'name' => '',
-     'path' => '/goods/vkbdnsnchtspziu',
-     'method' => 'PUT',
+     'path' => '/glaaavrztmmozqz/fzji',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6507,10 +6471,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /snzvngameajthpvk' => array(
+  'PATCH /pr/wbr/' => array(
      'name' => '',
-     'path' => '/snzvngameajthpvk',
-     'method' => 'GET',
+     'path' => '/pr/wbr/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6525,10 +6489,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /u/wc/k/b/m/x/l/e/w' => array(
+  'GET /mpwvqegi/o/rohtzg/x/' => array(
      'name' => '',
-     'path' => '/u/wc/k/b/m/x/l/e/w',
-     'method' => 'PATCH',
+     'path' => '/mpwvqegi/o/rohtzg/x/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6543,9 +6507,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /yoko/era' => array(
+  'GET /api/iebgufwfffbt' => array(
      'name' => '',
-     'path' => '/yoko/era',
+     'path' => '/api/iebgufwfffbt',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6561,9 +6525,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /gdidvnybujjmi/' => array(
+  'PATCH /blknvhxi' => array(
      'name' => '',
-     'path' => '/gdidvnybujjmi/',
+     'path' => '/blknvhxi',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6579,10 +6543,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /nwkzvuivkwrgn' => array(
+  'GET /crlt/hapd' => array(
      'name' => '',
-     'path' => '/nwkzvuivkwrgn',
-     'method' => 'POST',
+     'path' => '/crlt/hapd',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6597,10 +6561,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /yb/b/booyyrtm/zvuux/elm' => array(
+  'GET /piy/fixz' => array(
      'name' => '',
-     'path' => '/yb/b/booyyrtm/zvuux/elm',
-     'method' => 'POST',
+     'path' => '/piy/fixz',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6615,10 +6579,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /kpvwyc/waa' => array(
+  'DELETE /esjqy/pqkqxuxsgu/abc/u' => array(
      'name' => '',
-     'path' => '/kpvwyc/waa',
-     'method' => 'PUT',
+     'path' => '/esjqy/pqkqxuxsgu/abc/u',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6633,10 +6597,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /i/uywq' => array(
+  'GET /ylakyuyafq/chbx' => array(
      'name' => '',
-     'path' => '/i/uywq',
-     'method' => 'POST',
+     'path' => '/ylakyuyafq/chbx',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6651,9 +6615,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /wnzdw' => array(
+  'PUT /v2/uuqcjrpvfcmyzoe' => array(
      'name' => '',
-     'path' => '/wnzdw',
+     'path' => '/v2/uuqcjrpvfcmyzoe',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6669,10 +6633,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /wzlzkvlmni' => array(
+  'PATCH /goods/xehrwhlbaopr' => array(
      'name' => '',
-     'path' => '/wzlzkvlmni',
-     'method' => 'POST',
+     'path' => '/goods/xehrwhlbaopr',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6687,9 +6651,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /goods/mjybjc' => array(
+  'POST /luxujm/jj/rtbftakcd' => array(
      'name' => '',
-     'path' => '/goods/mjybjc',
+     'path' => '/luxujm/jj/rtbftakcd',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6705,10 +6669,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/tgtkna' => array(
+  'PATCH /dxdklygwk' => array(
      'name' => '',
-     'path' => '/user/tgtkna',
-     'method' => 'GET',
+     'path' => '/dxdklygwk',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6723,10 +6687,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /api/sswmwk' => array(
+  'DELETE /lcgphyoc' => array(
      'name' => '',
-     'path' => '/api/sswmwk',
-     'method' => 'PUT',
+     'path' => '/lcgphyoc',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6741,10 +6705,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /etqonho' => array(
+  'DELETE /sa/xffocy/mu/lweudsd/yf' => array(
      'name' => '',
-     'path' => '/etqonho',
-     'method' => 'GET',
+     'path' => '/sa/xffocy/mu/lweudsd/yf',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6759,10 +6723,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /axbztrdcrawax' => array(
+  'POST /rbxix/xfqjh' => array(
      'name' => '',
-     'path' => '/axbztrdcrawax',
-     'method' => 'GET',
+     'path' => '/rbxix/xfqjh',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6777,10 +6741,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /pvqximdvqx' => array(
+  'PATCH /jhikwrrla' => array(
      'name' => '',
-     'path' => '/pvqximdvqx',
-     'method' => 'DELETE',
+     'path' => '/jhikwrrla',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6795,10 +6759,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /api/xlazvhebqrajkbh' => array(
+  'PATCH /neojabgrf/' => array(
      'name' => '',
-     'path' => '/api/xlazvhebqrajkbh',
-     'method' => 'PUT',
+     'path' => '/neojabgrf/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6813,10 +6777,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /qolc/ygizmbihoqjt' => array(
+  'GET /user/ukgjhxfjhnuspuomum' => array(
      'name' => '',
-     'path' => '/qolc/ygizmbihoqjt',
-     'method' => 'PATCH',
+     'path' => '/user/ukgjhxfjhnuspuomum',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6831,10 +6795,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/ajxmuryvbhqilrtegx' => array(
+  'PUT /xwkomj/nbr' => array(
      'name' => '',
-     'path' => '/v2/ajxmuryvbhqilrtegx',
-     'method' => 'GET',
+     'path' => '/xwkomj/nbr',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6849,9 +6813,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /gcohsdgodrqw/pupi/' => array(
+  'GET /mhzogdoxymlg/pyavyo/mi' => array(
      'name' => '',
-     'path' => '/gcohsdgodrqw/pupi/',
+     'path' => '/mhzogdoxymlg/pyavyo/mi',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6867,10 +6831,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /w/il/cndx/ynix/tqv' => array(
+  'PUT /v2/eqmpzsfcsjpbdvs' => array(
      'name' => '',
-     'path' => '/w/il/cndx/ynix/tqv',
-     'method' => 'POST',
+     'path' => '/v2/eqmpzsfcsjpbdvs',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6885,9 +6849,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /user/urpfofcfxdsj' => array(
+  'DELETE /fheaya/ugeengsa/mp' => array(
      'name' => '',
-     'path' => '/user/urpfofcfxdsj',
+     'path' => '/fheaya/ugeengsa/mp',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6903,10 +6867,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /pm/m/wk' => array(
+  'GET /api/thxllneirhvnlrj' => array(
      'name' => '',
-     'path' => '/pm/m/wk',
-     'method' => 'PUT',
+     'path' => '/api/thxllneirhvnlrj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6921,10 +6885,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /oitvmklko' => array(
+  'GET /diipmxhddag' => array(
      'name' => '',
-     'path' => '/oitvmklko',
-     'method' => 'PATCH',
+     'path' => '/diipmxhddag',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6939,10 +6903,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /ckg/seo/owl' => array(
+  'POST /odj/vihv/lu/rt/jqqudest' => array(
      'name' => '',
-     'path' => '/ckg/seo/owl',
-     'method' => 'PATCH',
+     'path' => '/odj/vihv/lu/rt/jqqudest',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6957,9 +6921,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /fjb/pf/ztgwggzx/cdly' => array(
+  'GET /xeixj/tbseufgwh/qfrp/j/' => array(
      'name' => '',
-     'path' => '/fjb/pf/ztgwggzx/cdly',
+     'path' => '/xeixj/tbseufgwh/qfrp/j/',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -6975,10 +6939,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /k/otwck/zh/c/qus/ednp/gyk' => array(
+  'GET /m/wfgjvigyobhrj' => array(
      'name' => '',
-     'path' => '/k/otwck/zh/c/qus/ednp/gyk',
-     'method' => 'POST',
+     'path' => '/m/wfgjvigyobhrj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -6993,10 +6957,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /sklfiphyiy/meqikx' => array(
+  'GET /zagh/dl/x/cvq' => array(
      'name' => '',
-     'path' => '/sklfiphyiy/meqikx',
-     'method' => 'PATCH',
+     'path' => '/zagh/dl/x/cvq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7011,10 +6975,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/rfyeintuazix' => array(
+  'PATCH /ovc/geebze' => array(
      'name' => '',
-     'path' => '/user/rfyeintuazix',
-     'method' => 'GET',
+     'path' => '/ovc/geebze',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7029,10 +6993,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /qqdnimgasur' => array(
+  'PATCH /v2/gzfmbacuhclnpeo' => array(
      'name' => '',
-     'path' => '/qqdnimgasur',
-     'method' => 'PUT',
+     'path' => '/v2/gzfmbacuhclnpeo',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7047,10 +7011,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /lkuaiwjh/trzxfaw/w' => array(
+  'DELETE /ata/ayiynrnmjlae/z/dy/e' => array(
      'name' => '',
-     'path' => '/lkuaiwjh/trzxfaw/w',
-     'method' => 'PATCH',
+     'path' => '/ata/ayiynrnmjlae/z/dy/e',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7065,10 +7029,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /v2/znnldayvveffbum' => array(
+  'GET /u/lqrfteyw/' => array(
      'name' => '',
-     'path' => '/v2/znnldayvveffbum',
-     'method' => 'PATCH',
+     'path' => '/u/lqrfteyw/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7083,10 +7047,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /api/qtbsskqsziiiecd' => array(
+  'POST /eb/s/bnzbvgsgltzdr/g' => array(
      'name' => '',
-     'path' => '/api/qtbsskqsziiiecd',
-     'method' => 'PATCH',
+     'path' => '/eb/s/bnzbvgsgltzdr/g',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7101,10 +7065,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /qglibhf/cv/p' => array(
+  'GET /pinqfgkrjzkxza/h/utlnj' => array(
      'name' => '',
-     'path' => '/qglibhf/cv/p',
-     'method' => 'PATCH',
+     'path' => '/pinqfgkrjzkxza/h/utlnj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7119,9 +7083,9 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /rxhehfvvzpyyxy' => array(
+  'POST /ctcmxmkgy' => array(
      'name' => '',
-     'path' => '/rxhehfvvzpyyxy',
+     'path' => '/ctcmxmkgy',
      'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7137,10 +7101,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /xeveph/tevyvotrmwk/ewz' => array(
+  'GET /lfqudob' => array(
      'name' => '',
-     'path' => '/xeveph/tevyvotrmwk/ewz',
-     'method' => 'PATCH',
+     'path' => '/lfqudob',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7155,10 +7119,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /ranlxqmfsfh' => array(
+  'PATCH /user/gsgsmrvzupcbilscco' => array(
      'name' => '',
-     'path' => '/ranlxqmfsfh',
-     'method' => 'PUT',
+     'path' => '/user/gsgsmrvzupcbilscco',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7173,10 +7137,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /nmlwt' => array(
+  'GET /t/tknquh' => array(
      'name' => '',
-     'path' => '/nmlwt',
-     'method' => 'DELETE',
+     'path' => '/t/tknquh',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7191,10 +7155,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /hadveiscr/poycn' => array(
+  'GET /api/tmksgc' => array(
      'name' => '',
-     'path' => '/hadveiscr/poycn',
-     'method' => 'POST',
+     'path' => '/api/tmksgc',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7209,9 +7173,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /fldf/zae' => array(
+  'PUT /wmaw/l/tjcsq/sphowf' => array(
      'name' => '',
-     'path' => '/fldf/zae',
+     'path' => '/wmaw/l/tjcsq/sphowf',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7227,9 +7191,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/hnsomgoijwpo' => array(
+  'PATCH /wplh/tczfw/gnck/kqge/ejg' => array(
      'name' => '',
-     'path' => '/user/hnsomgoijwpo',
+     'path' => '/wplh/tczfw/gnck/kqge/ejg',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7245,10 +7209,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /otxrkvty/' => array(
+  'PUT /snhxsv/j/zuehgu' => array(
      'name' => '',
-     'path' => '/otxrkvty/',
-     'method' => 'POST',
+     'path' => '/snhxsv/j/zuehgu',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7263,10 +7227,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ejlpjkzjrpsmxnqly' => array(
+  'DELETE /k/h/ynhokfafup/a' => array(
      'name' => '',
-     'path' => '/ejlpjkzjrpsmxnqly',
-     'method' => 'GET',
+     'path' => '/k/h/ynhokfafup/a',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7281,10 +7245,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/pcziehiztxpjusduit' => array(
+  'DELETE /xbqmcr/a' => array(
      'name' => '',
-     'path' => '/api/pcziehiztxpjusduit',
-     'method' => 'GET',
+     'path' => '/xbqmcr/a',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7299,10 +7263,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /hqktcxwkaqvgnv/ppzdr' => array(
+  'POST /om/c/qgxcwbnmqx' => array(
      'name' => '',
-     'path' => '/hqktcxwkaqvgnv/ppzdr',
-     'method' => 'PUT',
+     'path' => '/om/c/qgxcwbnmqx',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7317,9 +7281,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /tb/zsa/we' => array(
+  'GET /api/wvaxjyilienvooicwj' => array(
      'name' => '',
-     'path' => '/tb/zsa/we',
+     'path' => '/api/wvaxjyilienvooicwj',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7335,10 +7299,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /pld/wnmhrpfcgbqyyt' => array(
+  'GET /wwdlmpjbtletqi' => array(
      'name' => '',
-     'path' => '/pld/wnmhrpfcgbqyyt',
-     'method' => 'DELETE',
+     'path' => '/wwdlmpjbtletqi',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7353,10 +7317,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /aonegeh/cqylwvn' => array(
+  'DELETE /user/aznvlxmdbzwqexv' => array(
      'name' => '',
-     'path' => '/aonegeh/cqylwvn',
-     'method' => 'GET',
+     'path' => '/user/aznvlxmdbzwqexv',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7371,9 +7335,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/kslgasfyfaaamti' => array(
+  'GET /dmqezta' => array(
      'name' => '',
-     'path' => '/api/kslgasfyfaaamti',
+     'path' => '/dmqezta',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7389,10 +7353,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /goods/ssxhdz' => array(
+  'PUT /rf/mkdtmja/jljofamz/xs' => array(
      'name' => '',
-     'path' => '/goods/ssxhdz',
-     'method' => 'PATCH',
+     'path' => '/rf/mkdtmja/jljofamz/xs',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7407,10 +7371,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /zj/qtkwe/gq' => array(
+  'PATCH /spjxt/ev/jcr' => array(
      'name' => '',
-     'path' => '/zj/qtkwe/gq',
-     'method' => 'PUT',
+     'path' => '/spjxt/ev/jcr',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7425,10 +7389,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /ptdovbsnf/q/j' => array(
+  'PUT /b/fgy/us/trzfw/ebqowfuw' => array(
      'name' => '',
-     'path' => '/ptdovbsnf/q/j',
-     'method' => 'POST',
+     'path' => '/b/fgy/us/trzfw/ebqowfuw',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7443,10 +7407,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/ycdcpj' => array(
+  'GET /cdyoafpbhapsah' => array(
      'name' => '',
-     'path' => '/goods/ycdcpj',
-     'method' => 'DELETE',
+     'path' => '/cdyoafpbhapsah',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7461,10 +7425,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /jxhyb/gzc/hpx/dgloxge/b/k/' => array(
+  'PATCH /mbxa/a' => array(
      'name' => '',
-     'path' => '/jxhyb/gzc/hpx/dgloxge/b/k/',
-     'method' => 'DELETE',
+     'path' => '/mbxa/a',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7479,9 +7443,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /vpmov/ov' => array(
+  'GET /nhcdrcfxybjmrfup/xnog' => array(
      'name' => '',
-     'path' => '/vpmov/ov',
+     'path' => '/nhcdrcfxybjmrfup/xnog',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7497,9 +7461,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /pr/ymw' => array(
+  'PATCH /api/jsxcte' => array(
      'name' => '',
-     'path' => '/pr/ymw',
+     'path' => '/api/jsxcte',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7515,10 +7479,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /api/nfsjrz' => array(
+  'PUT /v2/mfcrdnvxldecudgfcd' => array(
      'name' => '',
-     'path' => '/api/nfsjrz',
-     'method' => 'PATCH',
+     'path' => '/v2/mfcrdnvxldecudgfcd',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7533,9 +7497,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /az/odjrsaqdgczs' => array(
+  'GET /rj/jlkfx/wqoo/l/vaf/gv' => array(
      'name' => '',
-     'path' => '/az/odjrsaqdgczs',
+     'path' => '/rj/jlkfx/wqoo/l/vaf/gv',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7551,10 +7515,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /ivnsvn/jc' => array(
+  'GET /v2/bufdljmbxxbqnae' => array(
      'name' => '',
-     'path' => '/ivnsvn/jc',
-     'method' => 'DELETE',
+     'path' => '/v2/bufdljmbxxbqnae',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7569,10 +7533,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /goipigcpaognqk/' => array(
+  'PATCH /ez/oayskuugzvvc/wm/u/ds/k' => array(
      'name' => '',
-     'path' => '/goipigcpaognqk/',
-     'method' => 'POST',
+     'path' => '/ez/oayskuugzvvc/wm/u/ds/k',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7587,10 +7551,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /njrinnb/tjdhwllwcggb' => array(
+  'POST /jvww/dsltmkhyi/j/' => array(
      'name' => '',
-     'path' => '/njrinnb/tjdhwllwcggb',
-     'method' => 'GET',
+     'path' => '/jvww/dsltmkhyi/j/',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7605,10 +7569,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /v2/rkurrhhmqdcbzxe' => array(
+  'GET /b/ekvieft' => array(
      'name' => '',
-     'path' => '/v2/rkurrhhmqdcbzxe',
-     'method' => 'PATCH',
+     'path' => '/b/ekvieft',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7623,10 +7587,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /v2/jlbhwsbbtidkpvfasl' => array(
+  'POST /user/znovbcflzqindxi' => array(
      'name' => '',
-     'path' => '/v2/jlbhwsbbtidkpvfasl',
-     'method' => 'DELETE',
+     'path' => '/user/znovbcflzqindxi',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7641,10 +7605,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /kslhhommytm/kjhpzt/' => array(
+  'DELETE /goods/ybnmwf' => array(
      'name' => '',
-     'path' => '/kslhhommytm/kjhpzt/',
-     'method' => 'GET',
+     'path' => '/goods/ybnmwf',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7659,9 +7623,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /h/xyy/igy' => array(
+  'GET /z/wt/cvnvsa' => array(
      'name' => '',
-     'path' => '/h/xyy/igy',
+     'path' => '/z/wt/cvnvsa',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7677,10 +7641,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /qxfdmrsx/e/' => array(
+  'DELETE /t/nbljwentimq/f' => array(
      'name' => '',
-     'path' => '/qxfdmrsx/e/',
-     'method' => 'GET',
+     'path' => '/t/nbljwentimq/f',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7695,9 +7659,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /cwkgke/vixw' => array(
+  'GET /j/shp/migfj' => array(
      'name' => '',
-     'path' => '/cwkgke/vixw',
+     'path' => '/j/shp/migfj',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7713,10 +7677,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /honuk/z/we' => array(
+  'POST /goods/yqoyto' => array(
      'name' => '',
-     'path' => '/honuk/z/we',
-     'method' => 'GET',
+     'path' => '/goods/yqoyto',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7731,9 +7695,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /emndxw/lvkzdulqbmdkk' => array(
+  'PUT /byybl/' => array(
      'name' => '',
-     'path' => '/emndxw/lvkzdulqbmdkk',
+     'path' => '/byybl/',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7749,9 +7713,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /ostlluyjux/agcdki/v' => array(
+  'GET /z/hnhkzxk/iqgrz/tvzyvi' => array(
      'name' => '',
-     'path' => '/ostlluyjux/agcdki/v',
+     'path' => '/z/hnhkzxk/iqgrz/tvzyvi',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7767,9 +7731,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /kx/nzmbhjh' => array(
+  'GET /o/lm/vkuwtbr/bvjqz/arbhs' => array(
      'name' => '',
-     'path' => '/kx/nzmbhjh',
+     'path' => '/o/lm/vkuwtbr/bvjqz/arbhs',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -7785,10 +7749,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /user/xdboyqkxaeliqnf' => array(
+  'GET /pj/zeagytasvyxz/vw' => array(
      'name' => '',
-     'path' => '/user/xdboyqkxaeliqnf',
-     'method' => 'PUT',
+     'path' => '/pj/zeagytasvyxz/vw',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7803,10 +7767,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /pywrr' => array(
+  'GET /wzrscys' => array(
      'name' => '',
-     'path' => '/pywrr',
-     'method' => 'DELETE',
+     'path' => '/wzrscys',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7821,10 +7785,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /hemeevo' => array(
+  'PATCH /he/f/ffqlmvi/vdyeryf' => array(
      'name' => '',
-     'path' => '/hemeevo',
-     'method' => 'DELETE',
+     'path' => '/he/f/ffqlmvi/vdyeryf',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7839,10 +7803,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /xxn/jy/odawzhv/xqa/y/' => array(
+  'PATCH /elvkv/lg/lbk/ryq/nctk' => array(
      'name' => '',
-     'path' => '/xxn/jy/odawzhv/xqa/y/',
-     'method' => 'DELETE',
+     'path' => '/elvkv/lg/lbk/ryq/nctk',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7857,10 +7821,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /pqunh/iwpsh' => array(
+  'GET /chluakwwi' => array(
      'name' => '',
-     'path' => '/pqunh/iwpsh',
-     'method' => 'DELETE',
+     'path' => '/chluakwwi',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7875,10 +7839,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /usfxigjprifel' => array(
+  'DELETE /ri/wd/zwyr' => array(
      'name' => '',
-     'path' => '/usfxigjprifel',
-     'method' => 'PATCH',
+     'path' => '/ri/wd/zwyr',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7893,10 +7857,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /bbnvuwmjncgbqz' => array(
+  'GET /f/wxlakx/nkkvtz/a/scxun' => array(
      'name' => '',
-     'path' => '/bbnvuwmjncgbqz',
-     'method' => 'PATCH',
+     'path' => '/f/wxlakx/nkkvtz/a/scxun',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7911,10 +7875,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /l/zzkn/bgfhgk/bjq' => array(
+  'POST /v2/xqzpngupqumi' => array(
      'name' => '',
-     'path' => '/l/zzkn/bgfhgk/bjq',
-     'method' => 'PATCH',
+     'path' => '/v2/xqzpngupqumi',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7929,10 +7893,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/hdeedjzgdvrkkgv' => array(
+  'GET /ppdltfl' => array(
      'name' => '',
-     'path' => '/goods/hdeedjzgdvrkkgv',
-     'method' => 'DELETE',
+     'path' => '/ppdltfl',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7947,10 +7911,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /g/kq/dzkxjr/fk' => array(
+  'GET /fzw/sfvlxq' => array(
      'name' => '',
-     'path' => '/g/kq/dzkxjr/fk',
-     'method' => 'DELETE',
+     'path' => '/fzw/sfvlxq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7965,10 +7929,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /cobbcrgg/cuygdefhn' => array(
+  'PUT /api/nuypogeejobl' => array(
      'name' => '',
-     'path' => '/cobbcrgg/cuygdefhn',
-     'method' => 'DELETE',
+     'path' => '/api/nuypogeejobl',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -7983,10 +7947,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /goods/yvgtvf' => array(
+  'PUT /v2/zlrwnwinbxdj' => array(
      'name' => '',
-     'path' => '/goods/yvgtvf',
-     'method' => 'POST',
+     'path' => '/v2/zlrwnwinbxdj',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8001,10 +7965,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /goods/ypmlkuqgvmdw' => array(
+  'PATCH /hjbojeughxofxa/watym' => array(
      'name' => '',
-     'path' => '/goods/ypmlkuqgvmdw',
-     'method' => 'GET',
+     'path' => '/hjbojeughxofxa/watym',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8019,10 +7983,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /tn/k/bn/xz' => array(
+  'GET /nfwvtfbmvbhvotoqe' => array(
      'name' => '',
-     'path' => '/tn/k/bn/xz',
-     'method' => 'PUT',
+     'path' => '/nfwvtfbmvbhvotoqe',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8037,10 +8001,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /v2/wcsmlx' => array(
+  'GET /v2/fafovb' => array(
      'name' => '',
-     'path' => '/v2/wcsmlx',
-     'method' => 'PUT',
+     'path' => '/v2/fafovb',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8055,9 +8019,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /ut/gqfgudfcrzbh' => array(
+  'PUT /goods/nhfvjanxmxcozyl' => array(
      'name' => '',
-     'path' => '/ut/gqfgudfcrzbh',
+     'path' => '/goods/nhfvjanxmxcozyl',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8073,10 +8037,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /pfrhnjq/aj/' => array(
+  'POST /bxrlzjoocl' => array(
      'name' => '',
-     'path' => '/pfrhnjq/aj/',
-     'method' => 'PUT',
+     'path' => '/bxrlzjoocl',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8091,9 +8055,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /api/eqwguq' => array(
+  'GET /a/onwjosnbnjllcmyeut' => array(
      'name' => '',
-     'path' => '/api/eqwguq',
+     'path' => '/a/onwjosnbnjllcmyeut',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8109,10 +8073,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /bepjlapggbvdt/nfg' => array(
+  'POST /jvoeudlzdmrdx' => array(
      'name' => '',
-     'path' => '/bepjlapggbvdt/nfg',
-     'method' => 'GET',
+     'path' => '/jvoeudlzdmrdx',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8127,10 +8091,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /czqcq/dq' => array(
+  'GET /e/aqdbbma/svl/' => array(
      'name' => '',
-     'path' => '/czqcq/dq',
-     'method' => 'PUT',
+     'path' => '/e/aqdbbma/svl/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8145,10 +8109,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /i/kjhietsmcxfyahp' => array(
+  'DELETE /maufxhpiw' => array(
      'name' => '',
-     'path' => '/i/kjhietsmcxfyahp',
-     'method' => 'GET',
+     'path' => '/maufxhpiw',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8163,10 +8127,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/jarvht' => array(
+  'PATCH /goods/ftvdtwitpxptcecldu' => array(
      'name' => '',
-     'path' => '/goods/jarvht',
-     'method' => 'DELETE',
+     'path' => '/goods/ftvdtwitpxptcecldu',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8181,10 +8145,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /i/hdlw/bhcdkanru' => array(
+  'DELETE /user/wuiplv' => array(
      'name' => '',
-     'path' => '/i/hdlw/bhcdkanru',
-     'method' => 'GET',
+     'path' => '/user/wuiplv',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8199,10 +8163,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /goods/vowbzisjnqhtidbwpy' => array(
+  'GET /yvnyrnzdf' => array(
      'name' => '',
-     'path' => '/goods/vowbzisjnqhtidbwpy',
-     'method' => 'PUT',
+     'path' => '/yvnyrnzdf',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8217,9 +8181,9 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /api/yappoapbvpjj' => array(
+  'DELETE /goods/ngggtwrwindvinn' => array(
      'name' => '',
-     'path' => '/api/yappoapbvpjj',
+     'path' => '/goods/ngggtwrwindvinn',
      'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8235,10 +8199,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v/xbfopktht' => array(
+  'PUT /q/erbckr/l/' => array(
      'name' => '',
-     'path' => '/v/xbfopktht',
-     'method' => 'GET',
+     'path' => '/q/erbckr/l/',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8253,10 +8217,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /iokozyb/eu' => array(
+  'POST /api/kfhhsdecbhvrcbw' => array(
      'name' => '',
-     'path' => '/iokozyb/eu',
-     'method' => 'PUT',
+     'path' => '/api/kfhhsdecbhvrcbw',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8271,10 +8235,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /api/rorajcskkmnd' => array(
+  'GET /fyzoqwwwqeu/' => array(
      'name' => '',
-     'path' => '/api/rorajcskkmnd',
-     'method' => 'PATCH',
+     'path' => '/fyzoqwwwqeu/',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8289,10 +8253,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /goods/qikzvkrhzcbo' => array(
+  'GET /d/zuvagkzmpl' => array(
      'name' => '',
-     'path' => '/goods/qikzvkrhzcbo',
-     'method' => 'PATCH',
+     'path' => '/d/zuvagkzmpl',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8307,10 +8271,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /awensxlabw' => array(
+  'GET /rouktba' => array(
      'name' => '',
-     'path' => '/awensxlabw',
-     'method' => 'DELETE',
+     'path' => '/rouktba',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8325,9 +8289,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /whdobrcqydyxsd/xe/x' => array(
+  'GET /mmctkfhqlpm/lbcapf' => array(
      'name' => '',
-     'path' => '/whdobrcqydyxsd/xe/x',
+     'path' => '/mmctkfhqlpm/lbcapf',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8343,10 +8307,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /sdzpztl' => array(
+  'PATCH /u/u/t/yltzdfcs/z/hpk/z/' => array(
      'name' => '',
-     'path' => '/sdzpztl',
-     'method' => 'PUT',
+     'path' => '/u/u/t/yltzdfcs/z/hpk/z/',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8361,10 +8325,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /v2/adbdzuwgvxpqkwpcdt' => array(
+  'PATCH /eo/vs/yuegh' => array(
      'name' => '',
-     'path' => '/v2/adbdzuwgvxpqkwpcdt',
-     'method' => 'POST',
+     'path' => '/eo/vs/yuegh',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8379,9 +8343,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /xyqhzeqfocn/n/zk/djq' => array(
+  'PATCH /api/jpgurhmbcimi' => array(
      'name' => '',
-     'path' => '/xyqhzeqfocn/n/zk/djq',
+     'path' => '/api/jpgurhmbcimi',
      'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8397,10 +8361,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/nzpaupjxedzqriwohi' => array(
+  'PATCH /vrqmstssa/zd' => array(
      'name' => '',
-     'path' => '/v2/nzpaupjxedzqriwohi',
-     'method' => 'GET',
+     'path' => '/vrqmstssa/zd',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8415,10 +8379,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /dzi/y/vxbpegbjhllfdfk' => array(
+  'POST /svxvm' => array(
      'name' => '',
-     'path' => '/dzi/y/vxbpegbjhllfdfk',
-     'method' => 'PATCH',
+     'path' => '/svxvm',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8433,10 +8397,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/zwylmjyubzvyflrdhq' => array(
+  'POST /cl/uqoid' => array(
      'name' => '',
-     'path' => '/v2/zwylmjyubzvyflrdhq',
-     'method' => 'GET',
+     'path' => '/cl/uqoid',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8451,10 +8415,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /xkibwvo/og' => array(
+  'DELETE /huuchba/gn/hqfi' => array(
      'name' => '',
-     'path' => '/xkibwvo/og',
-     'method' => 'PATCH',
+     'path' => '/huuchba/gn/hqfi',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8469,9 +8433,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /bgicsimqk' => array(
+  'PUT /kcsystfifmwosetvkif' => array(
      'name' => '',
-     'path' => '/bgicsimqk',
+     'path' => '/kcsystfifmwosetvkif',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8487,10 +8451,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /mpbgbwy/cfbngk' => array(
+  'POST /f/jumru/qj' => array(
      'name' => '',
-     'path' => '/mpbgbwy/cfbngk',
-     'method' => 'GET',
+     'path' => '/f/jumru/qj',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8505,10 +8469,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /ihqecxv' => array(
+  'GET /goods/kepyogvunojtxzc' => array(
      'name' => '',
-     'path' => '/ihqecxv',
-     'method' => 'POST',
+     'path' => '/goods/kepyogvunojtxzc',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8523,10 +8487,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /goods/vssrwbscfybybhicwn' => array(
+  'DELETE /miaumxsx' => array(
      'name' => '',
-     'path' => '/goods/vssrwbscfybybhicwn',
-     'method' => 'POST',
+     'path' => '/miaumxsx',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8541,10 +8505,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/tphbgi' => array(
+  'PATCH /ezpruhlobrb/lanvv' => array(
      'name' => '',
-     'path' => '/v2/tphbgi',
-     'method' => 'GET',
+     'path' => '/ezpruhlobrb/lanvv',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8559,10 +8523,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /l/rx/aghioiu/' => array(
+  'PATCH /api/xcbjpg' => array(
      'name' => '',
-     'path' => '/l/rx/aghioiu/',
-     'method' => 'POST',
+     'path' => '/api/xcbjpg',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8577,10 +8541,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /ahlbdudyztx' => array(
+  'PUT /v2/cxcpgpygjvccmojegt' => array(
      'name' => '',
-     'path' => '/ahlbdudyztx',
-     'method' => 'PATCH',
+     'path' => '/v2/cxcpgpygjvccmojegt',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8595,10 +8559,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /sqornqjsfdsmrk' => array(
+  'POST /irnjhhayds/quemph' => array(
      'name' => '',
-     'path' => '/sqornqjsfdsmrk',
-     'method' => 'PUT',
+     'path' => '/irnjhhayds/quemph',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8613,10 +8577,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /goods/wfztrf' => array(
+  'DELETE /pygal/c/ha/ocfmd/ytfx' => array(
      'name' => '',
-     'path' => '/goods/wfztrf',
-     'method' => 'GET',
+     'path' => '/pygal/c/ha/ocfmd/ytfx',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8631,10 +8595,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /njkxgeq' => array(
+  'POST /itsuzkktpz' => array(
      'name' => '',
-     'path' => '/njkxgeq',
-     'method' => 'GET',
+     'path' => '/itsuzkktpz',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8649,10 +8613,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/zftysqpyvkalzojnai' => array(
+  'PUT /lq/j/op/xhlydfue' => array(
      'name' => '',
-     'path' => '/user/zftysqpyvkalzojnai',
-     'method' => 'GET',
+     'path' => '/lq/j/op/xhlydfue',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8667,10 +8631,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /scybmdic' => array(
+  'DELETE /t/hjjmwrynreha/' => array(
      'name' => '',
-     'path' => '/scybmdic',
-     'method' => 'PATCH',
+     'path' => '/t/hjjmwrynreha/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8685,10 +8649,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /goods/bcbcfl' => array(
+  'POST /goods/epjsiupvytkn' => array(
      'name' => '',
-     'path' => '/goods/bcbcfl',
-     'method' => 'DELETE',
+     'path' => '/goods/epjsiupvytkn',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8703,10 +8667,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/ewyovr' => array(
+  'DELETE /lld/uew/qmdxt/xmj/c/tz/' => array(
      'name' => '',
-     'path' => '/user/ewyovr',
-     'method' => 'PATCH',
+     'path' => '/lld/uew/qmdxt/xmj/c/tz/',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8721,10 +8685,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /rgk/wxd/e/udfasd' => array(
+  'POST /wwfbonw/ypoflk' => array(
      'name' => '',
-     'path' => '/rgk/wxd/e/udfasd',
-     'method' => 'GET',
+     'path' => '/wwfbonw/ypoflk',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8739,9 +8703,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /chnf/k/qkqt' => array(
+  'GET /kaebhxo/viap' => array(
      'name' => '',
-     'path' => '/chnf/k/qkqt',
+     'path' => '/kaebhxo/viap',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8757,10 +8721,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /upzbbawjyf/nchs/im/' => array(
+  'DELETE /rkp/ipsgmyff' => array(
      'name' => '',
-     'path' => '/upzbbawjyf/nchs/im/',
-     'method' => 'POST',
+     'path' => '/rkp/ipsgmyff',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8775,9 +8739,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /wbs/ortihdaki/c/f' => array(
+  'GET /goods/eizoxaklqflw' => array(
      'name' => '',
-     'path' => '/wbs/ortihdaki/c/f',
+     'path' => '/goods/eizoxaklqflw',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8793,10 +8757,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /o/bff/lwluhhi/nwfbtxnpk' => array(
+  'DELETE /otcoflcnpns' => array(
      'name' => '',
-     'path' => '/o/bff/lwluhhi/nwfbtxnpk',
-     'method' => 'GET',
+     'path' => '/otcoflcnpns',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8811,10 +8775,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /cvflf/e/yp' => array(
+  'PUT /wcxexwmz' => array(
      'name' => '',
-     'path' => '/cvflf/e/yp',
-     'method' => 'POST',
+     'path' => '/wcxexwmz',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8829,10 +8793,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /goods/ucigem' => array(
+  'POST /nffsxzfpbbz/muff/b/arb' => array(
      'name' => '',
-     'path' => '/goods/ucigem',
-     'method' => 'GET',
+     'path' => '/nffsxzfpbbz/muff/b/arb',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8847,9 +8811,9 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /xflbbohd/ieuvw' => array(
+  'PUT /vchl/subig/' => array(
      'name' => '',
-     'path' => '/xflbbohd/ieuvw',
+     'path' => '/vchl/subig/',
      'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8865,9 +8829,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /v2/crpjju' => array(
+  'GET /bjvkqklnxohxz' => array(
      'name' => '',
-     'path' => '/v2/crpjju',
+     'path' => '/bjvkqklnxohxz',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -8883,10 +8847,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PUT /goods/eomjnzupczcy' => array(
+  'GET /nifziogqj' => array(
      'name' => '',
-     'path' => '/goods/eomjnzupczcy',
-     'method' => 'PUT',
+     'path' => '/nifziogqj',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8901,10 +8865,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /v2/mcltgb' => array(
+  'GET /user/agsgaq' => array(
      'name' => '',
-     'path' => '/v2/mcltgb',
-     'method' => 'DELETE',
+     'path' => '/user/agsgaq',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8919,10 +8883,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /mp/go/p' => array(
+  'GET /vqvbckr/pipzaozr/tbe/y' => array(
      'name' => '',
-     'path' => '/mp/go/p',
-     'method' => 'DELETE',
+     'path' => '/vqvbckr/pipzaozr/tbe/y',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8937,10 +8901,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /nvsnfekgvbvzeg/ov/' => array(
+  'DELETE /user/ouvifcballqeemclmn' => array(
      'name' => '',
-     'path' => '/nvsnfekgvbvzeg/ov/',
-     'method' => 'GET',
+     'path' => '/user/ouvifcballqeemclmn',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8955,10 +8919,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /zipxpvi' => array(
+  'PATCH /kg/x/ne/vstypenr' => array(
      'name' => '',
-     'path' => '/zipxpvi',
-     'method' => 'GET',
+     'path' => '/kg/x/ne/vstypenr',
+     'method' => 'PATCH',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8973,10 +8937,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /kwnc/ibx' => array(
+  'GET /goods/ljkhzl' => array(
      'name' => '',
-     'path' => '/kwnc/ibx',
-     'method' => 'PATCH',
+     'path' => '/goods/ljkhzl',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -8991,10 +8955,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /ctaxigtvcmtdfs' => array(
+  'PUT /kdrddas/' => array(
      'name' => '',
-     'path' => '/ctaxigtvcmtdfs',
-     'method' => 'DELETE',
+     'path' => '/kdrddas/',
+     'method' => 'PUT',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -9009,9 +8973,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /user/xrvhxaclkygomau' => array(
+  'GET /jkvfezwndyey/anxbv' => array(
      'name' => '',
-     'path' => '/user/xrvhxaclkygomau',
+     'path' => '/jkvfezwndyey/anxbv',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -9027,10 +8991,10 @@ return array (
      'options' => array (
     ),
   ),
-  'PATCH /user/mqcaqyrdiimpmra' => array(
+  'GET /nqsfo/bk/j' => array(
      'name' => '',
-     'path' => '/user/mqcaqyrdiimpmra',
-     'method' => 'PATCH',
+     'path' => '/nqsfo/bk/j',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -9045,10 +9009,10 @@ return array (
      'options' => array (
     ),
   ),
-  'POST /wueu/rbxj' => array(
+  'GET /ozs/calmk/ay' => array(
      'name' => '',
-     'path' => '/wueu/rbxj',
-     'method' => 'POST',
+     'path' => '/ozs/calmk/ay',
+     'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -9063,10 +9027,10 @@ return array (
      'options' => array (
     ),
   ),
-  'DELETE /uko/qkw/cfdu/mnnar/z' => array(
+  'POST /fentih/srzcscb/bzeomh/v' => array(
      'name' => '',
-     'path' => '/uko/qkw/cfdu/mnnar/z',
-     'method' => 'DELETE',
+     'path' => '/fentih/srzcscb/bzeomh/v',
+     'method' => 'POST',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -9081,10 +9045,10 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /srbsyeffecq/htl' => array(
+  'DELETE /bjyhbzwglsqpgmngg/xg' => array(
      'name' => '',
-     'path' => '/srbsyeffecq/htl',
-     'method' => 'GET',
+     'path' => '/bjyhbzwglsqpgmngg/xg',
+     'method' => 'DELETE',
      'handler' => 'handler_func',
      'bindVars' => array (
     ),
@@ -9099,9 +9063,9 @@ return array (
      'options' => array (
     ),
   ),
-  'GET /jvg/fb/legagohuyqpndn' => array(
+  'GET /gzyeapeu' => array(
      'name' => '',
-     'path' => '/jvg/fb/legagohuyqpndn',
+     'path' => '/gzyeapeu',
      'method' => 'GET',
      'handler' => 'handler_func',
      'bindVars' => array (
@@ -9120,10 +9084,10 @@ return array (
 ),
 // regular routes
 'regularRoutes' => array (
-  'GET efh' => array (
+  'GET v2' => array (
     0 => array(
        'name' => '',
-       'path' => '/efh/tg/w/kjjyoxcne/z/{name}',
+       'path' => '/v2/jwdhgwqeoyibhqf/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -9133,8 +9097,124 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/efh/tg/w/kjjyoxcne/z/([^/]+)$#',
-       'pathStart' => '/efh/tg/w/kjjyoxcne/z/',
+       'pathRegex' => '#^/v2/jwdhgwqeoyibhqf/([^/]+)$#',
+       'pathStart' => '/v2/jwdhgwqeoyibhqf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/v2/wojuqhiwqiopgqnjzs/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/wojuqhiwqiopgqnjzs/([^/]+)$#',
+       'pathStart' => '/v2/wojuqhiwqiopgqnjzs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/v2/egeoztblyfan/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/egeoztblyfan/([^/]+)$#',
+       'pathStart' => '/v2/egeoztblyfan/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/v2/opcllkfduwrczbwwaa/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/opcllkfduwrczbwwaa/([^/]+)$#',
+       'pathStart' => '/v2/opcllkfduwrczbwwaa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/v2/zzlxwj/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/zzlxwj/([^/]+)$#',
+       'pathStart' => '/v2/zzlxwj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    5 => array(
+       'name' => '',
+       'path' => '/v2/iiokpjzwxddvfqa/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/iiokpjzwxddvfqa/([^/]+)$#',
+       'pathStart' => '/v2/iiokpjzwxddvfqa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH nzmanetsxhgxx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nzmanetsxhgxx/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nzmanetsxhgxx/([^/]+)$#',
+       'pathStart' => '/nzmanetsxhgxx/',
        'chains' => array (
       ),
        'options' => array (
@@ -9170,10 +9250,10 @@ return array (
       ),
     ),
   ),
-  'GET v2' => array (
+  'GET xyoz' => array (
     0 => array(
        'name' => '',
-       'path' => '/v2/xxjhyjpiiawncoz/{name}',
+       'path' => '/xyoz/kgptpomrt/rm/w/r/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -9183,343 +9263,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/v2/xxjhyjpiiawncoz/([^/]+)$#',
-       'pathStart' => '/v2/xxjhyjpiiawncoz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/v2/onmqdryrpilltcv/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/onmqdryrpilltcv/([^/]+)$#',
-       'pathStart' => '/v2/onmqdryrpilltcv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/v2/onadvwwfoclb/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/onadvwwfoclb/([^/]+)$#',
-       'pathStart' => '/v2/onadvwwfoclb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/v2/ztmxcssfhfuq/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/ztmxcssfhfuq/([^/]+)$#',
-       'pathStart' => '/v2/ztmxcssfhfuq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/v2/zsgrcvvhalnx/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/zsgrcvvhalnx/([^/]+)$#',
-       'pathStart' => '/v2/zsgrcvvhalnx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/v2/donxjyycshwvwlv/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/donxjyycshwvwlv/([^/]+)$#',
-       'pathStart' => '/v2/donxjyycshwvwlv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    6 => array(
-       'name' => '',
-       'path' => '/v2/xpulru/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/xpulru/([^/]+)$#',
-       'pathStart' => '/v2/xpulru/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    7 => array(
-       'name' => '',
-       'path' => '/v2/otbfmaslcjsh/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/otbfmaslcjsh/([^/]+)$#',
-       'pathStart' => '/v2/otbfmaslcjsh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    8 => array(
-       'name' => '',
-       'path' => '/v2/gzaszubrxgddwyh/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/gzaszubrxgddwyh/([^/]+)$#',
-       'pathStart' => '/v2/gzaszubrxgddwyh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    9 => array(
-       'name' => '',
-       'path' => '/v2/pfmpkcjmkkhacdofyw/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/pfmpkcjmkkhacdofyw/([^/]+)$#',
-       'pathStart' => '/v2/pfmpkcjmkkhacdofyw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    10 => array(
-       'name' => '',
-       'path' => '/v2/kzxtfg/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/kzxtfg/([^/]+)$#',
-       'pathStart' => '/v2/kzxtfg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    11 => array(
-       'name' => '',
-       'path' => '/v2/zswltllajyqqnpxdzk/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/zswltllajyqqnpxdzk/([^/]+)$#',
-       'pathStart' => '/v2/zswltllajyqqnpxdzk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    12 => array(
-       'name' => '',
-       'path' => '/v2/piutzmvzsamd/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/piutzmvzsamd/([^/]+)$#',
-       'pathStart' => '/v2/piutzmvzsamd/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    13 => array(
-       'name' => '',
-       'path' => '/v2/qyrglxzhhrddqvbvjn/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/qyrglxzhhrddqvbvjn/([^/]+)$#',
-       'pathStart' => '/v2/qyrglxzhhrddqvbvjn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    14 => array(
-       'name' => '',
-       'path' => '/v2/ronbbbweqxwz/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/ronbbbweqxwz/([^/]+)$#',
-       'pathStart' => '/v2/ronbbbweqxwz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    15 => array(
-       'name' => '',
-       'path' => '/v2/yycakafnbxop/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/yycakafnbxop/([^/]+)$#',
-       'pathStart' => '/v2/yycakafnbxop/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    16 => array(
-       'name' => '',
-       'path' => '/v2/jbtswqpnnhsozxr/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/jbtswqpnnhsozxr/([^/]+)$#',
-       'pathStart' => '/v2/jbtswqpnnhsozxr/',
+       'pathRegex' => '#^/xyoz/kgptpomrt/rm/w/r/([^/]+)$#',
+       'pathStart' => '/xyoz/kgptpomrt/rm/w/r/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST ktoluo' => array (
+  'GET zdvdgdm' => array (
     0 => array(
        'name' => '',
-       'path' => '/ktoluo/fep/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ktoluo/fep/([^/]+)$#',
-       'pathStart' => '/ktoluo/fep/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET avkau' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/avkau/{name}',
+       'path' => '/zdvdgdm/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -9529,81 +9284,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/avkau/([^/]+)$#',
-       'pathStart' => '/avkau/',
+       'pathRegex' => '#^/zdvdgdm/([^/]+)$#',
+       'pathStart' => '/zdvdgdm/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET tu' => array (
+  'PATCH vs' => array (
     0 => array(
        'name' => '',
-       'path' => '/tu/o/ev/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tu/o/ev/([^/]+)$#',
-       'pathStart' => '/tu/o/ev/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT yooa' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yooa/yjawvsyexz/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yooa/yjawvsyexz/([^/]+)$#',
-       'pathStart' => '/yooa/yjawvsyexz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE zjtafeaj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zjtafeaj/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/zjtafeaj/([^/]+)$#',
-       'pathStart' => '/zjtafeaj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH v2' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/v2/qykqhb/{name}',
+       'path' => '/vs/ssviv/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -9613,117 +9305,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/v2/qykqhb/([^/]+)$#',
-       'pathStart' => '/v2/qykqhb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/v2/sifawg/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/sifawg/([^/]+)$#',
-       'pathStart' => '/v2/sifawg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/v2/tmgsnebxuozy/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/tmgsnebxuozy/([^/]+)$#',
-       'pathStart' => '/v2/tmgsnebxuozy/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/v2/kauzqbaaohpm/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/kauzqbaaohpm/([^/]+)$#',
-       'pathStart' => '/v2/kauzqbaaohpm/',
+       'pathRegex' => '#^/vs/ssviv/([^/]+)$#',
+       'pathStart' => '/vs/ssviv/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'DELETE vecrbqfpu' => array (
+  'GET xl' => array (
     0 => array(
        'name' => '',
-       'path' => '/vecrbqfpu/alec/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vecrbqfpu/alec/([^/]+)$#',
-       'pathStart' => '/vecrbqfpu/alec/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST ivxqhgwm' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ivxqhgwm/xzvxteew/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ivxqhgwm/xzvxteew/([^/]+)$#',
-       'pathStart' => '/ivxqhgwm/xzvxteew/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET zhdrlcepkfx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zhdrlcepkfx/{name}',
+       'path' => '/xl/bztzytrw/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -9733,1886 +9326,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/zhdrlcepkfx/([^/]+)$#',
-       'pathStart' => '/zhdrlcepkfx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE yvlnvmicvhvxsc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yvlnvmicvhvxsc/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yvlnvmicvhvxsc/([^/]+)$#',
-       'pathStart' => '/yvlnvmicvhvxsc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST vsbeeml' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vsbeeml/t/x/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vsbeeml/t/x/([^/]+)$#',
-       'pathStart' => '/vsbeeml/t/x/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE goods' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/goods/vloewn/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/vloewn/([^/]+)$#',
-       'pathStart' => '/goods/vloewn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/goods/dbczxbxuaybxjkb/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/dbczxbxuaybxjkb/([^/]+)$#',
-       'pathStart' => '/goods/dbczxbxuaybxjkb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/goods/ndnjxmjnoyyt/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/ndnjxmjnoyyt/([^/]+)$#',
-       'pathStart' => '/goods/ndnjxmjnoyyt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/goods/oqqecrgcvxwe/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/oqqecrgcvxwe/([^/]+)$#',
-       'pathStart' => '/goods/oqqecrgcvxwe/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/goods/xjkldzsdhsetqne/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/xjkldzsdhsetqne/([^/]+)$#',
-       'pathStart' => '/goods/xjkldzsdhsetqne/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/goods/enrixr/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/enrixr/([^/]+)$#',
-       'pathStart' => '/goods/enrixr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    6 => array(
-       'name' => '',
-       'path' => '/goods/aarsivktdaorvuz/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/aarsivktdaorvuz/([^/]+)$#',
-       'pathStart' => '/goods/aarsivktdaorvuz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    7 => array(
-       'name' => '',
-       'path' => '/goods/omzwpi/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/omzwpi/([^/]+)$#',
-       'pathStart' => '/goods/omzwpi/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST v2' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/v2/lcewfx/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/lcewfx/([^/]+)$#',
-       'pathStart' => '/v2/lcewfx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/v2/acrmudcowzmiijjvfi/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/acrmudcowzmiijjvfi/([^/]+)$#',
-       'pathStart' => '/v2/acrmudcowzmiijjvfi/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/v2/aqlfzuubdicxbnahek/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/aqlfzuubdicxbnahek/([^/]+)$#',
-       'pathStart' => '/v2/aqlfzuubdicxbnahek/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/v2/etxpnvwqnqsc/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/etxpnvwqnqsc/([^/]+)$#',
-       'pathStart' => '/v2/etxpnvwqnqsc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/v2/xvxsikvzyaot/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/xvxsikvzyaot/([^/]+)$#',
-       'pathStart' => '/v2/xvxsikvzyaot/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/v2/udlnlrmoxmdmzrn/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/udlnlrmoxmdmzrn/([^/]+)$#',
-       'pathStart' => '/v2/udlnlrmoxmdmzrn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET api' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/api/cwektqerdxwt/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/cwektqerdxwt/([^/]+)$#',
-       'pathStart' => '/api/cwektqerdxwt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/api/aejpkgwmavzw/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/aejpkgwmavzw/([^/]+)$#',
-       'pathStart' => '/api/aejpkgwmavzw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/api/reqkzbryjzkzlnl/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/reqkzbryjzkzlnl/([^/]+)$#',
-       'pathStart' => '/api/reqkzbryjzkzlnl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/api/rvkfykjgvdijrvchta/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/rvkfykjgvdijrvchta/([^/]+)$#',
-       'pathStart' => '/api/rvkfykjgvdijrvchta/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/api/dtqhvfugcfpfcxmfxt/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/dtqhvfugcfpfcxmfxt/([^/]+)$#',
-       'pathStart' => '/api/dtqhvfugcfpfcxmfxt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/api/nqfzaohqustb/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/nqfzaohqustb/([^/]+)$#',
-       'pathStart' => '/api/nqfzaohqustb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    6 => array(
-       'name' => '',
-       'path' => '/api/mqguzyucmsuktrvawo/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/mqguzyucmsuktrvawo/([^/]+)$#',
-       'pathStart' => '/api/mqguzyucmsuktrvawo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH lfful' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/lfful/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/lfful/([^/]+)$#',
-       'pathStart' => '/lfful/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET yuiqrmyz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yuiqrmyz/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yuiqrmyz/([^/]+)$#',
-       'pathStart' => '/yuiqrmyz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST user' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/user/nbxpmstuurjpeyesnl/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/nbxpmstuurjpeyesnl/([^/]+)$#',
-       'pathStart' => '/user/nbxpmstuurjpeyesnl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/user/gxwofh/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/gxwofh/([^/]+)$#',
-       'pathStart' => '/user/gxwofh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/user/vatdqk/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/vatdqk/([^/]+)$#',
-       'pathStart' => '/user/vatdqk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/user/learfwxeswxl/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/learfwxeswxl/([^/]+)$#',
-       'pathStart' => '/user/learfwxeswxl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/user/vgpdvjfnhnij/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/vgpdvjfnhnij/([^/]+)$#',
-       'pathStart' => '/user/vgpdvjfnhnij/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/user/frtzxl/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/frtzxl/([^/]+)$#',
-       'pathStart' => '/user/frtzxl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    6 => array(
-       'name' => '',
-       'path' => '/user/gumike/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/gumike/([^/]+)$#',
-       'pathStart' => '/user/gumike/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST kvbi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kvbi/l/orikt/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kvbi/l/orikt/([^/]+)$#',
-       'pathStart' => '/kvbi/l/orikt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE pdpab' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pdpab/wtqsop/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pdpab/wtqsop/([^/]+)$#',
-       'pathStart' => '/pdpab/wtqsop/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH wsxnrl' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wsxnrl/dwim/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wsxnrl/dwim/([^/]+)$#',
-       'pathStart' => '/wsxnrl/dwim/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET i' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/i/tfxydg/tyvgvi/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/i/tfxydg/tyvgvi/([^/]+)$#',
-       'pathStart' => '/i/tfxydg/tyvgvi/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/i/o/dfq/mscuuvde/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/i/o/dfq/mscuuvde/([^/]+)$#',
-       'pathStart' => '/i/o/dfq/mscuuvde/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE xrrmi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xrrmi/a/clqgj/ylp/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xrrmi/a/clqgj/ylp/([^/]+)$#',
-       'pathStart' => '/xrrmi/a/clqgj/ylp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST gkc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gkc/l/wzqq/kdmqyie/xikv/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gkc/l/wzqq/kdmqyie/xikv/([^/]+)$#',
-       'pathStart' => '/gkc/l/wzqq/kdmqyie/xikv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST iquuz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/iquuz/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/iquuz/([^/]+)$#',
-       'pathStart' => '/iquuz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE api' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/api/xhonfaacizqcotm/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/xhonfaacizqcotm/([^/]+)$#',
-       'pathStart' => '/api/xhonfaacizqcotm/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/api/dgngiyfovoeh/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/dgngiyfovoeh/([^/]+)$#',
-       'pathStart' => '/api/dgngiyfovoeh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/api/virfwjbhcndk/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/virfwjbhcndk/([^/]+)$#',
-       'pathStart' => '/api/virfwjbhcndk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/api/yomjbc/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/yomjbc/([^/]+)$#',
-       'pathStart' => '/api/yomjbc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/api/xqjncpifxoylicudah/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/xqjncpifxoylicudah/([^/]+)$#',
-       'pathStart' => '/api/xqjncpifxoylicudah/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/api/siwvbqmdndrh/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/siwvbqmdndrh/([^/]+)$#',
-       'pathStart' => '/api/siwvbqmdndrh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT qdmgthqacs' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qdmgthqacs/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qdmgthqacs/([^/]+)$#',
-       'pathStart' => '/qdmgthqacs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE v2' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/v2/jqgglo/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/jqgglo/([^/]+)$#',
-       'pathStart' => '/v2/jqgglo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/v2/rqrkxtjzcflhdeqdre/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/rqrkxtjzcflhdeqdre/([^/]+)$#',
-       'pathStart' => '/v2/rqrkxtjzcflhdeqdre/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/v2/manvjv/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/manvjv/([^/]+)$#',
-       'pathStart' => '/v2/manvjv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/v2/lyonafpdgvfbuhx/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/lyonafpdgvfbuhx/([^/]+)$#',
-       'pathStart' => '/v2/lyonafpdgvfbuhx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/v2/iwunqagouzubmjfarg/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/iwunqagouzubmjfarg/([^/]+)$#',
-       'pathStart' => '/v2/iwunqagouzubmjfarg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/v2/jcthyjqxyijuucornk/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v2/jcthyjqxyijuucornk/([^/]+)$#',
-       'pathStart' => '/v2/jcthyjqxyijuucornk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE kc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kc/u/jork/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kc/u/jork/([^/]+)$#',
-       'pathStart' => '/kc/u/jork/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST xuffkphixxgvvqcgpqf' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xuffkphixxgvvqcgpqf/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xuffkphixxgvvqcgpqf/([^/]+)$#',
-       'pathStart' => '/xuffkphixxgvvqcgpqf/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT tfipgt' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tfipgt/qhuvizximc/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tfipgt/qhuvizximc/([^/]+)$#',
-       'pathStart' => '/tfipgt/qhuvizximc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH u' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/u/ulry/pcfr/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/u/ulry/pcfr/([^/]+)$#',
-       'pathStart' => '/u/ulry/pcfr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT ic' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ic/fsbsdz/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ic/fsbsdz/([^/]+)$#',
-       'pathStart' => '/ic/fsbsdz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST api' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/api/wyzfywlekfcy/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/wyzfywlekfcy/([^/]+)$#',
-       'pathStart' => '/api/wyzfywlekfcy/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/api/jgkyyrcraqvmxdvbbl/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/jgkyyrcraqvmxdvbbl/([^/]+)$#',
-       'pathStart' => '/api/jgkyyrcraqvmxdvbbl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/api/kcqbzmcgzfgwxqv/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/kcqbzmcgzfgwxqv/([^/]+)$#',
-       'pathStart' => '/api/kcqbzmcgzfgwxqv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/api/kziedpcazzfbvblcim/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/kziedpcazzfbvblcim/([^/]+)$#',
-       'pathStart' => '/api/kziedpcazzfbvblcim/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/api/lhqmhxllgrvwyzcdtm/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/lhqmhxllgrvwyzcdtm/([^/]+)$#',
-       'pathStart' => '/api/lhqmhxllgrvwyzcdtm/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/api/tdlwcdzsfwuowma/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/tdlwcdzsfwuowma/([^/]+)$#',
-       'pathStart' => '/api/tdlwcdzsfwuowma/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH api' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/api/dzcwjjatkahzowssoa/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/dzcwjjatkahzowssoa/([^/]+)$#',
-       'pathStart' => '/api/dzcwjjatkahzowssoa/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/api/lbkkqsfcjngxfzbhau/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/lbkkqsfcjngxfzbhau/([^/]+)$#',
-       'pathStart' => '/api/lbkkqsfcjngxfzbhau/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE fmuz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fmuz/vxcqq/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fmuz/vxcqq/([^/]+)$#',
-       'pathStart' => '/fmuz/vxcqq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET goods' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/goods/cjeascilqdkaxmdjer/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/cjeascilqdkaxmdjer/([^/]+)$#',
-       'pathStart' => '/goods/cjeascilqdkaxmdjer/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/goods/ueosdgsshbwigub/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/ueosdgsshbwigub/([^/]+)$#',
-       'pathStart' => '/goods/ueosdgsshbwigub/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/goods/vztjmhtbjmfdukb/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/vztjmhtbjmfdukb/([^/]+)$#',
-       'pathStart' => '/goods/vztjmhtbjmfdukb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/goods/bupbsfcaspsleto/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/bupbsfcaspsleto/([^/]+)$#',
-       'pathStart' => '/goods/bupbsfcaspsleto/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    4 => array(
-       'name' => '',
-       'path' => '/goods/vtcmxnxlvrsewsl/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/vtcmxnxlvrsewsl/([^/]+)$#',
-       'pathStart' => '/goods/vtcmxnxlvrsewsl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    5 => array(
-       'name' => '',
-       'path' => '/goods/wvmbslegmtauenx/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/wvmbslegmtauenx/([^/]+)$#',
-       'pathStart' => '/goods/wvmbslegmtauenx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    6 => array(
-       'name' => '',
-       'path' => '/goods/eugkexveevuyqtfzjy/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/eugkexveevuyqtfzjy/([^/]+)$#',
-       'pathStart' => '/goods/eugkexveevuyqtfzjy/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    7 => array(
-       'name' => '',
-       'path' => '/goods/lvxcyiyuctmjsazagk/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/lvxcyiyuctmjsazagk/([^/]+)$#',
-       'pathStart' => '/goods/lvxcyiyuctmjsazagk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH umtbqboz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/umtbqboz/ghfwebfjr/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/umtbqboz/ghfwebfjr/([^/]+)$#',
-       'pathStart' => '/umtbqboz/ghfwebfjr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT xpbzs' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xpbzs/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xpbzs/([^/]+)$#',
-       'pathStart' => '/xpbzs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT aqcevmg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/aqcevmg/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/aqcevmg/([^/]+)$#',
-       'pathStart' => '/aqcevmg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH yxeehrgxgtjhaag' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yxeehrgxgtjhaag/ju/hrj/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yxeehrgxgtjhaag/ju/hrj/([^/]+)$#',
-       'pathStart' => '/yxeehrgxgtjhaag/ju/hrj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET isi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/isi/xwl/sthqaeajyo/syy/v/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/isi/xwl/sthqaeajyo/syy/v/([^/]+)$#',
-       'pathStart' => '/isi/xwl/sthqaeajyo/syy/v/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST qpidgbzhbesjt' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qpidgbzhbesjt/woh/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qpidgbzhbesjt/woh/([^/]+)$#',
-       'pathStart' => '/qpidgbzhbesjt/woh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ghiueg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ghiueg/zqwqekekp/ve/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ghiueg/zqwqekekp/ve/([^/]+)$#',
-       'pathStart' => '/ghiueg/zqwqekekp/ve/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE sfwvvhohp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sfwvvhohp/hg/z/beynrku/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sfwvvhohp/hg/z/beynrku/([^/]+)$#',
-       'pathStart' => '/sfwvvhohp/hg/z/beynrku/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET q' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/q/cqkfg/pp/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/q/cqkfg/pp/([^/]+)$#',
-       'pathStart' => '/q/cqkfg/pp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT u' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/u/n/tvt/ljvq/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/u/n/tvt/ljvq/([^/]+)$#',
-       'pathStart' => '/u/n/tvt/ljvq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH w' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/w/r/jk/uddqt/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/w/r/jk/uddqt/([^/]+)$#',
-       'pathStart' => '/w/r/jk/uddqt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST nw' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nw/rqlchye/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nw/rqlchye/([^/]+)$#',
-       'pathStart' => '/nw/rqlchye/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE c' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/c/yhi/n/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/c/yhi/n/([^/]+)$#',
-       'pathStart' => '/c/yhi/n/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET z' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/z/dv/mr/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/z/dv/mr/([^/]+)$#',
-       'pathStart' => '/z/dv/mr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH ztyobyg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ztyobyg/ujid/esfqt/bisx/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ztyobyg/ujid/esfqt/bisx/([^/]+)$#',
-       'pathStart' => '/ztyobyg/ujid/esfqt/bisx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET m' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/m/bmjtuzjatbktg/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/m/bmjtuzjatbktg/([^/]+)$#',
-       'pathStart' => '/m/bmjtuzjatbktg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST epe' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/epe/vb/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/epe/vb/([^/]+)$#',
-       'pathStart' => '/epe/vb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT lfqqhljd' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/lfqqhljd/jmo/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/lfqqhljd/jmo/([^/]+)$#',
-       'pathStart' => '/lfqqhljd/jmo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET doc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/doc/xejdswlb/xr/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/doc/xejdswlb/xr/([^/]+)$#',
-       'pathStart' => '/doc/xejdswlb/xr/',
+       'pathRegex' => '#^/xl/bztzytrw/([^/]+)$#',
+       'pathStart' => '/xl/bztzytrw/',
        'chains' => array (
       ),
        'options' => array (
@@ -11622,7 +9337,7 @@ return array (
   'GET user' => array (
     0 => array(
        'name' => '',
-       'path' => '/user/rxuhpcujuyrojwe/{name}',
+       'path' => '/user/ibgqnl/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11632,8 +9347,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/rxuhpcujuyrojwe/([^/]+)$#',
-       'pathStart' => '/user/rxuhpcujuyrojwe/',
+       'pathRegex' => '#^/user/ibgqnl/([^/]+)$#',
+       'pathStart' => '/user/ibgqnl/',
        'chains' => array (
       ),
        'options' => array (
@@ -11641,7 +9356,7 @@ return array (
     ),
     1 => array(
        'name' => '',
-       'path' => '/user/trzapdccfnku/{name}',
+       'path' => '/user/vjidfnxfaboxrcioxe/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11651,8 +9366,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/trzapdccfnku/([^/]+)$#',
-       'pathStart' => '/user/trzapdccfnku/',
+       'pathRegex' => '#^/user/vjidfnxfaboxrcioxe/([^/]+)$#',
+       'pathStart' => '/user/vjidfnxfaboxrcioxe/',
        'chains' => array (
       ),
        'options' => array (
@@ -11660,7 +9375,7 @@ return array (
     ),
     2 => array(
        'name' => '',
-       'path' => '/user/dbbjth/{name}',
+       'path' => '/user/wublbbjzmrramokhju/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11670,8 +9385,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/dbbjth/([^/]+)$#',
-       'pathStart' => '/user/dbbjth/',
+       'pathRegex' => '#^/user/wublbbjzmrramokhju/([^/]+)$#',
+       'pathStart' => '/user/wublbbjzmrramokhju/',
        'chains' => array (
       ),
        'options' => array (
@@ -11679,7 +9394,7 @@ return array (
     ),
     3 => array(
        'name' => '',
-       'path' => '/user/wbnkhuydzcxo/{name}',
+       'path' => '/user/dqjwzpazharz/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11689,8 +9404,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/wbnkhuydzcxo/([^/]+)$#',
-       'pathStart' => '/user/wbnkhuydzcxo/',
+       'pathRegex' => '#^/user/dqjwzpazharz/([^/]+)$#',
+       'pathStart' => '/user/dqjwzpazharz/',
        'chains' => array (
       ),
        'options' => array (
@@ -11698,7 +9413,7 @@ return array (
     ),
     4 => array(
        'name' => '',
-       'path' => '/user/mduetmjlomrl/{name}',
+       'path' => '/user/neoweyrhursiayy/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11708,8 +9423,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/mduetmjlomrl/([^/]+)$#',
-       'pathStart' => '/user/mduetmjlomrl/',
+       'pathRegex' => '#^/user/neoweyrhursiayy/([^/]+)$#',
+       'pathStart' => '/user/neoweyrhursiayy/',
        'chains' => array (
       ),
        'options' => array (
@@ -11717,7 +9432,7 @@ return array (
     ),
     5 => array(
        'name' => '',
-       'path' => '/user/oibdhu/{name}',
+       'path' => '/user/qbtqin/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11727,8 +9442,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/oibdhu/([^/]+)$#',
-       'pathStart' => '/user/oibdhu/',
+       'pathRegex' => '#^/user/qbtqin/([^/]+)$#',
+       'pathStart' => '/user/qbtqin/',
        'chains' => array (
       ),
        'options' => array (
@@ -11736,7 +9451,7 @@ return array (
     ),
     6 => array(
        'name' => '',
-       'path' => '/user/vmqkzovchqsilxi/{name}',
+       'path' => '/user/juashpjvfyllohvbyx/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11746,8 +9461,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/vmqkzovchqsilxi/([^/]+)$#',
-       'pathStart' => '/user/vmqkzovchqsilxi/',
+       'pathRegex' => '#^/user/juashpjvfyllohvbyx/([^/]+)$#',
+       'pathStart' => '/user/juashpjvfyllohvbyx/',
        'chains' => array (
       ),
        'options' => array (
@@ -11755,7 +9470,7 @@ return array (
     ),
     7 => array(
        'name' => '',
-       'path' => '/user/gromjehyqesoufg/{name}',
+       'path' => '/user/jqxgskgpvabqetjvsh/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11765,8 +9480,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/gromjehyqesoufg/([^/]+)$#',
-       'pathStart' => '/user/gromjehyqesoufg/',
+       'pathRegex' => '#^/user/jqxgskgpvabqetjvsh/([^/]+)$#',
+       'pathStart' => '/user/jqxgskgpvabqetjvsh/',
        'chains' => array (
       ),
        'options' => array (
@@ -11774,7 +9489,7 @@ return array (
     ),
     8 => array(
        'name' => '',
-       'path' => '/user/jjzmemerulygpzl/{name}',
+       'path' => '/user/ywgdkr/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11784,8 +9499,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/jjzmemerulygpzl/([^/]+)$#',
-       'pathStart' => '/user/jjzmemerulygpzl/',
+       'pathRegex' => '#^/user/ywgdkr/([^/]+)$#',
+       'pathStart' => '/user/ywgdkr/',
        'chains' => array (
       ),
        'options' => array (
@@ -11793,7 +9508,7 @@ return array (
     ),
     9 => array(
        'name' => '',
-       'path' => '/user/yoeizdojxvnr/{name}',
+       'path' => '/user/euvmcubsdjrtfqgevm/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11803,8 +9518,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/yoeizdojxvnr/([^/]+)$#',
-       'pathStart' => '/user/yoeizdojxvnr/',
+       'pathRegex' => '#^/user/euvmcubsdjrtfqgevm/([^/]+)$#',
+       'pathStart' => '/user/euvmcubsdjrtfqgevm/',
        'chains' => array (
       ),
        'options' => array (
@@ -11812,7 +9527,7 @@ return array (
     ),
     10 => array(
        'name' => '',
-       'path' => '/user/igzdqu/{name}',
+       'path' => '/user/qbczljbzmkjc/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11822,18 +9537,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/igzdqu/([^/]+)$#',
-       'pathStart' => '/user/igzdqu/',
+       'pathRegex' => '#^/user/qbczljbzmkjc/([^/]+)$#',
+       'pathStart' => '/user/qbczljbzmkjc/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'GET ybfjargmhbgfcjdoexeh' => array (
-    0 => array(
+    11 => array(
        'name' => '',
-       'path' => '/ybfjargmhbgfcjdoexeh/{name}',
+       'path' => '/user/zkfjdjzowklk/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11843,18 +9556,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/ybfjargmhbgfcjdoexeh/([^/]+)$#',
-       'pathStart' => '/ybfjargmhbgfcjdoexeh/',
+       'pathRegex' => '#^/user/zkfjdjzowklk/([^/]+)$#',
+       'pathStart' => '/user/zkfjdjzowklk/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'GET dmmokhzulrgsvv' => array (
-    0 => array(
+    12 => array(
        'name' => '',
-       'path' => '/dmmokhzulrgsvv/{name}',
+       'path' => '/user/vovgloratoop/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11864,39 +9575,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/dmmokhzulrgsvv/([^/]+)$#',
-       'pathStart' => '/dmmokhzulrgsvv/',
+       'pathRegex' => '#^/user/vovgloratoop/([^/]+)$#',
+       'pathStart' => '/user/vovgloratoop/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'PUT ifbebh' => array (
-    0 => array(
+    13 => array(
        'name' => '',
-       'path' => '/ifbebh/phwmnnc/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ifbebh/phwmnnc/([^/]+)$#',
-       'pathStart' => '/ifbebh/phwmnnc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET zeookbp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zeookbp/{name}',
+       'path' => '/user/yybyag/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11906,18 +9594,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/zeookbp/([^/]+)$#',
-       'pathStart' => '/zeookbp/',
+       'pathRegex' => '#^/user/yybyag/([^/]+)$#',
+       'pathStart' => '/user/yybyag/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'GET na' => array (
-    0 => array(
+    14 => array(
        'name' => '',
-       'path' => '/na/xiyqqjnx/dgw/{name}',
+       'path' => '/user/spfbldkgvcvhdflomx/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11927,19 +9613,17 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/na/xiyqqjnx/dgw/([^/]+)$#',
-       'pathStart' => '/na/xiyqqjnx/dgw/',
+       'pathRegex' => '#^/user/spfbldkgvcvhdflomx/([^/]+)$#',
+       'pathStart' => '/user/spfbldkgvcvhdflomx/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'PUT vfeyei' => array (
-    0 => array(
+    15 => array(
        'name' => '',
-       'path' => '/vfeyei/qzrydxk/{name}',
-       'method' => 'PUT',
+       'path' => '/user/xrudzaqroasuetjjfg/{name}',
+       'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -11948,39 +9632,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/vfeyei/qzrydxk/([^/]+)$#',
-       'pathStart' => '/vfeyei/qzrydxk/',
+       'pathRegex' => '#^/user/xrudzaqroasuetjjfg/([^/]+)$#',
+       'pathStart' => '/user/xrudzaqroasuetjjfg/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PATCH dr' => array (
+  'DELETE api' => array (
     0 => array(
        'name' => '',
-       'path' => '/dr/otsj/iql/xliengf/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dr/otsj/iql/xliengf/([^/]+)$#',
-       'pathStart' => '/dr/otsj/iql/xliengf/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE cpxwljgzbf' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cpxwljgzbf/myutul/{name}',
+       'path' => '/api/kuokxtsrnujy/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -11990,19 +9653,17 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/cpxwljgzbf/myutul/([^/]+)$#',
-       'pathStart' => '/cpxwljgzbf/myutul/',
+       'pathRegex' => '#^/api/kuokxtsrnujy/([^/]+)$#',
+       'pathStart' => '/api/kuokxtsrnujy/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'PATCH zsr' => array (
-    0 => array(
+    1 => array(
        'name' => '',
-       'path' => '/zsr/gwcy/{name}',
-       'method' => 'PATCH',
+       'path' => '/api/qyetovfaonkb/{name}',
+       'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -12011,18 +9672,256 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/zsr/gwcy/([^/]+)$#',
-       'pathStart' => '/zsr/gwcy/',
+       'pathRegex' => '#^/api/qyetovfaonkb/([^/]+)$#',
+       'pathStart' => '/api/qyetovfaonkb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/api/pfafetchcnye/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/pfafetchcnye/([^/]+)$#',
+       'pathStart' => '/api/pfafetchcnye/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/api/ansxml/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/ansxml/([^/]+)$#',
+       'pathStart' => '/api/ansxml/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/api/ztqwwjswvomizgz/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/ztqwwjswvomizgz/([^/]+)$#',
+       'pathStart' => '/api/ztqwwjswvomizgz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    5 => array(
+       'name' => '',
+       'path' => '/api/ysemxy/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/ysemxy/([^/]+)$#',
+       'pathStart' => '/api/ysemxy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    6 => array(
+       'name' => '',
+       'path' => '/api/jmtreeiwygxdgmrlnt/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/jmtreeiwygxdgmrlnt/([^/]+)$#',
+       'pathStart' => '/api/jmtreeiwygxdgmrlnt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    7 => array(
+       'name' => '',
+       'path' => '/api/jqbaiwmronqenyspvz/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/jqbaiwmronqenyspvz/([^/]+)$#',
+       'pathStart' => '/api/jqbaiwmronqenyspvz/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST a' => array (
+  'DELETE xksdhqj' => array (
     0 => array(
        'name' => '',
-       'path' => '/a/yu/kug/rlt/{name}',
+       'path' => '/xksdhqj/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xksdhqj/([^/]+)$#',
+       'pathStart' => '/xksdhqj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET zvu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zvu/mq/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zvu/mq/([^/]+)$#',
+       'pathStart' => '/zvu/mq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT cfroxw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cfroxw/oir/txa/dgb/u/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cfroxw/oir/txa/dgb/u/([^/]+)$#',
+       'pathStart' => '/cfroxw/oir/txa/dgb/u/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET eaqfxpc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/eaqfxpc/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/eaqfxpc/([^/]+)$#',
+       'pathStart' => '/eaqfxpc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET r' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/r/kutlhmpstztwmituwl/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/r/kutlhmpstztwmituwl/([^/]+)$#',
+       'pathStart' => '/r/kutlhmpstztwmituwl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/r/oofdopp/erbc/stdq/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/r/oofdopp/erbc/stdq/([^/]+)$#',
+       'pathStart' => '/r/oofdopp/erbc/stdq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST ywxlupg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ywxlupg/eteppq/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12032,333 +9931,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/a/yu/kug/rlt/([^/]+)$#',
-       'pathStart' => '/a/yu/kug/rlt/',
+       'pathRegex' => '#^/ywxlupg/eteppq/([^/]+)$#',
+       'pathStart' => '/ywxlupg/eteppq/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET gqlwy' => array (
+  'POST uvd' => array (
     0 => array(
        'name' => '',
-       'path' => '/gqlwy/jjto/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gqlwy/jjto/([^/]+)$#',
-       'pathStart' => '/gqlwy/jjto/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET dbxwx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dbxwx/tdfq/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dbxwx/tdfq/([^/]+)$#',
-       'pathStart' => '/dbxwx/tdfq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE kog' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kog/htpns/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kog/htpns/([^/]+)$#',
-       'pathStart' => '/kog/htpns/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT zfccyon' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zfccyon/kjorhzhguptrn/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/zfccyon/kjorhzhguptrn/([^/]+)$#',
-       'pathStart' => '/zfccyon/kjorhzhguptrn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE qncmmfi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qncmmfi/eva/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qncmmfi/eva/([^/]+)$#',
-       'pathStart' => '/qncmmfi/eva/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH wqrurh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wqrurh/juleiawnql/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wqrurh/juleiawnql/([^/]+)$#',
-       'pathStart' => '/wqrurh/juleiawnql/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET xtzuz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xtzuz/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xtzuz/([^/]+)$#',
-       'pathStart' => '/xtzuz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT clikvzppe' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/clikvzppe/bh/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/clikvzppe/bh/([^/]+)$#',
-       'pathStart' => '/clikvzppe/bh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE mbtmby' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mbtmby/qff/ziybv/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mbtmby/qff/ziybv/([^/]+)$#',
-       'pathStart' => '/mbtmby/qff/ziybv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT n' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/n/edqvraojnnod/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/n/edqvraojnnod/([^/]+)$#',
-       'pathStart' => '/n/edqvraojnnod/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET hrdm' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hrdm/avoazvjzuo/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hrdm/avoazvjzuo/([^/]+)$#',
-       'pathStart' => '/hrdm/avoazvjzuo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE qstfcgfswcoo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qstfcgfswcoo/f/ndwb/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qstfcgfswcoo/f/ndwb/([^/]+)$#',
-       'pathStart' => '/qstfcgfswcoo/f/ndwb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET tyrsmel' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tyrsmel/pssrpf/mdovyzo/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tyrsmel/pssrpf/mdovyzo/([^/]+)$#',
-       'pathStart' => '/tyrsmel/pssrpf/mdovyzo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT xqhql' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xqhql/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xqhql/([^/]+)$#',
-       'pathStart' => '/xqhql/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET sfoajylmlto' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sfoajylmlto/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sfoajylmlto/([^/]+)$#',
-       'pathStart' => '/sfoajylmlto/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST porpg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/porpg/v/ol/{name}',
+       'path' => '/uvd/eqfuw/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12368,19 +9952,19 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/porpg/v/ol/([^/]+)$#',
-       'pathStart' => '/porpg/v/ol/',
+       'pathRegex' => '#^/uvd/eqfuw/([^/]+)$#',
+       'pathStart' => '/uvd/eqfuw/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET qzlf' => array (
+  'POST nyevfudb' => array (
     0 => array(
        'name' => '',
-       'path' => '/qzlf/zekuvgdwd/{name}',
-       'method' => 'GET',
+       'path' => '/nyevfudb/{name}',
+       'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -12389,102 +9973,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/qzlf/zekuvgdwd/([^/]+)$#',
-       'pathStart' => '/qzlf/zekuvgdwd/',
+       'pathRegex' => '#^/nyevfudb/([^/]+)$#',
+       'pathStart' => '/nyevfudb/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET uuetlo' => array (
+  'DELETE bifgtdezjoo' => array (
     0 => array(
        'name' => '',
-       'path' => '/uuetlo/pxd/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/uuetlo/pxd/([^/]+)$#',
-       'pathStart' => '/uuetlo/pxd/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET hptintql' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hptintql/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hptintql/([^/]+)$#',
-       'pathStart' => '/hptintql/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET sbe' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sbe/pdyuzsmwcdfle/aaa/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sbe/pdyuzsmwcdfle/aaa/([^/]+)$#',
-       'pathStart' => '/sbe/pdyuzsmwcdfle/aaa/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT ylhjzmlaslqd' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ylhjzmlaslqd/oiphhb/dq/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ylhjzmlaslqd/oiphhb/dq/([^/]+)$#',
-       'pathStart' => '/ylhjzmlaslqd/oiphhb/dq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE kgbua' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kgbua/ene/{name}',
+       'path' => '/bifgtdezjoo/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12494,8 +9994,214 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/kgbua/ene/([^/]+)$#',
-       'pathStart' => '/kgbua/ene/',
+       'pathRegex' => '#^/bifgtdezjoo/([^/]+)$#',
+       'pathStart' => '/bifgtdezjoo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH iuyqrf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/iuyqrf/si/mhhmckyzs/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/iuyqrf/si/mhhmckyzs/([^/]+)$#',
+       'pathStart' => '/iuyqrf/si/mhhmckyzs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT rrqoq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/rrqoq/pfuszagqcgks/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/rrqoq/pfuszagqcgks/([^/]+)$#',
+       'pathStart' => '/rrqoq/pfuszagqcgks/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST ryhdmlp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ryhdmlp/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ryhdmlp/([^/]+)$#',
+       'pathStart' => '/ryhdmlp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH kenusrw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/kenusrw/nt/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/kenusrw/nt/([^/]+)$#',
+       'pathStart' => '/kenusrw/nt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT vrxlnp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vrxlnp/limzvc/niht/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vrxlnp/limzvc/niht/([^/]+)$#',
+       'pathStart' => '/vrxlnp/limzvc/niht/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET zevzkd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zevzkd/g/obcinwkxmyon/g/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zevzkd/g/obcinwkxmyon/g/([^/]+)$#',
+       'pathStart' => '/zevzkd/g/obcinwkxmyon/g/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH v2' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/v2/rvphhlrbsrupumeoqd/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/rvphhlrbsrupumeoqd/([^/]+)$#',
+       'pathStart' => '/v2/rvphhlrbsrupumeoqd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/v2/mgpukbxuqpcn/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/mgpukbxuqpcn/([^/]+)$#',
+       'pathStart' => '/v2/mgpukbxuqpcn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/v2/ikkymmntgftktilgmb/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/ikkymmntgftktilgmb/([^/]+)$#',
+       'pathStart' => '/v2/ikkymmntgftktilgmb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE rvwzffmj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/rvwzffmj/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/rvwzffmj/([^/]+)$#',
+       'pathStart' => '/rvwzffmj/',
        'chains' => array (
       ),
        'options' => array (
@@ -12505,7 +10211,7 @@ return array (
   'POST goods' => array (
     0 => array(
        'name' => '',
-       'path' => '/goods/cuuzaqwzhaup/{name}',
+       'path' => '/goods/sirvjm/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12515,8 +10221,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/cuuzaqwzhaup/([^/]+)$#',
-       'pathStart' => '/goods/cuuzaqwzhaup/',
+       'pathRegex' => '#^/goods/sirvjm/([^/]+)$#',
+       'pathStart' => '/goods/sirvjm/',
        'chains' => array (
       ),
        'options' => array (
@@ -12524,7 +10230,7 @@ return array (
     ),
     1 => array(
        'name' => '',
-       'path' => '/goods/aarjivicgbzq/{name}',
+       'path' => '/goods/hkgrfjyxzvoa/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12534,8 +10240,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/aarjivicgbzq/([^/]+)$#',
-       'pathStart' => '/goods/aarjivicgbzq/',
+       'pathRegex' => '#^/goods/hkgrfjyxzvoa/([^/]+)$#',
+       'pathStart' => '/goods/hkgrfjyxzvoa/',
        'chains' => array (
       ),
        'options' => array (
@@ -12543,7 +10249,7 @@ return array (
     ),
     2 => array(
        'name' => '',
-       'path' => '/goods/hwxsdpgimndfurw/{name}',
+       'path' => '/goods/pbmntl/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12553,88 +10259,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/hwxsdpgimndfurw/([^/]+)$#',
-       'pathStart' => '/goods/hwxsdpgimndfurw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH n' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/n/jhvtgpucwtbtbvxx/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/n/jhvtgpucwtbtbvxx/([^/]+)$#',
-       'pathStart' => '/n/jhvtgpucwtbtbvxx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT goods' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/goods/hckeabovusrp/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/hckeabovusrp/([^/]+)$#',
-       'pathStart' => '/goods/hckeabovusrp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/goods/avwbcj/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/avwbcj/([^/]+)$#',
-       'pathStart' => '/goods/avwbcj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/goods/lzmniqkhttiv/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/lzmniqkhttiv/([^/]+)$#',
-       'pathStart' => '/goods/lzmniqkhttiv/',
+       'pathRegex' => '#^/goods/pbmntl/([^/]+)$#',
+       'pathStart' => '/goods/pbmntl/',
        'chains' => array (
       ),
        'options' => array (
@@ -12642,8 +10268,8 @@ return array (
     ),
     3 => array(
        'name' => '',
-       'path' => '/goods/awwwwv/{name}',
-       'method' => 'PUT',
+       'path' => '/goods/ekpxypnvazyoccj/{name}',
+       'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -12652,8 +10278,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/awwwwv/([^/]+)$#',
-       'pathStart' => '/goods/awwwwv/',
+       'pathRegex' => '#^/goods/ekpxypnvazyoccj/([^/]+)$#',
+       'pathStart' => '/goods/ekpxypnvazyoccj/',
        'chains' => array (
       ),
        'options' => array (
@@ -12661,8 +10287,8 @@ return array (
     ),
     4 => array(
        'name' => '',
-       'path' => '/goods/linrforoqlhtgmnggn/{name}',
-       'method' => 'PUT',
+       'path' => '/goods/tbhatnhrrwuboqfhqe/{name}',
+       'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -12671,8 +10297,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/linrforoqlhtgmnggn/([^/]+)$#',
-       'pathStart' => '/goods/linrforoqlhtgmnggn/',
+       'pathRegex' => '#^/goods/tbhatnhrrwuboqfhqe/([^/]+)$#',
+       'pathStart' => '/goods/tbhatnhrrwuboqfhqe/',
        'chains' => array (
       ),
        'options' => array (
@@ -12680,238 +10306,7 @@ return array (
     ),
     5 => array(
        'name' => '',
-       'path' => '/goods/bbbgiheirvgykucncm/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/goods/bbbgiheirvgykucncm/([^/]+)$#',
-       'pathStart' => '/goods/bbbgiheirvgykucncm/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT qje' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qje/mzajeu/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qje/mzajeu/([^/]+)$#',
-       'pathStart' => '/qje/mzajeu/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH eoq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/eoq/kkpmsbosdzw/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/eoq/kkpmsbosdzw/([^/]+)$#',
-       'pathStart' => '/eoq/kkpmsbosdzw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT wodpfbsnkmewacfp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wodpfbsnkmewacfp/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wodpfbsnkmewacfp/([^/]+)$#',
-       'pathStart' => '/wodpfbsnkmewacfp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ddez' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ddez/l/uniiy/hai/sgcgyrt/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ddez/l/uniiy/hai/sgcgyrt/([^/]+)$#',
-       'pathStart' => '/ddez/l/uniiy/hai/sgcgyrt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH saygnzsudyvpr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/saygnzsudyvpr/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/saygnzsudyvpr/([^/]+)$#',
-       'pathStart' => '/saygnzsudyvpr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE wt' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wt/lrjcbrznsuk/ma/mufvs/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wt/lrjcbrznsuk/ma/mufvs/([^/]+)$#',
-       'pathStart' => '/wt/lrjcbrznsuk/ma/mufvs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH suwfhnc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/suwfhnc/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/suwfhnc/([^/]+)$#',
-       'pathStart' => '/suwfhnc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT vvinjrus' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vvinjrus/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vvinjrus/([^/]+)$#',
-       'pathStart' => '/vvinjrus/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT dxrpwiawzjxqfvxybg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dxrpwiawzjxqfvxybg/t/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dxrpwiawzjxqfvxybg/t/([^/]+)$#',
-       'pathStart' => '/dxrpwiawzjxqfvxybg/t/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT kfw' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kfw/g/e/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kfw/g/e/([^/]+)$#',
-       'pathStart' => '/kfw/g/e/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST oo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/oo/pwrcszum/{name}',
+       'path' => '/goods/haqwrarcupmu/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12921,18 +10316,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/oo/pwrcszum/([^/]+)$#',
-       'pathStart' => '/oo/pwrcszum/',
+       'pathRegex' => '#^/goods/haqwrarcupmu/([^/]+)$#',
+       'pathStart' => '/goods/haqwrarcupmu/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'POST oajyslqzebk' => array (
-    0 => array(
+    6 => array(
        'name' => '',
-       'path' => '/oajyslqzebk/pw/onqupe/{name}',
+       'path' => '/goods/fqfsoz/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12942,18 +10335,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/oajyslqzebk/pw/onqupe/([^/]+)$#',
-       'pathStart' => '/oajyslqzebk/pw/onqupe/',
+       'pathRegex' => '#^/goods/fqfsoz/([^/]+)$#',
+       'pathStart' => '/goods/fqfsoz/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'POST hhbvvkgqtkt' => array (
-    0 => array(
+    7 => array(
        'name' => '',
-       'path' => '/hhbvvkgqtkt/igmxpo/xo/{name}',
+       'path' => '/goods/iuzevn/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -12963,19 +10354,17 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/hhbvvkgqtkt/igmxpo/xo/([^/]+)$#',
-       'pathStart' => '/hhbvvkgqtkt/igmxpo/xo/',
+       'pathRegex' => '#^/goods/iuzevn/([^/]+)$#',
+       'pathStart' => '/goods/iuzevn/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'GET jybozunzk' => array (
-    0 => array(
+    8 => array(
        'name' => '',
-       'path' => '/jybozunzk/{name}',
-       'method' => 'GET',
+       'path' => '/goods/eowkeuikpdakomb/{name}',
+       'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -12984,18 +10373,60 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/jybozunzk/([^/]+)$#',
-       'pathStart' => '/jybozunzk/',
+       'pathRegex' => '#^/goods/eowkeuikpdakomb/([^/]+)$#',
+       'pathStart' => '/goods/eowkeuikpdakomb/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PATCH gumyw' => array (
+  'DELETE lrwnkoj' => array (
     0 => array(
        'name' => '',
-       'path' => '/gumyw/{name}',
+       'path' => '/lrwnkoj/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lrwnkoj/([^/]+)$#',
+       'pathStart' => '/lrwnkoj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE p' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/p/dvyfziwuxgnffi/lqnf/i/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/p/dvyfziwuxgnffi/lqnf/i/([^/]+)$#',
+       'pathStart' => '/p/dvyfziwuxgnffi/lqnf/i/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH cagctzzr' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cagctzzr/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13005,18 +10436,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/gumyw/([^/]+)$#',
-       'pathStart' => '/gumyw/',
+       'pathRegex' => '#^/cagctzzr/([^/]+)$#',
+       'pathStart' => '/cagctzzr/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'DELETE wdppzlrcpbxkvk' => array (
+  'DELETE mucccchbjoqdpwus' => array (
     0 => array(
        'name' => '',
-       'path' => '/wdppzlrcpbxkvk/qseuos/{name}',
+       'path' => '/mucccchbjoqdpwus/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13026,39 +10457,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/wdppzlrcpbxkvk/qseuos/([^/]+)$#',
-       'pathStart' => '/wdppzlrcpbxkvk/qseuos/',
+       'pathRegex' => '#^/mucccchbjoqdpwus/([^/]+)$#',
+       'pathStart' => '/mucccchbjoqdpwus/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET nozik' => array (
+  'POST mnwxpthaxrlq' => array (
     0 => array(
        'name' => '',
-       'path' => '/nozik/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nozik/([^/]+)$#',
-       'pathStart' => '/nozik/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST gcoyl' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gcoyl/jm/a/vbxl/rxuoudz/{name}',
+       'path' => '/mnwxpthaxrlq/ipp/c/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13068,102 +10478,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/gcoyl/jm/a/vbxl/rxuoudz/([^/]+)$#',
-       'pathStart' => '/gcoyl/jm/a/vbxl/rxuoudz/',
+       'pathRegex' => '#^/mnwxpthaxrlq/ipp/c/([^/]+)$#',
+       'pathStart' => '/mnwxpthaxrlq/ipp/c/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PATCH zycnxiho' => array (
+  'GET qhsgc' => array (
     0 => array(
        'name' => '',
-       'path' => '/zycnxiho/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/zycnxiho/([^/]+)$#',
-       'pathStart' => '/zycnxiho/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH owi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/owi/gannufysfqa/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/owi/gannufysfqa/([^/]+)$#',
-       'pathStart' => '/owi/gannufysfqa/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT bvylh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/bvylh/dv/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/bvylh/dv/([^/]+)$#',
-       'pathStart' => '/bvylh/dv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST eshxdtthlystoulv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/eshxdtthlystoulv/mhbp/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/eshxdtthlystoulv/mhbp/([^/]+)$#',
-       'pathStart' => '/eshxdtthlystoulv/mhbp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET vomz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vomz/hkcmn/p/x/jxuz/ij/{name}',
+       'path' => '/qhsgc/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13173,506 +10499,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/vomz/hkcmn/p/x/jxuz/ij/([^/]+)$#',
-       'pathStart' => '/vomz/hkcmn/p/x/jxuz/ij/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET vjgyfoeo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vjgyfoeo/bdwvdk/dcu/g/g/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vjgyfoeo/bdwvdk/dcu/g/g/([^/]+)$#',
-       'pathStart' => '/vjgyfoeo/bdwvdk/dcu/g/g/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE cbalqtgbp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cbalqtgbp/umrtvzhl/ny/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/cbalqtgbp/umrtvzhl/ny/([^/]+)$#',
-       'pathStart' => '/cbalqtgbp/umrtvzhl/ny/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE y' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/y/px/vpxa/epps/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/y/px/vpxa/epps/([^/]+)$#',
-       'pathStart' => '/y/px/vpxa/epps/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT nbktme' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nbktme/zeoh/quqs/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nbktme/zeoh/quqs/([^/]+)$#',
-       'pathStart' => '/nbktme/zeoh/quqs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT pdxtgmt' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pdxtgmt/wdlneh/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pdxtgmt/wdlneh/([^/]+)$#',
-       'pathStart' => '/pdxtgmt/wdlneh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT eaqp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/eaqp/mhdoid/dbccyb/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/eaqp/mhdoid/dbccyb/([^/]+)$#',
-       'pathStart' => '/eaqp/mhdoid/dbccyb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST opkffkbpua' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/opkffkbpua/ncs/h/dx/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/opkffkbpua/ncs/h/dx/([^/]+)$#',
-       'pathStart' => '/opkffkbpua/ncs/h/dx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE user' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/user/xwmamtfhvslf/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/xwmamtfhvslf/([^/]+)$#',
-       'pathStart' => '/user/xwmamtfhvslf/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    1 => array(
-       'name' => '',
-       'path' => '/user/uwwyye/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/uwwyye/([^/]+)$#',
-       'pathStart' => '/user/uwwyye/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    2 => array(
-       'name' => '',
-       'path' => '/user/ikuhhpfqexfcpvj/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/ikuhhpfqexfcpvj/([^/]+)$#',
-       'pathStart' => '/user/ikuhhpfqexfcpvj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-    3 => array(
-       'name' => '',
-       'path' => '/user/ykxeotxyeunnyngurl/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/ykxeotxyeunnyngurl/([^/]+)$#',
-       'pathStart' => '/user/ykxeotxyeunnyngurl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH mgubb' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mgubb/ti/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mgubb/ti/([^/]+)$#',
-       'pathStart' => '/mgubb/ti/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ad' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ad/neanndlfd/zpvxl/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ad/neanndlfd/zpvxl/([^/]+)$#',
-       'pathStart' => '/ad/neanndlfd/zpvxl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT pcfmxtb' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pcfmxtb/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pcfmxtb/([^/]+)$#',
-       'pathStart' => '/pcfmxtb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET dq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dq/qd/cfyyvgmzdow/wjj/w/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dq/qd/cfyyvgmzdow/wjj/w/([^/]+)$#',
-       'pathStart' => '/dq/qd/cfyyvgmzdow/wjj/w/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH cp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cp/brgfvekncrzj/onlz/k/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/cp/brgfvekncrzj/onlz/k/([^/]+)$#',
-       'pathStart' => '/cp/brgfvekncrzj/onlz/k/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE anflzs' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/anflzs/suqkv/hh/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/anflzs/suqkv/hh/([^/]+)$#',
-       'pathStart' => '/anflzs/suqkv/hh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET eyf' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/eyf/oiumg/f/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/eyf/oiumg/f/([^/]+)$#',
-       'pathStart' => '/eyf/oiumg/f/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST djqn' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/djqn/gv/g/caytywi/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/djqn/gv/g/caytywi/([^/]+)$#',
-       'pathStart' => '/djqn/gv/g/caytywi/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST sq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sq/jjwe/u/gq/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sq/jjwe/u/gq/([^/]+)$#',
-       'pathStart' => '/sq/jjwe/u/gq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH pnyfewy' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pnyfewy/jxoxhobdiyqdj/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pnyfewy/jxoxhobdiyqdj/([^/]+)$#',
-       'pathStart' => '/pnyfewy/jxoxhobdiyqdj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST oreuqrmxzhkmzdhiimen' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/oreuqrmxzhkmzdhiimen/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/oreuqrmxzhkmzdhiimen/([^/]+)$#',
-       'pathStart' => '/oreuqrmxzhkmzdhiimen/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET rupjqsc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/rupjqsc/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/rupjqsc/([^/]+)$#',
-       'pathStart' => '/rupjqsc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH fam' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fam/x/jcu/h/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fam/x/jcu/h/([^/]+)$#',
-       'pathStart' => '/fam/x/jcu/h/',
+       'pathRegex' => '#^/qhsgc/([^/]+)$#',
+       'pathStart' => '/qhsgc/',
        'chains' => array (
       ),
        'options' => array (
@@ -13682,7 +10510,7 @@ return array (
   'PATCH user' => array (
     0 => array(
        'name' => '',
-       'path' => '/user/lpajxfprkpog/{name}',
+       'path' => '/user/adgsqqfhyzikqlh/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13692,8 +10520,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/lpajxfprkpog/([^/]+)$#',
-       'pathStart' => '/user/lpajxfprkpog/',
+       'pathRegex' => '#^/user/adgsqqfhyzikqlh/([^/]+)$#',
+       'pathStart' => '/user/adgsqqfhyzikqlh/',
        'chains' => array (
       ),
        'options' => array (
@@ -13701,7 +10529,7 @@ return array (
     ),
     1 => array(
        'name' => '',
-       'path' => '/user/qlurkg/{name}',
+       'path' => '/user/dqgogt/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13711,8 +10539,132 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/qlurkg/([^/]+)$#',
-       'pathStart' => '/user/qlurkg/',
+       'pathRegex' => '#^/user/dqgogt/([^/]+)$#',
+       'pathStart' => '/user/dqgogt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH qu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qu/nquenyl/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qu/nquenyl/([^/]+)$#',
+       'pathStart' => '/qu/nquenyl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE hbxqxzbup' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hbxqxzbup/t/rlvdy/juubv/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hbxqxzbup/t/rlvdy/juubv/([^/]+)$#',
+       'pathStart' => '/hbxqxzbup/t/rlvdy/juubv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET gldk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gldk/xunysimvrksoror/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gldk/xunysimvrksoror/([^/]+)$#',
+       'pathStart' => '/gldk/xunysimvrksoror/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET kb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/kb/goj/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/kb/goj/([^/]+)$#',
+       'pathStart' => '/kb/goj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST user' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/user/cbcdypebzjbcbaqwsb/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/cbcdypebzjbcbaqwsb/([^/]+)$#',
+       'pathStart' => '/user/cbcdypebzjbcbaqwsb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/user/cxmziebgcwsh/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/cxmziebgcwsh/([^/]+)$#',
+       'pathStart' => '/user/cxmziebgcwsh/',
        'chains' => array (
       ),
        'options' => array (
@@ -13720,8 +10672,8 @@ return array (
     ),
     2 => array(
        'name' => '',
-       'path' => '/user/bmtsiwyacdsc/{name}',
-       'method' => 'PATCH',
+       'path' => '/user/gurcyo/{name}',
+       'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -13730,8 +10682,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/bmtsiwyacdsc/([^/]+)$#',
-       'pathStart' => '/user/bmtsiwyacdsc/',
+       'pathRegex' => '#^/user/gurcyo/([^/]+)$#',
+       'pathStart' => '/user/gurcyo/',
        'chains' => array (
       ),
        'options' => array (
@@ -13739,8 +10691,8 @@ return array (
     ),
     3 => array(
        'name' => '',
-       'path' => '/user/vfyxrtxmsfdj/{name}',
-       'method' => 'PATCH',
+       'path' => '/user/limlbpqmfkjaryhqlp/{name}',
+       'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -13749,8 +10701,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/vfyxrtxmsfdj/([^/]+)$#',
-       'pathStart' => '/user/vfyxrtxmsfdj/',
+       'pathRegex' => '#^/user/limlbpqmfkjaryhqlp/([^/]+)$#',
+       'pathStart' => '/user/limlbpqmfkjaryhqlp/',
        'chains' => array (
       ),
        'options' => array (
@@ -13758,70 +10710,7 @@ return array (
     ),
     4 => array(
        'name' => '',
-       'path' => '/user/gvyybhrxklnn/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/gvyybhrxklnn/([^/]+)$#',
-       'pathStart' => '/user/gvyybhrxklnn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET pgswr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pgswr/tgzyya/ryobfajq/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pgswr/tgzyya/ryobfajq/([^/]+)$#',
-       'pathStart' => '/pgswr/tgzyya/ryobfajq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT xrqeynn' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xrqeynn/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xrqeynn/([^/]+)$#',
-       'pathStart' => '/xrqeynn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST dpgdacuugzvv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dpgdacuugzvv/tsu/c/m/{name}',
+       'path' => '/user/stneaxlzlasdjhs/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13831,102 +10720,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/dpgdacuugzvv/tsu/c/m/([^/]+)$#',
-       'pathStart' => '/dpgdacuugzvv/tsu/c/m/',
+       'pathRegex' => '#^/user/stneaxlzlasdjhs/([^/]+)$#',
+       'pathStart' => '/user/stneaxlzlasdjhs/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST fc' => array (
+  'DELETE rrr' => array (
     0 => array(
        'name' => '',
-       'path' => '/fc/gjlkttijoafatn/d/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fc/gjlkttijoafatn/d/([^/]+)$#',
-       'pathStart' => '/fc/gjlkttijoafatn/d/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT yqayye' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yqayye/hbk/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yqayye/hbk/([^/]+)$#',
-       'pathStart' => '/yqayye/hbk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET kajys' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kajys/jtwsdrgxvcg/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kajys/jtwsdrgxvcg/([^/]+)$#',
-       'pathStart' => '/kajys/jtwsdrgxvcg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT wacmnssqgr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wacmnssqgr/bphnixbupx/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wacmnssqgr/bphnixbupx/([^/]+)$#',
-       'pathStart' => '/wacmnssqgr/bphnixbupx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE qqzcfrkfh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qqzcfrkfh/{name}',
+       'path' => '/rrr/pmtazlzl/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -13936,165 +10741,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/qqzcfrkfh/([^/]+)$#',
-       'pathStart' => '/qqzcfrkfh/',
+       'pathRegex' => '#^/rrr/pmtazlzl/([^/]+)$#',
+       'pathStart' => '/rrr/pmtazlzl/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT kkotthrruzynxdlbv' => array (
+  'PATCH rnzvhowwyio' => array (
     0 => array(
        'name' => '',
-       'path' => '/kkotthrruzynxdlbv/ct/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kkotthrruzynxdlbv/ct/([^/]+)$#',
-       'pathStart' => '/kkotthrruzynxdlbv/ct/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT axai' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/axai/zcqobdxvrt/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/axai/zcqobdxvrt/([^/]+)$#',
-       'pathStart' => '/axai/zcqobdxvrt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET hq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hq/ygbvmqvohlt/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hq/ygbvmqvohlt/([^/]+)$#',
-       'pathStart' => '/hq/ygbvmqvohlt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ot' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ot/nae/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ot/nae/([^/]+)$#',
-       'pathStart' => '/ot/nae/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST cdowqxuh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cdowqxuh/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/cdowqxuh/([^/]+)$#',
-       'pathStart' => '/cdowqxuh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET xzulnqolnvrnv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xzulnqolnvrnv/hofxax/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xzulnqolnvrnv/hofxax/([^/]+)$#',
-       'pathStart' => '/xzulnqolnvrnv/hofxax/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET owxaf' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/owxaf/thez/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/owxaf/thez/([^/]+)$#',
-       'pathStart' => '/owxaf/thez/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH y' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/y/tdlirrs/{name}',
+       'path' => '/rnzvhowwyio/vhn/k/bf/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14104,18 +10762,81 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/y/tdlirrs/([^/]+)$#',
-       'pathStart' => '/y/tdlirrs/',
+       'pathRegex' => '#^/rnzvhowwyio/vhn/k/bf/([^/]+)$#',
+       'pathStart' => '/rnzvhowwyio/vhn/k/bf/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT api' => array (
+  'GET jbugfsmfk' => array (
     0 => array(
        'name' => '',
-       'path' => '/api/xklstotgiowdcppeux/{name}',
+       'path' => '/jbugfsmfk/io/oelcebja/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jbugfsmfk/io/oelcebja/([^/]+)$#',
+       'pathStart' => '/jbugfsmfk/io/oelcebja/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST mjubidzijs' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mjubidzijs/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mjubidzijs/([^/]+)$#',
+       'pathStart' => '/mjubidzijs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH jinqg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jinqg/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jinqg/([^/]+)$#',
+       'pathStart' => '/jinqg/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT ivkltwepjehhktonbjqo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ivkltwepjehhktonbjqo/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14125,8 +10846,29 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/api/xklstotgiowdcppeux/([^/]+)$#',
-       'pathStart' => '/api/xklstotgiowdcppeux/',
+       'pathRegex' => '#^/ivkltwepjehhktonbjqo/([^/]+)$#',
+       'pathStart' => '/ivkltwepjehhktonbjqo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET api' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/api/hhtbswtmekqaoaembo/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/hhtbswtmekqaoaembo/([^/]+)$#',
+       'pathStart' => '/api/hhtbswtmekqaoaembo/',
        'chains' => array (
       ),
        'options' => array (
@@ -14134,8 +10876,8 @@ return array (
     ),
     1 => array(
        'name' => '',
-       'path' => '/api/vdchmbqfjahg/{name}',
-       'method' => 'PUT',
+       'path' => '/api/ajnecqyqxxdulti/{name}',
+       'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -14144,8 +10886,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/api/vdchmbqfjahg/([^/]+)$#',
-       'pathStart' => '/api/vdchmbqfjahg/',
+       'pathRegex' => '#^/api/ajnecqyqxxdulti/([^/]+)$#',
+       'pathStart' => '/api/ajnecqyqxxdulti/',
        'chains' => array (
       ),
        'options' => array (
@@ -14153,133 +10895,7 @@ return array (
     ),
     2 => array(
        'name' => '',
-       'path' => '/api/dlbchzmuwbgs/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/api/dlbchzmuwbgs/([^/]+)$#',
-       'pathStart' => '/api/dlbchzmuwbgs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE tfiboc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tfiboc/bozznhvbh/fe/hl/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tfiboc/bozznhvbh/fe/hl/([^/]+)$#',
-       'pathStart' => '/tfiboc/bozznhvbh/fe/hl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE sbnnmhbi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sbnnmhbi/j/fr/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sbnnmhbi/j/fr/([^/]+)$#',
-       'pathStart' => '/sbnnmhbi/j/fr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE kzp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kzp/nme/md/pecof/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kzp/nme/md/pecof/([^/]+)$#',
-       'pathStart' => '/kzp/nme/md/pecof/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST lvrxxxoi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/lvrxxxoi/gik/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/lvrxxxoi/gik/([^/]+)$#',
-       'pathStart' => '/lvrxxxoi/gik/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE xtjlno' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xtjlno/a/yei/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xtjlno/a/yei/([^/]+)$#',
-       'pathStart' => '/xtjlno/a/yei/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET amkevkpae' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/amkevkpae/{name}',
+       'path' => '/api/afjokehphcqasxc/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14289,39 +10905,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/amkevkpae/([^/]+)$#',
-       'pathStart' => '/amkevkpae/',
+       'pathRegex' => '#^/api/afjokehphcqasxc/([^/]+)$#',
+       'pathStart' => '/api/afjokehphcqasxc/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'POST qtjap' => array (
-    0 => array(
+    3 => array(
        'name' => '',
-       'path' => '/qtjap/fhojixwo/g/xxayu/w/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qtjap/fhojixwo/g/xxayu/w/([^/]+)$#',
-       'pathStart' => '/qtjap/fhojixwo/g/xxayu/w/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET znuhfapidzcpuhnobop' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/znuhfapidzcpuhnobop/t/{name}',
+       'path' => '/api/aejcpe/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14331,18 +10924,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/znuhfapidzcpuhnobop/t/([^/]+)$#',
-       'pathStart' => '/znuhfapidzcpuhnobop/t/',
+       'pathRegex' => '#^/api/aejcpe/([^/]+)$#',
+       'pathStart' => '/api/aejcpe/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'GET ulynllmw' => array (
-    0 => array(
+    4 => array(
        'name' => '',
-       'path' => '/ulynllmw/{name}',
+       'path' => '/api/bmkswmsbpgjy/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14352,60 +10943,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/ulynllmw/([^/]+)$#',
-       'pathStart' => '/ulynllmw/',
+       'pathRegex' => '#^/api/bmkswmsbpgjy/([^/]+)$#',
+       'pathStart' => '/api/bmkswmsbpgjy/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'DELETE gnxwdytrx' => array (
-    0 => array(
+    5 => array(
        'name' => '',
-       'path' => '/gnxwdytrx/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gnxwdytrx/([^/]+)$#',
-       'pathStart' => '/gnxwdytrx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE kt' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kt/nkuoubaqttg/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kt/nkuoubaqttg/([^/]+)$#',
-       'pathStart' => '/kt/nkuoubaqttg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET nioxfdgpgymnhwz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nioxfdgpgymnhwz/momti/{name}',
+       'path' => '/api/ywdyqupzbqzjjoi/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14415,18 +10962,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/nioxfdgpgymnhwz/momti/([^/]+)$#',
-       'pathStart' => '/nioxfdgpgymnhwz/momti/',
+       'pathRegex' => '#^/api/ywdyqupzbqzjjoi/([^/]+)$#',
+       'pathStart' => '/api/ywdyqupzbqzjjoi/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PATCH vqebbcjnmeuwpex' => array (
+  'PATCH rsdglfaaafg' => array (
     0 => array(
        'name' => '',
-       'path' => '/vqebbcjnmeuwpex/e/{name}',
+       'path' => '/rsdglfaaafg/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14436,18 +10983,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/vqebbcjnmeuwpex/e/([^/]+)$#',
-       'pathStart' => '/vqebbcjnmeuwpex/e/',
+       'pathRegex' => '#^/rsdglfaaafg/([^/]+)$#',
+       'pathStart' => '/rsdglfaaafg/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST ffkqo' => array (
+  'POST v2' => array (
     0 => array(
        'name' => '',
-       'path' => '/ffkqo/tp/kyz/gktu/d/rqkzh/{name}',
+       'path' => '/v2/ufitpcyoxgwfplw/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14457,71 +11004,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/ffkqo/tp/kyz/gktu/d/rqkzh/([^/]+)$#',
-       'pathStart' => '/ffkqo/tp/kyz/gktu/d/rqkzh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE xu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xu/htuhdlujojv/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xu/htuhdlujojv/([^/]+)$#',
-       'pathStart' => '/xu/htuhdlujojv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE iproignkcxk' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/iproignkcxk/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/iproignkcxk/([^/]+)$#',
-       'pathStart' => '/iproignkcxk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT r' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/r/syszifomrr/dwk/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/r/syszifomrr/dwk/([^/]+)$#',
-       'pathStart' => '/r/syszifomrr/dwk/',
+       'pathRegex' => '#^/v2/ufitpcyoxgwfplw/([^/]+)$#',
+       'pathStart' => '/v2/ufitpcyoxgwfplw/',
        'chains' => array (
       ),
        'options' => array (
@@ -14529,91 +11013,7 @@ return array (
     ),
     1 => array(
        'name' => '',
-       'path' => '/r/hfm/qnvobgx/czqszx/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/r/hfm/qnvobgx/czqszx/([^/]+)$#',
-       'pathStart' => '/r/hfm/qnvobgx/czqszx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT sirraj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sirraj/wrs/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sirraj/wrs/([^/]+)$#',
-       'pathStart' => '/sirraj/wrs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET mfmde' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mfmde/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mfmde/([^/]+)$#',
-       'pathStart' => '/mfmde/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET zjxjpnsghdynk' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zjxjpnsghdynk/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/zjxjpnsghdynk/([^/]+)$#',
-       'pathStart' => '/zjxjpnsghdynk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST vsj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vsj/ae/q/xjogmonw/zb/{name}',
+       'path' => '/v2/acifcayvlqqlgktrnw/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14623,18 +11023,96 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/vsj/ae/q/xjogmonw/zb/([^/]+)$#',
-       'pathStart' => '/vsj/ae/q/xjogmonw/zb/',
+       'pathRegex' => '#^/v2/acifcayvlqqlgktrnw/([^/]+)$#',
+       'pathStart' => '/v2/acifcayvlqqlgktrnw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/v2/zjkwhgfchpddiqw/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/zjkwhgfchpddiqw/([^/]+)$#',
+       'pathStart' => '/v2/zjkwhgfchpddiqw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/v2/wkxsoxqaxhuj/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/wkxsoxqaxhuj/([^/]+)$#',
+       'pathStart' => '/v2/wkxsoxqaxhuj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/v2/amsnsjxywjnnwbx/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/amsnsjxywjnnwbx/([^/]+)$#',
+       'pathStart' => '/v2/amsnsjxywjnnwbx/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT unfnceckbd' => array (
+  'POST yeawilq' => array (
     0 => array(
        'name' => '',
-       'path' => '/unfnceckbd/{name}',
+       'path' => '/yeawilq/mu/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/yeawilq/mu/([^/]+)$#',
+       'pathStart' => '/yeawilq/mu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT kfyipgnz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/kfyipgnz/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14644,60 +11122,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/unfnceckbd/([^/]+)$#',
-       'pathStart' => '/unfnceckbd/',
+       'pathRegex' => '#^/kfyipgnz/([^/]+)$#',
+       'pathStart' => '/kfyipgnz/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST ejvrjjapj' => array (
+  'DELETE xbjfhsqcuxj' => array (
     0 => array(
        'name' => '',
-       'path' => '/ejvrjjapj/aq/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ejvrjjapj/aq/([^/]+)$#',
-       'pathStart' => '/ejvrjjapj/aq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST ikxyvvk' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ikxyvvk/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ikxyvvk/([^/]+)$#',
-       'pathStart' => '/ikxyvvk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE af' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/af/xunebs/{name}',
+       'path' => '/xbjfhsqcuxj/gsr/ffg/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14707,18 +11143,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/af/xunebs/([^/]+)$#',
-       'pathStart' => '/af/xunebs/',
+       'pathRegex' => '#^/xbjfhsqcuxj/gsr/ffg/([^/]+)$#',
+       'pathStart' => '/xbjfhsqcuxj/gsr/ffg/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET obvd' => array (
+  'GET goods' => array (
     0 => array(
        'name' => '',
-       'path' => '/obvd/whyfec/z/avjpme/{name}',
+       'path' => '/goods/vpexjnlrguge/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -14728,575 +11164,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/obvd/whyfec/z/avjpme/([^/]+)$#',
-       'pathStart' => '/obvd/whyfec/z/avjpme/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT inxrmwwtd' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/inxrmwwtd/b/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/inxrmwwtd/b/([^/]+)$#',
-       'pathStart' => '/inxrmwwtd/b/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET txapzfxrcupoerdc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/txapzfxrcupoerdc/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/txapzfxrcupoerdc/([^/]+)$#',
-       'pathStart' => '/txapzfxrcupoerdc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE g' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/g/hltchdwkq/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/g/hltchdwkq/([^/]+)$#',
-       'pathStart' => '/g/hltchdwkq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET qbjg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qbjg/bak/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qbjg/bak/([^/]+)$#',
-       'pathStart' => '/qbjg/bak/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH dpmubsjx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dpmubsjx/ej/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dpmubsjx/ej/([^/]+)$#',
-       'pathStart' => '/dpmubsjx/ej/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH phnhrcdax' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/phnhrcdax/om/jtvliyxz/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/phnhrcdax/om/jtvliyxz/([^/]+)$#',
-       'pathStart' => '/phnhrcdax/om/jtvliyxz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET nbcgebs' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nbcgebs/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nbcgebs/([^/]+)$#',
-       'pathStart' => '/nbcgebs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT zrlllq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zrlllq/kb/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/zrlllq/kb/([^/]+)$#',
-       'pathStart' => '/zrlllq/kb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST c' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/c/qwkmfaap/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/c/qwkmfaap/([^/]+)$#',
-       'pathStart' => '/c/qwkmfaap/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET mwvwy' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mwvwy/bht/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mwvwy/bht/([^/]+)$#',
-       'pathStart' => '/mwvwy/bht/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET uqj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/uqj/bl/c/jokqhxqwoqg/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/uqj/bl/c/jokqhxqwoqg/([^/]+)$#',
-       'pathStart' => '/uqj/bl/c/jokqhxqwoqg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET tmzsggzznxpwaq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tmzsggzznxpwaq/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tmzsggzznxpwaq/([^/]+)$#',
-       'pathStart' => '/tmzsggzznxpwaq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE oeu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/oeu/kzszm/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/oeu/kzszm/([^/]+)$#',
-       'pathStart' => '/oeu/kzszm/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET gmfnzrqu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gmfnzrqu/hf/vjwsuklfyr/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gmfnzrqu/hf/vjwsuklfyr/([^/]+)$#',
-       'pathStart' => '/gmfnzrqu/hf/vjwsuklfyr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET s' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/s/cgn/x/hrmha/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/s/cgn/x/hrmha/([^/]+)$#',
-       'pathStart' => '/s/cgn/x/hrmha/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE glt' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/glt/impaqtkjphj/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/glt/impaqtkjphj/([^/]+)$#',
-       'pathStart' => '/glt/impaqtkjphj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET pjo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pjo/ffejph/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pjo/ffejph/([^/]+)$#',
-       'pathStart' => '/pjo/ffejph/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT ntaba' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ntaba/gnta/wq/vhfwkveke/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ntaba/gnta/wq/vhfwkveke/([^/]+)$#',
-       'pathStart' => '/ntaba/gnta/wq/vhfwkveke/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ydlprojxgjzqrnwim' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ydlprojxgjzqrnwim/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ydlprojxgjzqrnwim/([^/]+)$#',
-       'pathStart' => '/ydlprojxgjzqrnwim/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET le' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/le/xda/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/le/xda/([^/]+)$#',
-       'pathStart' => '/le/xda/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST dqnpu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dqnpu/zku/jk/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dqnpu/zku/jk/([^/]+)$#',
-       'pathStart' => '/dqnpu/zku/jk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST ebzgseuqu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ebzgseuqu/fopf/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ebzgseuqu/fopf/([^/]+)$#',
-       'pathStart' => '/ebzgseuqu/fopf/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH opikmxmjr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/opikmxmjr/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/opikmxmjr/([^/]+)$#',
-       'pathStart' => '/opikmxmjr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET v' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/v/kdqhmri/ps/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/v/kdqhmri/ps/([^/]+)$#',
-       'pathStart' => '/v/kdqhmri/ps/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET jkqvljxgbjc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jkqvljxgbjc/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jkqvljxgbjc/([^/]+)$#',
-       'pathStart' => '/jkqvljxgbjc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH pzpde' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pzpde/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pzpde/([^/]+)$#',
-       'pathStart' => '/pzpde/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT user' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/user/frwaos/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/user/frwaos/([^/]+)$#',
-       'pathStart' => '/user/frwaos/',
+       'pathRegex' => '#^/goods/vpexjnlrguge/([^/]+)$#',
+       'pathStart' => '/goods/vpexjnlrguge/',
        'chains' => array (
       ),
        'options' => array (
@@ -15304,7 +11173,142 @@ return array (
     ),
     1 => array(
        'name' => '',
-       'path' => '/user/zcclluichcnlrvuicq/{name}',
+       'path' => '/goods/jrigtlbdbysglzu/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/jrigtlbdbysglzu/([^/]+)$#',
+       'pathStart' => '/goods/jrigtlbdbysglzu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/goods/xeaopurmtxxz/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/xeaopurmtxxz/([^/]+)$#',
+       'pathStart' => '/goods/xeaopurmtxxz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/goods/qpcgwezakaht/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/qpcgwezakaht/([^/]+)$#',
+       'pathStart' => '/goods/qpcgwezakaht/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/goods/abherarletpt/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/abherarletpt/([^/]+)$#',
+       'pathStart' => '/goods/abherarletpt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    5 => array(
+       'name' => '',
+       'path' => '/goods/raaxek/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/raaxek/([^/]+)$#',
+       'pathStart' => '/goods/raaxek/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    6 => array(
+       'name' => '',
+       'path' => '/goods/kqdbgbwfmdhcznjseh/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/kqdbgbwfmdhcznjseh/([^/]+)$#',
+       'pathStart' => '/goods/kqdbgbwfmdhcznjseh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    7 => array(
+       'name' => '',
+       'path' => '/goods/xhbiyysewnktosy/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/xhbiyysewnktosy/([^/]+)$#',
+       'pathStart' => '/goods/xhbiyysewnktosy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT o' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/o/pvjt/ckragwe/hdyspwe/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15314,8 +11318,473 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/user/zcclluichcnlrvuicq/([^/]+)$#',
-       'pathStart' => '/user/zcclluichcnlrvuicq/',
+       'pathRegex' => '#^/o/pvjt/ckragwe/hdyspwe/([^/]+)$#',
+       'pathStart' => '/o/pvjt/ckragwe/hdyspwe/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH ljwc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ljwc/z/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ljwc/z/([^/]+)$#',
+       'pathStart' => '/ljwc/z/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET bzfzf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/bzfzf/jzg/o/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/bzfzf/jzg/o/([^/]+)$#',
+       'pathStart' => '/bzfzf/jzg/o/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT vjvc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vjvc/xoo/cuhpcuweji/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vjvc/xoo/cuhpcuweji/([^/]+)$#',
+       'pathStart' => '/vjvc/xoo/cuhpcuweji/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT zngre' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zngre/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zngre/([^/]+)$#',
+       'pathStart' => '/zngre/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE goods' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/goods/imkces/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/imkces/([^/]+)$#',
+       'pathStart' => '/goods/imkces/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/goods/oelrtyxgwefvuzg/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/oelrtyxgwefvuzg/([^/]+)$#',
+       'pathStart' => '/goods/oelrtyxgwefvuzg/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/goods/osqons/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/osqons/([^/]+)$#',
+       'pathStart' => '/goods/osqons/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/goods/kjgiclsljbskwydbvn/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/kjgiclsljbskwydbvn/([^/]+)$#',
+       'pathStart' => '/goods/kjgiclsljbskwydbvn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/goods/eqxjkl/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/eqxjkl/([^/]+)$#',
+       'pathStart' => '/goods/eqxjkl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    5 => array(
+       'name' => '',
+       'path' => '/goods/qjzrijounjrk/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/qjzrijounjrk/([^/]+)$#',
+       'pathStart' => '/goods/qjzrijounjrk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH etkqmslwcpdedqiidvrb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/etkqmslwcpdedqiidvrb/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/etkqmslwcpdedqiidvrb/([^/]+)$#',
+       'pathStart' => '/etkqmslwcpdedqiidvrb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE b' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/b/chhspufp/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/b/chhspufp/([^/]+)$#',
+       'pathStart' => '/b/chhspufp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE ol' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ol/b/ustst/daquantk/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ol/b/ustst/daquantk/([^/]+)$#',
+       'pathStart' => '/ol/b/ustst/daquantk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET enyv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/enyv/ciy/r/eh/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/enyv/ciy/r/eh/([^/]+)$#',
+       'pathStart' => '/enyv/ciy/r/eh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET hgchyhso' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hgchyhso/gjzsxcbat/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hgchyhso/gjzsxcbat/([^/]+)$#',
+       'pathStart' => '/hgchyhso/gjzsxcbat/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE s' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/s/iwdlgngz/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/s/iwdlgngz/([^/]+)$#',
+       'pathStart' => '/s/iwdlgngz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/s/i/gqmdc/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/s/i/gqmdc/([^/]+)$#',
+       'pathStart' => '/s/i/gqmdc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT goods' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/goods/gqziwpumgulk/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/gqziwpumgulk/([^/]+)$#',
+       'pathStart' => '/goods/gqziwpumgulk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/goods/lgrvsh/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/lgrvsh/([^/]+)$#',
+       'pathStart' => '/goods/lgrvsh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/goods/zqabxawmathfowtidw/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/zqabxawmathfowtidw/([^/]+)$#',
+       'pathStart' => '/goods/zqabxawmathfowtidw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/goods/ovrkenvubjvtxmowkr/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/ovrkenvubjvtxmowkr/([^/]+)$#',
+       'pathStart' => '/goods/ovrkenvubjvtxmowkr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE mkjk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mkjk/l/kejsdqpzxquwfw/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mkjk/l/kejsdqpzxquwfw/([^/]+)$#',
+       'pathStart' => '/mkjk/l/kejsdqpzxquwfw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET dmzjkgqmfus' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dmzjkgqmfus/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dmzjkgqmfus/([^/]+)$#',
+       'pathStart' => '/dmzjkgqmfus/',
        'chains' => array (
       ),
        'options' => array (
@@ -15325,7 +11794,7 @@ return array (
   'PATCH goods' => array (
     0 => array(
        'name' => '',
-       'path' => '/goods/phebgvxhjejw/{name}',
+       'path' => '/goods/ykptjyzwxzmymet/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15335,8 +11804,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/phebgvxhjejw/([^/]+)$#',
-       'pathStart' => '/goods/phebgvxhjejw/',
+       'pathRegex' => '#^/goods/ykptjyzwxzmymet/([^/]+)$#',
+       'pathStart' => '/goods/ykptjyzwxzmymet/',
        'chains' => array (
       ),
        'options' => array (
@@ -15344,7 +11813,7 @@ return array (
     ),
     1 => array(
        'name' => '',
-       'path' => '/goods/ghcvtucssrpd/{name}',
+       'path' => '/goods/foiwgv/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15354,8 +11823,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/ghcvtucssrpd/([^/]+)$#',
-       'pathStart' => '/goods/ghcvtucssrpd/',
+       'pathRegex' => '#^/goods/foiwgv/([^/]+)$#',
+       'pathStart' => '/goods/foiwgv/',
        'chains' => array (
       ),
        'options' => array (
@@ -15363,7 +11832,7 @@ return array (
     ),
     2 => array(
        'name' => '',
-       'path' => '/goods/khyhidtnjqetrakuht/{name}',
+       'path' => '/goods/issmvonoctpyxse/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15373,19 +11842,17 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/goods/khyhidtnjqetrakuht/([^/]+)$#',
-       'pathStart' => '/goods/khyhidtnjqetrakuht/',
+       'pathRegex' => '#^/goods/issmvonoctpyxse/([^/]+)$#',
+       'pathStart' => '/goods/issmvonoctpyxse/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'GET tznlors' => array (
-    0 => array(
+    3 => array(
        'name' => '',
-       'path' => '/tznlors/bcolsi/{name}',
-       'method' => 'GET',
+       'path' => '/goods/kjkqgt/{name}',
+       'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -15394,18 +11861,37 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/tznlors/bcolsi/([^/]+)$#',
-       'pathStart' => '/tznlors/bcolsi/',
+       'pathRegex' => '#^/goods/kjkqgt/([^/]+)$#',
+       'pathStart' => '/goods/kjkqgt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/goods/yzsoauuiwpda/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/goods/yzsoauuiwpda/([^/]+)$#',
+       'pathStart' => '/goods/yzsoauuiwpda/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT ndmj' => array (
+  'PUT h' => array (
     0 => array(
        'name' => '',
-       'path' => '/ndmj/nntsroeldhxet/{name}',
+       'path' => '/h/cqpr/qhmangmez/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15415,19 +11901,19 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/ndmj/nntsroeldhxet/([^/]+)$#',
-       'pathStart' => '/ndmj/nntsroeldhxet/',
+       'pathRegex' => '#^/h/cqpr/qhmangmez/([^/]+)$#',
+       'pathStart' => '/h/cqpr/qhmangmez/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET geiei' => array (
+  'PATCH yx' => array (
     0 => array(
        'name' => '',
-       'path' => '/geiei/ee/{name}',
-       'method' => 'GET',
+       'path' => '/yx/uxvqmr/sni/{name}',
+       'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -15436,18 +11922,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/geiei/ee/([^/]+)$#',
-       'pathStart' => '/geiei/ee/',
+       'pathRegex' => '#^/yx/uxvqmr/sni/([^/]+)$#',
+       'pathStart' => '/yx/uxvqmr/sni/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT s' => array (
+  'PUT w' => array (
     0 => array(
        'name' => '',
-       'path' => '/s/onlmkhf/fv/{name}',
+       'path' => '/w/f/uxhqblwenx/jpbqa/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15457,81 +11943,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/s/onlmkhf/fv/([^/]+)$#',
-       'pathStart' => '/s/onlmkhf/fv/',
+       'pathRegex' => '#^/w/f/uxhqblwenx/jpbqa/([^/]+)$#',
+       'pathStart' => '/w/f/uxhqblwenx/jpbqa/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST zsklyokgnmsuf' => array (
+  'PATCH vxlv' => array (
     0 => array(
        'name' => '',
-       'path' => '/zsklyokgnmsuf/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/zsklyokgnmsuf/([^/]+)$#',
-       'pathStart' => '/zsklyokgnmsuf/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE pyltiayiboyistejpzy' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pyltiayiboyistejpzy/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pyltiayiboyistejpzy/([^/]+)$#',
-       'pathStart' => '/pyltiayiboyistejpzy/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST qqhh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qqhh/tjl/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qqhh/tjl/([^/]+)$#',
-       'pathStart' => '/qqhh/tjl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH mdeoiiss' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mdeoiiss/{name}',
+       'path' => '/vxlv/nfsfx/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15541,18 +11964,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/mdeoiiss/([^/]+)$#',
-       'pathStart' => '/mdeoiiss/',
+       'pathRegex' => '#^/vxlv/nfsfx/([^/]+)$#',
+       'pathStart' => '/vxlv/nfsfx/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET vveuakf' => array (
+  'GET qreinhixdn' => array (
     0 => array(
        'name' => '',
-       'path' => '/vveuakf/eifkx/t/{name}',
+       'path' => '/qreinhixdn/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15562,81 +11985,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/vveuakf/eifkx/t/([^/]+)$#',
-       'pathStart' => '/vveuakf/eifkx/t/',
+       'pathRegex' => '#^/qreinhixdn/([^/]+)$#',
+       'pathStart' => '/qreinhixdn/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'DELETE grehxapcvu' => array (
+  'PUT ivt' => array (
     0 => array(
        'name' => '',
-       'path' => '/grehxapcvu/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/grehxapcvu/([^/]+)$#',
-       'pathStart' => '/grehxapcvu/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET yvznojtwa' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yvznojtwa/zt/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yvznojtwa/zt/([^/]+)$#',
-       'pathStart' => '/yvznojtwa/zt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH hdopm' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hdopm/fczq/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hdopm/fczq/([^/]+)$#',
-       'pathStart' => '/hdopm/fczq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT g' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/g/mx/fwoegodk/{name}',
+       'path' => '/ivt/vpilezgslfa/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15646,144 +12006,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/g/mx/fwoegodk/([^/]+)$#',
-       'pathStart' => '/g/mx/fwoegodk/',
+       'pathRegex' => '#^/ivt/vpilezgslfa/([^/]+)$#',
+       'pathStart' => '/ivt/vpilezgslfa/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST t' => array (
+  'PUT vol' => array (
     0 => array(
        'name' => '',
-       'path' => '/t/gsnkfalqlb/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/t/gsnkfalqlb/([^/]+)$#',
-       'pathStart' => '/t/gsnkfalqlb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE fkd' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fkd/nbuq/cgp/a/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fkd/nbuq/cgp/a/([^/]+)$#',
-       'pathStart' => '/fkd/nbuq/cgp/a/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET abnbtr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/abnbtr/hzjqtfjlvanxpx/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/abnbtr/hzjqtfjlvanxpx/([^/]+)$#',
-       'pathStart' => '/abnbtr/hzjqtfjlvanxpx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH xjmahb' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xjmahb/uo/djdxo/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xjmahb/uo/djdxo/([^/]+)$#',
-       'pathStart' => '/xjmahb/uo/djdxo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST ot' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ot/rt/fsqgo/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ot/rt/fsqgo/([^/]+)$#',
-       'pathStart' => '/ot/rt/fsqgo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET jp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jp/hi/xiboqokxzouc/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jp/hi/xiboqokxzouc/([^/]+)$#',
-       'pathStart' => '/jp/hi/xiboqokxzouc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT gx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gx/twsokv/gc/g/{name}',
+       'path' => '/vol/eucn/emri/auhazevy/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15793,123 +12027,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/gx/twsokv/gc/g/([^/]+)$#',
-       'pathStart' => '/gx/twsokv/gc/g/',
+       'pathRegex' => '#^/vol/eucn/emri/auhazevy/([^/]+)$#',
+       'pathStart' => '/vol/eucn/emri/auhazevy/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'DELETE tmb' => array (
+  'POST lsbfb' => array (
     0 => array(
        'name' => '',
-       'path' => '/tmb/xi/pkw/yj/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tmb/xi/pkw/yj/([^/]+)$#',
-       'pathStart' => '/tmb/xi/pkw/yj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT dib' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dib/cras/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dib/cras/([^/]+)$#',
-       'pathStart' => '/dib/cras/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH nbgfelgdgiv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nbgfelgdgiv/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nbgfelgdgiv/([^/]+)$#',
-       'pathStart' => '/nbgfelgdgiv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET vobaayn' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vobaayn/c/sfn/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vobaayn/c/sfn/([^/]+)$#',
-       'pathStart' => '/vobaayn/c/sfn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET lsrepds' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/lsrepds/iot/evmz/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/lsrepds/iot/evmz/([^/]+)$#',
-       'pathStart' => '/lsrepds/iot/evmz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST zoprzqinaokcyfut' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zoprzqinaokcyfut/y/bfi/{name}',
+       'path' => '/lsbfb/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15919,60 +12048,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/zoprzqinaokcyfut/y/bfi/([^/]+)$#',
-       'pathStart' => '/zoprzqinaokcyfut/y/bfi/',
+       'pathRegex' => '#^/lsbfb/([^/]+)$#',
+       'pathStart' => '/lsbfb/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST tbiahlhjjrerzbgn' => array (
+  'GET itzbsojxxzh' => array (
     0 => array(
        'name' => '',
-       'path' => '/tbiahlhjjrerzbgn/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tbiahlhjjrerzbgn/([^/]+)$#',
-       'pathStart' => '/tbiahlhjjrerzbgn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE fdcndehpxsuwxp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fdcndehpxsuwxp/azmni/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fdcndehpxsuwxp/azmni/([^/]+)$#',
-       'pathStart' => '/fdcndehpxsuwxp/azmni/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET mqbnpkbkbi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mqbnpkbkbi/dbv/{name}',
+       'path' => '/itzbsojxxzh/yrj/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -15982,1373 +12069,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/mqbnpkbkbi/dbv/([^/]+)$#',
-       'pathStart' => '/mqbnpkbkbi/dbv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH jxaxgmrwn' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jxaxgmrwn/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jxaxgmrwn/([^/]+)$#',
-       'pathStart' => '/jxaxgmrwn/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT yulbkwddoehvicpu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yulbkwddoehvicpu/v/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yulbkwddoehvicpu/v/([^/]+)$#',
-       'pathStart' => '/yulbkwddoehvicpu/v/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE qql' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qql/cz/hswejzof/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qql/cz/hswejzof/([^/]+)$#',
-       'pathStart' => '/qql/cz/hswejzof/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET b' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/b/hfglr/ztwessiv/qfk/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/b/hfglr/ztwessiv/qfk/([^/]+)$#',
-       'pathStart' => '/b/hfglr/ztwessiv/qfk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET vug' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vug/rgsvp/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vug/rgsvp/([^/]+)$#',
-       'pathStart' => '/vug/rgsvp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE fv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fv/vlegwxisavbb/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fv/vlegwxisavbb/([^/]+)$#',
-       'pathStart' => '/fv/vlegwxisavbb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET eqlgnfk' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/eqlgnfk/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/eqlgnfk/([^/]+)$#',
-       'pathStart' => '/eqlgnfk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET xyymnbbl' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xyymnbbl/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xyymnbbl/([^/]+)$#',
-       'pathStart' => '/xyymnbbl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST flk' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/flk/fmzreimpmygsoz/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/flk/fmzreimpmygsoz/([^/]+)$#',
-       'pathStart' => '/flk/fmzreimpmygsoz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE docnwn' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/docnwn/nvfw/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/docnwn/nvfw/([^/]+)$#',
-       'pathStart' => '/docnwn/nvfw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE dogipjih' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dogipjih/w/r/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dogipjih/w/r/([^/]+)$#',
-       'pathStart' => '/dogipjih/w/r/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT p' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/p/gywnbtnjq/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/p/gywnbtnjq/([^/]+)$#',
-       'pathStart' => '/p/gywnbtnjq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT wq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wq/pkok/des/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wq/pkok/des/([^/]+)$#',
-       'pathStart' => '/wq/pkok/des/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST l' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/l/oiki/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/l/oiki/([^/]+)$#',
-       'pathStart' => '/l/oiki/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET vkxewjube' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vkxewjube/c/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vkxewjube/c/([^/]+)$#',
-       'pathStart' => '/vkxewjube/c/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE mcpngih' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mcpngih/g/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mcpngih/g/([^/]+)$#',
-       'pathStart' => '/mcpngih/g/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE tumig' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tumig/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tumig/([^/]+)$#',
-       'pathStart' => '/tumig/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH jzk' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jzk/vhx/ugwtd/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jzk/vhx/ugwtd/([^/]+)$#',
-       'pathStart' => '/jzk/vhx/ugwtd/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT hwxvnuygmkyrbnbo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hwxvnuygmkyrbnbo/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hwxvnuygmkyrbnbo/([^/]+)$#',
-       'pathStart' => '/hwxvnuygmkyrbnbo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET fcjeg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fcjeg/cnci/ougzialv/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fcjeg/cnci/ougzialv/([^/]+)$#',
-       'pathStart' => '/fcjeg/cnci/ougzialv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH gofboyp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gofboyp/jpngjv/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gofboyp/jpngjv/([^/]+)$#',
-       'pathStart' => '/gofboyp/jpngjv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET kxephynafhc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kxephynafhc/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kxephynafhc/([^/]+)$#',
-       'pathStart' => '/kxephynafhc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT pzrzxqs' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pzrzxqs/gjb/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pzrzxqs/gjb/([^/]+)$#',
-       'pathStart' => '/pzrzxqs/gjb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH bsbgalcl' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/bsbgalcl/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/bsbgalcl/([^/]+)$#',
-       'pathStart' => '/bsbgalcl/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH odugel' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/odugel/g/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/odugel/g/([^/]+)$#',
-       'pathStart' => '/odugel/g/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH eusemkv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/eusemkv/ab/ot/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/eusemkv/ab/ot/([^/]+)$#',
-       'pathStart' => '/eusemkv/ab/ot/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET u' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/u/pbvbps/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/u/pbvbps/([^/]+)$#',
-       'pathStart' => '/u/pbvbps/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH chraukdx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/chraukdx/l/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/chraukdx/l/([^/]+)$#',
-       'pathStart' => '/chraukdx/l/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST acqnofkexezcqnpi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/acqnofkexezcqnpi/v/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/acqnofkexezcqnpi/v/([^/]+)$#',
-       'pathStart' => '/acqnofkexezcqnpi/v/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET groerzvgrh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/groerzvgrh/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/groerzvgrh/([^/]+)$#',
-       'pathStart' => '/groerzvgrh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ugovc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ugovc/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ugovc/([^/]+)$#',
-       'pathStart' => '/ugovc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT dvvhia' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dvvhia/ex/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dvvhia/ex/([^/]+)$#',
-       'pathStart' => '/dvvhia/ex/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE imutmdg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/imutmdg/pneirx/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/imutmdg/pneirx/([^/]+)$#',
-       'pathStart' => '/imutmdg/pneirx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH yfr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yfr/pg/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yfr/pg/([^/]+)$#',
-       'pathStart' => '/yfr/pg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ndhjazqws' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ndhjazqws/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ndhjazqws/([^/]+)$#',
-       'pathStart' => '/ndhjazqws/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE tqvm' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tqvm/ycx/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tqvm/ycx/([^/]+)$#',
-       'pathStart' => '/tqvm/ycx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT wegowivp' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wegowivp/f/dz/uv/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wegowivp/f/dz/uv/([^/]+)$#',
-       'pathStart' => '/wegowivp/f/dz/uv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE vtntfzrpncie' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vtntfzrpncie/f/etpbak/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vtntfzrpncie/f/etpbak/([^/]+)$#',
-       'pathStart' => '/vtntfzrpncie/f/etpbak/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET gcdmgxgh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gcdmgxgh/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gcdmgxgh/([^/]+)$#',
-       'pathStart' => '/gcdmgxgh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST btcpkop' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/btcpkop/cta/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/btcpkop/cta/([^/]+)$#',
-       'pathStart' => '/btcpkop/cta/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET rpsnozup' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/rpsnozup/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/rpsnozup/([^/]+)$#',
-       'pathStart' => '/rpsnozup/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE vlesx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vlesx/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vlesx/([^/]+)$#',
-       'pathStart' => '/vlesx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST reipmozupkvjnjvpc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/reipmozupkvjnjvpc/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/reipmozupkvjnjvpc/([^/]+)$#',
-       'pathStart' => '/reipmozupkvjnjvpc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE voqd' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/voqd/xnupnrfmt/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/voqd/xnupnrfmt/([^/]+)$#',
-       'pathStart' => '/voqd/xnupnrfmt/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST cwmdohclc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cwmdohclc/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/cwmdohclc/([^/]+)$#',
-       'pathStart' => '/cwmdohclc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET hrtco' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hrtco/lktex/uocfspknln/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hrtco/lktex/uocfspknln/([^/]+)$#',
-       'pathStart' => '/hrtco/lktex/uocfspknln/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET pmckdxvye' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pmckdxvye/zv/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pmckdxvye/zv/([^/]+)$#',
-       'pathStart' => '/pmckdxvye/zv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET sbopwfsptpkunlkfrmwx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sbopwfsptpkunlkfrmwx/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sbopwfsptpkunlkfrmwx/([^/]+)$#',
-       'pathStart' => '/sbopwfsptpkunlkfrmwx/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH sqmbz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sqmbz/onisj/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sqmbz/onisj/([^/]+)$#',
-       'pathStart' => '/sqmbz/onisj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH ag' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ag/vkbf/cs/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ag/vkbf/cs/([^/]+)$#',
-       'pathStart' => '/ag/vkbf/cs/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE zxqz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/zxqz/piwkegekrzl/cv/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/zxqz/piwkegekrzl/cv/([^/]+)$#',
-       'pathStart' => '/zxqz/piwkegekrzl/cv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT gajywk' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gajywk/sxfwo/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gajywk/sxfwo/([^/]+)$#',
-       'pathStart' => '/gajywk/sxfwo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT cbrhfm' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cbrhfm/wbq/ehvsc/ehc/ce/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/cbrhfm/wbq/ehvsc/ehc/ce/([^/]+)$#',
-       'pathStart' => '/cbrhfm/wbq/ehvsc/ehc/ce/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE hnoc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hnoc/qh/eow/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hnoc/qh/eow/([^/]+)$#',
-       'pathStart' => '/hnoc/qh/eow/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET nibnhdmkkmalbtiq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nibnhdmkkmalbtiq/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nibnhdmkkmalbtiq/([^/]+)$#',
-       'pathStart' => '/nibnhdmkkmalbtiq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH wnndowg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wnndowg/gakvoxc/axp/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wnndowg/gakvoxc/axp/([^/]+)$#',
-       'pathStart' => '/wnndowg/gakvoxc/axp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST s' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/s/vxhfainc/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/s/vxhfainc/([^/]+)$#',
-       'pathStart' => '/s/vxhfainc/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET utmdkjybbrqwxv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/utmdkjybbrqwxv/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/utmdkjybbrqwxv/([^/]+)$#',
-       'pathStart' => '/utmdkjybbrqwxv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST wiaaw' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wiaaw/wnm/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wiaaw/wnm/([^/]+)$#',
-       'pathStart' => '/wiaaw/wnm/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ktf' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ktf/kqnrl/lgdkv/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ktf/kqnrl/lgdkv/([^/]+)$#',
-       'pathStart' => '/ktf/kqnrl/lgdkv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET gtrmsel' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gtrmsel/fkw/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gtrmsel/fkw/([^/]+)$#',
-       'pathStart' => '/gtrmsel/fkw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE nnlmzlhccj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nnlmzlhccj/jau/hrik/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nnlmzlhccj/jau/hrik/([^/]+)$#',
-       'pathStart' => '/nnlmzlhccj/jau/hrik/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH gmdcpsjvb' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gmdcpsjvb/h/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gmdcpsjvb/h/([^/]+)$#',
-       'pathStart' => '/gmdcpsjvb/h/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH jvdiojuxh' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jvdiojuxh/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jvdiojuxh/([^/]+)$#',
-       'pathStart' => '/jvdiojuxh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH i' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/i/zi/def/f/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/i/zi/def/f/([^/]+)$#',
-       'pathStart' => '/i/zi/def/f/',
+       'pathRegex' => '#^/itzbsojxxzh/yrj/([^/]+)$#',
+       'pathStart' => '/itzbsojxxzh/yrj/',
        'chains' => array (
       ),
        'options' => array (
@@ -17358,7 +12080,7 @@ return array (
   'DELETE m' => array (
     0 => array(
        'name' => '',
-       'path' => '/m/eogwiawdbi/bjlk/q/{name}',
+       'path' => '/m/nr/spcnhg/buxeo/grb/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17368,16 +12090,39 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/m/eogwiawdbi/bjlk/q/([^/]+)$#',
-       'pathStart' => '/m/eogwiawdbi/bjlk/q/',
+       'pathRegex' => '#^/m/nr/spcnhg/buxeo/grb/([^/]+)$#',
+       'pathStart' => '/m/nr/spcnhg/buxeo/grb/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-    1 => array(
+  ),
+  'POST gslttkcrwzzzkweqw' => array (
+    0 => array(
        'name' => '',
-       'path' => '/m/nchudpvu/wdbfxgw/{name}',
+       'path' => '/gslttkcrwzzzkweqw/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gslttkcrwzzzkweqw/([^/]+)$#',
+       'pathStart' => '/gslttkcrwzzzkweqw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE mtsrffpodbhuw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mtsrffpodbhuw/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17387,18 +12132,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/m/nchudpvu/wdbfxgw/([^/]+)$#',
-       'pathStart' => '/m/nchudpvu/wdbfxgw/',
+       'pathRegex' => '#^/mtsrffpodbhuw/([^/]+)$#',
+       'pathStart' => '/mtsrffpodbhuw/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST kbqmeiny' => array (
+  'POST qyslyez' => array (
     0 => array(
        'name' => '',
-       'path' => '/kbqmeiny/cyuvp/{name}',
+       'path' => '/qyslyez/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17408,19 +12153,19 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/kbqmeiny/cyuvp/([^/]+)$#',
-       'pathStart' => '/kbqmeiny/cyuvp/',
+       'pathRegex' => '#^/qyslyez/([^/]+)$#',
+       'pathStart' => '/qyslyez/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET moirvfjpdbfccm' => array (
+  'DELETE vephzsijtwl' => array (
     0 => array(
        'name' => '',
-       'path' => '/moirvfjpdbfccm/{name}',
-       'method' => 'GET',
+       'path' => '/vephzsijtwl/{name}',
+       'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -17429,81 +12174,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/moirvfjpdbfccm/([^/]+)$#',
-       'pathStart' => '/moirvfjpdbfccm/',
+       'pathRegex' => '#^/vephzsijtwl/([^/]+)$#',
+       'pathStart' => '/vephzsijtwl/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET kvlu' => array (
+  'PUT coafsgxdpbxal' => array (
     0 => array(
        'name' => '',
-       'path' => '/kvlu/wgt/ngb/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kvlu/wgt/ngb/([^/]+)$#',
-       'pathStart' => '/kvlu/wgt/ngb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET iynba' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/iynba/ryvrw/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/iynba/ryvrw/([^/]+)$#',
-       'pathStart' => '/iynba/ryvrw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST dzo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dzo/mfygm/ju/scctag/qakd/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dzo/mfygm/ju/scctag/qakd/([^/]+)$#',
-       'pathStart' => '/dzo/mfygm/ju/scctag/qakd/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT cik' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cik/g/ldrctnyklg/{name}',
+       'path' => '/coafsgxdpbxal/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17513,18 +12195,81 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/cik/g/ldrctnyklg/([^/]+)$#',
-       'pathStart' => '/cik/g/ldrctnyklg/',
+       'pathRegex' => '#^/coafsgxdpbxal/([^/]+)$#',
+       'pathStart' => '/coafsgxdpbxal/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST jgnd' => array (
+  'PUT vfpbr' => array (
     0 => array(
        'name' => '',
-       'path' => '/jgnd/xpci/olxt/u/yjqw/{name}',
+       'path' => '/vfpbr/bsliuavokcct/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vfpbr/bsliuavokcct/([^/]+)$#',
+       'pathStart' => '/vfpbr/bsliuavokcct/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE imri' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/imri/pt/ncdmmabksob/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/imri/pt/ncdmmabksob/([^/]+)$#',
+       'pathStart' => '/imri/pt/ncdmmabksob/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ivkqobkem' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ivkqobkem/sdt/xf/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ivkqobkem/sdt/xf/([^/]+)$#',
+       'pathStart' => '/ivkqobkem/sdt/xf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST mnrccybu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mnrccybu/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17534,18 +12279,39 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/jgnd/xpci/olxt/u/yjqw/([^/]+)$#',
-       'pathStart' => '/jgnd/xpci/olxt/u/yjqw/',
+       'pathRegex' => '#^/mnrccybu/([^/]+)$#',
+       'pathStart' => '/mnrccybu/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'POST ctfchs' => array (
+  'GET dldiikxwf' => array (
     0 => array(
        'name' => '',
-       'path' => '/ctfchs/wsx/{name}',
+       'path' => '/dldiikxwf/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dldiikxwf/([^/]+)$#',
+       'pathStart' => '/dldiikxwf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST gz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gz/uhylfelionio/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17555,18 +12321,102 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/ctfchs/wsx/([^/]+)$#',
-       'pathStart' => '/ctfchs/wsx/',
+       'pathRegex' => '#^/gz/uhylfelionio/([^/]+)$#',
+       'pathStart' => '/gz/uhylfelionio/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PATCH gucj' => array (
+  'GET gry' => array (
     0 => array(
        'name' => '',
-       'path' => '/gucj/olkoxb/ust/{name}',
+       'path' => '/gry/nbvyzpo/is/tisp/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gry/nbvyzpo/is/tisp/([^/]+)$#',
+       'pathStart' => '/gry/nbvyzpo/is/tisp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET plr' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/plr/dcywtwm/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/plr/dcywtwm/([^/]+)$#',
+       'pathStart' => '/plr/dcywtwm/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET iyguamgmed' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/iyguamgmed/pf/xrfwxfxe/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/iyguamgmed/pf/xrfwxfxe/([^/]+)$#',
+       'pathStart' => '/iyguamgmed/pf/xrfwxfxe/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST cp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cp/rpzjgcam/aumohc/y/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cp/rpzjgcam/aumohc/y/([^/]+)$#',
+       'pathStart' => '/cp/rpzjgcam/aumohc/y/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH j' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/j/sjh/jodnz/xqvg/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17576,165 +12426,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/gucj/olkoxb/ust/([^/]+)$#',
-       'pathStart' => '/gucj/olkoxb/ust/',
+       'pathRegex' => '#^/j/sjh/jodnz/xqvg/([^/]+)$#',
+       'pathStart' => '/j/sjh/jodnz/xqvg/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET cacwjqoheiyk' => array (
+  'POST csmkr' => array (
     0 => array(
        'name' => '',
-       'path' => '/cacwjqoheiyk/yrx/cfrnz/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/cacwjqoheiyk/yrx/cfrnz/([^/]+)$#',
-       'pathStart' => '/cacwjqoheiyk/yrx/cfrnz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH ggelwjd' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ggelwjd/a/v/tqo/je/f/xltvj/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ggelwjd/a/v/tqo/je/f/xltvj/([^/]+)$#',
-       'pathStart' => '/ggelwjd/a/v/tqo/je/f/xltvj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT obtqjq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/obtqjq/bon/yytwramv/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/obtqjq/bon/yytwramv/([^/]+)$#',
-       'pathStart' => '/obtqjq/bon/yytwramv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE fztybfhret' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fztybfhret/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/fztybfhret/([^/]+)$#',
-       'pathStart' => '/fztybfhret/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET jqncefrmin' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jqncefrmin/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jqncefrmin/([^/]+)$#',
-       'pathStart' => '/jqncefrmin/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH jfjti' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jfjti/p/sjhdtnl/khd/u/ixv/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jfjti/p/sjhdtnl/khd/u/ixv/([^/]+)$#',
-       'pathStart' => '/jfjti/p/sjhdtnl/khd/u/ixv/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT pyke' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pyke/d/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pyke/d/([^/]+)$#',
-       'pathStart' => '/pyke/d/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST p' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/p/r/xji/st/ixve/{name}',
+       'path' => '/csmkr/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17744,18 +12447,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/p/r/xji/st/ixve/([^/]+)$#',
-       'pathStart' => '/p/r/xji/st/ixve/',
+       'pathRegex' => '#^/csmkr/([^/]+)$#',
+       'pathStart' => '/csmkr/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'DELETE i' => array (
+  'DELETE covojla' => array (
     0 => array(
        'name' => '',
-       'path' => '/i/b/gtyy/exfg/jhezudxm/j/{name}',
+       'path' => '/covojla/pvmy/hb/nlpo/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17765,19 +12468,19 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/i/b/gtyy/exfg/jhezudxm/j/([^/]+)$#',
-       'pathStart' => '/i/b/gtyy/exfg/jhezudxm/j/',
+       'pathRegex' => '#^/covojla/pvmy/hb/nlpo/([^/]+)$#',
+       'pathStart' => '/covojla/pvmy/hb/nlpo/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET hei' => array (
+  'POST tnsyebqdlayxoewg' => array (
     0 => array(
        'name' => '',
-       'path' => '/hei/s/k/n/zptfi/{name}',
-       'method' => 'GET',
+       'path' => '/tnsyebqdlayxoewg/bd/xc/{name}',
+       'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
       ),
@@ -17786,18 +12489,81 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/hei/s/k/n/zptfi/([^/]+)$#',
-       'pathStart' => '/hei/s/k/n/zptfi/',
+       'pathRegex' => '#^/tnsyebqdlayxoewg/bd/xc/([^/]+)$#',
+       'pathStart' => '/tnsyebqdlayxoewg/bd/xc/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PATCH skbhncaau' => array (
+  'PUT uwdrn' => array (
     0 => array(
        'name' => '',
-       'path' => '/skbhncaau/{name}',
+       'path' => '/uwdrn/yjn/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/uwdrn/yjn/([^/]+)$#',
+       'pathStart' => '/uwdrn/yjn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE boikqeiqfz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/boikqeiqfz/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/boikqeiqfz/([^/]+)$#',
+       'pathStart' => '/boikqeiqfz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE qouimkmb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qouimkmb/ad/yxwgup/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qouimkmb/ad/yxwgup/([^/]+)$#',
+       'pathStart' => '/qouimkmb/ad/yxwgup/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH xqowgsmgfydkizyab' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xqowgsmgfydkizyab/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17807,81 +12573,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/skbhncaau/([^/]+)$#',
-       'pathStart' => '/skbhncaau/',
+       'pathRegex' => '#^/xqowgsmgfydkizyab/([^/]+)$#',
+       'pathStart' => '/xqowgsmgfydkizyab/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT dxefvdy' => array (
+  'DELETE o' => array (
     0 => array(
        'name' => '',
-       'path' => '/dxefvdy/n/j/huuoeka/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dxefvdy/n/j/huuoeka/([^/]+)$#',
-       'pathStart' => '/dxefvdy/n/j/huuoeka/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT rjzjazc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/rjzjazc/bh/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/rjzjazc/bh/([^/]+)$#',
-       'pathStart' => '/rjzjazc/bh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT mvc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mvc/avtyllcgfqn/pk/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mvc/avtyllcgfqn/pk/([^/]+)$#',
-       'pathStart' => '/mvc/avtyllcgfqn/pk/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE ybqyxakhw' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ybqyxakhw/{name}',
+       'path' => '/o/vqciinvdu/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17891,18 +12594,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/ybqyxakhw/([^/]+)$#',
-       'pathStart' => '/ybqyxakhw/',
+       'pathRegex' => '#^/o/vqciinvdu/([^/]+)$#',
+       'pathStart' => '/o/vqciinvdu/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET symu' => array (
+  'GET sqmypwfz' => array (
     0 => array(
        'name' => '',
-       'path' => '/symu/cdkbk/unx/a/fwl/{name}',
+       'path' => '/sqmypwfz/c/yskihzry/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -17912,186 +12615,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/symu/cdkbk/unx/a/fwl/([^/]+)$#',
-       'pathStart' => '/symu/cdkbk/unx/a/fwl/',
+       'pathRegex' => '#^/sqmypwfz/c/yskihzry/([^/]+)$#',
+       'pathStart' => '/sqmypwfz/c/yskihzry/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET ppqbcjg' => array (
+  'POST pad' => array (
     0 => array(
        'name' => '',
-       'path' => '/ppqbcjg/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ppqbcjg/([^/]+)$#',
-       'pathStart' => '/ppqbcjg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE nbimpreuhayfe' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nbimpreuhayfe/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nbimpreuhayfe/([^/]+)$#',
-       'pathStart' => '/nbimpreuhayfe/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET infyxtz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/infyxtz/rv/a/zzox/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/infyxtz/rv/a/zzox/([^/]+)$#',
-       'pathStart' => '/infyxtz/rv/a/zzox/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET sonekpc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sonekpc/ovwiapaaw/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sonekpc/ovwiapaaw/([^/]+)$#',
-       'pathStart' => '/sonekpc/ovwiapaaw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET qjastt' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qjastt/v/oespgsemqjj/w/e/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qjastt/v/oespgsemqjj/w/e/([^/]+)$#',
-       'pathStart' => '/qjastt/v/oespgsemqjj/w/e/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE xnfhnjr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xnfhnjr/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xnfhnjr/([^/]+)$#',
-       'pathStart' => '/xnfhnjr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT bdskdi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/bdskdi/tq/xe/yth/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/bdskdi/tq/xe/yth/([^/]+)$#',
-       'pathStart' => '/bdskdi/tq/xe/yth/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET wtzxnmcdvlx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wtzxnmcdvlx/oxjzage/s/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wtzxnmcdvlx/oxjzage/s/([^/]+)$#',
-       'pathStart' => '/wtzxnmcdvlx/oxjzage/s/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST o' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/o/ehdxogseyy/{name}',
+       'path' => '/pad/tu/ogx/{name}',
        'method' => 'POST',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -18101,123 +12636,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/o/ehdxogseyy/([^/]+)$#',
-       'pathStart' => '/o/ehdxogseyy/',
+       'pathRegex' => '#^/pad/tu/ogx/([^/]+)$#',
+       'pathStart' => '/pad/tu/ogx/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT uan' => array (
+  'PATCH ia' => array (
     0 => array(
        'name' => '',
-       'path' => '/uan/ecqedaisfmauua/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/uan/ecqedaisfmauua/([^/]+)$#',
-       'pathStart' => '/uan/ecqedaisfmauua/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT gqvmr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gqvmr/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gqvmr/([^/]+)$#',
-       'pathStart' => '/gqvmr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST pzknu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pzknu/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pzknu/([^/]+)$#',
-       'pathStart' => '/pzknu/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET kg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kg/b/tqssvlh/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kg/b/tqssvlh/([^/]+)$#',
-       'pathStart' => '/kg/b/tqssvlh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET yqwtoywa' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/yqwtoywa/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/yqwtoywa/([^/]+)$#',
-       'pathStart' => '/yqwtoywa/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH fituvmogzz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/fituvmogzz/ecwx/oas/{name}',
+       'path' => '/ia/fycyf/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -18227,39 +12657,18 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/fituvmogzz/ecwx/oas/([^/]+)$#',
-       'pathStart' => '/fituvmogzz/ecwx/oas/',
+       'pathRegex' => '#^/ia/fycyf/([^/]+)$#',
+       'pathStart' => '/ia/fycyf/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT kqrbncu' => array (
+  'DELETE rbq' => array (
     0 => array(
        'name' => '',
-       'path' => '/kqrbncu/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kqrbncu/([^/]+)$#',
-       'pathStart' => '/kqrbncu/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE rdaficuprdhqpbkc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/rdaficuprdhqpbkc/{name}',
+       'path' => '/rbq/tg/{name}',
        'method' => 'DELETE',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -18269,18 +12678,39 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/rdaficuprdhqpbkc/([^/]+)$#',
-       'pathStart' => '/rdaficuprdhqpbkc/',
+       'pathRegex' => '#^/rbq/tg/([^/]+)$#',
+       'pathStart' => '/rbq/tg/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PATCH nxcuye' => array (
+  'GET xixhzqryatjp' => array (
     0 => array(
        'name' => '',
-       'path' => '/nxcuye/vbpb/{name}',
+       'path' => '/xixhzqryatjp/xwjs/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xixhzqryatjp/xwjs/([^/]+)$#',
+       'pathStart' => '/xixhzqryatjp/xwjs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH nudjb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nudjb/yqqiarxe/wwl/{name}',
        'method' => 'PATCH',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -18290,18 +12720,102 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/nxcuye/vbpb/([^/]+)$#',
-       'pathStart' => '/nxcuye/vbpb/',
+       'pathRegex' => '#^/nudjb/yqqiarxe/wwl/([^/]+)$#',
+       'pathStart' => '/nudjb/yqqiarxe/wwl/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'PUT b' => array (
+  'GET ag' => array (
     0 => array(
        'name' => '',
-       'path' => '/b/wqgaj/b/{name}',
+       'path' => '/ag/homgkn/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ag/homgkn/([^/]+)$#',
+       'pathStart' => '/ag/homgkn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET lvov' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lvov/pgobfnuafiiz/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lvov/pgobfnuafiiz/([^/]+)$#',
+       'pathStart' => '/lvov/pgobfnuafiiz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET wvoqjuo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wvoqjuo/tvsm/sa/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wvoqjuo/tvsm/sa/([^/]+)$#',
+       'pathStart' => '/wvoqjuo/tvsm/sa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE jpgbjzqufwfnhh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jpgbjzqufwfnhh/fwccr/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jpgbjzqufwfnhh/fwccr/([^/]+)$#',
+       'pathStart' => '/jpgbjzqufwfnhh/fwccr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT qhcv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qhcv/sgtyt/crsx/x/jgdia/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -18311,932 +12825,8 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/b/wqgaj/b/([^/]+)$#',
-       'pathStart' => '/b/wqgaj/b/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT nzozccapzvmld' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/nzozccapzvmld/sfl/d/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/nzozccapzvmld/sfl/d/([^/]+)$#',
-       'pathStart' => '/nzozccapzvmld/sfl/d/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET ua' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/ua/wrspxnfvkx/nylgrtnq/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/ua/wrspxnfvkx/nylgrtnq/([^/]+)$#',
-       'pathStart' => '/ua/wrspxnfvkx/nylgrtnq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST mzef' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mzef/ecre/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mzef/ecre/([^/]+)$#',
-       'pathStart' => '/mzef/ecre/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT axaitdwq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/axaitdwq/f/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/axaitdwq/f/([^/]+)$#',
-       'pathStart' => '/axaitdwq/f/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST mdihuebhuos' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/mdihuebhuos/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/mdihuebhuos/([^/]+)$#',
-       'pathStart' => '/mdihuebhuos/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST kwwzkybvlj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kwwzkybvlj/q/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kwwzkybvlj/q/([^/]+)$#',
-       'pathStart' => '/kwwzkybvlj/q/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST xymlrqm' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xymlrqm/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xymlrqm/([^/]+)$#',
-       'pathStart' => '/xymlrqm/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE uooxg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/uooxg/rggc/t/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/uooxg/rggc/t/([^/]+)$#',
-       'pathStart' => '/uooxg/rggc/t/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET wpfngskluye' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wpfngskluye/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wpfngskluye/([^/]+)$#',
-       'pathStart' => '/wpfngskluye/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE hgg' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hgg/sq/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hgg/sq/([^/]+)$#',
-       'pathStart' => '/hgg/sq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE bzhyym' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/bzhyym/uh/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/bzhyym/uh/([^/]+)$#',
-       'pathStart' => '/bzhyym/uh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH uul' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/uul/zchq/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/uul/zchq/([^/]+)$#',
-       'pathStart' => '/uul/zchq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH sxwv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sxwv/fiudu/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sxwv/fiudu/([^/]+)$#',
-       'pathStart' => '/sxwv/fiudu/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET qjuzavkcupzndlex' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qjuzavkcupzndlex/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qjuzavkcupzndlex/([^/]+)$#',
-       'pathStart' => '/qjuzavkcupzndlex/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT sqywdqgrgdmacu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/sqywdqgrgdmacu/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/sqywdqgrgdmacu/([^/]+)$#',
-       'pathStart' => '/sqywdqgrgdmacu/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE n' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/n/uzghk/eoncupaus/z/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/n/uzghk/eoncupaus/z/([^/]+)$#',
-       'pathStart' => '/n/uzghk/eoncupaus/z/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH vq' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vq/hgpmdoc/wj/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vq/hgpmdoc/wj/([^/]+)$#',
-       'pathStart' => '/vq/hgpmdoc/wj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE hullefndo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hullefndo/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hullefndo/([^/]+)$#',
-       'pathStart' => '/hullefndo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST lqxllu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/lqxllu/oczekjg/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/lqxllu/oczekjg/([^/]+)$#',
-       'pathStart' => '/lqxllu/oczekjg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH anwy' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/anwy/byh/u/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/anwy/byh/u/([^/]+)$#',
-       'pathStart' => '/anwy/byh/u/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET jqeijjfr' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/jqeijjfr/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/jqeijjfr/([^/]+)$#',
-       'pathStart' => '/jqeijjfr/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE qwac' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/qwac/juuwadp/wo/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/qwac/juuwadp/wo/([^/]+)$#',
-       'pathStart' => '/qwac/juuwadp/wo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE w' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/w/be/hr/kwres/my/vhyq/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/w/be/hr/kwres/my/vhyq/([^/]+)$#',
-       'pathStart' => '/w/be/hr/kwres/my/vhyq/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET xvhs' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/xvhs/rsegw/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/xvhs/rsegw/([^/]+)$#',
-       'pathStart' => '/xvhs/rsegw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET drvubvipe' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/drvubvipe/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/drvubvipe/([^/]+)$#',
-       'pathStart' => '/drvubvipe/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT e' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/e/e/tyg/kcp/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/e/e/tyg/kcp/([^/]+)$#',
-       'pathStart' => '/e/e/tyg/kcp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET tkkiwgazhtnmo' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tkkiwgazhtnmo/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tkkiwgazhtnmo/([^/]+)$#',
-       'pathStart' => '/tkkiwgazhtnmo/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET kmxc' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/kmxc/wtjerwkmwg/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/kmxc/wtjerwkmwg/([^/]+)$#',
-       'pathStart' => '/kmxc/wtjerwkmwg/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT wtxjeabqzb' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wtxjeabqzb/juab/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wtxjeabqzb/juab/([^/]+)$#',
-       'pathStart' => '/wtxjeabqzb/juab/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET vussz' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/vussz/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/vussz/([^/]+)$#',
-       'pathStart' => '/vussz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET gkue' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gkue/zzq/urjnunrcub/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gkue/zzq/urjnunrcub/([^/]+)$#',
-       'pathStart' => '/gkue/zzq/urjnunrcub/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST phjlm' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/phjlm/bz/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/phjlm/bz/([^/]+)$#',
-       'pathStart' => '/phjlm/bz/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH hebpvbyye' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/hebpvbyye/lj/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/hebpvbyye/lj/([^/]+)$#',
-       'pathStart' => '/hebpvbyye/lj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET pu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/pu/ggfa/rlglh/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/pu/ggfa/rlglh/([^/]+)$#',
-       'pathStart' => '/pu/ggfa/rlglh/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST wagzpdozj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/wagzpdozj/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/wagzpdozj/([^/]+)$#',
-       'pathStart' => '/wagzpdozj/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT dqyzakjqaeu' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/dqyzakjqaeu/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/dqyzakjqaeu/([^/]+)$#',
-       'pathStart' => '/dqyzakjqaeu/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE axzv' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/axzv/bov/vzlcthc/kqcfw/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/axzv/bov/vzlcthc/kqcfw/([^/]+)$#',
-       'pathStart' => '/axzv/bov/vzlcthc/kqcfw/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET l' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/l/zltrtkf/vp/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/l/zltrtkf/vp/([^/]+)$#',
-       'pathStart' => '/l/zltrtkf/vp/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PATCH cdplxexfjfjj' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/cdplxexfjfjj/afrayvy/{name}',
-       'method' => 'PATCH',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/cdplxexfjfjj/afrayvy/([^/]+)$#',
-       'pathStart' => '/cdplxexfjfjj/afrayvy/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE lex' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/lex/ndlh/j/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/lex/ndlh/j/([^/]+)$#',
-       'pathStart' => '/lex/ndlh/j/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'DELETE gapzrzyjqi' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/gapzrzyjqi/{name}',
-       'method' => 'DELETE',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/gapzrzyjqi/([^/]+)$#',
-       'pathStart' => '/gapzrzyjqi/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'PUT csbqggb' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/csbqggb/{name}',
-       'method' => 'PUT',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/csbqggb/([^/]+)$#',
-       'pathStart' => '/csbqggb/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'POST tyxkrjvx' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/tyxkrjvx/sbiokp/rwvqr/a/{name}',
-       'method' => 'POST',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/tyxkrjvx/sbiokp/rwvqr/a/([^/]+)$#',
-       'pathStart' => '/tyxkrjvx/sbiokp/rwvqr/a/',
-       'chains' => array (
-      ),
-       'options' => array (
-      ),
-    ),
-  ),
-  'GET eamdycsjgvntiedhaes' => array (
-    0 => array(
-       'name' => '',
-       'path' => '/eamdycsjgvntiedhaes/{name}',
-       'method' => 'GET',
-       'handler' => 'handler_func',
-       'bindVars' => array (
-      ),
-       'params' => array (
-      ),
-       'pathVars' => array (
-        0 => 'name',
-      ),
-       'pathRegex' => '#^/eamdycsjgvntiedhaes/([^/]+)$#',
-       'pathStart' => '/eamdycsjgvntiedhaes/',
+       'pathRegex' => '#^/qhcv/sgtyt/crsx/x/jgdia/([^/]+)$#',
+       'pathStart' => '/qhcv/sgtyt/crsx/x/jgdia/',
        'chains' => array (
       ),
        'options' => array (
@@ -19246,7 +12836,7 @@ return array (
   'PUT v2' => array (
     0 => array(
        'name' => '',
-       'path' => '/v2/bjacbhtrqaxvcja/{name}',
+       'path' => '/v2/odabudztvjirwsspma/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -19256,18 +12846,16 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/v2/bjacbhtrqaxvcja/([^/]+)$#',
-       'pathStart' => '/v2/bjacbhtrqaxvcja/',
+       'pathRegex' => '#^/v2/odabudztvjirwsspma/([^/]+)$#',
+       'pathStart' => '/v2/odabudztvjirwsspma/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
-  ),
-  'PUT polgaxv' => array (
-    0 => array(
+    1 => array(
        'name' => '',
-       'path' => '/polgaxv/c/tk/{name}',
+       'path' => '/v2/tptrelneqgzhenoerl/{name}',
        'method' => 'PUT',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -19277,18 +12865,56 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/polgaxv/c/tk/([^/]+)$#',
-       'pathStart' => '/polgaxv/c/tk/',
+       'pathRegex' => '#^/v2/tptrelneqgzhenoerl/([^/]+)$#',
+       'pathStart' => '/v2/tptrelneqgzhenoerl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/v2/ruylwpqrihozckvtgm/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/ruylwpqrihozckvtgm/([^/]+)$#',
+       'pathStart' => '/v2/ruylwpqrihozckvtgm/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/v2/durpuu/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/durpuu/([^/]+)$#',
+       'pathStart' => '/v2/durpuu/',
        'chains' => array (
       ),
        'options' => array (
       ),
     ),
   ),
-  'GET egemaf' => array (
+  'GET ugryezf' => array (
     0 => array(
        'name' => '',
-       'path' => '/egemaf/x/dnxom/ijoty/{name}',
+       'path' => '/ugryezf/tewj/yaqjzkwmu/{name}',
        'method' => 'GET',
        'handler' => 'handler_func',
        'bindVars' => array (
@@ -19298,8 +12924,6378 @@ return array (
        'pathVars' => array (
         0 => 'name',
       ),
-       'pathRegex' => '#^/egemaf/x/dnxom/ijoty/([^/]+)$#',
-       'pathStart' => '/egemaf/x/dnxom/ijoty/',
+       'pathRegex' => '#^/ugryezf/tewj/yaqjzkwmu/([^/]+)$#',
+       'pathStart' => '/ugryezf/tewj/yaqjzkwmu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH e' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/e/qbktydngqlyqmuay/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/e/qbktydngqlyqmuay/([^/]+)$#',
+       'pathStart' => '/e/qbktydngqlyqmuay/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST api' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/api/bcescnecpvwirefiwx/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/bcescnecpvwirefiwx/([^/]+)$#',
+       'pathStart' => '/api/bcescnecpvwirefiwx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/api/dundcluhgzxv/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/dundcluhgzxv/([^/]+)$#',
+       'pathStart' => '/api/dundcluhgzxv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/api/xqwmdjlhwczz/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/xqwmdjlhwczz/([^/]+)$#',
+       'pathStart' => '/api/xqwmdjlhwczz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/api/ueffyjvdnuqapzf/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/ueffyjvdnuqapzf/([^/]+)$#',
+       'pathStart' => '/api/ueffyjvdnuqapzf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/api/rkjsjo/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/rkjsjo/([^/]+)$#',
+       'pathStart' => '/api/rkjsjo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    5 => array(
+       'name' => '',
+       'path' => '/api/dgturvdjvueb/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/dgturvdjvueb/([^/]+)$#',
+       'pathStart' => '/api/dgturvdjvueb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET lvnysclgcyp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lvnysclgcyp/dn/apwo/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lvnysclgcyp/dn/apwo/([^/]+)$#',
+       'pathStart' => '/lvnysclgcyp/dn/apwo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET oek' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/oek/qqjgvhw/weye/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/oek/qqjgvhw/weye/([^/]+)$#',
+       'pathStart' => '/oek/qqjgvhw/weye/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ywdpizo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ywdpizo/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ywdpizo/([^/]+)$#',
+       'pathStart' => '/ywdpizo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET yuibarhmmmdyhgwesm' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/yuibarhmmmdyhgwesm/g/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/yuibarhmmmdyhgwesm/g/([^/]+)$#',
+       'pathStart' => '/yuibarhmmmdyhgwesm/g/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET tcos' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/tcos/llqc/bb/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/tcos/llqc/bb/([^/]+)$#',
+       'pathStart' => '/tcos/llqc/bb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET xxtfrakd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xxtfrakd/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xxtfrakd/([^/]+)$#',
+       'pathStart' => '/xxtfrakd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET lijfptn' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lijfptn/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lijfptn/([^/]+)$#',
+       'pathStart' => '/lijfptn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET c' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/c/nfn/yhepq/iqyrlej/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/c/nfn/yhepq/iqyrlej/([^/]+)$#',
+       'pathStart' => '/c/nfn/yhepq/iqyrlej/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH nhnqifgj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nhnqifgj/vned/yhcutfo/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nhnqifgj/vned/yhcutfo/([^/]+)$#',
+       'pathStart' => '/nhnqifgj/vned/yhcutfo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH wwdponhbnx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wwdponhbnx/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wwdponhbnx/([^/]+)$#',
+       'pathStart' => '/wwdponhbnx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ucle' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ucle/gfsovejxpu/cffxp/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ucle/gfsovejxpu/cffxp/([^/]+)$#',
+       'pathStart' => '/ucle/gfsovejxpu/cffxp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT npfmi' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/npfmi/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/npfmi/([^/]+)$#',
+       'pathStart' => '/npfmi/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE k' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/k/nbwqlgyxd/mpdr/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/k/nbwqlgyxd/mpdr/([^/]+)$#',
+       'pathStart' => '/k/nbwqlgyxd/mpdr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET jacethrwk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jacethrwk/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jacethrwk/([^/]+)$#',
+       'pathStart' => '/jacethrwk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE glsr' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/glsr/w/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/glsr/w/([^/]+)$#',
+       'pathStart' => '/glsr/w/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET optprhrs' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/optprhrs/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/optprhrs/([^/]+)$#',
+       'pathStart' => '/optprhrs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE djeitkql' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/djeitkql/uage/lastv/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/djeitkql/uage/lastv/([^/]+)$#',
+       'pathStart' => '/djeitkql/uage/lastv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT sfbqnm' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sfbqnm/btoejplnwxh/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sfbqnm/btoejplnwxh/([^/]+)$#',
+       'pathStart' => '/sfbqnm/btoejplnwxh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET cni' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cni/qjssodudxyg/ie/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cni/qjssodudxyg/ie/([^/]+)$#',
+       'pathStart' => '/cni/qjssodudxyg/ie/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE ficcdkqgwups' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ficcdkqgwups/kamc/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ficcdkqgwups/kamc/([^/]+)$#',
+       'pathStart' => '/ficcdkqgwups/kamc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST yfvtz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/yfvtz/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/yfvtz/([^/]+)$#',
+       'pathStart' => '/yfvtz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT evrxfaokmh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/evrxfaokmh/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/evrxfaokmh/([^/]+)$#',
+       'pathStart' => '/evrxfaokmh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE t' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/t/afgsjrwzw/lnia/m/v/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/t/afgsjrwzw/lnia/m/v/([^/]+)$#',
+       'pathStart' => '/t/afgsjrwzw/lnia/m/v/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/t/uzkfq/uu/vgamgxrcic/d/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/t/uzkfq/uu/vgamgxrcic/d/([^/]+)$#',
+       'pathStart' => '/t/uzkfq/uu/vgamgxrcic/d/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET h' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/h/gndquhhyq/h/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/h/gndquhhyq/h/([^/]+)$#',
+       'pathStart' => '/h/gndquhhyq/h/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET veemy' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/veemy/okpiz/xmd/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/veemy/okpiz/xmd/([^/]+)$#',
+       'pathStart' => '/veemy/okpiz/xmd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH w' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/w/px/sinqb/xajqg/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/w/px/sinqb/xajqg/([^/]+)$#',
+       'pathStart' => '/w/px/sinqb/xajqg/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE qhvibg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qhvibg/bg/koyovovlneh/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qhvibg/bg/koyovovlneh/([^/]+)$#',
+       'pathStart' => '/qhvibg/bg/koyovovlneh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST fruvt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/fruvt/fcrmwho/zuogxguj/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/fruvt/fcrmwho/zuogxguj/([^/]+)$#',
+       'pathStart' => '/fruvt/fcrmwho/zuogxguj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT s' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/s/qdejkuueasftgvxsd/a/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/s/qdejkuueasftgvxsd/a/([^/]+)$#',
+       'pathStart' => '/s/qdejkuueasftgvxsd/a/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE v2' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/v2/okpsbo/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/okpsbo/([^/]+)$#',
+       'pathStart' => '/v2/okpsbo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/v2/idnanpeflzzcrkeglr/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/idnanpeflzzcrkeglr/([^/]+)$#',
+       'pathStart' => '/v2/idnanpeflzzcrkeglr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/v2/dpshcrphvbwk/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/v2/dpshcrphvbwk/([^/]+)$#',
+       'pathStart' => '/v2/dpshcrphvbwk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE mzt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mzt/qylev/akodq/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mzt/qylev/akodq/([^/]+)$#',
+       'pathStart' => '/mzt/qylev/akodq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH hyujquvl' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hyujquvl/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hyujquvl/([^/]+)$#',
+       'pathStart' => '/hyujquvl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET zynnxuhjhf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zynnxuhjhf/uev/e/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zynnxuhjhf/uev/e/([^/]+)$#',
+       'pathStart' => '/zynnxuhjhf/uev/e/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST zawgttjnnwlhybumirf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zawgttjnnwlhybumirf/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zawgttjnnwlhybumirf/([^/]+)$#',
+       'pathStart' => '/zawgttjnnwlhybumirf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET bj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/bj/ve/salslr/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/bj/ve/salslr/([^/]+)$#',
+       'pathStart' => '/bj/ve/salslr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ccytmtz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ccytmtz/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ccytmtz/([^/]+)$#',
+       'pathStart' => '/ccytmtz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET mgofppqcbsrya' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mgofppqcbsrya/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mgofppqcbsrya/([^/]+)$#',
+       'pathStart' => '/mgofppqcbsrya/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET gezzognyftyj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gezzognyftyj/houyslke/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gezzognyftyj/houyslke/([^/]+)$#',
+       'pathStart' => '/gezzognyftyj/houyslke/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST n' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/n/qckux/memkm/vxbox/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/n/qckux/memkm/vxbox/([^/]+)$#',
+       'pathStart' => '/n/qckux/memkm/vxbox/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET pjsq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/pjsq/p/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/pjsq/p/([^/]+)$#',
+       'pathStart' => '/pjsq/p/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST i' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/i/vzcut/qlvnfz/w/zjn/z/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/i/vzcut/qlvnfz/w/zjn/z/([^/]+)$#',
+       'pathStart' => '/i/vzcut/qlvnfz/w/zjn/z/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET f' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/f/yxy/vtup/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/f/yxy/vtup/([^/]+)$#',
+       'pathStart' => '/f/yxy/vtup/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/f/v/uclj/ckc/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/f/v/uclj/ckc/([^/]+)$#',
+       'pathStart' => '/f/v/uclj/ckc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST tiobowyl' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/tiobowyl/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/tiobowyl/([^/]+)$#',
+       'pathStart' => '/tiobowyl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH luysnqo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/luysnqo/h/yfuxmh/p/n/vws/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/luysnqo/h/yfuxmh/p/n/vws/([^/]+)$#',
+       'pathStart' => '/luysnqo/h/yfuxmh/p/n/vws/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE kpizb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/kpizb/sbaxjp/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/kpizb/sbaxjp/([^/]+)$#',
+       'pathStart' => '/kpizb/sbaxjp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE u' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/u/efzodug/ua/jtx/vnwb/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/u/efzodug/ua/jtx/vnwb/([^/]+)$#',
+       'pathStart' => '/u/efzodug/ua/jtx/vnwb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST cpk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cpk/zmj/su/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cpk/zmj/su/([^/]+)$#',
+       'pathStart' => '/cpk/zmj/su/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT lf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lf/iwsybgq/xezv/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lf/iwsybgq/xezv/([^/]+)$#',
+       'pathStart' => '/lf/iwsybgq/xezv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT mlddwbqxpt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mlddwbqxpt/ln/l/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mlddwbqxpt/ln/l/([^/]+)$#',
+       'pathStart' => '/mlddwbqxpt/ln/l/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE lj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lj/jmycftjxwer/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lj/jmycftjxwer/([^/]+)$#',
+       'pathStart' => '/lj/jmycftjxwer/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH b' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/b/t/p/u/vpmte/jzwc/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/b/t/p/u/vpmte/jzwc/([^/]+)$#',
+       'pathStart' => '/b/t/p/u/vpmte/jzwc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT hkvv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hkvv/gyxwwnsartgaoeh/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hkvv/gyxwwnsartgaoeh/([^/]+)$#',
+       'pathStart' => '/hkvv/gyxwwnsartgaoeh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT mdmrz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mdmrz/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mdmrz/([^/]+)$#',
+       'pathStart' => '/mdmrz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET uqontc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/uqontc/cblmso/gw/pjtb/o/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/uqontc/cblmso/gw/pjtb/o/([^/]+)$#',
+       'pathStart' => '/uqontc/cblmso/gw/pjtb/o/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST usxg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/usxg/grr/vj/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/usxg/grr/vj/([^/]+)$#',
+       'pathStart' => '/usxg/grr/vj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT xmeh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xmeh/q/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xmeh/q/([^/]+)$#',
+       'pathStart' => '/xmeh/q/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET wpcq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wpcq/wdtyiubbbrmwu/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wpcq/wdtyiubbbrmwu/([^/]+)$#',
+       'pathStart' => '/wpcq/wdtyiubbbrmwu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET wiylvdsi' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wiylvdsi/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wiylvdsi/([^/]+)$#',
+       'pathStart' => '/wiylvdsi/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE whaiekqsqgqgcjmhu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/whaiekqsqgqgcjmhu/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/whaiekqsqgqgcjmhu/([^/]+)$#',
+       'pathStart' => '/whaiekqsqgqgcjmhu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET dzsiufj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dzsiufj/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dzsiufj/([^/]+)$#',
+       'pathStart' => '/dzsiufj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH diuzoe' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/diuzoe/fmtkmanwkt/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/diuzoe/fmtkmanwkt/([^/]+)$#',
+       'pathStart' => '/diuzoe/fmtkmanwkt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH rfsynyejfcrt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/rfsynyejfcrt/kcvbqzm/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/rfsynyejfcrt/kcvbqzm/([^/]+)$#',
+       'pathStart' => '/rfsynyejfcrt/kcvbqzm/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT hgs' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hgs/fkvhq/ysx/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hgs/fkvhq/ysx/([^/]+)$#',
+       'pathStart' => '/hgs/fkvhq/ysx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET n' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/n/wec/htzi/a/hjtfughv/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/n/wec/htzi/a/hjtfughv/([^/]+)$#',
+       'pathStart' => '/n/wec/htzi/a/hjtfughv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/n/lieoby/gc/ydbx/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/n/lieoby/gc/ydbx/([^/]+)$#',
+       'pathStart' => '/n/lieoby/gc/ydbx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET i' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/i/jnkazj/qiz/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/i/jnkazj/qiz/([^/]+)$#',
+       'pathStart' => '/i/jnkazj/qiz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH dblmcvpfc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dblmcvpfc/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dblmcvpfc/([^/]+)$#',
+       'pathStart' => '/dblmcvpfc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT xeogjtkr' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xeogjtkr/j/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xeogjtkr/j/([^/]+)$#',
+       'pathStart' => '/xeogjtkr/j/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST glbln' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/glbln/vsguc/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/glbln/vsguc/([^/]+)$#',
+       'pathStart' => '/glbln/vsguc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET jfwptkkptolxjexhppt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jfwptkkptolxjexhppt/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jfwptkkptolxjexhppt/([^/]+)$#',
+       'pathStart' => '/jfwptkkptolxjexhppt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ozjbi' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ozjbi/ufx/qzrqoodvldq/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ozjbi/ufx/qzrqoodvldq/([^/]+)$#',
+       'pathStart' => '/ozjbi/ufx/qzrqoodvldq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET b' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/b/vzkls/vkzhzlu/pv/z/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/b/vzkls/vkzhzlu/pv/z/([^/]+)$#',
+       'pathStart' => '/b/vzkls/vkzhzlu/pv/z/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE user' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/user/xmglzwrgssvl/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/xmglzwrgssvl/([^/]+)$#',
+       'pathStart' => '/user/xmglzwrgssvl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/user/nauyetcguqop/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/nauyetcguqop/([^/]+)$#',
+       'pathStart' => '/user/nauyetcguqop/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/user/zcpylajcwrevveh/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/zcpylajcwrevveh/([^/]+)$#',
+       'pathStart' => '/user/zcpylajcwrevveh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/user/olrnin/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/olrnin/([^/]+)$#',
+       'pathStart' => '/user/olrnin/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET w' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/w/ugjau/w/vtevhscitgfk/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/w/ugjau/w/vtevhscitgfk/([^/]+)$#',
+       'pathStart' => '/w/ugjau/w/vtevhscitgfk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE x' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/x/qmipihlsr/bub/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/x/qmipihlsr/bub/([^/]+)$#',
+       'pathStart' => '/x/qmipihlsr/bub/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT odwjvxczx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/odwjvxczx/d/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/odwjvxczx/d/([^/]+)$#',
+       'pathStart' => '/odwjvxczx/d/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET j' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/j/erlejds/sj/ozz/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/j/erlejds/sj/ozz/([^/]+)$#',
+       'pathStart' => '/j/erlejds/sj/ozz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/j/io/nijvehe/p/uuvdz/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/j/io/nijvehe/p/uuvdz/([^/]+)$#',
+       'pathStart' => '/j/io/nijvehe/p/uuvdz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET lsljhgathmn' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lsljhgathmn/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lsljhgathmn/([^/]+)$#',
+       'pathStart' => '/lsljhgathmn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT user' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/user/dlxmnagmgmoqjkahhe/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/dlxmnagmgmoqjkahhe/([^/]+)$#',
+       'pathStart' => '/user/dlxmnagmgmoqjkahhe/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/user/plldocmvntoiryj/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/plldocmvntoiryj/([^/]+)$#',
+       'pathStart' => '/user/plldocmvntoiryj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/user/yppejgcrxjbhlcqbnh/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/yppejgcrxjbhlcqbnh/([^/]+)$#',
+       'pathStart' => '/user/yppejgcrxjbhlcqbnh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/user/hevccjyauunzxucnvq/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/hevccjyauunzxucnvq/([^/]+)$#',
+       'pathStart' => '/user/hevccjyauunzxucnvq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/user/cpugssjxoyua/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/cpugssjxoyua/([^/]+)$#',
+       'pathStart' => '/user/cpugssjxoyua/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    5 => array(
+       'name' => '',
+       'path' => '/user/ampjbyamgbbd/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/user/ampjbyamgbbd/([^/]+)$#',
+       'pathStart' => '/user/ampjbyamgbbd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH mgylrdswtnw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mgylrdswtnw/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mgylrdswtnw/([^/]+)$#',
+       'pathStart' => '/mgylrdswtnw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH gyfflwlhfkdzjtlzs' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gyfflwlhfkdzjtlzs/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gyfflwlhfkdzjtlzs/([^/]+)$#',
+       'pathStart' => '/gyfflwlhfkdzjtlzs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE eg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/eg/nvpjm/w/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/eg/nvpjm/w/([^/]+)$#',
+       'pathStart' => '/eg/nvpjm/w/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH xhqm' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xhqm/q/cm/uafplaw/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xhqm/q/cm/uafplaw/([^/]+)$#',
+       'pathStart' => '/xhqm/q/cm/uafplaw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET mlp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mlp/sjstrnr/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mlp/sjstrnr/([^/]+)$#',
+       'pathStart' => '/mlp/sjstrnr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST wfmpp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wfmpp/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wfmpp/([^/]+)$#',
+       'pathStart' => '/wfmpp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH yffuec' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/yffuec/ahvwmwg/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/yffuec/ahvwmwg/([^/]+)$#',
+       'pathStart' => '/yffuec/ahvwmwg/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE hvddfj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hvddfj/z/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hvddfj/z/([^/]+)$#',
+       'pathStart' => '/hvddfj/z/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE ndlbcfphelyaqfki' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ndlbcfphelyaqfki/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ndlbcfphelyaqfki/([^/]+)$#',
+       'pathStart' => '/ndlbcfphelyaqfki/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE f' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/f/dwqeux/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/f/dwqeux/([^/]+)$#',
+       'pathStart' => '/f/dwqeux/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT ku' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ku/ij/o/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ku/ij/o/([^/]+)$#',
+       'pathStart' => '/ku/ij/o/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET faowuout' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/faowuout/wrtptb/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/faowuout/wrtptb/([^/]+)$#',
+       'pathStart' => '/faowuout/wrtptb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH ajj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ajj/ei/hyz/pdjurm/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ajj/ei/hyz/pdjurm/([^/]+)$#',
+       'pathStart' => '/ajj/ei/hyz/pdjurm/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE scdeftrlvok' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/scdeftrlvok/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/scdeftrlvok/([^/]+)$#',
+       'pathStart' => '/scdeftrlvok/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE xibd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xibd/hromy/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xibd/hromy/([^/]+)$#',
+       'pathStart' => '/xibd/hromy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET qmqvuqpqi' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qmqvuqpqi/w/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qmqvuqpqi/w/([^/]+)$#',
+       'pathStart' => '/qmqvuqpqi/w/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE me' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/me/gunzor/qzdvs/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/me/gunzor/qzdvs/([^/]+)$#',
+       'pathStart' => '/me/gunzor/qzdvs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE xiaaipgzo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xiaaipgzo/zyfc/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xiaaipgzo/zyfc/([^/]+)$#',
+       'pathStart' => '/xiaaipgzo/zyfc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE mb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mb/gjuxygkyr/ebsxdwdzy/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mb/gjuxygkyr/ebsxdwdzy/([^/]+)$#',
+       'pathStart' => '/mb/gjuxygkyr/ebsxdwdzy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET lqcme' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lqcme/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lqcme/([^/]+)$#',
+       'pathStart' => '/lqcme/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET jepagheeipeivjch' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jepagheeipeivjch/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jepagheeipeivjch/([^/]+)$#',
+       'pathStart' => '/jepagheeipeivjch/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET dxyilfvyp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dxyilfvyp/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dxyilfvyp/([^/]+)$#',
+       'pathStart' => '/dxyilfvyp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT exdktclciulxkm' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/exdktclciulxkm/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/exdktclciulxkm/([^/]+)$#',
+       'pathStart' => '/exdktclciulxkm/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET aimim' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/aimim/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/aimim/([^/]+)$#',
+       'pathStart' => '/aimim/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET cwwiqrbqwkxyymqk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cwwiqrbqwkxyymqk/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cwwiqrbqwkxyymqk/([^/]+)$#',
+       'pathStart' => '/cwwiqrbqwkxyymqk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET kq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/kq/dpi/paaja/bidoucs/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/kq/dpi/paaja/bidoucs/([^/]+)$#',
+       'pathStart' => '/kq/dpi/paaja/bidoucs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET smgyitjvafh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/smgyitjvafh/o/podzyjkx/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/smgyitjvafh/o/podzyjkx/([^/]+)$#',
+       'pathStart' => '/smgyitjvafh/o/podzyjkx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH bavmbfcewx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/bavmbfcewx/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/bavmbfcewx/([^/]+)$#',
+       'pathStart' => '/bavmbfcewx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT cww' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cww/h/azmuacl/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cww/h/azmuacl/([^/]+)$#',
+       'pathStart' => '/cww/h/azmuacl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET vm' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vm/mlatikmw/h/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vm/mlatikmw/h/([^/]+)$#',
+       'pathStart' => '/vm/mlatikmw/h/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST hmjqhqcs' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hmjqhqcs/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hmjqhqcs/([^/]+)$#',
+       'pathStart' => '/hmjqhqcs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET qobi' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qobi/tebjuey/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qobi/tebjuey/([^/]+)$#',
+       'pathStart' => '/qobi/tebjuey/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH otisezzlqiylmkmkr' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/otisezzlqiylmkmkr/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/otisezzlqiylmkmkr/([^/]+)$#',
+       'pathStart' => '/otisezzlqiylmkmkr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT f' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/f/klvgcyzxsyhjdjzglf/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/f/klvgcyzxsyhjdjzglf/([^/]+)$#',
+       'pathStart' => '/f/klvgcyzxsyhjdjzglf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ftgzcaecjnetejo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ftgzcaecjnetejo/k/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ftgzcaecjnetejo/k/([^/]+)$#',
+       'pathStart' => '/ftgzcaecjnetejo/k/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT jf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jf/aqbodvap/s/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jf/aqbodvap/s/([^/]+)$#',
+       'pathStart' => '/jf/aqbodvap/s/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH worsjex' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/worsjex/w/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/worsjex/w/([^/]+)$#',
+       'pathStart' => '/worsjex/w/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH nyrzqljpesbm' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nyrzqljpesbm/calss/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nyrzqljpesbm/calss/([^/]+)$#',
+       'pathStart' => '/nyrzqljpesbm/calss/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ny' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ny/frouawymqrt/odgfrb/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ny/frouawymqrt/odgfrb/([^/]+)$#',
+       'pathStart' => '/ny/frouawymqrt/odgfrb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST qvuh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qvuh/iy/wvfy/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qvuh/iy/wvfy/([^/]+)$#',
+       'pathStart' => '/qvuh/iy/wvfy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET s' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/s/bhgd/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/s/bhgd/([^/]+)$#',
+       'pathStart' => '/s/bhgd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE fp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/fp/bbnae/vlduwc/dpzers/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/fp/bbnae/vlduwc/dpzers/([^/]+)$#',
+       'pathStart' => '/fp/bbnae/vlduwc/dpzers/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH exvh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/exvh/tdp/oolkpzisvcdpt/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/exvh/tdp/oolkpzisvcdpt/([^/]+)$#',
+       'pathStart' => '/exvh/tdp/oolkpzisvcdpt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH znux' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/znux/i/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/znux/i/([^/]+)$#',
+       'pathStart' => '/znux/i/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET z' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/z/mvsrssudc/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/z/mvsrssudc/([^/]+)$#',
+       'pathStart' => '/z/mvsrssudc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET hfmxkutq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hfmxkutq/rtvqft/tbi/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hfmxkutq/rtvqft/tbi/([^/]+)$#',
+       'pathStart' => '/hfmxkutq/rtvqft/tbi/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST jdmvlce' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jdmvlce/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jdmvlce/([^/]+)$#',
+       'pathStart' => '/jdmvlce/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT k' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/k/n/kp/ohaw/f/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/k/n/kp/ohaw/f/([^/]+)$#',
+       'pathStart' => '/k/n/kp/ohaw/f/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST rzzconffh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/rzzconffh/lcqgkwy/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/rzzconffh/lcqgkwy/([^/]+)$#',
+       'pathStart' => '/rzzconffh/lcqgkwy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST fy' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/fy/ezunq/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/fy/ezunq/([^/]+)$#',
+       'pathStart' => '/fy/ezunq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST czf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/czf/h/nhmwapzraaex/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/czf/h/nhmwapzraaex/([^/]+)$#',
+       'pathStart' => '/czf/h/nhmwapzraaex/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET fuknmpa' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/fuknmpa/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/fuknmpa/([^/]+)$#',
+       'pathStart' => '/fuknmpa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH hcsgdnlrwkplv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hcsgdnlrwkplv/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hcsgdnlrwkplv/([^/]+)$#',
+       'pathStart' => '/hcsgdnlrwkplv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT oqjrfft' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/oqjrfft/kop/iwbv/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/oqjrfft/kop/iwbv/([^/]+)$#',
+       'pathStart' => '/oqjrfft/kop/iwbv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST ihovdzw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ihovdzw/jqcmyafmui/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ihovdzw/jqcmyafmui/([^/]+)$#',
+       'pathStart' => '/ihovdzw/jqcmyafmui/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE xnrnw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xnrnw/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xnrnw/([^/]+)$#',
+       'pathStart' => '/xnrnw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH che' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/che/wxst/hxhsrqa/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/che/wxst/hxhsrqa/([^/]+)$#',
+       'pathStart' => '/che/wxst/hxhsrqa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE sz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sz/cxqlzioighmu/uy/a/fg/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sz/cxqlzioighmu/uy/a/fg/([^/]+)$#',
+       'pathStart' => '/sz/cxqlzioighmu/uy/a/fg/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST zqhcdozaivyfhuy' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zqhcdozaivyfhuy/iwyj/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zqhcdozaivyfhuy/iwyj/([^/]+)$#',
+       'pathStart' => '/zqhcdozaivyfhuy/iwyj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST zkkft' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zkkft/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zkkft/([^/]+)$#',
+       'pathStart' => '/zkkft/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ohurw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ohurw/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ohurw/([^/]+)$#',
+       'pathStart' => '/ohurw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE cchd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cchd/q/mbqaa/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cchd/q/mbqaa/([^/]+)$#',
+       'pathStart' => '/cchd/q/mbqaa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET cdlqwwlu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cdlqwwlu/jdapukxrv/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cdlqwwlu/jdapukxrv/([^/]+)$#',
+       'pathStart' => '/cdlqwwlu/jdapukxrv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET krwog' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/krwog/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/krwog/([^/]+)$#',
+       'pathStart' => '/krwog/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET yibublqswrdotyhfcooy' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/yibublqswrdotyhfcooy/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/yibublqswrdotyhfcooy/([^/]+)$#',
+       'pathStart' => '/yibublqswrdotyhfcooy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ziiqx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ziiqx/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ziiqx/([^/]+)$#',
+       'pathStart' => '/ziiqx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET owfxa' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/owfxa/sxm/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/owfxa/sxm/([^/]+)$#',
+       'pathStart' => '/owfxa/sxm/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET tq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/tq/fy/iqgky/mkzgjcq/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/tq/fy/iqgky/mkzgjcq/([^/]+)$#',
+       'pathStart' => '/tq/fy/iqgky/mkzgjcq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH zgtpnl' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zgtpnl/xqlylblggjmu/x/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zgtpnl/xqlylblggjmu/x/([^/]+)$#',
+       'pathStart' => '/zgtpnl/xqlylblggjmu/x/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST gunyihcww' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gunyihcww/vufwym/eelj/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gunyihcww/vufwym/eelj/([^/]+)$#',
+       'pathStart' => '/gunyihcww/vufwym/eelj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH dbx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dbx/wads/w/g/r/uob/hban/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dbx/wads/w/g/r/uob/hban/([^/]+)$#',
+       'pathStart' => '/dbx/wads/w/g/r/uob/hban/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH api' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/api/jkltcsmztigqjlspqq/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/jkltcsmztigqjlspqq/([^/]+)$#',
+       'pathStart' => '/api/jkltcsmztigqjlspqq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/api/jhliqwhcpxmk/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/jhliqwhcpxmk/([^/]+)$#',
+       'pathStart' => '/api/jhliqwhcpxmk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/api/usmdxhcntodiyyq/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/usmdxhcntodiyyq/([^/]+)$#',
+       'pathStart' => '/api/usmdxhcntodiyyq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE soljt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/soljt/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/soljt/([^/]+)$#',
+       'pathStart' => '/soljt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH femtx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/femtx/ntkzh/kppj/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/femtx/ntkzh/kppj/([^/]+)$#',
+       'pathStart' => '/femtx/ntkzh/kppj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET rizd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/rizd/xgyt/vq/s/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/rizd/xgyt/vq/s/([^/]+)$#',
+       'pathStart' => '/rizd/xgyt/vq/s/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH jcvb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jcvb/nbsuxj/hx/ezwr/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jcvb/nbsuxj/hx/ezwr/([^/]+)$#',
+       'pathStart' => '/jcvb/nbsuxj/hx/ezwr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE llbas' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/llbas/uin/wulrkor/fo/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/llbas/uin/wulrkor/fo/([^/]+)$#',
+       'pathStart' => '/llbas/uin/wulrkor/fo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET hzxxsflcd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hzxxsflcd/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hzxxsflcd/([^/]+)$#',
+       'pathStart' => '/hzxxsflcd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST msonk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/msonk/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/msonk/([^/]+)$#',
+       'pathStart' => '/msonk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST jqtni' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jqtni/jvg/mfffs/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jqtni/jvg/mfffs/([^/]+)$#',
+       'pathStart' => '/jqtni/jvg/mfffs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH bidssbj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/bidssbj/jqlv/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/bidssbj/jqlv/([^/]+)$#',
+       'pathStart' => '/bidssbj/jqlv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH gmjvnxye' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gmjvnxye/jsi/zq/eef/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gmjvnxye/jsi/zq/eef/([^/]+)$#',
+       'pathStart' => '/gmjvnxye/jsi/zq/eef/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE shupe' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/shupe/ntq/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/shupe/ntq/([^/]+)$#',
+       'pathStart' => '/shupe/ntq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE exf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/exf/bpgn/f/j/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/exf/bpgn/f/j/([^/]+)$#',
+       'pathStart' => '/exf/bpgn/f/j/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE vznldezwg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vznldezwg/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vznldezwg/([^/]+)$#',
+       'pathStart' => '/vznldezwg/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH owbww' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/owbww/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/owbww/([^/]+)$#',
+       'pathStart' => '/owbww/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH ialyl' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ialyl/rd/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ialyl/rd/([^/]+)$#',
+       'pathStart' => '/ialyl/rd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH f' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/f/jksiv/dwgintcc/kujqn/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/f/jksiv/dwgintcc/kujqn/([^/]+)$#',
+       'pathStart' => '/f/jksiv/dwgintcc/kujqn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET zy' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zy/bvsawcvi/o/iaanizyo/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zy/bvsawcvi/o/iaanizyo/([^/]+)$#',
+       'pathStart' => '/zy/bvsawcvi/o/iaanizyo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET lvdrymc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lvdrymc/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lvdrymc/([^/]+)$#',
+       'pathStart' => '/lvdrymc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH gz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gz/stu/huwusipb/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gz/stu/huwusipb/([^/]+)$#',
+       'pathStart' => '/gz/stu/huwusipb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT xu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xu/bqgbldya/tcsqe/ao/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xu/bqgbldya/tcsqe/ao/([^/]+)$#',
+       'pathStart' => '/xu/bqgbldya/tcsqe/ao/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST nhidyffovpmdcmjlq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nhidyffovpmdcmjlq/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nhidyffovpmdcmjlq/([^/]+)$#',
+       'pathStart' => '/nhidyffovpmdcmjlq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE n' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/n/f/snusgy/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/n/f/snusgy/([^/]+)$#',
+       'pathStart' => '/n/f/snusgy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST kwknanu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/kwknanu/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/kwknanu/([^/]+)$#',
+       'pathStart' => '/kwknanu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH wwxevvdaohufoh' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wwxevvdaohufoh/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wwxevvdaohufoh/([^/]+)$#',
+       'pathStart' => '/wwxevvdaohufoh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT daisoyma' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/daisoyma/pxfgrjbzryqa/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/daisoyma/pxfgrjbzryqa/([^/]+)$#',
+       'pathStart' => '/daisoyma/pxfgrjbzryqa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET silxrrnv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/silxrrnv/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/silxrrnv/([^/]+)$#',
+       'pathStart' => '/silxrrnv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH ytmubgxxqwvfddwar' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ytmubgxxqwvfddwar/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ytmubgxxqwvfddwar/([^/]+)$#',
+       'pathStart' => '/ytmubgxxqwvfddwar/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET oz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/oz/qsfveftu/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/oz/qsfveftu/([^/]+)$#',
+       'pathStart' => '/oz/qsfveftu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST dkcs' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dkcs/hq/w/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dkcs/hq/w/([^/]+)$#',
+       'pathStart' => '/dkcs/hq/w/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET pxnnitv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/pxnnitv/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/pxnnitv/([^/]+)$#',
+       'pathStart' => '/pxnnitv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT api' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/api/ioztodybpmmc/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/ioztodybpmmc/([^/]+)$#',
+       'pathStart' => '/api/ioztodybpmmc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/api/sppgatanzwps/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/sppgatanzwps/([^/]+)$#',
+       'pathStart' => '/api/sppgatanzwps/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    2 => array(
+       'name' => '',
+       'path' => '/api/qghidcmiruwqnoi/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/qghidcmiruwqnoi/([^/]+)$#',
+       'pathStart' => '/api/qghidcmiruwqnoi/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    3 => array(
+       'name' => '',
+       'path' => '/api/ctadbu/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/ctadbu/([^/]+)$#',
+       'pathStart' => '/api/ctadbu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    4 => array(
+       'name' => '',
+       'path' => '/api/whxsggiuexvhljz/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/whxsggiuexvhljz/([^/]+)$#',
+       'pathStart' => '/api/whxsggiuexvhljz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    5 => array(
+       'name' => '',
+       'path' => '/api/jchcormgding/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/jchcormgding/([^/]+)$#',
+       'pathStart' => '/api/jchcormgding/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    6 => array(
+       'name' => '',
+       'path' => '/api/xkbvrfgmkmxo/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/api/xkbvrfgmkmxo/([^/]+)$#',
+       'pathStart' => '/api/xkbvrfgmkmxo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST cszctcirmavisgfgg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cszctcirmavisgfgg/q/vv/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cszctcirmavisgfgg/q/vv/([^/]+)$#',
+       'pathStart' => '/cszctcirmavisgfgg/q/vv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT xmolfzqelex' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xmolfzqelex/vbqsotlk/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xmolfzqelex/vbqsotlk/([^/]+)$#',
+       'pathStart' => '/xmolfzqelex/vbqsotlk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET sjey' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sjey/d/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sjey/d/([^/]+)$#',
+       'pathStart' => '/sjey/d/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT jpw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/jpw/o/lllw/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/jpw/o/lllw/([^/]+)$#',
+       'pathStart' => '/jpw/o/lllw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT tpbcssmmzif' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/tpbcssmmzif/hov/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/tpbcssmmzif/hov/([^/]+)$#',
+       'pathStart' => '/tpbcssmmzif/hov/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH rkr' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/rkr/ygon/bn/txwwcmudlyb/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/rkr/ygon/bn/txwwcmudlyb/([^/]+)$#',
+       'pathStart' => '/rkr/ygon/bn/txwwcmudlyb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET umnqwjjaj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/umnqwjjaj/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/umnqwjjaj/([^/]+)$#',
+       'pathStart' => '/umnqwjjaj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT m' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/m/htybivzcebzq/cgdc/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/m/htybivzcebzq/cgdc/([^/]+)$#',
+       'pathStart' => '/m/htybivzcebzq/cgdc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT nepqiy' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nepqiy/h/wdfbpy/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nepqiy/h/wdfbpy/([^/]+)$#',
+       'pathStart' => '/nepqiy/h/wdfbpy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET nuuzupbltth' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nuuzupbltth/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nuuzupbltth/([^/]+)$#',
+       'pathStart' => '/nuuzupbltth/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH sdcmo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sdcmo/x/orzqvh/hcouufv/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sdcmo/x/orzqvh/hcouufv/([^/]+)$#',
+       'pathStart' => '/sdcmo/x/orzqvh/hcouufv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH frg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/frg/xht/sbhf/avvbxdf/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/frg/xht/sbhf/avvbxdf/([^/]+)$#',
+       'pathStart' => '/frg/xht/sbhf/avvbxdf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE bizxtymuld' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/bizxtymuld/zefptc/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/bizxtymuld/zefptc/([^/]+)$#',
+       'pathStart' => '/bizxtymuld/zefptc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH dyiwqvtv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dyiwqvtv/s/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dyiwqvtv/s/([^/]+)$#',
+       'pathStart' => '/dyiwqvtv/s/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT gpkviok' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gpkviok/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gpkviok/([^/]+)$#',
+       'pathStart' => '/gpkviok/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE hfinhap' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hfinhap/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hfinhap/([^/]+)$#',
+       'pathStart' => '/hfinhap/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET vk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vk/tsmuzmuq/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vk/tsmuzmuq/([^/]+)$#',
+       'pathStart' => '/vk/tsmuzmuq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH ddnjner' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ddnjner/bkin/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ddnjner/bkin/([^/]+)$#',
+       'pathStart' => '/ddnjner/bkin/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH otlu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/otlu/oqzn/m/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/otlu/oqzn/m/([^/]+)$#',
+       'pathStart' => '/otlu/oqzn/m/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET nrxf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nrxf/ksd/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nrxf/ksd/([^/]+)$#',
+       'pathStart' => '/nrxf/ksd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST hdpcl' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hdpcl/koifodupgs/s/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hdpcl/koifodupgs/s/([^/]+)$#',
+       'pathStart' => '/hdpcl/koifodupgs/s/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT mcptvfcc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mcptvfcc/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mcptvfcc/([^/]+)$#',
+       'pathStart' => '/mcptvfcc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH zxro' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zxro/pvh/ji/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zxro/pvh/ji/([^/]+)$#',
+       'pathStart' => '/zxro/pvh/ji/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE vt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vt/p/vjztyc/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vt/p/vjztyc/([^/]+)$#',
+       'pathStart' => '/vt/p/vjztyc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH zugmoct' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zugmoct/hepxbaihrmkxl/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zugmoct/hepxbaihrmkxl/([^/]+)$#',
+       'pathStart' => '/zugmoct/hepxbaihrmkxl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST vilqgu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vilqgu/p/lcjxkgiqcbfb/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vilqgu/p/lcjxkgiqcbfb/([^/]+)$#',
+       'pathStart' => '/vilqgu/p/lcjxkgiqcbfb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET sjskrtkub' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sjskrtkub/bpxknpofwc/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sjskrtkub/bpxknpofwc/([^/]+)$#',
+       'pathStart' => '/sjskrtkub/bpxknpofwc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET zrmlgsykex' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zrmlgsykex/vbj/nv/tvghn/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zrmlgsykex/vbj/nv/tvghn/([^/]+)$#',
+       'pathStart' => '/zrmlgsykex/vbj/nv/tvghn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT hklqorlgkw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hklqorlgkw/jnsb/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hklqorlgkw/jnsb/([^/]+)$#',
+       'pathStart' => '/hklqorlgkw/jnsb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT hazb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hazb/bpzdqr/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hazb/bpzdqr/([^/]+)$#',
+       'pathStart' => '/hazb/bpzdqr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE eunzqcaxswb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/eunzqcaxswb/wswkz/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/eunzqcaxswb/wswkz/([^/]+)$#',
+       'pathStart' => '/eunzqcaxswb/wswkz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST ihwlkkn' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ihwlkkn/m/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ihwlkkn/m/([^/]+)$#',
+       'pathStart' => '/ihwlkkn/m/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST qohgt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qohgt/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qohgt/([^/]+)$#',
+       'pathStart' => '/qohgt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH vroz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vroz/rryip/bpxez/mn/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vroz/rryip/bpxez/mn/([^/]+)$#',
+       'pathStart' => '/vroz/rryip/bpxez/mn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT lspsrgbdol' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lspsrgbdol/eaxk/eab/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lspsrgbdol/eaxk/eab/([^/]+)$#',
+       'pathStart' => '/lspsrgbdol/eaxk/eab/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET aumke' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/aumke/smumjzo/oszjrj/pz/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/aumke/smumjzo/oszjrj/pz/([^/]+)$#',
+       'pathStart' => '/aumke/smumjzo/oszjrj/pz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET flekhtsmoprq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/flekhtsmoprq/mupfk/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/flekhtsmoprq/mupfk/([^/]+)$#',
+       'pathStart' => '/flekhtsmoprq/mupfk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH wizzuye' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wizzuye/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wizzuye/([^/]+)$#',
+       'pathStart' => '/wizzuye/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH umcvhgfhu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/umcvhgfhu/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/umcvhgfhu/([^/]+)$#',
+       'pathStart' => '/umcvhgfhu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET uetljhrz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/uetljhrz/yk/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/uetljhrz/yk/([^/]+)$#',
+       'pathStart' => '/uetljhrz/yk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST qdxsks' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qdxsks/fbsebysgkyuji/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qdxsks/fbsebysgkyuji/([^/]+)$#',
+       'pathStart' => '/qdxsks/fbsebysgkyuji/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT ntpexw' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ntpexw/nqa/vq/q/n/tpcjqqd/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ntpexw/nqa/vq/q/n/tpcjqqd/([^/]+)$#',
+       'pathStart' => '/ntpexw/nqa/vq/q/n/tpcjqqd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET g' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/g/m/jvxhtustv/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/g/m/jvxhtustv/([^/]+)$#',
+       'pathStart' => '/g/m/jvxhtustv/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+    1 => array(
+       'name' => '',
+       'path' => '/g/vi/e/mo/jso/yz/jhzxk/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/g/vi/e/mo/jso/yz/jhzxk/([^/]+)$#',
+       'pathStart' => '/g/vi/e/mo/jso/yz/jhzxk/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET cwhbl' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cwhbl/kwbp/zo/ql/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cwhbl/kwbp/zo/ql/([^/]+)$#',
+       'pathStart' => '/cwhbl/kwbp/zo/ql/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET t' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/t/negubbnbk/onrdevheo/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/t/negubbnbk/onrdevheo/([^/]+)$#',
+       'pathStart' => '/t/negubbnbk/onrdevheo/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET nwaxx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nwaxx/mncf/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nwaxx/mncf/([^/]+)$#',
+       'pathStart' => '/nwaxx/mncf/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT etmoimkp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/etmoimkp/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/etmoimkp/([^/]+)$#',
+       'pathStart' => '/etmoimkp/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT exulcojsm' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/exulcojsm/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/exulcojsm/([^/]+)$#',
+       'pathStart' => '/exulcojsm/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT dornauvgtbs' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dornauvgtbs/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dornauvgtbs/([^/]+)$#',
+       'pathStart' => '/dornauvgtbs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT z' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/z/gqjbadlnp/towsjt/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/z/gqjbadlnp/towsjt/([^/]+)$#',
+       'pathStart' => '/z/gqjbadlnp/towsjt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET lzmsgf' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lzmsgf/g/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lzmsgf/g/([^/]+)$#',
+       'pathStart' => '/lzmsgf/g/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST memn' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/memn/fic/ow/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/memn/fic/ow/([^/]+)$#',
+       'pathStart' => '/memn/fic/ow/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE mj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mj/entbl/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mj/entbl/([^/]+)$#',
+       'pathStart' => '/mj/entbl/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET p' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/p/hlhjlshdh/jxvy/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/p/hlhjlshdh/jxvy/([^/]+)$#',
+       'pathStart' => '/p/hlhjlshdh/jxvy/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE qleuqih' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qleuqih/ido/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qleuqih/ido/([^/]+)$#',
+       'pathStart' => '/qleuqih/ido/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET sb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sb/kmbal/hteshhebeuqh/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sb/kmbal/hteshhebeuqh/([^/]+)$#',
+       'pathStart' => '/sb/kmbal/hteshhebeuqh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE cocxaax' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cocxaax/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cocxaax/([^/]+)$#',
+       'pathStart' => '/cocxaax/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT xi' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xi/yiqscwev/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xi/yiqscwev/([^/]+)$#',
+       'pathStart' => '/xi/yiqscwev/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST ozrhu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ozrhu/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ozrhu/([^/]+)$#',
+       'pathStart' => '/ozrhu/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET mekzam' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/mekzam/apy/alogysm/hzdx/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/mekzam/apy/alogysm/hzdx/([^/]+)$#',
+       'pathStart' => '/mekzam/apy/alogysm/hzdx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH emaul' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/emaul/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/emaul/([^/]+)$#',
+       'pathStart' => '/emaul/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST pakmoub' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/pakmoub/hpwe/inoiuwk/x/b/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/pakmoub/hpwe/inoiuwk/x/b/([^/]+)$#',
+       'pathStart' => '/pakmoub/hpwe/inoiuwk/x/b/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET uk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/uk/uiutjrh/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/uk/uiutjrh/([^/]+)$#',
+       'pathStart' => '/uk/uiutjrh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET vqqwjg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/vqqwjg/rhy/ryckwv/yil/j/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/vqqwjg/rhy/ryckwv/yil/j/([^/]+)$#',
+       'pathStart' => '/vqqwjg/rhy/ryckwv/yil/j/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET ajzeglvbyosubbp' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ajzeglvbyosubbp/e/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ajzeglvbyosubbp/e/([^/]+)$#',
+       'pathStart' => '/ajzeglvbyosubbp/e/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET adsxmwgd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/adsxmwgd/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/adsxmwgd/([^/]+)$#',
+       'pathStart' => '/adsxmwgd/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT anu' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/anu/fyydmyqzqgbctnryr/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/anu/fyydmyqzqgbctnryr/([^/]+)$#',
+       'pathStart' => '/anu/fyydmyqzqgbctnryr/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE nzydmurj' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/nzydmurj/aiwksdosrjs/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/nzydmurj/aiwksdosrjs/([^/]+)$#',
+       'pathStart' => '/nzydmurj/aiwksdosrjs/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH xep' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xep/cmjb/urz/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xep/cmjb/urz/([^/]+)$#',
+       'pathStart' => '/xep/cmjb/urz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT uzc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/uzc/msn/m/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/uzc/msn/m/([^/]+)$#',
+       'pathStart' => '/uzc/msn/m/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PUT ipwwoo' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/ipwwoo/c/{name}',
+       'method' => 'PUT',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/ipwwoo/c/([^/]+)$#',
+       'pathStart' => '/ipwwoo/c/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET yjzhkmgcswlwwt' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/yjzhkmgcswlwwt/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/yjzhkmgcswlwwt/([^/]+)$#',
+       'pathStart' => '/yjzhkmgcswlwwt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH pdpv' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/pdpv/oscm/jrt/bl/g/jt/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/pdpv/oscm/jrt/bl/g/jt/([^/]+)$#',
+       'pathStart' => '/pdpv/oscm/jrt/bl/g/jt/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET yqz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/yqz/yqvezjwnqhq/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/yqz/yqvezjwnqhq/([^/]+)$#',
+       'pathStart' => '/yqz/yqvezjwnqhq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH znvfof' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/znvfof/h/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/znvfof/h/([^/]+)$#',
+       'pathStart' => '/znvfof/h/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST t' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/t/dlbsawmoatbwzkz/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/t/dlbsawmoatbwzkz/([^/]+)$#',
+       'pathStart' => '/t/dlbsawmoatbwzkz/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET cprueecxrz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/cprueecxrz/gyufduzvhj/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/cprueecxrz/gyufduzvhj/([^/]+)$#',
+       'pathStart' => '/cprueecxrz/gyufduzvhj/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH skjlrgn' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/skjlrgn/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/skjlrgn/([^/]+)$#',
+       'pathStart' => '/skjlrgn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'PATCH qprkhocgb' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/qprkhocgb/{name}',
+       'method' => 'PATCH',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/qprkhocgb/([^/]+)$#',
+       'pathStart' => '/qprkhocgb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE pesbmx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/pesbmx/hg/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/pesbmx/hg/([^/]+)$#',
+       'pathStart' => '/pesbmx/hg/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET sdswsgacg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sdswsgacg/kufceek/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sdswsgacg/kufceek/([^/]+)$#',
+       'pathStart' => '/sdswsgacg/kufceek/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET kqtxdoxik' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/kqtxdoxik/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/kqtxdoxik/([^/]+)$#',
+       'pathStart' => '/kqtxdoxik/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET zkwumlfppjn' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/zkwumlfppjn/loh/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/zkwumlfppjn/loh/([^/]+)$#',
+       'pathStart' => '/zkwumlfppjn/loh/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE lpkidgqq' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/lpkidgqq/nilf/hysddpzw/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/lpkidgqq/nilf/hysddpzw/([^/]+)$#',
+       'pathStart' => '/lpkidgqq/nilf/hysddpzw/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE xhrefsc' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xhrefsc/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xhrefsc/([^/]+)$#',
+       'pathStart' => '/xhrefsc/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST hz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/hz/ah/mftb/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/hz/ah/mftb/([^/]+)$#',
+       'pathStart' => '/hz/ah/mftb/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE xohxbjghx' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xohxbjghx/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xohxbjghx/([^/]+)$#',
+       'pathStart' => '/xohxbjghx/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET chtz' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/chtz/hddhmj/amdlazy/bq/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/chtz/hddhmj/amdlazy/bq/([^/]+)$#',
+       'pathStart' => '/chtz/hddhmj/amdlazy/bq/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET xgdbgah' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/xgdbgah/y/t/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/xgdbgah/y/t/([^/]+)$#',
+       'pathStart' => '/xgdbgah/y/t/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE dg' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/dg/ewn/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/dg/ewn/([^/]+)$#',
+       'pathStart' => '/dg/ewn/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST wk' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wk/msqo/xzdaw/xa/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wk/msqo/xzdaw/xa/([^/]+)$#',
+       'pathStart' => '/wk/msqo/xzdaw/xa/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'POST wgegghqbzohkee' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/wgegghqbzohkee/{name}',
+       'method' => 'POST',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/wgegghqbzohkee/([^/]+)$#',
+       'pathStart' => '/wgegghqbzohkee/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET fjuosgmzwokao' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/fjuosgmzwokao/d/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/fjuosgmzwokao/d/([^/]+)$#',
+       'pathStart' => '/fjuosgmzwokao/d/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'GET gthgwsnpwd' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/gthgwsnpwd/pmt/is/z/{name}',
+       'method' => 'GET',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/gthgwsnpwd/pmt/is/z/([^/]+)$#',
+       'pathStart' => '/gthgwsnpwd/pmt/is/z/',
+       'chains' => array (
+      ),
+       'options' => array (
+      ),
+    ),
+  ),
+  'DELETE sifyfl' => array (
+    0 => array(
+       'name' => '',
+       'path' => '/sifyfl/gowrdioqbafnyl/{name}',
+       'method' => 'DELETE',
+       'handler' => 'handler_func',
+       'bindVars' => array (
+      ),
+       'params' => array (
+      ),
+       'pathVars' => array (
+        0 => 'name',
+      ),
+       'pathRegex' => '#^/sifyfl/gowrdioqbafnyl/([^/]+)$#',
+       'pathStart' => '/sifyfl/gowrdioqbafnyl/',
        'chains' => array (
       ),
        'options' => array (
