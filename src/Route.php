@@ -205,6 +205,7 @@ final class Route implements \IteratorAggregate
     public function quickParseParams($argPos, $optPos, array $bindParams = []): string
     {
         $first  = '';
+        $varPos = $argPos;
         $backup = $path = $this->path;
 
         // quote '.','/' to '\.','\/'
@@ -216,14 +217,12 @@ final class Route implements \IteratorAggregate
         if (false !== $optPos) {
             $noClosingOptionals = \rtrim($path, ']');
             $optionalNum        = \strlen($path) - \strlen($noClosingOptionals);
-
             if ($optionalNum !== \substr_count($noClosingOptionals, '[')) {
                 throw new \LogicException('Optional segments can only occur at the end of a route');
             }
 
             // '/hello[/{name}]' -> '/hello(?:/{name})?'
             $path = \str_replace(['[', ']'], ['(?:', ')?'], $path);
-
             // no params
             if ($argPos === false) {
                 $noOptional      = \substr($path, 0, $optPos);
@@ -237,12 +236,10 @@ final class Route implements \IteratorAggregate
                 return $first;
             }
 
-            $floorPos = $argPos >= $optPos ? $optPos : $argPos;
-        } else {
-            $floorPos = $argPos;
+            $varPos = $argPos >= $optPos ? $optPos : $argPos;
         }
 
-        $start = \substr($backup, 0, $floorPos);
+        $start = \substr($backup, 0, $varPos);
 
         // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
         if ($pos = \strpos($start, '/', 1)) {

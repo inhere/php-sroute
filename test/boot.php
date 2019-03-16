@@ -18,8 +18,8 @@ require dirname(__DIR__) . '/src/Helper/functions.php';
 
 $libDir = dirname(__DIR__);
 $npMap  = [
-    'Inhere\RouteTest\\'     => $libDir . '/test/',
-    'Inhere\Route\\'         => $libDir . '/src/',
+    'Inhere\RouteTest\\' => $libDir . '/test/',
+    'Inhere\Route\\'     => $libDir . '/src/',
 ];
 
 spl_autoload_register(function ($class) use ($npMap) {
@@ -38,13 +38,20 @@ function random_request_url($chance = 5)
     $characters       = 'abcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
     $randomString     = '/';
+    $prefixes         = ['api', 'v2', 'user', 'goods'];
     $rand             = random_int(5, 20);
+
+    $hasPrefix = false;
+    if (in_array($rand, [6, 12, 15, 18], true)) {
+        $hasPrefix    = true;
+        $randomString .= $prefixes[array_rand($prefixes, 1)] . '/';
+    }
 
     // create random path of 5-20 characters
     for ($i = 0; $i < $rand; $i++) {
         $randomString .= $characters[random_int(0, $charactersLength - 1)];
 
-        if (random_int(1, 10) === 1) {
+        if (!$hasPrefix && random_int(1, 8) === 1) {
             $randomString .= '/';
         }
     }
