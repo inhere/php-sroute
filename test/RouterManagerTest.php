@@ -23,7 +23,7 @@ class RouterManagerTest extends TestCase
     /** @var RouterManager */
     private $manager;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $configs = [
             'default' => 'main-site',
