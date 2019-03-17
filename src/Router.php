@@ -389,9 +389,14 @@ class Router implements RouterInterface
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        $path   = RouteHelper::formatPath($path, $this->ignoreLastSlash);
+        // For HEAD requests, attempt fallback to GET
         $method = \strtoupper($method);
-        $sKey   = $method . ' ' . $path;
+        if ($method === 'HEAD') {
+            $method = 'GET';
+        }
+
+        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
+        $sKey = $method . ' ' . $path;
 
         // It is a static route path
         if (isset($this->staticRoutes[$sKey])) {
@@ -407,19 +412,6 @@ class Router implements RouterInterface
         // handle Auto Route. always return new Route object.
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
             return [self::FOUND, $path, Route::create($method, $path, $handler)];
-        }
-
-        // For HEAD requests, attempt fallback to GET
-        if ($method === 'HEAD') {
-            $sKey = 'GET ' . $path;
-            if (isset($this->staticRoutes[$sKey])) {
-                return [self::FOUND, $path, $this->staticRoutes[$sKey]];
-            }
-
-            $result = $this->matchDynamicRoute($path, 'GET');
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
         }
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
@@ -449,16 +441,13 @@ class Router implements RouterInterface
      */
     protected function matchDynamicRoute(string $path, string $method): array
     {
-        $fKey = $first = '';
-        if ($pos = \strpos($path, '/', 1)) {
-            $first = \substr($path, 1, $pos - 1);
-            $fKey  = $method . ' ' . $first;
-        }
+        $first = \strstr(\ltrim($path, '/'), '/', true);
+        $fKey  = $first ? $method . ' ' . $first : '';
 
         // It is a regular dynamic route(the first node is 1th level index key).
-        if ($fKey && $routeList = $this->regularRoutes[$fKey] ?? false) {
+        if ($fKey && isset($this->regularRoutes[$fKey])) {
             /** @var Route $route */
-            foreach ($routeList as $route) {
+            foreach ($this->regularRoutes[$fKey] as $route) {
                 // Check path start string
                 $pathStart = $route->getPathStart();
                 if (\strpos($path, $pathStart) !== 0) {
@@ -473,8 +462,9 @@ class Router implements RouterInterface
         }
 
         // It is a irregular dynamic route
-        if ($routeList = $this->vagueRoutes[$method] ?? false) {
-            foreach ($routeList as $route) {
+        // if ($routeList = $this->vagueRoutes[$method] ?? false) {
+        if (isset($this->vagueRoutes[$method])) {
+            foreach ($this->vagueRoutes[$method] as $route) {
                 $result = $route->matchRegex($path);
                 if ($result[0]) {
                     return [self::FOUND, $path, $route->copyWithParams($result[1])];

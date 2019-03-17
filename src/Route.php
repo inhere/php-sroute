@@ -204,9 +204,14 @@ final class Route implements \IteratorAggregate
      */
     public function quickParseParams($argPos, $optPos, array $bindParams = []): string
     {
-        $first  = '';
-        $varPos = $argPos;
-        $backup = $path = $this->path;
+        $first = $start = '';
+        $path  = $this->path;
+
+        // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
+        if (preg_match('#^/([\w-]+)/(?:[\w-\/]*)#', $path, $m)) {
+            [$start, $first] = $m;
+            $this->pathStart = $start === '/' ? '' : $start;
+        }
 
         // quote '.','/' to '\.','\/'
         if (false !== \strpos($path, '.')) {
@@ -225,25 +230,9 @@ final class Route implements \IteratorAggregate
             $path = \str_replace(['[', ']'], ['(?:', ')?'], $path);
             // No params
             if ($argPos === false) {
-                $noOptional      = \substr($path, 0, $optPos);
-                $this->pathStart = $noOptional;
                 $this->pathRegex = '#^' . $path . '$#';
-
-                // eg '/article/12'
-                if ($pos = \strpos($noOptional, '/', 1)) {
-                    $first = \substr($noOptional, 1, $pos - 1);
-                }
                 return $first;
             }
-
-            $varPos = $argPos >= $optPos ? $optPos : $argPos;
-        }
-
-        $start = \substr($backup, 0, $varPos);
-
-        // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
-        if ($pos = \strpos($start, '/', 1)) {
-            $first = \substr($start, 1, $pos - 1);
         }
 
         if ($bindVars = $this->getBindVars()) { // merge current route vars
@@ -260,8 +249,6 @@ final class Route implements \IteratorAggregate
         }, $path);
 
         $this->pathRegex = '#^' . $path . '$#';
-        $this->pathStart = $start === '/' ? '' : $start;
-
         return $first;
     }
 

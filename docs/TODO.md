@@ -35,3 +35,28 @@ $route = (string)\preg_replace_callback('#\{[a-zA-Z_][\w-]*\}#', function (array
     return $pair;
 }, $route);
 ```
+
+- matchDynamicRoute() 
+
+```php
+    protected function matchDynamicRoute(string $path, string $method): array
+    {
+        // method 1
+        $first = \strstr(\ltrim($path, '/'), '/', true);
+        $fKey  = $first ? $method . ' ' . $first : '';
+      
+        // method 2
+        $first = $fKey = '';
+        if (1 === \preg_match('#^/([\w-]+)/#', $path, $m)) {
+            $first = $m[1];
+            $fKey  = $method . ' ' . $first;
+        }
+
+        // method 3
+        $fKey = $first = '';
+        if ($pos = \strpos($path, '/', 1)) {
+            $first = \substr($path, 1, $pos - 1);
+            $fKey  = $method . ' ' . $first;
+        }
+```
+
