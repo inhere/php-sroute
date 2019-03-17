@@ -36,7 +36,7 @@ final class PreMatchRouter extends Router
      * @param string|null $method
      * @throws \LogicException
      */
-    public function __construct(array $config = [], string $path = null, string $method = null)
+    public function __construct(array $config = [], string $path = '', string $method = '')
     {
         parent::__construct($config);
 
@@ -75,7 +75,7 @@ final class PreMatchRouter extends Router
      */
     public function addRoute(Route $route): Route
     {
-        // has been matched. don't add again.
+        // Has been matched. don't add again.
         if ($this->preFounded) {
             return $route;
         }
@@ -85,7 +85,7 @@ final class PreMatchRouter extends Router
 
         $this->routeCounter++;
 
-        // success match
+        // Success match
         if ($path === $this->reqPath && $method === $this->reqMethod) {
             $this->preFounded = $route;
             return $route;
@@ -99,12 +99,12 @@ final class PreMatchRouter extends Router
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        // if this path has been pre-matched.
+        // If has been pre-matched.
         if ($this->preFounded) {
             return [self::FOUND, $path, $this->preFounded];
         }
 
-        return $this->findAllowedMethods($path, $method);
+        return parent::match($path, $method);
     }
 
     /**

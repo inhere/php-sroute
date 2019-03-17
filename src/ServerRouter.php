@@ -60,47 +60,35 @@ final class ServerRouter extends Router
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
+        // For HEAD requests, attempt fallback to GET
         $method = \strtoupper($method);
+        if ($method === 'HEAD') {
+            $method = 'GET';
+        }
+
+        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
         $sKey = $method . ' ' . $path;
 
-        // is a static route path
+        // It is a static route path
         if (isset($this->staticRoutes[$sKey])) {
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        // find in route caches.
+        // Find in route caches.
         if ($this->cacheRoutes && isset($this->cacheRoutes[$sKey])) {
             return [self::FOUND, $path, $this->cacheRoutes[$sKey]];
         }
 
-        // is a dynamic route, match by regexp
+        // It is a dynamic route, match by regexp
         $result = $this->matchDynamicRoute($path, $method);
         if ($result[0] === self::FOUND) { // will cache param route.
             $this->cacheMatchedParamRoute($path, $method, $result[2]);
             return $result;
         }
 
-        // handle Auto Route
+        // Handle Auto Route
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
             return [self::FOUND, $path, Route::create($method, $path, $handler)];
-        }
-
-        // For HEAD requests, attempt fallback to GET
-        if ($method === 'HEAD') {
-            $sKey = 'GET ' . $path;
-            if (isset($this->staticRoutes[$sKey])) {
-                return [self::FOUND, $path, $this->staticRoutes[$sKey]];
-            }
-
-            if ($this->cacheRoutes && isset($this->cacheRoutes[$sKey])) {
-                return [self::FOUND, $path, $this->cacheRoutes[$sKey]];
-            }
-
-            $result = $this->matchDynamicRoute($path, 'GET');
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
         }
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
@@ -109,7 +97,6 @@ final class ServerRouter extends Router
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        // collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
         if ($this->handleMethodNotAllowed) {
             return $this->findAllowedMethods($path, $method);
         }

@@ -12,84 +12,24 @@ $times = isset($argv[1]) ? (int)$argv[1] : 1000;
 // $str = 'get';
 $str = ['get', 'post'];
 
-$sample1 = function ($methods) {
-    $hasAny = false;
-    $methods = \array_map(function ($m) use (&$hasAny) {
-        $m = \strtoupper(\trim($m));
-
-        if (!$m || false === \strpos(METHODS_STRING . ',', $m . ',')) {
-            throw new \InvalidArgumentException(
-                "The method [$m] is not supported, Allow: " . METHODS_STRING
-            );
-        }
-
-        if (!$hasAny && $m === 'ANY') {
-            $hasAny = true;
-        }
-
-        return $m;
-    }, (array)$methods);
-
-    return $hasAny ? METHODS_ARRAY : $methods;
-};
-
-$sample2 = function ($methods) {
-    if (is_string($methods)) {
-        $method = strtoupper($methods);
-
-        if ($method === 'ANY') {
-            return METHODS_ARRAY;
-        }
-
-        if (false === \strpos(METHODS_STRING . ',', $method . ',')) {
-            throw new \InvalidArgumentException(
-                "The method [$method] is not supported, Allow: " . METHODS_STRING
-            );
-        }
-
-        return [$method];
+$sample1 = function ($path) {
+    $fKey = $first = '';
+    if ($pos = \strpos($path, '/', 1)) {
+        $first = \substr($path, 1, $pos - 1);
+        $fKey  = 'GET' . ' ' . $first;
     }
 
-    $upperMethods = [];
-
-    foreach ((array)$methods as $method) {
-        $method = strtoupper($method);
-
-        if ($method === 'ANY') {
-            return METHODS_ARRAY;
-        }
-
-        if (false === \strpos(METHODS_STRING . ',', $method . ',')) {
-            throw new \InvalidArgumentException(
-                "The method [$method] is not supported, Allow: " . METHODS_STRING
-            );
-        }
-
-        $upperMethods[] = $method;
-    }
-
-    return $upperMethods;
+    return $fKey;
 };
 
-// $sample2 = function ($route, $params) {
-//     $route = (string)preg_replace_callback('#\{[a-zA-Z_][\w-]*\}#', function ($m) use ($params) {
-//         //var_dump($m, $params);die;
-//         $name = substr($m[0], 1, -1);
-//         return '(' . ($params[$name] ?? '[^/]+') . ')';
-//     }, $route);
-//
-//     return $route;
-// };
+$sample2 = function ($path) {
+    $first = strstr(ltrim($path, '/'), '/', true);
+    return $first ? 'GET' . ' ' . $first : '';
+};
 
 compare_speed($sample1, $sample2, $times, [
-    $str,
-    [
-        'all' => '.*',
-        'any' => '[^/]+',        // match any except '/'
-        'num' => '[1-9][0-9]*',  // match a number and gt 0
-        'int' => '\d+',          // match a number
-        'act' => '[a-zA-Z][\w-]+', // match a action name
-    ]
+    // '/api/user/23',
+    '/user/',
 ]);
 
 function compare_speed(callable $sample1, callable $sample2, int $times = 1000, array $args = [])
@@ -117,11 +57,12 @@ function compare_speed(callable $sample1, callable $sample2, int $times = 1000, 
     $end2 = microtime(1);
 
     // calc total
-    $total1 = round($end1 - $start1, 3);
-    $total2 = round($end2 - $start2, 3);
+    $decimal = 5;
+    $total1  = round($end1 - $start1, $decimal);
+    $total2  = round($end2 - $start2, $decimal);
 
     // average
-    $decimal = 3;
+    $decimal = 5;
     $average1 = round($total1 / $times, $decimal);
     $average2 = round($total2 / $times, $decimal);
 

@@ -29,6 +29,9 @@ class Router implements RouterInterface
     /** @var Route */
     private $basicRoute;
 
+    /** @var Route */
+    private $fallback;
+
     // -- Group info
 
     /** @var string */
@@ -288,8 +291,6 @@ class Router implements RouterInterface
 
         $path   = $route->getPath();
         $method = $route->getMethod();
-
-        // Has route name.
         if ($name = $route->getName()) {
             $this->namedRoutes[$name] = $route;
         }
@@ -324,7 +325,7 @@ class Router implements RouterInterface
      */
     public function group(string $prefix, \Closure $callback, array $middleware = [], array $opts = []): void
     {
-        // backups
+        // Backups
         $previousGroupPrefix = $this->currentGroupPrefix;
         $previousGroupOption = $this->currentGroupOption;
         $previousGroupChains = $this->currentGroupChains;
@@ -333,10 +334,10 @@ class Router implements RouterInterface
         $this->currentGroupChains = $middleware;
         $this->currentGroupPrefix = $previousGroupPrefix . '/' . \trim($prefix, '/');
 
-        // run callback.
+        // Run callback.
         $callback($this);
 
-        // reverts
+        // Reverts
         $this->currentGroupPrefix = $previousGroupPrefix;
         $this->currentGroupOption = $previousGroupOption;
         $this->currentGroupChains = $previousGroupChains;
@@ -349,26 +350,36 @@ class Router implements RouterInterface
      */
     protected function appendGroupInfo(Route $route): void
     {
-        $path = $route->getPath();
+        $path = $bak = $route->getPath();
 
-        // always add '/' prefix.
+        // Always add '/' prefix.
         $path = \strpos($path, '/') === 0 ? $path : '/' . $path;
         $path = $this->currentGroupPrefix . $path;
 
-        // setting 'ignoreLastSlash'
+        // Has setting 'ignoreLastSlash'
         if ($path !== '/' && $this->ignoreLastSlash) {
             $path = \rtrim($path, '/');
         }
 
-        $route->setPath($path);
-
-        if ($grpOptions = $this->currentGroupOption) {
-            $route->setOptions(\array_merge($grpOptions, $route->getOptions()));
+        // Not in group and path not change.
+        if ($bak === $path) {
+            return;
         }
 
-        if ($grpChains = $this->currentGroupChains) {
-            // prepend group middleware at before.
-            $route->setChains(\array_merge($grpChains, $route->getChains()));
+        $route->setPath($path);
+
+        // Not in group
+        if (!$this->currentGroupPrefix) {
+            return;
+        }
+
+        if ($this->currentGroupOption) {
+            $route->setOptions(\array_merge($this->currentGroupOption, $route->getOptions()));
+        }
+
+        // Prepend group middleware at before.
+        if ($this->currentGroupChains) {
+            $route->setChains(\array_merge($this->currentGroupChains, $route->getChains()));
         }
     }
 
@@ -389,9 +400,14 @@ class Router implements RouterInterface
      */
     public function match(string $path, string $method = 'GET'): array
     {
-        $path   = RouteHelper::formatPath($path, $this->ignoreLastSlash);
+        // For HEAD requests, attempt fallback to GET
         $method = \strtoupper($method);
-        $sKey   = $method . ' ' . $path;
+        if ($method === 'HEAD') {
+            $method = 'GET';
+        }
+
+        $path = RouteHelper::formatPath($path, $this->ignoreLastSlash);
+        $sKey = $method . ' ' . $path;
 
         // It is a static route path
         if (isset($this->staticRoutes[$sKey])) {
@@ -404,22 +420,9 @@ class Router implements RouterInterface
             return $result;
         }
 
-        // handle Auto Route. always return new Route object.
+        // Handle Auto Route. always return new Route object.
         if ($this->autoRoute && ($handler = $this->matchAutoRoute($path))) {
             return [self::FOUND, $path, Route::create($method, $path, $handler)];
-        }
-
-        // For HEAD requests, attempt fallback to GET
-        if ($method === 'HEAD') {
-            $sKey = 'GET ' . $path;
-            if (isset($this->staticRoutes[$sKey])) {
-                return [self::FOUND, $path, $this->staticRoutes[$sKey]];
-            }
-
-            $result = $this->matchDynamicRoute($path, 'GET');
-            if ($result[0] === self::FOUND) {
-                return $result;
-            }
         }
 
         // If nothing else matches, try fallback routes. $router->any('*', 'handler');
@@ -428,7 +431,6 @@ class Router implements RouterInterface
             return [self::FOUND, $path, $this->staticRoutes[$sKey]];
         }
 
-        // Collect allowed methods from: staticRoutes, vagueRoutes OR return not found.
         if ($this->handleMethodNotAllowed) {
             return $this->findAllowedMethods($path, $method);
         }
@@ -449,16 +451,13 @@ class Router implements RouterInterface
      */
     protected function matchDynamicRoute(string $path, string $method): array
     {
-        $fKey = $first = '';
-        if ($pos = \strpos($path, '/', 1)) {
-            $first = \substr($path, 1, $pos - 1);
-            $fKey  = $method . ' ' . $first;
-        }
+        $first = \strstr(\ltrim($path, '/'), '/', true);
+        $fKey  = $first ? $method . ' ' . $first : '';
 
         // It is a regular dynamic route(the first node is 1th level index key).
-        if ($fKey && $routeList = $this->regularRoutes[$fKey] ?? false) {
+        if ($fKey && isset($this->regularRoutes[$fKey])) {
             /** @var Route $route */
-            foreach ($routeList as $route) {
+            foreach ($this->regularRoutes[$fKey] as $route) {
                 // Check path start string
                 $pathStart = $route->getPathStart();
                 if (\strpos($path, $pathStart) !== 0) {
@@ -473,8 +472,9 @@ class Router implements RouterInterface
         }
 
         // It is a irregular dynamic route
-        if ($routeList = $this->vagueRoutes[$method] ?? false) {
-            foreach ($routeList as $route) {
+        // if ($routeList = $this->vagueRoutes[$method] ?? false) {
+        if (isset($this->vagueRoutes[$method])) {
+            foreach ($this->vagueRoutes[$method] as $route) {
                 $result = $route->matchRegex($path);
                 if ($result[0]) {
                     return [self::FOUND, $path, $route->copyWithParams($result[1])];

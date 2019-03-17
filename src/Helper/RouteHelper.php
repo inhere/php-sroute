@@ -36,17 +36,17 @@ class RouteHelper
             return '/';
         }
 
-        // clear '//', '///' => '/'
+        // Clear '//', '///' => '/'
         if (false !== \strpos($path, '//')) {
             $path = \preg_replace('#\/\/+#', '/', $path);
         }
 
-        // must be start withs '/'
+        // Must be start withs '/'
         if (\strpos($path, '/') !== 0) {
             $path = '/' . $path;
         }
 
-        // decode
+        // Decode
         $path = \rawurldecode($path);
 
         return $ignoreLastSlash ? \rtrim($path, '/') : $path;

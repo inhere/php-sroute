@@ -23,3 +23,8 @@ preg_match($p, $r3, $m3);
 preg_match($p1, $r4, $m4);
 
 var_dump($m, $m1, $m2, $m3, $m4);
+
+$path = '/api/{about}';
+// $path = '/api[/{about}]';
+preg_match('#^/([\w-]+)/(?:[\w-\/]*)#', $path, $m1);
+$first = 1 === preg_match('#^/([\w-]+)/#', $path, $m) ? $m[1] : '';
