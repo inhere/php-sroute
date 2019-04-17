@@ -208,7 +208,7 @@ final class Route implements \IteratorAggregate
         $path  = $this->path;
 
         // regular: first node is a normal string e.g '/user/{id}' -> 'user', '/a/{post}' -> 'a'
-        if (preg_match('#^/([\w-]+)/(?:[\w-\/]*)#', $path, $m)) {
+        if (\preg_match('#^/([\w-]+)/(?:[\w\/-]*)#', $path, $m)) {
             [$start, $first] = $m;
             $this->pathStart = $start === '/' ? '' : $start;
         }

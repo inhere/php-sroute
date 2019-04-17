@@ -7,7 +7,7 @@ use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Inhere\Route\Dispatcher\Dispatcher
+ * Class DispatcherTest
  */
 class DispatcherTest extends TestCase
 {
@@ -70,16 +70,16 @@ class DispatcherTest extends TestCase
         $ret = $d->dispatchUri('/my', 'get');
         $this->assertStringStartsWith('hello', $ret);
         $this->assertStringEndsWith('25}', $ret);
-        $this->assertContains('{"name":"God","age":25}', $ret);
+        $this->assertStringEndsWith('{"name":"God","age":25}', $ret);
 
         $ret = $d->dispatchUri('/my/tom', 'get');
         $this->assertStringStartsWith('hello', $ret);
         $this->assertStringEndsWith('25}', $ret);
-        $this->assertContains('{"name":"tom","age":25}', $ret);
+        $this->assertStringEndsWith('{"name":"tom","age":25}', $ret);
 
         $ret = $d->dispatchUri('/my/tom/45', 'get');
         $this->assertStringStartsWith('hello', $ret);
         $this->assertStringEndsWith('"45"}', $ret);
-        $this->assertContains('{"name":"tom","age":"45"}', $ret);
+        $this->assertStringEndsWith('{"name":"tom","age":"45"}', $ret);
     }
 }
