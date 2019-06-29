@@ -11,7 +11,9 @@ namespace Inhere\RouteTest;
 use Inhere\Route\CachedRouter;
 use Inhere\Route\Route;
 use PHPUnit\Framework\TestCase;
+use function file_exists;
 use function Inhere\Route\createCachedRouter;
+use function unlink;
 
 /**
  * Class CachedRouterTest
@@ -23,12 +25,12 @@ class CachedRouterTest extends TestCase
     {
         $cacheFile = __DIR__ . '/routes-cache.php';
 
-        if (\file_exists($cacheFile)) {
-            \unlink($cacheFile);
+        if (file_exists($cacheFile)) {
+            unlink($cacheFile);
         }
 
-        $config = [
-            'cacheFile' => $cacheFile,
+        $config   = [
+            'cacheFile'   => $cacheFile,
             'cacheEnable' => 1,
         ];
         $callback = function (CachedRouter $router) {
@@ -58,8 +60,8 @@ class CachedRouterTest extends TestCase
         $this->assertSame(CachedRouter::FOUND, $sts);
         $this->assertSame('/path0', $route->getPath());
 
-        if (\file_exists($cacheFile)) {
-            \unlink($cacheFile);
+        if (file_exists($cacheFile)) {
+            unlink($cacheFile);
         }
     }
 }

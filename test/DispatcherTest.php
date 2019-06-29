@@ -5,6 +5,10 @@ namespace Inhere\RouteTest;
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Router;
 use PHPUnit\Framework\TestCase;
+use Throwable;
+use function implode;
+use function json_encode;
+use function sprintf;
 
 /**
  * Class DispatcherTest
@@ -12,15 +16,15 @@ use PHPUnit\Framework\TestCase;
 class DispatcherTest extends TestCase
 {
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function testDispatcher(): void
     {
         $handler = function (array $args = []) {
-            return \sprintf('hello, welcome. args: %s', \json_encode($args));
+            return sprintf('hello, welcome. args: %s', json_encode($args));
         };
 
-        $router = new Router();
+        $router                         = new Router();
         $router->handleMethodNotAllowed = true;
         $router->get('/', $handler);
         $router->get('/user/info[/{int}]', $handler);
@@ -29,7 +33,7 @@ class DispatcherTest extends TestCase
         ])->setOptions([
             'defaults' => [
                 'name' => 'God',
-                'age' => 25,
+                'age'  => 25,
             ]
         ]);
 
@@ -40,9 +44,9 @@ class DispatcherTest extends TestCase
             return 'TEST: page not found';
         });
         $d->on(Dispatcher::ON_METHOD_NOT_ALLOWED, function ($path, $m, $ms) {
-            return \sprintf(
+            return sprintf(
                 'TEST: %s %s is not allowed, allowed methods: %s',
-                $m, $path, \implode(',', $ms)
+                $m, $path, implode(',', $ms)
             );
         });
         $d->setRouter($router);

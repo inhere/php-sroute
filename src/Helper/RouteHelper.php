@@ -8,6 +8,28 @@
 
 namespace Inhere\Route\Helper;
 
+use InvalidArgumentException;
+use function array_map;
+use function array_pop;
+use function class_exists;
+use function count;
+use function explode;
+use function function_exists;
+use function implode;
+use function is_array;
+use function is_object;
+use function is_string;
+use function method_exists;
+use function preg_replace;
+use function preg_replace_callback;
+use function rawurldecode;
+use function rtrim;
+use function sprintf;
+use function strpos;
+use function strtoupper;
+use function trim;
+use function ucfirst;
+
 /**
  * Class RouteHelper
  * @package Inhere\Route
@@ -16,18 +38,22 @@ class RouteHelper
 {
     /**
      * is Static Route
+     *
      * @param string $route
+     *
      * @return bool
      */
     public static function isStaticRoute(string $route): bool
     {
-        return \strpos($route, '{') === false && \strpos($route, '[') === false;
+        return strpos($route, '{') === false && strpos($route, '[') === false;
     }
 
     /**
      * format URI path
+     *
      * @param string $path
      * @param bool   $ignoreLastSlash
+     *
      * @return string
      */
     public static function formatPath(string $path, bool $ignoreLastSlash = true): string
@@ -37,34 +63,35 @@ class RouteHelper
         }
 
         // Clear '//', '///' => '/'
-        if (false !== \strpos($path, '//')) {
-            $path = \preg_replace('#\/\/+#', '/', $path);
+        if (false !== strpos($path, '//')) {
+            $path = preg_replace('#\/\/+#', '/', $path);
         }
 
         // Must be start withs '/'
-        if (\strpos($path, '/') !== 0) {
+        if (strpos($path, '/') !== 0) {
             $path = '/' . $path;
         }
 
         // Decode
-        $path = \rawurldecode($path);
+        $path = rawurldecode($path);
 
-        return $ignoreLastSlash ? \rtrim($path, '/') : $path;
+        return $ignoreLastSlash ? rtrim($path, '/') : $path;
     }
 
     /**
      * @param string $str
+     *
      * @return string
      */
     public static function str2Camel(string $str): string
     {
-        $str = \trim($str, '-');
+        $str = trim($str, '-');
 
         // convert 'first-second' to 'firstSecond'
-        if (\strpos($str, '-')) {
-            $str = \preg_replace_callback('/-+([a-z])/', function ($c) {
-                return \strtoupper($c[1]);
-            }, \trim($str, '- '));
+        if (strpos($str, '-')) {
+            $str = preg_replace_callback('/-+([a-z])/', function ($c) {
+                return strtoupper($c[1]);
+            }, trim($str, '- '));
         }
 
         return $str;
@@ -72,41 +99,43 @@ class RouteHelper
 
     /**
      * handle auto route match, when config `'autoRoute' => true`
+     *
      * @param string $path The route path
      * @param string $cnp controller namespace. eg: 'app\\controllers'
      * @param string $sfx controller suffix. eg: 'Controller'
+     *
      * @return bool|callable
      */
     public static function parseAutoRoute(string $path, string $cnp, string $sfx)
     {
-        $tmp = \trim($path, '/- ');
+        $tmp = trim($path, '/- ');
 
         // one node. eg: 'home'
-        if (!\strpos($tmp, '/')) {
+        if (!strpos($tmp, '/')) {
             $tmp   = self::str2Camel($tmp);
-            $class = "$cnp\\" . \ucfirst($tmp) . $sfx;
+            $class = "$cnp\\" . ucfirst($tmp) . $sfx;
 
-            return \class_exists($class) ? $class : false;
+            return class_exists($class) ? $class : false;
         }
 
-        $ary = \array_map(self::class . '::str2Camel', \explode('/', $tmp));
-        $cnt = \count($ary);
+        $ary = array_map(self::class . '::str2Camel', explode('/', $tmp));
+        $cnt = count($ary);
 
         // two nodes. eg: 'home/test' 'admin/user'
         if ($cnt === 2) {
             [$n1, $n2] = $ary;
 
             // last node is an controller class name. eg: 'admin/user'
-            $class = "$cnp\\$n1\\" . \ucfirst($n2) . $sfx;
+            $class = "$cnp\\$n1\\" . ucfirst($n2) . $sfx;
 
-            if (\class_exists($class)) {
+            if (class_exists($class)) {
                 return $class;
             }
 
             // first node is an controller class name, second node is a action name,
-            $class = "$cnp\\" . \ucfirst($n1) . $sfx;
+            $class = "$cnp\\" . ucfirst($n1) . $sfx;
 
-            return \class_exists($class) ? "$class@$n2" : false;
+            return class_exists($class) ? "$class@$n2" : false;
         }
 
         // max allow 5 nodes
@@ -115,18 +144,18 @@ class RouteHelper
         }
 
         // last node is an controller class name
-        $n2    = \array_pop($ary);
-        $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n2) . $sfx);
+        $n2    = array_pop($ary);
+        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n2) . $sfx);
 
-        if (\class_exists($class)) {
+        if (class_exists($class)) {
             return $class;
         }
 
         // last second is an controller class name, last node is a action name,
-        $n1    = \array_pop($ary);
-        $class = \sprintf('%s\\%s\\%s', $cnp, \implode('\\', $ary), \ucfirst($n1) . $sfx);
+        $n1    = array_pop($ary);
+        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n1) . $sfx);
 
-        return \class_exists($class) ? "$class@$n2" : false;
+        return class_exists($class) ? "$class@$n2" : false;
     }
 
     /**
@@ -136,8 +165,9 @@ class RouteHelper
      * object - Closure, Object
      *
      * @param array          $args
+     *
      * @return mixed
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public static function call($cb, array $args = [])
     {
@@ -145,28 +175,28 @@ class RouteHelper
             return true;
         }
 
-        if (\is_array($cb)) {
+        if (is_array($cb)) {
             [$obj, $mhd] = $cb;
 
-            return \is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
+            return is_object($obj) ? $obj->$mhd(...$args) : $obj::$mhd(...$args);
         }
 
-        if (\is_string($cb)) {
-            if (\function_exists($cb)) {
+        if (is_string($cb)) {
+            if (function_exists($cb)) {
                 return $cb(...$args);
             }
 
             // a class name
-            if (\class_exists($cb)) {
+            if (class_exists($cb)) {
                 $cb = new $cb;
             }
         }
 
         // a \Closure or Object implement '__invoke'
-        if (\is_object($cb) && \method_exists($cb, '__invoke')) {
+        if (is_object($cb) && method_exists($cb, '__invoke')) {
             return $cb(...$args);
         }
 
-        throw new \InvalidArgumentException('the callback handler is not callable!');
+        throw new InvalidArgumentException('the callback handler is not callable!');
     }
 }

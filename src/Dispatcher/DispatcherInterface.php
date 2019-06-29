@@ -10,6 +10,7 @@ namespace Inhere\Route\Dispatcher;
 
 use Inhere\Route\Route;
 use Inhere\Route\RouterInterface;
+use Throwable;
 
 /**
  * Interface DispatcherInterface
@@ -29,29 +30,34 @@ interface DispatcherInterface
 
     /**
      * Runs the callback for the given path and method.
-     * @param string $path
+     *
+     * @param string      $path
      * @param null|string $method
+     *
      * @return mixed
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function dispatchUri(string $path = null, string $method = null);
 
     /**
      * Dispatch route handler for the given route info.
-     * @param int $status
-     * @param string $path
-     * @param string $method
+     *
+     * @param int              $status
+     * @param string           $path
+     * @param string           $method
      * @param Route|array|null $route matched route info
+     *
      * @return mixed
      */
     public function dispatch(int $status, string $path, string $method, $route);
 
     /**
      * Defines callback on happen event.
-     * @param string $event please see class constants ON_*
+     *
+     * @param string   $event please see class constants ON_*
      * @param callable $handler
      */
-    public function on(string $event, $handler);
+    public function on(string $event, $handler): void;
 
     /**
      * @return RouterInterface
@@ -66,7 +72,7 @@ interface DispatcherInterface
     /**
      * @param RouterInterface $router
      */
-    public function setRouter(RouterInterface $router);
+    public function setRouter(RouterInterface $router): void;
 
     /**
      * @return array

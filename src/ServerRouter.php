@@ -9,6 +9,10 @@
 namespace Inhere\Route;
 
 use Inhere\Route\Helper\RouteHelper;
+use LogicException;
+use function array_shift;
+use function count;
+use function strtoupper;
 
 /**
  * Class ServerRouter
@@ -39,8 +43,10 @@ final class ServerRouter extends Router
 
     /**
      * object constructor.
+     *
      * @param array $config
-     * @throws \LogicException
+     *
+     * @throws LogicException
      */
     public function __construct(array $config = [])
     {
@@ -61,7 +67,7 @@ final class ServerRouter extends Router
     public function match(string $path, string $method = 'GET'): array
     {
         // For HEAD requests, attempt fallback to GET
-        $method = \strtoupper($method);
+        $method = strtoupper($method);
         if ($method === 'HEAD') {
             $method = 'GET';
         }
@@ -111,17 +117,17 @@ final class ServerRouter extends Router
     /**
      * @param string $path
      * @param string $method
-     * @param Route $route
+     * @param Route  $route
      */
     protected function cacheMatchedParamRoute(string $path, string $method, Route $route): void
     {
-        $cacheKey = $method . ' ' . $path;
+        $cacheKey    = $method . ' ' . $path;
         $cacheNumber = (int)$this->tmpCacheNumber;
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0 && !isset($this->cacheRoutes[$cacheKey])) {
             if ($this->getCacheCount() >= $cacheNumber) {
-                \array_shift($this->cacheRoutes);
+                array_shift($this->cacheRoutes);
             }
 
             $this->cacheRoutes[$cacheKey] = $route;
@@ -141,6 +147,6 @@ final class ServerRouter extends Router
      */
     public function getCacheCount(): int
     {
-        return \count($this->cacheRoutes);
+        return count($this->cacheRoutes);
     }
 }

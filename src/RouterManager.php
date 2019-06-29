@@ -8,6 +8,10 @@
 
 namespace Inhere\Route;
 
+use InvalidArgumentException;
+use function in_array;
+use function is_string;
+
 /**
  * Class RouterManager
  * @package Inhere\Route
@@ -34,10 +38,10 @@ class RouterManager
      * @var array Available router driver
      */
     private $drivers = [
-        'default' => Router::class,
-        'cached' => CachedRouter::class,
+        'default'  => Router::class,
+        'cached'   => CachedRouter::class,
         'preMatch' => PreMatchRouter::class,
-        'server' => ServerRouter::class,
+        'server'   => ServerRouter::class,
     ];
 
     /**
@@ -113,6 +117,7 @@ class RouterManager
 
     /**
      * RouterManager constructor.
+     *
      * @param array $configs
      */
     public function __construct(array $configs = [])
@@ -128,6 +133,7 @@ class RouterManager
 
     /**
      * get router by condition
+     *
      * @param array|string $condition
      * array:
      * [
@@ -136,8 +142,9 @@ class RouterManager
      * ]
      * string:
      *  get by name. same of call getByName()
+     *
      * @return Router |RouterInterface
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function get($condition = null): Router
     {
@@ -146,7 +153,7 @@ class RouterManager
         }
 
         // alias of getByName()
-        if (\is_string($condition)) {
+        if (is_string($condition)) {
             return $this->getByName($condition);
         }
 
@@ -165,6 +172,7 @@ class RouterManager
     /**
      * @param array $define
      * @param array $input
+     *
      * @return bool
      */
     protected function compareArray(array $define, array $input): bool
@@ -175,7 +183,7 @@ class RouterManager
             if (isset($define[$def], $input[$key])) {
                 $defValues = (array)$define[$def];
 
-                if (!\in_array($input[$key], $defValues, true)) {
+                if (!in_array($input[$key], $defValues, true)) {
                     $match = false;
                     break;
                 }
@@ -187,13 +195,14 @@ class RouterManager
 
     /**
      * @param string $name
+     *
      * @return Router
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getByName(string $name): Router
     {
         if (!isset($this->configs[$name])) {
-            throw new \InvalidArgumentException("The named router '$name' does not exists!");
+            throw new InvalidArgumentException("The named router '$name' does not exists!");
         }
 
         // if created
@@ -204,9 +213,9 @@ class RouterManager
         // create
         $config = $this->configs[$name];
 
-        if (\is_string($config)) {
+        if (is_string($config)) {
             if (!isset($this->configs[$config])) {
-                throw new \InvalidArgumentException("The reference config '$config' does not exists of the '$name'!");
+                throw new InvalidArgumentException("The reference config '$config' does not exists of the '$name'!");
             }
 
             $config = $this->configs[$config];
@@ -217,7 +226,7 @@ class RouterManager
 
     /**
      * @return Router
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getDefault(): Router
     {
@@ -225,18 +234,19 @@ class RouterManager
     }
 
     /**
-     * @param array $config
+     * @param array  $config
      * @param string $name
+     *
      * @return Router
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     private function createRouter(array $config, string $name = ''): Router
     {
-        $driver = $config['driver'] ?? self::DEFAULT_ROUTER;
+        $driver  = $config['driver'] ?? self::DEFAULT_ROUTER;
         $options = $config['options'] ?? [];
 
         if (!$class = $this->drivers[$driver] ?? null) {
-            throw new \InvalidArgumentException("The router driver name '$driver' does not exists!");
+            throw new InvalidArgumentException("The router driver name '$driver' does not exists!");
         }
 
         if ($name && !isset($options['name'])) {

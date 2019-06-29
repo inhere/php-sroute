@@ -8,6 +8,14 @@
 
 namespace Inhere\Route;
 
+use LogicException;
+use function date;
+use function file_exists;
+use function file_put_contents;
+use function preg_replace;
+use function trim;
+use function var_export;
+
 /**
  * Class CachedRouter - this is object version and support cache routes.
  *
@@ -38,8 +46,10 @@ final class CachedRouter extends Router
 
     /**
      * object constructor.
+     *
      * @param array $config
-     * @throws \LogicException
+     *
+     * @throws LogicException
      */
     public function __construct(array $config = [])
     {
@@ -106,14 +116,14 @@ final class CachedRouter extends Router
         }
 
         $file = $this->cacheFile;
-        if (!$file || !\file_exists($file)) {
+        if (!$file || !file_exists($file)) {
             return false;
         }
 
         // load routes
-        $map = require $file;
+        $map                = require $file;
         $this->routeCounter = 0;
-        $staticRoutes = $regularRoutes = $vagueRoutes = [];
+        $staticRoutes       = $regularRoutes = $vagueRoutes = [];
 
         foreach ($map['staticRoutes'] as $key => $info) {
             $this->routeCounter++;
@@ -134,10 +144,10 @@ final class CachedRouter extends Router
             }
         }
 
-        $this->staticRoutes = $staticRoutes;
+        $this->staticRoutes  = $staticRoutes;
         $this->regularRoutes = $regularRoutes;
-        $this->vagueRoutes = $vagueRoutes;
-        $this->cacheLoaded = true;
+        $this->vagueRoutes   = $vagueRoutes;
+        $this->cacheLoaded   = true;
 
         return true;
     }
@@ -152,17 +162,17 @@ final class CachedRouter extends Router
             return 0;
         }
 
-        if ($this->isCacheEnable() && \file_exists($file)) {
+        if ($this->isCacheEnable() && file_exists($file)) {
             return 1;
         }
 
-        $date = \date('Y-m-d H:i:s');
+        $date  = date('Y-m-d H:i:s');
         $class = static::class;
         $count = $this->count();
 
-        $staticRoutes = \var_export($this->staticRoutes, true);
-        $regularRoutes = \var_export($this->regularRoutes, true);
-        $vagueRoutes = \var_export($this->vagueRoutes, true);
+        $staticRoutes  = var_export($this->staticRoutes, true);
+        $regularRoutes = var_export($this->regularRoutes, true);
+        $vagueRoutes   = var_export($this->vagueRoutes, true);
 
         $code = <<<EOF
 <?php
@@ -182,7 +192,7 @@ return array (
 'vagueRoutes' => $vagueRoutes,
 );\n
 EOF;
-        return \file_put_contents($file, \preg_replace(
+        return file_put_contents($file, preg_replace(
             ['/\s+\n\s+Inhere\\\\Route\\\\Route::__set_state\(/', '/\)\),/', '/=>\s+\n\s+array \(/'],
             [' ', '),', '=> array ('],
             $code
@@ -218,7 +228,7 @@ EOF;
      */
     public function setCacheFile(string $cacheFile): void
     {
-        $this->cacheFile = \trim($cacheFile);
+        $this->cacheFile = trim($cacheFile);
     }
 
     /**
@@ -226,7 +236,7 @@ EOF;
      */
     public function isCacheExists(): bool
     {
-        return ($file = $this->cacheFile) && \file_exists($file);
+        return ($file = $this->cacheFile) && file_exists($file);
     }
 
     /**

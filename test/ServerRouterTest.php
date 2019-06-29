@@ -11,6 +11,7 @@ namespace Inhere\RouteTest;
 use Inhere\Route\Route;
 use Inhere\Route\ServerRouter;
 use PHPUnit\Framework\TestCase;
+use function array_shift;
 
 /**
  * Class ServerRouterTest
@@ -45,7 +46,7 @@ class ServerRouterTest extends TestCase
         $cachedRoutes = $router->getCacheRoutes();
         $this->assertCount(1, $cachedRoutes);
 
-        $cached = \array_shift($cachedRoutes);
+        $cached = array_shift($cachedRoutes);
         $this->assertEquals($route, $cached);
 
         // repeat request

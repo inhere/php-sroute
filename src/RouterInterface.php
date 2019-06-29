@@ -8,11 +8,14 @@
 
 namespace Inhere\Route;
 
+use Countable;
+use IteratorAggregate;
+
 /**
  * Interface RouterInterface
  * @package Inhere\Route
  */
-interface RouterInterface extends \IteratorAggregate, \Countable
+interface RouterInterface extends IteratorAggregate, Countable
 {
     /** match result status list */
     public const FOUND              = 1;
@@ -65,6 +68,7 @@ interface RouterInterface extends \IteratorAggregate, \Countable
 
     /**
      * add a route to the router.
+     *
      * @param string $method Request method name. eg 'GET'
      * @param string $path The route path. eg '/users'
      * @param mixed  $handler The route handler. allow: string, array, object
@@ -72,13 +76,16 @@ interface RouterInterface extends \IteratorAggregate, \Countable
      * @param array  $opts Extra options
      * - name: string
      * - ... more
+     *
      * @return Route
      */
     public function add(string $method, string $path, $handler, array $pathParams = [], array $opts = []): Route;
 
     /**
      * add a Route to the router
+     *
      * @param Route $route
+     *
      * @return Route
      */
     public function addRoute(Route $route): Route;
@@ -99,8 +106,10 @@ interface RouterInterface extends \IteratorAggregate, \Countable
 
     /**
      * find the matched route info for the given request uri path
+     *
      * @param string $method
      * @param string $path
+     *
      * @return array
      *
      *  [self::NOT_FOUND, $path, null]

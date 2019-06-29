@@ -8,6 +8,9 @@
 
 namespace Inhere\Route;
 
+use LogicException;
+use function trim;
+
 /**
  * Trait RouterConfigTrait
  * @package Inhere\Route
@@ -80,13 +83,15 @@ trait RouterConfigTrait
 
     /**
      * config the router
+     *
      * @param array $config
-     * @throws \LogicException
+     *
+     * @throws LogicException
      */
     public function config(array $config): void
     {
         if ($this->routeCounter > 0) {
-            throw new \LogicException('Routing has been added, and configuration is not allowed!');
+            throw new LogicException('Routing has been added, and configuration is not allowed!');
         }
 
         $props = [
@@ -140,7 +145,7 @@ trait RouterConfigTrait
      */
     public function addGlobalParam(string $name, string $pattern): void
     {
-        $name = \trim($name, '{} ');
+        $name                      = trim($name, '{} ');
         self::$globalParams[$name] = $pattern;
     }
 

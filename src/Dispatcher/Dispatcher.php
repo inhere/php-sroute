@@ -8,8 +8,10 @@
 
 namespace Inhere\Route\Dispatcher;
 
+use Exception;
 use Inhere\Route\Helper\RouteHelper;
 use Inhere\Route\RouterInterface;
+use Throwable;
 
 /**
  * Class Dispatcher
@@ -25,8 +27,8 @@ class Dispatcher extends SimpleDispatcher
     /**
      * Dispatch route handler for the given route info.
      * {@inheritdoc}
-     * @throws \Exception
-     * @throws \Throwable
+     * @throws Exception
+     * @throws Throwable
      */
     public function dispatch(int $status, string $path, string $method, $route)
     {
@@ -43,7 +45,7 @@ class Dispatcher extends SimpleDispatcher
         // trigger route found event
         $this->fire(self::ON_FOUND, [$path, $route]);
 
-        $result = null;
+        $result  = null;
         $options = $route->getOptions();
 
         // fire enter event
@@ -53,7 +55,7 @@ class Dispatcher extends SimpleDispatcher
         }
 
         $handler = $route->getHandler();
-        $args = $route->getParams();
+        $args    = $route->getParams();
 
         try {
             // trigger route exec_start event
@@ -67,7 +69,7 @@ class Dispatcher extends SimpleDispatcher
 
             // trigger route exec_end event
             $this->fire(self::ON_EXEC_END, [$path, $route, $result]);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             // trigger route exec_error event
             if ($cb = $this->getOption(self::ON_EXEC_ERROR)) {
                 return RouteHelper::call($cb, [$e, $path, $route]);

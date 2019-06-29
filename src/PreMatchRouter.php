@@ -9,6 +9,11 @@
 namespace Inhere\Route;
 
 use Inhere\Route\Helper\RouteHelper;
+use LogicException;
+use function parse_url;
+use function strpos;
+use function strtoupper;
+use const PHP_URL_PATH;
 
 /**
  * Class PreMatchRouter
@@ -31,10 +36,12 @@ final class PreMatchRouter extends Router
 
     /**
      * object constructor.
-     * @param array $config
+     *
+     * @param array       $config
      * @param string|null $path
      * @param string|null $method
-     * @throws \LogicException
+     *
+     * @throws LogicException
      */
     public function __construct(array $config = [], string $path = '', string $method = '')
     {
@@ -61,16 +68,17 @@ final class PreMatchRouter extends Router
             $path = (string)($_SERVER['REQUEST_URI'] ?? '');
         }
 
-        if (\strpos($path, '?')) {
-            $path = \parse_url($path, \PHP_URL_PATH);
+        if (strpos($path, '?')) {
+            $path = parse_url($path, PHP_URL_PATH);
         }
 
-        $this->reqPath = RouteHelper::formatPath($path, $this->ignoreLastSlash);
-        $this->reqMethod = $method ? \strtoupper($method) : $_SERVER['REQUEST_METHOD'];
+        $this->reqPath   = RouteHelper::formatPath($path, $this->ignoreLastSlash);
+        $this->reqMethod = $method ? strtoupper($method) : $_SERVER['REQUEST_METHOD'];
     }
 
     /**
      * @param Route $route
+     *
      * @return Route
      */
     public function addRoute(Route $route): Route
@@ -80,7 +88,7 @@ final class PreMatchRouter extends Router
             return $route;
         }
 
-        $path = $route->getPath();
+        $path   = $route->getPath();
         $method = $route->getMethod();
 
         $this->routeCounter++;

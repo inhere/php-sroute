@@ -4,9 +4,14 @@ namespace Inhere\RouteTest;
 
 use Inhere\Route\Route;
 use Inhere\Route\Router;
-use PHPUnit\Framework\TestCase;
-use function Inhere\Route\createRouter;
 use Inhere\RouteTest\controllers\DemoController;
+use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
+use PHPUnit\Runner\Version;
+use Throwable;
+use function in_array;
+use function Inhere\Route\createRouter;
+use function sprintf;
 
 class RouterTest extends TestCase
 {
@@ -42,10 +47,10 @@ class RouterTest extends TestCase
         $this->assertTrue($r->count() > 1);
         $this->assertNotEmpty($r->getRoutes());
 
-        $isGt8 = (int)\PHPUnit\Runner\Version::series() > 7;
+        $isGt8 = (int)Version::series() > 7;
         if ($isGt8) {
-            $this->assertTrue(\in_array('name', $r1->getPathVars(), true));
-            $this->assertTrue(\in_array('age', $r1->getPathVars(), true));
+            $this->assertTrue(in_array('name', $r1->getPathVars(), true));
+            $this->assertTrue(in_array('age', $r1->getPathVars(), true));
             $this->assertStringContainsString('GET     /my[/{name}[/{age}]]', (string)$r1);
         } else {
             $this->assertContains('name', $r1->getPathVars());
@@ -60,7 +65,7 @@ class RouterTest extends TestCase
         }
         $string = (string)$r;
         foreach (Router::METHODS_ARRAY as $method) {
-            $s = \sprintf('%-7s %-25s --> %s', $method, "/$method", "handle_$method");
+            $s = sprintf('%-7s %-25s --> %s', $method, "/$method", "handle_$method");
             if ($isGt8) {
                 $this->assertStringContainsString($s, $string);
             } else {
@@ -71,7 +76,7 @@ class RouterTest extends TestCase
         $r->add('ANY', '/any', 'handler_any');
         $string = $r->toString();
         foreach (Router::METHODS_ARRAY as $method) {
-            $s = \sprintf('%-7s %-25s --> %s', $method, '/any', 'handler_any');
+            $s = sprintf('%-7s %-25s --> %s', $method, '/any', 'handler_any');
             if ($isGt8) {
                 $this->assertStringContainsString($s, $string);
             } else {
@@ -82,12 +87,12 @@ class RouterTest extends TestCase
         $this->expectExceptionMessage('The method and route handler is not allow empty.');
         $r->add('GET', '', '');
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $r->add('invalid', '/path', '/handler');
 
         try {
             $r->add('invalid', '/path', '/handler');
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             if ($isGt8) {
                 $this->assertStringContainsString('The method [INVALID] is not supported', $e->getMessage());
             } else {
@@ -114,7 +119,7 @@ class RouterTest extends TestCase
 
         $r4 = $router->add('get', '/path4', 'handler4', [], ['name' => 'r4']);
         $r5 = Route::create('get', '/path5', 'handler5', [], ['name' => 'r5'])
-            ->attachTo($router);
+                   ->attachTo($router);
 
         $this->assertEmpty($router->getRoute('not-exist'));
         $this->assertEquals($r1, $router->getRoute('r1'));

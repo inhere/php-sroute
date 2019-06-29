@@ -41,8 +41,8 @@ class PreMatchRouterTest extends TestCase
 
     public function testRouteCacheExists(): void
     {
-        $p = '/test';
-        $m = 'GET';
+        $p      = '/test';
+        $m      = 'GET';
         $router = $this->createRouter($p, $m);
 
         $this->assertInstanceOf(Route::class, $router->getPreFounded());

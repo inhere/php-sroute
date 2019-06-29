@@ -8,9 +8,25 @@
 
 namespace Inhere\Route;
 
+use ArrayIterator;
+use Closure;
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Dispatcher\DispatcherInterface;
 use Inhere\Route\Helper\RouteHelper;
+use InvalidArgumentException;
+use LogicException;
+use Throwable;
+use Traversable;
+use function array_keys;
+use function array_merge;
+use function implode;
+use function is_array;
+use function ltrim;
+use function rtrim;
+use function strpos;
+use function strstr;
+use function strtoupper;
+use function trim;
 
 /**
  * Class Router - This is object version
@@ -96,9 +112,11 @@ class Router implements RouterInterface
 
     /**
      * object creator.
+     *
      * @param array $config
+     *
      * @return self
-     * @throws \LogicException
+     * @throws LogicException
      */
     public static function create(array $config = []): Router
     {
@@ -107,8 +125,10 @@ class Router implements RouterInterface
 
     /**
      * object constructor.
+     *
      * @param array $config
-     * @throws \LogicException
+     *
+     * @throws LogicException
      */
     public function __construct(array $config = [])
     {
@@ -125,7 +145,9 @@ class Router implements RouterInterface
 
     /**
      * alias of the method: middleware()
+     *
      * @param array ...$middleware
+     *
      * @return self
      */
     public function use(...$middleware): Router
@@ -135,7 +157,9 @@ class Router implements RouterInterface
 
     /**
      * push middleware(s) for the route
+     *
      * @param mixed ...$middleware
+     *
      * @return Router
      */
     public function middleware(...$middleware): Router
@@ -253,24 +277,25 @@ class Router implements RouterInterface
      * @param        $handler
      * @param array  $pathParams
      * @param array  $opts
+     *
      * @return Route
      */
     public function add(string $method, string $path, $handler, array $pathParams = [], array $opts = []): Route
     {
         if (!$method || !$handler) {
-            throw new \InvalidArgumentException('The method and route handler is not allow empty.');
+            throw new InvalidArgumentException('The method and route handler is not allow empty.');
         }
 
         $route  = $this->cloneRoute();
-        $method = \strtoupper($method);
+        $method = strtoupper($method);
         if ($method === 'ANY') {
             $this->any($path, $handler, $pathParams, $opts);
             return $route; // Only use for return type
         }
 
-        if (false === \strpos(self::METHODS_STRING, ',' . $method . ',')) {
-            throw new \InvalidArgumentException(
-                "The method [$method] is not supported, Allow: " . \trim(self::METHODS_STRING, ',')
+        if (false === strpos(self::METHODS_STRING, ',' . $method . ',')) {
+            throw new InvalidArgumentException(
+                "The method [$method] is not supported, Allow: " . trim(self::METHODS_STRING, ',')
             );
         }
 
@@ -282,6 +307,7 @@ class Router implements RouterInterface
 
     /**
      * @param Route $route
+     *
      * @return Route
      */
     public function addRoute(Route $route): Route
@@ -296,8 +322,8 @@ class Router implements RouterInterface
         }
 
         // It is static route
-        $argPos = \strpos($path, '{');
-        $optPos = \strpos($path, '[');
+        $argPos = strpos($path, '{');
+        $optPos = strpos($path, '[');
         if ($argPos === false && $optPos === false) {
             $this->staticRoutes[$method . ' ' . $path] = $route;
             return $route;
@@ -318,12 +344,13 @@ class Router implements RouterInterface
     /**
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
-     * @param string   $prefix
-     * @param \Closure $callback
-     * @param array    $middleware
-     * @param array    $opts
+     *
+     * @param string  $prefix
+     * @param Closure $callback
+     * @param array   $middleware
+     * @param array   $opts
      */
-    public function group(string $prefix, \Closure $callback, array $middleware = [], array $opts = []): void
+    public function group(string $prefix, Closure $callback, array $middleware = [], array $opts = []): void
     {
         // Backups
         $previousGroupPrefix = $this->currentGroupPrefix;
@@ -332,7 +359,7 @@ class Router implements RouterInterface
 
         $this->currentGroupOption = $opts;
         $this->currentGroupChains = $middleware;
-        $this->currentGroupPrefix = $previousGroupPrefix . '/' . \trim($prefix, '/');
+        $this->currentGroupPrefix = $previousGroupPrefix . '/' . trim($prefix, '/');
 
         // Run callback.
         $callback($this);
@@ -345,7 +372,9 @@ class Router implements RouterInterface
 
     /**
      * prepare for add
+     *
      * @param Route $route
+     *
      * @return void
      */
     protected function appendGroupInfo(Route $route): void
@@ -353,12 +382,12 @@ class Router implements RouterInterface
         $path = $bak = $route->getPath();
 
         // Always add '/' prefix.
-        $path = \strpos($path, '/') === 0 ? $path : '/' . $path;
+        $path = strpos($path, '/') === 0 ? $path : '/' . $path;
         $path = $this->currentGroupPrefix . $path;
 
         // Has setting 'ignoreLastSlash'
         if ($path !== '/' && $this->ignoreLastSlash) {
-            $path = \rtrim($path, '/');
+            $path = rtrim($path, '/');
         }
 
         // Not in group and path not change.
@@ -374,12 +403,12 @@ class Router implements RouterInterface
         }
 
         if ($this->currentGroupOption) {
-            $route->setOptions(\array_merge($this->currentGroupOption, $route->getOptions()));
+            $route->setOptions(array_merge($this->currentGroupOption, $route->getOptions()));
         }
 
         // Prepend group middleware at before.
         if ($this->currentGroupChains) {
-            $route->setChains(\array_merge($this->currentGroupChains, $route->getChains()));
+            $route->setChains(array_merge($this->currentGroupChains, $route->getChains()));
         }
     }
 
@@ -389,8 +418,10 @@ class Router implements RouterInterface
 
     /**
      * find the matched route info for the given request uri path
+     *
      * @param string $method
      * @param string $path
+     *
      * @return array returns array.
      * [
      *  match status, // found, not found, method not allowed
@@ -401,7 +432,7 @@ class Router implements RouterInterface
     public function match(string $path, string $method = 'GET'): array
     {
         // For HEAD requests, attempt fallback to GET
-        $method = \strtoupper($method);
+        $method = strtoupper($method);
         if ($method === 'HEAD') {
             $method = 'GET';
         }
@@ -440,8 +471,10 @@ class Router implements RouterInterface
 
     /**
      * is a dynamic route, match by regexp
+     *
      * @param string $path
      * @param string $method
+     *
      * @return array
      * [
      *  status,
@@ -451,7 +484,7 @@ class Router implements RouterInterface
      */
     protected function matchDynamicRoute(string $path, string $method): array
     {
-        $first = \strstr(\ltrim($path, '/'), '/', true);
+        $first = strstr(ltrim($path, '/'), '/', true);
         $fKey  = $first ? $method . ' ' . $first : '';
 
         // It is a regular dynamic route(the first node is 1th level index key).
@@ -460,7 +493,7 @@ class Router implements RouterInterface
             foreach ($this->regularRoutes[$fKey] as $route) {
                 // Check path start string
                 $pathStart = $route->getPathStart();
-                if (\strpos($path, $pathStart) !== 0) {
+                if (strpos($path, $pathStart) !== 0) {
                     continue;
                 }
 
@@ -487,16 +520,18 @@ class Router implements RouterInterface
 
     /**
      * handle auto route match, when config `'autoRoute' => true`
+     *
      * @param string $path The route path
+     *
      * @return bool|callable
      */
     public function matchAutoRoute(string $path)
     {
-        if (!$cnp = \trim($this->controllerNamespace)) {
+        if (!$cnp = trim($this->controllerNamespace)) {
             return false;
         }
 
-        $sfx = \trim($this->controllerSuffix);
+        $sfx = trim($this->controllerSuffix);
 
         return RouteHelper::parseAutoRoute($path, $cnp, $sfx);
     }
@@ -504,6 +539,7 @@ class Router implements RouterInterface
     /**
      * @param string $path
      * @param string $method
+     *
      * @return array
      */
     protected function findAllowedMethods(string $path, string $method): array
@@ -527,7 +563,7 @@ class Router implements RouterInterface
         }
 
         if ($methods) {
-            return [self::METHOD_NOT_ALLOWED, $path, \array_keys($methods)];
+            return [self::METHOD_NOT_ALLOWED, $path, array_keys($methods)];
         }
         return [self::NOT_FOUND, $path, null];
     }
@@ -538,23 +574,25 @@ class Router implements RouterInterface
 
     /**
      * Runs the callback for the given request
+     *
      * @param DispatcherInterface|array $dispatcher
      * @param null|string               $path
      * @param null|string               $method
+     *
      * @return mixed
-     * @throws \LogicException
-     * @throws \Throwable
+     * @throws LogicException
+     * @throws Throwable
      */
     public function dispatch($dispatcher = null, $path = null, $method = null)
     {
         if (!$dispatcher) {
             $dispatcher = new Dispatcher;
-        } elseif (\is_array($dispatcher)) {
+        } elseif (is_array($dispatcher)) {
             $dispatcher = new Dispatcher($dispatcher);
         }
 
         if (!$dispatcher instanceof DispatcherInterface) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'The first argument is must an array OR an object instanceof the DispatcherInterface'
             );
         }
@@ -573,6 +611,7 @@ class Router implements RouterInterface
     /**
      * @param string $name Route name
      * @param array  $pathVars
+     *
      * @return string
      */
     public function createUri(string $name, array $pathVars = []): string
@@ -590,14 +629,16 @@ class Router implements RouterInterface
      */
     public function nameRoute(string $name, Route $route): void
     {
-        if ($name = \trim($name)) {
+        if ($name = trim($name)) {
             $this->namedRoutes[$name] = $route;
         }
     }
 
     /**
      * get a name route by given name.
+     *
      * @param string $name
+     *
      * @return Route|null
      */
     public function getRoute(string $name): ?Route
@@ -614,9 +655,9 @@ class Router implements RouterInterface
     }
 
     /**
-     * @param \Closure $func
+     * @param Closure $func
      */
-    public function each(\Closure $func): void
+    public function each(Closure $func): void
     {
         /** @var Route $route */
         foreach ($this->staticRoutes as $route) {
@@ -666,13 +707,13 @@ class Router implements RouterInterface
     /**
      * Retrieve an external iterator
      * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
-     * @return \Traversable An instance of an object implementing <b>Iterator</b> or
+     * @return Traversable An instance of an object implementing <b>Iterator</b> or
      * <b>Traversable</b>
      * @since 5.0.0
      */
-    public function getIterator(): \Traversable
+    public function getIterator(): Traversable
     {
-        return new \ArrayIterator($this->getRoutes());
+        return new ArrayIterator($this->getRoutes());
     }
 
     /**
@@ -710,6 +751,6 @@ class Router implements RouterInterface
             }
         }
 
-        return \implode("\n", $strings);
+        return implode("\n", $strings);
     }
 }

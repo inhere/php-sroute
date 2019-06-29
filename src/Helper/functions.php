@@ -8,12 +8,15 @@
 
 namespace Inhere\Route;
 
+use Closure;
+
 /**
- * @param \Closure $closure
- * @param array $config
+ * @param Closure $closure
+ * @param array   $config
+ *
  * @return Router
  */
-function createRouter(\Closure $closure, array $config = []): Router
+function createRouter(Closure $closure, array $config = []): Router
 {
     $closure($router = new Router($config));
 
@@ -21,11 +24,12 @@ function createRouter(\Closure $closure, array $config = []): Router
 }
 
 /**
- * @param \Closure $closure
- * @param array $config
+ * @param Closure $closure
+ * @param array   $config
+ *
  * @return CachedRouter
  */
-function createCachedRouter(\Closure $closure, array $config = []): CachedRouter
+function createCachedRouter(Closure $closure, array $config = []): CachedRouter
 {
     $closure($router = new CachedRouter($config));
 
@@ -35,19 +39,19 @@ function createCachedRouter(\Closure $closure, array $config = []): CachedRouter
 }
 
 /**
- * @param \Closure $closure
+ * @param Closure     $closure
  * @param string|null $path
  * @param string|null $method
- * @param array $config
+ * @param array       $config
+ *
  * @return PreMatchRouter
  */
 function createPreMatchRouter(
-    \Closure $closure,
+    Closure $closure,
     string $path = null,
     string $method = null,
     array $config = []
-): PreMatchRouter
-{
+): PreMatchRouter {
     $router = new PreMatchRouter($config, $path, $method);
 
     $closure($router);
@@ -56,11 +60,12 @@ function createPreMatchRouter(
 }
 
 /**
- * @param \Closure $closure
- * @param array $config
+ * @param Closure $closure
+ * @param array   $config
+ *
  * @return ServerRouter
  */
-function createServerRouter(\Closure $closure, array $config = []): ServerRouter
+function createServerRouter(Closure $closure, array $config = []): ServerRouter
 {
     $closure($router = new ServerRouter($config));
 

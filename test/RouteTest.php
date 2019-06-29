@@ -3,6 +3,7 @@
 namespace Inhere\RouteTest;
 
 use Inhere\Route\Route;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 
 class RouteTest extends TestCase
@@ -10,16 +11,16 @@ class RouteTest extends TestCase
     public function testCreateFromArray(): void
     {
         $route = Route::createFromArray([
-            'path' => '/kfhxlkeugug/{name}',
-            'method' => 'GET',
-            'handler' => 'handler_func',
-            'bindVars' => [],
-            'params' => [],
-            'pathVars' => ['name',],
+            'path'      => '/kfhxlkeugug/{name}',
+            'method'    => 'GET',
+            'handler'   => 'handler_func',
+            'bindVars'  => [],
+            'params'    => [],
+            'pathVars'  => ['name',],
             'pathRegex' => '#^/kfhxlkeugug/([^/]+)$#',
             'pathStart' => '/kfhxlkeugug/',
-            'chains' => [],
-            'options' => [],
+            'chains'    => [],
+            'options'   => [],
         ]);
         $route->addOption('n1', 'v1');
 
@@ -38,7 +39,7 @@ class RouteTest extends TestCase
         //     ->method('parseParamRoute')
         //     ->will($this->returnValue('foo'));
 
-        $path = '/im/{name}/{age}';
+        $path  = '/im/{name}/{age}';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam(['age' => '\d+']);
         $this->assertCount(2, $route->getPathVars());
@@ -47,19 +48,19 @@ class RouteTest extends TestCase
         $this->assertEquals('/im/', $route->getPathStart());
         $this->assertEquals('#^/im/([^/]+)/(\d+)$#', $route->getPathRegex());
 
-        $path = '/path/to/{name}';
+        $path  = '/path/to/{name}';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam();
         $this->assertEquals('path', $first);
         $this->assertEquals('/path/to/', $route->getPathStart());
 
-        $path = '/path/to/some/{name}';
+        $path  = '/path/to/some/{name}';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam();
         $this->assertEquals('path', $first);
         $this->assertEquals('/path/to/some/', $route->getPathStart());
 
-        $path = '/hi/{name}';
+        $path  = '/hi/{name}';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam();
         $this->assertEquals('hi', $first);
@@ -67,7 +68,7 @@ class RouteTest extends TestCase
         $this->assertEquals('/hi/', $route->getPathStart());
         $this->assertEquals('#^/hi/([^/]+)$#', $route->getPathRegex());
 
-        $path = '/hi[/{name}]';
+        $path  = '/hi[/{name}]';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam();
         $this->assertEquals('', $first);
@@ -75,7 +76,7 @@ class RouteTest extends TestCase
         $this->assertEquals('', $route->getPathStart());
         $this->assertEquals('#^/hi(?:/([^/]+))?$#', $route->getPathRegex());
 
-        $path = '/hi[/tom]';
+        $path  = '/hi[/tom]';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam();
         $this->assertEquals('', $first);
@@ -83,28 +84,28 @@ class RouteTest extends TestCase
         $this->assertEquals('', $route->getPathStart());
         $this->assertEquals('#^/hi(?:/tom)?$#', $route->getPathRegex());
 
-        $path = '/hi/[tom]';
+        $path  = '/hi/[tom]';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam();
         $this->assertEquals('hi', $first);
         $this->assertEquals('/hi/', $route->getPathStart());
         $this->assertEquals('#^/hi/(?:tom)?$#', $route->getPathRegex());
 
-        $path = '/{category}';
+        $path  = '/{category}';
         $route = Route::create('GET', $path, 'my_handler');
         $first = $route->parseParam();
         $this->assertEquals('', $first);
         $this->assertEquals('', $route->getPathStart());
         $this->assertEquals('#^/([^/]+)$#', $route->getPathRegex());
 
-        $path = '/blog-{category}';
+        $path  = '/blog-{category}';
         $route = Route::create('GET', $path, 'my_handler', ['category' => '\w+']);
         $first = $route->parseParam();
         $this->assertEquals('', $first);
         $this->assertEquals('', $route->getPathStart());
         $this->assertEquals('#^/blog-(\w+)$#', $route->getPathRegex());
 
-        $path = '/blog/user-{id}';
+        $path  = '/blog/user-{id}';
         $route = Route::create('GET', $path, 'my_handler', ['id' => '\w+']);
         $first = $route->parseParam();
         $this->assertEquals('blog', $first);
@@ -112,7 +113,7 @@ class RouteTest extends TestCase
         $this->assertEquals('#^/blog/user-(\w+)$#', $route->getPathRegex());
 
         $route = Route::create('GET', '/some/[to/]path', 'my_handler');
-        $this->expectException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $this->expectExceptionMessage('Optional segments can only occur at the end of a route');
         $route->parseParam();
     }

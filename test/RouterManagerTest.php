@@ -9,7 +9,6 @@
 namespace Inhere\RouteTest;
 
 use Inhere\Route\PreMatchRouter;
-use Inhere\Route\Router;
 use Inhere\Route\RouterManager;
 use PHPUnit\Framework\TestCase;
 
@@ -26,16 +25,16 @@ class RouterManagerTest extends TestCase
     protected function setUp(): void
     {
         $configs = [
-            'default' => 'main-site',
+            'default'   => 'main-site',
             'main-site' => [
-                'driver' => 'default',
+                'driver'     => 'default',
                 'conditions' => [
                     'domains' => ['abc.com', 'www.abc.com']
                 ],
             ],
-            'doc-site' => [
-                'driver' => 'cached',
-                'options' => [
+            'doc-site'  => [
+                'driver'     => 'cached',
+                'options'    => [
 
                 ],
                 'conditions' => [
@@ -43,9 +42,9 @@ class RouterManagerTest extends TestCase
                 ],
             ],
             'blog-site' => [
-                'driver' => 'preMatch',
-                'options' => [
-                    'path' => '/test',
+                'driver'     => 'preMatch',
+                'options'    => [
+                    'path'   => '/test',
                     'method' => 'GET',
                 ],
                 'conditions' => [
