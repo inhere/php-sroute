@@ -33,7 +33,7 @@
   },
   "autoload-dev":  {
     "psr-4": {
-      "Inhere\\RouteTest\\": "src/"
+      "Inhere\\RouteTest\\": "test/"
     }
   },
   "suggest": {
