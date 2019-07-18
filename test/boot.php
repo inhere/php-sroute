@@ -17,7 +17,7 @@ date_default_timezone_set('Asia/Shanghai');
 $libDir = dirname(__DIR__);
 
 // has autoloader
-if (file_exist($libDir . '/vendor/autoload.php')) {
+if (file_exists($libDir . '/vendor/autoload.php')) {
     require $libDir . '/vendor/autoload.php';
 } else {
     require $libDir . '/src/Helper/functions.php';
