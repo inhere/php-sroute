@@ -20,6 +20,9 @@
   "require": {
     "php": ">7.1.0"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  },
   "autoload": {
     "psr-4": {
       "Inhere\\Route\\": "src/"
@@ -30,7 +33,7 @@
   },
   "autoload-dev":  {
     "psr-4": {
-      "Inhere\\RouteTest\\": "src/"
+      "Inhere\\RouteTest\\": "test/"
     }
   },
   "suggest": {

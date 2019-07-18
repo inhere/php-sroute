@@ -1,9 +1,9 @@
 language: php
 
 php:
-  - 7.1
-  - 7.2
-  - 7.3
+  - '7.1'
+  - '7.2'
+  - '7.3'
 
 #matrix:
 #  include:
@@ -14,7 +14,7 @@ before_script:
   - composer require php-coveralls/php-coveralls:^2.1.0
 
 script:
-  - phpunit -vvv --coverage-clover clover.xml
+  - vendor/bin/phpunit -vvv --coverage-clover clover.xml
 
 after_success:
   - vendor/bin/php-coveralls --coverage_clover=clover.xml --json_path=coveralls-upload.json -v

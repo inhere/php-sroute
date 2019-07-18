@@ -14,23 +14,29 @@
 error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/Shanghai');
 
-require dirname(__DIR__) . '/src/Helper/functions.php';
-
 $libDir = dirname(__DIR__);
-$npMap  = [
-    'Inhere\RouteTest\\' => $libDir . '/test/',
-    'Inhere\Route\\'     => $libDir . '/src/',
-];
 
-spl_autoload_register(function ($class) use ($npMap) {
-    foreach ($npMap as $np => $dir) {
-        $file = $dir . str_replace('\\', '/', substr($class, strlen($np))) . '.php';
+// has autoloader
+if (file_exists($libDir . '/vendor/autoload.php')) {
+    require $libDir . '/vendor/autoload.php';
+} else {
+    require $libDir . '/src/Helper/functions.php';
 
-        if (file_exists($file)) {
-            include $file;
+    $npMap  = [
+        'Inhere\RouteTest\\' => $libDir . '/test/',
+        'Inhere\Route\\'     => $libDir . '/src/',
+    ];
+
+    spl_autoload_register(function ($class) use ($npMap) {
+        foreach ($npMap as $np => $dir) {
+            $file = $dir . str_replace('\\', '/', substr($class, strlen($np))) . '.php';
+
+            if (file_exists($file)) {
+                include $file;
+            }
         }
-    }
-});
+    });
+}
 
 // generates a random request url
 function random_request_url($chance = 5)
