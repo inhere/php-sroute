@@ -140,15 +140,13 @@ class SimpleDispatcher implements DispatcherInterface
      *
      * @return mixed
      * @throws Throwable
-     * @throws RuntimeException
-     * @throws InvalidArgumentException
      */
-    public function dispatchUri(string $path = null, string $method = null)
+    public function dispatchUri(string $path = '', string $method = '')
     {
-        $path = (string)($path ?: $_SERVER['REQUEST_URI']);
+        $path = $path ?: $_SERVER['REQUEST_URI'];
 
         if (strpos($path, '?')) {
-            $path = parse_url($path, PHP_URL_PATH);
+            $path = (string)parse_url($path, PHP_URL_PATH);
         }
 
         // if 'filterFavicon' setting is TRUE
@@ -156,7 +154,7 @@ class SimpleDispatcher implements DispatcherInterface
             return null;
         }
 
-        $method = (string)($method ?: $_SERVER['REQUEST_METHOD']);
+        $method = $method ?: $_SERVER['REQUEST_METHOD'];
         $method = strtoupper($method);
 
         /** @var Route $route */
@@ -218,8 +216,6 @@ class SimpleDispatcher implements DispatcherInterface
      * ]
      *
      * @return mixed
-     * @throws RuntimeException
-     * @throws InvalidArgumentException
      * @throws Throwable
      */
     protected function callHandler(string $path, string $method, $handler, array $args = [])
@@ -287,8 +283,6 @@ class SimpleDispatcher implements DispatcherInterface
      *  False: The `$path` is matched fail
      *
      * @return bool|mixed
-     * @throws RuntimeException
-     * @throws InvalidArgumentException
      * @throws Throwable
      */
     protected function handleNotFound(string $path, string $method, $actionNotExist = false)
@@ -299,17 +293,15 @@ class SimpleDispatcher implements DispatcherInterface
 
             $this->setOption(self::ON_NOT_FOUND, $handler);
             // is a route path. like '/site/notFound'
-        } else {
-            if (is_string($handler) && strpos($handler, '/') === 0) {
-                $_GET['_src_path'] = $path;
+        } elseif (is_string($handler) && strpos($handler, '/') === 0) {
+            $_GET['_src_path'] = $path;
 
-                if ($path === $handler) {
-                    $defaultHandler = $this->defaultNotFoundHandler();
-                    return $defaultHandler($path, $method);
-                }
-
-                return $this->dispatchUri($handler, $method);
+            if ($path === $handler) {
+                $defaultHandler = $this->defaultNotFoundHandler();
+                return $defaultHandler($path, $method);
             }
+
+            return $this->dispatchUri($handler, $method);
         }
 
         // trigger notFound event
@@ -355,7 +347,7 @@ class SimpleDispatcher implements DispatcherInterface
      */
     protected function defaultNotFoundHandler(): Closure
     {
-        return function ($path) {
+        return static function ($path) {
             $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
             header($protocol . ' 404 Not Found');
             echo "<h1 style='width: 80%; margin: 5% auto; text-align: center;'>:( 404<br>Page Not Found <code style='font-weight: normal;'>$path</code></h1>";
@@ -367,7 +359,7 @@ class SimpleDispatcher implements DispatcherInterface
      */
     protected function defaultNotAllowedHandler(): Closure
     {
-        return function ($path, $method, $methods) {
+        return static function ($path, $method, $methods) {
             $allow    = implode(',', $methods);
             $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
             header($protocol . ' 405 Method Not Allowed');

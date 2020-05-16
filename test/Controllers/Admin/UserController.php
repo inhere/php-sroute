@@ -6,11 +6,11 @@
  * Time: 下午5:01
  */
 
-namespace Inhere\RouteTest\controllers\admin;
+namespace Inhere\RouteTest\Controllers\Admin;
 
 /**
  * Class UserController
- * @package Inhere\RouteTest\controllers\admin
+ * @package Inhere\RouteTest\Controllers\Admin
  */
 class UserController
 {

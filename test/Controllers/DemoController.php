@@ -6,13 +6,13 @@
  * Time: 上午12:14
  */
 
-namespace Inhere\RouteTest\controllers;
+namespace Inhere\RouteTest\Controllers;
 
 /**
- * Class HomeController
- * @package Inhere\Route\example\controllers
+ * Class DemoController
+ * @package Inhere\RouteTest\Controllers
  */
-class HomeController
+class DemoController
 {
     public function indexAction(): void
     {
@@ -24,8 +24,9 @@ class HomeController
         echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 
-    public function aboutAction(): void
+    // you can access by '/demo/oneTwo' or '/demo/one-two'
+    public function oneTwoAction(): void
     {
-        echo 'hello, this is about page';
+        echo 'hello, this is ' . __METHOD__ . '<br>';
     }
 }

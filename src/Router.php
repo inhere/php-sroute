@@ -489,7 +489,6 @@ class Router implements RouterInterface
 
         // It is a regular dynamic route(the first node is 1th level index key).
         if ($fKey && isset($this->regularRoutes[$fKey])) {
-            /** @var Route $route */
             foreach ($this->regularRoutes[$fKey] as $route) {
                 // Check path start string
                 $pathStart = $route->getPathStart();
@@ -576,14 +575,14 @@ class Router implements RouterInterface
      * Runs the callback for the given request
      *
      * @param DispatcherInterface|array $dispatcher
-     * @param null|string               $path
-     * @param null|string               $method
+     * @param string               $path
+     * @param string               $method
      *
      * @return mixed
      * @throws LogicException
      * @throws Throwable
      */
-    public function dispatch($dispatcher = null, $path = null, $method = null)
+    public function dispatch($dispatcher = null, string $path = '', string $method = '')
     {
         if (!$dispatcher) {
             $dispatcher = new Dispatcher;
@@ -659,7 +658,6 @@ class Router implements RouterInterface
      */
     public function each(Closure $func): void
     {
-        /** @var Route $route */
         foreach ($this->staticRoutes as $route) {
             $func($route);
         }
@@ -684,7 +682,7 @@ class Router implements RouterInterface
     public function getRoutes(): array
     {
         $routes = [];
-        $this->each(function (Route $route) use (&$routes) {
+        $this->each(static function (Route $route) use (&$routes) {
             $routes[] = $route;
         });
 
@@ -732,7 +730,6 @@ class Router implements RouterInterface
         $indent    = '  ';
         $strings   = ['#Routes Number: ' . $this->count()];
         $strings[] = "\n#Static Routes:";
-        /** @var Route $route */
         foreach ($this->staticRoutes as $route) {
             $strings[] = $indent . $route->toString();
         }

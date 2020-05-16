@@ -1,6 +1,6 @@
 <?php
 
-namespace Inhere\RouteTest;
+namespace Inhere\RouteTest\Dispatcher;
 
 use Inhere\Route\Dispatcher\Dispatcher;
 use Inhere\Route\Router;
@@ -20,11 +20,12 @@ class DispatcherTest extends TestCase
      */
     public function testDispatcher(): void
     {
-        $handler = function (array $args = []) {
+        $handler = static function (array $args = []) {
             return sprintf('hello, welcome. args: %s', json_encode($args));
         };
 
-        $router                         = new Router();
+        $router = new Router();
+
         $router->handleMethodNotAllowed = true;
         $router->get('/', $handler);
         $router->get('/user/info[/{int}]', $handler);
@@ -40,14 +41,11 @@ class DispatcherTest extends TestCase
         $d = new Dispatcher();
 
         // add events
-        $d->on(Dispatcher::ON_NOT_FOUND, function () {
+        $d->on(Dispatcher::ON_NOT_FOUND, static function () {
             return 'TEST: page not found';
         });
-        $d->on(Dispatcher::ON_METHOD_NOT_ALLOWED, function ($path, $m, $ms) {
-            return sprintf(
-                'TEST: %s %s is not allowed, allowed methods: %s',
-                $m, $path, implode(',', $ms)
-            );
+        $d->on(Dispatcher::ON_METHOD_NOT_ALLOWED, static function ($path, $m, $ms) {
+            return sprintf('TEST: %s %s is not allowed, allowed methods: %s', $m, $path, implode(',', $ms));
         });
         $d->setRouter($router);
 

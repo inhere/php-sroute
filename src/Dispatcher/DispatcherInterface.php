@@ -31,13 +31,13 @@ interface DispatcherInterface
     /**
      * Runs the callback for the given path and method.
      *
-     * @param string      $path
-     * @param null|string $method
+     * @param string $path
+     * @param string $method
      *
      * @return mixed
      * @throws Throwable
      */
-    public function dispatchUri(string $path = null, string $method = null);
+    public function dispatchUri(string $path = '', string $method = '');
 
     /**
      * Dispatch route handler for the given route info.

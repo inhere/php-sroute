@@ -4,7 +4,7 @@ namespace Inhere\RouteTest;
 
 use Inhere\Route\Route;
 use Inhere\Route\Router;
-use Inhere\RouteTest\controllers\DemoController;
+use Inhere\RouteTest\Controllers\DemoController;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Runner\Version;
@@ -313,7 +313,7 @@ class RouterTest extends TestCase
             // enable autoRoute
             // you can access '/demo' '/admin/user/info', Don't need to configure any route
             'autoRoute'           => true,
-            'controllerNamespace' => 'Inhere\RouteTest\controllers',
+            'controllerNamespace' => 'Inhere\RouteTest\Controllers',
             'controllerSuffix'    => 'Controller',
         ]);
 
@@ -327,7 +327,7 @@ class RouterTest extends TestCase
         [$status, $path, $route] = $router->match('/admin/user/info');
         $this->assertSame(Router::FOUND, $status);
         $this->assertSame('/admin/user/info', $path);
-        $this->assertSame('Inhere\RouteTest\controllers\admin\UserController@info', $route->getHandler());
+        $this->assertSame('Inhere\RouteTest\Controllers\Admin\UserController@info', $route->getHandler());
 
         [$status, $path,] = $router->match('/not-exist');
         $this->assertSame(Router::NOT_FOUND, $status);
