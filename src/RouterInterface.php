@@ -13,6 +13,7 @@ use IteratorAggregate;
 
 /**
  * Interface RouterInterface
+ *
  * @package Inhere\Route
  */
 interface RouterInterface extends IteratorAggregate, Countable
@@ -69,13 +70,13 @@ interface RouterInterface extends IteratorAggregate, Countable
     /**
      * add a route to the router.
      *
-     * @param string $method Request method name. eg 'GET'
-     * @param string $path The route path. eg '/users'
-     * @param mixed  $handler The route handler. allow: string, array, object
+     * @param string $method     Request method name. eg 'GET'
+     * @param string $path       The route path. eg '/users'
+     * @param mixed  $handler    The route handler. allow: string, array, object
      * @param array  $pathParams The route path var bind. eg. [ 'id' => '[0-9]+', ]
-     * @param array  $opts Extra options
-     * - name: string
-     * - ... more
+     * @param array  $opts       Extra options
+     *                           - name: string
+     *                           - ... more
      *
      * @return Route
      */
@@ -91,18 +92,18 @@ interface RouterInterface extends IteratorAggregate, Countable
     public function addRoute(Route $route): Route;
 
     /**
-     * @param array|string    $methods The match request method(s). e.g ['get','post']
-     * @param string          $path The route path string. is allow empty string. eg: '/user/login'
+     * @param array|string    $methods    The match request method(s). e.g ['get','post']
+     * @param string          $path       The route path string. is allow empty string. eg: '/user/login'
      * @param callable|string $handler
      * @param array           $pathParams route path var bind. eg. [ 'id' => '[0-9]+', ]
-     * @param array           $opts some option data
-     * [
-     *     'defaults' => [ 'id' => 10, ],
-     *     'domains'  => [ 'a-domain.com', '*.b-domain.com'],
-     *     'schemas' => ['https'],
-     * ]
+     * @param array           $opts       some option data
+     *                                    [
+     *                                    'defaults' => [ 'id' => 10, ],
+     *                                    'domains'  => [ 'a-domain.com', '*.b-domain.com'],
+     *                                    'schemas' => ['https'],
+     *                                    ]
      */
-    public function map($methods, string $path, $handler, array $pathParams = [], array $opts = []);
+    public function map($methods, string $path, $handler, array $pathParams = [], array $opts = []): void;
 
     /**
      * find the matched route info for the given request uri path
