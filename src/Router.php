@@ -532,7 +532,7 @@ class Router implements RouterInterface
 
         $sfx = trim($this->controllerSuffix);
 
-        return RouteHelper::parseAutoRoute($path, $cnp, $sfx);
+        return RouteHelper::parseAutoRoute($path, $cnp, $sfx, $this->namespaceUcFirst);
     }
 
     /**

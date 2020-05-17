@@ -313,6 +313,7 @@ class RouterTest extends TestCase
             // enable autoRoute
             // you can access '/demo' '/admin/user/info', Don't need to configure any route
             'autoRoute'           => true,
+            'namespaceUcFirst'    => true,
             'controllerNamespace' => 'Inhere\RouteTest\Controllers',
             'controllerSuffix'    => 'Controller',
         ]);

@@ -9,6 +9,7 @@
 namespace Inhere\Route\Helper;
 
 use InvalidArgumentException;
+use function array_filter;
 use function array_map;
 use function array_pop;
 use function class_exists;
@@ -19,6 +20,7 @@ use function implode;
 use function is_array;
 use function is_object;
 use function is_string;
+use function lcfirst;
 use function method_exists;
 use function preg_replace;
 use function preg_replace_callback;
@@ -79,34 +81,38 @@ class RouteHelper
     }
 
     /**
+     * convert 'first-second' to 'firstSecond'
+     *
      * @param string $str
+     * @param bool   $ucFirst
      *
      * @return string
      */
-    public static function str2Camel(string $str): string
+    public static function str2Camel(string $str, bool $ucFirst = false): string
     {
         $str = trim($str, '-');
 
         // convert 'first-second' to 'firstSecond'
         if (strpos($str, '-')) {
-            $str = preg_replace_callback('/-+([a-z])/', function ($c) {
+            $str = preg_replace_callback('/-+([a-z])/', static function ($c) {
                 return strtoupper($c[1]);
             }, trim($str, '- '));
         }
 
-        return $str;
+        return $ucFirst ? ucfirst($str) : $str;
     }
 
     /**
      * handle auto route match, when config `'autoRoute' => true`
      *
      * @param string $path The route path
-     * @param string $cnp controller namespace. eg: 'app\\controllers'
-     * @param string $sfx controller suffix. eg: 'Controller'
+     * @param string $cnp  controller namespace. eg: 'app\\controllers'
+     * @param string $sfx  controller suffix. eg: 'Controller'
+     * @param bool   $ucFirst
      *
      * @return bool|callable
      */
-    public static function parseAutoRoute(string $path, string $cnp, string $sfx)
+    public static function parseAutoRoute(string $path, string $cnp, string $sfx, bool $ucFirst = false)
     {
         $tmp = trim($path, '/- ');
 
@@ -118,12 +124,21 @@ class RouteHelper
             return class_exists($class) ? $class : false;
         }
 
-        $ary = array_map(self::class . '::str2Camel', explode('/', $tmp));
-        $cnt = count($ary);
+        $nodes = array_filter(explode('/', $tmp));
+
+        if ($ucFirst) {
+            foreach ($nodes as $i => $node) {
+                $nodes[$i] = self::str2Camel($nodes[$i], true);
+            }
+        } else {
+            $nodes = array_map(self::class . '::str2Camel', $nodes);
+        }
+
+        $count = count($nodes);
 
         // two nodes. eg: 'home/test' 'admin/user'
-        if ($cnt === 2) {
-            [$n1, $n2] = $ary;
+        if ($count === 2) {
+            [$n1, $n2] = $nodes;
 
             // last node is an controller class name. eg: 'admin/user'
             $class = "$cnp\\$n1\\" . ucfirst($n2) . $sfx;
@@ -135,27 +150,27 @@ class RouteHelper
             // first node is an controller class name, second node is a action name,
             $class = "$cnp\\" . ucfirst($n1) . $sfx;
 
-            return class_exists($class) ? "$class@$n2" : false;
+            return class_exists($class) ? $class . '@' . lcfirst($n2) : false;
         }
 
         // max allow 5 nodes
-        if ($cnt > 5) {
+        if ($count > 5) {
             return false;
         }
 
         // last node is an controller class name
-        $n2    = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n2) . $sfx);
+        $n2    = array_pop($nodes);
+        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $nodes), ucfirst($n2) . $sfx);
 
         if (class_exists($class)) {
             return $class;
         }
 
         // last second is an controller class name, last node is a action name,
-        $n1    = array_pop($ary);
-        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $ary), ucfirst($n1) . $sfx);
+        $n1    = array_pop($nodes);
+        $class = sprintf('%s\\%s\\%s', $cnp, implode('\\', $nodes), ucfirst($n1) . $sfx);
 
-        return class_exists($class) ? "$class@$n2" : false;
+        return class_exists($class) ? $class . '@' . lcfirst($n2) : false;
     }
 
     /**

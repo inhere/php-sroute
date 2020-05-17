@@ -9,10 +9,13 @@
 namespace Inhere\Route;
 
 use LogicException;
+use function method_exists;
 use function trim;
+use function ucfirst;
 
 /**
  * Trait RouterConfigTrait
+ *
  * @package Inhere\Route
  */
 trait RouterConfigTrait
@@ -23,6 +26,7 @@ trait RouterConfigTrait
     /**
      * some available patterns regex
      * $router->get('/user/{id}', 'handler');
+     *
      * @var array
      */
     protected static $globalParams = [
@@ -39,42 +43,60 @@ trait RouterConfigTrait
 
     /**
      * Can define an default route path
+     *
      * @var string
      */
     // public $defaultRoute = '';
 
     /**
      * Ignore last slash char('/'). If is True, will clear last '/'.
+     *
      * @var bool
      */
     public $ignoreLastSlash = false;
 
     /**
-     * whether handle method not allowed. If True, will find allowed methods.
+     * Whether handle method not allowed. If True, will find allowed methods.
+     *
      * @var bool
      */
     public $handleMethodNotAllowed = false;
 
     /**
-     * Auto route match @like yii framework
+     * Enable auto route match like yii framework
      * If is True, will auto find the handler controller file.
+     *
      * @var bool
      */
     public $autoRoute = false;
 
     /**
      * The default controllers namespace. eg: 'App\\Controllers'
+     *
      * @var string
      */
-    public $controllerNamespace;
+    public $controllerNamespace = '';
+
+    /**
+     * The first char case of namespace.
+     *
+     * false - lower case. eg: 'controllers\admin'
+     * true - upper case. eg: 'Controllers\Admin'
+     *
+     * @var bool
+     */
+    protected $namespaceUcFirst = false;
 
     /**
      * Controller suffix, is valid when '$autoRoute' = true. eg: 'Controller'
+     *
      * @var string
      */
     public $controllerSuffix = 'Controller';
 
-    /** @var array global Options */
+    /**
+     * @var array global Options
+     */
     private $globalOptions = [
         // 'domains' => [ 'localhost' ], // allowed domains
         // 'schemas' => [ 'http' ], // allowed schemas
@@ -107,7 +129,10 @@ trait RouterConfigTrait
         ];
 
         foreach ($config as $name => $value) {
-            if (isset($props[$name])) {
+            $setter = 'set' . ucfirst($name);
+            if (method_exists($this, $setter)) {
+                $this->$setter($value);
+            } elseif (isset($props[$name])) {
                 $this->$name = $value;
             }
         }
@@ -145,7 +170,8 @@ trait RouterConfigTrait
      */
     public function addGlobalParam(string $name, string $pattern): void
     {
-        $name                      = trim($name, '{} ');
+        $name = trim($name, '{} ');
+
         self::$globalParams[$name] = $pattern;
     }
 
@@ -171,6 +197,22 @@ trait RouterConfigTrait
     public function setGlobalOptions(array $globalOptions): void
     {
         $this->globalOptions = $globalOptions;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isNamespaceUcFirst(): bool
+    {
+        return $this->namespaceUcFirst;
+    }
+
+    /**
+     * @param bool $namespaceUcFirst
+     */
+    public function setNamespaceUcFirst($namespaceUcFirst): void
+    {
+        $this->namespaceUcFirst = (bool)$namespaceUcFirst;
     }
 
 }
