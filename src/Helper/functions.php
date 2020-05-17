@@ -40,16 +40,16 @@ function createCachedRouter(Closure $closure, array $config = []): CachedRouter
 
 /**
  * @param Closure     $closure
- * @param string|null $path
- * @param string|null $method
+ * @param string $path
+ * @param string $method
  * @param array       $config
  *
  * @return PreMatchRouter
  */
 function createPreMatchRouter(
     Closure $closure,
-    string $path = null,
-    string $method = null,
+    string $path = '',
+    string $method = '',
     array $config = []
 ): PreMatchRouter {
     $router = new PreMatchRouter($config, $path, $method);

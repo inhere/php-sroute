@@ -37,9 +37,9 @@ final class PreMatchRouter extends Router
     /**
      * object constructor.
      *
-     * @param array       $config
-     * @param string|null $path
-     * @param string|null $method
+     * @param array  $config
+     * @param string $path
+     * @param string $method
      *
      * @throws LogicException
      */
@@ -59,17 +59,17 @@ final class PreMatchRouter extends Router
     }
 
     /**
-     * @param string|null $path
-     * @param string|null $method
+     * @param string $path
+     * @param string $method
      */
-    public function setRequest(string $path = null, string $method = null): void
+    public function setRequest(string $path = '', string $method = ''): void
     {
         if (!$path) {
-            $path = (string)($_SERVER['REQUEST_URI'] ?? '');
+            $path = $_SERVER['REQUEST_URI'] ?? '';
         }
 
         if (strpos($path, '?')) {
-            $path = parse_url($path, PHP_URL_PATH);
+            $path = (string)parse_url($path, PHP_URL_PATH);
         }
 
         $this->reqPath   = RouteHelper::formatPath($path, $this->ignoreLastSlash);
