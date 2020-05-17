@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -249,11 +249,11 @@ class SimpleDispatcher implements DispatcherInterface
         if (!empty($segments[1])) {
             $action = $segments[1];
 
-            // use dynamic action
+        // use dynamic action
         } elseif ($this->options['dynamicAction'] && ($var = $this->options['dynamicActionVar'])) {
             $action = isset($args[$var]) ? trim($args[$var], '/') : $this->options['defaultAction'];
 
-            // defined default action
+        // defined default action
         } elseif (!$action = $this->options['defaultAction']) {
             throw new RuntimeException("please config the route path [$path] controller action to call");
         }
@@ -292,7 +292,7 @@ class SimpleDispatcher implements DispatcherInterface
             $handler = $this->defaultNotFoundHandler();
 
             $this->setOption(self::ON_NOT_FOUND, $handler);
-            // is a route path. like '/site/notFound'
+        // is a route path. like '/site/notFound'
         } elseif (is_string($handler) && strpos($handler, '/') === 0) {
             $_GET['_src_path'] = $path;
 
@@ -325,7 +325,7 @@ class SimpleDispatcher implements DispatcherInterface
             $handler = $this->defaultNotAllowedHandler();
             $this->setOption(self::ON_METHOD_NOT_ALLOWED, $handler);
 
-            // is a route path. like '/site/notFound'
+        // is a route path. like '/site/notFound'
         } elseif (is_string($handler) && strpos($handler, '/') === 0) {
             $_GET['_src_path'] = $path;
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -30,7 +30,9 @@ $variable_regex = <<<REGEX
 REGEX;
 
 preg_match_all(
-    '~' . $variable_regex . '~x', $path, $matches,
+    '~' . $variable_regex . '~x',
+    $path,
+    $matches,
     PREG_OFFSET_CAPTURE | PREG_SET_ORDER
 );
 
@@ -40,7 +42,9 @@ var_dump($matches);
 function replaceTokenToPattern($path, $variable_regex)
 {
     if (!preg_match_all(
-        '#' . $variable_regex . '#x', $path, $matches,
+        '#' . $variable_regex . '#x',
+        $path,
+        $matches,
         PREG_OFFSET_CAPTURE | PREG_SET_ORDER
     )
     ) {

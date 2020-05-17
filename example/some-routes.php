@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -251,4 +251,3 @@ if (isset($hasRouter) && $hasRouter) {
 } else {
     return $routes;
 }
-

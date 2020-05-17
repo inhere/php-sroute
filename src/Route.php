@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -467,7 +467,10 @@ final class Route implements IteratorAggregate
     {
         return sprintf(
             '%-7s %-25s --> %s (%d middleware)',
-            $this->method, $this->path, $this->getHandlerName(), count($this->chains)
+            $this->method,
+            $this->path,
+            $this->getHandlerName(),
+            count($this->chains)
         );
     }
 

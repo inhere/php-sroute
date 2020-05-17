@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -28,5 +28,4 @@ class RouteHelperTest extends TestCase
         $ret = RouteHelper::isStaticRoute('/hi/[tom]');
         $this->assertFalse($ret);
     }
-
 }

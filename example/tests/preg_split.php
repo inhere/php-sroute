@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 $variable_regex = <<<'REGEX'
 \{
     \s* ([a-zA-Z_][a-zA-Z0-9_-]*) \s*
@@ -31,7 +31,9 @@ if ($numOptionals !== count($segments) - 1) {
 // $m1 = preg_split('#\[#', $route, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 
 preg_match_all(
-    '~' . $variable_regex . '~x', $route, $matches,
+    '~' . $variable_regex . '~x',
+    $route,
+    $matches,
     PREG_OFFSET_CAPTURE | PREG_SET_ORDER
 );
 
@@ -46,4 +48,3 @@ $e2 = '/hello/{name}[/{foo}/{bar}]';
  */
 preg_match('#/hello/(\w+)/(?:(\w+)(?:/(\w+))?)?#', '/hello/name/foo', $md);
 var_dump($segments, $matches, $md);
-

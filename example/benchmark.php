@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Benchmark Altorouter
@@ -181,4 +181,3 @@ Match time (last route):   0.000006 s.
 Match time (unknown route): 0.000008 s
 
  */
-

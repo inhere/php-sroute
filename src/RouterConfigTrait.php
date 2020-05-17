@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -214,5 +214,4 @@ trait RouterConfigTrait
     {
         $this->namespaceUcFirst = (bool)$namespaceUcFirst;
     }
-
 }

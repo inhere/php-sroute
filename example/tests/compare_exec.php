@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 const METHODS_STRING = 'ANY,GET,POST,PUT,PATCH,DELETE,OPTIONS,HEAD';
 const METHODS_ARRAY = [
@@ -76,8 +76,8 @@ function compare_speed(callable $sample1, callable $sample2, int $times = 1000, 
 
     printf(
         "\n\t              Speed Test Results(Faster is: %s)\n%s\n",
-        $faster, str_repeat('---', 29)
-
+        $faster,
+        str_repeat('---', 29)
     );
 
     $template = "%-12s %-22s %-25s %-20s\n";

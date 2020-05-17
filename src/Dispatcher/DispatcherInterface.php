@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -22,10 +22,15 @@ interface DispatcherInterface
 
     // some route events
     public const ON_FOUND              = 'found';
+
     public const ON_NOT_FOUND          = 'notFound';
+
     public const ON_METHOD_NOT_ALLOWED = 'methodNotAllowed';
+
     public const ON_EXEC_START         = 'execStart';
+
     public const ON_EXEC_END           = 'execEnd';
+
     public const ON_EXEC_ERROR         = 'execError';
 
     /**

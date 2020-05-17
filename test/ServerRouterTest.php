@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -71,5 +71,4 @@ class ServerRouterTest extends TestCase
         $this->assertSame(ServerRouter::FOUND, $status);
         $this->assertSame('/not/exist', $path);
     }
-
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: inhere
@@ -52,8 +52,10 @@ class Router implements RouterInterface
 
     /** @var string */
     protected $currentGroupPrefix;
+
     /** @var array */
     protected $currentGroupOption = [];
+
     /** @var array */
     protected $currentGroupChains = [];
 
