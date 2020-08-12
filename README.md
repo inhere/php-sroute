@@ -128,7 +128,7 @@ symfony/routing - first route(1000)                     | 995 | 0.023105 | +0.02
 nikic/fast-route(cached) - first route(1000)            | 999 | 0.041133 | +0.039775 | 2929% slower
 Macaw - first route (1000 routes)                       | 999 | 1.782017 | +1.780659 | 131128% slower
 
-## 使用
+## 使用说明
 
 > 各个版本的方法名和参数都是一样的
 
@@ -138,6 +138,37 @@ Macaw - first route (1000 routes)                       | 999 | 1.782017 | +1.78
 use Inhere\Route\Router;
 
 $router = new Router();
+```
+
+### 快速开始
+
+创建一个简单的 `public/index.php`:
+
+```php
+use Inhere\Route\Router;
+
+// 需要先加载 autoload 文件
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+$router = new Router();
+
+$router->get('/', function() {
+    echo 'hello';
+});
+```
+
+使用php启动一个测试server： `php -S 127.0.0.1:8080 -t ./public`
+
+好了，现在你可以访问 http://127.0.0.1:8080 可以看到输出 `hello`
+
+- 不使用 Composer
+
+如果是直接下载的包代码，可以加载一下 `test/boot.php` 也可以加载到 `Inhere\Route` 命名空间.
+
+用如下的语句替换上面的 autoload.php 加载语句即可：
+
+```php
+require dirname(__DIR__) . '/test/boot.php';
 ```
 
 ## 添加路由
