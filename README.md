@@ -142,7 +142,7 @@ $router = new Router();
 
 ### 快速开始
 
-创建一个简单的 `public/index.php`:
+创建一个简单的 `public/index.php` 文件:
 
 ```php
 use Inhere\Route\Router;
@@ -166,9 +166,9 @@ $router->dispatch();
 
 - 不使用 Composer
 
-如果是直接下载的包代码，可以加载一下 `test/boot.php` 也可以加载到 `Inhere\Route` 命名空间.
+如果是直接下载的包代码，可以加载 `test/boot.php` 文件，也可以加载到 `Inhere\Route` 命名空间.
 
-用如下的语句替换上面的 autoload.php 加载语句即可：
+用如下的语句替换上面的 `autoload.php` 加载语句即可：
 
 ```php
 require dirname(__DIR__) . '/test/boot.php';
