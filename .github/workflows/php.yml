@@ -33,9 +33,6 @@ jobs:
           ini-values: post_max_size=56M, short_open_tag=On #optional, setup php.ini configuration
           coverage: none #optional, setup coverage driver: xdebug, none
 
-      - name: Display Env
-        run: env
-
       - name: Install dependencies
         run: composer install --no-progress --no-suggest
 
@@ -43,4 +40,4 @@ jobs:
       # Docs: https://getcomposer.org/doc/articles/scripts.md
 
       - name: Run test suite
-        run: php bin/kite -V
+        run: vendor/bin/phpunit -v
