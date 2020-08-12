@@ -132,7 +132,7 @@ Macaw - first route (1000 routes)                       | 999 | 1.782017 | +1.78
 
 > 各个版本的方法名和参数都是一样的
 
-首先, 导入类
+首先, 需要导入类
 
 ```php
 use Inhere\Route\Router;
@@ -155,6 +155,9 @@ $router = new Router();
 $router->get('/', function() {
     echo 'hello';
 });
+
+// 开始调度运行
+$router->dispatch();
 ```
 
 使用php启动一个测试server： `php -S 127.0.0.1:8080 -t ./public`
