@@ -19,47 +19,32 @@ use IteratorAggregate;
 interface RouterInterface extends IteratorAggregate, Countable
 {
     /** match result status list */
-    public const FOUND              = 1;
+    public const FOUND = 1;
 
-    public const NOT_FOUND          = 2;
+    public const NOT_FOUND = 2;
 
     public const METHOD_NOT_ALLOWED = 3;
 
-    public const FAV_ICON      = '/favicon.ico';
+    public const FAV_ICON = '/favicon.ico';
 
     public const DEFAULT_REGEX = '[^/]+';
 
     /** supported method list */
     public const GET     = 'GET';
-
     public const POST    = 'POST';
-
     public const PUT     = 'PUT';
-
     public const PATCH   = 'PATCH';
-
     public const DELETE  = 'DELETE';
-
     public const OPTIONS = 'OPTIONS';
-
     public const HEAD    = 'HEAD';
-
     public const COPY    = 'COPY';
-
     public const PURGE   = 'PURGE';
-
     public const LINK    = 'LINK';
-
     public const UNLINK  = 'UNLINK';
-
     public const LOCK    = 'LOCK';
-
     public const UNLOCK  = 'UNLOCK';
-
     public const SEARCH  = 'SEARCH';
-
     public const CONNECT = 'CONNECT';
-
     public const TRACE   = 'TRACE';
 
     /** supported methods name list */
@@ -83,9 +68,9 @@ interface RouterInterface extends IteratorAggregate, Countable
     /** the matched result index key */
     public const INDEX_STATUS = 0;
 
-    public const INDEX_PATH   = 1;
+    public const INDEX_PATH = 1;
 
-    public const INDEX_INFO   = 2;
+    public const INDEX_INFO = 2;
 
     /**
      * add a route to the router.

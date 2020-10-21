@@ -34,6 +34,7 @@ use const PHP_URL_PATH;
 
 /**
  * Class SimpleDispatcher
+ *
  * @package Inhere\Route\Dispatcher
  */
 class SimpleDispatcher implements DispatcherInterface
@@ -46,6 +47,7 @@ class SimpleDispatcher implements DispatcherInterface
 
     /**
      * some setting for self
+     *
      * @var array
      */
     protected $options = [
@@ -55,8 +57,7 @@ class SimpleDispatcher implements DispatcherInterface
         // default action method name
         'defaultAction' => 'index',
 
-        'actionPrefix' => '',
-
+        'actionPrefix'     => '',
         'actionSuffix'     => 'Action',
 
         // enable dynamic action.
@@ -80,10 +81,10 @@ class SimpleDispatcher implements DispatcherInterface
     ];
 
     /**
-     * object creator.
+     * Object creator.
      *
-     * @param RouterInterface $router
-     * @param array           $options
+     * @param RouterInterface|null $router
+     * @param array                $options
      *
      * @return self
      * @throws LogicException
@@ -94,10 +95,10 @@ class SimpleDispatcher implements DispatcherInterface
     }
 
     /**
-     * object constructor.
+     * Class constructor.
      *
-     * @param RouterInterface $router
-     * @param array           $options
+     * @param RouterInterface|null $router
+     * @param array                $options
      *
      * @throws LogicException
      */
@@ -166,6 +167,7 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * Dispatch route handler for the given route info.
      * {@inheritdoc}
+     *
      * @throws Throwable
      */
     public function dispatch(int $status, string $path, string $method, $route)
@@ -180,6 +182,19 @@ class SimpleDispatcher implements DispatcherInterface
             return $this->handleNotAllowed($path, $method, $route);
         }
 
+        return $this->doDispatch($path, $method, $route);
+    }
+
+    /**
+     * @param string $path
+     * @param string $method
+     * @param        $route
+     *
+     * @return bool|mixed|null
+     * @throws Throwable
+     */
+    protected function doDispatch(string $path, string $method, $route)
+    {
         // trigger route found event
         $this->fire(self::ON_FOUND, [$path, $route]);
         $result = null;
@@ -207,13 +222,13 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * execute the matched Route Handler
      *
-     * @param string         $path The route path
-     * @param string         $method The request method
+     * @param string         $path    The route path
+     * @param string         $method  The request method
      * @param callable|mixed $handler The route path handler
-     * @param array          $args Matched param from path
-     * [
-     *  'name' => value
-     * ]
+     * @param array          $args    Matched param from path
+     *                                [
+     *                                'name' => value
+     *                                ]
      *
      * @return mixed
      * @throws Throwable
@@ -249,11 +264,11 @@ class SimpleDispatcher implements DispatcherInterface
         if (!empty($segments[1])) {
             $action = $segments[1];
 
-        // use dynamic action
+            // use dynamic action
         } elseif ($this->options['dynamicAction'] && ($var = $this->options['dynamicActionVar'])) {
             $action = isset($args[$var]) ? trim($args[$var], '/') : $this->options['defaultAction'];
 
-        // defined default action
+            // defined default action
         } elseif (!$action = $this->options['defaultAction']) {
             throw new RuntimeException("please config the route path [$path] controller action to call");
         }
@@ -279,8 +294,8 @@ class SimpleDispatcher implements DispatcherInterface
      * @param string $path Request uri path
      * @param string $method
      * @param bool   $actionNotExist
-     *  True: The `$path` is matched success, but action not exist on route parser
-     *  False: The `$path` is matched fail
+     *                     True: The `$path` is matched success, but action not exist on route parser
+     *                     False: The `$path` is matched fail
      *
      * @return bool|mixed
      * @throws Throwable
@@ -292,7 +307,7 @@ class SimpleDispatcher implements DispatcherInterface
             $handler = $this->defaultNotFoundHandler();
 
             $this->setOption(self::ON_NOT_FOUND, $handler);
-        // is a route path. like '/site/notFound'
+            // is a route path. like '/site/notFound'
         } elseif (is_string($handler) && strpos($handler, '/') === 0) {
             $_GET['_src_path'] = $path;
 
@@ -325,7 +340,7 @@ class SimpleDispatcher implements DispatcherInterface
             $handler = $this->defaultNotAllowedHandler();
             $this->setOption(self::ON_METHOD_NOT_ALLOWED, $handler);
 
-        // is a route path. like '/site/notFound'
+            // is a route path. like '/site/notFound'
         } elseif (is_string($handler) && strpos($handler, '/') === 0) {
             $_GET['_src_path'] = $path;
 

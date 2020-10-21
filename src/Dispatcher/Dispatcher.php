@@ -8,14 +8,14 @@
 
 namespace Inhere\Route\Dispatcher;
 
-use Exception;
 use Inhere\Route\Helper\RouteHelper;
-use Inhere\Route\RouterInterface;
+use Inhere\Route\Route;
 use Throwable;
 
 /**
  * Class Dispatcher
- * 相比 SimpleDispatcher
+ * 相比 SimpleDispatcher，支持更多的自定义选项控制
+ *
  * @package Inhere\Route\Dispatcher
  */
 class Dispatcher extends SimpleDispatcher
@@ -25,42 +25,31 @@ class Dispatcher extends SimpleDispatcher
      ******************************************************************************/
 
     /**
-     * Dispatch route handler for the given route info.
-     * {@inheritdoc}
-     * @throws Exception
+     * @param string $path
+     * @param string $method
+     * @param Route  $route
+     *
+     * @return bool|mixed|null
      * @throws Throwable
      */
-    public function dispatch(int $status, string $path, string $method, $route)
+    protected function doDispatch(string $path, string $method, $route)
     {
-        // not found
-        if ($status === RouterInterface::NOT_FOUND) {
-            return $this->handleNotFound($path, $method);
-        }
-
-        // method not allowed
-        if ($status === RouterInterface::METHOD_NOT_ALLOWED) {
-            return $this->handleNotAllowed($path, $method, $route);
-        }
-
-        // trigger route found event
-        $this->fire(self::ON_FOUND, [$path, $route]);
-
-        $result  = null;
         $options = $route->getOptions();
 
         // fire enter event
         // schema,domains ... metadata validate
         if (isset($options['enter']) && false === RouteHelper::call($options['enter'], [$options, $path])) {
-            return $result;
+            return null;
         }
 
+        $result  = null;
         $handler = $route->getHandler();
-        $args    = $route->getParams();
+        $params  = $route->getParams();
 
         try {
             // trigger route exec_start event
             $this->fire(self::ON_EXEC_START, [$path, $route]);
-            $result = $this->callHandler($path, $method, $handler, $args);
+            $result = $this->callHandler($path, $method, $handler, $params);
 
             // fire leave event
             if (isset($options['leave'])) {
