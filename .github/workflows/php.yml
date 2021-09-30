@@ -1,6 +1,7 @@
 name: Unit-tests
 
 on:
+  pull_request:
   push:
     paths:
       - '**.php'
@@ -41,3 +42,20 @@ jobs:
 
       - name: Run test suite
         run: vendor/bin/phpunit -v
+
+      - name: Coveralls Parallel
+          uses: coverallsapp/github-action@master
+          with:
+            github-token: ${{ secrets.github_token }}
+            flag-name: run-${{ matrix.php }}
+            parallel: true
+
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true

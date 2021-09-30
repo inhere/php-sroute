@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [7.3]
+        php: [7.4]
 
     steps:
       - name: Checkout
@@ -25,10 +25,20 @@ jobs:
           echo "RELEASE_TAG=${GITHUB_REF:10}" >> $GITHUB_ENV
           echo "RELEASE_NAME=$GITHUB_WORKFLOW" >> $GITHUB_ENV
 
-      - uses: meeDamian/github-release@2.0
+      - name: Generate changelog file
+        id: changelog
+        run: |
+          wget -c -q https://github.com/inhere/kite/releases/latest/download/kite.phar
+          php kite.phar git cl prev last --style gh-release --no-merges --fetch-tags --unshallow --file changelog.md
+          cat changelog.md
+
+      # https://github.com/softprops/action-gh-release
+      - name: Create release and upload assets
+        uses: softprops/action-gh-release@v1
+        # if: startsWith(github.ref, 'refs/tags/')
         with:
-          gzip: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ env.RELEASE_TAG }}
           name: ${{ env.RELEASE_TAG }}
-#          files: kite-${{ env.RELEASE_TAG }}.phar
+          tag_name: ${{ env.RELEASE_TAG }}
+          body_path: changelog.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
