@@ -1,10 +1,10 @@
-# php simple router
+# SRoute
 
 [![License](https://img.shields.io/packagist/l/inhere/sroute.svg?style=flat-square)](LICENSE)
 [![PHP Version](https://img.shields.io/packagist/php-v/inhere/sroute.svg?colorB=green)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
-[![Actions Status](https://github.com/inhere/php-srouter/workflows/Unit-Tests/badge.svg)](https://github.com/inhere/php-srouter/actions)
-[![Coverage Status](https://coveralls.io/repos/github/inhere/php-srouter/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-srouter?branch=master)
+[![Actions Status](https://github.com/inhere/php-sroute/workflows/Unit-Tests/badge.svg)](https://github.com/inhere/php-sroute/actions)
+[![Coverage Status](https://coveralls.io/repos/github/inhere/php-sroute/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-sroute?branch=master)
 
 非常快速且轻量的请求匹配路由器, web 路由框架。
 
@@ -44,8 +44,8 @@
 
 ## 项目地址
 
-- **github** https://github.com/inhere/php-srouter.git
-- **gitee** https://gitee.com/inhere/php-srouter.git
+- **github** https://github.com/inhere/php-sroute.git
+- **gitee** https://gitee.com/inhere/php-sroute.git
 
 ## 安装
 
@@ -70,7 +70,7 @@ composer require inhere/sroute
 - 直接拉取
 
 ```bash
-git clone https://github.com/inhere/php-srouter.git // github
+git clone https://github.com/inhere/php-sroute.git // github
 ```
 
 <a name="ab-test"></a>

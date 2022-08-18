@@ -1,10 +1,10 @@
-# php simple router
+# SRoute
 
 [![License](https://img.shields.io/packagist/l/inhere/sroute.svg?style=flat-square)](LICENSE.md)
 [![PHP Version](https://img.shields.io/packagist/php-v/inhere/sroute.svg?colorB=green)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
-[![Actions Status](https://github.com/inhere/php-srouter/workflows/Unit-Tests/badge.svg)](https://github.com/inhere/php-srouter/actions)
-[![Coverage Status](https://coveralls.io/repos/github/inhere/php-srouter/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-srouter?branch=master)
+[![Actions Status](https://github.com/inhere/php-sroute/workflows/Unit-Tests/badge.svg)](https://github.com/inhere/php-sroute/actions)
+[![Coverage Status](https://coveralls.io/repos/github/inhere/php-sroute/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-sroute?branch=master)
 
 A very lightweight and fasted request router. lightweight web framework.
 
@@ -20,8 +20,8 @@ A very lightweight and fasted request router. lightweight web framework.
 
 ## Project
 
-- **github** https://github.com/inhere/php-srouter.git
-- **git@osc** https://git.oschina.net/inhere/php-srouter.git
+- **github** https://github.com/inhere/php-sroute.git
+- **git@osc** https://git.oschina.net/inhere/php-sroute.git
 
 ## Install
 

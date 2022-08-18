@@ -2,7 +2,7 @@
 
 $header = <<<'EOF'
 
-@license  https://github.com/inhere/php-srouter/blob/master/LICENSE
+@license  https://github.com/inhere/php-sroute/blob/master/LICENSE
 EOF;
 
 return PhpCsFixer\Config::create()->setRiskyAllowed(true)->setRules([
