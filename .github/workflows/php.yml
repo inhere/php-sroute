@@ -39,14 +39,14 @@ jobs:
 
       - name: Run test suite
         run: |
-          phpunit --coverage-clover ./test/clover.info
+          phpunit -vvv --coverage-clover ./test/clover.xml
 
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
           flag-name: run-${{ matrix.php }}
-          path-to-lcov: ./test/clover.info
+          path-to-lcov: ./test/clover.xml
           parallel: true
 
   finish:
