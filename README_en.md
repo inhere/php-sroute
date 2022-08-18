@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/packagist/l/inhere/sroute.svg?style=flat-square)](LICENSE.md)
 [![PHP Version](https://img.shields.io/packagist/php-v/inhere/sroute.svg?colorB=green)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
-[![Actions Status](https://github.com/inhere/sroute/workflows/Unit-Tests/badge.svg)](https://github.com/inhere/sroute/actions)
+[![Actions Status](https://github.com/inhere/php-srouter/workflows/Unit-Tests/badge.svg)](https://github.com/inhere/php-srouter/actions)
 [![Coverage Status](https://coveralls.io/repos/github/inhere/php-srouter/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-srouter?branch=master)
 
 A very lightweight and fasted request router. lightweight web framework.

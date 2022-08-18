@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # usage refer https://github.com/shivammathur/setup-php
       - name: Setup PHP
@@ -44,11 +44,11 @@ jobs:
         run: vendor/bin/phpunit -v
 
       - name: Coveralls Parallel
-          uses: coverallsapp/github-action@master
-          with:
-            github-token: ${{ secrets.github_token }}
-            flag-name: run-${{ matrix.php }}
-            parallel: true
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          flag-name: run-${{ matrix.php }}
+          parallel: true
 
   finish:
     needs: test
