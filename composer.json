@@ -22,9 +22,6 @@
   "require": {
     "php": ">=8.0.1"
   },
-  "require-dev": {
-    "phpunit/phpunit": "^8.0"
-  },
   "autoload": {
     "psr-4": {
       "Inhere\\Route\\": "src/"
@@ -37,8 +34,5 @@
     "psr-4": {
       "Inhere\\RouteTest\\": "test/"
     }
-  },
-  "suggest": {
-    "inhere/simple-print-tool": "Very lightweight data printing tools"
   }
 }
