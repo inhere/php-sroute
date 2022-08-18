@@ -16,8 +16,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [7.1, 7.2, 7.3, 7.4] #
-        os: [ubuntu-latest, macOS-latest] # windows-latest,
+        php: [8.0, 8.1] #
+        os: [ubuntu-latest] # windows-latest,
 
     steps:
       - name: Checkout

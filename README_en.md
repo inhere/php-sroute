@@ -3,10 +3,10 @@
 [![License](https://img.shields.io/packagist/l/inhere/sroute.svg?style=flat-square)](LICENSE.md)
 [![PHP Version](https://img.shields.io/packagist/php-v/inhere/sroute.svg?colorB=green)](https://packagist.org/packages/inhere/sroute)
 [![Latest Stable Version](http://img.shields.io/packagist/v/inhere/sroute.svg)](https://packagist.org/packages/inhere/sroute)
-[![Build Status](https://travis-ci.org/inhere/php-srouter.svg?branch=master)](https://travis-ci.org/inhere/php-srouter)
+[![Actions Status](https://github.com/inhere/sroute/workflows/Unit-Tests/badge.svg)](https://github.com/inhere/sroute/actions)
 [![Coverage Status](https://coveralls.io/repos/github/inhere/php-srouter/badge.svg?branch=master)](https://coveralls.io/github/inhere/php-srouter?branch=master)
 
-A very lightweight and fast speed router.
+A very lightweight and fasted request router. lightweight web framework.
 
 - Lightweight and fast speed, the search speed is not affected by the routing number
 - supported request methods: `GET` `POST` `PUT` `DELETE` `HEAD` `OPTIONS`
@@ -24,6 +24,8 @@ A very lightweight and fast speed router.
 - **git@osc** https://git.oschina.net/inhere/php-srouter.git
 
 ## Install
+
+> required PHP 8.0+
 
 - by `composer.json`
 
