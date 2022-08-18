@@ -28,7 +28,7 @@ final class ServerRouter extends Router
      * The param route cache number.
      * @var int
      */
-    public $tmpCacheNumber = 300;
+    public int $tmpCacheNumber = 300;
 
     /**
      * There are last route caches. like static routes
@@ -39,7 +39,7 @@ final class ServerRouter extends Router
      *  'PUT /user/login' => Route,
      * ]
      */
-    private $cacheRoutes = [];
+    private array $cacheRoutes = [];
 
     /**
      * object constructor.

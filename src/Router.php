@@ -30,6 +30,7 @@ use function trim;
 
 /**
  * Class Router - This is object version
+ *
  * @package Inhere\Route
  */
 class Router implements RouterInterface
@@ -37,13 +38,13 @@ class Router implements RouterInterface
     use RouterConfigTrait;
 
     /** @var int */
-    protected $routeCounter = 0;
+    protected int $routeCounter = 0;
 
     /** @var callable[] Router middleware handler chains */
-    private $chains = [];
+    private array $chains = [];
 
     /** @var Route */
-    private $basicRoute;
+    private Route $basicRoute;
 
     /** @var Route */
     private $fallback;
@@ -51,25 +52,27 @@ class Router implements RouterInterface
     // -- Group info
 
     /** @var string */
-    protected $currentGroupPrefix;
+    protected string $currentGroupPrefix;
 
     /** @var array */
-    protected $currentGroupOption = [];
+    protected array $currentGroupOption = [];
 
     /** @var array */
-    protected $currentGroupChains = [];
+    protected array $currentGroupChains = [];
 
     // -- Routes data
 
     /**
      * name routes. use for find a route by name.
+     *
      * @var array [name => Route]
      */
-    protected $namedRoutes = [];
+    protected array $namedRoutes = [];
 
     /**
      * static Routes - no dynamic argument match
      * 整个路由 path 都是静态字符串 e.g. '/user/login'
+     *
      * @var Route[]
      * [
      *     'GET /user/login' =>  Route,
@@ -81,6 +84,7 @@ class Router implements RouterInterface
     /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
      * 第一节是个静态字符串，称之为有规律的动态路由。按第一节的信息进行分组存储
+     *
      * @var Route[][]
      * [
      *     // 使用完整的第一节作为key进行分组
@@ -97,6 +101,7 @@ class Router implements RouterInterface
     /**
      * vague Routes - have dynamic arguments,but the first node is exists regex.
      * 第一节就包含了正则匹配，称之为无规律/模糊的动态路由
+     *
      * @var Route[][]
      * [
      *     // 使用 HTTP METHOD 作为 key进行分组
@@ -128,7 +133,17 @@ class Router implements RouterInterface
     /**
      * object constructor.
      *
-     * @param array $config
+     * @param array $config =  [
+     *  'name'                   => 'my-router',
+     *  'chains'                 => [],
+     *  // 'defaultRoute'           => '',
+     *  'ignoreLastSlash'        => false,
+     *  'tmpCacheNumber'         => 100,
+     *  'handleMethodNotAllowed' => false,
+     *  'autoRoute'              => false,
+     *  'controllerNamespace'    => '',
+     *  'controllerSuffix'       => 'Controller',
+     * ];
      *
      * @throws LogicException
      */
@@ -181,13 +196,13 @@ class Router implements RouterInterface
      * register a route, allow GET request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function get(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function get(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('GET', $path, $handler, $pathParams, $opts);
         // return $this->map(['GET', 'HEAD'], $path, $handler, $pathParams, $opts);
@@ -197,13 +212,13 @@ class Router implements RouterInterface
      * register a route, allow POST request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function post(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function post(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('POST', $path, $handler, $pathParams, $opts);
     }
@@ -212,13 +227,13 @@ class Router implements RouterInterface
      * register a route, allow PUT request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function put(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function put(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('PUT', $path, $handler, $pathParams, $opts);
     }
@@ -227,13 +242,13 @@ class Router implements RouterInterface
      * register a route, allow PATCH request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function patch(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function patch(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('PATCH', $path, $handler, $pathParams, $opts);
     }
@@ -242,13 +257,13 @@ class Router implements RouterInterface
      * register a route, allow DELETE request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function delete(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function delete(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('DELETE', $path, $handler, $pathParams, $opts);
     }
@@ -257,13 +272,13 @@ class Router implements RouterInterface
      * register a route, allow HEAD request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function head(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function head(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('HEAD', $path, $handler, $pathParams, $opts);
     }
@@ -272,13 +287,13 @@ class Router implements RouterInterface
      * register a route, allow OPTIONS request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function options(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function options(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('OPTIONS', $path, $handler, $pathParams, $opts);
     }
@@ -287,13 +302,13 @@ class Router implements RouterInterface
      * register a route, allow CONNECT request method.
      *
      * @param string $path
-     * @param mixed  $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param mixed $handler
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function connect(string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function connect(string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         return $this->add('CONNECT', $path, $handler, $pathParams, $opts);
     }
@@ -303,22 +318,22 @@ class Router implements RouterInterface
      *
      * @param string $path
      * @param mixed $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param array $pathParams
+     * @param array $opts
      */
-    public function any(string $path, $handler, array $pathParams = [], array $opts = []): void
+    public function any(string $path, mixed $handler, array $pathParams = [], array $opts = []): void
     {
         $this->map(self::METHODS_ARRAY, $path, $handler, $pathParams, $opts);
     }
 
     /**
-     * @param array|string    $methods
-     * @param string          $path
+     * @param array|string $methods
+     * @param string $path
      * @param callable|string $handler
-     * @param array           $pathParams
-     * @param array           $opts
+     * @param array $pathParams
+     * @param array $opts
      */
-    public function map($methods, string $path, $handler, array $pathParams = [], array $opts = []): void
+    public function map($methods, string $path, mixed $handler, array $pathParams = [], array $opts = []): void
     {
         foreach ((array)$methods as $method) {
             $this->add($method, $path, $handler, $pathParams, $opts);
@@ -329,12 +344,12 @@ class Router implements RouterInterface
      * @param string $method
      * @param string $path
      * @param        $handler
-     * @param array  $pathParams
-     * @param array  $opts
+     * @param array $pathParams
+     * @param array $opts
      *
      * @return Route
      */
-    public function add(string $method, string $path, $handler, array $pathParams = [], array $opts = []): Route
+    public function add(string $method, string $path, mixed $handler, array $pathParams = [], array $opts = []): Route
     {
         if (!$method || !$handler) {
             throw new InvalidArgumentException('The method and route handler is not allow empty.');
@@ -347,7 +362,7 @@ class Router implements RouterInterface
             return $route; // Only use for return type
         }
 
-        if (false === strpos(self::METHODS_STRING, ',' . $method . ',')) {
+        if (!str_contains(self::METHODS_STRING, ',' . $method . ',')) {
             throw new InvalidArgumentException(
                 "The method [$method] is not supported, Allow: " . trim(self::METHODS_STRING, ',')
             );
@@ -399,10 +414,10 @@ class Router implements RouterInterface
      * Create a route group with a common prefix.
      * All routes created in the passed callback will have the given group prefix prepended.
      *
-     * @param string  $prefix
+     * @param string $prefix
      * @param Closure $callback
-     * @param array   $middleware
-     * @param array   $opts
+     * @param array $middleware
+     * @param array $opts
      */
     public function group(string $prefix, Closure $callback, array $middleware = [], array $opts = []): void
     {
@@ -436,7 +451,7 @@ class Router implements RouterInterface
         $path = $bak = $route->getPath();
 
         // Always add '/' prefix.
-        $path = strpos($path, '/') === 0 ? $path : '/' . $path;
+        $path = str_starts_with($path, '/') ? $path : '/' . $path;
         $path = $this->currentGroupPrefix . $path;
 
         // Has setting 'ignoreLastSlash'
@@ -628,15 +643,15 @@ class Router implements RouterInterface
     /**
      * Runs the callback for the given request
      *
-     * @param DispatcherInterface|array $dispatcher
-     * @param string               $path
-     * @param string               $method
+     * @param array|DispatcherInterface|null $dispatcher
+     * @param string $path
+     * @param string $method
      *
      * @return mixed
      * @throws LogicException
      * @throws Throwable
      */
-    public function dispatch($dispatcher = null, string $path = '', string $method = '')
+    public function dispatch(DispatcherInterface|array $dispatcher = null, string $path = '', string $method = ''): mixed
     {
         if (!$dispatcher) {
             $dispatcher = new Dispatcher;
@@ -663,7 +678,7 @@ class Router implements RouterInterface
 
     /**
      * @param string $name Route name
-     * @param array  $pathVars
+     * @param array $pathVars
      *
      * @return string
      */
@@ -678,7 +693,7 @@ class Router implements RouterInterface
 
     /**
      * @param string $name
-     * @param Route  $route
+     * @param Route $route
      */
     public function nameRoute(string $name, Route $route): void
     {
@@ -731,6 +746,7 @@ class Router implements RouterInterface
 
     /**
      * get all routes
+     *
      * @return array
      */
     public function getRoutes(): array
@@ -758,6 +774,7 @@ class Router implements RouterInterface
 
     /**
      * Retrieve an external iterator
+     *
      * @link https://php.net/manual/en/iteratoraggregate.getiterator.php
      * @return Traversable An instance of an object implementing <b>Iterator</b> or
      * <b>Traversable</b>

@@ -21,7 +21,7 @@ use function ucfirst;
 trait RouterConfigTrait
 {
     /** @var string The router name */
-    private $name = '';
+    private string $name = '';
 
     /**
      * some available patterns regex
@@ -29,7 +29,7 @@ trait RouterConfigTrait
      *
      * @var array
      */
-    protected static $globalParams = [
+    protected static array $globalParams = [
         'all' => '.*',
         'any' => '[^/]+',        // match any except '/'
         'num' => '[1-9][0-9]*',  // match a number and gt 0
@@ -41,7 +41,7 @@ trait RouterConfigTrait
      * router config
      ******************************************************************************/
 
-    /**
+    /*
      * Can define an default route path
      *
      * @var string
@@ -53,14 +53,14 @@ trait RouterConfigTrait
      *
      * @var bool
      */
-    public $ignoreLastSlash = false;
+    public bool $ignoreLastSlash = false;
 
     /**
      * Whether handle method not allowed. If True, will find allowed methods.
      *
      * @var bool
      */
-    public $handleMethodNotAllowed = false;
+    public bool $handleMethodNotAllowed = false;
 
     /**
      * Enable auto route match like yii framework
@@ -68,14 +68,14 @@ trait RouterConfigTrait
      *
      * @var bool
      */
-    public $autoRoute = false;
+    public bool $autoRoute = false;
 
     /**
      * The default controllers namespace. eg: 'App\\Controllers'
      *
      * @var string
      */
-    public $controllerNamespace = '';
+    public string $controllerNamespace = '';
 
     /**
      * The first char case of namespace.
@@ -85,19 +85,19 @@ trait RouterConfigTrait
      *
      * @var bool
      */
-    protected $namespaceUcFirst = false;
+    protected bool $namespaceUcFirst = false;
 
     /**
      * Controller suffix, is valid when '$autoRoute' = true. eg: 'Controller'
      *
      * @var string
      */
-    public $controllerSuffix = 'Controller';
+    public string $controllerSuffix = 'Controller';
 
     /**
      * @var array global Options
      */
-    private $globalOptions = [
+    private array $globalOptions = [
         // 'domains' => [ 'localhost' ], // allowed domains
         // 'schemas' => [ 'http' ], // allowed schemas
         // 'time' => ['12'],
@@ -121,7 +121,6 @@ trait RouterConfigTrait
             'chains'                 => 1,
             // 'defaultRoute'           => 1,
             'ignoreLastSlash'        => 1,
-            'tmpCacheNumber'         => 1,
             'handleMethodNotAllowed' => 1,
             'autoRoute'              => 1,
             'controllerNamespace'    => 1,

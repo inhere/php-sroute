@@ -28,7 +28,7 @@ use function var_export;
 final class CachedRouter extends Router
 {
     /** @var bool */
-    private $cacheLoaded = false;
+    private bool $cacheLoaded = false;
 
     // cacheType: array, serialize
 
@@ -36,13 +36,13 @@ final class CachedRouter extends Router
      * The routes cache file.
      * @var string
      */
-    protected $cacheFile = '';
+    protected string $cacheFile = '';
 
     /**
      * Enable routes cache
      * @var bool
      */
-    protected $cacheEnable = true;
+    protected bool $cacheEnable = true;
 
     /**
      * object constructor.

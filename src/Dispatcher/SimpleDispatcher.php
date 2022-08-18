@@ -39,18 +39,18 @@ use const PHP_URL_PATH;
  */
 class SimpleDispatcher implements DispatcherInterface
 {
-    /** @var RouterInterface */
-    private $router;
+    /** @var RouterInterface|null */
+    private ?RouterInterface $router = null;
 
     /** @var bool */
-    private $initialized;
+    private bool $initialized;
 
     /**
      * some setting for self
      *
      * @var array
      */
-    protected $options = [
+    protected array $options = [
         // Filter the `/favicon.ico` request.
         'filterFavicon' => false,
 
@@ -136,13 +136,13 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * Runs the callback for the given path and method.
      *
-     * @param string      $path
-     * @param null|string $method
+     * @param string $path
+     * @param string $method
      *
      * @return mixed
      * @throws Throwable
      */
-    public function dispatchUri(string $path = '', string $method = '')
+    public function dispatchUri(string $path = '', string $method = ''): mixed
     {
         $path = $path ?: $_SERVER['REQUEST_URI'];
 
@@ -170,7 +170,7 @@ class SimpleDispatcher implements DispatcherInterface
      *
      * @throws Throwable
      */
-    public function dispatch(int $status, string $path, string $method, $route)
+    public function dispatch(int $status, string $path, string $method, $route): mixed
     {
         // not found
         if ($status === RouterInterface::NOT_FOUND) {
@@ -188,16 +188,15 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * @param string $path
      * @param string $method
-     * @param        $route
+     * @param Route $route
      *
      * @return bool|mixed|null
      * @throws Throwable
      */
-    protected function doDispatch(string $path, string $method, $route)
+    protected function doDispatch(string $path, string $method, $route): mixed
     {
         // trigger route found event
         $this->fire(self::ON_FOUND, [$path, $route]);
-        $result = null;
 
         try {
             // trigger route exec_start event
@@ -247,7 +246,7 @@ class SimpleDispatcher implements DispatcherInterface
             $segments = $handler;
         } elseif (is_string($handler)) {
             // is function
-            if (strpos($handler, '@') === false && function_exists($handler)) {
+            if (!str_contains($handler, '@') && function_exists($handler)) {
                 return $handler($args);
             }
 
@@ -273,8 +272,8 @@ class SimpleDispatcher implements DispatcherInterface
             throw new RuntimeException("please config the route path [$path] controller action to call");
         }
 
-        $action       = RouteHelper::str2Camel($action);
-        $actionMethod = $action . $this->options['actionSuffix'];
+        $actionName   = RouteHelper::str2Camel($action);
+        $actionMethod = $actionName . $this->options['actionSuffix'];
 
         // if set the 'actionExecutor', the action handle logic by it.
         if ($executor = $this->options['actionExecutor']) {
@@ -293,14 +292,14 @@ class SimpleDispatcher implements DispatcherInterface
     /**
      * @param string $path Request uri path
      * @param string $method
-     * @param bool   $actionNotExist
+     * @param bool $actionNotExist
      *                     True: The `$path` is matched success, but action not exist on route parser
      *                     False: The `$path` is matched fail
      *
      * @return bool|mixed
      * @throws Throwable
      */
-    protected function handleNotFound(string $path, string $method, $actionNotExist = false)
+    protected function handleNotFound(string $path, string $method, bool $actionNotExist = false): mixed
     {
         // Run the 'notFound' callback if the route was not found
         if (!$handler = $this->getOption(self::ON_NOT_FOUND)) {
@@ -308,7 +307,7 @@ class SimpleDispatcher implements DispatcherInterface
 
             $this->setOption(self::ON_NOT_FOUND, $handler);
             // is a route path. like '/site/notFound'
-        } elseif (is_string($handler) && strpos($handler, '/') === 0) {
+        } elseif (is_string($handler) && str_starts_with($handler, '/')) {
             $_GET['_src_path'] = $path;
 
             if ($path === $handler) {
@@ -329,11 +328,9 @@ class SimpleDispatcher implements DispatcherInterface
      * @param array  $methods The allowed methods
      *
      * @return mixed
-     * @throws RuntimeException
-     * @throws InvalidArgumentException
      * @throws Throwable
      */
-    protected function handleNotAllowed(string $path, string $method, array $methods)
+    protected function handleNotAllowed(string $path, string $method, array $methods): mixed
     {
         // Run the 'NotAllowed' callback if the route was not found
         if (!$handler = $this->getOption(self::ON_METHOD_NOT_ALLOWED)) {
@@ -341,7 +338,7 @@ class SimpleDispatcher implements DispatcherInterface
             $this->setOption(self::ON_METHOD_NOT_ALLOWED, $handler);
 
             // is a route path. like '/site/notFound'
-        } elseif (is_string($handler) && strpos($handler, '/') === 0) {
+        } elseif (is_string($handler) && str_starts_with($handler, '/')) {
             $_GET['_src_path'] = $path;
 
             if ($path === $handler) {
@@ -392,7 +389,7 @@ HTML;
     /**
      * Defines callback on happen event
      *
-     * @param          $event
+     * @param string  $event
      * @param callable $handler
      */
     public function on(string $event, $handler): void
@@ -411,7 +408,7 @@ HTML;
      * @return mixed
      * @throws InvalidArgumentException
      */
-    protected function fire(string $event, array $args = [])
+    protected function fire(string $event, array $args = []): mixed
     {
         if (!$cb = $this->getOption($event)) {
             return null;
@@ -422,20 +419,20 @@ HTML;
 
     /**
      * @param string $name
-     * @param        $value
+     * @param mixed $value
      */
-    public function setOption(string $name, $value): void
+    public function setOption(string $name, mixed $value): void
     {
         $this->options[$name] = $value;
     }
 
     /**
      * @param string $name
-     * @param null   $default
+     * @param mixed|null $default
      *
-     * @return mixed|null
+     * @return mixed
      */
-    public function getOption(string $name, $default = null)
+    public function getOption(string $name, mixed $default = null): mixed
     {
         return $this->options[$name] ?? $default;
     }

@@ -32,7 +32,7 @@ class Dispatcher extends SimpleDispatcher
      * @return bool|mixed|null
      * @throws Throwable
      */
-    protected function doDispatch(string $path, string $method, $route)
+    protected function doDispatch(string $path, string $method, $route): mixed
     {
         $options = $route->getOptions();
 
@@ -42,7 +42,6 @@ class Dispatcher extends SimpleDispatcher
             return null;
         }
 
-        $result  = null;
         $handler = $route->getHandler();
         $params  = $route->getParams();
 

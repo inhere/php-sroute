@@ -14,6 +14,7 @@ use Throwable;
 
 /**
  * Interface DispatcherInterface
+ *
  * @package Inhere\Route\Dispatcher
  */
 interface DispatcherInterface
@@ -21,17 +22,17 @@ interface DispatcherInterface
     public const FAV_ICON = '/favicon.ico';
 
     // some route events
-    public const ON_FOUND              = 'found';
+    public const ON_FOUND = 'found';
 
-    public const ON_NOT_FOUND          = 'notFound';
+    public const ON_NOT_FOUND = 'notFound';
 
     public const ON_METHOD_NOT_ALLOWED = 'methodNotAllowed';
 
-    public const ON_EXEC_START         = 'execStart';
+    public const ON_EXEC_START = 'execStart';
 
-    public const ON_EXEC_END           = 'execEnd';
+    public const ON_EXEC_END = 'execEnd';
 
-    public const ON_EXEC_ERROR         = 'execError';
+    public const ON_EXEC_ERROR = 'execError';
 
     /**
      * Runs the callback for the given path and method.
@@ -47,19 +48,19 @@ interface DispatcherInterface
     /**
      * Dispatch route handler for the given route info.
      *
-     * @param int              $status
-     * @param string           $path
-     * @param string           $method
+     * @param int $status
+     * @param string $path
+     * @param string $method
      * @param Route|array|null $route matched route info
      *
      * @return mixed
      */
-    public function dispatch(int $status, string $path, string $method, $route);
+    public function dispatch(int $status, string $path, string $method, $route): mixed;
 
     /**
      * Defines callback on happen event.
      *
-     * @param string   $event please see class constants ON_*
+     * @param string $event please see class constants ON_*
      * @param callable $handler
      */
     public function on(string $event, $handler): void;
