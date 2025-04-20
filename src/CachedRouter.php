@@ -9,9 +9,11 @@
 namespace Inhere\Route;
 
 use LogicException;
+use RuntimeException;
 use function date;
 use function file_exists;
 use function file_put_contents;
+use function is_array;
 use function preg_replace;
 use function trim;
 use function var_export;
@@ -121,10 +123,14 @@ final class CachedRouter extends Router
         }
 
         // load routes
-        $map                = require $file;
-        $this->routeCounter = 0;
-        $staticRoutes       = $regularRoutes = $vagueRoutes = [];
+        $map = require $file;
+        if (!is_array($map) && !isset($map['staticRoutes'])) {
+            throw new RuntimeException('Invalid cache routes data');
+        }
 
+        $staticRoutes = $regularRoutes = $vagueRoutes = [];
+
+        $this->routeCounter = 0;
         foreach ($map['staticRoutes'] as $key => $info) {
             $this->routeCounter++;
             $staticRoutes[$key] = Route::createFromArray($info);
@@ -193,7 +199,7 @@ return array (
 );\n
 EOF;
         return file_put_contents($file, preg_replace(
-            ['/\s+\n\s+Inhere\\\\Route\\\\Route::__set_state\(/', '/\)\),/', '/=>\s+\n\s+array \(/'],
+            ['/\s+\n\s+[\\\\]?Inhere\\\\Route\\\\Route::__set_state\(/', '/\)\),/', '/=>\s+\n\s+array \(/'],
             [' ', '),', '=> array ('],
             $code
         ));
@@ -204,13 +210,13 @@ EOF;
      */
     public function isCacheEnable(): bool
     {
-        return (bool)$this->cacheEnable;
+        return $this->cacheEnable;
     }
 
     /**
      * @param bool $cacheEnable
      */
-    public function setCacheEnable($cacheEnable): void
+    public function setCacheEnable(bool|int|string $cacheEnable): void
     {
         $this->cacheEnable = (bool)$cacheEnable;
     }

@@ -89,7 +89,7 @@ class SimpleDispatcher implements DispatcherInterface
      * @return self
      * @throws LogicException
      */
-    public static function create(array $options = [], RouterInterface $router = null): DispatcherInterface
+    public static function create(array $options = [], ?RouterInterface $router = null): DispatcherInterface
     {
         return new static($options, $router);
     }
@@ -102,7 +102,7 @@ class SimpleDispatcher implements DispatcherInterface
      *
      * @throws LogicException
      */
-    public function __construct(array $options = [], RouterInterface $router = null)
+    public function __construct(array $options = [], ?RouterInterface $router = null)
     {
         $this->initialized = false;
         $this->initOptions($options);

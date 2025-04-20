@@ -11,3 +11,4 @@ composer.lock
 *.swo
 *.cache
 .DS_Store
+test/routes-cache.php

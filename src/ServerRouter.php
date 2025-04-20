@@ -122,7 +122,7 @@ final class ServerRouter extends Router
     protected function cacheMatchedParamRoute(string $path, string $method, Route $route): void
     {
         $cacheKey    = $method . ' ' . $path;
-        $cacheNumber = (int)$this->tmpCacheNumber;
+        $cacheNumber = $this->tmpCacheNumber;
 
         // cache last $cacheNumber routes.
         if ($cacheNumber > 0 && !isset($this->cacheRoutes[$cacheKey])) {

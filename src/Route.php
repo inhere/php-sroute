@@ -41,17 +41,17 @@ final class Route implements IteratorAggregate
     /**
      * @var string Route name
      */
-    private $name = '';
+    private string $name = '';
 
     /**
      * @var string route pattern path. eg "/users/{id}" "/user/login"
      */
-    private $path;
+    private string $path;
 
     /**
      * @var string allowed request method.
      */
-    private $method;
+    private string $method;
 
     /**
      * @var mixed route handler
@@ -63,14 +63,14 @@ final class Route implements IteratorAggregate
      * [param name => regular expression path (or symbol name)]
      * @var string[]
      */
-    private $bindVars;
+    private array $bindVars;
 
     /**
      * dynamic route param values, only use for route cache
      * [param name => value]
      * @var string[]
      */
-    private $params = [];
+    private array $params = [];
 
     // -- match condition. it is parsed from route path string.
 
@@ -78,19 +78,19 @@ final class Route implements IteratorAggregate
      * path var names.
      * @var array '/users/{id}' => ['id']
      */
-    private $pathVars = [];
+    private array $pathVars = [];
 
     /**
      * @var string eg. '#^/users/(\d+)$#'
      */
-    private $pathRegex = '';
+    private string $pathRegex = '';
 
     /**
      * '/users/{id}' -> '/users/'
      * '/blog/post-{id}' -> '/blog/post-'
      * @var string
      */
-    private $pathStart = '';
+    private string $pathStart = '';
 
     // -- extra properties
 
@@ -98,13 +98,13 @@ final class Route implements IteratorAggregate
      * middleware handler chains
      * @var callable[]
      */
-    private $chains = [];
+    private array $chains = [];
 
     /**
      * some custom route options data.
      * @var array
      */
-    private $options;
+    private array $options;
 
     /**
      * @param string $method
@@ -118,7 +118,7 @@ final class Route implements IteratorAggregate
     public static function create(
         string $method,
         string $path,
-        $handler,
+        mixed $handler,
         array $pathParams = [],
         array $options = []
     ): Route {
@@ -152,7 +152,7 @@ final class Route implements IteratorAggregate
      * @param array  $pathParams
      * @param array  $options
      */
-    public function __construct(string $method, string $path, $handler, array $pathParams = [], array $options = [])
+    public function __construct(string $method, string $path, mixed $handler, array $pathParams = [], array $options = [])
     {
         $this->initialize($method, $path, $handler, $pathParams, $options);
     }

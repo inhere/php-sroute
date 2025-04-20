@@ -37,7 +37,7 @@ use function method_exists;
 final class SRouter
 {
     /** @var Router|RouterInterface */
-    private static $router;
+    private static Router|RouterInterface $router;
 
     /**
      * SRouter constructor. disable new class.

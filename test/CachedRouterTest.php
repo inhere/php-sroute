@@ -60,8 +60,8 @@ class CachedRouterTest extends TestCase
         $this->assertSame(CachedRouter::FOUND, $sts);
         $this->assertSame('/path0', $route->getPath());
 
-        if (file_exists($cacheFile)) {
-            unlink($cacheFile);
-        }
+        // if (file_exists($cacheFile)) {
+        //     unlink($cacheFile);
+        // }
     }
 }

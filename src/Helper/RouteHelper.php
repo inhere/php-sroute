@@ -110,9 +110,9 @@ class RouteHelper
      * @param string $sfx  controller suffix. eg: 'Controller'
      * @param bool   $ucFirst
      *
-     * @return bool|callable
+     * @return bool|string
      */
-    public static function parseAutoRoute(string $path, string $cnp, string $sfx, bool $ucFirst = false)
+    public static function parseAutoRoute(string $path, string $cnp, string $sfx, bool $ucFirst = false): bool|string
     {
         $tmp = trim($path, '/- ');
 

@@ -26,13 +26,13 @@ use const PHP_URL_PATH;
 final class PreMatchRouter extends Router
 {
     /** @var string */
-    private $reqPath;
+    private string $reqPath;
 
     /** @var string */
-    private $reqMethod;
+    private string $reqMethod;
 
-    /** @var Route */
-    private $preFounded;
+    /** @var Route|null */
+    private ?Route $preFounded = null;
 
     /**
      * object constructor.

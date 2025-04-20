@@ -79,7 +79,7 @@ class Router implements RouterInterface
      *     'POST /user/login' =>  Route,
      * ]
      */
-    protected $staticRoutes = [];
+    protected array $staticRoutes = [];
 
     /**
      * regular Routes - have dynamic arguments, but the first node is normal string.
@@ -96,7 +96,7 @@ class Router implements RouterInterface
      *     ],
      * ]
      */
-    protected $regularRoutes = [];
+    protected array $regularRoutes = [];
 
     /**
      * vague Routes - have dynamic arguments,but the first node is exists regex.
@@ -115,7 +115,7 @@ class Router implements RouterInterface
      *     ],
      * ]
      */
-    protected $vagueRoutes = [];
+    protected array $vagueRoutes = [];
 
     /**
      * object creator.
@@ -343,7 +343,7 @@ class Router implements RouterInterface
     /**
      * @param string $method
      * @param string $path
-     * @param        $handler
+     * @param mixed  $handler
      * @param array $pathParams
      * @param array $opts
      *
@@ -561,7 +561,7 @@ class Router implements RouterInterface
             foreach ($this->regularRoutes[$fKey] as $route) {
                 // Check path start string
                 $pathStart = $route->getPathStart();
-                if (strpos($path, $pathStart) !== 0) {
+                if (!str_starts_with($path, $pathStart)) {
                     continue;
                 }
 
@@ -591,9 +591,9 @@ class Router implements RouterInterface
      *
      * @param string $path The route path
      *
-     * @return bool|callable
+     * @return bool|string
      */
-    public function matchAutoRoute(string $path)
+    public function matchAutoRoute(string $path): string|bool
     {
         if (!$cnp = trim($this->controllerNamespace)) {
             return false;
@@ -651,7 +651,7 @@ class Router implements RouterInterface
      * @throws LogicException
      * @throws Throwable
      */
-    public function dispatch(DispatcherInterface|array $dispatcher = null, string $path = '', string $method = ''): mixed
+    public function dispatch(DispatcherInterface|array|null $dispatcher = null, string $path = '', string $method = ''): mixed
     {
         if (!$dispatcher) {
             $dispatcher = new Dispatcher;

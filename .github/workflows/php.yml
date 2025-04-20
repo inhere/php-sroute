@@ -10,14 +10,13 @@ on:
 
 jobs:
   test:
-    name: Test on php ${{ matrix.php}} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test on php ${{ matrix.php}}
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
       fail-fast: true
       matrix:
-        php: [8.0, 8.1] #
-        os: [ubuntu-latest] # windows-latest,
+        php: [8.2, 8.1, ] #
 
     steps:
       - name: Checkout
@@ -39,7 +38,7 @@ jobs:
 
       - name: Run test suite
         run: |
-          phpunit -vvv --coverage-clover ./test/clover.xml
+          phpunit --coverage-clover ./test/clover.xml
 
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master
