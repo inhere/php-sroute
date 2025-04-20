@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [8.2, 8.1, ] #
+        php: [8.2, 8.1, 8.3, 8.4] #
 
     steps:
       - name: Checkout
@@ -40,20 +40,20 @@ jobs:
         run: |
           phpunit --coverage-clover ./test/clover.xml
 
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.github_token }}
-          flag-name: run-${{ matrix.php }}
-          path-to-lcov: ./test/clover.xml
-          parallel: true
+#      - name: Coveralls Parallel
+#        uses: coverallsapp/github-action@master
+#        with:
+#          github-token: ${{ secrets.github_token }}
+#          flag-name: run-${{ matrix.php }}
+#          path-to-lcov: ./test/clover.xml
+#          parallel: true
 
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.github_token }}
-          parallel-finished: true
+#  finish:
+#    needs: test
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Coveralls Finished
+#        uses: coverallsapp/github-action@master
+#        with:
+#          github-token: ${{ secrets.github_token }}
+#          parallel-finished: true
